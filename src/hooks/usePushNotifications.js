@@ -12,31 +12,37 @@ function urlBase64ToUint8Array(base64String) {
   return Uint8Array.from([...rawData].map((char) => char.charCodeAt(0)))
 }
 
-export async function usePushNotifications(userId) {
+// ⚠️ HOOK NUNCA pode ser async — retorna objeto, não Promise
+export function usePushNotifications(userId) {
   const [permission, setPermission] = useState(Notification.permission)
   const [subscribed, setSubscribed] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  // Verifica se já tem subscription ativa
+  // Verifica se já tem subscription ativa ao montar
   useEffect(() => {
     if (!userId || !('serviceWorker' in navigator)) return
 
-    navigator.serviceWorker.ready.then(async (reg) => {
-      const existing = await reg.pushManager.getSubscription()
-      setSubscribed(!!existing)
-    })
-    setupPush()
+    let cancelled = false
+
+    const checkSubscription = async () => {
+      try {
+        const reg = await navigator.serviceWorker.ready
+        const existing = await reg.pushManager.getSubscription()
+        if (!cancelled) {
+          setSubscribed(!!existing)
+        }
+      } catch (err) {
+        console.error('[Push] Erro ao verificar subscription:', err)
+      }
+    }
+
+    checkSubscription()
+
+    return () => { cancelled = true }
   }, [userId])
 
-  // Registra o service worker se ainda não foi
-  useEffect(() => {
-    if (!('serviceWorker' in navigator)) return
-
-    const registration = await navigator.serviceWorker.ready
-  }, [])
-
   const requestPermission = async () => {
-    if (!userId) return
+    if (!userId) return false
     setLoading(true)
 
     try {
@@ -58,13 +64,16 @@ export async function usePushNotifications(userId) {
 
       // Salva a subscription no Supabase
       const sub = subscription.toJSON()
-      await supabase.from('push_subscriptions').upsert({
-        user_id: userId,
-        endpoint: sub.endpoint,
-        p256dh: sub.keys.p256dh,
-        auth: sub.keys.auth,
-        created_at: new Date().toISOString(),
-      }, { onConflict: 'user_id' })
+      await supabase.from('push_subscriptions').upsert(
+        {
+          user_id: userId,
+          endpoint: sub.endpoint,
+          p256dh: sub.keys.p256dh,
+          auth: sub.keys.auth,
+          created_at: new Date().toISOString(),
+        },
+        { onConflict: 'user_id' }
+      )
 
       setSubscribed(true)
       setLoading(false)
