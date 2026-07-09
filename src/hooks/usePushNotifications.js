@@ -12,7 +12,7 @@ function urlBase64ToUint8Array(base64String) {
   return Uint8Array.from([...rawData].map((char) => char.charCodeAt(0)))
 }
 
-export function usePushNotifications(userId) {
+export async function usePushNotifications(userId) {
   const [permission, setPermission] = useState(Notification.permission)
   const [subscribed, setSubscribed] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -25,15 +25,14 @@ export function usePushNotifications(userId) {
       const existing = await reg.pushManager.getSubscription()
       setSubscribed(!!existing)
     })
+    setupPush()
   }, [userId])
 
   // Registra o service worker se ainda não foi
   useEffect(() => {
     if (!('serviceWorker' in navigator)) return
 
-    navigator.serviceWorker.register('/sw.js').catch((err) => {
-      console.error('Service worker registration failed:', err)
-    })
+    const registration = await navigator.serviceWorker.ready
   }, [])
 
   const requestPermission = async () => {
