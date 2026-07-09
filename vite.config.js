@@ -3,6 +3,11 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 import path from 'path'
 
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
+import path from 'path'
+
 export default defineConfig({
   plugins: [
     react(),
@@ -16,7 +21,13 @@ export default defineConfig({
         globDirectory: 'dist',
         globPatterns: [
           '**/*.{js,css,html,ico,png,svg,woff,woff2,json}'
-        ]},
+        ],
+        globIgnores: [
+          '**/node_modules/**/*',
+          'sw.js',
+          'workbox-*.js'
+        ]
+      },
       manifest: {
         name: 'Vereda — Estudo Espírita',
         short_name: 'Vereda',
@@ -27,12 +38,12 @@ export default defineConfig({
         background_color: '#FFFFFF',
         theme_color: '#7B5EA7',
         icons: [
-          { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
-          { src: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
-          { src: '/icons/icon-512-maskable.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+          { src: '/vereda-icon-192x192.png', sizes: '192x192', type: 'image/png' },
+          { src: '/vereda-icon-512x512.png', sizes: '512x512', type: 'image/png' },
+          { src: '/vereda-icon-maskable-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
       },
-      devOptions: { enabled: false }, // SW só no build; dev continua limpo
+      devOptions: { enabled: false },
     }),
   ],
   server: { host: true },
