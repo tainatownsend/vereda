@@ -1,16 +1,120 @@
-# React + Vite
+# Vereda
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+> **Um passo por dia. Uma jornada para toda a vida.**
 
-Currently, two official plugins are available:
+O Vereda é uma experiência digital gratuita e sem fins lucrativos para pessoas
+que desejam estudar as obras fundamentais do Espiritismo com clareza,
+constância e tranquilidade.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O aplicativo não substitui as obras, não pretende ensinar a Doutrina e não
+transforma o estudo em competição. Seu papel é remover barreiras, orientar o
+próximo passo e ajudar cada estudante a continuar no próprio ritmo.
 
-## React Compiler
+## Por que o Vereda existe
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Muitas pessoas desejam estudar as obras fundamentais do Espiritismo, mas não
+sabem por onde começar ou encontram dificuldade para manter uma rotina.
 
-## Expanding the Oxlint configuration
+O Vereda existe para diminuir essa distância.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Acreditamos que:
+
+- compreender é mais importante do que terminar rapidamente;
+- constância é mais importante do que perfeição;
+- acessibilidade é uma forma de respeito;
+- a tecnologia deve desaparecer para que o conteúdo permaneça;
+- retornar depois de uma pausa deve ser acolhedor, nunca constrangedor.
+
+Leia a [visão do produto](docs/vision.md) e os
+[princípios de produto](docs/product-principles.md).
+
+## Princípios essenciais
+
+- **Reading first:** a leitura é sempre a protagonista.
+- **Calm by design:** serenidade é uma decisão de produto.
+- **One primary action:** cada tela deve deixar claro o próximo passo.
+- **Accessible by default:** acessibilidade não é um modo opcional.
+- **No guilt:** o Vereda nunca utiliza culpa como mecanismo de motivação.
+- **Nonprofit by purpose:** não existem anúncios, recursos premium artificiais
+  ou decisões guiadas por maximização de tempo de tela.
+
+## Estado do projeto
+
+O Vereda está em evolução ativa. A base funcional já inclui autenticação,
+biblioteca, leitura, acompanhamento de progresso, metas pessoais, notificações
+e modo escuro. A evolução atual está concentrada em identidade visual,
+acessibilidade, UX writing e refinamento da experiência de estudo.
+
+Consulte o [roadmap](docs/roadmap.md).
+
+## Tecnologia
+
+- React
+- Vite
+- React Router
+- Zustand
+- Supabase
+- Tailwind CSS
+- Vite PWA
+
+## Desenvolvimento local
+
+### Requisitos
+
+- Node.js compatível com o projeto
+- npm
+- projeto Supabase configurado
+
+### Instalação
+
+```bash
+git clone https://github.com/tainatownsend/vereda.git
+cd vereda
+npm install
+```
+
+Crie um arquivo `.env.local`:
+
+```env
+VITE_SUPABASE_URL=...
+VITE_SUPABASE_ANON_KEY=...
+```
+
+Execute:
+
+```bash
+npm run dev
+```
+
+### Validação
+
+```bash
+npm run lint
+npm run build
+```
+
+## Design system
+
+O **VES — Vereda Editorial System** documenta tokens, componentes e padrões
+visuais usados no produto:
+
+- [Visão geral](design/ves/README.md)
+- [Tokens](design/ves/tokens.md)
+- [Componentes](design/ves/components.md)
+
+## Contribuição
+
+Leia o [guia de contribuição](CONTRIBUTING.md) antes de abrir uma issue ou Pull
+Request.
+
+## Compromisso sem fins lucrativos
+
+O Vereda foi criado para servir. Não exibe anúncios e não vende recursos
+essenciais. Caso o projeto gere receita no futuro, a intenção da fundadora é
+destiná-la ao apoio de uma casa espírita ou iniciativa alinhada ao propósito do
+projeto.
+
+## Licença
+
+A licença open source definitiva será documentada antes da primeira versão
+pública estável.
