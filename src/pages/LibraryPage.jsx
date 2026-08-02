@@ -1,116 +1,177 @@
+import { ArrowRight, BookOpen, Check } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import { CheckCircle } from 'lucide-react'
-import { useReadingStore } from '@/store'
+
 import { useBooks, useProgress } from '@/hooks'
-import { Card, Badge } from '@/components/ui'
+import { useReadingStore } from '@/store'
+import { Badge, Card, PageLoader, ProgressBar } from '@/components/ui'
 
 export default function LibraryPage() {
-  const navigate  = useNavigate()
-  const books     = useBooks()
-  const { progress, streak } = useReadingStore()
+  const navigate = useNavigate()
+  const books = useBooks()
+  const { progress } = useReadingStore()
 
-  const booksStarted   = books.filter(b => progress[b.id]).length
-  const booksCompleted = books.filter(b => progress[b.id]?.completed_at).length
+  if (!books.length) return <PageLoader label="Carregando obras" />
+
+  const started = books.filter((book) => progress[book.id])
+  const notStarted = books.filter((book) => !progress[book.id])
 
   return (
-    <div className="min-h-screen bg-primary-50 dark:bg-slate-900 pb-24">
-
-      <header className="bg-white dark:bg-slate-800 border-b border-primary-100 dark:border-slate-700 px-5 pt-12 pb-4">
-        <h1 className="font-display text-2xl text-forest-900 dark:text-slate-50">Biblioteca</h1>
-        <p className="text-sm text-slate-400 dark:text-slate-500 mt-1">Os cinco livros da codificação espírita</p>
+    <main className="ves-page pb-28">
+      <header className="ves-container pb-7 pt-11">
+        <p className="ves-eyebrow">Biblioteca essencial</p>
+        <h1 className="ves-heading mt-2 text-[2.35rem]">Obras</h1>
+        <p className="mt-3 max-w-lg text-base leading-relaxed text-muted dark:text-night-muted">
+          Conheça as cinco obras fundamentais e escolha seu próximo passo com
+          tranquilidade.
+        </p>
       </header>
 
-      {booksStarted > 0 && (
-        <div className="px-4 mt-4 flex gap-2 flex-wrap">
-          <StatPill label="Em leitura" value={booksStarted} />
-          {booksCompleted > 0 && (
-            <StatPill label="Concluídos" value={booksCompleted} icon={<CheckCircle size={13} />} />
-          )}
-          {streak > 0 && <StatPill label="Dias seguidos" value={streak} />}
-        </div>
-      )}
+      <div className="ves-container space-y-11 pb-10">
+        {started.length > 0 && (
+          <section aria-labelledby="started-heading">
+            <div className="mb-4">
+              <p className="ves-eyebrow">Sua jornada</p>
+              <h2 id="started-heading" className="ves-heading mt-1 text-[1.75rem]">
+                Em andamento
+              </h2>
+            </div>
 
-      <div className="px-4 mt-4 space-y-3">
-        {books.map(book => (
-          <BookCard key={book.id} book={book} prog={progress[book.id]} navigate={navigate} />
-        ))}
-      </div>
+            <div className="space-y-4">
+              {started.map((book) => (
+                <BookCard
+                  key={book.id}
+                  book={book}
+                  progress={progress[book.id]}
+                  navigate={navigate}
+                />
+              ))}
+            </div>
+          </section>
+        )}
 
-      <div className="mx-4 mt-6 mb-4 rounded-2xl overflow-hidden" style={{ border: '1px solid #DDD6F3' }}>
-        <div style={{ background: 'linear-gradient(135deg, #EEE9F8, #F4F1FA)', padding: '16px 20px' }}>
-          <p style={{ fontSize: 13, fontWeight: 700, color: '#5A3F88', marginBottom: 6 }}>
-            Sequência recomendada pela FEB
-          </p>
-          <p style={{ fontSize: 12, color: '#64748B', lineHeight: 1.7 }}>
-            Os livros acima seguem a ordem de estudo recomendada pela{' '}
-            <span style={{ fontWeight: 600, color: '#5A3F88' }}>Federação Espírita Brasileira</span>.
-            Os textos são as obras originais de Kardec, disponibilizadas gratuitamente pela FEB.
-          </p>
-        </div>
-        <div style={{ background: 'white', padding: '14px 20px', borderTop: '1px solid #DDD6F3' }}>
-          <p style={{ fontSize: 11, color: '#94A3B8', lineHeight: 1.75 }}>
-            O Vereda não substitui os cursos mediúnicos das casas espíritas — é uma ferramenta complementar para ajudar na leitura diária das obras de Kardec.
-          </p>
-        </div>
+        <section aria-labelledby="all-books-heading">
+          <div className="mb-4">
+            <p className="ves-eyebrow">
+              {started.length ? 'Continue descobrindo' : 'Por onde começar'}
+            </p>
+            <h2 id="all-books-heading" className="ves-heading mt-1 text-[1.75rem]">
+              {started.length ? 'Outras obras' : 'Escolha sua primeira obra'}
+            </h2>
+          </div>
+
+          <div className="space-y-4">
+            {(started.length ? notStarted : books).map((book) => (
+              <BookCard
+                key={book.id}
+                book={book}
+                progress={progress[book.id]}
+                navigate={navigate}
+              />
+            ))}
+          </div>
+        </section>
+
+        <aside className="rounded-vesLg border border-sage-200 bg-sage-50 p-6 dark:border-sage-900 dark:bg-sage-950/35">
+          <div className="flex items-start gap-4">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-vesSm bg-white text-sage-800 dark:bg-white/10 dark:text-sage-300">
+              <BookOpen size={21} aria-hidden="true" />
+            </div>
+            <div>
+              <h2 className="font-semibold text-ink dark:text-night-ink">
+                Um caminho, não uma obrigação
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+                A ordem apresentada oferece uma referência para iniciantes.
+                Você pode escolher a obra que fizer mais sentido para seu
+                momento.
+              </p>
+            </div>
+          </div>
+        </aside>
       </div>
-    </div>
+    </main>
   )
 }
 
-function BookCard({ book, prog, navigate }) {
-  const pct       = useProgress(book.id, book.total_sections)
-  const completed = prog?.completed_at
+function BookCard({ book, progress, navigate }) {
+  const percentage = useProgress(book.id, book.total_sections)
+  const completed = Boolean(progress?.completed_at)
+  const destination = progress ? `/ler/${book.id}` : `/livro/${book.id}`
 
   return (
     <Card
-      className="overflow-hidden cursor-pointer hover:shadow-md transition-shadow"
-      onClick={() => navigate(prog ? `/ler/${book.id}` : `/livro/${book.id}`)}
+      as="button"
+      type="button"
+      onClick={() => navigate(destination)}
+      className="group w-full overflow-hidden text-left transition-shadow hover:shadow-editorial"
+      aria-label={
+        progress
+          ? `Continuar ${book.title}, ${percentage}% concluído`
+          : `Conhecer ${book.title}`
+      }
     >
-      <div className="h-1" style={{ background: book.cover_color }} />
-      <div className="p-4 flex items-start gap-3">
+      <div className="flex min-h-44">
         <div
-          className="w-2.5 h-14 rounded-full shrink-0 mt-0.5"
-          style={{ background: book.cover_color }}
+          className="w-2 shrink-0"
+          style={{ backgroundColor: book.cover_color || '#58745D' }}
+          aria-hidden="true"
         />
-        <div className="flex-1">
-          <div className="flex items-start justify-between gap-2">
-            <div>
-              <p className="font-display text-base text-forest-900 dark:text-slate-100 leading-snug">{book.title}</p>
-              <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{book.author} · {book.year}</p>
+
+        <div className="flex min-w-0 flex-1 flex-col justify-between p-5">
+          <div>
+            <div className="flex items-start justify-between gap-4">
+              <div className="min-w-0">
+                <p className="font-display text-[1.45rem] font-medium leading-tight text-ink dark:text-night-ink">
+                  {book.title}
+                </p>
+                <p className="mt-1 text-sm text-muted dark:text-night-muted">
+                  {book.author}
+                  {book.year ? ` · ${book.year}` : ''}
+                </p>
+              </div>
+
+              {completed && (
+                <Badge color="success">
+                  <Check size={13} aria-hidden="true" />
+                  Concluída
+                </Badge>
+              )}
             </div>
-            {completed && <Badge color="violet">✓ Concluído</Badge>}
-            {!prog && !completed && (
-              <span className="text-xs font-semibold text-primary-600 dark:text-primary-400 mt-0.5 shrink-0">Iniciar →</span>
+
+            {!progress && book.description && (
+              <p className="mt-4 line-clamp-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+                {book.description}
+              </p>
             )}
           </div>
 
-          {prog && !completed && (
-            <div className="mt-3">
-              <div style={{ height: 6, borderRadius: 100, background: '#EEE9F8', overflow: 'hidden' }}>
-                <div style={{ height: '100%', width: `${pct}%`, borderRadius: 100, background: `linear-gradient(90deg, ${book.cover_color}99, ${book.cover_color})`, transition: 'width 0.7s' }} />
-              </div>
-              <div className="flex justify-between text-xs text-slate-400 dark:text-slate-500 mt-1.5">
-                <span>Seção {prog.current_section} de {book.total_sections || '?'}</span>
-                <span className="text-primary-600 dark:text-primary-400 font-semibold">{pct}%</span>
+          {progress && !completed ? (
+            <div className="mt-5">
+              <ProgressBar
+                value={percentage}
+                label={`Progresso em ${book.title}`}
+              />
+              <div className="mt-2 flex items-center justify-between gap-4 text-sm">
+                <span className="text-muted dark:text-night-muted">
+                  Seção {progress.current_section} de {book.total_sections || '?'}
+                </span>
+                <strong className="text-sage-800 dark:text-sage-300">
+                  {percentage}%
+                </strong>
               </div>
             </div>
-          )}
-
-          {!prog && (
-            <p className="text-xs text-slate-400 dark:text-slate-500 mt-2 line-clamp-2">{book.description}</p>
+          ) : (
+            <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">
+              {completed ? 'Revisitar obra' : 'Conhecer esta obra'}
+              <ArrowRight
+                size={17}
+                className="transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </div>
           )}
         </div>
       </div>
     </Card>
-  )
-}
-
-function StatPill({ label, value, icon }) {
-  return (
-    <div className="flex items-center gap-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-3 py-1.5 rounded-xl">
-      {icon && <span className="text-primary-500">{icon}</span>}
-      <span className="text-sm font-bold text-forest-900 dark:text-slate-100">{value}</span>
-      <span className="text-xs text-slate-400 dark:text-slate-500">{label}</span>
-    </div>
   )
 }

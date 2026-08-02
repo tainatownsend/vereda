@@ -234,9 +234,9 @@ function EmptyHome({ navigate }) {
 
 function getDisplayName(profile, user) {
   const candidates = [
-    profile?.name,
-    user?.user_metadata?.name,
     user?.user_metadata?.full_name,
+    user?.user_metadata?.name,
+    profile?.name,
   ]
 
   const validName = candidates.find(

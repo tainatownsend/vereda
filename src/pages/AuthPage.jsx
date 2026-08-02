@@ -1,159 +1,241 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { ArrowRight, Check, Eye, EyeOff, ShieldCheck } from 'lucide-react'
+
 import { useAuthStore } from '@/store'
-import { Input, VeredaLogo } from '@/components/ui'
+import { Button, Input, VeredaLogo } from '@/components/ui'
+
+const ERROR_MESSAGES = {
+  'Invalid login credentials': 'E-mail ou senha incorretos.',
+  'Email already registered': 'Este e-mail já está em uso.',
+  'User already registered': 'Este e-mail já possui uma conta.',
+  'Password should be at least 6 characters':
+    'A senha precisa ter ao menos 6 caracteres.',
+  'Email not confirmed':
+    'Confirme seu e-mail antes de entrar. Verifique sua caixa de entrada.',
+  'Failed to fetch':
+    'Não foi possível conectar ao Vereda. Verifique sua internet e tente novamente.',
+}
 
 export default function AuthPage() {
-  const [mode,     setMode]     = useState('login')
-  const [name,     setName]     = useState('')
-  const [email,    setEmail]    = useState('')
+  const [mode, setMode] = useState('login')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error,    setError]    = useState('')
-  const [loading,  setLoading]  = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const { signInWithEmail, signUpWithEmail, signInWithGoogle } = useAuthStore()
-  const navigate = useNavigate()
 
-  const handle = async () => {
-    if (!email || !password) { setError('Preencha e-mail e senha.'); return }
-    if (mode === 'signup' && !name) { setError('Informe seu nome.'); return }
+  const isSignup = mode === 'signup'
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    if (!email.trim() || !password) {
+      setError('Preencha e-mail e senha.')
+      return
+    }
+
+    if (isSignup && !name.trim()) {
+      setError('Informe como gostaria de ser chamado.')
+      return
+    }
+
     setLoading(true)
     setError('')
+
     try {
-      if (mode === 'login') {
-        await signInWithEmail(email, password)
+      if (isSignup) {
+        await signUpWithEmail(email.trim(), password, name.trim())
       } else {
-        await signUpWithEmail(email, password, name)
+        await signInWithEmail(email.trim(), password)
       }
-      navigate('/home')
-    } catch (e) {
-      const msgs = {
-        'Invalid login credentials':                'E-mail ou senha incorretos.',
-        'Email already registered':                 'Este e-mail já está em uso.',
-        'Password should be at least 6 characters': 'A senha precisa ter ao menos 6 caracteres.',
-      }
-      setError(msgs[e.message] || 'Algo deu errado. Tente novamente.')
+    } catch (caughtError) {
+      setError(
+        ERROR_MESSAGES[caughtError?.message] ||
+          caughtError?.message ||
+          'Algo deu errado. Tente novamente.',
+      )
     } finally {
       setLoading(false)
     }
   }
 
-  return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-5 py-12"
-      style={{ background: 'linear-gradient(160deg, #F4F1FA 0%, #EEE9F8 50%, #FBF3E6 100%)' }}>
-      <div className="w-full max-w-sm">
+  const switchMode = () => {
+    setMode((current) => (current === 'login' ? 'signup' : 'login'))
+    setError('')
+  }
 
-        {/* Logo */}
-        <div className="flex flex-col items-center gap-3 mb-10">
-          <VeredaLogo size={56} />
-          <div className="text-center">
-            <h1 className="font-display text-3xl text-forest-900 tracking-tight">Vereda</h1>
-            <p className="text-sm text-slate-500 mt-1">
-              Seu caminho pelos livros espíritas, no seu ritmo.
+  return (
+    <main className="ves-page min-h-screen">
+      <div className="mx-auto grid min-h-screen w-full max-w-6xl lg:grid-cols-[1.05fr_0.95fr]">
+        <section className="hidden border-r border-line px-12 py-14 lg:flex lg:flex-col lg:justify-between dark:border-night-line">
+          <VeredaLogo size={54} />
+
+          <div className="max-w-xl">
+            <p className="ves-eyebrow">Um passo por dia</p>
+            <h1 className="ves-heading mt-4 text-[3.8rem] leading-[0.98]">
+              Uma jornada para toda a vida.
+            </h1>
+            <p className="mt-7 max-w-lg text-xl leading-relaxed text-muted dark:text-night-muted">
+              Estude as obras fundamentais do Espiritismo com clareza,
+              continuidade e tranquilidade.
             </p>
           </div>
-        </div>
 
-        {/* Card */}
-        <div className="bg-white/85 backdrop-blur-sm rounded-2xl border border-primary-200/50 p-7 shadow-lg">
-          <h2 className="font-display text-xl text-forest-900 mb-6 text-center">
-            {mode === 'login' ? 'Entrar na Vereda' : 'Criar sua conta'}
-          </h2>
+          <div className="flex items-center gap-3 text-sm text-muted dark:text-night-muted">
+            <ShieldCheck size={20} className="text-sage-700 dark:text-sage-300" />
+            Gratuito, sem anúncios e sem fins lucrativos.
+          </div>
+        </section>
 
-          <div className="flex flex-col gap-4">
-            {mode === 'signup' && (
+        <section className="flex min-h-screen items-center px-6 py-10 sm:px-10 lg:px-14">
+          <div className="mx-auto w-full max-w-md">
+            <div className="mb-10 lg:hidden">
+              <VeredaLogo size={48} />
+              <p className="ves-eyebrow mt-7">Vereda</p>
+              <h1 className="ves-heading mt-2 text-[2.4rem]">
+                Um passo por dia.
+              </h1>
+              <p className="mt-3 text-base leading-relaxed text-muted dark:text-night-muted">
+                Seu caminho pelas obras espíritas, no seu ritmo.
+              </p>
+            </div>
+
+            <div>
+              <p className="ves-eyebrow">
+                {isSignup ? 'Comece sua jornada' : 'Que bom ter você de volta'}
+              </p>
+              <h2 className="ves-heading mt-2 text-[2.15rem]">
+                {isSignup ? 'Crie sua conta' : 'Entre no Vereda'}
+              </h2>
+              <p className="mt-3 text-base leading-relaxed text-muted dark:text-night-muted">
+                {isSignup
+                  ? 'Leva menos de um minuto. Depois, você escolhe a primeira obra.'
+                  : 'Sua jornada continua exatamente de onde você parou.'}
+              </p>
+            </div>
+
+            <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
+              {isSignup && (
+                <Input
+                  label="Seu nome"
+                  placeholder="Como gostaria de ser chamado"
+                  value={name}
+                  onChange={(event) => setName(event.target.value)}
+                  autoComplete="name"
+                  required
+                />
+              )}
+
               <Input
-                label="Seu nome"
-                placeholder="Como gostaria de ser chamado"
-                value={name}
-                onChange={e => setName(e.target.value)}
+                label="E-mail"
+                type="email"
+                placeholder="seu@email.com"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                autoComplete="email"
+                inputMode="email"
+                required
               />
-            )}
-            <Input
-              label="E-mail"
-              type="email"
-              placeholder="seu@email.com"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              autoComplete="email"
-            />
-            <Input
-              label="Senha"
-              type="password"
-              placeholder={mode === 'signup' ? 'Mínimo 6 caracteres' : '••••••••'}
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && handle()}
-              autoComplete={mode === 'login' ? 'current-password' : 'new-password'}
-            />
 
-            {error && (
-              <p className="text-sm text-red-500 text-center">{error}</p>
-            )}
+              <div className="relative">
+                <Input
+                  label="Senha"
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder={isSignup ? 'Mínimo 6 caracteres' : 'Sua senha'}
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                  autoComplete={isSignup ? 'new-password' : 'current-password'}
+                  inputClassName="pr-14"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((visible) => !visible)}
+                  className="absolute bottom-1 right-1 flex h-12 w-12 items-center justify-center rounded-vesSm text-muted hover:bg-sage-100 hover:text-ink dark:text-night-muted dark:hover:bg-sage-950 dark:hover:text-night-ink"
+                  aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
+                >
+                  {showPassword ? (
+                    <EyeOff size={20} aria-hidden="true" />
+                  ) : (
+                    <Eye size={20} aria-hidden="true" />
+                  )}
+                </button>
+              </div>
 
-            <button
-              onClick={handle}
-              disabled={loading}
-              style={{
-                width: '100%',
-                padding: '12px',
-                marginTop: '4px',
-                borderRadius: '12px',
-                border: 'none',
-                background: 'linear-gradient(135deg, #8B6BBF, #5A3F88)',
-                color: 'white',
-                fontSize: '15px',
-                fontWeight: '600',
-                cursor: loading ? 'not-allowed' : 'pointer',
-                opacity: loading ? 0.7 : 1,
-              }}
+              {isSignup && (
+                <div className="flex items-start gap-3 rounded-vesSm bg-sage-50 p-4 text-sm leading-relaxed text-muted dark:bg-sage-950/40 dark:text-night-muted">
+                  <Check
+                    size={18}
+                    className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300"
+                    aria-hidden="true"
+                  />
+                  Seu progresso ficará salvo para você retomar quando quiser.
+                </div>
+              )}
+
+              {error && (
+                <div
+                  role="alert"
+                  className="rounded-vesSm border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium leading-relaxed text-red-800 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300"
+                >
+                  {error}
+                </div>
+              )}
+
+              <Button type="submit" loading={loading} className="w-full">
+                {isSignup ? 'Criar conta' : 'Entrar'}
+                {!loading && <ArrowRight size={19} aria-hidden="true" />}
+              </Button>
+            </form>
+
+            <div className="relative my-7">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-line dark:border-night-line" />
+              </div>
+              <div className="relative flex justify-center">
+                <span className="bg-canvas px-4 text-sm text-muted dark:bg-night dark:text-night-muted">
+                  ou continue com
+                </span>
+              </div>
+            </div>
+
+            <Button
+              variant="secondary"
+              onClick={signInWithGoogle}
+              className="w-full"
             >
-              {loading ? '...' : mode === 'login' ? 'Entrar' : 'Criar conta'}
-            </button>
+              <GoogleIcon />
+              Google
+            </Button>
+
+            <p className="mt-8 text-center text-sm text-muted dark:text-night-muted">
+              {isSignup ? 'Já tem uma conta?' : 'Ainda não tem conta?'}{' '}
+              <button
+                type="button"
+                onClick={switchMode}
+                className="min-h-11 rounded-vesSm px-2 font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+              >
+                {isSignup ? 'Entrar' : 'Criar conta'}
+              </button>
+            </p>
+
+            <p className="mt-5 text-center text-xs leading-relaxed text-muted dark:text-night-muted">
+              Ao continuar, você concorda em usar o Vereda como ferramenta
+              complementar de estudo.
+            </p>
           </div>
-
-          {/* Divider */}
-          <div className="relative my-5">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-slate-200" />
-            </div>
-            <div className="relative flex justify-center">
-              <span className="px-3 text-xs text-slate-400 bg-white">ou continue com</span>
-            </div>
-          </div>
-
-          <button
-            onClick={signInWithGoogle}
-            className="w-full h-11 flex items-center justify-center gap-3 bg-white border-2 border-slate-200 rounded-xl text-sm font-medium text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-colors"
-          >
-            <GoogleIcon />
-            Google
-          </button>
-        </div>
-
-        {/* Toggle modo */}
-        <p className="text-center text-sm text-slate-400 mt-6">
-          {mode === 'login' ? 'Ainda não tem conta?' : 'Já tem uma conta?'}
-          {' '}
-          <button
-            className="text-primary-600 font-medium hover:underline"
-            onClick={() => { setMode(m => m === 'login' ? 'signup' : 'login'); setError('') }}
-          >
-            {mode === 'login' ? 'Criar conta' : 'Entrar'}
-          </button>
-        </p>
-
-        <p className="text-center mt-8 leading-relaxed" style={{ fontSize: '12px', color: '#94A3B8' }}>
-          Gratuito · Sem anúncios · Sem fins lucrativos
-        </p>
+        </section>
       </div>
-    </div>
+    </main>
   )
 }
 
 function GoogleIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 18 18">
+    <svg width="19" height="19" viewBox="0 0 18 18" aria-hidden="true">
       <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z"/>
       <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/>
       <path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/>
