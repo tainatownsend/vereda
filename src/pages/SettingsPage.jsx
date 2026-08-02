@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, LogOut, Moon, Sun, Bell, User } from 'lucide-react'
 import { useAuthStore, useUIStore } from '@/store'
-import { Button, Input, Card, Divider } from '@/components/ui'
+import { Input, Card, Divider } from '@/components/ui'
 import { usePushNotifications } from '@/hooks/usePushNotifications'
 
 export default function SettingsPage() {

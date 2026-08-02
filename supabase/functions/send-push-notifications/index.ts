@@ -5,7 +5,7 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 // Biblioteca de web-push para Deno
 import webpush from 'https://esm.sh/web-push@3.6.7'
 
-serve(async (req) => {
+serve(async (_req) => {
   try {
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL')!,

@@ -5,54 +5,83 @@ export default {
   theme: {
     extend: {
       colors: {
-        // ── Primária: Lavanda / Violeta suave ──
-        primary: {
-          50:  '#F4F1FA',
-          100: '#EEE9F8',
-          200: '#DDD6F3',
-          300: '#C4B5E8',
-          400: '#A98FCC',
-          500: '#8B6BBF',
-          600: '#7B5EA7',
-          700: '#5A3F88',
-          800: '#3D2A5C',
-          900: '#2A1D3F',
+        canvas: '#FAFBF8',
+        surface: '#FFFFFF',
+        'surface-soft': '#F3F7F1',
+        ink: '#203028',
+        muted: '#627069',
+        line: '#DDE4DC',
+        focus: '#718F74',
+        night: {
+          DEFAULT: '#111713',
+          surface: '#18201B',
+          ink: '#F2F5F0',
+          muted: '#A8B4AA',
+          line: '#2C3730',
         },
-        // ── Âmbar: streak / constância (mantém) ──
+        sage: {
+          50: '#F3F7F1',
+          100: '#E7EFE4',
+          200: '#D1DFCE',
+          300: '#B3C9B1',
+          400: '#91AD92',
+          500: '#718F74',
+          600: '#58745D',
+          700: '#465D4B',
+          800: '#374A3C',
+          900: '#2D3D32',
+          950: '#17221B',
+        },
+
+        /*
+         * Legacy aliases.
+         * Existing screens keep working while future PRs migrate them to VES.
+         */
+        primary: {
+          50: '#F3F7F1',
+          100: '#E7EFE4',
+          200: '#D1DFCE',
+          300: '#B3C9B1',
+          400: '#91AD92',
+          500: '#718F74',
+          600: '#58745D',
+          700: '#465D4B',
+          800: '#374A3C',
+          900: '#2D3D32',
+        },
+        forest: {
+          900: '#203028',
+        },
         amber: {
-          50:  '#FFFBEB',
+          50: '#FFFBEB',
           100: '#FEF3C7',
           200: '#FDE68A',
           400: '#FBC02D',
           500: '#F59E0B',
           600: '#D97706',
         },
-        // ── Slate: neutros ──
-        slate: {
-          50:  '#F8FAFC',
-          100: '#F1F5F9',
-          200: '#E2E8F0',
-          300: '#CBD5E1',
-          400: '#94A3B8',
-          500: '#64748B',
-          600: '#475569',
-          700: '#334155',
-          800: '#1E293B',
-          900: '#0F172A',
-        },
-        // ── Dourado: acento quente (estimativa, datas) ──
         gold: {
           100: '#FBF3E6',
           400: '#D4A76A',
           600: '#B08040',
         },
-        forest: {
-          900: '#2A2035',
-        }
       },
       fontFamily: {
-        display: ['"Fraunces"', 'Georgia', 'serif'],
-        body:    ['"Inter"', 'system-ui', 'sans-serif'],
+        display: ['"Newsreader"', 'Georgia', 'serif'],
+        body: ['"DM Sans"', 'system-ui', 'sans-serif'],
+      },
+      borderRadius: {
+        vesSm: '0.75rem',
+        vesMd: '1.25rem',
+        vesLg: '1.75rem',
+      },
+      boxShadow: {
+        editorial: '0 16px 50px rgba(41, 61, 47, 0.08)',
+      },
+      transitionDuration: {
+        100: '100ms',
+        150: '150ms',
+        200: '200ms',
       },
     },
   },

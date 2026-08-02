@@ -1,124 +1,267 @@
+import { forwardRef, useId } from 'react'
 import { Loader2 } from 'lucide-react'
 
-export function Button({ children, variant = 'primary', size = 'md', className = '', loading, ...props }) {
-  const base = 'inline-flex items-center justify-center gap-2 font-body font-medium rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none'
-  const variants = {
-    primary:   'bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-sm hover:-translate-y-0.5 hover:shadow-md',
-    secondary: 'bg-white text-slate-700 border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50',
-    ghost:     'text-primary-600 hover:bg-primary-50',
-    danger:    'bg-red-500 text-white hover:bg-red-600',
-  }
-  const sizes = {
-    sm: 'h-8  px-3 text-sm',
-    md: 'h-11 px-5 text-base',
-    lg: 'h-13 px-7 text-lg',
-  }
+const buttonBase =
+  'inline-flex min-h-14 items-center justify-center gap-2 rounded-vesMd px-6 py-3 font-body text-base font-semibold transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50'
+
+const buttonVariants = {
+  primary:
+    'bg-sage-800 text-white shadow-sm hover:bg-sage-900 active:bg-sage-950 dark:bg-sage-300 dark:text-sage-950 dark:hover:bg-sage-200',
+  secondary:
+    'border border-line bg-surface text-ink hover:bg-surface-soft dark:border-night-line dark:bg-night-surface dark:text-night-ink dark:hover:bg-sage-950',
+  ghost:
+    'bg-transparent text-sage-800 hover:bg-sage-100 dark:text-sage-300 dark:hover:bg-sage-950',
+  danger:
+    'bg-red-700 text-white hover:bg-red-800 active:bg-red-900',
+}
+
+const buttonSizes = {
+  sm: 'min-h-11 rounded-vesSm px-4 py-2 text-sm',
+  md: '',
+  lg: 'min-h-16 rounded-vesLg px-7 py-4 text-lg',
+}
+
+export const Button = forwardRef(function Button(
+  {
+    children,
+    variant = 'primary',
+    size = 'md',
+    type = 'button',
+    loading = false,
+    disabled = false,
+    className = '',
+    ...props
+  },
+  ref,
+) {
   return (
     <button
-      className={`${base} ${variants[variant]} ${sizes[size]} ${className}`}
-      disabled={loading}
+      ref={ref}
+      type={type}
+      disabled={disabled || loading}
+      aria-busy={loading || undefined}
+      className={`${buttonBase} ${buttonVariants[variant] || buttonVariants.primary} ${buttonSizes[size] || ''} ${className}`}
       {...props}
     >
-      {loading && <Loader2 size={16} className="animate-spin" />}
+      {loading && <Loader2 size={19} className="animate-spin" aria-hidden="true" />}
       {children}
     </button>
   )
-}
+})
 
-export function Input({ label, error, className = '', ...props }) {
+export const Input = forwardRef(function Input(
+  {
+    label,
+    error,
+    hint,
+    id,
+    className = '',
+    inputClassName = '',
+    required = false,
+    ...props
+  },
+  ref,
+) {
+  const generatedId = useId()
+  const inputId = id || generatedId
+  const hintId = hint ? `${inputId}-hint` : undefined
+  const errorId = error ? `${inputId}-error` : undefined
+  const describedBy = [hintId, errorId].filter(Boolean).join(' ') || undefined
+
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className={`flex flex-col gap-2 ${className}`}>
       {label && (
-        <label className="text-sm font-medium text-slate-600 dark:text-slate-300">{label}</label>
+        <label
+          htmlFor={inputId}
+          className="text-sm font-semibold text-ink dark:text-night-ink"
+        >
+          {label}
+          {required && <span aria-hidden="true"> *</span>}
+        </label>
       )}
+
       <input
-        className={`h-11 px-4 rounded-xl border-2 bg-white dark:bg-slate-900 text-forest-900 dark:text-slate-100
-          border-slate-200 dark:border-slate-700 focus:border-primary-400 focus:ring-2 focus:ring-primary-400/20
-          placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-colors outline-none
-          ${error ? 'border-red-400' : ''} ${className}`}
+        ref={ref}
+        id={inputId}
+        required={required}
+        aria-invalid={Boolean(error)}
+        aria-describedby={describedBy}
+        className={`min-h-14 w-full rounded-vesSm border bg-surface px-4 py-3 text-base text-ink outline-none placeholder:text-muted/65 hover:border-sage-400 focus:border-sage-700 focus:ring-2 focus:ring-sage-500/25 dark:bg-night-surface dark:text-night-ink dark:placeholder:text-night-muted/65 ${
+          error
+            ? 'border-red-700 focus:border-red-700 focus:ring-red-700/20'
+            : 'border-line dark:border-night-line'
+        } ${inputClassName}`}
         {...props}
       />
-      {error && <p className="text-sm text-red-500">{error}</p>}
+
+      {hint && !error && (
+        <p id={hintId} className="text-sm leading-relaxed text-muted dark:text-night-muted">
+          {hint}
+        </p>
+      )}
+
+      {error && (
+        <p
+          id={errorId}
+          role="alert"
+          className="text-sm font-medium leading-relaxed text-red-800 dark:text-red-300"
+        >
+          {error}
+        </p>
+      )}
     </div>
   )
-}
+})
 
-export function Card({ children, className = '', ...props }) {
+export function Card({
+  children,
+  as: Component = 'div',
+  className = '',
+  ...props
+}) {
   return (
-    <div
-      className={`bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm ${className}`}
+    <Component
+      className={`rounded-vesMd border border-line bg-surface shadow-sm dark:border-night-line dark:bg-night-surface ${className}`}
       {...props}
     >
       {children}
-    </div>
+    </Component>
   )
 }
 
-export function ProgressBar({ value = 0, color = 'primary', className = '' }) {
-  const colors = {
-    primary: 'from-primary-500 to-primary-400',
-    amber:   'from-amber-500 to-amber-400',
-    gold:    'from-gold-400 to-gold-600',
+export function ProgressBar({
+  value = 0,
+  max = 100,
+  label = 'Progresso',
+  color = 'primary',
+  showValue = false,
+  className = '',
+}) {
+  const safeMax = max > 0 ? max : 100
+  const safeValue = Math.min(Math.max(Number(value) || 0, 0), safeMax)
+  const percentage = Math.round((safeValue / safeMax) * 100)
+
+  const fills = {
+    primary: 'bg-sage-700 dark:bg-sage-300',
+    sage: 'bg-sage-700 dark:bg-sage-300',
+    amber: 'bg-amber-500',
+    gold: 'bg-gold-600',
   }
+
   return (
-    <div className={`h-1.5 rounded-full bg-slate-100 overflow-hidden ${className}`}>
+    <div className={className}>
+      {showValue && (
+        <div className="mb-2 flex items-center justify-between gap-4 text-sm">
+          <span className="text-muted dark:text-night-muted">{label}</span>
+          <strong className="text-ink dark:text-night-ink">{percentage}%</strong>
+        </div>
+      )}
+
       <div
-        className={`h-full rounded-full bg-gradient-to-r transition-all duration-700 ${colors[color] || colors.primary}`}
-        style={{ width: `${Math.min(100, Math.max(0, value))}%` }}
-      />
-    </div>
-  )
-}
-
-export function Badge({ children, color = 'primary', className = '' }) {
-  const colors = {
-    primary: 'bg-primary-100 text-primary-700',
-    amber:   'bg-amber-100 text-amber-600',
-    gold:    'bg-gold-100 text-gold-600',
-    slate:   'bg-slate-100 text-slate-500',
-    violet:  'bg-primary-100 text-primary-600',
-  }
-  return (
-    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${colors[color] || colors.primary} ${className}`}>
-      {children}
-    </span>
-  )
-}
-
-export function Spinner({ size = 24, className = '' }) {
-  return <Loader2 size={size} className={`animate-spin text-primary-600 ${className}`} />
-}
-
-export function PageLoader() {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-primary-50 dark:bg-slate-900">
-      <div className="flex flex-col items-center gap-4 animate-pulse">
-        <VeredaLogo size={48} />
-        <Spinner size={24} />
+        role="progressbar"
+        aria-label={label}
+        aria-valuemin={0}
+        aria-valuemax={safeMax}
+        aria-valuenow={safeValue}
+        className="h-2 overflow-hidden rounded-full bg-sage-100 dark:bg-white/10"
+      >
+        <div
+          className={`h-full rounded-full transition-[width] duration-200 ${fills[color] || fills.primary}`}
+          style={{ width: `${percentage}%` }}
+        />
       </div>
     </div>
   )
 }
 
-export function VeredaLogo({ size = 40 }) {
+export function Badge({
+  children,
+  color = 'primary',
+  className = '',
+  ...props
+}) {
+  const variants = {
+    primary: 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300',
+    violet: 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300',
+    sage: 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300',
+    amber: 'bg-amber-100 text-amber-700',
+    gold: 'bg-gold-100 text-gold-600',
+    slate: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200',
+    success: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300',
+  }
+
+  return (
+    <span
+      className={`inline-flex min-h-7 items-center rounded-full px-3 py-1 text-xs font-semibold ${variants[color] || variants.primary} ${className}`}
+      {...props}
+    >
+      {children}
+    </span>
+  )
+}
+
+export function Spinner({ size = 24, className = '', label = 'Carregando' }) {
+  return (
+    <span role="status" className="inline-flex">
+      <Loader2
+        size={size}
+        className={`animate-spin text-sage-700 dark:text-sage-300 ${className}`}
+        aria-hidden="true"
+      />
+      <span className="sr-only">{label}</span>
+    </span>
+  )
+}
+
+export function PageLoader({ label = 'Carregando conteúdo' }) {
+  return (
+    <div className="ves-page flex items-center justify-center" role="status">
+      <div className="flex flex-col items-center gap-4">
+        <VeredaLogo size={48} />
+        <Spinner size={28} label={label} />
+      </div>
+    </div>
+  )
+}
+
+export function VeredaLogo({ size = 40, className = '' }) {
   return (
     <div
-      className="flex items-center justify-center rounded-2xl shadow-md"
-      style={{
-        width: size,
-        height: size,
-        borderRadius: size * 0.3,
-        background: 'linear-gradient(135deg, #8B6BBF, #5A3F88)'
-      }}
+      className={`inline-flex items-center justify-center rounded-full bg-sage-800 text-white shadow-sm dark:bg-sage-300 dark:text-sage-950 ${className}`}
+      style={{ width: size, height: size }}
+      aria-label="Vereda"
+      role="img"
     >
-      <svg width={size * 0.55} height={size * 0.55} viewBox="0 0 28 28" fill="none">
-        <path d="M4 6L14 22L24 6" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="14" cy="22" r="2.5" fill="rgba(255,255,255,0.6)" />
+      <svg
+        width={Math.round(size * 0.52)}
+        height={Math.round(size * 0.52)}
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M6 18c4-1 6-4 6-9 3 2 5 5 6 9"
+          stroke="currentColor"
+          strokeWidth="1.9"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M12 9V5"
+          stroke="currentColor"
+          strokeWidth="1.9"
+          strokeLinecap="round"
+        />
       </svg>
     </div>
   )
 }
 
-export function Divider({ className = '' }) {
-  return <hr className={`border-slate-200 dark:border-slate-700 ${className}`} />
+export function Divider({ className = '', ...props }) {
+  return (
+    <hr
+      className={`border-0 border-t border-line dark:border-night-line ${className}`}
+      {...props}
+    />
+  )
 }

@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom'
-import { BookOpen, CheckCircle } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
 import { useReadingStore } from '@/store'
 import { useBooks, useProgress } from '@/hooks'
-import { Card, ProgressBar, Badge } from '@/components/ui'
+import { Card, Badge } from '@/components/ui'
 
 export default function LibraryPage() {
   const navigate  = useNavigate()
