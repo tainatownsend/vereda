@@ -1,12 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { ArrowLeft, Clock, Calendar } from 'lucide-react'
+import {
+  ArrowLeft,
+  ArrowRight,
+  BookOpen,
+  CalendarDays,
+  Check,
+  Clock3,
+} from 'lucide-react'
+
 import { useAuthStore, useReadingStore } from '@/store'
-import { PageLoader } from '@/components/ui'
 import { useBooks } from '@/hooks'
+import { Button, PageLoader } from '@/components/ui'
 
 const MINUTE_OPTIONS = [5, 10, 15, 20, 30]
-const WEEK_OPTIONS   = [4, 8, 12, 24, 52]
+const WEEK_OPTIONS = [4, 8, 12, 24, 52]
 
 const COVER_IMAGES = {
   1: '/espiritos.jpg',
@@ -17,206 +25,238 @@ const COVER_IMAGES = {
 }
 
 export default function BookDetailPage() {
-  const { id }    = useParams()
-  const navigate  = useNavigate()
-  const books     = useBooks()
-  const { user }  = useAuthStore()
+  const { id } = useParams()
+  const navigate = useNavigate()
+  const books = useBooks()
+  const { user } = useAuthStore()
   const { startBook, progress } = useReadingStore()
 
   const [paceMode, setPaceMode] = useState('minutes')
-  const [minutes,  setMinutes]  = useState(10)
-  const [weeks,    setWeeks]    = useState(12)
-  const [loading,  setLoading]  = useState(false)
+  const [minutes, setMinutes] = useState(10)
+  const [weeks, setWeeks] = useState(12)
+  const [loading, setLoading] = useState(false)
 
-  const book = books.find(b => b.id === Number(id))
+  const bookId = Number(id)
+  const book = books.find((item) => item.id === bookId)
 
   useEffect(() => {
-    if (progress[Number(id)]) navigate(`/ler/${id}`)
-  }, [progress, id, navigate])
+    if (progress[bookId]) navigate(`/ler/${id}`, { replace: true })
+  }, [progress, bookId, id, navigate])
 
-  if (!book) return <PageLoader />
+  const deadline = useMemo(() => {
+    const date = new Date()
+    date.setDate(date.getDate() + weeks * 7)
+    return date.toISOString().split('T')[0]
+  }, [weeks])
 
-  const deadlineDate = () => {
-    const d = new Date()
-    d.setDate(d.getDate() + weeks * 7)
-    return d.toISOString().split('T')[0]
-  }
+  if (!book) return <PageLoader label="Carregando obra" />
 
   const start = async () => {
-    if (!user) return
+    if (!user || loading) return
+
     setLoading(true)
-    await startBook(
-      user.id, book.id, paceMode,
-      paceMode === 'minutes'  ? minutes  : null,
-      paceMode === 'deadline' ? deadlineDate() : null
-    )
-    navigate(`/ler/${book.id}`)
+
+    try {
+      await startBook(
+        user.id,
+        book.id,
+        paceMode,
+        paceMode === 'minutes' ? minutes : null,
+        paceMode === 'deadline' ? deadline : null,
+      )
+      navigate(`/ler/${book.id}`)
+    } finally {
+      setLoading(false)
+    }
   }
 
-  const coverImage = COVER_IMAGES[book.id]
-
   return (
-    <div className="min-h-screen bg-primary-50 dark:bg-slate-900 pb-10">
-
-      {/* Hero com capa */}
-      <div className="relative" style={{ background: `linear-gradient(180deg, ${book.cover_color} 0%, ${book.cover_color}88 100%)` }}>
+    <main className="ves-page min-h-screen pb-12">
+      <div className="ves-container pt-7">
         <button
+          type="button"
           onClick={() => navigate(-1)}
-          style={{ position: 'absolute', top: 48, left: 20, zIndex: 10, width: 36, height: 36, borderRadius: 10, background: 'rgba(0,0,0,0.3)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          className="flex min-h-12 items-center gap-2 rounded-vesSm px-2 text-sm font-semibold text-sage-800 hover:bg-sage-100 dark:text-sage-300 dark:hover:bg-sage-950"
         >
-          <ArrowLeft size={20} color="white" />
+          <ArrowLeft size={20} aria-hidden="true" />
+          Voltar para Obras
         </button>
+      </div>
 
-        <div className="flex flex-col items-center pt-16 pb-6 px-5">
-          {coverImage && (
-            <img
-              src={coverImage}
-              alt={`Capa de ${book.title}`}
-              style={{
-                width: 140,
-                height: 'auto',
-                borderRadius: 8,
-                boxShadow: '0 12px 32px rgba(0,0,0,0.35)',
-                marginBottom: 16,
-              }}
-            />
-          )}
-          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 12, marginBottom: 4, textAlign: 'center' }}>
-            {book.year} · {book.author}
-          </p>
-          <h1 className="font-display text-white text-center" style={{ fontSize: 'clamp(18px, 5vw, 24px)', lineHeight: 1.25 }}>
+      <div className="ves-container grid gap-10 pb-8 pt-7 lg:max-w-5xl lg:grid-cols-[18rem_1fr] lg:items-start">
+        <BookIdentity book={book} />
+
+        <div>
+          <p className="ves-eyebrow">Antes de começar</p>
+          <h1 className="ves-heading mt-2 text-[2.4rem] lg:text-[3rem]">
             {book.title}
           </h1>
-        </div>
-      </div>
+          <p className="mt-2 text-sm font-medium text-muted dark:text-night-muted">
+            {book.author}
+            {book.year ? ` · ${book.year}` : ''}
+          </p>
 
-      <div className="px-5 py-6 space-y-6 max-w-lg mx-auto">
-
-        {/* Resumo */}
-        {book.description && (
-          <div>
-            <p className="font-display text-forest-900 dark:text-slate-100 text-lg mb-2">Sobre o livro</p>
-            <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
+          {book.description && (
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted dark:text-night-muted">
               {book.description}
             </p>
+          )}
+
+          <section className="mt-10" aria-labelledby="pace-heading">
+            <p className="ves-eyebrow">Seu ritmo</p>
+            <h2 id="pace-heading" className="ves-heading mt-1 text-[1.8rem]">
+              Como você prefere avançar?
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-muted dark:text-night-muted">
+              Você poderá ajustar essa escolha depois. Não existe ritmo certo.
+            </p>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <ChoiceCard
+                selected={paceMode === 'minutes'}
+                onClick={() => setPaceMode('minutes')}
+                icon={Clock3}
+                title="Poucos minutos por dia"
+                description="Uma rotina leve e previsível."
+              />
+              <ChoiceCard
+                selected={paceMode === 'deadline'}
+                onClick={() => setPaceMode('deadline')}
+                icon={CalendarDays}
+                title="Uma data aproximada"
+                description="O Vereda calcula um ritmo possível."
+              />
+            </div>
+
+            <div className="mt-7 rounded-vesLg border border-line bg-surface p-5 dark:border-night-line dark:bg-night-surface">
+              {paceMode === 'minutes' ? (
+                <>
+                  <h3 className="font-semibold text-ink dark:text-night-ink">
+                    Quantos minutos por dia parecem sustentáveis?
+                  </h3>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    {MINUTE_OPTIONS.map((option) => (
+                      <PillChoice
+                        key={option}
+                        selected={minutes === option}
+                        onClick={() => setMinutes(option)}
+                      >
+                        {option} min
+                      </PillChoice>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h3 className="font-semibold text-ink dark:text-night-ink">
+                    Em quanto tempo gostaria de concluir?
+                  </h3>
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    {WEEK_OPTIONS.map((option) => (
+                      <PillChoice
+                        key={option}
+                        selected={weeks === option}
+                        onClick={() => setWeeks(option)}
+                      >
+                        {formatWeeks(option)}
+                      </PillChoice>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          </section>
+
+          <div className="mt-8 rounded-vesLg bg-sage-50 p-5 dark:bg-sage-950/35">
+            <div className="flex items-start gap-3">
+              <Check
+                size={20}
+                className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300"
+                aria-hidden="true"
+              />
+              <p className="text-sm leading-relaxed text-muted dark:text-night-muted">
+                Seu progresso será salvo automaticamente. Você poderá pausar e
+                retomar exatamente de onde parou.
+              </p>
+            </div>
+          </div>
+
+          <Button onClick={start} loading={loading} className="mt-8 w-full sm:w-auto">
+            Começar esta obra
+            {!loading && <ArrowRight size={19} aria-hidden="true" />}
+          </Button>
+        </div>
+      </div>
+    </main>
+  )
+}
+
+function BookIdentity({ book }) {
+  const image = COVER_IMAGES[book.id]
+
+  return (
+    <aside className="mx-auto w-full max-w-[17rem] lg:sticky lg:top-8">
+      <div className="rounded-vesLg border border-line bg-surface p-5 shadow-editorial dark:border-night-line dark:bg-night-surface">
+        {image ? (
+          <img
+            src={image}
+            alt={`Capa de ${book.title}`}
+            className="mx-auto w-full rounded-vesSm object-cover shadow-lg"
+          />
+        ) : (
+          <div className="flex aspect-[2/3] items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+            <BookOpen size={48} aria-hidden="true" />
           </div>
         )}
-
-        {/* Ritmo */}
-        <div>
-          <p className="font-display text-forest-900 dark:text-slate-100 text-lg mb-4">Defina seu ritmo</p>
-
-          <div className="flex gap-2 mb-5">
-            {[
-              { id: 'minutes',  label: 'Minutos/dia', icon: Clock },
-              { id: 'deadline', label: 'Com prazo',   icon: Calendar },
-            ].map(({ id: pid, label, icon: Icon }) => (
-              <button
-                key={pid}
-                onClick={() => setPaceMode(pid)}
-                style={{
-                  flex: 1,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: 8,
-                  padding: '12px',
-                  borderRadius: 12,
-                  border: '2px solid',
-                  borderColor: paceMode === pid ? '#7B5EA7' : '#E2E8F0',
-                  background: paceMode === pid ? '#EEE9F8' : 'white',
-                  color: paceMode === pid ? '#5A3F88' : '#94A3B8',
-                  fontSize: 14,
-                  fontWeight: 500,
-                  cursor: 'pointer',
-                }}
-              >
-                <Icon size={16} />
-                {label}
-              </button>
-            ))}
-          </div>
-
-          {paceMode === 'minutes' ? (
-            <div>
-              <p style={{ fontSize: 13, color: '#94A3B8', marginBottom: 12 }}>Quantos minutos por dia?</p>
-              <div className="flex flex-wrap gap-2">
-                {MINUTE_OPTIONS.map(m => (
-                  <button
-                    key={m}
-                    onClick={() => setMinutes(m)}
-                    style={{
-                      padding: '10px 20px',
-                      borderRadius: 12,
-                      border: '2px solid',
-                      borderColor: minutes === m ? '#7B5EA7' : '#E2E8F0',
-                      background: minutes === m ? '#7B5EA7' : 'white',
-                      color: minutes === m ? 'white' : '#334155',
-                      fontSize: 14,
-                      fontWeight: 500,
-                      cursor: 'pointer',
-                    }}
-                  >
-                    {m} min
-                  </button>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <div>
-              <p style={{ fontSize: 13, color: '#94A3B8', marginBottom: 12 }}>Quero terminar em…</p>
-              <div className="flex flex-wrap gap-2">
-                {WEEK_OPTIONS.map(w => (
-                  <button
-                    key={w}
-                    onClick={() => setWeeks(w)}
-                    style={{
-                      padding: '10px 16px',
-                      borderRadius: 12,
-                      border: '2px solid',
-                      borderColor: weeks === w ? '#7B5EA7' : '#E2E8F0',
-                      background: weeks === w ? '#7B5EA7' : 'white',
-                      color: weeks === w ? 'white' : '#334155',
-                      fontSize: 14,
-                      fontWeight: 500,
-                      cursor: 'pointer',
-                    }}
-                  >
-                    {w < 8 ? `${w} sem.` : w < 52 ? `${w / 4} meses` : '1 ano'}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-
-        <button
-          onClick={start}
-          disabled={loading}
-          style={{
-            width: '100%',
-            padding: '14px',
-            borderRadius: '12px',
-            border: 'none',
-            background: 'linear-gradient(135deg, #8B6BBF, #5A3F88)',
-            color: 'white',
-            fontSize: '16px',
-            fontWeight: '600',
-            cursor: loading ? 'not-allowed' : 'pointer',
-            opacity: loading ? 0.7 : 1,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 8,
-          }}
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-          </svg>
-          {loading ? '...' : 'Começar a ler'}
-        </button>
       </div>
-    </div>
+    </aside>
   )
+}
+
+function ChoiceCard({ selected, onClick, icon: Icon, title, description }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={selected}
+      className={`min-h-32 rounded-vesMd border p-5 text-left transition-colors ${
+        selected
+          ? 'border-sage-700 bg-sage-50 ring-2 ring-sage-500/20 dark:border-sage-300 dark:bg-sage-950/40'
+          : 'border-line bg-surface hover:border-sage-400 dark:border-night-line dark:bg-night-surface'
+      }`}
+    >
+      <Icon
+        size={22}
+        className={selected ? 'text-sage-800 dark:text-sage-300' : 'text-muted dark:text-night-muted'}
+        aria-hidden="true"
+      />
+      <p className="mt-4 font-semibold text-ink dark:text-night-ink">{title}</p>
+      <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
+        {description}
+      </p>
+    </button>
+  )
+}
+
+function PillChoice({ selected, onClick, children }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={selected}
+      className={`min-h-12 rounded-full border px-5 py-2 text-sm font-semibold transition-colors ${
+        selected
+          ? 'border-sage-800 bg-sage-800 text-white dark:border-sage-300 dark:bg-sage-300 dark:text-sage-950'
+          : 'border-line bg-surface text-ink hover:border-sage-400 dark:border-night-line dark:bg-night-surface dark:text-night-ink'
+      }`}
+    >
+      {children}
+    </button>
+  )
+}
+
+function formatWeeks(weeks) {
+  if (weeks === 4) return '1 mês'
+  if (weeks < 52) return `${weeks / 4} meses`
+  return '1 ano'
 }
