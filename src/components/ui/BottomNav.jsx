@@ -1,61 +1,48 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { Home, BookOpen, TrendingUp, User } from 'lucide-react'
+import { BookOpen, Compass, Home, Settings } from 'lucide-react'
 
 const tabs = [
-  { path: '/home',          label: 'Início',     Icon: Home },
-  { path: '/biblioteca',    label: 'Biblioteca', Icon: BookOpen },
-  { path: '/evolucao',      label: 'Evolução',   Icon: TrendingUp },
-  { path: '/configuracoes', label: 'Perfil',     Icon: User },
+  { path: '/home', label: 'Início', Icon: Home },
+  { path: '/biblioteca', label: 'Obras', Icon: BookOpen },
+  { path: '/evolucao', label: 'Jornada', Icon: Compass },
+  { path: '/configuracoes', label: 'Ajustes', Icon: Settings },
 ]
-
-const NAV_STYLE = {
-  fontSize: '16px',
-  height: '58px',
-}
-
-const LABEL_STYLE = {
-  fontSize: '10px',
-  lineHeight: '1',
-  fontWeight: '600',
-  letterSpacing: '0.02em',
-  marginTop: '3px',
-}
 
 export default function BottomNav() {
   const { pathname } = useLocation()
-  const navigate     = useNavigate()
+  const navigate = useNavigate()
 
   if (pathname.startsWith('/ler/')) return null
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-slate-900 border-t border-primary-100 dark:border-slate-800"
-      style={NAV_STYLE}
+      aria-label="Navegação principal"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-canvas/95 pb-safe backdrop-blur-md dark:border-night-line dark:bg-night/95"
     >
-      <div className="flex items-center justify-around h-full max-w-lg mx-auto">
+      <div className="mx-auto flex h-[4.5rem] max-w-xl items-stretch justify-around px-2">
         {tabs.map(({ path, label, Icon }) => {
-          const active = pathname === path ||
+          const active =
+            pathname === path ||
             (path !== '/home' && pathname.startsWith(path))
-          const color = active ? '#7B5EA7' : '#CBD5E1'
 
           return (
             <button
               key={path}
+              type="button"
               onClick={() => navigate(path)}
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                padding: '0 16px',
-                height: '100%',
-                justifyContent: 'center',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-              }}
+              aria-current={active ? 'page' : undefined}
+              className={`flex min-w-[4.5rem] flex-1 flex-col items-center justify-center gap-1 rounded-vesSm text-xs font-semibold transition-colors ${
+                active
+                  ? 'text-sage-800 dark:text-sage-300'
+                  : 'text-muted hover:text-ink dark:text-night-muted dark:hover:text-night-ink'
+              }`}
             >
-              <Icon size={20} strokeWidth={active ? 2.5 : 1.75} color={color} />
-              <span style={{ ...LABEL_STYLE, color }}>{label}</span>
+              <Icon
+                size={23}
+                strokeWidth={active ? 2.4 : 1.8}
+                aria-hidden="true"
+              />
+              <span>{label}</span>
             </button>
           )
         })}
