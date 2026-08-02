@@ -27,7 +27,7 @@ export default function ReadingChart() {
       </div>
 
       <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 6, height: 96 }}>
-        {data.map((d, i) => {
+        {data.map((d) => {
           const minutes  = Number(d.minutes)
           const heightPct = minutes > 0 ? Math.max((minutes / maxMinutes) * 100, 15) : 3
           const isToday  = d.read_date === today

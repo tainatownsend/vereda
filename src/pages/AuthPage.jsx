@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '@/store'
-import { Button, Input, VeredaLogo } from '@/components/ui'
+import { Input, VeredaLogo } from '@/components/ui'
 
 export default function AuthPage() {
   const [mode,     setMode]     = useState('login')

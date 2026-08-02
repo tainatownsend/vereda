@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { ArrowLeft, Clock, Calendar, BookOpen } from 'lucide-react'
+import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 import { useAuthStore, useReadingStore } from '@/store'
 import { PageLoader } from '@/components/ui'
 import { useBooks } from '@/hooks'
