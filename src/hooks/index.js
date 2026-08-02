@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useAuthStore, useReadingStore } from '@/store'
 
 // Estima tempo de leitura baseado em palavras
@@ -35,13 +35,38 @@ export function useScrollProgress() {
 // Cronômetro de leitura em segundos
 export function useReadingTimer() {
   const [seconds, setSeconds] = useState(0)
-  const interval = useRef(null)
-  const start = () => {
-    interval.current = setInterval(() => setSeconds(s => s + 1), 1000)
-  }
-  const stop  = () => { clearInterval(interval.current); return seconds }
-  const reset = () => { clearInterval(interval.current); setSeconds(0) }
-  useEffect(() => () => clearInterval(interval.current), [])
+  const secondsRef = useRef(0)
+  const intervalRef = useRef(null)
+
+  const clearTimer = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current)
+      intervalRef.current = null
+    }
+  }, [])
+
+  const start = useCallback(() => {
+    if (intervalRef.current) return
+
+    intervalRef.current = setInterval(() => {
+      secondsRef.current += 1
+      setSeconds(secondsRef.current)
+    }, 1000)
+  }, [])
+
+  const stop = useCallback(() => {
+    clearTimer()
+    return secondsRef.current
+  }, [clearTimer])
+
+  const reset = useCallback(() => {
+    clearTimer()
+    secondsRef.current = 0
+    setSeconds(0)
+  }, [clearTimer])
+
+  useEffect(() => clearTimer, [clearTimer])
+
   return { seconds, start, stop, reset }
 }
 
