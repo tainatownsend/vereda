@@ -1,0 +1,686 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-03T02:50:27.128472+00:00",
+  "results": [
+    {
+      "book_id": 1,
+      "slug": "o-livro-dos-espiritos",
+      "title": "O Livro dos Espíritos",
+      "translator": "Guillon Ribeiro",
+      "source_file": "WEB-Livro-dos-Espíritos-Guillon-1.pdf",
+      "expected_sha256": "e99b4014ae3f00e5e6e888d43a0c4ef257efffe58840c795c8a26325a19a4983",
+      "actual_sha256": "e99b4014ae3f00e5e6e888d43a0c4ef257efffe58840c795c8a26325a19a4983",
+      "hash_matches": true,
+      "expected_pdf_page_count": 529,
+      "actual_pdf_page_count": 529,
+      "page_count_matches": true,
+      "text_page_count": 505,
+      "empty_page_count": 24,
+      "empty_pages": [
+        1,
+        3,
+        11,
+        13,
+        49,
+        53,
+        55,
+        85,
+        115,
+        191,
+        215,
+        271,
+        281,
+        295,
+        317,
+        327,
+        347,
+        351,
+        371,
+        413,
+        431,
+        477,
+        483,
+        528
+      ],
+      "text_coverage_percentage": 95.46,
+      "total_extracted_characters": 976822,
+      "dehyphenation_candidates": 2284,
+      "replacement_character_count": 0,
+      "toc_signal_count_first_20_pages": 37,
+      "repeated_edge_lines": [
+        {
+          "text": "Índice geral",
+          "occurrences": 43
+        },
+        {
+          "text": "Introdução",
+          "occurrences": 34
+        },
+        {
+          "text": "Da vida espírita",
+          "occurrences": 19
+        },
+        {
+          "text": "Parte Segunda – Capítulo VI",
+          "occurrences": 18
+        },
+        {
+          "text": "Parte Segunda – Capítulo IX",
+          "occurrences": 16
+        },
+        {
+          "text": "Da intervenção dos Espíritos no mundo corporal",
+          "occurrences": 16
+        },
+        {
+          "text": "Das penas e gozos futuros",
+          "occurrences": 15
+        },
+        {
+          "text": "Parte Quarta – Capítulo II",
+          "occurrences": 15
+        },
+        {
+          "text": "Conclusão",
+          "occurrences": 14
+        },
+        {
+          "text": "Parte Segunda – Capítulo VII",
+          "occurrences": 11
+        },
+        {
+          "text": "Da volta do Espírito à vida corporal",
+          "occurrences": 11
+        },
+        {
+          "text": "Da emancipação da alma",
+          "occurrences": 11
+        },
+        {
+          "text": "Parte Segunda – Capítulo VIII",
+          "occurrences": 11
+        },
+        {
+          "text": "Dos Espíritos",
+          "occurrences": 10
+        },
+        {
+          "text": "Parte Segunda – Capítulo I",
+          "occurrences": 10
+        },
+        {
+          "text": "Da pluralidade das existências",
+          "occurrences": 10
+        },
+        {
+          "text": "Parte Segunda – Capítulo IV",
+          "occurrences": 10
+        },
+        {
+          "text": "Da lei de liberdade",
+          "occurrences": 9
+        },
+        {
+          "text": "Parte T erceira – Capítulo X",
+          "occurrences": 9
+        },
+        {
+          "text": "Das penas e gozos terrestres",
+          "occurrences": 9
+        }
+      ],
+      "metadata": {
+        "CreationDate": "D:20200323151630-03'00'",
+        "Creator": "Adobe InDesign 15.0 (Windows)",
+        "ModDate": "D:20200323151837-03'00'",
+        "Producer": "Adobe PDF Library 15.0",
+        "Trapped": "/False"
+      },
+      "ocr_required": false,
+      "suitable_for_structural_analysis": true,
+      "rights_status": "permission-required-for-production"
+    },
+    {
+      "book_id": 2,
+      "slug": "o-livro-dos-mediuns",
+      "title": "O Livro dos Médiuns",
+      "translator": "Guillon Ribeiro",
+      "source_file": "WEB-Livro-dos-Mediuns-Guillon-1.pdf",
+      "expected_sha256": "f260cc74e5c0feaf0203f33a3b19cc1919f40479ea246de53865569e538809a7",
+      "actual_sha256": "f260cc74e5c0feaf0203f33a3b19cc1919f40479ea246de53865569e538809a7",
+      "hash_matches": true,
+      "expected_pdf_page_count": 449,
+      "actual_pdf_page_count": 449,
+      "page_count_matches": true,
+      "text_page_count": 428,
+      "empty_page_count": 21,
+      "empty_pages": [
+        1,
+        3,
+        11,
+        17,
+        33,
+        45,
+        73,
+        137,
+        151,
+        161,
+        167,
+        191,
+        223,
+        227,
+        251,
+        273,
+        317,
+        381,
+        413,
+        419,
+        448
+      ],
+      "text_coverage_percentage": 95.32,
+      "total_extracted_characters": 941296,
+      "dehyphenation_candidates": 2145,
+      "replacement_character_count": 0,
+      "toc_signal_count_first_20_pages": 56,
+      "repeated_edge_lines": [
+        {
+          "text": "Índice Geral",
+          "occurrences": 27
+        },
+        {
+          "text": "Dissertações espíritas",
+          "occurrences": 14
+        },
+        {
+          "text": "Segunda Parte – Capítulo XXXI",
+          "occurrences": 14
+        },
+        {
+          "text": "Das evocações",
+          "occurrences": 13
+        },
+        {
+          "text": "Segunda Parte – Capítulo XXV",
+          "occurrences": 12
+        },
+        {
+          "text": "Segunda Parte – Capítulo V",
+          "occurrences": 11
+        },
+        {
+          "text": "Das manifestações físicas espontâneas",
+          "occurrences": 9
+        },
+        {
+          "text": "Das manifestações visuais",
+          "occurrences": 9
+        },
+        {
+          "text": "Segunda Parte – Capítulo VI",
+          "occurrences": 9
+        },
+        {
+          "text": "Da identidade dos Espíritos",
+          "occurrences": 9
+        },
+        {
+          "text": "Segunda Parte – Capítulo XXIV",
+          "occurrences": 9
+        },
+        {
+          "text": "Segunda Parte – Capítulo XXIX",
+          "occurrences": 9
+        },
+        {
+          "text": "Dos sistemas",
+          "occurrences": 8
+        },
+        {
+          "text": "Primeira Parte – Capítulo IV",
+          "occurrences": 8
+        },
+        {
+          "text": "Dos médiuns especiais",
+          "occurrences": 8
+        },
+        {
+          "text": "Segunda Parte – Capítulo XVI",
+          "occurrences": 8
+        },
+        {
+          "text": "Da formação dos médiuns",
+          "occurrences": 8
+        },
+        {
+          "text": "Da obsessão",
+          "occurrences": 8
+        },
+        {
+          "text": "Segunda Parte – Capítulo XXVI",
+          "occurrences": 8
+        },
+        {
+          "text": "Das reuniões e das Sociedades Espíritas",
+          "occurrences": 8
+        }
+      ],
+      "metadata": {
+        "CreationDate": "D:20200323150441-03'00'",
+        "Creator": "Adobe InDesign 15.0 (Windows)",
+        "ModDate": "D:20200323150711-03'00'",
+        "Producer": "Adobe PDF Library 15.0",
+        "Trapped": "/False"
+      },
+      "ocr_required": false,
+      "suitable_for_structural_analysis": true,
+      "rights_status": "permission-required-for-production"
+    },
+    {
+      "book_id": 3,
+      "slug": "o-evangelho-segundo-o-espiritismo",
+      "title": "O Evangelho Segundo o Espiritismo",
+      "translator": "Guillon Ribeiro",
+      "source_file": "WEB-O-Evangelho-segundo-o-Espiritismo-Guillon.pdf",
+      "expected_sha256": "524a5b59607794335e2f704f58108c12ec16c7937516ff0c5efb07964aa455af",
+      "actual_sha256": "524a5b59607794335e2f704f58108c12ec16c7937516ff0c5efb07964aa455af",
+      "hash_matches": true,
+      "expected_pdf_page_count": 417,
+      "actual_pdf_page_count": 417,
+      "page_count_matches": true,
+      "text_page_count": 393,
+      "empty_page_count": 24,
+      "empty_pages": [
+        1,
+        3,
+        13,
+        15,
+        17,
+        41,
+        51,
+        67,
+        79,
+        105,
+        111,
+        123,
+        135,
+        165,
+        197,
+        207,
+        215,
+        261,
+        291,
+        311,
+        325,
+        377,
+        413,
+        415
+      ],
+      "text_coverage_percentage": 94.24,
+      "total_extracted_characters": 865455,
+      "dehyphenation_candidates": 1665,
+      "replacement_character_count": 0,
+      "toc_signal_count_first_20_pages": 38,
+      "repeated_edge_lines": [
+        {
+          "text": "Índice Geral",
+          "occurrences": 33
+        },
+        {
+          "text": "Coletânea de preces espíritas",
+          "occurrences": 23
+        },
+        {
+          "text": "Capítulo XXVIII",
+          "occurrences": 23
+        },
+        {
+          "text": "Introdução",
+          "occurrences": 22
+        },
+        {
+          "text": "Bem-aventurados os aflitos",
+          "occurrences": 13
+        },
+        {
+          "text": "Capítulo V",
+          "occurrences": 12
+        },
+        {
+          "text": "Capítulo XIII",
+          "occurrences": 9
+        },
+        {
+          "text": "Não saiba a vossa mão esquerda o que dê a vossa mão direita",
+          "occurrences": 9
+        },
+        {
+          "text": "Capítulo XVI",
+          "occurrences": 8
+        },
+        {
+          "text": "Não se pode servir a Deus e a Mamon",
+          "occurrences": 7
+        },
+        {
+          "text": "Pedi e obtereis",
+          "occurrences": 7
+        },
+        {
+          "text": "Capítulo X",
+          "occurrences": 6
+        },
+        {
+          "text": "Amai os vossos inimigos",
+          "occurrences": 6
+        },
+        {
+          "text": "Capítulo XII",
+          "occurrences": 6
+        },
+        {
+          "text": "Sede perfeitos",
+          "occurrences": 6
+        },
+        {
+          "text": "Capítulo XVII",
+          "occurrences": 6
+        },
+        {
+          "text": "Capítulo XXVII",
+          "occurrences": 6
+        },
+        {
+          "text": "Não vim destruir a lei",
+          "occurrences": 5
+        },
+        {
+          "text": "Há muitas moradas na casa de meu Pai",
+          "occurrences": 5
+        },
+        {
+          "text": "Capítulo IV",
+          "occurrences": 5
+        }
+      ],
+      "metadata": {
+        "CreationDate": "D:20200323152824-03'00'",
+        "Creator": "Adobe InDesign 15.0 (Windows)",
+        "ModDate": "D:20200323153911-03'00'",
+        "Producer": "Adobe PDF Library 15.0",
+        "Trapped": "/False"
+      },
+      "ocr_required": false,
+      "suitable_for_structural_analysis": true,
+      "rights_status": "permission-required-for-production"
+    },
+    {
+      "book_id": 4,
+      "slug": "o-ceu-e-o-inferno",
+      "title": "O Céu e o Inferno",
+      "translator": "Manuel Justiniano Quintão",
+      "source_file": "WEB-O-Ceu-e-o-inferno-Guillon.pdf",
+      "expected_sha256": "68c4a430173adca380e87e4ebe014699b594f1ea893fa7c92ce8bfdc0b90374d",
+      "actual_sha256": "68c4a430173adca380e87e4ebe014699b594f1ea893fa7c92ce8bfdc0b90374d",
+      "hash_matches": true,
+      "expected_pdf_page_count": 409,
+      "actual_pdf_page_count": 409,
+      "page_count_matches": true,
+      "text_page_count": 390,
+      "empty_page_count": 19,
+      "empty_pages": [
+        1,
+        3,
+        9,
+        11,
+        37,
+        57,
+        63,
+        79,
+        93,
+        105,
+        139,
+        149,
+        151,
+        159,
+        219,
+        263,
+        293,
+        379,
+        385
+      ],
+      "text_coverage_percentage": 95.35,
+      "total_extracted_characters": 829948,
+      "dehyphenation_candidates": 1872,
+      "replacement_character_count": 0,
+      "toc_signal_count_first_20_pages": 47,
+      "repeated_edge_lines": [
+        {
+          "text": "Espíritos felizes",
+          "occurrences": 30
+        },
+        {
+          "text": "Segunda Parte – Capítulo II",
+          "occurrences": 29
+        },
+        {
+          "text": "Índice Geral",
+          "occurrences": 22
+        },
+        {
+          "text": "Expiações terrestres",
+          "occurrences": 21
+        },
+        {
+          "text": "Segunda Parte – Capítulo VIII",
+          "occurrences": 20
+        },
+        {
+          "text": "Suicidas",
+          "occurrences": 15
+        },
+        {
+          "text": "Espíritos sofredores",
+          "occurrences": 14
+        },
+        {
+          "text": "Segunda Parte – Capítulo V",
+          "occurrences": 14
+        },
+        {
+          "text": "Criminosos arrependidos",
+          "occurrences": 14
+        },
+        {
+          "text": "Segunda Parte – Capítulo VI",
+          "occurrences": 14
+        },
+        {
+          "text": "Segunda Parte – Capítulo IV",
+          "occurrences": 13
+        },
+        {
+          "text": "O inferno",
+          "occurrences": 10
+        },
+        {
+          "text": "Primeira Parte – Capítulo IV",
+          "occurrences": 9
+        },
+        {
+          "text": "Doutrina das penas eternas",
+          "occurrences": 8
+        },
+        {
+          "text": "Os demônios",
+          "occurrences": 8
+        },
+        {
+          "text": "Primeira Parte – Capítulo IX",
+          "occurrences": 8
+        },
+        {
+          "text": "Primeira Parte – Capítulo X",
+          "occurrences": 8
+        },
+        {
+          "text": "Intervenção dos demônios nas modernas manifestações",
+          "occurrences": 8
+        },
+        {
+          "text": "Segunda Parte – Capítulo III",
+          "occurrences": 8
+        },
+        {
+          "text": "Espíritos endurecidos",
+          "occurrences": 8
+        }
+      ],
+      "metadata": {
+        "CreationDate": "D:20200323142707-03'00'",
+        "Creator": "Adobe InDesign 15.0 (Windows)",
+        "ModDate": "D:20200323143041-03'00'",
+        "Producer": "Adobe PDF Library 15.0",
+        "Trapped": "/False"
+      },
+      "ocr_required": false,
+      "suitable_for_structural_analysis": true,
+      "rights_status": "permission-required-for-production"
+    },
+    {
+      "book_id": 5,
+      "slug": "a-genese",
+      "title": "A Gênese",
+      "translator": "Guillon Ribeiro",
+      "source_file": "WEB-A-Genese-Guillon.pdf",
+      "expected_sha256": "c8589e820ee845ceef851f94b697153d82a8d858dd34d99aac694dae22b16488",
+      "actual_sha256": "c8589e820ee845ceef851f94b697153d82a8d858dd34d99aac694dae22b16488",
+      "hash_matches": true,
+      "expected_pdf_page_count": 417,
+      "actual_pdf_page_count": 417,
+      "page_count_matches": true,
+      "text_page_count": 395,
+      "empty_page_count": 22,
+      "empty_pages": [
+        1,
+        3,
+        11,
+        15,
+        17,
+        63,
+        83,
+        123,
+        147,
+        167,
+        183,
+        209,
+        231,
+        273,
+        315,
+        317,
+        355,
+        375,
+        381,
+        411,
+        413,
+        415
+      ],
+      "text_coverage_percentage": 94.72,
+      "total_extracted_characters": 884034,
+      "dehyphenation_candidates": 2012,
+      "replacement_character_count": 0,
+      "toc_signal_count_first_20_pages": 40,
+      "repeated_edge_lines": [
+        {
+          "text": "Índice Geral",
+          "occurrences": 28
+        },
+        {
+          "text": "Os milagres do Evangelho",
+          "occurrences": 21
+        },
+        {
+          "text": "Capítulo XV",
+          "occurrences": 20
+        },
+        {
+          "text": "Caráter da revelação espírita",
+          "occurrences": 16
+        },
+        {
+          "text": "Capítulo I",
+          "occurrences": 16
+        },
+        {
+          "text": "Capítulo VI",
+          "occurrences": 15
+        },
+        {
+          "text": "Uranografia geral",
+          "occurrences": 15
+        },
+        {
+          "text": "Os fluidos",
+          "occurrences": 15
+        },
+        {
+          "text": "Capítulo XIV",
+          "occurrences": 14
+        },
+        {
+          "text": "Predições do Evangelho",
+          "occurrences": 14
+        },
+        {
+          "text": "Gênese espiritual",
+          "occurrences": 13
+        },
+        {
+          "text": "Capítulo XVII",
+          "occurrences": 13
+        },
+        {
+          "text": "Esboço geológico da T erra",
+          "occurrences": 12
+        },
+        {
+          "text": "Capítulo XI",
+          "occurrences": 12
+        },
+        {
+          "text": "Capítulo VII",
+          "occurrences": 11
+        },
+        {
+          "text": "Gênese moisaica",
+          "occurrences": 10
+        },
+        {
+          "text": "Capítulo XII",
+          "occurrences": 10
+        },
+        {
+          "text": "São chegados os tempos",
+          "occurrences": 10
+        },
+        {
+          "text": "Capítulo XVIII",
+          "occurrences": 9
+        },
+        {
+          "text": "Gênese orgânica",
+          "occurrences": 8
+        }
+      ],
+      "metadata": {
+        "CreationDate": "D:20200323110656-03'00'",
+        "Creator": "Adobe InDesign 15.0 (Windows)",
+        "ModDate": "D:20200323111134-03'00'",
+        "Producer": "Adobe PDF Library 15.0",
+        "Trapped": "/False"
+      },
+      "ocr_required": false,
+      "suitable_for_structural_analysis": true,
+      "rights_status": "permission-required-for-production"
+    }
+  ]
+}

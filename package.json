@@ -9,7 +9,10 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "test": "vitest",
-    "test:run": "vitest run"
+    "test:run": "vitest run",
+    "content:manifest:validate": "node scripts/content_pipeline/validate_manifest.mjs",
+    "content:sources:report": "node scripts/content_pipeline/create_source_report.mjs",
+    "content:sources:inspect": "node scripts/content_pipeline/run_python.mjs scripts/content_pipeline/inspect_sources.py"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

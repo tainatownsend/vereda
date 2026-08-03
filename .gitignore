@@ -27,3 +27,14 @@ dist-ssr
 *.sw?
 
 *:Zone.Identifier
+
+# Local canonical source PDFs
+content/sources/*.pdf
+content/staging/raw/*
+!content/staging/raw/.gitkeep
+.venv-content/
+content/sources/local-sources.json
+content/staging/extracted/*
+!content/staging/extracted/.gitkeep
+content/staging/normalized/*
+!content/staging/normalized/.gitkeep
