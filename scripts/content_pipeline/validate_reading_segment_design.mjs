@@ -21,17 +21,24 @@ const contract = JSON.parse(
   ),
 )
 
-const loadSql = await readFile(
-  path.resolve(
-    manifest.artifacts.draft_load_sql,
+const normalizeNewlines = (value) =>
+  value.replace(/\r\n?/g, '\n')
+
+const loadSql = normalizeNewlines(
+  await readFile(
+    path.resolve(
+      manifest.artifacts.draft_load_sql,
+    ),
+    'utf8',
   ),
-  'utf8',
 )
-const verificationSql = await readFile(
-  path.resolve(
-    manifest.artifacts.future_verification_sql,
+const verificationSql = normalizeNewlines(
+  await readFile(
+    path.resolve(
+      manifest.artifacts.future_verification_sql,
+    ),
+    'utf8',
   ),
-  'utf8',
 )
 
 const sha256 = (value) =>
