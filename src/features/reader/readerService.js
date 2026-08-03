@@ -33,6 +33,20 @@ function throwIfError(error, fallback) {
   throw wrapped
 }
 
+export async function getBookIndexSections(bookId) {
+  const { data, error } = await supabase
+    .from('sections')
+    .select(
+      'id, sec_position, title, kind, part_title, chapter_label, chapter_title, section_title',
+    )
+    .eq('book_id', bookId)
+    .order('sec_position')
+
+  throwIfError(error, 'Não foi possível carregar o índice da obra.')
+
+  return (data || []).map(normalizeSection)
+}
+
 export async function getReaderState({ userId, bookId, readDate }) {
   const { data, error } = await supabase.rpc('get_reader_state', {
     p_user_id: userId,

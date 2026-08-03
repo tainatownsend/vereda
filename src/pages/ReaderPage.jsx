@@ -12,6 +12,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Home,
+  ListTree,
   RefreshCw,
   Type,
   X,
@@ -20,6 +21,7 @@ import {
 import { useAuthStore, useUIStore } from '@/store'
 import { useBooks, useReadingTime, useScrollProgress } from '@/hooks'
 import { READER_PHASE } from '@/features/reader/readerMachine'
+import BookIndexPanel from '@/features/reader/BookIndexPanel'
 import { useReadingSession } from '@/features/reader/useReadingSession'
 import { Button, PageLoader } from '@/components/ui'
 
@@ -38,6 +40,7 @@ export default function ReaderPage() {
   const { user } = useAuthStore()
   const { fontSize, setFontSize } = useUIStore()
   const [showSettings, setShowSettings] = useState(false)
+  const [showIndex, setShowIndex] = useState(false)
   const [textAlign, setTextAlign] = useState('left')
   const settingsRef = useRef(null)
 
@@ -243,29 +246,44 @@ export default function ReaderPage() {
             </p>
           </div>
 
-          <div ref={settingsRef} className="relative">
+          <div className="flex shrink-0 items-center gap-2">
             <button
               type="button"
-              onClick={() => setShowSettings((visible) => !visible)}
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-vesSm border border-line bg-surface text-sage-800 hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-300 dark:hover:bg-sage-950"
-              aria-label="Configurações de leitura"
-              aria-expanded={showSettings}
+              onClick={() => {
+                setShowSettings(false)
+                setShowIndex(true)
+                session.loadBookIndex()
+              }}
+              className="flex h-12 w-12 items-center justify-center rounded-vesSm border border-line bg-surface text-sage-800 hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-300 dark:hover:bg-sage-950"
+              aria-label="Abrir índice da obra"
             >
-              {showSettings ? (
-                <X size={21} aria-hidden="true" />
-              ) : (
-                <Type size={21} aria-hidden="true" />
-              )}
+              <ListTree size={21} aria-hidden="true" />
             </button>
 
-            {showSettings && (
-              <ReaderSettings
-                fontSize={fontSize}
-                setFontSize={setFontSize}
-                textAlign={textAlign}
-                setTextAlign={setTextAlign}
-              />
-            )}
+            <div ref={settingsRef} className="relative">
+              <button
+                type="button"
+                onClick={() => setShowSettings((visible) => !visible)}
+                className="flex h-12 w-12 items-center justify-center rounded-vesSm border border-line bg-surface text-sage-800 hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-300 dark:hover:bg-sage-950"
+                aria-label="Configurações de leitura"
+                aria-expanded={showSettings}
+              >
+                {showSettings ? (
+                  <X size={21} aria-hidden="true" />
+                ) : (
+                  <Type size={21} aria-hidden="true" />
+                )}
+              </button>
+
+              {showSettings && (
+                <ReaderSettings
+                  fontSize={fontSize}
+                  setFontSize={setFontSize}
+                  textAlign={textAlign}
+                  setTextAlign={setTextAlign}
+                />
+              )}
+            </div>
           </div>
         </div>
       </header>
@@ -317,6 +335,21 @@ export default function ReaderPage() {
           </>
         )}
       </main>
+
+      <BookIndexPanel
+        open={showIndex}
+        onClose={() => setShowIndex(false)}
+        bookTitle={book.title}
+        sections={session.bookIndexSections}
+        loading={session.indexLoading}
+        viewedPosition={currentSection.sec_position}
+        persistedPosition={session.readerState?.current_section || 1}
+        bookCompleted={Boolean(session.readerState?.book_completed)}
+        onSelect={async (section) => {
+          setShowIndex(false)
+          await session.jumpToSection(section)
+        }}
+      />
 
       <footer className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-canvas/95 px-4 pb-safe pt-3 backdrop-blur-md dark:border-night-line dark:bg-night/95">
         <div className="mx-auto flex max-w-[72ch] gap-3 pb-3">

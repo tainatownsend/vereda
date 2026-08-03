@@ -8,6 +8,7 @@ import {
 } from '@/features/reader/readerMachine'
 import {
   completeSection,
+  getBookIndexSections,
   getBookLastPosition,
   getChapterSections,
   getLocalDate,
@@ -28,6 +29,8 @@ export function useReadingSession({
   const [readerState, setReaderState] = useState(null)
   const [lastPosition, setLastPosition] = useState(0)
   const [chapterSections, setChapterSections] = useState([])
+  const [bookIndexSections, setBookIndexSections] = useState([])
+  const [indexLoading, setIndexLoading] = useState(false)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState(null)
   const [goalNoticeVisible, setGoalNoticeVisible] = useState(false)
@@ -210,6 +213,58 @@ export function useReadingSession({
     currentSection?.chapter_label,
     currentSection?.part_title,
   ])
+
+  const loadBookIndex = useCallback(async () => {
+    if (!bookId || bookIndexSections.length || indexLoading) return
+
+    setIndexLoading(true)
+
+    try {
+      const data = await getBookIndexSections(bookId)
+      setBookIndexSections(data)
+    } catch (indexError) {
+      setError(indexError)
+      setPhase(READER_PHASE.ERROR)
+    } finally {
+      setIndexLoading(false)
+    }
+  }, [bookId, bookIndexSections.length, indexLoading])
+
+  const jumpToSection = useCallback(
+    async (section) => {
+      if (!bookId || !section?.sec_position) return
+
+      try {
+        let targetIndex = findSectionIndex(
+          sections,
+          section.sec_position,
+        )
+
+        if (targetIndex === -1) {
+          const targetSections = await getSectionsFromPosition({
+            bookId,
+            position: section.sec_position,
+          })
+
+          if (!targetSections.length) {
+            throw new Error('A seção escolhida não pôde ser carregada.')
+          }
+
+          setSections(targetSections)
+          targetIndex = 0
+        }
+
+        setCurrentIndex(targetIndex)
+        setPhase(READER_PHASE.READING)
+        window.scrollTo({ top: 0, behavior: 'auto' })
+        restartSectionTimer()
+      } catch (jumpError) {
+        setError(jumpError)
+        setPhase(READER_PHASE.ERROR)
+      }
+    },
+    [bookId, restartSectionTimer, sections],
+  )
 
   const completeCurrentSection = useCallback(async () => {
     if (
@@ -416,6 +471,8 @@ export function useReadingSession({
     currentIndex,
     currentSection,
     chapterSections,
+    bookIndexSections,
+    indexLoading,
     readerState,
     lastPosition,
     saving,
@@ -424,6 +481,8 @@ export function useReadingSession({
     elapsedSeconds,
     sectionsReadInWindow,
     reload: load,
+    loadBookIndex,
+    jumpToSection,
     dismissError,
     completeCurrentSection,
     continueAfterGoal,
