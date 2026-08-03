@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-application-planning",
+  "policy_version": "2026-08-03-mechanical-boundary-application-plan-v1",
+  "purpose": "Prepare a transactional and content-free database application plan for the 166 independently accepted mechanical boundary decisions.",
+  "status_transition": {
+    "from": "boundary-review",
+    "to": "content-review",
+    "meaning": "Canonical boundaries passed independent review and may proceed to content review. This is not final content approval."
+  },
+  "target_requirements": {
+    "accepted_decision_count": 166,
+    "book_id": 3,
+    "current_status": "boundary-review",
+    "content_must_remain_null": true,
+    "word_count_must_remain_null": true,
+    "normalized_content_sha256_must_remain_null": true,
+    "start_locator_must_remain_unchanged": true,
+    "end_locator_must_remain_unchanged": true,
+    "segment_order_must_remain_unchanged": true,
+    "segment_key_must_remain_unchanged": true
+  },
+  "transaction_requirements": {
+    "migration_run_status": "reviewing",
+    "rights_status": "blocked",
+    "total_staged_segments": 812,
+    "target_segments": 166,
+    "unaffected_segments": 646,
+    "production_sections": 908,
+    "successor_mappings": 0,
+    "dependency_snapshots": 0,
+    "dry_run_results": 0,
+    "prior_application_audit_events": 0
+  },
+  "planned_artifacts": {
+    "preflight_sql": "supabase/audits/mechanical_boundary_application_preflight.sql",
+    "application_sql": "supabase/staging/20260803110000_apply_mechanical_boundary_decisions_v1.sql",
+    "verification_sql": "supabase/audits/mechanical_boundary_application_verification.sql"
+  },
+  "application_boundary": {
+    "plan_generated": true,
+    "database_application_authorized": false,
+    "sql_generated": true,
+    "sql_applied": false,
+    "staging_updated": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
