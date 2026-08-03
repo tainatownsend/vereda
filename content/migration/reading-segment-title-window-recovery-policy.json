@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-title-window-recovery",
+  "policy_version": "2026-08-03-title-window-recovery-v1",
+  "purpose": "Attempt a bounded recovery of the three current-title-window cases using canonical local editions, multi-line title reconstruction, and conservative replacement decisions.",
+  "resolution_lane": "current-title-window-recovery",
+  "expected": {
+    "target_item_count": 3,
+    "target_batch_count": 2,
+    "book_ids": [
+      1,
+      2
+    ],
+    "prior_reviewed_count": 4,
+    "prior_unresolved_count": 14,
+    "pending_count_preserved": 126,
+    "public_decision_count_preserved": 18,
+    "completed_packet_count_preserved": 4,
+    "pending_packet_count_preserved": 12
+  },
+  "matching_rules": {
+    "canonical_source_sha256_required": true,
+    "selected_page_may_expand_by": 2,
+    "maximum_title_window_lines": 8,
+    "maximum_successor_search_pages": 4,
+    "punctuation_insensitive": true,
+    "accent_insensitive": true,
+    "ordinal_variants": true,
+    "part_order_variants": true,
+    "multi_line_reconstruction": true,
+    "short_successor_requires_structural_exactness": true
+  },
+  "classification_rules": {
+    "heading_only": {
+      "selected_decision": "exclude-structural-heading",
+      "minimum_confidence": "medium"
+    },
+    "independent_prose": {
+      "selected_decision": "retain-intro-segment",
+      "minimum_confidence": "medium"
+    },
+    "insufficient_evidence": {
+      "selected_decision": "unresolved",
+      "reviewer_confidence": "low"
+    }
+  },
+  "public_evidence_allowlist": [
+    "recovery_id",
+    "analysis_id",
+    "original_decision_id",
+    "inspection_id",
+    "packet_id",
+    "book_id",
+    "book_slug",
+    "segment_key",
+    "segment_order",
+    "display_title",
+    "successor_title",
+    "recovery_status",
+    "selected_decision",
+    "source_file",
+    "source_sha256",
+    "source_pdf_page_reviewed",
+    "successor_source_pdf_page_reviewed",
+    "current_title_match_method",
+    "current_title_match_score",
+    "current_title_window_line_count",
+    "successor_title_found",
+    "successor_match_method",
+    "pages_inspected",
+    "toc_signal_count",
+    "prose_signal_count",
+    "prose_word_count",
+    "structural_line_count",
+    "visible_prose_presence",
+    "reviewer_confidence",
+    "unresolved_reason",
+    "supersedes_original_unresolved",
+    "source_text_included",
+    "source_excerpt_included",
+    "boundary_approved",
+    "database_change_applied",
+    "cutover_enabled"
+  ],
+  "forbidden_public_fields": [
+    "source_text",
+    "source_excerpt",
+    "quoted_text",
+    "quotation",
+    "full_text",
+    "normalized_content",
+    "private_notes",
+    "reviewer_notes",
+    "ocr_text",
+    "page_text",
+    "between_lines",
+    "matched_lines"
+  ],
+  "recovery_boundary": {
+    "local_sources_read": true,
+    "structured_recovery_attempts_recorded": true,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "original_decision_artifact_modified": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}

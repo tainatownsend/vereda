@@ -368,11 +368,16 @@ for (const forbidden of [
 }
 
 if (
-  progress.status !==
-    'container-intro-review-completed-not-applied' ||
+  ![
+    'container-intro-review-completed-not-applied',
+    'title-window-recovery-completed-not-applied',
+  ].includes(progress.status) ||
   progress.totals?.pending_count !== 126 ||
-  progress.totals?.reviewed_count !== 4 ||
-  progress.totals?.unresolved_count !== 14 ||
+  progress.totals?.reviewed_count < 4 ||
+  progress.totals?.unresolved_count > 14 ||
+  progress.totals?.reviewed_count +
+    progress.totals?.unresolved_count !==
+    18 ||
   progress.totals?.public_decision_count !== 18 ||
   progress.totals?.completed_packet_count !== 4 ||
   progress.totals?.pending_packet_count !== 12 ||
@@ -381,7 +386,7 @@ if (
   worklist.totals?.item_count !== 144
 ) {
   errors.push(
-    'upstream review progress changed unexpectedly',
+    'cumulative review progress is inconsistent',
   )
 }
 

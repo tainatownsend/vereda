@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "status": "container-intro-review-completed-not-applied",
-  "policy_version": "2026-08-03-container-intro-source-review-v1",
+  "status": "title-window-recovery-completed-not-applied",
+  "policy_version": "2026-08-03-title-window-recovery-v1",
   "run_id": "adcff561-8f92-545c-a219-615818a454f4",
   "totals": {
     "item_count": 144,
@@ -15,7 +15,9 @@
     "pending_packet_count": 12,
     "completed_mechanical_count": 166,
     "remaining_boundary_review_count": 646,
-    "database_change_count": 0
+    "database_change_count": 0,
+    "title_window_recovered_count": 0,
+    "title_window_still_unresolved_count": 3
   },
   "packets": [
     {

@@ -65,7 +65,9 @@
     "content:staging:segments:source-review:container-intro:review": "python scripts/content_pipeline/review_container_intro_packets.py",
     "content:staging:segments:source-review:container-intro:validate": "node scripts/content_pipeline/validate_container_intro_review.mjs",
     "content:staging:segments:source-review:unresolved:analyze": "node scripts/content_pipeline/analyze_unresolved_container_intros.mjs",
-    "content:staging:segments:source-review:unresolved:validate": "node scripts/content_pipeline/validate_unresolved_container_intro_analysis.mjs"
+    "content:staging:segments:source-review:unresolved:validate": "node scripts/content_pipeline/validate_unresolved_container_intro_analysis.mjs",
+    "content:staging:segments:source-review:title-window:recover": "python scripts/content_pipeline/recover_title_windows.py",
+    "content:staging:segments:source-review:title-window:validate": "node scripts/content_pipeline/validate_title_window_recovery.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
