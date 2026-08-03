@@ -40,3 +40,6 @@ content/staging/normalized/*
 !content/staging/normalized/.gitkeep
 __pycache__/
 *.py[cod]
+
+# Local editorial review workspace — never commit
+.vereda-private/

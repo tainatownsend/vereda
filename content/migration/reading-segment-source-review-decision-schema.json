@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "schema_name": "vereda-source-review-decision",
+  "policy_version": "2026-08-03-source-review-decision-framework-v1",
+  "description": "Structured public decision record. Source text, excerpts, quotations, OCR output, and private notes are forbidden.",
+  "required_identity_fields": [
+    "decision_id",
+    "inspection_id",
+    "packet_id",
+    "run_id",
+    "policy_version",
+    "book_id",
+    "segment_key",
+    "inspection_lane"
+  ],
+  "required_review_fields_when_completed": [
+    "review_status",
+    "selected_decision",
+    "evidence",
+    "reviewer_confidence",
+    "review_completed_at"
+  ],
+  "evidence_shape": {
+    "source_pdf_page_reviewed": "integer-or-null",
+    "printed_page_reviewed": "integer-or-null",
+    "visible_prose_presence": "enum-or-null",
+    "successor_anchor_type": "enum-or-null",
+    "locator_type": "enum-or-null",
+    "locator_value": "string-or-number-or-null",
+    "source_reference_only": "boolean"
+  },
+  "completion_rules": {
+    "pending": "All decision and evidence values remain null.",
+    "in-review": "Private workspace may contain notes, while the public worklist remains unapplied.",
+    "reviewed": "Selected decision must belong to the inspection item's decision options and all lane evidence requirements must be present.",
+    "unresolved": "Selected decision must equal unresolved and required source-page evidence must be present."
+  },
+  "forbidden_public_content": [
+    "source text",
+    "source excerpts",
+    "quotations",
+    "OCR output",
+    "normalized source content",
+    "private reviewer notes"
+  ]
+}
