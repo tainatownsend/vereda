@@ -109,18 +109,45 @@ describe('pilot source review', () => {
     }
   })
 
-  it('records progress without applying decisions', () => {
+  it('preserves the pilot inside cumulative review progress', () => {
     expect(progress.totals).toMatchObject({
       item_count: 144,
       packet_count: 16,
-      pending_count: 142,
-      reviewed_count: 2,
-      public_decision_count: 2,
-      completed_packet_count: 1,
-      pending_packet_count: 15,
       completed_mechanical_count: 166,
       remaining_boundary_review_count: 646,
       database_change_count: 0,
+    })
+
+    expect(
+      progress.totals.pending_count +
+        progress.totals.reviewed_count +
+        progress.totals.unresolved_count,
+    ).toBe(144)
+    expect(
+      progress.totals.public_decision_count,
+    ).toBe(
+      progress.totals.reviewed_count +
+        progress.totals.unresolved_count,
+    )
+    expect(
+      progress.totals.completed_packet_count +
+        progress.totals.pending_packet_count,
+    ).toBe(16)
+
+    const pilotPacket =
+      progress.packets.find(
+        (packet) =>
+          packet.packet_id ===
+          decisions.packet_id,
+      )
+
+    expect(pilotPacket).toMatchObject({
+      item_count: 2,
+      pending_count: 0,
+      in_review_count: 0,
+      reviewed_count: 2,
+      unresolved_count: 0,
+      status: 'reviewed-not-applied',
     })
 
     expect(

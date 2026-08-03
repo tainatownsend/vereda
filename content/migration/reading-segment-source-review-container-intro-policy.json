@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-container-intro-review",
+  "policy_version": "2026-08-03-container-intro-source-review-v1",
+  "purpose": "Review the 16 remaining container-intro-only cases using verified local editions, structured evidence, and conservative unresolved handling.",
+  "target_packet_ids": [
+    "container-intro-only-book-1-packet-01",
+    "container-intro-only-book-2-packet-01",
+    "container-intro-only-book-3-packet-01"
+  ],
+  "expected": {
+    "packet_count": 3,
+    "item_count": 16,
+    "prior_reviewed_count": 2,
+    "prior_pending_count": 142,
+    "pending_count_after_review": 126,
+    "completed_packet_count_after_review": 4,
+    "pending_packet_count_after_review": 12
+  },
+  "source_book_ids": [
+    1,
+    2,
+    3
+  ],
+  "source_usage": "local-structural-analysis-only",
+  "classification_rules": {
+    "heading_only": {
+      "selected_decision": "exclude-structural-heading",
+      "visible_prose_presence": "heading-only",
+      "minimum_confidence": "medium"
+    },
+    "independent_prose": {
+      "selected_decision": "retain-intro-segment",
+      "visible_prose_presence": "independent-prose",
+      "minimum_confidence": "medium"
+    },
+    "ambiguous": {
+      "selected_decision": "unresolved",
+      "visible_prose_presence": "unclear",
+      "reviewer_confidence": "low"
+    }
+  },
+  "page_selection": {
+    "require_canonical_source_sha256": true,
+    "prefer_non_contents_occurrence": true,
+    "use_successor_printed_page_as_distance_hint": true,
+    "maximum_successor_search_pages": 6,
+    "allow_unresolved_without_exact_title_candidate": true
+  },
+  "public_evidence_allowlist": [
+    "source_file",
+    "source_sha256",
+    "source_pdf_page_reviewed",
+    "successor_source_pdf_page_reviewed",
+    "printed_page_reviewed",
+    "visible_prose_presence",
+    "successor_anchor_type",
+    "locator_type",
+    "locator_value",
+    "source_reference_only",
+    "candidate_page_count",
+    "title_match_strength",
+    "toc_signal_count",
+    "prose_signal_count",
+    "structural_line_count",
+    "successor_title_found",
+    "pages_inspected"
+  ],
+  "forbidden_public_fields": [
+    "source_text",
+    "source_excerpt",
+    "quoted_text",
+    "quotation",
+    "full_text",
+    "normalized_content",
+    "private_notes",
+    "reviewer_notes",
+    "ocr_text",
+    "page_text",
+    "between_lines"
+  ],
+  "review_boundary": {
+    "target_packets_reviewed": true,
+    "structured_decisions_recorded": true,
+    "source_text_inspected_locally": true,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}

@@ -55,19 +55,26 @@ if (
   policy.status !==
     'accepted-for-pilot-source-review' ||
   decisions.status !==
-    'pilot-source-review-recorded-not-applied' ||
-  progress.status !==
-    'pilot-packet-reviewed-not-applied'
+    'pilot-source-review-recorded-not-applied'
 ) {
   errors.push(
-    'pilot policy, decisions, or progress status differs',
+    'pilot policy or decision status differs',
+  )
+}
+
+if (
+  ![
+    'pilot-packet-reviewed-not-applied',
+    'container-intro-review-completed-not-applied',
+  ].includes(progress.status)
+) {
+  errors.push(
+    'cumulative progress status is unsupported',
   )
 }
 
 if (
   decisions.policy_version !==
-    policy.policy_version ||
-  progress.policy_version !==
     policy.policy_version ||
   decisions.run_id !==
     worklist.run_id ||
@@ -77,7 +84,17 @@ if (
     expectedPacket
 ) {
   errors.push(
-    'pilot identity differs',
+    'pilot decision or migration identity differs',
+  )
+}
+
+if (
+  typeof progress.policy_version !==
+    'string' ||
+  progress.policy_version.length === 0
+) {
+  errors.push(
+    'cumulative progress policy version is missing',
   )
 }
 
@@ -245,16 +262,9 @@ if (
   )
 }
 
-const expectedProgress = {
+const preservedProgress = {
   item_count: 144,
   packet_count: 16,
-  pending_count: 142,
-  in_review_count: 0,
-  reviewed_count: 2,
-  unresolved_count: 0,
-  public_decision_count: 2,
-  completed_packet_count: 1,
-  pending_packet_count: 15,
   completed_mechanical_count: 166,
   remaining_boundary_review_count: 646,
   database_change_count: 0,
@@ -264,7 +274,7 @@ for (const [
   field,
   expected,
 ] of Object.entries(
-  expectedProgress,
+  preservedProgress,
 )) {
   if (
     progress.totals?.[field] !==
@@ -274,6 +284,24 @@ for (const [
       `${field}: expected ${expected}; received ${progress.totals?.[field]}`,
     )
   }
+}
+
+if (
+  progress.totals?.in_review_count !== 0 ||
+  progress.totals?.pending_count +
+    progress.totals?.reviewed_count +
+    progress.totals?.unresolved_count !==
+    144 ||
+  progress.totals?.public_decision_count !==
+    progress.totals?.reviewed_count +
+      progress.totals?.unresolved_count ||
+  progress.totals?.completed_packet_count +
+    progress.totals?.pending_packet_count !==
+    16
+) {
+  errors.push(
+    'cumulative review progress totals are inconsistent',
+  )
 }
 
 const pilotProgress =
@@ -301,17 +329,14 @@ for (
   progress.packets || []
 ) {
   if (
-    packet.packet_id !==
-    expectedPacket &&
-    (
-      packet.pending_count !==
-        packet.item_count ||
-      packet.reviewed_count !== 0 ||
-      packet.status !== 'pending'
-    )
+    packet.pending_count +
+      packet.reviewed_count +
+      packet.unresolved_count !==
+      packet.item_count ||
+    packet.in_review_count !== 0
   ) {
     errors.push(
-      `${packet.packet_id}: non-pilot packet changed`,
+      `${packet.packet_id}: packet progress totals are inconsistent`,
     )
   }
 }
@@ -416,10 +441,10 @@ console.log(
   'Validated 2 structured pilot decisions.',
 )
 console.log(
-  'Validated 142 pending and 2 reviewed source-review items.',
+  `Validated cumulative progress: ${progress.totals.pending_count} pending, ${progress.totals.reviewed_count} reviewed, and ${progress.totals.unresolved_count} unresolved items.`,
 )
 console.log(
-  'Validated 1 completed and 15 pending review packets.',
+  `Validated ${progress.totals.completed_packet_count} completed and ${progress.totals.pending_packet_count} pending review packets.`,
 )
 console.log(
   'Validated source-text exclusion and private workspace isolation.',

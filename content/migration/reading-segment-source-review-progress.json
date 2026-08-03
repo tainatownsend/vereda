@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
-  "status": "pilot-packet-reviewed-not-applied",
-  "policy_version": "2026-08-03-source-review-pilot-v1",
+  "status": "container-intro-review-completed-not-applied",
+  "policy_version": "2026-08-03-container-intro-source-review-v1",
   "run_id": "adcff561-8f92-545c-a219-615818a454f4",
   "totals": {
     "item_count": 144,
     "packet_count": 16,
-    "pending_count": 142,
+    "pending_count": 126,
     "in_review_count": 0,
-    "reviewed_count": 2,
-    "unresolved_count": 0,
-    "public_decision_count": 2,
-    "completed_packet_count": 1,
-    "pending_packet_count": 15,
+    "reviewed_count": 4,
+    "unresolved_count": 14,
+    "public_decision_count": 18,
+    "completed_packet_count": 4,
+    "pending_packet_count": 12,
     "completed_mechanical_count": 166,
     "remaining_boundary_review_count": 646,
     "database_change_count": 0
@@ -23,33 +23,33 @@
       "book_id": 1,
       "inspection_lane": "container-intro-only",
       "item_count": 4,
-      "pending_count": 4,
+      "pending_count": 0,
       "in_review_count": 0,
-      "reviewed_count": 0,
-      "unresolved_count": 0,
-      "status": "pending"
+      "reviewed_count": 1,
+      "unresolved_count": 3,
+      "status": "review-completed-with-unresolved"
     },
     {
       "packet_id": "container-intro-only-book-2-packet-01",
       "book_id": 2,
       "inspection_lane": "container-intro-only",
       "item_count": 9,
-      "pending_count": 9,
+      "pending_count": 0,
       "in_review_count": 0,
-      "reviewed_count": 0,
-      "unresolved_count": 0,
-      "status": "pending"
+      "reviewed_count": 1,
+      "unresolved_count": 8,
+      "status": "review-completed-with-unresolved"
     },
     {
       "packet_id": "container-intro-only-book-3-packet-01",
       "book_id": 3,
       "inspection_lane": "container-intro-only",
       "item_count": 3,
-      "pending_count": 3,
+      "pending_count": 0,
       "in_review_count": 0,
       "reviewed_count": 0,
-      "unresolved_count": 0,
-      "status": "pending"
+      "unresolved_count": 3,
+      "status": "review-completed-with-unresolved"
     },
     {
       "packet_id": "container-intro-only-book-4-packet-01",
