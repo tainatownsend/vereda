@@ -2,6 +2,9 @@ import { readFileSync } from 'node:fs'
 
 import { describe, expect, it } from 'vitest'
 
+const normalizeNewlines = (value) =>
+  value.replace(/\r\n?/g, '\n')
+
 const manifest = JSON.parse(
   readFileSync(
     'content/migration/reading-segment-design-manifest.json',
@@ -14,13 +17,17 @@ const queue = JSON.parse(
     'utf8',
   ),
 )
-const loadSql = readFileSync(
-  manifest.artifacts.draft_load_sql,
-  'utf8',
+const loadSql = normalizeNewlines(
+  readFileSync(
+    manifest.artifacts.draft_load_sql,
+    'utf8',
+  ),
 )
-const verificationSql = readFileSync(
-  manifest.artifacts.future_verification_sql,
-  'utf8',
+const verificationSql = normalizeNewlines(
+  readFileSync(
+    manifest.artifacts.future_verification_sql,
+    'utf8',
+  ),
 )
 
 describe('reading-segment design manifest', () => {

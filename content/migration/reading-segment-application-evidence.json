@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "status": "reading-segments-staged-and-verified",
+  "captured_at": "2026-08-03T05:11:57.503Z",
+  "design_version": "2026-08-03-reading-segment-boundaries-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "source_csv": {
+    "filename": "vereda_pr_0019_reading_segment_application.csv",
+    "sha256": "4f13991060a11aab83d5c7c7dc7959196f8f9922e1f430f2720f96be4bd36c1f"
+  },
+  "summary": {
+    "check_count": 23,
+    "blocking_failure_count": 0,
+    "reading_segment_count": 812,
+    "book_count": 5,
+    "boundary_review_count": 812,
+    "content_row_count": 0,
+    "successor_mapping_count": 0,
+    "dependency_snapshot_count": 0,
+    "production_section_count": 908,
+    "rights_status": "blocked",
+    "cutover_enabled": false
+  },
+  "checks": [
+    {
+      "check_key": "application-roles-denied",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "false",
+      "details": {
+        "expected_any_access": false
+      }
+    },
+    {
+      "check_key": "audit-event-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "1",
+      "details": {
+        "expected": 1
+      }
+    },
+    {
+      "check_key": "book-1-segment-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "200",
+      "details": {
+        "expected": 200
+      }
+    },
+    {
+      "check_key": "book-2-segment-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "135",
+      "details": {
+        "expected": 135
+      }
+    },
+    {
+      "check_key": "book-3-segment-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "230",
+      "details": {
+        "expected": 230
+      }
+    },
+    {
+      "check_key": "book-4-segment-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "110",
+      "details": {
+        "expected": 110
+      }
+    },
+    {
+      "check_key": "book-5-segment-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "137",
+      "details": {
+        "expected": 137
+      }
+    },
+    {
+      "check_key": "boundary-review-only",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    },
+    {
+      "check_key": "boundary-version-one",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    },
+    {
+      "check_key": "content-remains-null",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    },
+    {
+      "check_key": "dependency-snapshot-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    },
+    {
+      "check_key": "dry-run-result-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    },
+    {
+      "check_key": "editorial-node-references-valid",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    },
+    {
+      "check_key": "end-locators-present",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    },
+    {
+      "check_key": "migration-run-status",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "reviewing",
+      "details": {
+        "expected": "reviewing"
+      }
+    },
+    {
+      "check_key": "production-section-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "908",
+      "details": {
+        "expected": 908,
+        "contains_user_identifiers": false
+      }
+    },
+    {
+      "check_key": "reading-segment-total",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "812",
+      "details": {
+        "expected": 812
+      }
+    },
+    {
+      "check_key": "rights-status",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "blocked",
+      "details": {
+        "expected": "blocked"
+      }
+    },
+    {
+      "check_key": "segment-index-count-one",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    },
+    {
+      "check_key": "segment-key-uniqueness",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected_duplicates": 0
+      }
+    },
+    {
+      "check_key": "segment-order-contiguous",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected_invalid_books": 0
+      }
+    },
+    {
+      "check_key": "start-locators-present",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    },
+    {
+      "check_key": "successor-mapping-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    }
+  ],
+  "validation_errors": []
+}

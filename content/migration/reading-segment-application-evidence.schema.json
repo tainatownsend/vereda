@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vereda.app/schemas/reading-segment-application-evidence-v1.json",
+  "title": "Vereda Reading Segment Staging Application Evidence",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "captured_at",
+    "design_version",
+    "run_id",
+    "source_csv",
+    "summary",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "status": {
+      "enum": [
+        "reading-segments-staged-and-verified",
+        "reading-segment-application-blocked"
+      ]
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "design_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "source_csv": {
+      "type": "object",
+      "required": [
+        "filename",
+        "sha256"
+      ],
+      "properties": {
+        "filename": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "check_count",
+        "blocking_failure_count",
+        "reading_segment_count",
+        "book_count",
+        "boundary_review_count",
+        "content_row_count",
+        "successor_mapping_count",
+        "dependency_snapshot_count",
+        "production_section_count",
+        "rights_status",
+        "cutover_enabled"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 23
+    }
+  },
+  "additionalProperties": false
+}
