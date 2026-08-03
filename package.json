@@ -29,7 +29,12 @@
     "content:staging:preflight:import": "node scripts/content_pipeline/import_staging_preflight.mjs",
     "content:staging:preflight:validate": "node scripts/content_pipeline/validate_staging_preflight.mjs",
     "content:staging:post-apply:import": "node scripts/content_pipeline/import_staging_post_apply.mjs",
-    "content:staging:post-apply:validate": "node scripts/content_pipeline/validate_staging_post_apply.mjs"
+    "content:staging:post-apply:validate": "node scripts/content_pipeline/validate_staging_post_apply.mjs",
+    "content:staging:nodes:build": "node scripts/content_pipeline/run_python.mjs scripts/content_pipeline/build_editorial_node_load.py",
+    "content:staging:nodes:validate": "node scripts/content_pipeline/validate_editorial_node_load.mjs",
+    "content:staging:nodes:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_editorial_node_load.py",
+    "content:staging:nodes:verify:import": "node scripts/content_pipeline/import_editorial_node_verification.mjs",
+    "content:staging:nodes:verify:validate": "node scripts/content_pipeline/validate_editorial_node_evidence.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
