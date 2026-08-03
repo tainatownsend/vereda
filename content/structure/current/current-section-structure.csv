@@ -1,0 +1,909 @@
+book_id,book_title,section_id,sec_position,kind,part_title,chapter_label,chapter_title,section_title,record_title,stored_word_count,calculated_word_count,content_character_count,paragraph_block_count,normalized_content_md5
+1,O Livro dos Espíritos,4143,1,content,null,null,null,I,I,220,221,1436,2,3ab1a41c61fdbc60cb2de39262d0d937
+1,O Livro dos Espíritos,4144,2,content,null,null,null,Ii,Ii,1082,1093,6539,12,46dd195ccb46bf9253b7664d5f60299f
+1,O Livro dos Espíritos,4145,3,content,null,null,null,Iii,Iii,1186,1198,7584,13,7e1439d9564fdaa2735896deb469158e
+1,O Livro dos Espíritos,4146,4,content,null,null,null,Iv,Iv,661,666,4043,6,31868a8ed1e68de99c2a0ea140cea7ae
+1,O Livro dos Espíritos,4147,5,content,null,null,null,V,V,655,660,4174,6,2ff93dde4f891d57908bd22c0f0e3153
+1,O Livro dos Espíritos,4148,6,content,null,null,null,Vi,Vi,1680,1715,10486,36,e08ec22d65f0224213d0b8296e28dd57
+1,O Livro dos Espíritos,4149,7,content,null,null,null,Vii,Vii,1250,1257,7638,8,788391916d5317f33a788cb0c1f7cef5
+1,O Livro dos Espíritos,4150,8,content,null,null,null,Viii,Viii,506,508,3152,3,d94482de121ef51e7b4fe369d1ab7c6b
+1,O Livro dos Espíritos,4151,9,content,null,null,null,Ix,Ix,595,598,3720,4,74383489071cdbfc61e842d904478747
+1,O Livro dos Espíritos,4152,10,content,null,null,null,X,X,603,608,3597,6,78ab150ddd868a0e41e05b4872346e73
+1,O Livro dos Espíritos,4153,11,content,null,null,null,Xi,Xi,269,270,1613,2,e57c5665ebcc82fe3da5a1280e3ad8d1
+1,O Livro dos Espíritos,4154,12,content,null,null,null,Xii,Xii,968,974,5945,7,bacf66fbefe991a4714294d037d9e3dc
+1,O Livro dos Espíritos,4155,13,content,null,null,null,Xiii,Xiii,587,591,3631,5,13c2e051d4147224e0d15c02c4636a76
+1,O Livro dos Espíritos,4156,14,content,null,null,null,Xiv,Xiv,339,339,2104,1,a808fa82fc98fa89a86aaddcc301b1dc
+1,O Livro dos Espíritos,4157,15,content,null,null,null,Xv,Xv,731,735,4391,5,9188bf9617211f1791dc44e44c5eafbb
+1,O Livro dos Espíritos,4158,16,content,null,null,null,Xvi,Xvi,1383,1392,8572,10,e5a0a9cd0e765391c546251c68b3f256
+1,O Livro dos Espíritos,4159,17,content,null,null,null,Xvii,Xvii,589,592,3674,4,6949b9b871523feccbf3cfd1fe1979b8
+1,O Livro dos Espíritos,4160,18,content,null,null,null,Prolegômenos,Prolegômenos,903,920,5373,18,f55d768e4f7311a8e32e8e8bb99c305c
+1,O Livro dos Espíritos,4161,19,part_intro,Parte Primeira — Das causas primárias,null,null,null,Parte Primeira — Das causas primárias,3,3,20,1,56551a5e1f0befcf4c030882ab7d150d
+1,O Livro dos Espíritos,4162,20,content,Parte Primeira — Das causas primárias,null,null,null,Parte Primeira — Das causas primárias,20,20,118,1,9ce2110f9ca563221ae9961830f9934b
+1,O Livro dos Espíritos,4163,21,chapter_intro,Parte Primeira — Das causas primárias,CAPÍTULO I,De Deus,null,CAPÍTULO I — De Deus,14,17,87,1,7a72de61a08c0ce54d9f3837a916b87d
+1,O Livro dos Espíritos,4164,22,content,Parte Primeira — Das causas primárias,CAPÍTULO I,De Deus,Deus e o infinito,Deus e o infinito,328,336,2017,9,7b0b7f7bc0f1f5a9183c0889d239ffb9
+1,O Livro dos Espíritos,4165,23,content,Parte Primeira — Das causas primárias,CAPÍTULO I,De Deus,Provas da existência de Deus,Provas da existência de Deus,496,513,2954,18,3e96f0f3f5d68b2246e0bd86f4d4d9b0
+1,O Livro dos Espíritos,4166,24,content,Parte Primeira — Das causas primárias,CAPÍTULO I,De Deus,Atributos da Divindade,Atributos da Divindade,441,454,2736,14,1fc4a69a5e6d17f52470ab9505fd6c3c
+1,O Livro dos Espíritos,4167,25,content,Parte Primeira — Das causas primárias,CAPÍTULO I,De Deus,Panteísmo,Panteísmo,462,470,2756,9,28d03f69568dd6c647553063d54bed03
+1,O Livro dos Espíritos,4168,26,chapter_intro,Parte Primeira — Das causas primárias,CAPÍTULO II,Dos elementos gerais do Universo,null,CAPÍTULO II — Dos elementos gerais do Universo,14,17,104,1,7f22e1b8dd6d49c51c13c03aba8b2dd9
+1,O Livro dos Espíritos,4169,27,content,Parte Primeira — Das causas primárias,CAPÍTULO II,Dos elementos gerais do Universo,Conhecimento do princípio das coisas,Conhecimento do princípio das coisas,220,229,1370,10,f50b80a3e250a931bdcc5ed50da0252d
+1,O Livro dos Espíritos,4170,28,content,Parte Primeira — Das causas primárias,CAPÍTULO II,Dos elementos gerais do Universo,Espírito e matéria,Espírito e matéria,825,850,4982,26,76df9c97487cde7ce64ecc2c1a056e95
+1,O Livro dos Espíritos,4171,29,content,Parte Primeira — Das causas primárias,CAPÍTULO II,Dos elementos gerais do Universo,Propriedades da matéria,Propriedades da matéria,554,573,3530,20,a1003dc24c7c4aa858d83176c4dc4a07
+1,O Livro dos Espíritos,4172,30,content,Parte Primeira — Das causas primárias,CAPÍTULO II,Dos elementos gerais do Universo,Espaço universal,Espaço universal,132,136,766,5,113680daf512d129f5761961ed361385
+1,O Livro dos Espíritos,4173,31,chapter_intro,Parte Primeira — Das causas primárias,CAPÍTULO III,Da criação,null,CAPÍTULO III — Da criação,26,31,197,1,d4728e31ffcc77942f1d9263af3be015
+1,O Livro dos Espíritos,4174,32,content,Parte Primeira — Das causas primárias,CAPÍTULO III,Da criação,Formação dos mundos,Formação dos mundos,287,300,1711,14,b9632cb744b77779c4c08aebe56bbd55
+1,O Livro dos Espíritos,4175,33,content,Parte Primeira — Das causas primárias,CAPÍTULO III,Da criação,Formação dos seres vivos,Formação dos seres vivos,554,568,3401,15,f6a38f23bb1a7f124336feedbe6c8ce6
+1,O Livro dos Espíritos,4176,34,content,Parte Primeira — Das causas primárias,CAPÍTULO III,Da criação,Povoamento da Terra. Adão,Povoamento da Terra. Adão,151,155,879,5,a05a222387c9cdcd08dd3a8b3144a189
+1,O Livro dos Espíritos,4177,35,content,Parte Primeira — Das causas primárias,CAPÍTULO III,Da criação,Diversidade das raças humanas,Diversidade das raças humanas,172,179,1041,8,c517337dbfece7424fc84192d57d4a7e
+1,O Livro dos Espíritos,4178,36,content,Parte Primeira — Das causas primárias,CAPÍTULO III,Da criação,Pluralidade dos mundos,Pluralidade dos mundos,425,434,2514,10,61ae9d1bda7e83095fa9dad0f41cde74
+1,O Livro dos Espíritos,4179,37,content,Parte Primeira — Das causas primárias,CAPÍTULO III,Da criação,concernentes à Criação,concernentes à Criação,1230,1238,7309,9,fdde3a2a2d85db329c99049c3cd2a6a2
+1,O Livro dos Espíritos,4180,38,chapter_intro,Parte Primeira — Das causas primárias,CAPÍTULO IV,Do princípio vital,null,CAPÍTULO IV — Do princípio vital,13,15,76,1,7496a7c48f7dbbab0393af2ec0498b3e
+1,O Livro dos Espíritos,4181,39,content,Parte Primeira — Das causas primárias,CAPÍTULO IV,Do princípio vital,Seres orgânicos e inorgânicos,Seres orgânicos e inorgânicos,534,555,3201,22,29e2328d62da9bbfbe88c630ea8656a8
+1,O Livro dos Espíritos,4182,40,content,Parte Primeira — Das causas primárias,CAPÍTULO IV,Do princípio vital,A vida e a morte,A vida e a morte,529,543,3208,15,cad5d7ad2c01075b50da20db50aa9c8a
+1,O Livro dos Espíritos,4183,41,content,Parte Primeira — Das causas primárias,CAPÍTULO IV,Do princípio vital,Inteligência e instinto,Inteligência e instinto,480,497,3033,18,fee03872a041b6c970de638a650c13c0
+1,O Livro dos Espíritos,4184,42,part_intro,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,null,null,null,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,7,7,40,1,b21294c981f4cd2ea523bb40eb56bc6e
+1,O Livro dos Espíritos,4185,43,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,null,null,null,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,79,79,498,1,2712376f1aa180f406a05b8b2e0f4e81
+1,O Livro dos Espíritos,4186,44,chapter_intro,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO I,Dos Espíritos,null,CAPÍTULO I — Dos Espíritos,42,49,310,1,7f606eeb4612bc936a596c8e9493199d
+1,O Livro dos Espíritos,4187,45,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO I,Dos Espíritos,Origem e natureza dos Espíritos,Origem e natureza dos Espíritos,647,664,3857,18,1c6c2d24dbaa866c45b3864d6987f2eb
+1,O Livro dos Espíritos,4188,46,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO I,Dos Espíritos,Mundo normal primitivo,Mundo normal primitivo,156,163,1020,8,f65030523ee558b940aa86f478fcef1b
+1,O Livro dos Espíritos,4189,47,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO I,Dos Espíritos,Forma e ubiquidade dos Espíritos,Forma e ubiquidade dos Espíritos,414,430,2457,17,556266bdcfc3b87b0b1cc64c3cdf4c32
+1,O Livro dos Espíritos,4190,48,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO I,Dos Espíritos,Perispírito,Perispírito,178,186,1172,9,3ce593fa334731a00b13b660fac57f47
+1,O Livro dos Espíritos,4191,49,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO I,Dos Espíritos,Diferentes ordens de Espíritos,Diferentes ordens de Espíritos,262,270,1626,9,2ba19ee2fab020838ad5b9b5a89c61c0
+1,O Livro dos Espíritos,4192,50,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO I,Dos Espíritos,Escala espírita,Escala espírita,693,697,4407,5,e9b2dc770d026373f4e9243a74c041db
+1,O Livro dos Espíritos,4193,51,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO I,Dos Espíritos,Terceira ordem – Espíritos imperfeitos,Terceira ordem – Espíritos imperfeitos,960,976,6046,17,10eba7e6cfb45925d1cfdb73fb39817c
+1,O Livro dos Espíritos,4194,52,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO I,Dos Espíritos,Segunda ordem – Bons Espíritos,Segunda ordem – Bons Espíritos,536,546,3282,11,e74c0e6bac24c7061dd4e9e133765407
+1,O Livro dos Espíritos,4195,53,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO I,Dos Espíritos,Primeira Ordem – Espíritos puros,Primeira Ordem – Espíritos puros,207,210,1327,4,a982b0413abff6bf64b0264dc786952e
+1,O Livro dos Espíritos,4196,54,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO I,Dos Espíritos,Progressão dos Espíritos,Progressão dos Espíritos,1157,1193,7121,37,32d2d62b67ba54d20679c04a4c6e2c75
+1,O Livro dos Espíritos,4197,55,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO I,Dos Espíritos,Anjos e demônios,Anjos e demônios,980,995,5886,16,7ef70fc5fe66b0fe7a9ed6bda7a41f9a
+1,O Livro dos Espíritos,4198,56,chapter_intro,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO II,Da encarnação dos Espíritos,null,CAPÍTULO II — Da encarnação dos Espíritos,7,9,48,1,60bdc642f64ec4aaccea9248e10c4119
+1,O Livro dos Espíritos,4199,57,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO II,Da encarnação dos Espíritos,Objetivo da encarnação,Objetivo da encarnação,278,283,1672,6,507186ee4ad5267e2718458b9cbb0bce
+1,O Livro dos Espíritos,4200,58,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO II,Da encarnação dos Espíritos,A alma,A alma,1337,1383,8035,47,486f160f8310d5fa755e56e088ca0229
+1,O Livro dos Espíritos,4201,59,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO II,Da encarnação dos Espíritos,Materialismo,Materialismo,1053,1060,6197,8,e5db897b6d80476d0e4c92655e6c6d23
+1,O Livro dos Espíritos,4202,60,chapter_intro,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO III,"Da volta do Espírito, extinta a vida corpórea, à vida espiritual",null,"CAPÍTULO III — Da volta do Espírito, extinta a vida corpórea, à vida espiritual",18,20,111,1,63a1734b38311aff7c470346b432cb52
+1,O Livro dos Espíritos,4203,61,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO III,"Da volta do Espírito, extinta a vida corpórea, à vida espiritual","A alma após a morte, sua individualidade. Vida eterna","A alma após a morte, sua individualidade. Vida eterna",549,566,3378,18,7723270d9e55fa481ac7e18b5ee6aa1a
+1,O Livro dos Espíritos,4204,62,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO III,"Da volta do Espírito, extinta a vida corpórea, à vida espiritual",Separação da alma e do corpo,Separação da alma e do corpo,1009,1031,6042,23,e881cac24d841f656db5217c514207f3
+1,O Livro dos Espíritos,4205,63,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO III,"Da volta do Espírito, extinta a vida corpórea, à vida espiritual",Perturbação espiritual,Perturbação espiritual,706,716,4205,11,f0a71299d63fa4327edc7508425ffb65
+1,O Livro dos Espíritos,4206,64,chapter_intro,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IV,Da pluralidade das existências,null,CAPÍTULO IV — Da pluralidade das existências,29,37,235,1,e916819ec8f0c5d39823cca65feadfdf
+1,O Livro dos Espíritos,4207,65,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IV,Da pluralidade das existências,A reencarnação,A reencarnação,217,232,1501,16,981cf516875fa02e7de09f1a3c454bdb
+1,O Livro dos Espíritos,4208,66,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IV,Da pluralidade das existências,Justiça da reencarnação,Justiça da reencarnação,376,381,2239,6,26cb8534b5234523106fb6c4f59ff102
+1,O Livro dos Espíritos,4209,67,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IV,Da pluralidade das existências,Encarnação nos diferentes mundos,Encarnação nos diferentes mundos,1280,1339,8076,60,5d8dca3c0a3b9ed3dacbea67dd22184b
+1,O Livro dos Espíritos,4210,68,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IV,Da pluralidade das existências,Transmigrações progressivas,Transmigrações progressivas,1660,1689,10000,30,e7d46d75ce0fb1595cf5dc866fb6d583
+1,O Livro dos Espíritos,4211,69,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IV,Da pluralidade das existências,Sorte das crianças depois da morte,Sorte das crianças depois da morte,508,519,2992,12,65c9f3f834d4f1b9aee555723f415375
+1,O Livro dos Espíritos,4212,70,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IV,Da pluralidade das existências,Sexos nos Espíritos,Sexos nos Espíritos,143,149,859,7,1251f7f7cfc28f727066506545e98010
+1,O Livro dos Espíritos,4213,71,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IV,Da pluralidade das existências,"Parentesco, filiação","Parentesco, filiação",437,447,2703,11,f0aff3e8c1fd99d10b22ae0491ae81f2
+1,O Livro dos Espíritos,4214,72,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IV,Da pluralidade das existências,Parecenças físicas e morais,Parecenças físicas e morais,994,1019,6252,26,87826d829b47e029818eb1b0ddf9c07a
+1,O Livro dos Espíritos,4215,73,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IV,Da pluralidade das existências,Ideias inatas,Ideias inatas,383,396,2524,14,ccfef72cbf95b2b547e2a431696b9058
+1,O Livro dos Espíritos,4216,74,chapter_intro,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO V,Considerações sobre a pluralidade das existências,null,CAPÍTULO V — Considerações sobre a pluralidade das existências,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+1,O Livro dos Espíritos,4217,75,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO V,Considerações sobre a pluralidade das existências,null,Considerações sobre a pluralidade das existências,3469,3502,20926,34,c2d7ad0657696126dfde309a8e0e9cf8
+1,O Livro dos Espíritos,4218,76,chapter_intro,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VI,Da vida espírita,null,CAPÍTULO VI — Da vida espírita,43,51,332,1,5034903ed3230541591bd40a3e8c6c68
+1,O Livro dos Espíritos,4219,77,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VI,Da vida espírita,Espíritos errantes,Espíritos errantes,771,797,4957,27,43d399e546cf3bcd347d52d187aff932
+1,O Livro dos Espíritos,4220,78,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VI,Da vida espírita,Mundos transitórios,Mundos transitórios,504,522,3261,19,c24e2a63a2b8e7fdaa4cb0a0d03ba629
+1,O Livro dos Espíritos,4221,79,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VI,Da vida espírita,"Percepções, sensações e sofrimentos dos Espíritos","Percepções, sensações e sofrimentos dos Espíritos",1423,1472,8849,50,99296fd7038978677c6c8db713597cb0
+1,O Livro dos Espíritos,4222,80,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VI,Da vida espírita,Ensaio teórico da sensação nos Espíritos,Ensaio teórico da sensação nos Espíritos,2036,2045,12352,10,c9a84fd7b129cb0680b70f4d3bd41854
+1,O Livro dos Espíritos,4223,81,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VI,Da vida espírita,Escolha das provas,Escolha das provas,2685,2733,16199,49,2587c9dc14c9670190d8f4379457fa3e
+1,O Livro dos Espíritos,4224,82,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VI,Da vida espírita,As relações no além-túmulo,As relações no além-túmulo,1027,1067,6354,41,7a9e517ce3b1cb7f367abf8e6292a7ff
+1,O Livro dos Espíritos,4225,83,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VI,Da vida espírita,os Espíritos. Metades eternas,os Espíritos. Metades eternas,806,835,5190,30,9e05de2c77d5687d8a49192eca41ffb1
+1,O Livro dos Espíritos,4226,84,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VI,Da vida espírita,Recordação da existência corpórea,Recordação da existência corpórea,1283,1322,7810,40,a06e4798d3fe0951087852856c6e0559
+1,O Livro dos Espíritos,4227,85,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VI,Da vida espírita,Comemoração dos mortos. Funerais,Comemoração dos mortos. Funerais,727,754,4495,28,63a008da3af37d4a841780cd0f281745
+1,O Livro dos Espíritos,4228,86,chapter_intro,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VII,Da volta do Espírito à vida corporal,null,CAPÍTULO VII — Da volta do Espírito à vida corporal,30,37,208,1,0be5e46a0530dce706ec86746d9c61b1
+1,O Livro dos Espíritos,4229,87,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VII,Da volta do Espírito à vida corporal,Prelúdio da volta,Prelúdio da volta,917,950,5604,34,09f3c52f42816901c7bceeb6aa482b09
+1,O Livro dos Espíritos,4230,88,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VII,Da volta do Espírito à vida corporal,União da alma e do corpo,União da alma e do corpo,1037,1075,6217,39,05290142f59d11f961402b7559ae123b
+1,O Livro dos Espíritos,4231,89,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VII,Da volta do Espírito à vida corporal,Faculdades morais e intelectuais do homem,Faculdades morais e intelectuais do homem,554,568,3559,15,716ebd58575cb6915deb19683516835b
+1,O Livro dos Espíritos,4232,90,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VII,Da volta do Espírito à vida corporal,Influência do organismo,Influência do organismo,550,563,3380,14,d5e86a1f35229590880f6108ee68fc86
+1,O Livro dos Espíritos,4233,91,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VII,Da volta do Espírito à vida corporal,"Idiotismo, loucura","Idiotismo, loucura",840,863,5102,24,1f718ccbd00437c171c937c403715e18
+1,O Livro dos Espíritos,4234,92,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VII,Da volta do Espírito à vida corporal,A infância,A infância,962,981,5885,20,b766f42949afc8df8f44181ea2fce4bf
+1,O Livro dos Espíritos,4235,93,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VII,Da volta do Espírito à vida corporal,Simpatia e antipatia terrenas,Simpatia e antipatia terrenas,364,377,2379,14,77dbfea9a4e762e3d8f4dd34512b8ba3
+1,O Livro dos Espíritos,4236,94,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VII,Da volta do Espírito à vida corporal,Esquecimento do passado,Esquecimento do passado,1725,1753,10647,29,6dbb2e661d8724abddbf206e57edc392
+1,O Livro dos Espíritos,4237,95,chapter_intro,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VIII,Da emancipação da alma,null,CAPÍTULO VIII — Da emancipação da alma,33,40,235,1,5f1cddbcfb654c01f69a50c5619c02b5
+1,O Livro dos Espíritos,4238,96,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VIII,Da emancipação da alma,O sono e os sonhos,O sono e os sonhos,1844,1880,11186,37,522bc98cc7b312b9b72abe82b4ca40fa
+1,O Livro dos Espíritos,4239,97,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VIII,Da emancipação da alma,Visitas espíritas entre pessoas vivas,Visitas espíritas entre pessoas vivas,455,467,2867,13,87652e4fb3bef0dead96e36651a94d72
+1,O Livro dos Espíritos,4240,98,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VIII,Da emancipação da alma,Transmissão oculta do pensamento,Transmissão oculta do pensamento,231,238,1471,8,b39a43388248ea6db6b58742ce6ede4b
+1,O Livro dos Espíritos,4241,99,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VIII,Da emancipação da alma,"Letargia, catalepsia, mortes aparentes","Letargia, catalepsia, mortes aparentes",368,376,2188,9,592f54a2b8252eb7f23947f70015a74b
+1,O Livro dos Espíritos,4242,100,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VIII,Da emancipação da alma,Sonambulismo,Sonambulismo,1199,1229,7355,31,86777c156e4da1028aa8dec8e12d934d
+1,O Livro dos Espíritos,4243,101,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VIII,Da emancipação da alma,Êxtase,Êxtase,415,430,2611,16,d7d20d393331fbade74fe0c1b56f8ee0
+1,O Livro dos Espíritos,4244,102,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VIII,Da emancipação da alma,Dupla vista,Dupla vista,532,552,3301,21,93ce3d0a745f1ddcb418b978a7acfcc0
+1,O Livro dos Espíritos,4245,103,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO VIII,Da emancipação da alma,"Resumo teórico do sonambulismo, do êxtase e da dupla vista","Resumo teórico do sonambulismo, do êxtase e da dupla vista",1851,1870,11241,20,0f056f37531f80cd6ddd7a498630b0ef
+1,O Livro dos Espíritos,4246,104,chapter_intro,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IX,Da intervenção dos Espíritos no mundo corporal,null,CAPÍTULO IX — Da intervenção dos Espíritos no mundo corporal,66,78,498,1,fc4fa54196c597b70e872f604a535860
+1,O Livro dos Espíritos,4247,105,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IX,Da intervenção dos Espíritos no mundo corporal,penetrar os nossos pensamentos,penetrar os nossos pensamentos,137,144,870,8,1af7a169a0ee855556483c323218458f
+1,O Livro dos Espíritos,4248,106,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IX,Da intervenção dos Espíritos no mundo corporal,Influência oculta dos Espíritos em nossos pensamentos e atos,Influência oculta dos Espíritos em nossos pensamentos e atos,988,1021,6166,34,5c618e49bf8b247b678af1b37834f614
+1,O Livro dos Espíritos,4249,107,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IX,Da intervenção dos Espíritos no mundo corporal,Possessos,Possessos,728,744,4357,17,a775a10b7327b8dd3372999ae8c226d2
+1,O Livro dos Espíritos,4250,108,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IX,Da intervenção dos Espíritos no mundo corporal,Convulsionários,Convulsionários,481,489,3099,9,584c3bf87d397545f04fb74de47ece8f
+1,O Livro dos Espíritos,4251,109,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IX,Da intervenção dos Espíritos no mundo corporal,Afeição que os Espíritos votam a certas pessoas,Afeição que os Espíritos votam a certas pessoas,422,436,2640,15,3cd2d9b1a88b7c300e391b8d61bb5742
+1,O Livro dos Espíritos,4252,110,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IX,Da intervenção dos Espíritos no mundo corporal,familiares ou simpáticos,familiares ou simpáticos,3220,3309,19833,90,d69546ef72ade9ae26d298d2364a6375
+1,O Livro dos Espíritos,4253,111,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IX,Da intervenção dos Espíritos no mundo corporal,Pressentimentos,Pressentimentos,273,279,1667,7,658e0c8b152a574fa90496f3a4cf6800
+1,O Livro dos Espíritos,4254,112,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IX,Da intervenção dos Espíritos no mundo corporal,Influência dos Espíritos nos acontecimentos da vida,Influência dos Espíritos nos acontecimentos da vida,1262,1301,7804,40,ace9c58ece5551587ca6cdffcb7ed5e3
+1,O Livro dos Espíritos,4255,113,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IX,Da intervenção dos Espíritos no mundo corporal,Ação dos Espíritos nos fenômenos da Natureza,Ação dos Espíritos nos fenômenos da Natureza,580,597,3786,18,c93dd81c257095ede68af2c92553b4f7
+1,O Livro dos Espíritos,4256,114,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IX,Da intervenção dos Espíritos no mundo corporal,Os Espíritos durante os combates,Os Espíritos durante os combates,505,524,3156,20,af33f2feed59d6a8b56a06db46f69e56
+1,O Livro dos Espíritos,4257,115,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IX,Da intervenção dos Espíritos no mundo corporal,Pactos,Pactos,391,395,2320,5,2bc21b41a176c04cc2ab492e4c5d4440
+1,O Livro dos Espíritos,4258,116,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IX,Da intervenção dos Espíritos no mundo corporal,Poder oculto. Talismãs. Feiticeiros,Poder oculto. Talismãs. Feiticeiros,585,599,3715,15,f191217acfca852f80170e67f08712aa
+1,O Livro dos Espíritos,4259,117,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO IX,Da intervenção dos Espíritos no mundo corporal,Bênçãos e maldições,Bênçãos e maldições,122,123,666,2,09cfe2e322a4119eb957a568c0be406e
+1,O Livro dos Espíritos,4260,118,chapter_intro,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO X,Das ocupações e missões dos Espíritos,null,CAPÍTULO X — Das ocupações e missões dos Espíritos,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+1,O Livro dos Espíritos,4261,119,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO X,Das ocupações e missões dos Espíritos,null,Das ocupações e missões dos Espíritos,2446,2526,15496,81,e0dbc19af33912b889ef018e24155917
+1,O Livro dos Espíritos,4262,120,chapter_intro,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO XI,Dos três reinos,null,CAPÍTULO XI — Dos três reinos,12,14,64,1,bef17c38418924e5e2503b7815868ed7
+1,O Livro dos Espíritos,4263,121,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO XI,Dos três reinos,Os minerais e as plantas,Os minerais e as plantas,556,571,3485,16,e674e679e1907e03b71056664757bf20
+1,O Livro dos Espíritos,4264,122,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO XI,Dos três reinos,Os animais e o homem,Os animais e o homem,2437,2493,14756,57,e1d97f339a380b0a5e5179399aa0d657
+1,O Livro dos Espíritos,4265,123,content,Parte Segunda — Do mundo espírita ou mundo dos Espíritos,CAPÍTULO XI,Dos três reinos,Metempsicose,Metempsicose,955,967,5827,13,33a03adffe85f15f92d4b6d8d8851454
+1,O Livro dos Espíritos,4266,124,part_intro,Parte Terceira — Das leis morais,null,null,null,Parte Terceira — Das leis morais,3,3,15,1,cb0e2ee3572d743a0d75f309b5eb4cf3
+1,O Livro dos Espíritos,4267,125,content,Parte Terceira — Das leis morais,null,null,null,Parte Terceira — Das leis morais,77,77,412,1,2f9038b94b0a8f6ac266a0450d5e253a
+1,O Livro dos Espíritos,4268,126,chapter_intro,Parte Terceira — Das leis morais,CAPÍTULO I,Da lei divina ou natural,null,CAPÍTULO I — Da lei divina ou natural,20,23,107,1,460270e54947613de5439e7fba60454e
+1,O Livro dos Espíritos,4269,127,content,Parte Terceira — Das leis morais,CAPÍTULO I,Da lei divina ou natural,Caracteres da lei natural,Caracteres da lei natural,344,358,1949,15,6ea8f7a250c213e4c49c3c0647630a6f
+1,O Livro dos Espíritos,4270,128,content,Parte Terceira — Das leis morais,CAPÍTULO I,Da lei divina ou natural,Conhecimento da lei natural,Conhecimento da lei natural,1040,1065,6335,26,cba9fd361300ae75f05ef1d49e4d476e
+1,O Livro dos Espíritos,4271,129,content,Parte Terceira — Das leis morais,CAPÍTULO I,Da lei divina ou natural,O bem e o mal,O bem e o mal,1276,1313,7310,38,0dd5fa83950fb5634610c204f3e5d803
+1,O Livro dos Espíritos,4272,130,content,Parte Terceira — Das leis morais,CAPÍTULO I,Da lei divina ou natural,Divisão da lei natural,Divisão da lei natural,207,210,1253,4,bb7eca6628e8e9a8928ffd52774b43f0
+1,O Livro dos Espíritos,4273,131,chapter_intro,Parte Terceira — Das leis morais,CAPÍTULO II,Da lei de adoração,null,CAPÍTULO II — Da lei de adoração,12,17,100,1,51f3e516f117728f460f3e773810149e
+1,O Livro dos Espíritos,4274,132,content,Parte Terceira — Das leis morais,CAPÍTULO II,Da lei de adoração,Objetivo da adoração,Objetivo da adoração,118,125,740,8,d1bd3f05df704d5600403b3d59949367
+1,O Livro dos Espíritos,4275,133,content,Parte Terceira — Das leis morais,CAPÍTULO II,Da lei de adoração,Adoração exterior,Adoração exterior,474,487,2785,14,9b0c9bc600c96aa923f6227ca8fd331f
+1,O Livro dos Espíritos,4276,134,content,Parte Terceira — Das leis morais,CAPÍTULO II,Da lei de adoração,Vida contemplativa,Vida contemplativa,116,117,588,2,3e1f097444117b163b33b71cca03ea7b
+1,O Livro dos Espíritos,4277,135,content,Parte Terceira — Das leis morais,CAPÍTULO II,Da lei de adoração,A prece,A prece,1183,1204,6806,22,2cc4aa98ec87787f92095f06cb53aa71
+1,O Livro dos Espíritos,4278,136,content,Parte Terceira — Das leis morais,CAPÍTULO II,Da lei de adoração,Politeísmo,Politeísmo,523,528,3323,6,fcdc3321dacd29f011e6673f0c464652
+1,O Livro dos Espíritos,4279,137,content,Parte Terceira — Das leis morais,CAPÍTULO II,Da lei de adoração,Sacrifícios,Sacrifícios,917,930,5533,14,073e9fccf4ea9b920278a1d08f9d97f3
+1,O Livro dos Espíritos,4280,138,chapter_intro,Parte Terceira — Das leis morais,CAPÍTULO III,Da lei do trabalho,null,CAPÍTULO III — Da lei do trabalho,8,9,55,1,e69dad626ebf964b180df57137f339fb
+1,O Livro dos Espíritos,4281,139,content,Parte Terceira — Das leis morais,CAPÍTULO III,Da lei do trabalho,Necessidade do trabalho,Necessidade do trabalho,568,583,3486,16,cff2b003584f5bb1b1f475d6095b05f1
+1,O Livro dos Espíritos,4282,140,content,Parte Terceira — Das leis morais,CAPÍTULO III,Da lei do trabalho,Limite do trabalho. Repouso,Limite do trabalho. Repouso,446,456,2623,11,76bd1b590cd8509b2676d7245826db28
+1,O Livro dos Espíritos,4283,141,chapter_intro,Parte Terceira — Das leis morais,CAPÍTULO IV,Da lei de reprodução,null,CAPÍTULO IV — Da lei de reprodução,16,20,120,1,a0b7991142e991a6ed3318148e39a21f
+1,O Livro dos Espíritos,4284,142,content,Parte Terceira — Das leis morais,CAPÍTULO IV,Da lei de reprodução,População do globo,População do globo,66,69,408,4,a00917edd3334c55fecd80a41fa3cd09
+1,O Livro dos Espíritos,4285,143,content,Parte Terceira — Das leis morais,CAPÍTULO IV,Da lei de reprodução,Sucessão e aperfeiçoamento das raças,Sucessão e aperfeiçoamento das raças,394,407,2462,14,6aafba5cfd8fc3eed084ec83f2d65f6e
+1,O Livro dos Espíritos,4286,144,content,Parte Terceira — Das leis morais,CAPÍTULO IV,Da lei de reprodução,Obstáculos à reprodução,Obstáculos à reprodução,213,218,1318,6,1a1241ec26c1b8ef241e6fa6ccc4fc4c
+1,O Livro dos Espíritos,4287,145,content,Parte Terceira — Das leis morais,CAPÍTULO IV,Da lei de reprodução,Casamento e celibato,Casamento e celibato,302,313,1825,12,6de11a899cc86012c423157e412ffb83
+1,O Livro dos Espíritos,4288,146,content,Parte Terceira — Das leis morais,CAPÍTULO IV,Da lei de reprodução,Poligamia,Poligamia,127,132,800,6,af72c058520ecb06f91fe2330cf97527
+1,O Livro dos Espíritos,4289,147,chapter_intro,Parte Terceira — Das leis morais,CAPÍTULO V,Da lei de conservação,null,CAPÍTULO V — Da lei de conservação,17,21,137,1,77da86d86123735fd1e193336b2f75f4
+1,O Livro dos Espíritos,4290,148,content,Parte Terceira — Das leis morais,CAPÍTULO V,Da lei de conservação,Instinto de conservação,Instinto de conservação,84,87,529,4,be6c395bab4ccb46fefed8be7c356339
+1,O Livro dos Espíritos,4291,149,content,Parte Terceira — Das leis morais,CAPÍTULO V,Da lei de conservação,Meios de conservação,Meios de conservação,944,959,5541,16,209e0bc9b5ee5f98c56602ad2f7e6bf1
+1,O Livro dos Espíritos,4292,150,content,Parte Terceira — Das leis morais,CAPÍTULO V,Da lei de conservação,Gozo dos bens terrenos,Gozo dos bens terrenos,291,304,1765,14,34770198154cb7c9ccb1a659fe84734c
+1,O Livro dos Espíritos,4293,151,content,Parte Terceira — Das leis morais,CAPÍTULO V,Da lei de conservação,Necessário e supérfluo,Necessário e supérfluo,222,228,1329,7,f1f64f9e3944815a7e13cf748bed090f
+1,O Livro dos Espíritos,4294,152,content,Parte Terceira — Das leis morais,CAPÍTULO V,Da lei de conservação,Privações voluntárias. Mortificações,Privações voluntárias. Mortificações,714,735,4377,22,15db103ac640de548a02270434711b5c
+1,O Livro dos Espíritos,4295,153,chapter_intro,Parte Terceira — Das leis morais,CAPÍTULO VI,Da lei de destruição,null,CAPÍTULO VI — Da lei de destruição,15,21,127,1,9e86138283408c0e9d224add850143ae
+1,O Livro dos Espíritos,4296,154,content,Parte Terceira — Das leis morais,CAPÍTULO VI,Da lei de destruição,Destruição necessária e destruição abusiva,Destruição necessária e destruição abusiva,632,651,3883,20,671e08581a1c5335fa1ae77eb4c9b201
+1,O Livro dos Espíritos,4297,155,content,Parte Terceira — Das leis morais,CAPÍTULO VI,Da lei de destruição,Flagelos destruidores,Flagelos destruidores,790,806,4812,17,2176f6e363521dc6f78612bdb481b18c
+1,O Livro dos Espíritos,4298,156,content,Parte Terceira — Das leis morais,CAPÍTULO VI,Da lei de destruição,Guerras,Guerras,196,205,1233,10,5e4b42e7d57270c6e390332d3ea0d62b
+1,O Livro dos Espíritos,4299,157,content,Parte Terceira — Das leis morais,CAPÍTULO VI,Da lei de destruição,Assassínio,Assassínio,207,218,1262,12,ac2d9e883876153539a83b03637d3aca
+1,O Livro dos Espíritos,4300,158,content,Parte Terceira — Das leis morais,CAPÍTULO VI,Da lei de destruição,Crueldade,Crueldade,441,451,2809,11,ddef4b81af489b9e12dcf6f402835464
+1,O Livro dos Espíritos,4301,159,content,Parte Terceira — Das leis morais,CAPÍTULO VI,Da lei de destruição,Duelo,Duelo,268,279,1644,12,03495deec82f25cec2a50821d03e2987
+1,O Livro dos Espíritos,4302,160,content,Parte Terceira — Das leis morais,CAPÍTULO VI,Da lei de destruição,Pena de morte,Pena de morte,624,636,3653,13,080cfd87085a148cad64ac773a70b17e
+1,O Livro dos Espíritos,4303,161,chapter_intro,Parte Terceira — Das leis morais,CAPÍTULO VII,Da lei de sociedade,null,CAPÍTULO VII — Da lei de sociedade,14,16,87,1,b8473ce2ef17a697216b55301d8f30e9
+1,O Livro dos Espíritos,4304,162,content,Parte Terceira — Das leis morais,CAPÍTULO VII,Da lei de sociedade,Necessidade da vida social,Necessidade da vida social,159,165,998,7,e4289e055ccdaa6c9f9f0c6a37aac0a6
+1,O Livro dos Espíritos,4305,163,content,Parte Terceira — Das leis morais,CAPÍTULO VII,Da lei de sociedade,Vida de insulamento. Voto de silêncio,Vida de insulamento. Voto de silêncio,348,360,2105,13,04693ad26975e38438bad582590cef74
+1,O Livro dos Espíritos,4306,164,content,Parte Terceira — Das leis morais,CAPÍTULO VII,Da lei de sociedade,Laços de família,Laços de família,219,224,1272,6,82da9bcb54eb8bfe2e9eea3b0d2de943
+1,O Livro dos Espíritos,4307,165,chapter_intro,Parte Terceira — Das leis morais,CAPÍTULO VIII,Da lei do progresso,null,CAPÍTULO VIII — Da lei do progresso,19,24,150,1,cf32867a70c8c348a6deb8af5f919416
+1,O Livro dos Espíritos,4308,166,content,Parte Terceira — Das leis morais,CAPÍTULO VIII,Da lei do progresso,Estado de natureza,Estado de natureza,253,259,1497,7,f4211ab859f0e785f4ddd0f17fe6fad7
+1,O Livro dos Espíritos,4309,167,content,Parte Terceira — Das leis morais,CAPÍTULO VIII,Da lei do progresso,Marcha do progresso,Marcha do progresso,883,906,5401,24,b1564216a841de12f6b9fa3b0ce3a1a2
+1,O Livro dos Espíritos,4310,168,content,Parte Terceira — Das leis morais,CAPÍTULO VIII,Da lei do progresso,Povos degenerados,Povos degenerados,1162,1179,7098,18,0e027beaa94f5c2838aa0abf089a8a60
+1,O Livro dos Espíritos,4311,169,content,Parte Terceira — Das leis morais,CAPÍTULO VIII,Da lei do progresso,Civilização,Civilização,447,460,2947,14,79db5cf936a04159447262fb0e20fa63
+1,O Livro dos Espíritos,4312,170,content,Parte Terceira — Das leis morais,CAPÍTULO VIII,Da lei do progresso,Progresso da legislação humana,Progresso da legislação humana,302,310,1870,9,3b6db3a8c8db41d9cd60bc6fdb8c5f6c
+1,O Livro dos Espíritos,4313,171,content,Parte Terceira — Das leis morais,CAPÍTULO VIII,Da lei do progresso,Influência do Espiritismo no progresso,Influência do Espiritismo no progresso,651,662,4096,12,4525f32acc67ad7f7a5584fc61a4239b
+1,O Livro dos Espíritos,4314,172,chapter_intro,Parte Terceira — Das leis morais,CAPÍTULO IX,Da lei de igualdade,null,CAPÍTULO IX — Da lei de igualdade,30,36,210,1,66b661e12fdeab9a6e9e42dc8d3c4658
+1,O Livro dos Espíritos,4315,173,content,Parte Terceira — Das leis morais,CAPÍTULO IX,Da lei de igualdade,Igualdade natural,Igualdade natural,88,90,526,3,71d80e849e791e9e1c0f4b4841eef2a9
+1,O Livro dos Espíritos,4316,174,content,Parte Terceira — Das leis morais,CAPÍTULO IX,Da lei de igualdade,Desigualdade das aptidões,Desigualdade das aptidões,298,302,1836,5,e36404fa92b771b664d2c4d8d335ba9f
+1,O Livro dos Espíritos,4317,175,content,Parte Terceira — Das leis morais,CAPÍTULO IX,Da lei de igualdade,Desigualdades sociais,Desigualdades sociais,139,144,836,6,251df3523cb1b8ff4bab167926dd7957
+1,O Livro dos Espíritos,4318,176,content,Parte Terceira — Das leis morais,CAPÍTULO IX,Da lei de igualdade,Desigualdade das riquezas,Desigualdade das riquezas,510,527,3073,18,462477c86fb7a75fc8eac036c218cb32
+1,O Livro dos Espíritos,4319,177,content,Parte Terceira — Das leis morais,CAPÍTULO IX,Da lei de igualdade,As provas de riqueza e de miséria,As provas de riqueza e de miséria,249,256,1433,8,9752c668d050fccc9e8f7ac46f2c74e4
+1,O Livro dos Espíritos,4320,178,content,Parte Terceira — Das leis morais,CAPÍTULO IX,Da lei de igualdade,Igualdade dos direitos do homem e da mulher,Igualdade dos direitos do homem e da mulher,392,406,2334,15,34a336c351c9bb3933823dcc6a459b65
+1,O Livro dos Espíritos,4321,179,content,Parte Terceira — Das leis morais,CAPÍTULO IX,Da lei de igualdade,Igualdade perante o túmulo,Igualdade perante o túmulo,239,245,1387,7,3c12af91f0bc05d7f43898c781e0fb5f
+1,O Livro dos Espíritos,4322,180,chapter_intro,Parte Terceira — Das leis morais,CAPÍTULO X,Da lei de liberdade,null,CAPÍTULO X — Da lei de liberdade,22,29,180,1,bc3115d6cf48980b0720857d6698d795
+1,O Livro dos Espíritos,4323,181,content,Parte Terceira — Das leis morais,CAPÍTULO X,Da lei de liberdade,Liberdade natural,Liberdade natural,211,220,1341,10,562a317a0715ad79916c2b4463429c8a
+1,O Livro dos Espíritos,4324,182,content,Parte Terceira — Das leis morais,CAPÍTULO X,Da lei de liberdade,Escravidão,Escravidão,387,395,2343,9,0fc48c6677f057ef6fd2ec16af2d63c0
+1,O Livro dos Espíritos,4325,183,content,Parte Terceira — Das leis morais,CAPÍTULO X,Da lei de liberdade,Liberdade de pensar,Liberdade de pensar,63,66,403,4,149f02a56769a28bff0974381b9cea5a
+1,O Livro dos Espíritos,4326,184,content,Parte Terceira — Das leis morais,CAPÍTULO X,Da lei de liberdade,Liberdade de consciência,Liberdade de consciência,450,467,2794,18,4ff40a5b49cd6222ed15bc72ab049166
+1,O Livro dos Espíritos,4327,185,content,Parte Terceira — Das leis morais,CAPÍTULO X,Da lei de liberdade,Livre-arbítrio,Livre-arbítrio,588,602,3627,15,f949a1e435b487b1edb3f0cbae9c7fe8
+1,O Livro dos Espíritos,4328,186,content,Parte Terceira — Das leis morais,CAPÍTULO X,Da lei de liberdade,Fatalidade,Fatalidade,2021,2060,12056,40,852823cf1c2b2be875ba4a10a981a5d4
+1,O Livro dos Espíritos,4329,187,content,Parte Terceira — Das leis morais,CAPÍTULO X,Da lei de liberdade,Conhecimento do futuro,Conhecimento do futuro,670,679,3836,10,9a77a9a5322fa3f8a877763d2cb465be
+1,O Livro dos Espíritos,4330,188,content,Parte Terceira — Das leis morais,CAPÍTULO X,Da lei de liberdade,Resumo teórico do móvel das ações humanas,Resumo teórico do móvel das ações humanas,1311,1317,7857,7,3e3c48a84bb6e77007de34fa4157661c
+1,O Livro dos Espíritos,4331,189,chapter_intro,Parte Terceira — Das leis morais,CAPÍTULO XI,"Da lei de justiça, de amor e de caridade",null,"CAPÍTULO XI — Da lei de justiça, de amor e de caridade",18,22,115,1,461ef20dde1f8894ab0c764177015d4c
+1,O Livro dos Espíritos,4332,190,content,Parte Terceira — Das leis morais,CAPÍTULO XI,"Da lei de justiça, de amor e de caridade",Justiça e direitos naturais,Justiça e direitos naturais,782,800,4596,19,2f719ffbba684388341b734b7a53e219
+1,O Livro dos Espíritos,4333,191,content,Parte Terceira — Das leis morais,CAPÍTULO XI,"Da lei de justiça, de amor e de caridade",Direito de propriedade. Roubo,Direito de propriedade. Roubo,381,396,2270,16,9b1f85237314ab86009ba419c06b9b1d
+1,O Livro dos Espíritos,4334,192,content,Parte Terceira — Das leis morais,CAPÍTULO XI,"Da lei de justiça, de amor e de caridade",Caridade e amor do próximo,Caridade e amor do próximo,745,761,4398,17,03cb22bb45930bfc4eec0d48e6581c24
+1,O Livro dos Espíritos,4335,193,content,Parte Terceira — Das leis morais,CAPÍTULO XI,"Da lei de justiça, de amor e de caridade",Amor materno e filial,Amor materno e filial,281,286,1602,6,de297b7e5bc3dde9c3720200f81666db
+1,O Livro dos Espíritos,4336,194,chapter_intro,Parte Terceira — Das leis morais,CAPÍTULO XII,Da perfeição moral,null,CAPÍTULO XII — Da perfeição moral,18,22,103,1,c365c7eff6b1d6ec2f7b214b5dd5de38
+1,O Livro dos Espíritos,4337,195,content,Parte Terceira — Das leis morais,CAPÍTULO XII,Da perfeição moral,As virtudes e os vícios,As virtudes e os vícios,1737,1772,10447,36,d75a09368f871fd2c94e5979e20dba69
+1,O Livro dos Espíritos,4338,196,content,Parte Terceira — Das leis morais,CAPÍTULO XII,Da perfeição moral,Paixões,Paixões,450,465,2717,16,a4787c726ca641c8305f93b554697cb8
+1,O Livro dos Espíritos,4339,197,content,Parte Terceira — Das leis morais,CAPÍTULO XII,Da perfeição moral,O egoísmo,O egoísmo,1304,1317,7937,14,c89e3f391142aefae942288191b4eef8
+1,O Livro dos Espíritos,4340,198,content,Parte Terceira — Das leis morais,CAPÍTULO XII,Da perfeição moral,Caracteres do homem de bem,Caracteres do homem de bem,320,330,1913,11,49e7f6b4e5cfd567b1386807e4490677
+1,O Livro dos Espíritos,4341,199,content,Parte Terceira — Das leis morais,CAPÍTULO XII,Da perfeição moral,Conhecimento de si mesmo,Conhecimento de si mesmo,825,833,4850,9,f51b2d9bc5186f1546436663daac1659
+1,O Livro dos Espíritos,4342,200,part_intro,Parte Quarta — Das esperanças e consolações,null,null,null,Parte Quarta — Das esperanças e consolações,4,4,28,1,8bdfa1094a46c0c4343fa283c741f965
+1,O Livro dos Espíritos,4343,201,content,Parte Quarta — Das esperanças e consolações,null,null,null,Parte Quarta — Das esperanças e consolações,14,14,77,1,892b733c7bb5d8c9907a1c34fee8c274
+1,O Livro dos Espíritos,4344,202,chapter_intro,Parte Quarta — Das esperanças e consolações,CAPÍTULO I,Das penas e gozos terrestres,null,CAPÍTULO I — Das penas e gozos terrestres,22,27,176,1,0c5eff42fc6a107e91226702f638d9a6
+1,O Livro dos Espíritos,4345,203,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO I,Das penas e gozos terrestres,Felicidade e infelicidade relativas,Felicidade e infelicidade relativas,1792,1830,10968,39,ef21b52404cb4dbc734170f97c49c933
+1,O Livro dos Espíritos,4346,204,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO I,Das penas e gozos terrestres,Perda dos entes queridos,Perda dos entes queridos,651,661,4009,11,31ff40e5bbee906846ac2d5fa7f8b35f
+1,O Livro dos Espíritos,4347,205,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO I,Das penas e gozos terrestres,Decepções. Ingratidão. Afeições destruídas,Decepções. Ingratidão. Afeições destruídas,405,411,2304,7,c38b7190406fabc8db7278a864555219
+1,O Livro dos Espíritos,4348,206,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO I,Das penas e gozos terrestres,Uniões antipáticas,Uniões antipáticas,407,413,2450,7,c98fe407ad0a1a1333b81a7f278efe16
+1,O Livro dos Espíritos,4349,207,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO I,Das penas e gozos terrestres,Temor da morte,Temor da morte,383,389,2261,7,955f3275220ebeaf0ab6b07a9f43b089
+1,O Livro dos Espíritos,4350,208,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO I,Das penas e gozos terrestres,Desgosto da vida. Suicídio,Desgosto da vida. Suicídio,1877,1921,11053,45,c65465e45ac786e7a4869a73d0a30b00
+1,O Livro dos Espíritos,4351,209,chapter_intro,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,null,CAPÍTULO II — Das penas e gozos futuros,40,48,271,1,079ac460e8aa4033202845d1278c062d
+1,O Livro dos Espíritos,4352,210,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,O nada. Vida futura,O nada. Vida futura,299,305,1712,7,9646ee663488cc68cb1923e83f8ccf4b
+1,O Livro dos Espíritos,4353,211,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Intuição das penas e gozos futuros,Intuição das penas e gozos futuros,282,289,1641,8,262bf6b31ef9ee5c50844320041b134b
+1,O Livro dos Espíritos,4354,212,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Intervenção de Deus nas penas e recompensas,Intervenção de Deus nas penas e recompensas,397,405,2417,9,2e9e43b3f6ef68c62350305c4e2884cd
+1,O Livro dos Espíritos,4355,213,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Natureza das penas e gozos futuros,Natureza das penas e gozos futuros,2428,2484,14511,57,90e27dd8fd6de19abd914148fd40f4b9
+1,O Livro dos Espíritos,4356,214,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Penas temporais,Penas temporais,773,788,4822,16,91792197d32cf518b8f04b696350de90
+1,O Livro dos Espíritos,4357,215,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Expiação e arrependimento,Expiação e arrependimento,1131,1164,6967,34,abede1b3261429fb99364c5f59142ef1
+1,O Livro dos Espíritos,4358,216,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Duração das penas futuras,Duração das penas futuras,2302,2328,14059,27,f66e4f1f2061c89ffdd800e5bee7d350
+1,O Livro dos Espíritos,4359,217,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Ressurreição da carne,Ressurreição da carne,735,742,4601,8,5f6b1efbdffb3adb25d9dc3479ba37b8
+1,O Livro dos Espíritos,4360,218,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,"Paraíso, inferno e purgatório","Paraíso, inferno e purgatório",1389,1414,8564,26,b9aafc69073d198f77d1a50ba0f64511
+1,O Livro dos Espíritos,4361,219,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,I,I,362,364,2131,3,e8be536270dcff544443c4f3e7f02566
+1,O Livro dos Espíritos,4362,220,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Ii,Ii,394,397,2425,4,f628e9379162399e7f122271447818c7
+1,O Livro dos Espíritos,4363,221,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Iii,Iii,410,412,2365,3,144a5c7636c9ae6dc1edae5e88a62166
+1,O Livro dos Espíritos,4364,222,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Iv,Iv,505,510,3028,6,d060a0a5653fa093b5606ca4bb33d18d
+1,O Livro dos Espíritos,4365,223,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,V,V,722,728,4372,7,d5e0a58bc010bb1ece9f3f5d6427b2bf
+1,O Livro dos Espíritos,4366,224,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Vi,Vi,753,757,4523,5,7ed441d5d7ebfe24d90a3a1280838a4e
+1,O Livro dos Espíritos,4367,225,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Vii,Vii,841,846,5124,6,cbca4d066c88babcf82383211dff401b
+1,O Livro dos Espíritos,4368,226,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Viii,Viii,719,724,4366,6,faa2c59ba73d1e30bba261c038e5bd98
+1,O Livro dos Espíritos,4369,227,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Ix,Ix,885,892,5305,8,a3d2573505d98e510a4a06560b1ffca3
+1,O Livro dos Espíritos,4370,228,content,Parte Quarta — Das esperanças e consolações,CAPÍTULO II,Das penas e gozos futuros,Nota explicativa,Nota explicativa,1797,1820,11541,24,3d135460a562ecfd25becffda004f10f
+2,O Livro dos Médiuns,4371,1,part_intro,Primeira Parte — Noções preliminares,null,null,null,Primeira Parte — Noções preliminares,2,2,19,1,a0fabde29a6f66605483e53452311ee0
+2,O Livro dos Médiuns,4372,2,content,Primeira Parte — Noções preliminares,null,null,null,Primeira Parte — Noções preliminares,19,19,117,1,e29fa0490c90e5bb5108c3a62ef46c17
+2,O Livro dos Médiuns,4373,3,chapter_intro,Primeira Parte — Noções preliminares,CAPÍTULO I,Há Espíritos?,null,CAPÍTULO I — Há Espíritos?,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4374,4,content,Primeira Parte — Noções preliminares,CAPÍTULO I,Há Espíritos?,null,Há Espíritos?,2125,2148,12733,24,4b905bcc55b7f643746e723fa2f1b53e
+2,O Livro dos Médiuns,4375,5,chapter_intro,Primeira Parte — Noções preliminares,CAPÍTULO II,Do maravilhoso e do sobrenatural,null,CAPÍTULO II — Do maravilhoso e do sobrenatural,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4376,6,content,Primeira Parte — Noções preliminares,CAPÍTULO II,Do maravilhoso e do sobrenatural,null,Do maravilhoso e do sobrenatural,3331,3367,20808,37,de2d59db1740ff3d78e546635d8071d0
+2,O Livro dos Médiuns,4377,7,chapter_intro,Primeira Parte — Noções preliminares,CAPÍTULO III,Do método,null,CAPÍTULO III — Do método,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4378,8,content,Primeira Parte — Noções preliminares,CAPÍTULO III,Do método,null,Do método,4176,4224,25924,49,dbafb032f39e3e491c17db293e273b00
+2,O Livro dos Médiuns,4379,9,chapter_intro,Primeira Parte — Noções preliminares,CAPÍTULO IV,Dos sistemas,null,CAPÍTULO IV — Dos sistemas,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4380,10,content,Primeira Parte — Noções preliminares,CAPÍTULO IV,Dos sistemas,null,Dos sistemas,6307,6378,38496,72,c34ff36b958975e3c6d55743e7497006
+2,O Livro dos Médiuns,4381,11,part_intro,Segunda Parte — Das manifestações espíritas,null,null,null,Segunda Parte — Das manifestações espíritas,3,3,27,1,bf86400dd696122f29a4d3a5d8af9434
+2,O Livro dos Médiuns,4382,12,content,Segunda Parte — Das manifestações espíritas,null,null,null,Segunda Parte — Das manifestações espíritas,206,206,1438,1,60ab405a2347931bf91cab66c928388f
+2,O Livro dos Médiuns,4383,13,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO I,Da ação dos Espíritos sobre a matéria,null,CAPÍTULO I — Da ação dos Espíritos sobre a matéria,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4384,14,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO I,Da ação dos Espíritos sobre a matéria,null,Da ação dos Espíritos sobre a matéria,2052,2069,12542,18,d94571d21916ebd7a767c895c4b014fc
+2,O Livro dos Médiuns,4385,15,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO II,Das manifestações físicas. Das mesas girantes,null,CAPÍTULO II — Das manifestações físicas. Das mesas girantes,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4386,16,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO II,Das manifestações físicas. Das mesas girantes,null,Das manifestações físicas. Das mesas girantes,1035,1047,6419,13,e22a15958b0318bad323b2b8163fadab
+2,O Livro dos Médiuns,4387,17,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO III,Das manifestações inteligentes,null,CAPÍTULO III — Das manifestações inteligentes,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4388,18,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO III,Das manifestações inteligentes,null,Das manifestações inteligentes,1079,1088,6793,10,85f00751c2416033691c62fcad0935d5
+2,O Livro dos Médiuns,4389,19,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO IV,Da teoria das manifestações físicas,null,CAPÍTULO IV — Da teoria das manifestações físicas,12,14,76,1,b9f77f1dadd22be4cafbfc183f3aecf2
+2,O Livro dos Médiuns,4390,20,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO IV,Da teoria das manifestações físicas,null,Da teoria das manifestações físicas,4230,4294,25285,65,35402333a1abdadadb88cc32e52846fe
+2,O Livro dos Médiuns,4391,21,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO V,Das manifestações físicas espontâneas,null,CAPÍTULO V — Das manifestações físicas espontâneas,18,21,131,1,b722cab639e50a264d440b90371fcd6c
+2,O Livro dos Médiuns,4392,22,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO V,Das manifestações físicas espontâneas,null,Das manifestações físicas espontâneas,4103,4171,25552,69,f312a445d4c36525c8786f3b96e09e2a
+2,O Livro dos Médiuns,4393,23,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO V,Das manifestações físicas espontâneas,Fenômeno de transporte,Fenômeno de transporte,3063,3129,19521,67,c5925458eb17932e309a8133e6970bd6
+2,O Livro dos Médiuns,4394,24,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO VI,Das manifestações visuais,null,CAPÍTULO VI — Das manifestações visuais,15,18,107,1,00ad1b5b996218fa8ba160e5ba0c79fc
+2,O Livro dos Médiuns,4395,25,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO VI,Das manifestações visuais,null,Das manifestações visuais,2684,2752,16544,69,df1d811f48368005828d2ffe83f2a1e9
+2,O Livro dos Médiuns,4396,26,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO VI,Das manifestações visuais,Ensaio teórico sobre as aparições,Ensaio teórico sobre as aparições,2490,2516,15405,27,7bcb007109c229c0123800cfd1cd191b
+2,O Livro dos Médiuns,4397,27,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO VI,Das manifestações visuais,Teoria da alucinação,Teoria da alucinação,1511,1529,9124,19,f08e48e7bcc5a48f122e18814644aba0
+2,O Livro dos Médiuns,4398,28,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO VII,Da bicorporeidade e da transfiguração,null,CAPÍTULO VII — Da bicorporeidade e da transfiguração,21,26,156,1,1eadfb8e9fe4df75c5bf383e7f60ef2e
+2,O Livro dos Médiuns,4399,29,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO VII,Da bicorporeidade e da transfiguração,null,Da bicorporeidade e da transfiguração,3323,3359,20344,37,de58839f193c84a10ef7c1e5bd1405d8
+2,O Livro dos Médiuns,4400,30,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO VIII,Do laboratório do Mundo Invisível,null,CAPÍTULO VIII — Do laboratório do Mundo Invisível,17,20,136,1,f705758313bea31963dd1198ca99449a
+2,O Livro dos Médiuns,4401,31,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO VIII,Do laboratório do Mundo Invisível,null,Do laboratório do Mundo Invisível,2561,2610,16047,50,5aad1205835ab6749bf675f076abf821
+2,O Livro dos Médiuns,4402,32,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO IX,Dos lugares assombrados,null,CAPÍTULO IX — Dos lugares assombrados,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4403,33,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO IX,Dos lugares assombrados,null,Dos lugares assombrados,1567,1603,9942,37,53e061399c388a713f73e352bbde7651
+2,O Livro dos Médiuns,4404,34,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO X,Da natureza das comunicações,null,CAPÍTULO X — Da natureza das comunicações,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4405,35,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO X,Da natureza das comunicações,"• Comunicações grosseiras, frívolas, sérias e instrutivas","• Comunicações grosseiras, frívolas, sérias e instrutivas",1063,1071,6821,9,1e3eb2f08599849371831f5be7082e35
+2,O Livro dos Médiuns,4406,36,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XI,Da sematologia e da tiptologia,null,CAPÍTULO XI — Da sematologia e da tiptologia,9,10,61,1,56ecaf37feb1453e82c1305f6122b523
+2,O Livro dos Médiuns,4407,37,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XI,Da sematologia e da tiptologia,null,Da sematologia e da tiptologia,1860,1873,11510,14,caf0b975b02d21c37487244a496d417a
+2,O Livro dos Médiuns,4408,38,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XII,Da pneumatografia ou escrita direta. Da pneumatofonia,null,CAPÍTULO XII — Da pneumatografia ou escrita direta. Da pneumatofonia,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4409,39,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XII,Da pneumatografia ou escrita direta. Da pneumatofonia,Escrita direta,Escrita direta,1281,1292,8039,12,873f83cccb084c061521d4834b88081c
+2,O Livro dos Médiuns,4410,40,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XII,Da pneumatografia ou escrita direta. Da pneumatofonia,Pneumatofonia,Pneumatofonia,378,382,2406,5,1cad1e20c6cf6d5bec0ea3d96b78d73a
+2,O Livro dos Médiuns,4411,41,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XIII,Da psicografia,null,CAPÍTULO XIII — Da psicografia,10,11,74,1,464cacdbdfcec5c2753efc1c9c254a44
+2,O Livro dos Médiuns,4412,42,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XIII,Da psicografia,null,Da psicografia,1347,1356,7894,10,cb263ae6bb2e7912424ba0d652f04072
+2,O Livro dos Médiuns,4413,43,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XIV,Dos médiuns,null,CAPÍTULO XIV — Dos médiuns,23,31,214,1,3225d142ab6f7e52bd2d01455b231fff
+2,O Livro dos Médiuns,4414,44,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XIV,Dos médiuns,null,Dos médiuns,165,165,1041,1,476cbe3dba70dd748272326d3c4b0b32
+2,O Livro dos Médiuns,4415,45,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XIV,Dos médiuns,Médiuns de efeitos físicos,Médiuns de efeitos físicos,1493,1504,9498,12,02fc419687c7f733a18c1c1466f7d259
+2,O Livro dos Médiuns,4416,46,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XIV,Dos médiuns,Médiuns sensitivos ou impressionáveis,Médiuns sensitivos ou impressionáveis,248,250,1605,3,8a73236c131f8c3229abae92959c90ae
+2,O Livro dos Médiuns,4417,47,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XIV,Dos médiuns,Médiuns audientes,Médiuns audientes,152,153,965,2,e07c2e0b16899610051231d6812a7202
+2,O Livro dos Médiuns,4418,48,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XIV,Dos médiuns,Médiuns falantes,Médiuns falantes,192,193,1137,2,f4ae90fa905e6ca84b748f7b511d6cc5
+2,O Livro dos Médiuns,4419,49,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XIV,Dos médiuns,Médiuns videntes,Médiuns videntes,1296,1305,8113,10,af2ad97204e0d3e76d2d08f725be450c
+2,O Livro dos Médiuns,4420,50,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XIV,Dos médiuns,Médiuns sonambúlicos,Médiuns sonambúlicos,545,548,3352,4,df418d1979b6fbf724a3e5893e177c7a
+2,O Livro dos Médiuns,4421,51,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XIV,Dos médiuns,Médiuns curadores,Médiuns curadores,657,670,4162,14,ea460dd78548825a49b1d0531c540c40
+2,O Livro dos Médiuns,4422,52,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XIV,Dos médiuns,Médiuns pneumatógrafos,Médiuns pneumatógrafos,210,211,1330,2,ceb2c50074da9ed07ae39dbea785178f
+2,O Livro dos Médiuns,4423,53,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XV,Dos médiuns escreventes ou psicógrafos,null,CAPÍTULO XV — Dos médiuns escreventes ou psicógrafos,10,10,95,1,dc5c068a1f9cf09d50b9dd0ba1c7250e
+2,O Livro dos Médiuns,4424,54,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XV,Dos médiuns escreventes ou psicógrafos,null,Dos médiuns escreventes ou psicógrafos,114,114,699,1,00a08f5f708561eae23eaf234b9610e9
+2,O Livro dos Médiuns,4425,55,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XV,Dos médiuns escreventes ou psicógrafos,Médiuns mecânicos,Médiuns mecânicos,278,280,1680,3,6536e62873c0531fc857ff02897ddb5e
+2,O Livro dos Médiuns,4426,56,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XV,Dos médiuns escreventes ou psicógrafos,Médiuns intuitivos,Médiuns intuitivos,277,279,1634,3,c7e930ac03434ef24168770c3af84df4
+2,O Livro dos Médiuns,4427,57,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XV,Dos médiuns escreventes ou psicógrafos,Médiuns semimecânicos,Médiuns semimecânicos,80,80,487,1,7693f5c2cd8b62a6b0419f1f1b894c18
+2,O Livro dos Médiuns,4428,58,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XV,Dos médiuns escreventes ou psicógrafos,Médiuns inspirados ou involuntários,Médiuns inspirados ou involuntários,678,684,4077,7,2d4a89ee5795ff686b6d398446d32832
+2,O Livro dos Médiuns,4429,59,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XV,Dos médiuns escreventes ou psicógrafos,Médiuns de pressentimentos,Médiuns de pressentimentos,78,78,485,1,e6c92f8f2d1899bd8a72af25c45c9081
+2,O Livro dos Médiuns,4430,60,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XVI,Dos médiuns especiais,null,CAPÍTULO XVI — Dos médiuns especiais,12,13,86,1,3acb1486db625f7508a1348b44f6077c
+2,O Livro dos Médiuns,4431,61,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XVI,Dos médiuns especiais,null,Dos médiuns especiais,1676,1704,10786,29,fcd4ca5e1e08322a03354cbd5eab4af1
+2,O Livro dos Médiuns,4432,62,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XVI,Dos médiuns especiais,Diversas,Diversas,458,464,3060,7,981f563a3c28a3098e1e529a7aa2bf9d
+2,O Livro dos Médiuns,4433,63,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XVI,Dos médiuns especiais,Variedades dos médiuns escreventes:,Variedades dos médiuns escreventes:,2889,2955,19151,67,3b32818d057c0f703510e3b4e5c82fbf
+2,O Livro dos Médiuns,4434,64,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XVII,Da formação dos médiuns,null,CAPÍTULO XVII — Da formação dos médiuns,12,14,91,1,ead0745c638d486cd3273e7f66de452d
+2,O Livro dos Médiuns,4435,65,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XVII,Da formação dos médiuns,Desenvolvimento da mediunidade,Desenvolvimento da mediunidade,3862,3896,23905,35,fdee9fe32eae72f89391b04c48241523
+2,O Livro dos Médiuns,4436,66,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XVII,Da formação dos médiuns,Mudança de caligrafia,Mudança de caligrafia,182,182,1122,1,46a2a7a3fe7cc60316df35214ab02dc6
+2,O Livro dos Médiuns,4437,67,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XVII,Da formação dos médiuns,Perda e suspensão da mediunidade,Perda e suspensão da mediunidade,1276,1306,7713,31,3621af82a5711cf3b927406f3d99e7a9
+2,O Livro dos Médiuns,4438,68,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XVIII,Dos inconvenientes e perigos da mediunidade,null,CAPÍTULO XVIII — Dos inconvenientes e perigos da mediunidade,17,19,102,1,e9afd97ada2905e2f1abc55514cda3db
+2,O Livro dos Médiuns,4439,69,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XVIII,Dos inconvenientes e perigos da mediunidade,null,Dos inconvenientes e perigos da mediunidade,864,877,5400,14,41d6e3ed8b7c7203366c55b1aaa9a6cc
+2,O Livro dos Médiuns,4440,70,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XIX,Do papel dos médiuns nas comunicações espíritas,null,CAPÍTULO XIX — Do papel dos médiuns nas comunicações espíritas,34,37,218,1,5b40c682b62de284f7f83d333e4effdf
+2,O Livro dos Médiuns,4441,71,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XIX,Do papel dos médiuns nas comunicações espíritas,null,Do papel dos médiuns nas comunicações espíritas,4225,4291,26285,67,3c82837ca44c7899cb335445590815e5
+2,O Livro dos Médiuns,4442,72,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XX,Da influência moral do médium,null,CAPÍTULO XX — Da influência moral do médium,11,12,73,1,69c5e5d77170eb517a8a92100d980a23
+2,O Livro dos Médiuns,4443,73,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XX,Da influência moral do médium,null,Da influência moral do médium,2971,3011,18461,41,8c14268db82e887cd1f8b454f99969b4
+2,O Livro dos Médiuns,4444,74,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXI,Da influência do meio,null,CAPÍTULO XXI — Da influência do meio,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4445,75,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXI,Da influência do meio,null,Da influência do meio,819,830,5115,12,4c5a01b566b474cfa879f0c51a93eafc
+2,O Livro dos Médiuns,4446,76,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXII,Da mediunidade nos animais,null,CAPÍTULO XXII — Da mediunidade nos animais,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4447,77,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXII,Da mediunidade nos animais,null,Da mediunidade nos animais,2245,2267,14096,23,4f572065985b230aa9a5bcec54728da9
+2,O Livro dos Médiuns,4448,78,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXIII,Da obsessão,null,CAPÍTULO XXIII — Da obsessão,12,16,87,1,72b52ff82d40e139a191611a0a4d6ab4
+2,O Livro dos Médiuns,4449,79,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXIII,Da obsessão,null,Da obsessão,5495,5559,33357,65,1a4d72cde7e514b90da3e5deb0b00921
+2,O Livro dos Médiuns,4450,80,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXIV,Da identidade dos Espíritos,null,CAPÍTULO XXIV — Da identidade dos Espíritos,22,24,140,1,817498f85ed87f1c1196d3efa2b6a38f
+2,O Livro dos Médiuns,4451,81,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXIV,Da identidade dos Espíritos,Provas possíveis de identidade,Provas possíveis de identidade,1836,1848,11191,13,65d57fdb5aed277cb3296a2465f5d254
+2,O Livro dos Médiuns,4452,82,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXIV,Da identidade dos Espíritos,Modo de se distinguirem os bons dos maus Espíritos,Modo de se distinguirem os bons dos maus Espíritos,4788,4878,30025,91,bb3fb3b6403332cf99393be35f334f01
+2,O Livro dos Médiuns,4453,83,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXV,Das evocações,null,CAPÍTULO XXV — Das evocações,34,41,246,1,8425caed68bdfda3daa3d8968a58ae75
+2,O Livro dos Médiuns,4454,84,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXV,Das evocações,Considerações gerais,Considerações gerais,1185,1194,7362,10,cf6b2afffb1eaa3d3b33688c75476aa5
+2,O Livro dos Médiuns,4455,85,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXV,Das evocações,Espíritos que se podem evocar,Espíritos que se podem evocar,1039,1049,6204,11,669bdc394d47e4468f7dc5d19c15de2c
+2,O Livro dos Médiuns,4456,86,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXV,Das evocações,Linguagem de que se deve usar com os Espíritos,Linguagem de que se deve usar com os Espíritos,599,604,3829,6,38d58bc8fa27743c24bfc63c489cf41c
+2,O Livro dos Médiuns,4457,87,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXV,Das evocações,Utilidade das evocações particulares,Utilidade das evocações particulares,6123,6269,37286,147,6e3fa4b64a378e13c854251f5caa62ee
+2,O Livro dos Médiuns,4458,88,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXVI,Das perguntas que se podem fazer aos Espíritos,null,CAPÍTULO XXVI — Das perguntas que se podem fazer aos Espíritos,44,53,318,1,f9ab85124ba3fd6cf2d60c6f737a3a93
+2,O Livro dos Médiuns,4459,89,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXVI,Das perguntas que se podem fazer aos Espíritos,Observações preliminares,Observações preliminares,5621,5716,34754,96,9ca80ade1de42ba11ef418a688a5910a
+2,O Livro dos Médiuns,4460,90,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXVII,Das contradições e das mistificações,null,CAPÍTULO XXVII — Das contradições e das mistificações,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4461,91,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXVII,Das contradições e das mistificações,Das contradições,Das contradições,2841,2876,17097,36,28d1cfc5cfdfcffb11a6c2b9c8a43d3a
+2,O Livro dos Médiuns,4462,92,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXVII,Das contradições e das mistificações,Das mistificações,Das mistificações,692,702,4295,11,7f2d4f97b7ebe2dce5aae158e3e302ef
+2,O Livro dos Médiuns,4463,93,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXVIII,Do charlatanismo e do embuste,null,CAPÍTULO XXVIII — Do charlatanismo e do embuste,5,6,43,1,e5db1d4605b4a28727f4e5bf1a68453e
+2,O Livro dos Médiuns,4464,94,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXVIII,Do charlatanismo e do embuste,Médiuns interesseiros,Médiuns interesseiros,1803,1818,11143,16,224820e3948d1c7b7a1331531eeb373d
+2,O Livro dos Médiuns,4465,95,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXVIII,Do charlatanismo e do embuste,Fraudes espíritas,Fraudes espíritas,1949,1970,12135,22,6bd45a980de4ea3898a2c0ba8167aa2b
+2,O Livro dos Médiuns,4466,96,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXIX,Das reuniões e das Sociedades Espíritas,null,CAPÍTULO XXIX — Das reuniões e das Sociedades Espíritas,16,19,114,1,3ba4e4782e0f0014d4953dd6245ee204
+2,O Livro dos Médiuns,4467,97,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXIX,Das reuniões e das Sociedades Espíritas,Das reuniões em geral,Das reuniões em geral,2525,2548,15605,24,da4319e906a182f8e409c75f01231b83
+2,O Livro dos Médiuns,4468,98,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXIX,Das reuniões e das Sociedades Espíritas,Das Sociedades propriamente ditas,Das Sociedades propriamente ditas,2469,2490,15613,22,abcbe9edf0b2408b07070ee8a9328764
+2,O Livro dos Médiuns,4469,99,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXIX,Das reuniões e das Sociedades Espíritas,Assuntos de estudo,Assuntos de estudo,918,929,5973,12,ab135dc36552678e9ae781082da1c200
+2,O Livro dos Médiuns,4470,100,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXIX,Das reuniões e das Sociedades Espíritas,Rivalidades entre as Sociedades,Rivalidades entre as Sociedades,802,808,4959,7,6e5aa0e8cf927a7e371c561143ee09d1
+2,O Livro dos Médiuns,4471,101,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXX,Regulamento da Sociedade Parisiense de Estudos Espíritas,null,CAPÍTULO XXX — Regulamento da Sociedade Parisiense de Estudos Espíritas,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4472,102,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXX,Regulamento da Sociedade Parisiense de Estudos Espíritas,Fundada a 1º de abril de 1858,Fundada a 1º de abril de 1858,138,140,900,3,807766435e796b9bfa409de0b7ce6cfd
+2,O Livro dos Médiuns,4473,103,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXX,Regulamento da Sociedade Parisiense de Estudos Espíritas,Capítulo I — Fins e formação da Sociedade,Capítulo I — Fins e formação da Sociedade,605,621,3869,17,f3f8eb49d4045a971feddbe48de869d9
+2,O Livro dos Médiuns,4474,104,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXX,Regulamento da Sociedade Parisiense de Estudos Espíritas,Capítulo II — Administração,Capítulo II — Administração,760,786,4810,27,ba6688d302c4574d1d1bc31dc6b06360
+2,O Livro dos Médiuns,4475,105,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXX,Regulamento da Sociedade Parisiense de Estudos Espíritas,Capítulo III — Das sessões,Capítulo III — Das sessões,705,728,4626,24,bb823f6ceaa040d9213e5779815590ff
+2,O Livro dos Médiuns,4476,106,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXX,Regulamento da Sociedade Parisiense de Estudos Espíritas,Capítulo IV — Disposições diversas,Capítulo IV — Disposições diversas,550,560,3515,11,57edbdb1b1bb727ce6bfbefafea99b1c
+2,O Livro dos Médiuns,4477,107,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,null,CAPÍTULO XXXI — Dissertações espíritas,13,16,99,1,99c518e16a35b310389b5ab3e9273195
+2,O Livro dos Médiuns,4478,108,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,null,Dissertações espíritas,65,65,480,1,8ea0f1fda5cb52b86ed57a56d49acdb7
+2,O Livro dos Médiuns,4479,109,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,I,I,147,151,917,5,c0ad6f821a861f219a130fa13d94bd88
+2,O Livro dos Médiuns,4480,110,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Ii,Ii,216,220,1413,5,cdadb7550b8d9e4c3e8c3915850a6e8a
+2,O Livro dos Médiuns,4481,111,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Iii,Iii,224,228,1419,5,ec8aa11e9bb71e57b95d35bee817175e
+2,O Livro dos Médiuns,4482,112,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Iv,Iv,210,210,1169,1,a93e73e7fcf247ec9724a5ea8cab03f2
+2,O Livro dos Médiuns,4483,113,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,V,V,157,157,915,1,719f1c3be91c308d05b726a312c67e62
+2,O Livro dos Médiuns,4484,114,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Vi,Vi,99,101,682,3,467ea747bb3c1dc853bd0069fd71eb47
+2,O Livro dos Médiuns,4485,115,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Vii,Vii,89,89,560,1,95b1044739d077b6c2b08150ba320e32
+2,O Livro dos Médiuns,4486,116,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Viii,Viii,150,150,860,1,aba7c0b844b0012e89a470a8e963311b
+2,O Livro dos Médiuns,4487,117,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Ix,Ix,644,653,3888,10,f501be795e27a9e0a80b3665981a827a
+2,O Livro dos Médiuns,4488,118,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,X,X,242,244,1432,3,b43327a87e648562e4543772e72d0393
+2,O Livro dos Médiuns,4489,119,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xi,Xi,269,272,1643,4,57992c12515c406d26922859e44de7b2
+2,O Livro dos Médiuns,4490,120,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xii,Xii,234,237,1412,4,899586c8360cb151ee46e63c2754a576
+2,O Livro dos Médiuns,4491,121,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xiii,Xiii,212,214,1314,3,bfc7396fd8717bf43072d325f5a236e1
+2,O Livro dos Médiuns,4492,122,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xiv,Xiv,199,202,1240,4,469dc061c9d28de69439be672546cb09
+2,O Livro dos Médiuns,4493,123,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xv,Xv,270,273,1711,4,45d50d38ad610049a8d887d81a0dc7a9
+2,O Livro dos Médiuns,4494,124,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Sobre as Sociedades Espíritas,Sobre as Sociedades Espíritas,41,41,269,1,9723087e2030797f348ac68bbf8804d4
+2,O Livro dos Médiuns,4495,125,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xvi,Xvi,479,489,2986,11,4df582ef919da1ddb2189b55654235e9
+2,O Livro dos Médiuns,4496,126,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xvii,Xvii,92,94,593,3,0c9f4cf0508feff401cbe186c0b7f8e2
+2,O Livro dos Médiuns,4497,127,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xviii,Xviii,232,236,1438,5,ccb3b775c16751ac13530f87f958af9b
+2,O Livro dos Médiuns,4498,128,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xix,Xix,121,122,669,2,8734261bcd156235d96b541ec443893b
+2,O Livro dos Médiuns,4499,129,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xx,Xx,107,107,683,1,d3337fc2d43c77ce0fdcca1d3ca13ec4
+2,O Livro dos Médiuns,4500,130,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xxi,Xxi,270,274,1700,5,b4405482aaec6dd9d6d779f1d6aeb083
+2,O Livro dos Médiuns,4501,131,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xxii,Xxii,223,225,1359,3,f6f79bcd55bc264aa7d85c5ee51fc5d7
+2,O Livro dos Médiuns,4502,132,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xxiii,Xxiii,146,148,1012,3,7dfb357d01ef98aa2b5de2e80e61206e
+2,O Livro dos Médiuns,4503,133,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xxiv,Xxiv,211,213,1379,3,d25e80dc0cfdba706419bec080e9fc62
+2,O Livro dos Médiuns,4504,134,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xxv,Xxv,277,278,1683,2,9c2123a9933bf01594ae7bc9b310e22f
+2,O Livro dos Médiuns,4505,135,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xxvi,Xxvi,212,214,1298,3,e445dfdf5a4568c96f730ea3dc4bfabe
+2,O Livro dos Médiuns,4506,136,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xxvii,Xxvii,450,455,2894,6,ca2dfc8c7dbbb566418968f92babe1ee
+2,O Livro dos Médiuns,4507,137,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xxviii,Xxviii,502,506,2993,5,fa2fd035efd6b2a12f4cf2f9ae543f89
+2,O Livro dos Médiuns,4508,138,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Comunicações apócrifas,Comunicações apócrifas,64,64,414,1,74327aa9b81e14137a80bc363507348e
+2,O Livro dos Médiuns,4509,139,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xxix,Xxix,486,487,2829,2,34aea01e9c9029f1f3c9888a51a38798
+2,O Livro dos Médiuns,4510,140,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xxx,Xxx,341,342,1907,2,2fd543573d074fa0443968cd00980cfe
+2,O Livro dos Médiuns,4511,141,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xxxi,Xxxi,236,240,1437,5,c9c9a4c890e525db0bedf4b242a7c673
+2,O Livro dos Médiuns,4512,142,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xxxii,Xxxii,164,165,957,2,c62e17dedcec75afbbeaf486675bb3b5
+2,O Livro dos Médiuns,4513,143,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xxxiii,Xxxiii,520,528,3325,9,40c9a268d858e72a28ff99c9d9719b59
+2,O Livro dos Médiuns,4514,144,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXI,Dissertações espíritas,Xxxiv,Xxxiv,678,685,4165,8,ea06de3e9e86f6a24b73b517a111a39c
+2,O Livro dos Médiuns,4515,145,chapter_intro,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXII,Vocabulário espírita,null,CAPÍTULO XXXII — Vocabulário espírita,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+2,O Livro dos Médiuns,4516,146,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXII,Vocabulário espírita,null,Vocabulário espírita,601,625,3921,25,5d430b42650f6eca60aac848b5fb864d
+2,O Livro dos Médiuns,4517,147,content,Segunda Parte — Das manifestações espíritas,CAPÍTULO XXXII,Vocabulário espírita,Nota explicativa,Nota explicativa,1814,1837,11635,24,485a712698afeb79105c9aa5aeaf2f71
+3,O Evangelho Segundo o Espiritismo,4518,1,content,null,null,null,Explicação,Explicação,142,145,940,4,7d684fba50ffe239f60f36170f8203ee
+3,O Evangelho Segundo o Espiritismo,4519,2,content,null,null,null,Prefácio,Prefácio,199,204,1177,6,3482f88c9baaa618231ba894d8ffcb61
+3,O Evangelho Segundo o Espiritismo,4520,3,content,null,null,null,I – Objetivo desta obra,I – Objetivo desta obra,892,899,5537,8,c728c454eb42d83d9bee4ab6ac1263a5
+3,O Evangelho Segundo o Espiritismo,4521,4,content,null,null,null,II – Autoridade da Doutrina Espírita,II – Autoridade da Doutrina Espírita,2891,2918,17896,28,f028bbf687840b91ec0508cfd2124ed3
+3,O Evangelho Segundo o Espiritismo,4522,5,content,null,null,null,III – Notícias históricas,III – Notícias históricas,1864,1884,11939,21,2d05b232f11c53470d8c8117cef8de27
+3,O Evangelho Segundo o Espiritismo,4523,6,content,null,null,null,ideia cristã e do Espiritismo,ideia cristã e do Espiritismo,3234,3280,18763,47,c116c74b6a8738432f86977034cb71f5
+3,O Evangelho Segundo o Espiritismo,4524,7,chapter_intro,null,CAPÍTULO I,Não vim destruir a lei,null,CAPÍTULO I — Não vim destruir a lei,13,14,84,1,6d85142d544bd50ee6cbb3dcce6c9c78
+3,O Evangelho Segundo o Espiritismo,4525,8,content,null,CAPÍTULO I,Não vim destruir a lei,• Instruções dos Espíritos: A nova era,• Instruções dos Espíritos: A nova era,58,58,294,1,4898b9c893122fa6fca397f242e98552
+3,O Evangelho Segundo o Espiritismo,4526,9,content,null,CAPÍTULO I,Não vim destruir a lei,Moisés,Moisés,688,702,4142,15,b6fc15ac7dd8eb006fcb68e877a01223
+3,O Evangelho Segundo o Espiritismo,4527,10,content,null,CAPÍTULO I,Não vim destruir a lei,O Cristo,O Cristo,421,423,2499,3,8bdbee0f23ee066707000b38fc3cbabd
+3,O Evangelho Segundo o Espiritismo,4528,11,content,null,CAPÍTULO I,Não vim destruir a lei,O Espiritismo,O Espiritismo,323,325,1857,3,52c3b0d987cae939919419a72cb14c05
+3,O Evangelho Segundo o Espiritismo,4529,12,content,null,CAPÍTULO I,Não vim destruir a lei,Aliança da Ciência e da Religião,Aliança da Ciência e da Religião,424,426,2492,3,0b7ab9976b1b0cdc16dc13fb33fb430e
+3,O Evangelho Segundo o Espiritismo,4530,13,content,null,CAPÍTULO I,Não vim destruir a lei,A nova era,A nova era,1251,1260,7494,10,0cfc2691b1df4c5d71aed9618021d501
+3,O Evangelho Segundo o Espiritismo,4531,14,chapter_intro,null,CAPÍTULO II,Meu Reino não é deste mundo,null,CAPÍTULO II — Meu Reino não é deste mundo,18,21,105,1,80404295ba2ed91af68faf02bf31e903
+3,O Evangelho Segundo o Espiritismo,4532,15,content,null,CAPÍTULO II,Meu Reino não é deste mundo,null,Meu Reino não é deste mundo,102,103,550,2,47413b761e25c679aaecbabcba35e84a
+3,O Evangelho Segundo o Espiritismo,4533,16,content,null,CAPÍTULO II,Meu Reino não é deste mundo,A vida futura,A vida futura,576,580,3401,5,17d434cc98be6e734a72d3262131c14c
+3,O Evangelho Segundo o Espiritismo,4534,17,content,null,CAPÍTULO II,Meu Reino não é deste mundo,A realeza de Jesus,A realeza de Jesus,200,200,1141,1,9f80eef24a70301a58b93cca9f2daf60
+3,O Evangelho Segundo o Espiritismo,4535,18,content,null,CAPÍTULO II,Meu Reino não é deste mundo,O ponto de vista,O ponto de vista,867,873,5048,7,f9fdc92123197374556d715c37eee645
+3,O Evangelho Segundo o Espiritismo,4536,19,content,null,CAPÍTULO II,Meu Reino não é deste mundo,Uma realeza terrestre,Uma realeza terrestre,331,335,1922,5,fea4f695cc2541f937769363952af046
+3,O Evangelho Segundo o Espiritismo,4537,20,chapter_intro,null,CAPÍTULO III,Há muitas moradas na casa de meu Pai,null,CAPÍTULO III — Há muitas moradas na casa de meu Pai,41,44,286,1,54d61b182046138dbcccdce2671721d1
+3,O Evangelho Segundo o Espiritismo,4538,21,content,null,CAPÍTULO III,Há muitas moradas na casa de meu Pai,null,Há muitas moradas na casa de meu Pai,73,73,355,1,e2f3ca592182c95baf42900a15fddc49
+3,O Evangelho Segundo o Espiritismo,4539,22,content,null,CAPÍTULO III,Há muitas moradas na casa de meu Pai,Diferentes estados da alma na erraticidade,Diferentes estados da alma na erraticidade,183,184,1192,2,97b1b15c5233671f6fe11db61033572d
+3,O Evangelho Segundo o Espiritismo,4540,23,content,null,CAPÍTULO III,Há muitas moradas na casa de meu Pai,Diferentes categorias de mundos habitados,Diferentes categorias de mundos habitados,386,388,2313,3,69413d24f08dd39cffccbabb36acdd18
+3,O Evangelho Segundo o Espiritismo,4541,24,content,null,CAPÍTULO III,Há muitas moradas na casa de meu Pai,Destinação da Terra. Causas das misérias humanas,Destinação da Terra. Causas das misérias humanas,328,330,1892,3,672a00b35f3f62a0bc9556dfae0e73f6
+3,O Evangelho Segundo o Espiritismo,4542,25,content,null,CAPÍTULO III,Há muitas moradas na casa de meu Pai,Mundos inferiores e mundos superiores,Mundos inferiores e mundos superiores,1004,1012,6164,9,7673e559861392b99fbf9a40accd4b0c
+3,O Evangelho Segundo o Espiritismo,4543,26,content,null,CAPÍTULO III,Há muitas moradas na casa de meu Pai,Mundos de expiações e de provas,Mundos de expiações e de provas,440,443,2704,4,edd698acf330029dd3d9ee53d1cce953
+3,O Evangelho Segundo o Espiritismo,4544,27,content,null,CAPÍTULO III,Há muitas moradas na casa de meu Pai,Mundos regeneradores,Mundos regeneradores,553,558,3265,6,e3aa36cacf3dc47cae5d83fa899ab690
+3,O Evangelho Segundo o Espiritismo,4545,28,content,null,CAPÍTULO III,Há muitas moradas na casa de meu Pai,Progressão dos mundos,Progressão dos mundos,288,290,1730,3,f5dc7ad3b7f06e219a1fdfc16fe21ba0
+3,O Evangelho Segundo o Espiritismo,4546,29,chapter_intro,null,CAPÍTULO IV,Ninguém poderá ver o Reino de Deus se não nascer de novo,null,CAPÍTULO IV — Ninguém poderá ver o Reino de Deus se não nascer de novo,30,32,203,1,8993945d528970692db1fb855d3aa14d
+3,O Evangelho Segundo o Espiritismo,4547,30,content,null,CAPÍTULO IV,Ninguém poderá ver o Reino de Deus se não nascer de novo,null,Ninguém poderá ver o Reino de Deus se não nascer de novo,281,283,1535,3,f0e8de21012edfb8121bc7e219eae2e1
+3,O Evangelho Segundo o Espiritismo,4548,31,content,null,CAPÍTULO IV,Ninguém poderá ver o Reino de Deus se não nascer de novo,Ressurreição e reencarnação,Ressurreição e reencarnação,2126,2152,12301,27,e69dc3c5e49f4af4e901cbda3c4ec697
+3,O Evangelho Segundo o Espiritismo,4549,32,content,null,CAPÍTULO IV,Ninguém poderá ver o Reino de Deus se não nascer de novo,passo que a unicidade da existência os rompe,passo que a unicidade da existência os rompe,1041,1050,6336,10,10c21b94ef00cd9f8bc9231508b582b4
+3,O Evangelho Segundo o Espiritismo,4550,33,content,null,CAPÍTULO IV,Ninguém poderá ver o Reino de Deus se não nascer de novo,Limites da encarnação,Limites da encarnação,272,275,1702,4,537e5ef1e4686415836c4dd6480cc06a
+3,O Evangelho Segundo o Espiritismo,4551,34,content,null,CAPÍTULO IV,Ninguém poderá ver o Reino de Deus se não nascer de novo,Necessidade da encarnação,Necessidade da encarnação,596,600,3636,5,54aef58051855c6cd181dccdb6000e2c
+3,O Evangelho Segundo o Espiritismo,4552,35,chapter_intro,null,CAPÍTULO V,Bem-aventurados os aflitos,null,CAPÍTULO V — Bem-aventurados os aflitos,110,116,636,1,91a33fe2bde63f672fb44c93efe10c60
+3,O Evangelho Segundo o Espiritismo,4553,36,content,null,CAPÍTULO V,Bem-aventurados os aflitos,null,Bem-aventurados os aflitos,116,118,669,3,79f2421949934cf94df2c41d990dbbe1
+3,O Evangelho Segundo o Espiritismo,4554,37,content,null,CAPÍTULO V,Bem-aventurados os aflitos,Justiça das aflições,Justiça das aflições,267,267,1569,1,608f74b9ad3696ff4ab46f7cfbeb71b5
+3,O Evangelho Segundo o Espiritismo,4555,38,content,null,CAPÍTULO V,Bem-aventurados os aflitos,Causas atuais das aflições,Causas atuais das aflições,666,678,4058,13,4d3870d052a656b4293c2eb7d9b04d6a
+3,O Evangelho Segundo o Espiritismo,4556,39,content,null,CAPÍTULO V,Bem-aventurados os aflitos,Causas anteriores das aflições,Causas anteriores das aflições,1211,1222,7205,12,d53b0d1431f4993a115b5c5214f4549e
+3,O Evangelho Segundo o Espiritismo,4557,40,content,null,CAPÍTULO V,Bem-aventurados os aflitos,Esquecimento do passado,Esquecimento do passado,417,422,2525,6,a15681ad643e78660660afc4dcb880f9
+3,O Evangelho Segundo o Espiritismo,4558,41,content,null,CAPÍTULO V,Bem-aventurados os aflitos,Motivos de resignação,Motivos de resignação,631,636,3709,6,029d445a5bc283bab4d6804cc909f4f1
+3,O Evangelho Segundo o Espiritismo,4559,42,content,null,CAPÍTULO V,Bem-aventurados os aflitos,O suicídio e a loucura,O suicídio e a loucura,766,770,4534,5,6cb08e76ca8f3af426b040985b51adb3
+3,O Evangelho Segundo o Espiritismo,4560,43,content,null,CAPÍTULO V,Bem-aventurados os aflitos,Bem e mal sofrer,Bem e mal sofrer,363,365,2099,3,c1a05592ef180f0240303a7312c3968a
+3,O Evangelho Segundo o Espiritismo,4561,44,content,null,CAPÍTULO V,Bem-aventurados os aflitos,O mal e o remédio,O mal e o remédio,606,610,3513,5,2f560615d7069a6e6041f91c8037d188
+3,O Evangelho Segundo o Espiritismo,4562,45,content,null,CAPÍTULO V,Bem-aventurados os aflitos,A felicidade não é deste mundo,A felicidade não é deste mundo,548,555,3402,8,bad02cb3f84d93d8eae47664127e9e40
+3,O Evangelho Segundo o Espiritismo,4563,46,content,null,CAPÍTULO V,Bem-aventurados os aflitos,Perda de pessoas amadas. Mortes prematuras,Perda de pessoas amadas. Mortes prematuras,562,567,3384,6,8d14a10f03c3570838a72e2860378312
+3,O Evangelho Segundo o Espiritismo,4564,47,content,null,CAPÍTULO V,Bem-aventurados os aflitos,"Se fosse um homem de bem, teria morrido","Se fosse um homem de bem, teria morrido",295,297,1770,3,1aa4b4174218325cbeaaa941562cc87f
+3,O Evangelho Segundo o Espiritismo,4565,48,content,null,CAPÍTULO V,Bem-aventurados os aflitos,Os tormentos voluntários,Os tormentos voluntários,330,332,1921,3,e78fe2603bf75a4ac596509e6843f57e
+3,O Evangelho Segundo o Espiritismo,4566,49,content,null,CAPÍTULO V,Bem-aventurados os aflitos,A desgraça real,A desgraça real,522,526,3069,5,1fc8ec289fdf1d1bb23162c106001f2c
+3,O Evangelho Segundo o Espiritismo,4567,50,content,null,CAPÍTULO V,Bem-aventurados os aflitos,A melancolia,A melancolia,248,249,1521,2,7ee3b1cd6d8e477954138f1c164e8a18
+3,O Evangelho Segundo o Espiritismo,4568,51,content,null,CAPÍTULO V,Bem-aventurados os aflitos,Provas voluntárias. O verdadeiro cilício,Provas voluntárias. O verdadeiro cilício,584,588,3494,5,19f402894d82447581155d1692f7d3ad
+3,O Evangelho Segundo o Espiritismo,4569,52,content,null,CAPÍTULO V,Bem-aventurados os aflitos,Dever-se-á pôr termo às provas do próximo?,Dever-se-á pôr termo às provas do próximo?,511,515,3064,5,de29e66abf44c441e04edc0f4d05ac66
+3,O Evangelho Segundo o Espiritismo,4570,53,content,null,CAPÍTULO V,Bem-aventurados os aflitos,que sofra sem esperança de cura?,que sofra sem esperança de cura?,254,257,1547,4,f5fb2720dfb35525fcb4ff1b254e86eb
+3,O Evangelho Segundo o Espiritismo,4571,54,content,null,CAPÍTULO V,Bem-aventurados os aflitos,Sacrifício da própria vida,Sacrifício da própria vida,302,305,1718,4,9c8c52e27e7a72a4e76ce26df7dbdec5
+3,O Evangelho Segundo o Espiritismo,4572,55,content,null,CAPÍTULO V,Bem-aventurados os aflitos,Proveito dos sofrimentos para outrem,Proveito dos sofrimentos para outrem,109,110,710,2,6a3914fd74a23f551a2d825abe734e94
+3,O Evangelho Segundo o Espiritismo,4573,56,chapter_intro,null,CAPÍTULO VI,O Cristo Consolador,null,CAPÍTULO VI — O Cristo Consolador,14,16,95,1,30fcc6ee3549c409d7d3e0274801fac6
+3,O Evangelho Segundo o Espiritismo,4574,57,content,null,CAPÍTULO VI,O Cristo Consolador,O jugo leve,O jugo leve,183,184,1002,2,26191cb7ed28c8334ef0394c7f19be82
+3,O Evangelho Segundo o Espiritismo,4575,58,content,null,CAPÍTULO VI,O Cristo Consolador,Consolador Prometido,Consolador Prometido,490,495,2799,6,d823342db06a25f609b7fb9cc753a1ad
+3,O Evangelho Segundo o Espiritismo,4576,59,content,null,CAPÍTULO VI,O Cristo Consolador,Advento do Espírito de Verdade,Advento do Espírito de Verdade,963,972,5681,10,77486ac69f97a9d95d6a97ca8058dd7c
+3,O Evangelho Segundo o Espiritismo,4577,60,chapter_intro,null,CAPÍTULO VII,Bem-aventurados os pobres de espírito,null,CAPÍTULO VII — Bem-aventurados os pobres de espírito,38,41,222,1,7270fd990353ee2709ba448b36bc9f89
+3,O Evangelho Segundo o Espiritismo,4578,61,content,null,CAPÍTULO VII,Bem-aventurados os pobres de espírito,O que se deve entender por pobres de espírito,O que se deve entender por pobres de espírito,493,498,2856,6,cadea1107cfbdc7db0a941d0575f937c
+3,O Evangelho Segundo o Espiritismo,4579,62,content,null,CAPÍTULO VII,Bem-aventurados os pobres de espírito,Aquele que se eleva será rebaixado,Aquele que se eleva será rebaixado,818,824,4689,7,7649d8aaf5de42c5fcc18d0203c8233a
+3,O Evangelho Segundo o Espiritismo,4580,63,content,null,CAPÍTULO VII,Bem-aventurados os pobres de espírito,Mistérios ocultos aos doutos e aos prudentes,Mistérios ocultos aos doutos e aos prudentes,652,657,3685,6,9b25948136eceba76366c97f6ef45ae5
+3,O Evangelho Segundo o Espiritismo,4581,64,content,null,CAPÍTULO VII,Bem-aventurados os pobres de espírito,O orgulho e a humildade,O orgulho e a humildade,2008,2025,11795,18,2304c95b81709a8f5b3b74ffd3b30cfe
+3,O Evangelho Segundo o Espiritismo,4582,65,content,null,CAPÍTULO VII,Bem-aventurados os pobres de espírito,Missão do homem inteligente na Terra,Missão do homem inteligente na Terra,319,320,1868,2,1b6b14218c6eb17c1f31f7ed3fee23ed
+3,O Evangelho Segundo o Espiritismo,4583,66,chapter_intro,null,CAPÍTULO VIII,Bem-aventurados os que têm puro o coração,null,CAPÍTULO VIII — Bem-aventurados os que têm puro o coração,43,47,283,1,4dc05b85ea34d8ae3fada6364c7547c4
+3,O Evangelho Segundo o Espiritismo,4584,67,content,null,CAPÍTULO VIII,Bem-aventurados os que têm puro o coração,Simplicidade e pureza de coração,Simplicidade e pureza de coração,613,620,3630,8,6c023a00685594f3a9c264a9b60d8551
+3,O Evangelho Segundo o Espiritismo,4585,68,content,null,CAPÍTULO VIII,Bem-aventurados os que têm puro o coração,Pecado por pensamentos. Adultério,Pecado por pensamentos. Adultério,426,432,2531,7,518dc6af8fe19440be071f7a41a41dbe
+3,O Evangelho Segundo o Espiritismo,4586,69,content,null,CAPÍTULO VIII,Bem-aventurados os que têm puro o coração,Verdadeira pureza. Mãos não lavadas,Verdadeira pureza. Mãos não lavadas,725,735,4200,11,29b3b78a59fbf91fa524031a0032eef9
+3,O Evangelho Segundo o Espiritismo,4587,70,content,null,CAPÍTULO VIII,Bem-aventurados os que têm puro o coração,"motivo de escândalo, cortai-a","motivo de escândalo, cortai-a",933,944,5336,12,f616cebf733cca49f63e39975edeeec4
+3,O Evangelho Segundo o Espiritismo,4588,71,content,null,CAPÍTULO VIII,Bem-aventurados os que têm puro o coração,Deixai que venham a mim as criancinhas,Deixai que venham a mim as criancinhas,587,591,3372,5,d924166215e1df490194b24c77a32f4c
+3,O Evangelho Segundo o Espiritismo,4589,72,content,null,CAPÍTULO VIII,Bem-aventurados os que têm puro o coração,Bem-aventurados os que têm fechados os olhos,Bem-aventurados os que têm fechados os olhos,761,767,4252,7,98d2c5bef25c61c5fe871721cf388608
+3,O Evangelho Segundo o Espiritismo,4590,73,chapter_intro,null,CAPÍTULO IX,Bem-aventurados os que são brandos e pacíficos,null,CAPÍTULO IX — Bem-aventurados os que são brandos e pacíficos,21,22,126,1,960649092cf0996e3aa4f896b2ef3d15
+3,O Evangelho Segundo o Espiritismo,4591,74,content,null,CAPÍTULO IX,Bem-aventurados os que são brandos e pacíficos,Injúrias e violências,Injúrias e violências,468,475,2707,8,1642eff9cef0ddfe9e64ee586e9f65ff
+3,O Evangelho Segundo o Espiritismo,4592,75,content,null,CAPÍTULO IX,Bem-aventurados os que são brandos e pacíficos,A afabilidade e a doçura,A afabilidade e a doçura,269,271,1619,3,81f54a12b2316e3322909ef2620ab7ff
+3,O Evangelho Segundo o Espiritismo,4593,76,content,null,CAPÍTULO IX,Bem-aventurados os que são brandos e pacíficos,A paciência,A paciência,234,237,1338,4,714cddc9aae837aee7cf53035922f732
+3,O Evangelho Segundo o Espiritismo,4594,77,content,null,CAPÍTULO IX,Bem-aventurados os que são brandos e pacíficos,Obediência e resignação,Obediência e resignação,303,304,1795,2,4282ee292c7dc3d5f82df6b36a3b6f26
+3,O Evangelho Segundo o Espiritismo,4595,78,content,null,CAPÍTULO IX,Bem-aventurados os que são brandos e pacíficos,A cólera,A cólera,670,677,4010,8,5887222710282b335227e6e707f1d0d0
+3,O Evangelho Segundo o Espiritismo,4596,79,chapter_intro,null,CAPÍTULO X,Bem-aventurados os que são misericordiosos,null,CAPÍTULO X — Bem-aventurados os que são misericordiosos,64,69,391,1,b551dc0b9e878f1206e4d1877672de65
+3,O Evangelho Segundo o Espiritismo,4597,80,content,null,CAPÍTULO X,Bem-aventurados os que são misericordiosos,"Perdoai, para que Deus vos perdoe","Perdoai, para que Deus vos perdoe",404,409,2437,6,18a2f37565d740f9e8a7c62f4a953380
+3,O Evangelho Segundo o Espiritismo,4598,81,content,null,CAPÍTULO X,Bem-aventurados os que são misericordiosos,Reconciliação com os adversários,Reconciliação com os adversários,397,398,2330,2,8d80d9da4d69dba5da6df0eb61fc75ac
+3,O Evangelho Segundo o Espiritismo,4599,82,content,null,CAPÍTULO X,Bem-aventurados os que são misericordiosos,O sacrifício mais agradável a Deus,O sacrifício mais agradável a Deus,245,246,1426,2,0c2e78aaf464ac6f2c8bc16549d61def
+3,O Evangelho Segundo o Espiritismo,4600,83,content,null,CAPÍTULO X,Bem-aventurados os que são misericordiosos,O argueiro e a trave no olho,O argueiro e a trave no olho,278,279,1607,2,bdd71f0a036149745f30ec46a2e52829
+3,O Evangelho Segundo o Espiritismo,4601,84,content,null,CAPÍTULO X,Bem-aventurados os que são misericordiosos,primeira pedra aquele que estiver sem pecado,primeira pedra aquele que estiver sem pecado,516,521,3081,6,4be036dff7f7dbda80352ded9cd9d8f5
+3,O Evangelho Segundo o Espiritismo,4602,85,content,null,CAPÍTULO X,Bem-aventurados os que são misericordiosos,Perdão das ofensas,Perdão das ofensas,824,829,4972,6,fef0c7c4079612e37127714fc0313f42
+3,O Evangelho Segundo o Espiritismo,4603,86,content,null,CAPÍTULO X,Bem-aventurados os que são misericordiosos,A indulgência,A indulgência,1014,1024,6202,11,b49c8fa321335f20d5af9db9be114cc4
+3,O Evangelho Segundo o Espiritismo,4604,87,content,null,CAPÍTULO X,Bem-aventurados os que são misericordiosos,"de outrem, divulgar o mal de outrem?","de outrem, divulgar o mal de outrem?",381,385,2307,5,5651a33bcc00dd5f83991c6fe91a42d5
+3,O Evangelho Segundo o Espiritismo,4605,88,chapter_intro,null,CAPÍTULO XI,Amar o próximo como a si mesmo,null,CAPÍTULO XI — Amar o próximo como a si mesmo,59,61,300,1,1aee963eae15ac4460cf985c5f9d99d4
+3,O Evangelho Segundo o Espiritismo,4606,89,content,null,CAPÍTULO XI,Amar o próximo como a si mesmo,Parábola dos Credores e dos Devedores,Parábola dos Credores e dos Devedores,556,561,3145,6,496350ac76c9fd514a53d4257d3702ff
+3,O Evangelho Segundo o Espiritismo,4607,90,content,null,CAPÍTULO XI,Amar o próximo como a si mesmo,Dai a César o que é de César,Dai a César o que é de César,413,417,2502,5,d1ddd455ef4b7472de179813997b077e
+3,O Evangelho Segundo o Espiritismo,4608,91,content,null,CAPÍTULO XI,Amar o próximo como a si mesmo,A lei de amor,A lei de amor,1585,1598,9508,14,1c4cd3489938155d529fac3a13302cee
+3,O Evangelho Segundo o Espiritismo,4609,92,content,null,CAPÍTULO XI,Amar o próximo como a si mesmo,O egoísmo,O egoísmo,533,538,3078,6,2f62752bb5841dbcd43b00cbcf68c980
+3,O Evangelho Segundo o Espiritismo,4610,93,content,null,CAPÍTULO XI,Amar o próximo como a si mesmo,A fé e a caridade,A fé e a caridade,297,299,1819,3,0305742b03e10c39913cc0551f332d51
+3,O Evangelho Segundo o Espiritismo,4611,94,content,null,CAPÍTULO XI,Amar o próximo como a si mesmo,Caridade para com os criminosos,Caridade para com os criminosos,503,507,3058,5,b47ce6d24d0b457f4ab8f51e1c8bf8e9
+3,O Evangelho Segundo o Espiritismo,4612,95,content,null,CAPÍTULO XI,Amar o próximo como a si mesmo,Deve-se expor a vida por um malfeitor?,Deve-se expor a vida por um malfeitor?,228,229,1358,2,fa06e76220a8ae2cbc09c5e545359ff8
+3,O Evangelho Segundo o Espiritismo,4613,96,chapter_intro,null,CAPÍTULO XII,Amai os vossos inimigos,null,CAPÍTULO XII — Amai os vossos inimigos,32,35,182,1,8da30f6205f173e4ec6424d8efb01757
+3,O Evangelho Segundo o Espiritismo,4614,97,content,null,CAPÍTULO XII,Amai os vossos inimigos,Retribuir o mal com o bem,Retribuir o mal com o bem,1046,1056,5922,11,7deeb6633df0d6f14676905c293123e8
+3,O Evangelho Segundo o Espiritismo,4615,98,content,null,CAPÍTULO XII,Amai os vossos inimigos,Os inimigos desencarnados,Os inimigos desencarnados,492,495,2923,4,cc0086df5d9029ce85cee9cd25ee30df
+3,O Evangelho Segundo o Espiritismo,4616,99,content,null,CAPÍTULO XII,Amai os vossos inimigos,apresentai-lhe também a outra,apresentai-lhe também a outra,506,508,2890,3,c3c9c353980f4050130eaf62d75c7680
+3,O Evangelho Segundo o Espiritismo,4617,100,content,null,CAPÍTULO XII,Amai os vossos inimigos,A vingança,A vingança,445,446,2612,2,a4dbf8d10f94dc6a4ede3adedbadab80
+3,O Evangelho Segundo o Espiritismo,4618,101,content,null,CAPÍTULO XII,Amai os vossos inimigos,O ódio,O ódio,198,198,1100,1,acae1f322c8e827a57522e318ba70b25
+3,O Evangelho Segundo o Espiritismo,4619,102,content,null,CAPÍTULO XII,Amai os vossos inimigos,O duelo,O duelo,1962,1973,11393,12,841a700df0296699210ed8d6a6a4c7d2
+3,O Evangelho Segundo o Espiritismo,4620,103,chapter_intro,null,CAPÍTULO XIII,Não saiba a vossa mão esquerda o que dê a vossa mão direita,null,CAPÍTULO XIII — Não saiba a vossa mão esquerda o que dê a vossa mão direita,51,55,308,1,36c3d89b7cb6327d917d85c42d74efb6
+3,O Evangelho Segundo o Espiritismo,4621,104,content,null,CAPÍTULO XIII,Não saiba a vossa mão esquerda o que dê a vossa mão direita,Fazer o bem sem ostentação,Fazer o bem sem ostentação,849,857,4974,9,43ec33349fe4f5ad8336ede3d6c74243
+3,O Evangelho Segundo o Espiritismo,4622,105,content,null,CAPÍTULO XIII,Não saiba a vossa mão esquerda o que dê a vossa mão direita,Os infortúnios ocultos,Os infortúnios ocultos,590,593,3451,4,82089bd6c6d34914d60b06fe5e2d293b
+3,O Evangelho Segundo o Espiritismo,4623,106,content,null,CAPÍTULO XIII,Não saiba a vossa mão esquerda o que dê a vossa mão direita,O óbolo da viúva,O óbolo da viúva,597,599,3474,3,79793673a3d02acb80c0c241b1028b94
+3,O Evangelho Segundo o Espiritismo,4624,107,content,null,CAPÍTULO XIII,Não saiba a vossa mão esquerda o que dê a vossa mão direita,Dar sem esperar retribuição,Dar sem esperar retribuição,377,380,2231,4,10d9034c1954e92532706f9966969023
+3,O Evangelho Segundo o Espiritismo,4625,108,content,null,CAPÍTULO XIII,Não saiba a vossa mão esquerda o que dê a vossa mão direita,A caridade material e a caridade moral,A caridade material e a caridade moral,847,858,5159,12,927fc7b24003493bf4856f8673835dea
+3,O Evangelho Segundo o Espiritismo,4626,109,content,null,CAPÍTULO XIII,Não saiba a vossa mão esquerda o que dê a vossa mão direita,A beneficência,A beneficência,2736,2758,16508,23,e0e7355e289aa808e6f9de1222b45257
+3,O Evangelho Segundo o Espiritismo,4627,110,content,null,CAPÍTULO XIII,Não saiba a vossa mão esquerda o que dê a vossa mão direita,A piedade,A piedade,466,469,2730,4,09ab41962db92576e9dfbcc4cac98e2a
+3,O Evangelho Segundo o Espiritismo,4628,111,content,null,CAPÍTULO XIII,Não saiba a vossa mão esquerda o que dê a vossa mão direita,Os órfãos,Os órfãos,223,223,1312,1,dbebfc3af8fad3e678496bf3d0a9e272
+3,O Evangelho Segundo o Espiritismo,4629,112,content,null,CAPÍTULO XIII,Não saiba a vossa mão esquerda o que dê a vossa mão direita,Benefícios pagos com a ingratidão,Benefícios pagos com a ingratidão,398,402,2407,5,c11a6b3bbfc39d70a51303ac9bb3fb94
+3,O Evangelho Segundo o Espiritismo,4630,113,content,null,CAPÍTULO XIII,Não saiba a vossa mão esquerda o que dê a vossa mão direita,Beneficência exclusiva,Beneficência exclusiva,135,136,812,2,a7a595c635ba6021d1cb3751666fc819
+3,O Evangelho Segundo o Espiritismo,4631,114,chapter_intro,null,CAPÍTULO XIV,Honrai a vosso pai e a vossa mãe,null,CAPÍTULO XIV — Honrai a vosso pai e a vossa mãe,31,34,181,1,9e4d57bc6b048e76a9551c11d9b430ba
+3,O Evangelho Segundo o Espiritismo,4632,115,content,null,CAPÍTULO XIV,Honrai a vosso pai e a vossa mãe,null,Honrai a vosso pai e a vossa mãe,67,68,344,2,726fc1650b4d4204506b7c587ac0f9b3
+3,O Evangelho Segundo o Espiritismo,4633,116,content,null,CAPÍTULO XIV,Honrai a vosso pai e a vossa mãe,Piedade filial,Piedade filial,893,899,5048,7,7712d2b17249a45fe7d80982709a5ee4
+3,O Evangelho Segundo o Espiritismo,4634,117,content,null,CAPÍTULO XIV,Honrai a vosso pai e a vossa mãe,Quem é minha mãe e quem são meus irmãos?,Quem é minha mãe e quem são meus irmãos?,479,485,2829,7,9a67744e61c97c67dff8f9e077c8fe85
+3,O Evangelho Segundo o Espiritismo,4635,118,content,null,CAPÍTULO XIV,Honrai a vosso pai e a vossa mãe,A parentela corporal e a parentela espiritual,A parentela corporal e a parentela espiritual,439,442,2729,4,b30d1929464a62cb63cb439b685470a3
+3,O Evangelho Segundo o Espiritismo,4636,119,content,null,CAPÍTULO XIV,Honrai a vosso pai e a vossa mãe,A ingratidão dos filhos e os laços de família,A ingratidão dos filhos e os laços de família,1563,1574,9326,12,e349632531171ec0d7d8ccd89ea88ed4
+3,O Evangelho Segundo o Espiritismo,4637,120,chapter_intro,null,CAPÍTULO XV,Fora da caridade não há salvação,null,CAPÍTULO XV — Fora da caridade não há salvação,43,47,261,1,d178e9462710615c8759289b000e88bf
+3,O Evangelho Segundo o Espiritismo,4638,121,content,null,CAPÍTULO XV,Fora da caridade não há salvação,salvo. Parábola do Bom Samaritano,salvo. Parábola do Bom Samaritano,1072,1084,6158,13,41755ad653ed023ea5f7fab75114550c
+3,O Evangelho Segundo o Espiritismo,4639,122,content,null,CAPÍTULO XV,Fora da caridade não há salvação,O mandamento maior,O mandamento maior,252,253,1332,2,b01bdc5c8fa6557379b94210b8aeca84
+3,O Evangelho Segundo o Espiritismo,4640,123,content,null,CAPÍTULO XV,Fora da caridade não há salvação,"Necessidade da caridade, segundo Paulo","Necessidade da caridade, segundo Paulo",323,327,1843,5,c2492d89807ab9d6903c008dd498efc7
+3,O Evangelho Segundo o Espiritismo,4641,124,content,null,CAPÍTULO XV,Fora da caridade não há salvação,da verdade não há salvação,da verdade não há salvação,429,430,2553,2,15d48c0e48e5f267f2cbd922d3dfa855
+3,O Evangelho Segundo o Espiritismo,4642,125,content,null,CAPÍTULO XV,Fora da caridade não há salvação,Fora da caridade não há salvação,Fora da caridade não há salvação,343,344,2019,2,6853dda3c685d5d427d754ca0c8360cb
+3,O Evangelho Segundo o Espiritismo,4643,126,chapter_intro,null,CAPÍTULO XVI,Não se pode servir a Deus e a Mamon,null,CAPÍTULO XVI — Não se pode servir a Deus e a Mamon,51,58,349,1,800747fdee9f4df197016122ac8c8950
+3,O Evangelho Segundo o Espiritismo,4644,127,content,null,CAPÍTULO XVI,Não se pode servir a Deus e a Mamon,Salvação dos ricos,Salvação dos ricos,232,235,1245,4,89484d930fa412f1ac89359a7a49245d
+3,O Evangelho Segundo o Espiritismo,4645,128,content,null,CAPÍTULO XVI,Não se pode servir a Deus e a Mamon,Preservar-se da avareza,Preservar-se da avareza,204,206,1145,3,6bd17ade55c3fd12d0eb40169d0d33ee
+3,O Evangelho Segundo o Espiritismo,4646,129,content,null,CAPÍTULO XVI,Não se pode servir a Deus e a Mamon,Jesus em casa de Zaqueu,Jesus em casa de Zaqueu,260,262,1498,3,86320fa04d744887d44361c140d41ee3
+3,O Evangelho Segundo o Espiritismo,4647,130,content,null,CAPÍTULO XVI,Não se pode servir a Deus e a Mamon,Parábola do Mau Rico,Parábola do Mau Rico,301,304,1659,4,f7a9c9bb117fb3891036562cc22075a1
+3,O Evangelho Segundo o Espiritismo,4648,131,content,null,CAPÍTULO XVI,Não se pode servir a Deus e a Mamon,Parábola dos Talentos,Parábola dos Talentos,358,358,2031,1,fca92d6209ee8d5f5afd5082d9cbe747
+3,O Evangelho Segundo o Espiritismo,4649,132,content,null,CAPÍTULO XVI,Não se pode servir a Deus e a Mamon,Provas da riqueza e da miséria,Provas da riqueza e da miséria,751,756,4429,6,5fde892ed55995cb298c062da29b715b
+3,O Evangelho Segundo o Espiritismo,4650,133,content,null,CAPÍTULO XVI,Não se pode servir a Deus e a Mamon,Desigualdade das riquezas,Desigualdade das riquezas,595,597,3492,3,ba5de973c223171350e3f9055a044b5b
+3,O Evangelho Segundo o Espiritismo,4651,134,content,null,CAPÍTULO XVI,Não se pode servir a Deus e a Mamon,A verdadeira propriedade,A verdadeira propriedade,675,678,3880,4,1fcc392a6fe858d65e8d5e0a471d8a05
+3,O Evangelho Segundo o Espiritismo,4652,135,content,null,CAPÍTULO XVI,Não se pode servir a Deus e a Mamon,Emprego da riqueza,Emprego da riqueza,1031,1034,6030,4,4ddfe14035dc3a504b50d792b1e68571
+3,O Evangelho Segundo o Espiritismo,4653,136,content,null,CAPÍTULO XVI,Não se pode servir a Deus e a Mamon,Desprendimento dos bens terrenos,Desprendimento dos bens terrenos,1556,1566,9221,11,4a77e06a7899baf8e37d85d2b5f80f31
+3,O Evangelho Segundo o Espiritismo,4654,137,content,null,CAPÍTULO XVI,Não se pode servir a Deus e a Mamon,Transmissão da riqueza,Transmissão da riqueza,132,133,798,2,87847102d8e902b4da0a76754648dda0
+3,O Evangelho Segundo o Espiritismo,4655,138,chapter_intro,null,CAPÍTULO XVII,Sede perfeitos,null,CAPÍTULO XVII — Sede perfeitos,40,44,216,1,7ab84a2c8290d051844303f616c6bb7b
+3,O Evangelho Segundo o Espiritismo,4656,139,content,null,CAPÍTULO XVII,Sede perfeitos,Caracteres da perfeição,Caracteres da perfeição,388,391,2284,4,2396aff02ed6a0df88fcd88ec7d5dbcd
+3,O Evangelho Segundo o Espiritismo,4657,140,content,null,CAPÍTULO XVII,Sede perfeitos,O homem de bem,O homem de bem,694,713,4056,20,3879b7952c4bb0f90a1fa5f9306ec89c
+3,O Evangelho Segundo o Espiritismo,4658,141,content,null,CAPÍTULO XVII,Sede perfeitos,Os bons espíritas,Os bons espíritas,593,598,3611,6,9d43e3fe6c41284cf7cd5c1997826ebf
+3,O Evangelho Segundo o Espiritismo,4659,142,content,null,CAPÍTULO XVII,Sede perfeitos,Parábola do Semeador,Parábola do Semeador,468,472,2695,5,27526247f07171259e9ffc60668d018c
+3,O Evangelho Segundo o Espiritismo,4660,143,content,null,CAPÍTULO XVII,Sede perfeitos,O dever,O dever,435,440,2520,6,ccc6b37f27cb273c903c34a8c71afcfc
+3,O Evangelho Segundo o Espiritismo,4661,144,content,null,CAPÍTULO XVII,Sede perfeitos,A virtude,A virtude,379,382,2352,4,e07b9eac21d3cc172296673776e97fd7
+3,O Evangelho Segundo o Espiritismo,4662,145,content,null,CAPÍTULO XVII,Sede perfeitos,Os superiores e os inferiores,Os superiores e os inferiores,632,636,3747,5,5ef05d2f5be9d9a67149142a6a1f5232
+3,O Evangelho Segundo o Espiritismo,4663,146,content,null,CAPÍTULO XVII,Sede perfeitos,O homem no mundo,O homem no mundo,467,472,2803,6,13cc2841a674c4b12a20925a12b2eb00
+3,O Evangelho Segundo o Espiritismo,4664,147,content,null,CAPÍTULO XVII,Sede perfeitos,Cuidar do corpo e do espírito,Cuidar do corpo e do espírito,413,415,2511,3,7032805467ee09ab0cc5c58a33a61fb6
+3,O Evangelho Segundo o Espiritismo,4665,148,chapter_intro,null,CAPÍTULO XVIII,"Muitos os chamados, poucos os escolhidos",null,"CAPÍTULO XVIII — Muitos os chamados, poucos os escolhidos",45,49,261,1,d7f084212e747298b545e05800fbb166
+3,O Evangelho Segundo o Espiritismo,4666,149,content,null,CAPÍTULO XVIII,"Muitos os chamados, poucos os escolhidos",Parábola do Festim das Bodas,Parábola do Festim das Bodas,1024,1033,6150,10,0958ab874edb9871d4563edf2f274772
+3,O Evangelho Segundo o Espiritismo,4667,150,content,null,CAPÍTULO XVIII,"Muitos os chamados, poucos os escolhidos",A porta estreita,A porta estreita,509,514,2895,6,a26fcddd871150d5f8d848672073edbc
+3,O Evangelho Segundo o Espiritismo,4668,151,content,null,CAPÍTULO XVIII,"Muitos os chamados, poucos os escolhidos",Senhor!” — entrarão no Reino dos Céus,Senhor!” — entrarão no Reino dos Céus,576,580,3265,5,ccad0022078113888c392fc4564c9d8d
+3,O Evangelho Segundo o Espiritismo,4669,152,content,null,CAPÍTULO XVIII,"Muitos os chamados, poucos os escolhidos",Muito se pedirá àquele que muito recebeu,Muito se pedirá àquele que muito recebeu,571,579,3366,9,58f9582ff4d89bb4383058147189b3ce
+3,O Evangelho Segundo o Espiritismo,4670,153,content,null,CAPÍTULO XVIII,"Muitos os chamados, poucos os escolhidos",Dar-se-á àquele que tem,Dar-se-á àquele que tem,593,596,3335,4,dec1154d7c0e55e107b3afc9a6fd5ec4
+3,O Evangelho Segundo o Espiritismo,4671,154,content,null,CAPÍTULO XVIII,"Muitos os chamados, poucos os escolhidos",Pelas suas obras é que se reconhece o cristão,Pelas suas obras é que se reconhece o cristão,554,559,3213,6,4650a775253f13147e2900ecf1a3d2d2
+3,O Evangelho Segundo o Espiritismo,4672,155,chapter_intro,null,CAPÍTULO XIX,A fé transporta montanhas,null,CAPÍTULO XIX — A fé transporta montanhas,34,37,180,1,4f478fbf2e7b8e4ab39087db001e438a
+3,O Evangelho Segundo o Espiritismo,4673,156,content,null,CAPÍTULO XIX,A fé transporta montanhas,Poder da fé,Poder da fé,658,663,3769,6,ec02471ea0138c13f1144bc48fa800a1
+3,O Evangelho Segundo o Espiritismo,4674,157,content,null,CAPÍTULO XIX,A fé transporta montanhas,A fé religiosa. Condição da fé inabalável,A fé religiosa. Condição da fé inabalável,609,613,3535,5,df6ba5b9400a98a8408bfcc23f698683
+3,O Evangelho Segundo o Espiritismo,4675,158,content,null,CAPÍTULO XIX,A fé transporta montanhas,Parábola da Figueira que Secou,Parábola da Figueira que Secou,661,665,4005,5,19320c0038d6b48f57757557ba5d5cb1
+3,O Evangelho Segundo o Espiritismo,4676,159,content,null,CAPÍTULO XIX,A fé transporta montanhas,A fé: mãe da esperança e da caridade,A fé: mãe da esperança e da caridade,349,353,2032,5,90aabab43cbe29f76dd7acc8c31bbe60
+3,O Evangelho Segundo o Espiritismo,4677,160,content,null,CAPÍTULO XIX,A fé transporta montanhas,A fé humana e a divina,A fé humana e a divina,366,370,2125,5,28991726414c6162b66bec3038b1de62
+3,O Evangelho Segundo o Espiritismo,4678,161,chapter_intro,null,CAPÍTULO XX,Os trabalhadores da última hora,null,CAPÍTULO XX — Os trabalhadores da última hora,18,18,104,1,bfb0d8c545d3cd8812a24af771f8d60e
+3,O Evangelho Segundo o Espiritismo,4679,162,content,null,CAPÍTULO XX,Os trabalhadores da última hora,null,Os trabalhadores da última hora,330,334,1859,5,a81c25dc7c66a55aa0032ee2580d315f
+3,O Evangelho Segundo o Espiritismo,4680,163,content,null,CAPÍTULO XX,Os trabalhadores da última hora,Os últimos serão os primeiros,Os últimos serão os primeiros,734,740,4432,7,e869e74771d91e9e3ef139af3fad1c3b
+3,O Evangelho Segundo o Espiritismo,4681,164,content,null,CAPÍTULO XX,Os trabalhadores da última hora,Missão dos espíritas,Missão dos espíritas,712,724,4465,13,4ba331cff6fc322b992278237b767e64
+3,O Evangelho Segundo o Espiritismo,4682,165,content,null,CAPÍTULO XX,Os trabalhadores da última hora,Os obreiros do Senhor,Os obreiros do Senhor,323,325,1929,3,0b3920bf4461369a0f3d8ec80106040d
+3,O Evangelho Segundo o Espiritismo,4683,166,chapter_intro,null,CAPÍTULO XXI,Haverá falsos cristos e falsos profetas,null,CAPÍTULO XXI — Haverá falsos cristos e falsos profetas,42,46,272,1,8bf89f003fbce7a95c00c48678ab5c08
+3,O Evangelho Segundo o Espiritismo,4684,167,content,null,CAPÍTULO XXI,Haverá falsos cristos e falsos profetas,Conhece-se a árvore pelo fruto,Conhece-se a árvore pelo fruto,276,280,1547,5,336db57a503397a8b0ca2207f45ccd2d
+3,O Evangelho Segundo o Espiritismo,4685,168,content,null,CAPÍTULO XXI,Haverá falsos cristos e falsos profetas,Missão dos profetas,Missão dos profetas,164,164,982,1,d3b828f7e79eae4b690b92f468692d55
+3,O Evangelho Segundo o Espiritismo,4686,169,content,null,CAPÍTULO XXI,Haverá falsos cristos e falsos profetas,Prodígios dos falsos profetas,Prodígios dos falsos profetas,377,378,2299,2,449c58cdfb55d12f852b2a86efecef1f
+3,O Evangelho Segundo o Espiritismo,4687,170,content,null,CAPÍTULO XXI,Haverá falsos cristos e falsos profetas,Não creais em todos os Espíritos,Não creais em todos os Espíritos,501,504,3129,4,08fc65aadf0ee981de11fc6dfe7739e9
+3,O Evangelho Segundo o Espiritismo,4688,171,content,null,CAPÍTULO XXI,Haverá falsos cristos e falsos profetas,Os falsos profetas,Os falsos profetas,488,492,2951,5,da8de497675b43d2b1871c9522bea623
+3,O Evangelho Segundo o Espiritismo,4689,172,content,null,CAPÍTULO XXI,Haverá falsos cristos e falsos profetas,Caracteres do verdadeiro profeta,Caracteres do verdadeiro profeta,643,648,3884,6,e4ecb81dd3af01206c68f2763395de51
+3,O Evangelho Segundo o Espiritismo,4690,173,content,null,CAPÍTULO XXI,Haverá falsos cristos e falsos profetas,Os falsos profetas da erraticidade,Os falsos profetas da erraticidade,702,709,4450,8,f5cf865442a7181f3c7fb32c697e5681
+3,O Evangelho Segundo o Espiritismo,4691,174,content,null,CAPÍTULO XXI,Haverá falsos cristos e falsos profetas,Jeremias e os falsos profetas,Jeremias e os falsos profetas,511,513,2984,3,958a9b640b546878374f03d310c501a7
+3,O Evangelho Segundo o Espiritismo,4692,175,chapter_intro,null,CAPÍTULO XXII,Não separeis o que Deus juntou,null,CAPÍTULO XXII — Não separeis o que Deus juntou,6,7,45,1,ac60d0c6475ddcb1ec35f7170b94acc5
+3,O Evangelho Segundo o Espiritismo,4693,176,content,null,CAPÍTULO XXII,Não separeis o que Deus juntou,Indissolubilidade do casamento,Indissolubilidade do casamento,867,872,4889,6,c29cee3e43f5ec1940510962f626b570
+3,O Evangelho Segundo o Espiritismo,4694,177,content,null,CAPÍTULO XXII,Não separeis o que Deus juntou,O divórcio,O divórcio,318,320,1864,3,25941ff742ee036a39a4fbb2c5c04fb8
+3,O Evangelho Segundo o Espiritismo,4695,178,chapter_intro,null,CAPÍTULO XXIII,Estranha moral,null,CAPÍTULO XXIII — Estranha moral,26,29,137,1,893356354423a769dec4b9acb64b8dba
+3,O Evangelho Segundo o Espiritismo,4696,179,content,null,CAPÍTULO XXIII,Estranha moral,Odiar os pais,Odiar os pais,810,817,4582,8,d8198143f7e51ea5c04ca5fb5afefec5
+3,O Evangelho Segundo o Espiritismo,4697,180,content,null,CAPÍTULO XXIII,Estranha moral,"Abandonar pai, mãe e filhos","Abandonar pai, mãe e filhos",595,600,3426,6,9aed5d3a92735d210cc4ef53c15523a5
+3,O Evangelho Segundo o Espiritismo,4698,181,content,null,CAPÍTULO XXIII,Estranha moral,de enterrar seus mortos,de enterrar seus mortos,280,283,1657,4,5f5494befdc3858f401c107bb20b9ea0
+3,O Evangelho Segundo o Espiritismo,4699,182,content,null,CAPÍTULO XXIII,Estranha moral,"Não vim trazer a paz, mas a divisão","Não vim trazer a paz, mas a divisão",1736,1751,10227,16,3f8bae20ece76e4d683d0b0344f86287
+3,O Evangelho Segundo o Espiritismo,4700,183,chapter_intro,null,CAPÍTULO XXIV,Não ponhais a candeia debaixo do alqueire,null,CAPÍTULO XXIV — Não ponhais a candeia debaixo do alqueire,39,43,216,1,ef3fd2bba72261b8b321adf9a6f375d7
+3,O Evangelho Segundo o Espiritismo,4701,184,content,null,CAPÍTULO XXIV,Não ponhais a candeia debaixo do alqueire,fala Jesus por parábolas,fala Jesus por parábolas,1115,1126,6684,12,9d4da13bcaaeffab5d0edd0e1f1afb43
+3,O Evangelho Segundo o Espiritismo,4702,185,content,null,CAPÍTULO XXIV,Não ponhais a candeia debaixo do alqueire,Não vades ter com os gentios,Não vades ter com os gentios,552,555,3217,4,3240ec10b36f66f257e0f0937a01c191
+3,O Evangelho Segundo o Espiritismo,4703,186,content,null,CAPÍTULO XXIV,Não ponhais a candeia debaixo do alqueire,que precisam de médico,que precisam de médico,569,574,3334,6,645def40f4b1ac20cbef2aed5de5849f
+3,O Evangelho Segundo o Espiritismo,4704,187,content,null,CAPÍTULO XXIV,Não ponhais a candeia debaixo do alqueire,Coragem da fé,Coragem da fé,366,370,2114,5,915a3d8412b29fb7e5af713c406cc26a
+3,O Evangelho Segundo o Espiritismo,4705,188,content,null,CAPÍTULO XXIV,Não ponhais a candeia debaixo do alqueire,"salvar a vida, perdê-la-á","salvar a vida, perdê-la-á",305,308,1766,4,612b72f2a0c2a9f8f2f374841e23f2a3
+3,O Evangelho Segundo o Espiritismo,4706,189,chapter_intro,null,CAPÍTULO XXV,Buscai e achareis,null,CAPÍTULO XXV — Buscai e achareis,22,24,113,1,64e9e0628e71d185fa055ee2f81516cd
+3,O Evangelho Segundo o Espiritismo,4707,190,content,null,CAPÍTULO XXV,Buscai e achareis,"Ajuda-te a ti mesmo, que o céu te ajudará","Ajuda-te a ti mesmo, que o céu te ajudará",739,747,4228,9,20c84fcfeb7e25ccf0c38dc71518bf1e
+3,O Evangelho Segundo o Espiritismo,4708,191,content,null,CAPÍTULO XXV,Buscai e achareis,Observai os pássaros do céu,Observai os pássaros do céu,758,768,4415,11,05a109b4cc1ad09372da9f7e655a427a
+3,O Evangelho Segundo o Espiritismo,4709,192,content,null,CAPÍTULO XXV,Buscai e achareis,Não vos afadigueis pela posse do ouro,Não vos afadigueis pela posse do ouro,432,438,2616,7,1e63ebef1a161006ece3daca6abdee0f
+3,O Evangelho Segundo o Espiritismo,4710,193,chapter_intro,null,CAPÍTULO XXVI,Dai gratuitamente o que gratuitamente recebestes,null,CAPÍTULO XXVI — Dai gratuitamente o que gratuitamente recebestes,12,15,84,1,d2cf2df12476e3b8566567594f86f827
+3,O Evangelho Segundo o Espiritismo,4711,194,content,null,CAPÍTULO XXVI,Dai gratuitamente o que gratuitamente recebestes,Dom de curar,Dom de curar,110,111,685,2,3bcdc1d0c46245f2084f2376cc27910b
+3,O Evangelho Segundo o Espiritismo,4712,195,content,null,CAPÍTULO XXVI,Dai gratuitamente o que gratuitamente recebestes,Preces pagas,Preces pagas,458,462,2597,5,f6d60c4e193c4a2acff7a1416b070b38
+3,O Evangelho Segundo o Espiritismo,4713,196,content,null,CAPÍTULO XXVI,Dai gratuitamente o que gratuitamente recebestes,Mercadores expulsos do templo,Mercadores expulsos do templo,152,153,864,2,e6da71933b3cce978b7e787e69266a5e
+3,O Evangelho Segundo o Espiritismo,4714,197,content,null,CAPÍTULO XXVI,Dai gratuitamente o que gratuitamente recebestes,Mediunidade gratuita,Mediunidade gratuita,781,785,4717,5,38616b74d326c69af9f9f1ee21381d86
+3,O Evangelho Segundo o Espiritismo,4715,198,chapter_intro,null,CAPÍTULO XXVII,Pedi e obtereis,null,CAPÍTULO XXVII — Pedi e obtereis,35,40,240,1,45f7a82f96714ea1340e27fba562e48a
+3,O Evangelho Segundo o Espiritismo,4716,199,content,null,CAPÍTULO XXVII,Pedi e obtereis,Qualidades da prece,Qualidades da prece,411,418,2414,8,7f1c6be75ac99910f1f3c29b3ffe2e8b
+3,O Evangelho Segundo o Espiritismo,4717,200,content,null,CAPÍTULO XXVII,Pedi e obtereis,Eficácia da prece,Eficácia da prece,805,812,4549,8,5e04edf09c381dc6d0aa2095c1e4b7cf
+3,O Evangelho Segundo o Espiritismo,4718,201,content,null,CAPÍTULO XXVII,Pedi e obtereis,Ação da prece. Transmissão do pensamento,Ação da prece. Transmissão do pensamento,1445,1458,8431,14,ad9f2c339b2af81c6522793b25e8917f
+3,O Evangelho Segundo o Espiritismo,4719,202,content,null,CAPÍTULO XXVII,Pedi e obtereis,Preces inteligíveis,Preces inteligíveis,278,279,1499,2,d2141fa808d28b6fc554b6b3c53c31b0
+3,O Evangelho Segundo o Espiritismo,4720,203,content,null,CAPÍTULO XXVII,Pedi e obtereis,Da prece pelos mortos e pelos Espíritos sofredores,Da prece pelos mortos e pelos Espíritos sofredores,933,944,5553,12,170e6f4b42695b23b5e84d6386553617
+3,O Evangelho Segundo o Espiritismo,4721,204,content,null,CAPÍTULO XXVII,Pedi e obtereis,Maneira de orar,Maneira de orar,619,623,3626,5,83bd731795fa5a0f624071cc832e62e5
+3,O Evangelho Segundo o Espiritismo,4722,205,content,null,CAPÍTULO XXVII,Pedi e obtereis,Felicidade que a prece proporciona,Felicidade que a prece proporciona,312,313,1795,2,548abc46743763e383d3cba5cecee4f3
+3,O Evangelho Segundo o Espiritismo,4723,206,chapter_intro,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,null,CAPÍTULO XXVIII — Coletânea de preces espíritas,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+3,O Evangelho Segundo o Espiritismo,4724,207,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Preâmbulo,Preâmbulo,613,621,3737,9,61fc38656c26f7dcd581285434cfe5ff
+3,O Evangelho Segundo o Espiritismo,4725,208,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Oração dominical,Oração dominical,2179,2216,12869,38,ae8fc41224a1791c4f379980f0668e37
+3,O Evangelho Segundo o Espiritismo,4726,209,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Reuniões espíritas,Reuniões espíritas,767,779,4605,13,7b9f617514001990dd7773deb608b3be
+3,O Evangelho Segundo o Espiritismo,4727,210,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Para os médiuns,Para os médiuns,1152,1165,6745,14,0380e37b1b11aaf0c7628ea8e9572dfc
+3,O Evangelho Segundo o Espiritismo,4728,211,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Aos anjos guardiães e aos Espíritos protetores,Aos anjos guardiães e aos Espíritos protetores,715,726,4320,12,e842ae33c7ecdfb8f9fcc37b90b2db93
+3,O Evangelho Segundo o Espiritismo,4729,212,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Para afastar os maus Espíritos,Para afastar os maus Espíritos,343,347,2035,5,6163f5f6de40f528e267600b8d928346
+3,O Evangelho Segundo o Espiritismo,4730,213,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Para pedir a corrigenda de um defeito,Para pedir a corrigenda de um defeito,366,374,2071,9,5906c6ae26391200620743740971c2a4
+3,O Evangelho Segundo o Espiritismo,4731,214,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Para pedir a força de resistir a uma tentação,Para pedir a força de resistir a uma tentação,287,290,1662,4,8fd47dd5cc256586a6f91db0593a9737
+3,O Evangelho Segundo o Espiritismo,4732,215,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Ação de graças pela vitória alcançada sobre uma tentação,Ação de graças pela vitória alcançada sobre uma tentação,88,90,493,3,56edd6039a0457f966d72f8bd46faf0a
+3,O Evangelho Segundo o Espiritismo,4733,216,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Para pedir um conselho,Para pedir um conselho,224,230,1392,7,3ffe8b09acbdc7212e4d329c9dec3d9c
+3,O Evangelho Segundo o Espiritismo,4734,217,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Nas aflições da vida,Nas aflições da vida,248,251,1383,4,eacae35c42a1c7579b048dfe9563e273
+3,O Evangelho Segundo o Espiritismo,4735,218,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Ação de graças por um favor obtido,Ação de graças por um favor obtido,339,344,2069,6,1db9d38dfb8b921cd156a8e11371ee6d
+3,O Evangelho Segundo o Espiritismo,4736,219,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Ato de submissão e de resignação,Ato de submissão e de resignação,499,506,2775,8,fcb085bae3b337b378bd86cc7bb59bbf
+3,O Evangelho Segundo o Espiritismo,4737,220,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Num perigo iminente,Num perigo iminente,148,150,810,3,14c89faabf891823fb8c9e4f5685012d
+3,O Evangelho Segundo o Espiritismo,4738,221,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Ação de graças por haver escapado a um perigo,Ação de graças por haver escapado a um perigo,164,166,932,3,7205138c6e6bbfb688293d2d2cb36fca
+3,O Evangelho Segundo o Espiritismo,4739,222,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,À hora de dormir,À hora de dormir,272,275,1604,4,fa56f95782ccb04805d614bb4e3021f3
+3,O Evangelho Segundo o Espiritismo,4740,223,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Prevendo próxima a morte,Prevendo próxima a morte,670,684,3885,15,360752e4ba005893ccd270f4f6bcd6b4
+3,O Evangelho Segundo o Espiritismo,4741,224,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Por alguém que esteja em aflição,Por alguém que esteja em aflição,279,281,1609,3,04b9dae6972f5874ad713ce2b2c5543a
+3,O Evangelho Segundo o Espiritismo,4742,225,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Ação de graças por um benefício concedido a outrem,Ação de graças por um benefício concedido a outrem,114,116,595,3,24cc14600fae1b2d172cb247b172628b
+3,O Evangelho Segundo o Espiritismo,4743,226,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Pelos nossos inimigos e pelos que nos querem mal,Pelos nossos inimigos e pelos que nos querem mal,349,354,1985,6,5e18f6d9304e93b506be9519ef49a00f
+3,O Evangelho Segundo o Espiritismo,4744,227,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Ação de graças pelo bem concedido aos nossos inimigos,Ação de graças pelo bem concedido aos nossos inimigos,141,143,771,3,c4e3acbe0608f46837bd69ccfb7aaef3
+3,O Evangelho Segundo o Espiritismo,4745,228,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Pelos inimigos do Espiritismo,Pelos inimigos do Espiritismo,840,851,4890,12,f9aed3da1a3135e955e1b28626e21c66
+3,O Evangelho Segundo o Espiritismo,4746,229,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Por uma criança que acaba de nascer,Por uma criança que acaba de nascer,573,581,3312,9,74b1d0ed41c4d2974fee6c5c6bd0c0d5
+3,O Evangelho Segundo o Espiritismo,4747,230,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Por um agonizante,Por um agonizante,288,291,1638,4,148cb1ae41ccda90af9e29477ca3b728
+3,O Evangelho Segundo o Espiritismo,4748,231,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Por alguém que acaba de morrer,Por alguém que acaba de morrer,929,946,5482,18,f735280cf218fe1e83e6486b7694d462
+3,O Evangelho Segundo o Espiritismo,4749,232,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Pelas pessoas a quem tivemos afeição,Pelas pessoas a quem tivemos afeição,507,513,2771,7,1193f2664473302f9aa08660b56af31b
+3,O Evangelho Segundo o Espiritismo,4750,233,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Pelas almas sofredoras que pedem preces,Pelas almas sofredoras que pedem preces,434,440,2628,7,5cc70c3765928886375bd3b7f6fda7e2
+3,O Evangelho Segundo o Espiritismo,4751,234,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Por um inimigo que morreu,Por um inimigo que morreu,167,169,899,3,2a5bdeef6678cd1ab5461dcaeba3dc7c
+3,O Evangelho Segundo o Espiritismo,4752,235,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Por um criminoso,Por um criminoso,177,180,1060,4,144e6666bab839fb14ce3344b33f89ab
+3,O Evangelho Segundo o Espiritismo,4753,236,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Por um suicida,Por um suicida,305,308,1759,4,8989b816db17f6f824eca085fdff0295
+3,O Evangelho Segundo o Espiritismo,4754,237,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Pelos Espíritos penitentes,Pelos Espíritos penitentes,334,340,1954,7,c7e97f15a306f1e2419253c85351f435
+3,O Evangelho Segundo o Espiritismo,4755,238,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Pelos Espíritos endurecidos,Pelos Espíritos endurecidos,818,829,4814,12,04c0035b7baf2fc65f627112bbcd5aec
+3,O Evangelho Segundo o Espiritismo,4756,239,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Pelos doentes,Pelos doentes,559,568,3259,10,c1629ec05149d119a2f88837a926786c
+3,O Evangelho Segundo o Espiritismo,4757,240,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Pelos obsidiados,Pelos obsidiados,1595,1619,9533,25,b14831e19029d7145ee2c67fa51328f1
+3,O Evangelho Segundo o Espiritismo,4758,241,content,null,CAPÍTULO XXVIII,Coletânea de preces espíritas,Nota explicativa,Nota explicativa,1796,1818,11537,23,3c089922945ce2a1ccc5a66b92d1b8e9
+4,O Céu e o Inferno,4759,1,part_intro,Primeira Parte — Doutrina,null,null,null,Primeira Parte — Doutrina,1,1,8,1,4babcb87a6001a8165d0a37c26cbac27
+4,O Céu e o Inferno,4760,2,content,Primeira Parte — Doutrina,null,null,null,Primeira Parte — Doutrina,62,62,366,1,b0e715c9d1490bac7e668625e98074b3
+4,O Céu e o Inferno,4761,3,chapter_intro,Primeira Parte — Doutrina,CAPÍTULO I,O porvir e o nada,null,CAPÍTULO I — O porvir e o nada,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+4,O Céu e o Inferno,4762,4,content,Primeira Parte — Doutrina,CAPÍTULO I,O porvir e o nada,null,O porvir e o nada,2575,2625,15941,51,3fbc5aaada98949204ec90b96e1c65b1
+4,O Céu e o Inferno,4763,5,chapter_intro,Primeira Parte — Doutrina,CAPÍTULO II,Temor da morte,null,CAPÍTULO II — Temor da morte,14,15,67,1,d06c72afcc4897a5fb01e3d2e1542b9f
+4,O Céu e o Inferno,4764,6,content,Primeira Parte — Doutrina,CAPÍTULO II,Temor da morte,Causas do temor da morte,Causas do temor da morte,1617,1644,9915,28,5b98a77cbdb03e342199306ee29ac59c
+4,O Céu e o Inferno,4765,7,content,Primeira Parte — Doutrina,CAPÍTULO II,Temor da morte,Por que os espíritas não temem a morte,Por que os espíritas não temem a morte,333,335,1980,3,fba8fd55d3026756011e746ae4a811a5
+4,O Céu e o Inferno,4766,8,chapter_intro,Primeira Parte — Doutrina,CAPÍTULO III,O céu,null,CAPÍTULO III — O céu,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+4,O Céu e o Inferno,4767,9,content,Primeira Parte — Doutrina,CAPÍTULO III,O céu,null,O céu,3624,3692,22806,69,7fef3b683eab0d3fae3379b8a88738ca
+4,O Céu e o Inferno,4768,10,chapter_intro,Primeira Parte — Doutrina,CAPÍTULO IV,O inferno,null,CAPÍTULO IV — O inferno,22,26,139,1,f63a86f984a8313f546cce71a3306b0b
+4,O Céu e o Inferno,4769,11,content,Primeira Parte — Doutrina,CAPÍTULO IV,O inferno,Intuição das penas futuras,Intuição das penas futuras,308,312,1907,5,68e0beadd859a18b509ee73189b2aeae
+4,O Céu e o Inferno,4770,12,content,Primeira Parte — Doutrina,CAPÍTULO IV,O inferno,O inferno cristão imitado do inferno pagão,O inferno cristão imitado do inferno pagão,988,1001,6040,14,f9b62ef250c2658cf982c98d33f88086
+4,O Céu e o Inferno,4771,13,content,Primeira Parte — Doutrina,CAPÍTULO IV,O inferno,Os limbos,Os limbos,210,212,1304,3,e50dd8812f7e2aacf69b141a53f92315
+4,O Céu e o Inferno,4772,14,content,Primeira Parte — Doutrina,CAPÍTULO IV,O inferno,Quadro do inferno pagão,Quadro do inferno pagão,2594,2623,16205,30,a9e7a9aebf0495947889294e0928497c
+4,O Céu e o Inferno,4773,15,content,Primeira Parte — Doutrina,CAPÍTULO IV,O inferno,Esboço do inferno cristão,Esboço do inferno cristão,2899,2931,18466,33,0a236dc2bea18051c2bdec502d1acba5
+4,O Céu e o Inferno,4774,16,chapter_intro,Primeira Parte — Doutrina,CAPÍTULO V,O purgatório,null,CAPÍTULO V — O purgatório,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+4,O Céu e o Inferno,4775,17,content,Primeira Parte — Doutrina,CAPÍTULO V,O purgatório,null,O purgatório,1635,1660,10007,26,cdf0d4aa1e9f715e3d8c5627e657fb38
+4,O Céu e o Inferno,4776,18,chapter_intro,Primeira Parte — Doutrina,CAPÍTULO VI,Doutrina das penas eternas,null,CAPÍTULO VI — Doutrina das penas eternas,36,40,228,1,3d64a6f97fdb0159ba759a9f612946bf
+4,O Céu e o Inferno,4777,19,content,Primeira Parte — Doutrina,CAPÍTULO VI,Doutrina das penas eternas,Origem da doutrina das penas eternas,Origem da doutrina das penas eternas,1759,1789,10930,31,e1771e6124daea6e9736bc0356bf6b9e
+4,O Céu e o Inferno,4778,20,content,Primeira Parte — Doutrina,CAPÍTULO VI,Doutrina das penas eternas,Argumentos a favor das penas eternas,Argumentos a favor das penas eternas,1492,1522,9014,31,6a2df43bde7551baef61b98e8ed2bcf4
+4,O Céu e o Inferno,4779,21,content,Primeira Parte — Doutrina,CAPÍTULO VI,Doutrina das penas eternas,Impossibilidade material das penas eternas,Impossibilidade material das penas eternas,785,796,4861,12,98215660c51bed1baad97eb7de47875d
+4,O Céu e o Inferno,4780,22,content,Primeira Parte — Doutrina,CAPÍTULO VI,Doutrina das penas eternas,A doutrina das penas eternas fez sua época,A doutrina das penas eternas fez sua época,620,631,3834,12,b609ce89ecd45498b0eb72990ea244ed
+4,O Céu e o Inferno,4781,23,content,Primeira Parte — Doutrina,CAPÍTULO VI,Doutrina das penas eternas,penas e o pecado original,penas e o pecado original,559,568,3059,10,e6f967d49c3bd45e6c5a62dd323f2938
+4,O Céu e o Inferno,4782,24,chapter_intro,Primeira Parte — Doutrina,CAPÍTULO VII,As penas futuras segundo o Espiritismo,null,CAPÍTULO VII — As penas futuras segundo o Espiritismo,19,21,107,1,ed846cf7c24175599c33c658e2b8d4cb
+4,O Céu e o Inferno,4783,25,content,Primeira Parte — Doutrina,CAPÍTULO VII,As penas futuras segundo o Espiritismo,A carne é fraca,A carne é fraca,863,880,5428,18,e4bd8081a929de9827f9e12073a5c876
+4,O Céu e o Inferno,4784,26,content,Primeira Parte — Doutrina,CAPÍTULO VII,As penas futuras segundo o Espiritismo,sobre as penas futuras,sobre as penas futuras,220,222,1384,3,5edaea46867a350bd7d53c1c90b85827
+4,O Céu e o Inferno,4785,27,content,Primeira Parte — Doutrina,CAPÍTULO VII,As penas futuras segundo o Espiritismo,Código penal da vida futura,Código penal da vida futura,3258,3325,20290,68,ad60120dfb9d1f19464d0da5a1286ffa
+4,O Céu e o Inferno,4786,28,chapter_intro,Primeira Parte — Doutrina,CAPÍTULO VIII,Os anjos,null,CAPÍTULO VIII — Os anjos,12,14,72,1,225c556027496929c2109d835cc00e5f
+4,O Céu e o Inferno,4787,29,content,Primeira Parte — Doutrina,CAPÍTULO VIII,Os anjos,Os anjos segundo a Igreja,Os anjos segundo a Igreja,1459,1476,8907,18,c91fcc695a3a648d16e8e2d5131dafda
+4,O Céu e o Inferno,4788,30,content,Primeira Parte — Doutrina,CAPÍTULO VIII,Os anjos,Refutação,Refutação,1823,1843,11138,21,615ad999a4b8aa3cf07dc9bd4f053b53
+4,O Céu e o Inferno,4789,31,content,Primeira Parte — Doutrina,CAPÍTULO VIII,Os anjos,Os anjos segundo o Espiritismo,Os anjos segundo o Espiritismo,570,577,3389,8,631ed8a300955afc045e9101910d9774
+4,O Céu e o Inferno,4790,32,chapter_intro,Primeira Parte — Doutrina,CAPÍTULO IX,Os demônios,null,CAPÍTULO IX — Os demônios,16,18,98,1,8b9d73650d6ab632f7a4fcc3030fbd28
+4,O Céu e o Inferno,4791,33,content,Primeira Parte — Doutrina,CAPÍTULO IX,Os demônios,Origem da crença nos demônios,Origem da crença nos demônios,1218,1235,7448,18,4b6efa7d2547422e11f12b47ac364adb
+4,O Céu e o Inferno,4792,34,content,Primeira Parte — Doutrina,CAPÍTULO IX,Os demônios,Os demônios segundo a Igreja,Os demônios segundo a Igreja,4038,4080,24489,43,f5edefe6c440a6dec5bef6a917237657
+4,O Céu e o Inferno,4793,35,content,Primeira Parte — Doutrina,CAPÍTULO IX,Os demônios,Os demônios segundo o Espiritismo,Os demônios segundo o Espiritismo,756,766,4715,11,50504408a0fe69a6405eb6e4d26b2fa0
+4,O Céu e o Inferno,4794,36,chapter_intro,Primeira Parte — Doutrina,CAPÍTULO X,Intervenção dos demônios nas modernas manifestações,null,CAPÍTULO X — Intervenção dos demônios nas modernas manifestações,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+4,O Céu e o Inferno,4795,37,content,Primeira Parte — Doutrina,CAPÍTULO X,Intervenção dos demônios nas modernas manifestações,null,Intervenção dos demônios nas modernas manifestações,6037,6122,37411,86,cba2048e02b9fe326df114cf538dbfd7
+4,O Céu e o Inferno,4796,38,chapter_intro,Primeira Parte — Doutrina,CAPÍTULO XI,Da proibição de evocar os mortos,null,CAPÍTULO XI — Da proibição de evocar os mortos,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+4,O Céu e o Inferno,4797,39,content,Primeira Parte — Doutrina,CAPÍTULO XI,Da proibição de evocar os mortos,null,Da proibição de evocar os mortos,3279,3321,20082,43,596b15d839fa43000e05c6e88343c57e
+4,O Céu e o Inferno,4798,40,part_intro,Segunda Parte — Exemplos,null,null,null,Segunda Parte — Exemplos,1,1,8,1,e2a6a1e61f9d5c279f14c4a26326c4ce
+4,O Céu e o Inferno,4799,41,content,Segunda Parte — Exemplos,null,null,null,Segunda Parte — Exemplos,33,33,257,1,b0f583211221984f0b218c4ffdd4f86a
+4,O Céu e o Inferno,4800,42,chapter_intro,Segunda Parte — Exemplos,CAPÍTULO I,O passamento,null,CAPÍTULO I — O passamento,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+4,O Céu e o Inferno,4801,43,content,Segunda Parte — Exemplos,CAPÍTULO I,O passamento,null,O passamento,2593,2619,16111,27,de776efbed1f3a44c67c1bf619fbde48
+4,O Céu e o Inferno,4802,44,chapter_intro,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,null,CAPÍTULO II — Espíritos felizes,41,57,285,1,d096e5633d3cfafbbe7a583e05e91a13
+4,O Céu e o Inferno,4803,45,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Sanson,Sanson,406,409,2459,4,d465d1fb1d64fe0d883edcf1b9aa3d0f
+4,O Céu e o Inferno,4804,46,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,I,I,7,7,40,1,4f2a707bce77a97d676c986eed2ad5f1
+4,O Céu e o Inferno,4805,47,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,1. evocação.,1. evocação.,735,750,4409,16,6443af5982ffc8987d48def6acd1564e
+4,O Céu e o Inferno,4806,48,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Ii,Ii,9,9,51,1,820c22e1054a8abbd24568b49c205bfb
+4,O Céu e o Inferno,4807,49,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,1. evocação.,1. evocação.,865,884,5290,20,83b87c60e06186b7b1211d1cc3b5d414
+4,O Céu e o Inferno,4808,50,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Iii,Iii,1165,1180,7159,16,511b91d391755ba14a29f0a51483a8cb
+4,O Céu e o Inferno,4809,51,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Jobard,Jobard,1642,1670,10217,29,bc7b7edcdb6f1e2282896e81fed1d2f8
+4,O Céu e o Inferno,4810,52,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Samuel Philippe,Samuel Philippe,1462,1481,9029,20,b92cda8539becc8a0b3628424ce725a4
+4,O Céu e o Inferno,4811,53,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Van Durst,Van Durst,538,543,3315,6,f66f6073e97ced0c0aaed1602d95cc8b
+4,O Céu e o Inferno,4812,54,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Sixdeniers,Sixdeniers,991,1019,6049,29,54f26dda277cde359e8a28547ca28c59
+4,O Céu e o Inferno,4813,55,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,O doutor Demeure,O doutor Demeure,1673,1690,10189,18,2715b273f1d3c39675eed2e77deec850
+4,O Céu e o Inferno,4814,56,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,"A viúva Foulon, nascida Wollis","A viúva Foulon, nascida Wollis",504,508,3129,5,9af5dddf2ac785df3f932ee1daa5a27d
+4,O Céu e o Inferno,4815,57,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,I,I,593,601,3686,9,7d0826ef4f669185a0bdd3c526a27dbb
+4,O Céu e o Inferno,4816,58,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Ii,Ii,939,956,5757,18,f4659a4d6058212b11f60fb0efab5231
+4,O Céu e o Inferno,4817,59,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Iii,Iii,607,617,3737,11,1e4ee78423ea32ba5229bcd8a5e6c7c9
+4,O Céu e o Inferno,4818,60,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Um médico russo,Um médico russo,1152,1167,6871,16,9a426684003e6e10a207bd36c186deb4
+4,O Céu e o Inferno,4819,61,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Bernardin,Bernardin,347,351,2084,5,e5a82ad5589673964759abbc0444e9c0
+4,O Céu e o Inferno,4820,62,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,A condessa Paula,A condessa Paula,1291,1302,8127,12,8827070e294839d0164c5a5a747aa245
+4,O Céu e o Inferno,4821,63,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Jean Reynaud,Jean Reynaud,510,520,3272,11,0a3b8d81661687ef8b378ef0f1b0d74a
+4,O Céu e o Inferno,4822,64,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Evocação:,Evocação:,595,602,3773,8,2d8a55138c5a92ec971e33933fa378dd
+4,O Céu e o Inferno,4823,65,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Antoine Costeau,Antoine Costeau,1124,1145,6881,22,c31b39e63d2e830ae62f24a04e266b6b
+4,O Céu e o Inferno,4824,66,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,A Srta. Emma,A Srta. Emma,515,529,3135,15,97228b9dab505c19ecd3996d630c20ca
+4,O Céu e o Inferno,4825,67,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,O doutor Vignal,O doutor Vignal,799,819,5199,21,7576b63d34beb83c3f56879ec7ae93d3
+4,O Céu e o Inferno,4826,68,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Victor Lebufle,Victor Lebufle,604,611,3621,8,dc940c4bc26e2c08ebea165bdb293009
+4,O Céu e o Inferno,4827,69,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,A Sra. Anaïs Gourdon,A Sra. Anaïs Gourdon,430,447,2682,18,7b4f4c7b2b17275013b227481892b25c
+4,O Céu e o Inferno,4828,70,content,Segunda Parte — Exemplos,CAPÍTULO II,Espíritos felizes,Maurice Gontran,Maurice Gontran,940,957,5931,18,7b594a5fbab0d9f2a054d27bb8c7e7f3
+4,O Céu e o Inferno,4829,71,chapter_intro,Segunda Parte — Exemplos,CAPÍTULO III,Espíritos em condições medianas,null,CAPÍTULO III — Espíritos em condições medianas,17,22,115,1,22a3403c019c6941f6dd0ebc9afb7167
+4,O Céu e o Inferno,4830,72,content,Segunda Parte — Exemplos,CAPÍTULO III,Espíritos em condições medianas,Joseph Bré,Joseph Bré,534,540,3180,7,15585c6f0500b447224a15db47761d07
+4,O Céu e o Inferno,4831,73,content,Segunda Parte — Exemplos,CAPÍTULO III,Espíritos em condições medianas,Sra. Hélène Michel,Sra. Hélène Michel,455,463,2798,9,2ac22a81d23fe93c32ce8cabe7923a54
+4,O Céu e o Inferno,4832,74,content,Segunda Parte — Exemplos,CAPÍTULO III,Espíritos em condições medianas,O marquês de Saint-Paul,O marquês de Saint-Paul,503,525,3168,23,a3628c27f1af3607d7f2ce842aba62ce
+4,O Céu e o Inferno,4833,75,content,Segunda Parte — Exemplos,CAPÍTULO III,Espíritos em condições medianas,"Sr. Cardon, médico","Sr. Cardon, médico",1529,1559,9521,31,3521fd0ff8ca23f0accf6f95f1676f24
+4,O Céu e o Inferno,4834,76,content,Segunda Parte — Exemplos,CAPÍTULO III,Espíritos em condições medianas,Eric Stanislas,Eric Stanislas,421,429,2642,9,58c3f3612733ca19701b26357004433a
+4,O Céu e o Inferno,4835,77,content,Segunda Parte — Exemplos,CAPÍTULO III,Espíritos em condições medianas,Sra. Anna Belleville,Sra. Anna Belleville,1697,1724,10453,28,bbf644e8f03e73b39b3c87ad88cbc373
+4,O Céu e o Inferno,4836,78,chapter_intro,Segunda Parte — Exemplos,CAPÍTULO IV,Espíritos sofredores,null,CAPÍTULO IV — Espíritos sofredores,20,29,153,1,58de131da5af35ac275a6c16765ccc87
+4,O Céu e o Inferno,4837,79,content,Segunda Parte — Exemplos,CAPÍTULO IV,Espíritos sofredores,O castigo,O castigo,571,579,3428,9,841cef8d5c20021c9fbece6d06a925e4
+4,O Céu e o Inferno,4838,80,content,Segunda Parte — Exemplos,CAPÍTULO IV,Espíritos sofredores,Novel,Novel,367,370,2367,4,a4ea91cebaa9f50a9adaa1cb8f59ab3b
+4,O Céu e o Inferno,4839,81,content,Segunda Parte — Exemplos,CAPÍTULO IV,Espíritos sofredores,Auguste Michel,Auguste Michel,733,744,4368,12,1471af5ec11e1c8b0d5fb96c08705d63
+4,O Céu e o Inferno,4840,82,content,Segunda Parte — Exemplos,CAPÍTULO IV,Espíritos sofredores,Exprobrações de um boêmio,Exprobrações de um boêmio,458,465,2738,8,60ac837ab7edf82f6656e7cc277cdd91
+4,O Céu e o Inferno,4841,83,content,Segunda Parte — Exemplos,CAPÍTULO IV,Espíritos sofredores,Lisbeth,Lisbeth,942,975,5879,34,4a8ba8ecf0375998ff0f2d82f706a83d
+4,O Céu e o Inferno,4842,84,content,Segunda Parte — Exemplos,CAPÍTULO IV,Espíritos sofredores,Príncipe Ouran,Príncipe Ouran,890,907,5364,18,72aa22a0a7bcbb54b14a43db678715b8
+4,O Céu e o Inferno,4843,85,content,Segunda Parte — Exemplos,CAPÍTULO IV,Espíritos sofredores,Pascal Lavic,Pascal Lavic,503,511,2993,9,b44c6370db1f9a76e777133bab914d6e
+4,O Céu e o Inferno,4844,86,content,Segunda Parte — Exemplos,CAPÍTULO IV,Espíritos sofredores,Ferdinand Bertin,Ferdinand Bertin,1103,1120,6855,18,37c24ef13df1198c5be58164eef3d377
+4,O Céu e o Inferno,4845,87,content,Segunda Parte — Exemplos,CAPÍTULO IV,Espíritos sofredores,Comentário de são luís sobre esta comunicação,Comentário de são luís sobre esta comunicação,140,140,844,1,f76610e5b6c82c52e8c4da69a23796f4
+4,O Céu e o Inferno,4846,88,content,Segunda Parte — Exemplos,CAPÍTULO IV,Espíritos sofredores,François Riquier,François Riquier,417,426,2551,10,beb96618e591090ad68d03fc986efb40
+4,O Céu e o Inferno,4847,89,content,Segunda Parte — Exemplos,CAPÍTULO IV,Espíritos sofredores,Claire,Claire,3006,3043,18410,38,ae2f74ede43c33039f854fb81c3aff23
+4,O Céu e o Inferno,4848,90,chapter_intro,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,null,CAPÍTULO V — Suicidas,33,41,197,1,a60103a1f07c9cf7423cbbf733e2e589
+4,O Céu e o Inferno,4849,91,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,O suicida da Samaritana,O suicida da Samaritana,98,99,578,2,00edbc06401d546492153baf8e3e8e59
+4,O Céu e o Inferno,4850,92,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,1. evocação.,1. evocação.,713,748,4329,36,25f75db2f4e22e2e4e50b19b5c5a004f
+4,O Céu e o Inferno,4851,93,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,O pai e o conscrito,O pai e o conscrito,113,115,640,3,c79ddc7c2065ae7f57ca2f302719e4b5
+4,O Céu e o Inferno,4852,94,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,1. evocação.,1. evocação.,732,753,4370,22,c50fff621e8d25eecaa370876f133cc8
+4,O Céu e o Inferno,4853,95,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,François-Simon Louvet,François-Simon Louvet,484,491,2871,8,ab6fd72d71df855314ef2a899f897ef5
+4,O Céu e o Inferno,4854,96,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,Mãe e filho,Mãe e filho,303,307,1811,5,1cb95c90b0b7e8dcf1cf7567a8c4815b
+4,O Céu e o Inferno,4855,97,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,Evocação da mãe.,Evocação da mãe.,732,740,4238,9,a5751b4964d89a992a6e37be54d4507b
+4,O Céu e o Inferno,4856,98,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,"Duplo suicídio, por amor e por dever","Duplo suicídio, por amor e por dever",1006,1037,6270,32,e5e402c605bc05d3c5bf5b742b4573e3
+4,O Céu e o Inferno,4857,99,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,Louis e a pespontadeira de botinas,Louis e a pespontadeira de botinas,904,937,5463,34,095b45d959f5f445e2f40cb7f5d007fd
+4,O Céu e o Inferno,4858,100,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,Um ateu,Um ateu,41,41,240,1,07dab9de868e324d016519fb63b6a995
+4,O Céu e o Inferno,4859,101,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,1. evocação.,1. evocação.,1947,2006,12163,60,2e1f5bbcb02ce911436baabc99d8c963
+4,O Céu e o Inferno,4860,102,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,Félicien,Félicien,81,83,561,3,23271105d8dfd7d49f03db54b413d35a
+4,O Céu e o Inferno,4861,103,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,Evocação.,Evocação.,1071,1086,6795,16,3eb8bab48f9fe6051b378403eb41e043
+4,O Céu e o Inferno,4862,104,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,Antoine Bell,Antoine Bell,182,184,1101,3,81774812c5dbb9d3ee1c493ee80da49a
+4,O Céu e o Inferno,4863,105,content,Segunda Parte — Exemplos,CAPÍTULO V,Suicidas,1. evocação.,1. evocação.,972,992,6059,21,6d767edcac8c9b5527b1765ba108a096
+4,O Céu e o Inferno,4864,106,chapter_intro,Segunda Parte — Exemplos,CAPÍTULO VI,Criminosos arrependidos,null,CAPÍTULO VI — Criminosos arrependidos,15,19,110,1,266c2a06871a4142bae480798292e860
+4,O Céu e o Inferno,4865,107,content,Segunda Parte — Exemplos,CAPÍTULO VI,Criminosos arrependidos,Verger,Verger,62,63,392,2,15e77bd0290d11254124a23450705980
+4,O Céu e o Inferno,4866,108,content,Segunda Parte — Exemplos,CAPÍTULO VI,Criminosos arrependidos,1. evocação.,1. evocação.,1037,1076,6288,40,8aa3dfdbde696ac8c11777f048b92832
+4,O Céu e o Inferno,4867,109,content,Segunda Parte — Exemplos,CAPÍTULO VI,Criminosos arrependidos,Lemaire,Lemaire,23,23,115,1,104212554c38898f9b0c85e706db5447
+4,O Céu e o Inferno,4868,110,content,Segunda Parte — Exemplos,CAPÍTULO VI,Criminosos arrependidos,1. evocação.,1. evocação.,750,813,4675,64,4f186c87a4b18b58072955ef7320b6d4
+4,O Céu e o Inferno,4869,111,content,Segunda Parte — Exemplos,CAPÍTULO VI,Criminosos arrependidos,Benoist,Benoist,944,994,5772,51,e5dad832d9f4ca0ef400e632b15461af
+4,O Céu e o Inferno,4870,112,content,Segunda Parte — Exemplos,CAPÍTULO VI,Criminosos arrependidos,O Espírito de Castelnaudary,O Espírito de Castelnaudary,2039,2098,12993,60,3be14c520b45d9898ace1140febcc237
+4,O Céu e o Inferno,4871,113,content,Segunda Parte — Exemplos,CAPÍTULO VI,Criminosos arrependidos,Jacques Latour,Jacques Latour,1188,1207,7557,20,1735aeddbba6c039d5a7db2b2ea2234b
+4,O Céu e o Inferno,4872,114,content,Segunda Parte — Exemplos,CAPÍTULO VI,Criminosos arrependidos,I,I,356,360,2125,5,7e647850d5979bdff516511d9e8a09d3
+4,O Céu e o Inferno,4873,115,content,Segunda Parte — Exemplos,CAPÍTULO VI,Criminosos arrependidos,Ii,Ii,159,161,979,3,548918bccd732bee4b37fba5c7f0dd1f
+4,O Céu e o Inferno,4874,116,content,Segunda Parte — Exemplos,CAPÍTULO VI,Criminosos arrependidos,Iii,Iii,207,209,1235,3,792faa88d2b17da75d6602030de935af
+4,O Céu e o Inferno,4875,117,content,Segunda Parte — Exemplos,CAPÍTULO VI,Criminosos arrependidos,Iv,Iv,2394,2427,14608,34,dcb7b99bf3d88c27a7d4f4ee5f678d54
+4,O Céu e o Inferno,4876,118,chapter_intro,Segunda Parte — Exemplos,CAPÍTULO VII,Espíritos endurecidos,null,CAPÍTULO VII — Espíritos endurecidos,18,22,118,1,700064becc3dac53f1833837e470ca7c
+4,O Céu e o Inferno,4877,119,content,Segunda Parte — Exemplos,CAPÍTULO VII,Espíritos endurecidos,Lapommeray,Lapommeray,551,558,3434,8,89b6ee25a150b2ab9136d30fb124fa78
+4,O Céu e o Inferno,4878,120,content,Segunda Parte — Exemplos,CAPÍTULO VII,Espíritos endurecidos,I,I,322,327,2029,6,35fc1b0ab1f1469566e1460777fa7060
+4,O Céu e o Inferno,4879,121,content,Segunda Parte — Exemplos,CAPÍTULO VII,Espíritos endurecidos,Ii,Ii,442,445,2660,4,b8c73f6a504a16f9ef7712c0281d92c2
+4,O Céu e o Inferno,4880,122,content,Segunda Parte — Exemplos,CAPÍTULO VII,Espíritos endurecidos,Iii,Iii,471,477,3065,7,2fdf647340c3ac838daf3edc36060cd6
+4,O Céu e o Inferno,4881,123,content,Segunda Parte — Exemplos,CAPÍTULO VII,Espíritos endurecidos,"Angèle, nulidade sobre a Terra","Angèle, nulidade sobre a Terra",851,899,5175,49,e2f5154a156a945cf3f48d82565e326d
+4,O Céu e o Inferno,4882,124,content,Segunda Parte — Exemplos,CAPÍTULO VII,Espíritos endurecidos,Um Espírito aborrecido,Um Espírito aborrecido,610,629,3816,20,06f0307e89c7056ed226b2b04c10bd96
+4,O Céu e o Inferno,4883,125,content,Segunda Parte — Exemplos,CAPÍTULO VII,Espíritos endurecidos,A rainha de Oude,A rainha de Oude,721,766,4418,46,2952fe9e98f7cb2ec78599d2fca88772
+4,O Céu e o Inferno,4884,126,content,Segunda Parte — Exemplos,CAPÍTULO VII,Espíritos endurecidos,Xumène,Xumène,572,599,3514,28,0425a9b97acf8b3349f722efc1085aff
+4,O Céu e o Inferno,4885,127,chapter_intro,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,null,CAPÍTULO VIII — Expiações terrestres,41,54,290,1,36bda3b175c61bb57091d1c781179c0c
+4,O Céu e o Inferno,4886,128,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,"Marcel, o menino do nº 4","Marcel, o menino do nº 4",996,1013,6146,18,0bb05aea30cb3d761b2073414187d20f
+4,O Céu e o Inferno,4887,129,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,Szymel Slizgol,Szymel Slizgol,1778,1803,10931,26,f12b42da72ac3a1d4dd1bcafee1e4ae4
+4,O Céu e o Inferno,4888,130,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,"Julienne-Marie, a mendiga","Julienne-Marie, a mendiga",1561,1580,9649,20,44189aa2dedeead097e0e2f9cbe0b372
+4,O Céu e o Inferno,4889,131,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,"Max, o mendigo","Max, o mendigo",896,905,5457,10,681417a820c61cf5e63387b3bc4fc4a3
+4,O Céu e o Inferno,4890,132,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,História de um criado,História de um criado,735,748,4553,14,d790086c39710e664881ba097f1dc89a
+4,O Céu e o Inferno,4891,133,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,Antonio B...,Antonio B...,158,164,1007,7,cbe0a20c78a2ce0c5603d3cd3c53a3c7
+4,O Céu e o Inferno,4892,134,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,1. evocação.,1. evocação.,862,887,5461,26,8d30e9a7af6a273f645dc42398537e9a
+4,O Céu e o Inferno,4893,135,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,Letil,Letil,874,887,5232,14,6d18256b85ce9d3e95a35ab058df5ab0
+4,O Céu e o Inferno,4894,136,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,Um sábio ambicioso,Um sábio ambicioso,658,665,4057,8,1ca641b356d3ce3851a6dced46c07493
+4,O Céu e o Inferno,4895,137,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,"Charles de Saint-G..., idiota","Charles de Saint-G..., idiota",102,106,621,5,0bc498169369dd12e6effe4d3ffd5e21
+4,O Céu e o Inferno,4896,138,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,3. evocação de charles.,3. evocação de charles.,354,380,2191,27,5b9789a0e4fb25357b1585874c265c99
+4,O Céu e o Inferno,4897,139,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,Dada na sociedade de paris,Dada na sociedade de paris,1008,1016,6252,9,21a44a5c48bdca402fe3dc7d0c5abd0c
+4,O Céu e o Inferno,4898,140,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,Adélaïde-Marguerite Gosse,Adélaïde-Marguerite Gosse,551,565,3520,15,b30581cce3ac860afab6b85645f6a4f0
+4,O Céu e o Inferno,4899,141,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,Clara Rivier,Clara Rivier,210,212,1254,3,d72d7dffbddba3c03ddec0bb151a8386
+4,O Céu e o Inferno,4900,142,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,1. evocação.,1. evocação.,758,775,4596,18,786a61d7e663b7f6a1cd7c4215c8e9ba
+4,O Céu e o Inferno,4901,143,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,Françoise Vernhes,Françoise Vernhes,626,642,3883,17,3ac869efb14d55c5d9be321bf6229382
+4,O Céu e o Inferno,4902,144,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,Anna Bitter,Anna Bitter,985,996,5810,12,f63ca37cbfbb9c64e48dcb2706cca7e6
+4,O Céu e o Inferno,4903,145,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,"Joseph Maître, o cego","Joseph Maître, o cego",981,988,6048,8,1c7158b4b28df48f86ead5bd97e5154f
+4,O Céu e o Inferno,4904,146,content,Segunda Parte — Exemplos,CAPÍTULO VIII,Expiações terrestres,Nota explicativa,Nota explicativa,1800,1822,11540,23,1b098f394dc950e6d8f398e8b463584f
+5,A Gênese,4905,1,chapter_intro,null,null,A Gênese segundo o Espiritismo,null,A Gênese segundo o Espiritismo,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+5,A Gênese,4906,2,content,null,null,A Gênese segundo o Espiritismo,null,A Gênese segundo o Espiritismo,66,66,406,1,4d1b3731475db1cdfe3833dc321916bd
+5,A Gênese,4907,3,chapter_intro,null,CAPÍTULO I,Caráter da revelação espírita,null,CAPÍTULO I — Caráter da revelação espírita,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+5,A Gênese,4908,4,content,null,CAPÍTULO I,Caráter da revelação espírita,null,Caráter da revelação espírita,13080,13203,79760,124,d5fae5ec85f03f86b2cc7bd49408273f
+5,A Gênese,4909,5,chapter_intro,null,CAPÍTULO II,Deus,null,CAPÍTULO II — Deus,13,16,75,1,45ae7cbad2d493a67f5411dca933df2a
+5,A Gênese,4910,6,content,null,CAPÍTULO II,Deus,Existência de Deus,Existência de Deus,910,922,5524,13,843e70dba30795c363445413da0b43b8
+5,A Gênese,4911,7,content,null,CAPÍTULO II,Deus,Da natureza divina,Da natureza divina,1301,1322,7847,22,a93452169ef60243fe96b477219efd6d
+5,A Gênese,4912,8,content,null,CAPÍTULO II,Deus,A Providência,A Providência,1467,1484,8840,18,ebde2a2b97c5ef9167483096dc1543e3
+5,A Gênese,4913,9,content,null,CAPÍTULO II,Deus,A visão de Deus,A visão de Deus,925,934,5544,10,f5318805b3d68b2f6027e93b8ce214e8
+5,A Gênese,4914,10,chapter_intro,null,CAPÍTULO III,O bem e o mal,null,CAPÍTULO III — O bem e o mal,19,21,100,1,1bab5c7aabb00ccd21e1b42bce8b6934
+5,A Gênese,4915,11,content,null,CAPÍTULO III,O bem e o mal,Origem do bem e do mal,Origem do bem e do mal,1733,1754,10210,22,2185e86d81c55e788c21be762422c891
+5,A Gênese,4916,12,content,null,CAPÍTULO III,O bem e o mal,O instinto e a inteligência,O instinto e a inteligência,1911,1935,11835,25,5943420cd1506b2b4c7fb4f0f6addbf5
+5,A Gênese,4917,13,content,null,CAPÍTULO III,O bem e o mal,Destruição dos seres vivos uns pelos outros,Destruição dos seres vivos uns pelos outros,1080,1091,6602,12,f868b30f4f2d7c08fd804f29f8c2d36f
+5,A Gênese,4918,14,chapter_intro,null,CAPÍTULO IV,Papel da Ciência na Gênese,null,CAPÍTULO IV — Papel da Ciência na Gênese,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+5,A Gênese,4919,15,content,null,CAPÍTULO IV,Papel da Ciência na Gênese,null,Papel da Ciência na Gênese,2672,2700,16022,29,01ed06b6132e4764c3d28592fae9908f
+5,A Gênese,4920,16,chapter_intro,null,CAPÍTULO V,Antigos e modernos sistemas do mundo,null,CAPÍTULO V — Antigos e modernos sistemas do mundo,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+5,A Gênese,4921,17,content,null,CAPÍTULO V,Antigos e modernos sistemas do mundo,null,Antigos e modernos sistemas do mundo,2699,2736,16892,38,76f311c40874c405d315d9060078d089
+5,A Gênese,4922,18,chapter_intro,null,CAPÍTULO VI,Uranografia geral,null,CAPÍTULO VI — Uranografia geral,48,61,281,1,f275f5a8d99ce47a39846c9a1cce1899
+5,A Gênese,4923,19,content,null,CAPÍTULO VI,Uranografia geral,O espaço e o tempo,O espaço e o tempo,1148,1167,6975,20,0f883bbdd8f63eb4ad6fe944874aaf0b
+5,A Gênese,4924,20,content,null,CAPÍTULO VI,Uranografia geral,A matéria,A matéria,881,890,5570,10,4fdd83a1e3f9c7819bac7e51451aa168
+5,A Gênese,4925,21,content,null,CAPÍTULO VI,Uranografia geral,As leis e as forças,As leis e as forças,979,988,6216,10,7ed3c8c6f40fcdd6f8aca72939aaded0
+5,A Gênese,4926,22,content,null,CAPÍTULO VI,Uranografia geral,A criação primária,A criação primária,894,904,5616,11,7f30b4b44ea7877b59ab3fc9bc6cfb0f
+5,A Gênese,4927,23,content,null,CAPÍTULO VI,Uranografia geral,A criação universal,A criação universal,728,739,4592,12,95ba762c63a5d660204b9ddb1ac38836
+5,A Gênese,4928,24,content,null,CAPÍTULO VI,Uranografia geral,Os sóis e os planetas,Os sóis e os planetas,599,606,3753,8,0d6c5dc64c1f2b7f877ea5dc2e7900ad
+5,A Gênese,4929,25,content,null,CAPÍTULO VI,Uranografia geral,Os satélites,Os satélites,1107,1114,6571,8,d4bb5901e85cd0686625b024a1697a83
+5,A Gênese,4930,26,content,null,CAPÍTULO VI,Uranografia geral,Os cometas,Os cometas,600,607,3858,8,fd4be33439eea676db97f37fbb870bae
+5,A Gênese,4931,27,content,null,CAPÍTULO VI,Uranografia geral,A Via Láctea,A Via Láctea,589,596,3433,8,32e5bbe710439166a14c9cfd330d982c
+5,A Gênese,4932,28,content,null,CAPÍTULO VI,Uranografia geral,As estrelas fixas,As estrelas fixas,1069,1086,6658,18,50b2188f6917d01541edb44f3b362857
+5,A Gênese,4933,29,content,null,CAPÍTULO VI,Uranografia geral,Os desertos do espaço,Os desertos do espaço,978,984,6125,7,87edcaa6eddaedb5eaa11f3d4f94ba4c
+5,A Gênese,4934,30,content,null,CAPÍTULO VI,Uranografia geral,Eterna sucessão dos mundos,Eterna sucessão dos mundos,958,970,5919,13,c0b09ecd75e75b137b3ae700a5690104
+5,A Gênese,4935,31,content,null,CAPÍTULO VI,Uranografia geral,A vida universal,A vida universal,431,436,2668,6,f40381655d37a00bd8b80a2a22a0738e
+5,A Gênese,4936,32,content,null,CAPÍTULO VI,Uranografia geral,Diversidade dos mundos,Diversidade dos mundos,611,618,3719,8,6bdcf09e36bc295288f623c31cee070d
+5,A Gênese,4937,33,chapter_intro,null,CAPÍTULO VII,Esboço geológico da Terra,null,CAPÍTULO VII — Esboço geológico da Terra,25,32,206,1,c540bf7df3f6097acabb65f2d4041aba
+5,A Gênese,4938,34,content,null,CAPÍTULO VII,Esboço geológico da Terra,Períodos geológicos,Períodos geológicos,2189,2213,14004,25,585dcacc9d2b03047c54e84e0fa8175a
+5,A Gênese,4939,35,content,null,CAPÍTULO VII,Esboço geológico da Terra,Estado primitivo do globo,Estado primitivo do globo,905,915,5317,11,6dd90ba336c2b92f2ec70f9061a60cf8
+5,A Gênese,4940,36,content,null,CAPÍTULO VII,Esboço geológico da Terra,Período primário,Período primário,469,478,3008,10,bc82cca7a721e7792e6074d095aaf749
+5,A Gênese,4941,37,content,null,CAPÍTULO VII,Esboço geológico da Terra,Período de transição,Período de transição,939,957,6122,19,9f7541a1f3e19a84367a6bf66c049de2
+5,A Gênese,4942,38,content,null,CAPÍTULO VII,Esboço geológico da Terra,Período secundário,Período secundário,1167,1182,7222,16,37515dd044b96c0edaea59ab970f5dde
+5,A Gênese,4943,39,content,null,CAPÍTULO VII,Esboço geológico da Terra,Período terciário,Período terciário,1347,1369,8823,23,7e729d1f2e2a8d84a39632ebe41ec3fa
+5,A Gênese,4944,40,content,null,CAPÍTULO VII,Esboço geológico da Terra,Período diluviano,Período diluviano,760,770,4817,11,9ab9abf0f615e6b5f1b90c1e00fcd85d
+5,A Gênese,4945,41,content,null,CAPÍTULO VII,Esboço geológico da Terra,Nascimento do homem,Nascimento do homem,535,542,3329,8,74cfddb912f75982f5fe552b4976db54
+5,A Gênese,4946,42,chapter_intro,null,CAPÍTULO VIII,Teorias sobre a formação da Terra,null,CAPÍTULO VIII — Teorias sobre a formação da Terra,13,16,84,1,a33fe50b90dd08d6b327c9c546bd0b1f
+5,A Gênese,4947,43,content,null,CAPÍTULO VIII,Teorias sobre a formação da Terra,Teoria da projeção,Teoria da projeção,998,1013,6206,16,0f98be32fc31290f2fca7f89833e9f7b
+5,A Gênese,4948,44,content,null,CAPÍTULO VIII,Teorias sobre a formação da Terra,Teoria da condensação,Teoria da condensação,166,168,997,3,8e0efd2bbcb686d42cebffc9532019b8
+5,A Gênese,4949,45,content,null,CAPÍTULO VIII,Teorias sobre a formação da Terra,Teoria da incrustação,Teoria da incrustação,972,980,5986,9,8f9ff9903aaa43f6ca234e22f2fcbb21
+5,A Gênese,4950,46,content,null,CAPÍTULO VIII,Teorias sobre a formação da Terra,Alma da Terra,Alma da Terra,490,494,2944,5,a64e4c41599681d6fda88f4beec4ed02
+5,A Gênese,4951,47,chapter_intro,null,CAPÍTULO IX,Revoluções do globo,null,CAPÍTULO IX — Revoluções do globo,21,26,160,1,b969d6405f5fddd845cd69bcf2bf8ff7
+5,A Gênese,4952,48,content,null,CAPÍTULO IX,Revoluções do globo,Revoluções gerais ou parciais,Revoluções gerais ou parciais,262,265,1738,4,631b26c9162a12c2b9715cb03e91277f
+5,A Gênese,4953,49,content,null,CAPÍTULO IX,Revoluções do globo,Idade das montanhas,Idade das montanhas,241,243,1568,3,d04ca94e22f0110a718c0b72531ca7e0
+5,A Gênese,4954,50,content,null,CAPÍTULO IX,Revoluções do globo,Dilúvio bíblico,Dilúvio bíblico,587,591,3578,5,56621597c1507c9cbbe454f5fbb2a5d9
+5,A Gênese,4955,51,content,null,CAPÍTULO IX,Revoluções do globo,Revoluções periódicas,Revoluções periódicas,1174,1186,6892,13,217d7f4fb1b922f1dcdfa74fd16a857d
+5,A Gênese,4956,52,content,null,CAPÍTULO IX,Revoluções do globo,Cataclismos futuros,Cataclismos futuros,1068,1078,6493,11,13c3222f68117f790cf5b5ef7024bd7c
+5,A Gênese,4957,53,content,null,CAPÍTULO IX,Revoluções do globo,Aumento ou diminuição do volume da Terra,Aumento ou diminuição do volume da Terra,894,904,5573,11,b9624c44920955ff8090f66a327586ee
+5,A Gênese,4958,54,chapter_intro,null,CAPÍTULO X,Gênese orgânica,null,CAPÍTULO X — Gênese orgânica,17,21,122,1,13b8a49814c2b18dbb2b8e50b24b7812
+5,A Gênese,4959,55,content,null,CAPÍTULO X,Gênese orgânica,Formação primária dos seres vivos,Formação primária dos seres vivos,2369,2402,15064,34,45f8152dd5f15f3c57b1a325a23b7b35
+5,A Gênese,4960,56,content,null,CAPÍTULO X,Gênese orgânica,Princípio vital,Princípio vital,622,630,3963,9,42391cade27865b7d6795621bf31870c
+5,A Gênese,4961,57,content,null,CAPÍTULO X,Gênese orgânica,Geração espontânea,Geração espontânea,570,579,3632,10,7b9f2a6c02d932c90a5975471be215c5
+5,A Gênese,4962,58,content,null,CAPÍTULO X,Gênese orgânica,Escala dos seres orgânicos,Escala dos seres orgânicos,622,629,4014,8,4f35a29eb8301ee82e768066eefba3bf
+5,A Gênese,4963,59,content,null,CAPÍTULO X,Gênese orgânica,O homem corpóreo,O homem corpóreo,737,746,4327,10,2335a7216432122b582dd8c520b45ff9
+5,A Gênese,4964,60,chapter_intro,null,CAPÍTULO XI,Gênese espiritual,null,CAPÍTULO XI — Gênese espiritual,36,43,256,1,dd343598f5d98742cb12f14513bf56a4
+5,A Gênese,4965,61,content,null,CAPÍTULO XI,Gênese espiritual,Princípio espiritual,Princípio espiritual,1221,1238,7486,18,5b6e70141f9772c154c24e4b3dabbaef
+5,A Gênese,4966,62,content,null,CAPÍTULO XI,Gênese espiritual,União do princípio espiritual à matéria,União do princípio espiritual à matéria,597,605,3529,9,db61a18fb720b0f103737d7aa2076792
+5,A Gênese,4967,63,content,null,CAPÍTULO XI,Gênese espiritual,Hipótese sobre a origem do corpo humano,Hipótese sobre a origem do corpo humano,394,397,2339,4,ff561cfc3fabc2d746a6beb871d15bc1
+5,A Gênese,4968,64,content,null,CAPÍTULO XI,Gênese espiritual,Encarnação dos Espíritos,Encarnação dos Espíritos,2577,2605,16092,29,c9be037bead35cf0e839bbe94a634de9
+5,A Gênese,4969,65,content,null,CAPÍTULO XI,Gênese espiritual,Reencarnações,Reencarnações,989,997,5844,9,c849f8b7c64cad058ec0b0bd9518206c
+5,A Gênese,4970,66,content,null,CAPÍTULO XI,Gênese espiritual,Emigrações e imigrações dos Espíritos,Emigrações e imigrações dos Espíritos,454,458,2984,5,b7e507d24dcfb35c164c1797067230f5
+5,A Gênese,4971,67,content,null,CAPÍTULO XI,Gênese espiritual,Raça adâmica,Raça adâmica,1094,1106,6768,13,e7db6b470d67816d71d3c710d91b7cf7
+5,A Gênese,4972,68,content,null,CAPÍTULO XI,Gênese espiritual,Doutrina dos anjos decaídos e,Doutrina dos anjos decaídos e,1,1,3,1,da4fb5c6e93e74d3df8527599fa62642
+5,A Gênese,4973,69,content,null,CAPÍTULO XI,Gênese espiritual,da perda do paraíso,da perda do paraíso,1708,1730,10521,23,f6e819ecc0e43b0483e4fc7e3e364c59
+5,A Gênese,4974,70,chapter_intro,null,CAPÍTULO XII,Gênese moisaica,null,CAPÍTULO XII — Gênese moisaica,7,8,33,1,c50b3408707db2612f56a7c4600166fa
+5,A Gênese,4975,71,content,null,CAPÍTULO XII,Gênese moisaica,Os seis dias,Os seis dias,3524,3569,20188,46,767483d52f7d95d31708b7e25d853b41
+5,A Gênese,4976,72,content,null,CAPÍTULO XII,Gênese moisaica,Perda do paraíso,Perda do paraíso,4273,4322,24626,50,981ef1b8089ab0ca0f6088b57a3ad242
+5,A Gênese,4977,73,chapter_intro,null,null,Os milagres segundo o Espiritismo,null,Os milagres segundo o Espiritismo,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+5,A Gênese,4978,74,content,null,null,Os milagres segundo o Espiritismo,null,Os milagres segundo o Espiritismo,15,15,98,1,f71cce2ed16a9b8be4c34c7aef5afd13
+5,A Gênese,4979,75,chapter_intro,null,CAPÍTULO XIII,Caracteres dos milagres,null,CAPÍTULO XIII — Caracteres dos milagres,19,22,120,1,4ab5bdf92eeae32da00d2fb4f40259f6
+5,A Gênese,4980,76,content,null,CAPÍTULO XIII,Caracteres dos milagres,Os milagres no sentido teológico,Os milagres no sentido teológico,696,703,4217,8,a02409cc02676f3beadf73ab3b39aeee
+5,A Gênese,4981,77,content,null,CAPÍTULO XIII,Caracteres dos milagres,O Espiritismo não faz milagres,O Espiritismo não faz milagres,1992,2009,12316,18,1e23f67260a623877290371bcfb42f9b
+5,A Gênese,4982,78,content,null,CAPÍTULO XIII,Caracteres dos milagres,Faz Deus milagres?,Faz Deus milagres?,798,804,4912,7,605c74c4c78cd7819f2b3fb47dc3d880
+5,A Gênese,4983,79,content,null,CAPÍTULO XIII,Caracteres dos milagres,O sobrenatural e as religiões,O sobrenatural e as religiões,694,698,4129,5,cf965d259fdc089c2f7b13e3bb1eab09
+5,A Gênese,4984,80,chapter_intro,null,CAPÍTULO XIV,Os fluidos,null,CAPÍTULO XIV — Os fluidos,48,56,425,1,ea6f60dc05172c88f706d65ef5f886b5
+5,A Gênese,4985,81,content,null,CAPÍTULO XIV,Os fluidos,Elementos fluídicos,Elementos fluídicos,1146,1160,7332,15,d9fd9df73ebc15264ff265a9b8710d58
+5,A Gênese,4986,82,content,null,CAPÍTULO XIV,Os fluidos,Formação e propriedades do perispírito,Formação e propriedades do perispírito,1432,1448,8749,17,518d0eac0434d60d12d445817d60c304
+5,A Gênese,4987,83,content,null,CAPÍTULO XIV,Os fluidos,fluídicas. Fotografia do pensamento,fluídicas. Fotografia do pensamento,759,767,4522,9,cd66c2d2182920ed7916add15e9b3d26
+5,A Gênese,4988,84,content,null,CAPÍTULO XIV,Os fluidos,Qualidades dos fluidos,Qualidades dos fluidos,1278,1297,8154,20,b56e5df4c8877d6ae6fa9b025e73a5ed
+5,A Gênese,4989,85,content,null,CAPÍTULO XIV,Os fluidos,vista. Sonambulismo. Sonhos,vista. Sonambulismo. Sonhos,1413,1430,8601,18,c4cdd2da05a9c9964acc2b203c92d1f4
+5,A Gênese,4990,86,content,null,CAPÍTULO XIV,Os fluidos,Catalepsia. Ressurreições,Catalepsia. Ressurreições,541,545,3333,5,aefc9bfeb339370ba8a3622facd0264f
+5,A Gênese,4991,87,content,null,CAPÍTULO XIV,Os fluidos,Curas,Curas,545,551,3482,7,7ffebbef5c2f88da88fdf98699ca5ad4
+5,A Gênese,4992,88,content,null,CAPÍTULO XIV,Os fluidos,Aparições. Transfigurações,Aparições. Transfigurações,1142,1155,7168,14,0e0ce11b583e8a22ffc1eee8c3ecddf2
+5,A Gênese,4993,89,content,null,CAPÍTULO XIV,Os fluidos,Manifestações físicas. Mediunidade,Manifestações físicas. Mediunidade,1290,1303,7795,14,2ce3aad76737bb76e40698f52f96fab3
+5,A Gênese,4994,90,content,null,CAPÍTULO XIV,Os fluidos,Obsessões e possessões,Obsessões e possessões,1238,1255,7628,18,30f5bed7478caecb5d3393e091285b9d
+5,A Gênese,4995,91,chapter_intro,null,CAPÍTULO XV,Os milagres do Evangelho,null,CAPÍTULO XV — Os milagres do Evangelho,50,65,358,1,559746eb9f8aa00e4b87054b0e1e21d0
+5,A Gênese,4996,92,content,null,CAPÍTULO XV,Os milagres do Evangelho,Superioridade da natureza de Jesus,Superioridade da natureza de Jesus,600,604,3789,5,c79c74b3fa4c584f8828cc734789da5b
+5,A Gênese,4997,93,content,null,CAPÍTULO XV,Os milagres do Evangelho,Sonhos,Sonhos,177,178,992,2,301508106a3223eb014f7879b75c06cc
+5,A Gênese,4998,94,content,null,CAPÍTULO XV,Os milagres do Evangelho,Estrela dos magos,Estrela dos magos,211,214,1197,4,56002f303968a17e73812a761a435dae
+5,A Gênese,4999,95,content,null,CAPÍTULO XV,Os milagres do Evangelho,Entrada de jesus em jerusalém,Entrada de jesus em jerusalém,151,152,808,2,25c17e22a5c2e3bc4d53af5c775c158b
+5,A Gênese,5000,96,content,null,CAPÍTULO XV,Os milagres do Evangelho,Beijo de judas,Beijo de judas,125,125,671,1,19ec125363d983e070bc85be2e182a94
+5,A Gênese,5001,97,content,null,CAPÍTULO XV,Os milagres do Evangelho,Pesca milagrosa,Pesca milagrosa,158,159,869,2,c261d090a747b8b0c88aea3fcae51468
+5,A Gênese,5002,98,content,null,CAPÍTULO XV,Os milagres do Evangelho,"Vocação de pedro, andré, tiago, joão e mateus","Vocação de pedro, andré, tiago, joão e mateus",491,498,2968,8,bfa2024075d1b066611b8c3b63c48b24
+5,A Gênese,5003,99,content,null,CAPÍTULO XV,Os milagres do Evangelho,Perda de sangue,Perda de sangue,471,477,2727,7,6343d9de8b47f9f1cb3465dce6ef1c5d
+5,A Gênese,5004,100,content,null,CAPÍTULO XV,Os milagres do Evangelho,Cego de betsaida,Cego de betsaida,171,172,964,2,61d2c3fa54e0be923093dc87b90b9574
+5,A Gênese,5005,101,content,null,CAPÍTULO XV,Os milagres do Evangelho,Paralítico,Paralítico,342,347,2047,6,199b99c78941e05d42e68fd9813665d8
+5,A Gênese,5006,102,content,null,CAPÍTULO XV,Os milagres do Evangelho,Os dez leprosos,Os dez leprosos,301,304,1764,4,01a848477272822a8ffb5ff295c02e4c
+5,A Gênese,5007,103,content,null,CAPÍTULO XV,Os milagres do Evangelho,Mão seca,Mão seca,201,203,1065,3,67ee6235b6b712d8972126190235add1
+5,A Gênese,5008,104,content,null,CAPÍTULO XV,Os milagres do Evangelho,A mulher curvada,A mulher curvada,230,234,1312,5,a90c0d9170ff8d901af3617eb891c238
+5,A Gênese,5009,105,content,null,CAPÍTULO XV,Os milagres do Evangelho,O paralítico da piscina,O paralítico da piscina,722,731,4237,10,f3639e6c9ee5a18ac8c4d0b53964dcc0
+5,A Gênese,5010,106,content,null,CAPÍTULO XV,Os milagres do Evangelho,Cego de nascença,Cego de nascença,1269,1283,7032,15,cfa7e3991309d23bfd7d9f8a8d51877b
+5,A Gênese,5011,107,content,null,CAPÍTULO XV,Os milagres do Evangelho,Numerosas curas operadas por jesus,Numerosas curas operadas por jesus,484,489,2974,6,7f25459385b3da2061b1919f452e1ac8
+5,A Gênese,5012,108,content,null,CAPÍTULO XV,Os milagres do Evangelho,Possessos,Possessos,1243,1262,7485,20,b4e0dd76d0fafc0449af949c554dc2b3
+5,A Gênese,5013,109,content,null,CAPÍTULO XV,Os milagres do Evangelho,A filha de jairo,A filha de jairo,441,445,2613,5,cdb1f082725c2b108961bc5a72f5c61a
+5,A Gênese,5014,110,content,null,CAPÍTULO XV,Os milagres do Evangelho,O FILHO DA VIÚVA DE NªIM,O FILHO DA VIÚVA DE NªIM,731,738,4358,8,a214d7cbc583dc567ecb52888eecfae3
+5,A Gênese,5015,111,content,null,CAPÍTULO XV,Os milagres do Evangelho,Jesus caminha sobre a água,Jesus caminha sobre a água,335,342,2018,8,a5e302f865c04b140b64e801cc435594
+5,A Gênese,5016,112,content,null,CAPÍTULO XV,Os milagres do Evangelho,Transfiguração,Transfiguração,380,386,2255,7,3349c4c2ca9e4db144eeb56651fc8c1e
+5,A Gênese,5017,113,content,null,CAPÍTULO XV,Os milagres do Evangelho,Tempestade aplacada,Tempestade aplacada,213,215,1264,3,a5a0df0da9c20a9cade00940381b0a0a
+5,A Gênese,5018,114,content,null,CAPÍTULO XV,Os milagres do Evangelho,Bodas de Caná,Bodas de Caná,374,377,2272,4,f640a31569c26e16daf975b76ffa2e5c
+5,A Gênese,5019,115,content,null,CAPÍTULO XV,Os milagres do Evangelho,Multiplicação dos pães,Multiplicação dos pães,320,324,2023,5,ba45696251acba9bceb0a4d5a4ac7345
+5,A Gênese,5020,116,content,null,CAPÍTULO XV,Os milagres do Evangelho,O fermento dos fariseus,O fermento dos fariseus,128,130,756,3,39b96de3576e53677ffb379e16b67376
+5,A Gênese,5021,117,content,null,CAPÍTULO XV,Os milagres do Evangelho,O pão do céu,O pão do céu,740,750,4216,11,64cdceaa18f6eff17cfdc75caea520e9
+5,A Gênese,5022,118,content,null,CAPÍTULO XV,Os milagres do Evangelho,Tentação de Jesus,Tentação de Jesus,524,529,3075,6,40651d2b63a7f0d03d72002fb308d159
+5,A Gênese,5023,119,content,null,CAPÍTULO XV,Os milagres do Evangelho,Prodígios por ocasião da morte de Jesus,Prodígios por ocasião da morte de Jesus,359,366,2130,8,baf27280daded51aad417975d8a273b6
+5,A Gênese,5024,120,content,null,CAPÍTULO XV,Os milagres do Evangelho,Aparição de Jesus após sua morte,Aparição de Jesus após sua morte,2150,2179,12671,30,7b5214a18e6135c2dc0e8f775e455d2b
+5,A Gênese,5025,121,content,null,CAPÍTULO XV,Os milagres do Evangelho,Desaparecimento do corpo de Jesus,Desaparecimento do corpo de Jesus,1107,1121,6718,15,0059dbca24f652d6ab493366d9154054
+5,A Gênese,5026,122,chapter_intro,null,null,As predições segundo o Espiritismo,null,As predições segundo o Espiritismo,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+5,A Gênese,5027,123,content,null,null,As predições segundo o Espiritismo,null,As predições segundo o Espiritismo,16,16,109,1,82be8d5e5f8452d8e695e61d2f4392b0
+5,A Gênese,5028,124,chapter_intro,null,CAPÍTULO XVI,Teoria da presciência,null,CAPÍTULO XVI — Teoria da presciência,0,0,0,0,d41d8cd98f00b204e9800998ecf8427e
+5,A Gênese,5029,125,content,null,CAPÍTULO XVI,Teoria da presciência,null,Teoria da presciência,3458,3491,21069,34,ca5768e0f406988f7679a3f7742f1975
+5,A Gênese,5030,126,chapter_intro,null,CAPÍTULO XVII,Predições do Evangelho,null,CAPÍTULO XVII — Predições do Evangelho,65,80,443,1,d27f70a2c2bbd35472bf592e29c3e1bd
+5,A Gênese,5031,127,content,null,CAPÍTULO XVII,Predições do Evangelho,Ninguém é profeta em sua terra,Ninguém é profeta em sua terra,870,878,5089,9,9a92e74ac55f51d2a3853dea6a3191a2
+5,A Gênese,5032,128,content,null,CAPÍTULO XVII,Predições do Evangelho,Morte e paixão de Jesus,Morte e paixão de Jesus,464,471,2618,8,07a7882cfec3d58d775fdbdd0e249856
+5,A Gênese,5033,129,content,null,CAPÍTULO XVII,Predições do Evangelho,Perseguição aos apóstolos,Perseguição aos apóstolos,232,235,1296,4,37ea9c7aa736af67f8325e144646c42d
+5,A Gênese,5034,130,content,null,CAPÍTULO XVII,Predições do Evangelho,Cidades impenitentes,Cidades impenitentes,130,132,747,3,6ccf14e142a0ba165732bc770caa7f8c
+5,A Gênese,5035,131,content,null,CAPÍTULO XVII,Predições do Evangelho,Ruína do Templo e de Jerusalém,Ruína do Templo e de Jerusalém,661,668,3770,8,1e0228309cf9513ec9288f3cfc063514
+5,A Gênese,5036,132,content,null,CAPÍTULO XVII,Predições do Evangelho,Maldição contra os fariseus,Maldição contra os fariseus,667,675,3647,9,ababcc2eebb008da0a8e606fc00e74db
+5,A Gênese,5037,133,content,null,CAPÍTULO XVII,Predições do Evangelho,Minhas palavras não passarão,Minhas palavras não passarão,358,363,2193,6,0c6bc43833ddd37dbd3e7dd05ba7206c
+5,A Gênese,5038,134,content,null,CAPÍTULO XVII,Predições do Evangelho,A pedra angular,A pedra angular,175,177,974,3,e9713af9c3327df342505c337a7d383f
+5,A Gênese,5039,135,content,null,CAPÍTULO XVII,Predições do Evangelho,Parábola dos vinhateiros homicidas,Parábola dos vinhateiros homicidas,758,766,4512,9,5206370443b37bf335d11ac835ad267a
+5,A Gênese,5040,136,content,null,CAPÍTULO XVII,Predições do Evangelho,Um só rebanho e um só pastor,Um só rebanho e um só pastor,768,775,4636,8,3a91d85fb39e5608179eb9fa5fbb360d
+5,A Gênese,5041,137,content,null,CAPÍTULO XVII,Predições do Evangelho,Advento de Elias,Advento de Elias,126,129,737,4,4c78a80a268316e3dcfdb3fe524bf816
+5,A Gênese,5042,138,content,null,CAPÍTULO XVII,Predições do Evangelho,Anunciação do Consolador,Anunciação do Consolador,1218,1231,7438,14,b684241c5e9ddcc26024ba9a7bc31983
+5,A Gênese,5043,139,content,null,CAPÍTULO XVII,Predições do Evangelho,Segundo advento do Cristo,Segundo advento do Cristo,790,800,4551,11,0a711b7a76cef9a56409f13cd51a2f97
+5,A Gênese,5044,140,content,null,CAPÍTULO XVII,Predições do Evangelho,Sinais precursores,Sinais precursores,1641,1663,9459,23,c6c8001607eeaa9e47cbd1b5b45ea399
+5,A Gênese,5045,141,content,null,CAPÍTULO XVII,Predições do Evangelho,Vossos filhos e vossas filhas profetizarão,Vossos filhos e vossas filhas profetizarão,340,344,2088,5,ce3cd39f1481141c7a7039a481c835cd
+5,A Gênese,5046,142,content,null,CAPÍTULO XVII,Predições do Evangelho,Juízo final,Juízo final,862,871,5280,10,48372f2c9d0c3c55fea9618b66807219
+5,A Gênese,5047,143,chapter_intro,null,CAPÍTULO XVIII,São chegados os tempos,null,CAPÍTULO XVIII — São chegados os tempos,7,8,36,1,e240461c371326b664f64724c45b2e73
+5,A Gênese,5048,144,content,null,CAPÍTULO XVIII,São chegados os tempos,Sinais dos tempos,Sinais dos tempos,5213,5273,32210,61,4f133054f9c2a3d29c7366b740c2cdcb
+5,A Gênese,5049,145,content,null,CAPÍTULO XVIII,São chegados os tempos,A geração nova,A geração nova,1544,1568,9752,25,3fe2df87ae9ed98978822b18c23ea5db
+5,A Gênese,5050,146,content,null,CAPÍTULO XVIII,São chegados os tempos,Nota explicativa,Nota explicativa,1798,1821,11538,24,d3925e5834d6b6040c4e65b02b5fb402

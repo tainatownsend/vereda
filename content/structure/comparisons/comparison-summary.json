@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "current_snapshot_sha256": "c48cf38c6e927f40039539875d7533e584fb155fcc53b59c3cfa61c701305256",
+  "book_count": 5,
+  "books": [
+    {
+      "book": {
+        "book_id": 1,
+        "slug": "o-livro-dos-espiritos",
+        "title": "O Livro dos Espíritos"
+      },
+      "summary": {
+        "current_record_count": 228,
+        "current_chapter_group_count": 34,
+        "canonical_node_count": 200,
+        "canonical_chapter_count": 29,
+        "matched_chapter_count": 29,
+        "canonical_only_node_count": 4,
+        "database_only_section_count": 21,
+        "oversized_section_count": 30,
+        "missing_section_title_count": 0,
+        "confidence_counts": {
+          "chapter": 29,
+          "chapter-aggregate": 16,
+          "exact": 162,
+          "unmatched": 21
+        },
+        "action_counts": {
+          "keep": 190,
+          "reclassify": 1,
+          "review": 21,
+          "split": 16
+        }
+      }
+    },
+    {
+      "book": {
+        "book_id": 2,
+        "slug": "o-livro-dos-mediuns",
+        "title": "O Livro dos Médiuns"
+      },
+      "summary": {
+        "current_record_count": 147,
+        "current_chapter_group_count": 38,
+        "canonical_node_count": 135,
+        "canonical_chapter_count": 36,
+        "matched_chapter_count": 36,
+        "canonical_only_node_count": 63,
+        "database_only_section_count": 2,
+        "oversized_section_count": 37,
+        "missing_section_title_count": 0,
+        "confidence_counts": {
+          "chapter": 36,
+          "chapter-aggregate": 77,
+          "exact": 32,
+          "unmatched": 2
+        },
+        "action_counts": {
+          "keep": 68,
+          "review": 13,
+          "split": 66
+        }
+      }
+    },
+    {
+      "book": {
+        "book_id": 3,
+        "slug": "o-evangelho-segundo-o-espiritismo",
+        "title": "O Evangelho Segundo o Espiritismo"
+      },
+      "summary": {
+        "current_record_count": 241,
+        "current_chapter_group_count": 29,
+        "canonical_node_count": 235,
+        "canonical_chapter_count": 28,
+        "matched_chapter_count": 28,
+        "canonical_only_node_count": 44,
+        "database_only_section_count": 4,
+        "oversized_section_count": 17,
+        "missing_section_title_count": 0,
+        "confidence_counts": {
+          "chapter": 28,
+          "chapter-aggregate": 50,
+          "exact": 159,
+          "unmatched": 4
+        },
+        "action_counts": {
+          "keep": 185,
+          "reclassify": 2,
+          "review": 4,
+          "split": 50
+        }
+      }
+    },
+    {
+      "book": {
+        "book_id": 4,
+        "slug": "o-ceu-e-o-inferno",
+        "title": "O Céu e o Inferno"
+      },
+      "summary": {
+        "current_record_count": 146,
+        "current_chapter_group_count": 21,
+        "canonical_node_count": 110,
+        "canonical_chapter_count": 19,
+        "matched_chapter_count": 19,
+        "canonical_only_node_count": 2,
+        "database_only_section_count": 2,
+        "oversized_section_count": 29,
+        "missing_section_title_count": 0,
+        "confidence_counts": {
+          "chapter": 19,
+          "chapter-aggregate": 38,
+          "exact": 87,
+          "unmatched": 2
+        },
+        "action_counts": {
+          "keep": 106,
+          "review": 2,
+          "split": 38
+        }
+      }
+    },
+    {
+      "book": {
+        "book_id": 5,
+        "slug": "a-genese",
+        "title": "A Gênese"
+      },
+      "summary": {
+        "current_record_count": 146,
+        "current_chapter_group_count": 21,
+        "canonical_node_count": 146,
+        "canonical_chapter_count": 18,
+        "matched_chapter_count": 18,
+        "canonical_only_node_count": 9,
+        "database_only_section_count": 6,
+        "oversized_section_count": 30,
+        "missing_section_title_count": 0,
+        "confidence_counts": {
+          "chapter": 18,
+          "chapter-aggregate": 10,
+          "exact": 112,
+          "unmatched": 6
+        },
+        "action_counts": {
+          "keep": 130,
+          "review": 6,
+          "split": 10
+        }
+      }
+    }
+  ]
+}
