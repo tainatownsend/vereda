@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-analysis",
+  "policy_version": "2026-08-03-reading-segment-resolution-analysis-v1",
+  "purpose": "Identify deterministic resolution opportunities without approving boundaries, loading content, or changing staging.",
+  "resolution_paths": {
+    "mechanical-anchor-candidate": {
+      "priority": 1,
+      "description": "A same-page successor has distinct non-page canonical locator anchors that may support a future deterministic boundary resolution.",
+      "approval_in_this_pr": false,
+      "database_change_in_this_pr": false
+    },
+    "source-inspection-required": {
+      "priority": 2,
+      "description": "The available structural metadata is insufficient to determine the exact boundary.",
+      "approval_in_this_pr": false,
+      "database_change_in_this_pr": false
+    },
+    "structural-review-required": {
+      "priority": 3,
+      "description": "A split or reconstruction decision requires editorial judgment.",
+      "approval_in_this_pr": false,
+      "database_change_in_this_pr": false
+    },
+    "delivery-size-review-required": {
+      "priority": 4,
+      "description": "The boundary may be structurally valid, but the proposed Reader unit requires size review.",
+      "approval_in_this_pr": false,
+      "database_change_in_this_pr": false
+    }
+  },
+  "precedence": [
+    "structural-review-required",
+    "source-inspection-required",
+    "mechanical-anchor-candidate",
+    "delivery-size-review-required"
+  ],
+  "mechanical_candidate_requirements": {
+    "required_review_reason": "same-page-successor-boundary",
+    "forbidden_review_reasons": [
+      "missing-start-locator",
+      "split-required-by-reconstruction-plan",
+      "manual-reconstruction-review",
+      "container-intro-boundary",
+      "legacy-word-count-oversized"
+    ],
+    "current_non_page_anchor_required": true,
+    "successor_non_page_anchor_required": true,
+    "anchors_must_differ": true,
+    "boundary_approval": false
+  },
+  "batching": {
+    "maximum_items_per_batch": 25,
+    "group_by": [
+      "resolution_path",
+      "book_id"
+    ],
+    "stable_order": [
+      "resolution_path",
+      "book_id",
+      "segment_order",
+      "segment_key"
+    ]
+  },
+  "application_boundary": {
+    "sql_generated": false,
+    "sql_applied": false,
+    "staging_updated": false,
+    "boundary_approved": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
