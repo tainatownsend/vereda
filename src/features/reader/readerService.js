@@ -1,0 +1,176 @@
+import { supabase } from '@/lib/supabase'
+
+export const SECTION_COLUMNS =
+  'id, sec_position, title, content, word_count, kind, part_title, chapter_label, chapter_title, section_title'
+
+export function getLocalDate(date = new Date()) {
+  const year = date.getFullYear()
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const day = String(date.getDate()).padStart(2, '0')
+  return `${year}-${month}-${day}`
+}
+
+export function normalizeSection(section) {
+  return {
+    section_id: section.section_id ?? section.id,
+    sec_position: section.sec_position,
+    title: section.title,
+    content: section.content,
+    word_count: section.word_count,
+    kind: section.kind || 'content',
+    part_title: section.part_title,
+    chapter_label: section.chapter_label,
+    chapter_title: section.chapter_title,
+    section_title: section.section_title,
+  }
+}
+
+function throwIfError(error, fallback) {
+  if (!error) return
+
+  const wrapped = new Error(error.message || fallback)
+  wrapped.cause = error
+  throw wrapped
+}
+
+export async function getReaderState({ userId, bookId, readDate }) {
+  const { data, error } = await supabase.rpc('get_reader_state', {
+    p_user_id: userId,
+    p_book_id: bookId,
+    p_read_date: readDate,
+  })
+
+  throwIfError(error, 'Não foi possível carregar o estado da leitura.')
+
+  const state = data?.[0]
+
+  if (!state) {
+    throw new Error('O progresso desta obra não foi encontrado.')
+  }
+
+  return state
+}
+
+export async function getReaderSections({ userId, bookId }) {
+  const { data, error } = await supabase.rpc('get_todays_sections', {
+    p_user_id: userId,
+    p_book_id: bookId,
+  })
+
+  throwIfError(error, 'Não foi possível carregar as seções.')
+
+  return (data || []).map(normalizeSection)
+}
+
+export async function getSectionsFromPosition({
+  bookId,
+  position,
+  limit = 15,
+}) {
+  const { data, error } = await supabase
+    .from('sections')
+    .select(SECTION_COLUMNS)
+    .eq('book_id', bookId)
+    .gte('sec_position', position)
+    .order('sec_position')
+    .limit(limit)
+
+  throwIfError(error, 'Não foi possível carregar a continuação.')
+
+  return (data || []).map(normalizeSection)
+}
+
+export async function getNextSection({ bookId, position }) {
+  const { data, error } = await supabase
+    .from('sections')
+    .select(SECTION_COLUMNS)
+    .eq('book_id', bookId)
+    .gt('sec_position', position)
+    .order('sec_position')
+    .limit(1)
+    .maybeSingle()
+
+  throwIfError(error, 'Não foi possível carregar a próxima seção.')
+
+  return data ? normalizeSection(data) : null
+}
+
+export async function getBookLastPosition(bookId) {
+  const { data, error } = await supabase
+    .from('sections')
+    .select('sec_position')
+    .eq('book_id', bookId)
+    .order('sec_position', { ascending: false })
+    .limit(1)
+    .maybeSingle()
+
+  throwIfError(error, 'Não foi possível calcular o progresso da obra.')
+
+  return Number(data?.sec_position || 0)
+}
+
+export async function getPreviousSection({ bookId, position }) {
+  const { data, error } = await supabase
+    .from('sections')
+    .select(SECTION_COLUMNS)
+    .eq('book_id', bookId)
+    .lt('sec_position', position)
+    .order('sec_position', { ascending: false })
+    .limit(1)
+    .maybeSingle()
+
+  throwIfError(error, 'Não foi possível carregar a seção anterior.')
+
+  return data ? normalizeSection(data) : null
+}
+
+export async function getChapterSections({
+  bookId,
+  chapterLabel,
+  partTitle,
+}) {
+  if (!chapterLabel) return []
+
+  let query = supabase
+    .from('sections')
+    .select('sec_position, section_title')
+    .eq('book_id', bookId)
+    .eq('chapter_label', chapterLabel)
+    .eq('kind', 'content')
+
+  query = partTitle
+    ? query.eq('part_title', partTitle)
+    : query.is('part_title', null)
+
+  const { data, error } = await query.order('sec_position')
+
+  throwIfError(error, 'Não foi possível carregar o progresso do capítulo.')
+
+  return data || []
+}
+
+export async function completeSection({
+  userId,
+  bookId,
+  sectionId,
+  durationSeconds,
+  readDate,
+}) {
+  const { data, error } = await supabase.rpc('complete_reading_section', {
+    p_user_id: userId,
+    p_book_id: bookId,
+    p_section_id: sectionId,
+    p_duration_s: Math.max(0, Math.round(durationSeconds || 0)),
+    p_read_date: readDate,
+  })
+
+  throwIfError(error, 'Não foi possível salvar seu progresso.')
+
+  const result = data?.[0]
+
+  if (!result) {
+    throw new Error('O banco não retornou o novo estado da leitura.')
+  }
+
+  return result
+}

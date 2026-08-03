@@ -96,7 +96,11 @@ export default function LibraryPage() {
 function BookCard({ book, progress, navigate }) {
   const percentage = useProgress(book.id, book.total_sections)
   const completed = Boolean(progress?.completed_at)
-  const destination = progress ? `/ler/${book.id}` : `/livro/${book.id}`
+  const destination = completed
+    ? `/ler/${book.id}?revisit=1`
+    : progress
+      ? `/ler/${book.id}`
+      : `/livro/${book.id}`
 
   return (
     <Card
