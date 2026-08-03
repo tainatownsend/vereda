@@ -1,0 +1,5601 @@
+{
+  "schema_version": 1,
+  "status": "source-inspection-required",
+  "policy_version": "2026-08-03-reading-segment-resolution-analysis-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "item_count": 144,
+  "items": [
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "a3d180e5c494585ecaa9a8c9",
+      "source_key": "ebde4b3effbf1881",
+      "source_node_id": "o-livro-dos-espiritos:division:ebde4b3effbf1881",
+      "node_type": "division",
+      "segment_order": 4,
+      "display_title": "PARTE PRIMEIRA — Das causas primárias",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 3,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "0974c4855ff81772209f63dd",
+      "source_key": "872ad5d38ea86464",
+      "source_node_id": "o-livro-dos-espiritos:chapter:872ad5d38ea86464",
+      "node_type": "chapter",
+      "segment_order": 5,
+      "display_title": "De Deus",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 14,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "5e1078f260731224f9ea5c50",
+      "source_key": "0f21e3591c06280b",
+      "source_node_id": "o-livro-dos-espiritos:chapter:0f21e3591c06280b",
+      "node_type": "chapter",
+      "segment_order": 10,
+      "display_title": "Dos elementos gerais do Universo",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 14,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "9b2694748ef4c22927e48120",
+      "source_key": "a340ad23aff9f0e9",
+      "source_node_id": "o-livro-dos-espiritos:section:a340ad23aff9f0e9",
+      "node_type": "section",
+      "segment_order": 18,
+      "display_title": "Povoamento da Terra. Adão",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 151,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "f29485d36682a7ecfafed5b2",
+      "source_key": "fbf5afa69b837271",
+      "source_node_id": "o-livro-dos-espiritos:chapter:fbf5afa69b837271",
+      "node_type": "chapter",
+      "segment_order": 22,
+      "display_title": "Do princípio vital",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 13,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "005ffe831efc9eafe3feefe7",
+      "source_key": "20ca3a4d1b9795b2",
+      "source_node_id": "o-livro-dos-espiritos:division:20ca3a4d1b9795b2",
+      "node_type": "division",
+      "segment_order": 26,
+      "display_title": "PARTE SEGUNDA — Do mundo espírita ou mundo dos Espíritos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 7,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "aa17779baca79e9ead8a975d",
+      "source_key": "4a7586bee3a51565",
+      "source_node_id": "o-livro-dos-espiritos:chapter:4a7586bee3a51565",
+      "node_type": "chapter",
+      "segment_order": 27,
+      "display_title": "Dos Espíritos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 42,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "6ee63ec04cb3364032a4d703",
+      "source_key": "c5dea371968b57af",
+      "source_node_id": "o-livro-dos-espiritos:chapter:c5dea371968b57af",
+      "node_type": "chapter",
+      "segment_order": 39,
+      "display_title": "Da encarnação dos Espíritos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 7,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "db8bb3a8b36c8c95b97c00e0",
+      "source_key": "c37ec5f131ccad39",
+      "source_node_id": "o-livro-dos-espiritos:chapter:c37ec5f131ccad39",
+      "node_type": "chapter",
+      "segment_order": 43,
+      "display_title": "Da volta do Espírito, extinta a vida corpórea, à vida espiritual",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 18,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "f0ac467d6c6e4e4f0baf7fe1",
+      "source_key": "d4e7ef1f4ae78d93",
+      "source_node_id": "o-livro-dos-espiritos:chapter:d4e7ef1f4ae78d93",
+      "node_type": "chapter",
+      "segment_order": 47,
+      "display_title": "Da pluralidade das existências",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 29,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "2f3e67c9f34c474e73bcf639",
+      "source_key": "8ca1225ae9943fd1",
+      "source_node_id": "o-livro-dos-espiritos:chapter:8ca1225ae9943fd1",
+      "node_type": "chapter",
+      "segment_order": 68,
+      "display_title": "Da volta do Espírito à vida corporal",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 30,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "4c72b47f1cf2e2b58a02c44e",
+      "source_key": "d46c925f0d53d40f",
+      "source_node_id": "o-livro-dos-espiritos:chapter:d46c925f0d53d40f",
+      "node_type": "chapter",
+      "segment_order": 77,
+      "display_title": "Da emancipação da alma",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 33,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "847140d127f8ddf39e438fd9",
+      "source_key": "ed76f876ac44ebbf",
+      "source_node_id": "o-livro-dos-espiritos:chapter:ed76f876ac44ebbf",
+      "node_type": "chapter",
+      "segment_order": 101,
+      "display_title": "Dos três reinos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 12,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "d709f621f896bf4419b76509",
+      "source_key": "1f8d47440393d1f5",
+      "source_node_id": "o-livro-dos-espiritos:division:1f8d47440393d1f5",
+      "node_type": "division",
+      "segment_order": 105,
+      "display_title": "PARTE TERCEIRA — Das leis morais",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 3,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "f1231ff81195f3fa0895a09e",
+      "source_key": "e8a8ed8f8296d729",
+      "source_node_id": "o-livro-dos-espiritos:chapter:e8a8ed8f8296d729",
+      "node_type": "chapter",
+      "segment_order": 106,
+      "display_title": "Da lei divina ou natural",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 20,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "b5ee4fd7d0855519a9c77d25",
+      "source_key": "fc4351cd7ace6579",
+      "source_node_id": "o-livro-dos-espiritos:chapter:fc4351cd7ace6579",
+      "node_type": "chapter",
+      "segment_order": 111,
+      "display_title": "Da lei de adoração",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 12,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "ca34fe5d192f446074599420",
+      "source_key": "0aa38d673b9761a9",
+      "source_node_id": "o-livro-dos-espiritos:section:0aa38d673b9761a9",
+      "node_type": "section",
+      "segment_order": 114,
+      "display_title": "Vida contemplativa",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 116,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "d3e0088557e9bffc9f03ce16",
+      "source_key": "681e0ede5940c2a1",
+      "source_node_id": "o-livro-dos-espiritos:chapter:681e0ede5940c2a1",
+      "node_type": "chapter",
+      "segment_order": 118,
+      "display_title": "Da lei do trabalho",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 8,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "cbe5e7101232bd957c49e30b",
+      "source_key": "bc85d1940cf4a7b2",
+      "source_node_id": "o-livro-dos-espiritos:chapter:bc85d1940cf4a7b2",
+      "node_type": "chapter",
+      "segment_order": 121,
+      "display_title": "Da lei de reprodução",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 16,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "fdc8bf68518dafb73f957139",
+      "source_key": "d610b124b1daf36a",
+      "source_node_id": "o-livro-dos-espiritos:section:d610b124b1daf36a",
+      "node_type": "section",
+      "segment_order": 122,
+      "display_title": "População do globo",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 66,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "7a3ce00315ec0a8bc3212322",
+      "source_key": "84c0c35c5d9c1858",
+      "source_node_id": "o-livro-dos-espiritos:chapter:84c0c35c5d9c1858",
+      "node_type": "chapter",
+      "segment_order": 127,
+      "display_title": "Da lei de conservação",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 17,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "563a1dfdad23a068ad5d4138",
+      "source_key": "be9fdeb11282f72c",
+      "source_node_id": "o-livro-dos-espiritos:section:be9fdeb11282f72c",
+      "node_type": "section",
+      "segment_order": 128,
+      "display_title": "Instinto de conservação",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 84,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "632fe546f78ac36f7ab54266",
+      "source_key": "a18b53eb72230c17",
+      "source_node_id": "o-livro-dos-espiritos:chapter:a18b53eb72230c17",
+      "node_type": "chapter",
+      "segment_order": 133,
+      "display_title": "Da lei de destruição",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 15,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "740ed56a085f9249e88041f2",
+      "source_key": "74ce300b149f1f6a",
+      "source_node_id": "o-livro-dos-espiritos:chapter:74ce300b149f1f6a",
+      "node_type": "chapter",
+      "segment_order": 141,
+      "display_title": "Da lei de sociedade",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 14,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "1df74b6839d2b7fad9a18bb3",
+      "source_key": "18ea3212f9c7c2ce",
+      "source_node_id": "o-livro-dos-espiritos:chapter:18ea3212f9c7c2ce",
+      "node_type": "chapter",
+      "segment_order": 145,
+      "display_title": "Da lei do progresso",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 19,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "23cb579b9ce697747236822a",
+      "source_key": "1bd4ba64f1f12e55",
+      "source_node_id": "o-livro-dos-espiritos:chapter:1bd4ba64f1f12e55",
+      "node_type": "chapter",
+      "segment_order": 152,
+      "display_title": "Da lei de igualdade",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 30,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "40c75d9a34cd34a010229db0",
+      "source_key": "a83008c02f744f67",
+      "source_node_id": "o-livro-dos-espiritos:section:a83008c02f744f67",
+      "node_type": "section",
+      "segment_order": 153,
+      "display_title": "Igualdade natural",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 88,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "a769078e8dfe76c417ff30ac",
+      "source_key": "00c1b20f978464cb",
+      "source_node_id": "o-livro-dos-espiritos:chapter:00c1b20f978464cb",
+      "node_type": "chapter",
+      "segment_order": 160,
+      "display_title": "Da lei de liberdade",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 22,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "dd4668ae4e69736954812aeb",
+      "source_key": "4ee9e6e001cb5b58",
+      "source_node_id": "o-livro-dos-espiritos:section:4ee9e6e001cb5b58",
+      "node_type": "section",
+      "segment_order": 163,
+      "display_title": "Liberdade de pensar",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 63,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "e3005337277b129ef1f59aca",
+      "source_key": "dde16443013e2432",
+      "source_node_id": "o-livro-dos-espiritos:chapter:dde16443013e2432",
+      "node_type": "chapter",
+      "segment_order": 169,
+      "display_title": "Da lei de justiça, de amor e de caridade",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 18,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "c9235ca7dec397e12d501623",
+      "source_key": "c3f9ad458cd64b5e",
+      "source_node_id": "o-livro-dos-espiritos:chapter:c3f9ad458cd64b5e",
+      "node_type": "chapter",
+      "segment_order": 174,
+      "display_title": "Da perfeição moral",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 18,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "68d35864698f00302a76550b",
+      "source_key": "2db50fec14e0dbef",
+      "source_node_id": "o-livro-dos-espiritos:division:2db50fec14e0dbef",
+      "node_type": "division",
+      "segment_order": 180,
+      "display_title": "PARTE QUARTA — Das esperanças e consolações",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 4,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "af72f1d6af0f8deb0a13360c",
+      "source_key": "2f2fe37e410cd33f",
+      "source_node_id": "o-livro-dos-espiritos:chapter:2f2fe37e410cd33f",
+      "node_type": "chapter",
+      "segment_order": 181,
+      "display_title": "Das penas e gozos terrestres",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 22,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "451877fb2e9043922a604180",
+      "source_key": "ce54d9f5aa9aaa25",
+      "source_node_id": "o-livro-dos-mediuns:division:ce54d9f5aa9aaa25",
+      "node_type": "division",
+      "segment_order": 3,
+      "display_title": "PRIMEIRA PARTE — Noções preliminares",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 2,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "d4303cfb1227455df49c3636",
+      "source_key": "9306339375b509b7",
+      "source_node_id": "o-livro-dos-mediuns:section:9306339375b509b7",
+      "node_type": "section",
+      "segment_order": 7,
+      "display_title": "De que modo se deve proceder com os materialistas. Materialistas por sistema: materialistas que o são por falta de coisa melhor",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "0ece331adf907f3b0f84a68f",
+      "source_key": "3a65549e9b287e32",
+      "source_node_id": "o-livro-dos-mediuns:section:3a65549e9b287e32",
+      "node_type": "section",
+      "segment_order": 8,
+      "display_title": "Incrédulos por ignorância, por má vontade, por interesse e má-fé, por pusilanimidade, por escrúpulos religiosos, por efeito de decepções",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "461505522a3a1448a4c87e9e",
+      "source_key": "c9afb97065fa64a1",
+      "source_node_id": "o-livro-dos-mediuns:section:c9afb97065fa64a1",
+      "node_type": "section",
+      "segment_order": 9,
+      "display_title": "Três classes de espíritas: espíritas experimentadores, espíritas imperfeitos, espíritas cristãos ou verdadeiros espíritas",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "846388d052d7b5d6c55ef4b0",
+      "source_key": "fdb0718d202ebc71",
+      "source_node_id": "o-livro-dos-mediuns:section:fdb0718d202ebc71",
+      "node_type": "section",
+      "segment_order": 12,
+      "display_title": "Exame dos diferentes modos por que o Espiritismo é encarado",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "ae3f5201e9fa12cf865ec958",
+      "source_key": "f04c9d86ce4efc9a",
+      "source_node_id": "o-livro-dos-mediuns:section:f04c9d86ce4efc9a",
+      "node_type": "section",
+      "segment_order": 13,
+      "display_title": "Sistemas de negação: do charlatanismo, da loucura, da alucinação, do músculo estalante, das causas físicas, do reflexo",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "27e685beed7bd675f1d459b5",
+      "source_key": "ab2d3d4b39cdb13c",
+      "source_node_id": "o-livro-dos-mediuns:section:ab2d3d4b39cdb13c",
+      "node_type": "section",
+      "segment_order": 14,
+      "display_title": "Sistemas de afirmação; sistema da alma coletiva; sistema sonambúlico, pessimista, diabólico ou demoníaco, otimista, unispírita ou monoespírita, multispírita ou polispírita, sistema da alma material",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "e3750489416607a8779a506c",
+      "source_key": "9a46cfdb5ddce442",
+      "source_node_id": "o-livro-dos-mediuns:division:9a46cfdb5ddce442",
+      "node_type": "division",
+      "segment_order": 15,
+      "display_title": "SEGUNDA PARTE — Das manifestações espíritas",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 3,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "2b6a174a8df71951cf035e6a",
+      "source_key": "a3c3bb4bdd602f38",
+      "source_node_id": "o-livro-dos-mediuns:section:a3c3bb4bdd602f38",
+      "node_type": "section",
+      "segment_order": 20,
+      "display_title": "Movimentos e suspensões",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "b2096739e72fed1231059ae5",
+      "source_key": "864e03dff105f595",
+      "source_node_id": "o-livro-dos-mediuns:section:864e03dff105f595",
+      "node_type": "section",
+      "segment_order": 21,
+      "display_title": "Ruídos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "49c1115582d8b34a99cc5d3d",
+      "source_key": "645618687c477f6a",
+      "source_node_id": "o-livro-dos-mediuns:section:645618687c477f6a",
+      "node_type": "section",
+      "segment_order": 24,
+      "display_title": "Ruídos, barulhos e perturbações",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "8874f5003ba4ebadd4f9d7a3",
+      "source_key": "6364e2ff1c5ddc1c",
+      "source_node_id": "o-livro-dos-mediuns:section:6364e2ff1c5ddc1c",
+      "node_type": "section",
+      "segment_order": 25,
+      "display_title": "Arremesso de objetos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "d3ab36bc2b9d5a4d453cdd95",
+      "source_key": "4d1ac87a45e0b5c1",
+      "source_node_id": "o-livro-dos-mediuns:section:4d1ac87a45e0b5c1",
+      "node_type": "section",
+      "segment_order": 26,
+      "display_title": "Fenômeno de transporte",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 3063,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "bcf3d69fc4ba9dcb428de1b8",
+      "source_key": "504d0070c38c112e",
+      "source_node_id": "o-livro-dos-mediuns:section:504d0070c38c112e",
+      "node_type": "section",
+      "segment_order": 29,
+      "display_title": "Noções sobre as aparições",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "eadad9e5982dbd4f6246e0ea",
+      "source_key": "aff87903ba83758a",
+      "source_node_id": "o-livro-dos-mediuns:section:aff87903ba83758a",
+      "node_type": "section",
+      "segment_order": 30,
+      "display_title": "Ensaio teórico sobre as aparições",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 2490,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "cc6899ab5fff646f9f3623ce",
+      "source_key": "fa49c4c636cdf568",
+      "source_node_id": "o-livro-dos-mediuns:section:fa49c4c636cdf568",
+      "node_type": "section",
+      "segment_order": 31,
+      "display_title": "Espíritos glóbulos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "2732ec5f7192bd89044a580e",
+      "source_key": "f102ffa3610f9d37",
+      "source_node_id": "o-livro-dos-mediuns:section:f102ffa3610f9d37",
+      "node_type": "section",
+      "segment_order": 34,
+      "display_title": "Aparições dos Espíritos de pessoas vivas",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "4df248dbf139fc06d98d48d6",
+      "source_key": "b9b60625d7988c8b",
+      "source_node_id": "o-livro-dos-mediuns:section:b9b60625d7988c8b",
+      "node_type": "section",
+      "segment_order": 35,
+      "display_title": "Homens duplos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "50e8805f014876969f36c08d",
+      "source_key": "ac59e94df3a63a77",
+      "source_node_id": "o-livro-dos-mediuns:section:ac59e94df3a63a77",
+      "node_type": "section",
+      "segment_order": 36,
+      "display_title": "Santo Afonso de Liguori e Santo Antônio de Pádua",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "f86f5f660d02e8dcdec363dd",
+      "source_key": "0f617aaa9bf3b2e9",
+      "source_node_id": "o-livro-dos-mediuns:section:0f617aaa9bf3b2e9",
+      "node_type": "section",
+      "segment_order": 37,
+      "display_title": "Vespasiano",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "70a00e8db490f2f33b321522",
+      "source_key": "d7216531d16cb916",
+      "source_node_id": "o-livro-dos-mediuns:section:d7216531d16cb916",
+      "node_type": "section",
+      "segment_order": 38,
+      "display_title": "Transfiguração",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "29dbc2af252b7975bfdfc9d2",
+      "source_key": "731be4f46115e598",
+      "source_node_id": "o-livro-dos-mediuns:section:731be4f46115e598",
+      "node_type": "section",
+      "segment_order": 41,
+      "display_title": "Vestuário dos Espíritos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "ab19b110dd7b59dd2b8a8270",
+      "source_key": "081adc231db72b28",
+      "source_node_id": "o-livro-dos-mediuns:section:081adc231db72b28",
+      "node_type": "section",
+      "segment_order": 42,
+      "display_title": "Formação espontânea de objetos tangíveis",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "5506be25c8edfc428b3445fa",
+      "source_key": "04b8e1ee7b5a4682",
+      "source_node_id": "o-livro-dos-mediuns:section:04b8e1ee7b5a4682",
+      "node_type": "section",
+      "segment_order": 43,
+      "display_title": "Modificação das propriedades da matéria",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "7370c0c547b6e99a9f02cfd9",
+      "source_key": "0e497610f9692a5f",
+      "source_node_id": "o-livro-dos-mediuns:chapter:0e497610f9692a5f",
+      "node_type": "chapter",
+      "segment_order": 46,
+      "display_title": "Da natureza das comunicações",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": 0,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "5b1d851d20f4e2fb0dfea066",
+      "source_key": "d8489685dbf54133",
+      "source_node_id": "o-livro-dos-mediuns:section:d8489685dbf54133",
+      "node_type": "section",
+      "segment_order": 49,
+      "display_title": "Linguagem dos sinais e das pancadas",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "6f6cf98df2f8bf63df4949b2",
+      "source_key": "9765b9de5c87aa94",
+      "source_node_id": "o-livro-dos-mediuns:section:9765b9de5c87aa94",
+      "node_type": "section",
+      "segment_order": 53,
+      "display_title": "Psicografia indireta: cestas e pranchetas",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "83c3ad7dd6608dc01066c5dc",
+      "source_key": "33a173f2998c4501",
+      "source_node_id": "o-livro-dos-mediuns:section:33a173f2998c4501",
+      "node_type": "section",
+      "segment_order": 56,
+      "display_title": "Médiuns de efeitos físicos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1493,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "8ec6b067095e088f7466a476",
+      "source_key": "83e278ff3c2039e3",
+      "source_node_id": "o-livro-dos-mediuns:section:83e278ff3c2039e3",
+      "node_type": "section",
+      "segment_order": 57,
+      "display_title": "Pessoas elétricas",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "96cff0d7dc39aa3dc47a54e4",
+      "source_key": "b360ce5ecff5a57d",
+      "source_node_id": "o-livro-dos-mediuns:section:b360ce5ecff5a57d",
+      "node_type": "section",
+      "segment_order": 58,
+      "display_title": "Médiuns sensitivos ou impressionáveis",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 248,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "c0f3b9746d1c793dae593249",
+      "source_key": "cdcb59d353d57e4d",
+      "source_node_id": "o-livro-dos-mediuns:section:cdcb59d353d57e4d",
+      "node_type": "section",
+      "segment_order": 59,
+      "display_title": "Médiuns audientes",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 152,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "1d427008b83d974f1d928280",
+      "source_key": "55522858a73ac12e",
+      "source_node_id": "o-livro-dos-mediuns:section:55522858a73ac12e",
+      "node_type": "section",
+      "segment_order": 60,
+      "display_title": "Médiuns falantes",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 192,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "36a87049c6bae33e27018814",
+      "source_key": "3ecc100b34861336",
+      "source_node_id": "o-livro-dos-mediuns:section:3ecc100b34861336",
+      "node_type": "section",
+      "segment_order": 61,
+      "display_title": "Médiuns videntes",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1296,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "57326f6ac49fd3318b7439d1",
+      "source_key": "994b29fa8bbc6d4c",
+      "source_node_id": "o-livro-dos-mediuns:section:994b29fa8bbc6d4c",
+      "node_type": "section",
+      "segment_order": 62,
+      "display_title": "Médiuns sonambúlicos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 545,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "3f267937da87df55946a9ec3",
+      "source_key": "12ad5eb93b770e9a",
+      "source_node_id": "o-livro-dos-mediuns:section:12ad5eb93b770e9a",
+      "node_type": "section",
+      "segment_order": 63,
+      "display_title": "Médiuns curadores",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 657,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "08aff1ed7292cbda8723ef60",
+      "source_key": "69229a523a950564",
+      "source_node_id": "o-livro-dos-mediuns:section:69229a523a950564",
+      "node_type": "section",
+      "segment_order": 68,
+      "display_title": "Aptidões especiais dos médiuns",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "3e2862b193da5ea95fc0acee",
+      "source_key": "f931dcb245b67695",
+      "source_node_id": "o-livro-dos-mediuns:chapter:f931dcb245b67695",
+      "node_type": "chapter",
+      "segment_order": 70,
+      "display_title": "Da formação dos médiuns",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 12,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "e86226f44c5fbf2493cd071f",
+      "source_key": "89777b0ea6a53288",
+      "source_node_id": "o-livro-dos-mediuns:section:89777b0ea6a53288",
+      "node_type": "section",
+      "segment_order": 71,
+      "display_title": "Desenvolvimento da mediunidade",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 3862,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "dba23a05a9aee9123deaae3c",
+      "source_key": "47e8dc19213612d0",
+      "source_node_id": "o-livro-dos-mediuns:section:47e8dc19213612d0",
+      "node_type": "section",
+      "segment_order": 72,
+      "display_title": "Mudança de caligrafia",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 182,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "ab77c3f8a7c7a5a6f7dc2526",
+      "source_key": "8b15fc6b92237b7e",
+      "source_node_id": "o-livro-dos-mediuns:section:8b15fc6b92237b7e",
+      "node_type": "section",
+      "segment_order": 75,
+      "display_title": "Influência do exercício da mediunidade sobre a saúde",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "5e4832754f32baf1e8daa666",
+      "source_key": "f93fb7dbfc03afa8",
+      "source_node_id": "o-livro-dos-mediuns:section:f93fb7dbfc03afa8",
+      "node_type": "section",
+      "segment_order": 76,
+      "display_title": "Idem sobre o cérebro",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "d453a364c1a20d0b21c85c6a",
+      "source_key": "ae7ffb30e717125f",
+      "source_node_id": "o-livro-dos-mediuns:section:ae7ffb30e717125f",
+      "node_type": "section",
+      "segment_order": 79,
+      "display_title": "Influência do Espírito pessoal do médium",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "c172855c2ef75f24e632a536",
+      "source_key": "e0ddf971b1a75a50",
+      "source_node_id": "o-livro-dos-mediuns:section:e0ddf971b1a75a50",
+      "node_type": "section",
+      "segment_order": 80,
+      "display_title": "Sistema dos médiuns inertes",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "e473f826634eaf9b1d4499f4",
+      "source_key": "e6af4a96a98dd86d",
+      "source_node_id": "o-livro-dos-mediuns:section:e6af4a96a98dd86d",
+      "node_type": "section",
+      "segment_order": 81,
+      "display_title": "Aptidão de certos médiuns para coisas de que nada conhecem: línguas, música, desenho etc",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "a4750ce1343cec2fc2e3fa69",
+      "source_key": "d005f7e3dcda7939",
+      "source_node_id": "o-livro-dos-mediuns:section:d005f7e3dcda7939",
+      "node_type": "section",
+      "segment_order": 84,
+      "display_title": "Questões diversas",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "918e63ca4702c1297043b7be",
+      "source_key": "5f10718bbac28805",
+      "source_node_id": "o-livro-dos-mediuns:section:5f10718bbac28805",
+      "node_type": "section",
+      "segment_order": 89,
+      "display_title": "Obsessão simples",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "d14186ad26de6fedc981a33e",
+      "source_key": "4f15b08f939f2c78",
+      "source_node_id": "o-livro-dos-mediuns:section:4f15b08f939f2c78",
+      "node_type": "section",
+      "segment_order": 90,
+      "display_title": "Fascinação",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "a1c1f52d63a279303f045a01",
+      "source_key": "710ff363b62f5309",
+      "source_node_id": "o-livro-dos-mediuns:section:710ff363b62f5309",
+      "node_type": "section",
+      "segment_order": 91,
+      "display_title": "Subjugação",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "d5f756c19934aa57901c3a54",
+      "source_key": "6818e3debc95063d",
+      "source_node_id": "o-livro-dos-mediuns:section:6818e3debc95063d",
+      "node_type": "section",
+      "segment_order": 92,
+      "display_title": "Causas da obsessão",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "45cf2cc25a379e6c068dbcc7",
+      "source_key": "83f3600ecf97ed90",
+      "source_node_id": "o-livro-dos-mediuns:chapter:83f3600ecf97ed90",
+      "node_type": "chapter",
+      "segment_order": 94,
+      "display_title": "Da identidade dos Espíritos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 22,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "2b22588e2aa43ba3f5ad9a51",
+      "source_key": "7cf24fd67444aae7",
+      "source_node_id": "o-livro-dos-mediuns:section:7cf24fd67444aae7",
+      "node_type": "section",
+      "segment_order": 95,
+      "display_title": "Provas possíveis de identidade",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1836,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "069c36d7dd83c0277d11ba8e",
+      "source_key": "3e31b6d762fd8aa9",
+      "source_node_id": "o-livro-dos-mediuns:section:3e31b6d762fd8aa9",
+      "node_type": "section",
+      "segment_order": 96,
+      "display_title": "Modo de se distinguirem os bons dos maus Espíritos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 4788,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "0df37af09ff41ce78a93fca0",
+      "source_key": "573ec2b2b3eaa683",
+      "source_node_id": "o-livro-dos-mediuns:chapter:573ec2b2b3eaa683",
+      "node_type": "chapter",
+      "segment_order": 98,
+      "display_title": "Das evocações",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 34,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "08d7913f6af64eb513865b6a",
+      "source_key": "9f6a3eae58b1acb9",
+      "source_node_id": "o-livro-dos-mediuns:section:9f6a3eae58b1acb9",
+      "node_type": "section",
+      "segment_order": 99,
+      "display_title": "Considerações gerais",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 1185,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "100e7a6c78c5d22eb91c82a9",
+      "source_key": "845ad9f9d4d51587",
+      "source_node_id": "o-livro-dos-mediuns:section:845ad9f9d4d51587",
+      "node_type": "section",
+      "segment_order": 100,
+      "display_title": "Espíritos que se podem evocar",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 1039,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "1636f3697c5b061474bea0ff",
+      "source_key": "492a6180c6ba6fe2",
+      "source_node_id": "o-livro-dos-mediuns:section:492a6180c6ba6fe2",
+      "node_type": "section",
+      "segment_order": 101,
+      "display_title": "Linguagem de que se deve usar com os Espíritos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 599,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "12dbd6a011eca30eeb9c6822",
+      "source_key": "2acab01b60b0ea7e",
+      "source_node_id": "o-livro-dos-mediuns:section:2acab01b60b0ea7e",
+      "node_type": "section",
+      "segment_order": 102,
+      "display_title": "Utilidade das evocações particulares",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 6123,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "a7e6f2445c2d4384b6cd3166",
+      "source_key": "329a7200d16caaad",
+      "source_node_id": "o-livro-dos-mediuns:section:329a7200d16caaad",
+      "node_type": "section",
+      "segment_order": 103,
+      "display_title": "Questões sobre as evocações",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "040ef1695077f62862ff2a01",
+      "source_key": "d7bb0f81e2ef61da",
+      "source_node_id": "o-livro-dos-mediuns:section:d7bb0f81e2ef61da",
+      "node_type": "section",
+      "segment_order": 104,
+      "display_title": "Evocações dos animais",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "d74f3076519ddd4e07ececb0",
+      "source_key": "a4cc86b2c9901349",
+      "source_node_id": "o-livro-dos-mediuns:section:a4cc86b2c9901349",
+      "node_type": "section",
+      "segment_order": 105,
+      "display_title": "Evocações das pessoas vivas",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "d25afe84b978d277e4502e1c",
+      "source_key": "b35891906a8c3b1c",
+      "source_node_id": "o-livro-dos-mediuns:chapter:b35891906a8c3b1c",
+      "node_type": "chapter",
+      "segment_order": 107,
+      "display_title": "Das perguntas que se podem fazer aos Espíritos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 44,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "82bd31a7e9033b97c87a48f9",
+      "source_key": "5ba3129a10c07ce9",
+      "source_node_id": "o-livro-dos-mediuns:section:5ba3129a10c07ce9",
+      "node_type": "section",
+      "segment_order": 108,
+      "display_title": "Observações preliminares",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 5621,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "1456e2b3294d301a78e5cf72",
+      "source_key": "b96d2261558f3a12",
+      "source_node_id": "o-livro-dos-mediuns:section:b96d2261558f3a12",
+      "node_type": "section",
+      "segment_order": 109,
+      "display_title": "Perguntas simpáticas ou antipáticas aos Espíritos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "1ea97f6309ed08451096e49b",
+      "source_key": "389fe21542a10910",
+      "source_node_id": "o-livro-dos-mediuns:section:389fe21542a10910",
+      "node_type": "section",
+      "segment_order": 110,
+      "display_title": "Perguntas sobre o futuro",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "b1b5a3ae962f8e7924e2020c",
+      "source_key": "1060c077c5cff3d7",
+      "source_node_id": "o-livro-dos-mediuns:section:1060c077c5cff3d7",
+      "node_type": "section",
+      "segment_order": 111,
+      "display_title": "Sobre as existências passadas e vindouras",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "c7c12401bf19ceaa875ec409",
+      "source_key": "025ab82800fa1d39",
+      "source_node_id": "o-livro-dos-mediuns:section:025ab82800fa1d39",
+      "node_type": "section",
+      "segment_order": 112,
+      "display_title": "Sobre interesses morais e materiais",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "4759b2252cea02241a67d388",
+      "source_key": "a1c5c326f44bd43b",
+      "source_node_id": "o-livro-dos-mediuns:section:a1c5c326f44bd43b",
+      "node_type": "section",
+      "segment_order": 113,
+      "display_title": "Sobre a sorte dos Espíritos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "4bb021e741e7beb59b7a95d1",
+      "source_key": "e6d3b855750d59f1",
+      "source_node_id": "o-livro-dos-mediuns:section:e6d3b855750d59f1",
+      "node_type": "section",
+      "segment_order": 114,
+      "display_title": "Sobre a saúde",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "d5f63a018ee98a856bb121fa",
+      "source_key": "e3b5d8ef2abf70dd",
+      "source_node_id": "o-livro-dos-mediuns:section:e3b5d8ef2abf70dd",
+      "node_type": "section",
+      "segment_order": 115,
+      "display_title": "Sobre as invenções e descobertas",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "cfa234d24f2f65c708a90a72",
+      "source_key": "d488139858eaed13",
+      "source_node_id": "o-livro-dos-mediuns:section:d488139858eaed13",
+      "node_type": "section",
+      "segment_order": 116,
+      "display_title": "Sobre os tesouros ocultos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "1cade84bc2a1f17af5796ef8",
+      "source_key": "4e904250e991756e",
+      "source_node_id": "o-livro-dos-mediuns:chapter:4e904250e991756e",
+      "node_type": "chapter",
+      "segment_order": 119,
+      "display_title": "Do charlatanismo e do embuste",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 5,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "b3eefd00bc66e06f8073b95f",
+      "source_key": "b94ab3e3419f09c1",
+      "source_node_id": "o-livro-dos-mediuns:section:b94ab3e3419f09c1",
+      "node_type": "section",
+      "segment_order": 120,
+      "display_title": "Médiuns interesseiros",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1803,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "dde19d4ee577c5c0c4d51a50",
+      "source_key": "2f0342bc10e59b7f",
+      "source_node_id": "o-livro-dos-mediuns:chapter:2f0342bc10e59b7f",
+      "node_type": "chapter",
+      "segment_order": 122,
+      "display_title": "Das reuniões e das Sociedades Espíritas",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 16,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "574707d5f0923fa7947f068d",
+      "source_key": "af9f20c96c2ac242",
+      "source_node_id": "o-livro-dos-mediuns:section:af9f20c96c2ac242",
+      "node_type": "section",
+      "segment_order": 123,
+      "display_title": "Das reuniões em geral",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2525,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "048dae1652ad0db1740ac444",
+      "source_key": "8b21899a6a96df5a",
+      "source_node_id": "o-livro-dos-mediuns:section:8b21899a6a96df5a",
+      "node_type": "section",
+      "segment_order": 124,
+      "display_title": "Das Sociedades propriamente ditas",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 2469,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "1a787ffe502af23b14cb48e0",
+      "source_key": "ea7f85d849f687bf",
+      "source_node_id": "o-livro-dos-mediuns:section:ea7f85d849f687bf",
+      "node_type": "section",
+      "segment_order": 125,
+      "display_title": "Assuntos de estudo",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 918,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "6f60a11cdd8a3de795869a2b",
+      "source_key": "7ddff543f7338deb",
+      "source_node_id": "o-livro-dos-mediuns:section:7ddff543f7338deb",
+      "node_type": "section",
+      "segment_order": 129,
+      "display_title": "Acerca do Espiritismo",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "98ab3cc0a147b2c09e1f4ba7",
+      "source_key": "7649e1be5e3c71c6",
+      "source_node_id": "o-livro-dos-mediuns:section:7649e1be5e3c71c6",
+      "node_type": "section",
+      "segment_order": 130,
+      "display_title": "Sobre os médiuns",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "78292d40f0ef490a23250c30",
+      "source_key": "8667d0a9356064c3",
+      "source_node_id": "o-livro-dos-mediuns:section:8667d0a9356064c3",
+      "node_type": "section",
+      "segment_order": 131,
+      "display_title": "Sobre as Sociedades Espíritas",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 41,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "9d8aad897894831700cfd109",
+      "source_key": "4fb8e5bb0bf7cb97",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:section:4fb8e5bb0bf7cb97",
+      "node_type": "section",
+      "segment_order": 100,
+      "display_title": "A beneficência",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2736,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=11 a 16"
+        ],
+        "signature": "d5e5f5663b510ed8434c1183"
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=18"
+        ],
+        "signature": "ecf4f1003e9c431b3a30789a"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "f026ae4f95969ab96c88c2ac",
+      "source_key": "be3c752810fae1d3",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:be3c752810fae1d3",
+      "node_type": "chapter",
+      "segment_order": 163,
+      "display_title": "Não separeis o que Deus juntou",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 6,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 4"
+        ],
+        "signature": "5fa74e3d15d788b7d563a533"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "67f61955dad711b936e5f59e",
+      "source_key": "7ee8e14cf2b3dfbd",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:7ee8e14cf2b3dfbd",
+      "node_type": "chapter",
+      "segment_order": 177,
+      "display_title": "Buscai e achareis",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 22,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 5"
+        ],
+        "signature": "f0926abfe145e56b6a692dfd"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "8f9201f1456b853f349fcb41",
+      "source_key": "069a82afbb9131f1",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:069a82afbb9131f1",
+      "node_type": "chapter",
+      "segment_order": 181,
+      "display_title": "Dai gratuitamente o que gratuitamente recebestes",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 12,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 e 2"
+        ],
+        "signature": "8823f9119731b88744cb0378"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "ef828749e83d6cc8558e5737",
+      "source_key": "36046d5a4a823882",
+      "source_node_id": "o-ceu-e-o-inferno:division:36046d5a4a823882",
+      "node_type": "division",
+      "segment_order": 1,
+      "display_title": "PRIMEIRA PARTE — Doutrina",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 1,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "8e9626db621b38dd240f023d",
+      "source_key": "e8bca143f7c10c6c",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:e8bca143f7c10c6c",
+      "node_type": "chapter",
+      "segment_order": 3,
+      "display_title": "Temor da morte",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 14,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "c4aa4ec13bb0a5eddb05893a",
+      "source_key": "9b25848479a1d4fc",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:9b25848479a1d4fc",
+      "node_type": "chapter",
+      "segment_order": 7,
+      "display_title": "O inferno",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 22,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "9679a904e31daae1e3e56906",
+      "source_key": "be4ec434510b11da",
+      "source_node_id": "o-ceu-e-o-inferno:section:be4ec434510b11da",
+      "node_type": "section",
+      "segment_order": 22,
+      "display_title": "Princípios da Doutrina Espírita sobre as penas futuras",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "unknown",
+      "legacy_word_count_estimate": null,
+      "review_reasons": [
+        "no-legacy-word-count-estimate",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "9acd30a0517e99c916370355",
+      "source_key": "c86d7b2504dd6790",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:c86d7b2504dd6790",
+      "node_type": "chapter",
+      "segment_order": 24,
+      "display_title": "Os anjos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 12,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "544eb4008b02ec5d4f1b0c0a",
+      "source_key": "1dc493030bb5faf0",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:1dc493030bb5faf0",
+      "node_type": "chapter",
+      "segment_order": 28,
+      "display_title": "Os demônios",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 16,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "5382690e2426da4ee3978f67",
+      "source_key": "7183e549b85b7e66",
+      "source_node_id": "o-ceu-e-o-inferno:division:7183e549b85b7e66",
+      "node_type": "division",
+      "segment_order": 34,
+      "display_title": "SEGUNDA PARTE — Exemplos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 1,
+      "review_reasons": [
+        "container-intro-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "16fbb4387179c1ab2df992e7",
+      "source_key": "ccc06fbf8b40acde",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:ccc06fbf8b40acde",
+      "node_type": "chapter",
+      "segment_order": 54,
+      "display_title": "Espíritos em condições medianas",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 17,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "23007dc1fc187a6815c513fe",
+      "source_key": "7a69729d545d44ec",
+      "source_node_id": "a-genese:chapter:7a69729d545d44ec",
+      "node_type": "chapter",
+      "segment_order": 4,
+      "display_title": "Deus",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 13,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "7adc963866a7a8f0e4032223",
+      "source_key": "ba73a1edf9cf0984",
+      "source_node_id": "a-genese:chapter:ba73a1edf9cf0984",
+      "node_type": "chapter",
+      "segment_order": 9,
+      "display_title": "O bem e o mal",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 19,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "f754887de0b4ba992aa5b65d",
+      "source_key": "13b8701c61562c39",
+      "source_node_id": "a-genese:chapter:13b8701c61562c39",
+      "node_type": "chapter",
+      "segment_order": 15,
+      "display_title": "Uranografia geral",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 48,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "6d5e399b0300c55668d17cd6",
+      "source_key": "b74a85ea0b19410e",
+      "source_node_id": "a-genese:chapter:b74a85ea0b19410e",
+      "node_type": "chapter",
+      "segment_order": 39,
+      "display_title": "Teorias sobre a formação da Terra",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 13,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "de257ebe96af3ffbdc12ce4f",
+      "source_key": "dd4aa94eb885fdb2",
+      "source_node_id": "a-genese:section:dd4aa94eb885fdb2",
+      "node_type": "section",
+      "segment_order": 41,
+      "display_title": "Teoria da condensação",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 166,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "9178279f438d3b63471c0b0b",
+      "source_key": "c0c676f816849837",
+      "source_node_id": "a-genese:chapter:c0c676f816849837",
+      "node_type": "chapter",
+      "segment_order": 44,
+      "display_title": "Revoluções do globo",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 21,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "b0f495272843306f365ee87b",
+      "source_key": "77b5b1d9c9b1a5ce",
+      "source_node_id": "a-genese:chapter:77b5b1d9c9b1a5ce",
+      "node_type": "chapter",
+      "segment_order": 51,
+      "display_title": "Gênese orgânica",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 17,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "b427f6b67bcd303e7f143fad",
+      "source_key": "d25535e0493af0fa",
+      "source_node_id": "a-genese:chapter:d25535e0493af0fa",
+      "node_type": "chapter",
+      "segment_order": 66,
+      "display_title": "Gênese moisaica",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 7,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "801091337487ce45678a0c70",
+      "source_key": "4685321434f67c73",
+      "source_node_id": "a-genese:chapter:4685321434f67c73",
+      "node_type": "chapter",
+      "segment_order": 69,
+      "display_title": "Caracteres dos milagres",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 19,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "8243eec0bd1e08154b4113c5",
+      "source_key": "b40691f78ebdfee6",
+      "source_node_id": "a-genese:chapter:b40691f78ebdfee6",
+      "node_type": "chapter",
+      "segment_order": 85,
+      "display_title": "Os milagres do Evangelho",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 50,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "41256a94961280b0ec185b2a",
+      "source_key": "32b327202c62a090",
+      "source_node_id": "a-genese:section:32b327202c62a090",
+      "node_type": "section",
+      "segment_order": 87,
+      "display_title": "Sonhos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 177,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "143693537c3cf3b5ea10a44d",
+      "source_key": "c7cf5ffb3cb3188b",
+      "source_node_id": "a-genese:section:c7cf5ffb3cb3188b",
+      "node_type": "section",
+      "segment_order": 89,
+      "display_title": "Entrada de Jesus em Jerusalém",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 151,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "a1927465f07f14bb9497ab9b",
+      "source_key": "a85c0816e8f68a12",
+      "source_node_id": "a-genese:section:a85c0816e8f68a12",
+      "node_type": "section",
+      "segment_order": 91,
+      "display_title": "Pesca milagrosa",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 158,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "967bb923009521831a90dedd",
+      "source_key": "3cd1246688c9ba8c",
+      "source_node_id": "a-genese:section:3cd1246688c9ba8c",
+      "node_type": "section",
+      "segment_order": 94,
+      "display_title": "Cego de Betsaida",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 171,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "5614b07b464989d7e8bc9a4b",
+      "source_key": "d2d73f978eec0bfc",
+      "source_node_id": "a-genese:section:d2d73f978eec0bfc",
+      "node_type": "section",
+      "segment_order": 98,
+      "display_title": "A mulher curvada",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 230,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "88dddcb471bd451858bc4dc2",
+      "source_key": "358638f98cef5859",
+      "source_node_id": "a-genese:section:358638f98cef5859",
+      "node_type": "section",
+      "segment_order": 107,
+      "display_title": "Tempestade aplacada",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 213,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "45946bdf3fa0a1488036ed42",
+      "source_key": "1e0437074e7bfda7",
+      "source_node_id": "a-genese:chapter:1e0437074e7bfda7",
+      "node_type": "chapter",
+      "segment_order": 116,
+      "display_title": "Predições do Evangelho",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 65,
+      "review_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "container-intro-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "explicit-source-evidence-required",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "51343da79da82b5b257c9e2b",
+      "source_key": "8548ec2cd72724af",
+      "source_node_id": "a-genese:section:8548ec2cd72724af",
+      "node_type": "section",
+      "segment_order": 119,
+      "display_title": "Perseguição aos apóstolos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 232,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "113f7ff843bb375048d0a053",
+      "source_key": "cef857c6b86fb169",
+      "source_node_id": "a-genese:section:cef857c6b86fb169",
+      "node_type": "section",
+      "segment_order": 124,
+      "display_title": "A pedra angular",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 175,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "cc17fbf1ec2b82c33161adc6",
+      "source_key": "eaf010e15ee2cfe1",
+      "source_node_id": "a-genese:section:eaf010e15ee2cfe1",
+      "node_type": "section",
+      "segment_order": 127,
+      "display_title": "Advento de Elias",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 126,
+      "review_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "primary_reason": "same-page-successor-boundary",
+      "priority": "P2",
+      "disposition": "manual-boundary-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "source-inspection-required",
+      "resolution_rationale": "same-page-boundary-without-distinct-anchor-evidence",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    }
+  ],
+  "application_boundary": {
+    "boundary_approved": false,
+    "content_approved": false,
+    "database_change_applied": false,
+    "production_modified": false,
+    "cutover_enabled": false
+  }
+}

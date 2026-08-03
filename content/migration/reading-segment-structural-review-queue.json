@@ -1,0 +1,3530 @@
+{
+  "schema_version": 1,
+  "status": "structural-review-required",
+  "policy_version": "2026-08-03-reading-segment-resolution-analysis-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "item_count": 85,
+  "items": [
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "8737d37871d10b499791a4e3",
+      "source_key": "0e6da772f1cebf11",
+      "source_node_id": "o-livro-dos-espiritos:front_matter:0e6da772f1cebf11",
+      "node_type": "front_matter",
+      "segment_order": 3,
+      "display_title": "Prolegômenos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 903,
+      "review_reasons": [
+        "manual-reconstruction-review"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "120a406cddf86f4a21c58702",
+      "source_key": "e2cb7feb2d244637",
+      "source_node_id": "o-livro-dos-espiritos:chapter:e2cb7feb2d244637",
+      "node_type": "chapter",
+      "segment_order": 15,
+      "display_title": "Da criação",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1256,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "722342ce50463428c5bddc80",
+      "source_key": "107a6b5c0c461c16",
+      "source_node_id": "o-livro-dos-espiritos:chapter:107a6b5c0c461c16",
+      "node_type": "chapter",
+      "segment_order": 57,
+      "display_title": "Considerações sobre a pluralidade das existências",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 3469,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "4b03a12f76e41b41a7ef9611",
+      "source_key": "d30952b47f4ea17f",
+      "source_node_id": "o-livro-dos-espiritos:chapter:d30952b47f4ea17f",
+      "node_type": "chapter",
+      "segment_order": 58,
+      "display_title": "Da vida espírita",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 849,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "1197149090aca93593956ff5",
+      "source_key": "5d6fba1a034ccb46",
+      "source_node_id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "node_type": "chapter",
+      "segment_order": 86,
+      "display_title": "Da intervenção dos Espíritos no mundo corporal",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 3423,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "388f82072a3e798e385fa8d7",
+      "source_key": "e389ef21b03022c2",
+      "source_node_id": "o-livro-dos-espiritos:chapter:e389ef21b03022c2",
+      "node_type": "chapter",
+      "segment_order": 100,
+      "display_title": "Das ocupações e missões dos Espíritos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 2446,
+      "review_reasons": [
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "ebe752d4a89b1be8ab5e3f43",
+      "source_key": "69361133c38be55e",
+      "source_node_id": "o-livro-dos-espiritos:chapter:69361133c38be55e",
+      "node_type": "chapter",
+      "segment_order": 188,
+      "display_title": "Das penas e gozos futuros",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 7428,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "8c59edfd5ac62d188d9cc701",
+      "source_key": "653172c9ddc23db3",
+      "source_node_id": "o-livro-dos-mediuns:chapter:653172c9ddc23db3",
+      "node_type": "chapter",
+      "segment_order": 4,
+      "display_title": "Há Espíritos?",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 2125,
+      "review_reasons": [
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "dc997857a0c4717fe340e32c",
+      "source_key": "289eb11f923408ba",
+      "source_node_id": "o-livro-dos-mediuns:chapter:289eb11f923408ba",
+      "node_type": "chapter",
+      "segment_order": 5,
+      "display_title": "Do maravilhoso e do sobrenatural",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 3331,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "83be27fa15b7d4a34fe94c1d",
+      "source_key": "4b9264287d47031b",
+      "source_node_id": "o-livro-dos-mediuns:chapter:4b9264287d47031b",
+      "node_type": "chapter",
+      "segment_order": 6,
+      "display_title": "Do método",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 4176,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "9172f1cca9fefb813f2ede61",
+      "source_key": "c0a949c06c345717",
+      "source_node_id": "o-livro-dos-mediuns:chapter:c0a949c06c345717",
+      "node_type": "chapter",
+      "segment_order": 11,
+      "display_title": "Dos sistemas",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 6307,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "258e76b4a4ea8051f51b2ecb",
+      "source_key": "2b8022a478590fa5",
+      "source_node_id": "o-livro-dos-mediuns:chapter:2b8022a478590fa5",
+      "node_type": "chapter",
+      "segment_order": 16,
+      "display_title": "Da ação dos Espíritos sobre a matéria",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 2052,
+      "review_reasons": [
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "94e871909c3ce3370583eafc",
+      "source_key": "d850638572f86339",
+      "source_node_id": "o-livro-dos-mediuns:chapter:d850638572f86339",
+      "node_type": "chapter",
+      "segment_order": 17,
+      "display_title": "Das manifestações físicas Das mesas girantes",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 1035,
+      "review_reasons": [
+        "manual-reconstruction-review"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "75e8281149ec628dd62bc53a",
+      "source_key": "4ecf3808bb4c77c3",
+      "source_node_id": "o-livro-dos-mediuns:chapter:4ecf3808bb4c77c3",
+      "node_type": "chapter",
+      "segment_order": 18,
+      "display_title": "Das manifestações inteligentes",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 1079,
+      "review_reasons": [
+        "manual-reconstruction-review"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "18932fd369407c1dae8852b4",
+      "source_key": "acf42d7c091810f0",
+      "source_node_id": "o-livro-dos-mediuns:chapter:acf42d7c091810f0",
+      "node_type": "chapter",
+      "segment_order": 19,
+      "display_title": "Da teoria das manifestações físicas",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 4242,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "fc66fa9ba5e8ff0fddcd49c4",
+      "source_key": "5f48dcea2c262c15",
+      "source_node_id": "o-livro-dos-mediuns:chapter:5f48dcea2c262c15",
+      "node_type": "chapter",
+      "segment_order": 23,
+      "display_title": "Das manifestações físicas espontâneas",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 4121,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "2aac5dd3def05588db9283f5",
+      "source_key": "5ea189b44d549473",
+      "source_node_id": "o-livro-dos-mediuns:chapter:5ea189b44d549473",
+      "node_type": "chapter",
+      "segment_order": 28,
+      "display_title": "Das manifestações visuais",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2699,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "a1810616c05cbc354095e0bc",
+      "source_key": "ae5e12179576b97f",
+      "source_node_id": "o-livro-dos-mediuns:chapter:ae5e12179576b97f",
+      "node_type": "chapter",
+      "segment_order": 33,
+      "display_title": "Da bicorporeidade e da transfiguração",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 3344,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "28a6514212e0b88d4807d0a8",
+      "source_key": "80d8b11a5624d43d",
+      "source_node_id": "o-livro-dos-mediuns:chapter:80d8b11a5624d43d",
+      "node_type": "chapter",
+      "segment_order": 40,
+      "display_title": "Do laboratório do Mundo Invisível",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2578,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "f743efa6e789c31726df8b36",
+      "source_key": "4728f2d16389a2fd",
+      "source_node_id": "o-livro-dos-mediuns:chapter:4728f2d16389a2fd",
+      "node_type": "chapter",
+      "segment_order": 45,
+      "display_title": "Dos lugares assombrados",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1567,
+      "review_reasons": [
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "dc5f7b3e7fb7b22950ed985e",
+      "source_key": "17da9e59a0380c05",
+      "source_node_id": "o-livro-dos-mediuns:chapter:17da9e59a0380c05",
+      "node_type": "chapter",
+      "segment_order": 48,
+      "display_title": "Da sematologia e da tiptologia",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1869,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "6fbc50ed110724b6be0dfcde",
+      "source_key": "13154add20cd2e31",
+      "source_node_id": "o-livro-dos-mediuns:chapter:13154add20cd2e31",
+      "node_type": "chapter",
+      "segment_order": 51,
+      "display_title": "Da pneumatografia ou escrita direta Da pneumatofonia",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1659,
+      "review_reasons": [
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "57ecef1e05c7ad2692d7f6e2",
+      "source_key": "b0fc1a2efa66b5a2",
+      "source_node_id": "o-livro-dos-mediuns:chapter:b0fc1a2efa66b5a2",
+      "node_type": "chapter",
+      "segment_order": 52,
+      "display_title": "Da psicografia",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1357,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "c844ed7562b488ebc51dc151",
+      "source_key": "68cf49fbe3c4db92",
+      "source_node_id": "o-livro-dos-mediuns:chapter:68cf49fbe3c4db92",
+      "node_type": "chapter",
+      "segment_order": 55,
+      "display_title": "Dos médiuns",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 188,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "4955b87c04a0633c118eed7b",
+      "source_key": "6615a1e9e3ee3507",
+      "source_node_id": "o-livro-dos-mediuns:chapter:6615a1e9e3ee3507",
+      "node_type": "chapter",
+      "segment_order": 65,
+      "display_title": "Dos médiuns escreventes ou psicógrafos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1515,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "98a6cff000306a910a7f32f0",
+      "source_key": "df364177219af5cd",
+      "source_node_id": "o-livro-dos-mediuns:chapter:df364177219af5cd",
+      "node_type": "chapter",
+      "segment_order": 67,
+      "display_title": "Dos médiuns especiais",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 5035,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "e56a6d8ced4a1bc662b580fa",
+      "source_key": "deb8e99e0473f4ff",
+      "source_node_id": "o-livro-dos-mediuns:chapter:deb8e99e0473f4ff",
+      "node_type": "chapter",
+      "segment_order": 74,
+      "display_title": "Dos inconvenientes e perigos da mediunidade",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 881,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "775d558818255cde73f48668",
+      "source_key": "79567ea3539ea567",
+      "source_node_id": "o-livro-dos-mediuns:chapter:79567ea3539ea567",
+      "node_type": "chapter",
+      "segment_order": 78,
+      "display_title": "Do papel dos médiuns nas comunicações espíritas",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 4259,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "c309a02eb87221716c1d1879",
+      "source_key": "7e7707b357633fe7",
+      "source_node_id": "o-livro-dos-mediuns:chapter:7e7707b357633fe7",
+      "node_type": "chapter",
+      "segment_order": 83,
+      "display_title": "Da influência moral do médium",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2982,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "45e5182d4f2359927688b465",
+      "source_key": "58089c6f104dbeaf",
+      "source_node_id": "o-livro-dos-mediuns:chapter:58089c6f104dbeaf",
+      "node_type": "chapter",
+      "segment_order": 86,
+      "display_title": "Da influência do meio",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 819,
+      "review_reasons": [
+        "manual-reconstruction-review"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "68f23d62d3ca1c9e1c6ec299",
+      "source_key": "4a634808acd15f35",
+      "source_node_id": "o-livro-dos-mediuns:chapter:4a634808acd15f35",
+      "node_type": "chapter",
+      "segment_order": 87,
+      "display_title": "Da mediunidade nos animais",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 2245,
+      "review_reasons": [
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "e706a17e78777b952b6cabf4",
+      "source_key": "09cd84160cb379a3",
+      "source_node_id": "o-livro-dos-mediuns:chapter:09cd84160cb379a3",
+      "node_type": "chapter",
+      "segment_order": 88,
+      "display_title": "Da obsessão",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 5507,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "a69a3275803cbf9420396cc6",
+      "source_key": "c770c7120076c1e5",
+      "source_node_id": "o-livro-dos-mediuns:chapter:c770c7120076c1e5",
+      "node_type": "chapter",
+      "segment_order": 118,
+      "display_title": "Das contradições e das mistificações",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 3533,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "ff26ea242dd9e3b60d878c2b",
+      "source_key": "b01470c0d02fef18",
+      "source_node_id": "o-livro-dos-mediuns:chapter:b01470c0d02fef18",
+      "node_type": "chapter",
+      "segment_order": 127,
+      "display_title": "Regulamento da Sociedade Parisiense de Estudos Espíritas",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2758,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "f3b65e9c02fb975ff419bc38",
+      "source_key": "9e2d3cf0d9c500c2",
+      "source_node_id": "o-livro-dos-mediuns:chapter:9e2d3cf0d9c500c2",
+      "node_type": "chapter",
+      "segment_order": 128,
+      "display_title": "Dissertações espíritas",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 9187,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "fd2bec7eb039e9d5528553ad",
+      "source_key": "ff2d79a135314b4a",
+      "source_node_id": "o-livro-dos-mediuns:chapter:ff2d79a135314b4a",
+      "node_type": "chapter",
+      "segment_order": 133,
+      "display_title": "Vocabulário espírita",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 2415,
+      "review_reasons": [
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "d7bcd020f8746fc80321b2e7",
+      "source_key": "934c5644bdd4752e",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:front_matter:934c5644bdd4752e",
+      "node_type": "front_matter",
+      "segment_order": 2,
+      "display_title": "Explicação",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 142,
+      "review_reasons": [
+        "manual-reconstruction-review"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "09a7298911c6b288f5d1787f",
+      "source_key": "bf747732e4175546",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:front_matter:bf747732e4175546",
+      "node_type": "front_matter",
+      "segment_order": 3,
+      "display_title": "Prefácio",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 199,
+      "review_reasons": [
+        "manual-reconstruction-review"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "7391acaab0f826893a1d1432",
+      "source_key": "8a2818f098324598",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:8a2818f098324598",
+      "node_type": "chapter",
+      "segment_order": 5,
+      "display_title": "Não vim destruir a lei",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2696,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 7"
+        ],
+        "signature": "715a6d2f5067aa5452d80dc1"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "c1397410781b8f24cbf98855",
+      "source_key": "feed99e9906b4d14",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:feed99e9906b4d14",
+      "node_type": "chapter",
+      "segment_order": 9,
+      "display_title": "Meu Reino não é deste mundo",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 451,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 3"
+        ],
+        "signature": "ac04f1efc459bd40fdf37e5d"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "cc01c716b71f6152e404ff46",
+      "source_key": "cb8bbbf90c300761",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:cb8bbbf90c300761",
+      "node_type": "chapter",
+      "segment_order": 14,
+      "display_title": "Há muitas moradas na casa de meu Pai",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 1118,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 e 2"
+        ],
+        "signature": "8823f9119731b88744cb0378"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "d629abdafd1628ce76a238dc",
+      "source_key": "20b609be29c3e1e6",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:20b609be29c3e1e6",
+      "node_type": "chapter",
+      "segment_order": 22,
+      "display_title": "Ninguém poderá ver o Reino de Deus se não nascer de novo",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1624,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 17"
+        ],
+        "signature": "7a89eea1ae198171c89dfc55"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "4e6e28347d1825bef491051d",
+      "source_key": "abd764d47a7f62c4",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "node_type": "chapter",
+      "segment_order": 27,
+      "display_title": "Bem-aventurados os aflitos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 843,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 3"
+        ],
+        "signature": "ac04f1efc459bd40fdf37e5d"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "4a5d9319d7a2000881c43512",
+      "source_key": "b2f320bb88040a71",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:b2f320bb88040a71",
+      "node_type": "chapter",
+      "segment_order": 47,
+      "display_title": "O Cristo Consolador",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 977,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 e 2"
+        ],
+        "signature": "8823f9119731b88744cb0378"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "bb48f2b496caa94912613521",
+      "source_key": "8be239c4c28806e1",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:8be239c4c28806e1",
+      "node_type": "chapter",
+      "segment_order": 51,
+      "display_title": "Bem-aventurados os pobres de espírito",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 2046,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 e 2"
+        ],
+        "signature": "8823f9119731b88744cb0378"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "f31a517cfc0b3e3c2936e590",
+      "source_key": "4429333fe7ab2487",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:4429333fe7ab2487",
+      "node_type": "chapter",
+      "segment_order": 57,
+      "display_title": "Bem-aventurados os que têm puro o coração",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1563,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 4"
+        ],
+        "signature": "5fa74e3d15d788b7d563a533"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "74f096ef63829039551ff7c1",
+      "source_key": "c3bf6ff6b1463501",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:c3bf6ff6b1463501",
+      "node_type": "chapter",
+      "segment_order": 64,
+      "display_title": "Bem-aventurados os que são brandos e pacíficos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 290,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 5"
+        ],
+        "signature": "f0926abfe145e56b6a692dfd"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "e3cf746c55aa40d706d30ed7",
+      "source_key": "e13a7c25a85e52be",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:e13a7c25a85e52be",
+      "node_type": "chapter",
+      "segment_order": 70,
+      "display_title": "Bem-aventurados os que são misericordiosos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1785,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 4"
+        ],
+        "signature": "5fa74e3d15d788b7d563a533"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "76dc84f05b695a7740cf6deb",
+      "source_key": "05a8e761c4362ed4",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:05a8e761c4362ed4",
+      "node_type": "chapter",
+      "segment_order": 79,
+      "display_title": "Amar o próximo como a si mesmo",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 2200,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 4"
+        ],
+        "signature": "5fa74e3d15d788b7d563a533"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "f8115a84483f2c04d500d6fd",
+      "source_key": "42e1b00ef742c0ee",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:42e1b00ef742c0ee",
+      "node_type": "chapter",
+      "segment_order": 87,
+      "display_title": "Amai os vossos inimigos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 983,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 4"
+        ],
+        "signature": "5fa74e3d15d788b7d563a533"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "ea08962a16c6e8fd820c1cd1",
+      "source_key": "29b9c6ddac59e109",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:29b9c6ddac59e109",
+      "node_type": "chapter",
+      "segment_order": 94,
+      "display_title": "Não saiba a vossa mão esquerda o que dê a vossa mão direita",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1964,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 3"
+        ],
+        "signature": "ac04f1efc459bd40fdf37e5d"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "3e623846142b0a1240ba02ca",
+      "source_key": "116319a813065617",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:116319a813065617",
+      "node_type": "chapter",
+      "segment_order": 104,
+      "display_title": "Honrai a vosso pai e a vossa mãe",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1661,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 4"
+        ],
+        "signature": "5fa74e3d15d788b7d563a533"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "735485b3480b6047a6cf7e79",
+      "source_key": "931716ce4ee40774",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:931716ce4ee40774",
+      "node_type": "chapter",
+      "segment_order": 109,
+      "display_title": "Fora da caridade não há salvação",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1887,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 3"
+        ],
+        "signature": "ac04f1efc459bd40fdf37e5d"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "20d64c0e0c1e393bc131efc4",
+      "source_key": "7831a72e951d3101",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:7831a72e951d3101",
+      "node_type": "chapter",
+      "segment_order": 115,
+      "display_title": "Não se pode servir a Deus e a Mamon",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1477,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 e 2"
+        ],
+        "signature": "8823f9119731b88744cb0378"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "ddcf2d2ac56913ff237e38c7",
+      "source_key": "c3f3ddcb525377c1",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:c3f3ddcb525377c1",
+      "node_type": "chapter",
+      "segment_order": 127,
+      "display_title": "Sede perfeitos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 475,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 e 2"
+        ],
+        "signature": "8823f9119731b88744cb0378"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "6c75e911c5005dd64d497d13",
+      "source_key": "7f0e83d61ca559d5",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:7f0e83d61ca559d5",
+      "node_type": "chapter",
+      "segment_order": 137,
+      "display_title": "Muitos os chamados, poucos os escolhidos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1214,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 e 2"
+        ],
+        "signature": "8823f9119731b88744cb0378"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "ddea92aced8354112f9275a4",
+      "source_key": "99bfc7bd060b3fd0",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:99bfc7bd060b3fd0",
+      "node_type": "chapter",
+      "segment_order": 144,
+      "display_title": "A fé transporta montanhas",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 383,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 5"
+        ],
+        "signature": "f0926abfe145e56b6a692dfd"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "770c44c1f1aaaa2d7ad9e2fe",
+      "source_key": "86596137967a3f21",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:86596137967a3f21",
+      "node_type": "chapter",
+      "segment_order": 150,
+      "display_title": "Os trabalhadores da última hora",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 1082,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 3"
+        ],
+        "signature": "ac04f1efc459bd40fdf37e5d"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "3f76bd3a2b6b2243467a6861",
+      "source_key": "0f6d29444044bb0d",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:0f6d29444044bb0d",
+      "node_type": "chapter",
+      "segment_order": 154,
+      "display_title": "Haverá falsos cristos e falsos profetas",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 530,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 3"
+        ],
+        "signature": "ac04f1efc459bd40fdf37e5d"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "ad11f9346e67ab6948e894bc",
+      "source_key": "644b74453d56c150",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:644b74453d56c150",
+      "node_type": "chapter",
+      "segment_order": 166,
+      "display_title": "Estranha moral",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 306,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 3"
+        ],
+        "signature": "ac04f1efc459bd40fdf37e5d"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "7d6a72b90417a2f1c8a1a0da",
+      "source_key": "41077b555b40b85c",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:41077b555b40b85c",
+      "node_type": "chapter",
+      "segment_order": 171,
+      "display_title": "Não ponhais a candeia debaixo do alqueire",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 2028,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 7"
+        ],
+        "signature": "715a6d2f5067aa5452d80dc1"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "9a77e2c73f251aebcaba2b4d",
+      "source_key": "c2c82cb03b23a9be",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:c2c82cb03b23a9be",
+      "node_type": "chapter",
+      "segment_order": 186,
+      "display_title": "Pedi e obtereis",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 654,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1 a 4"
+        ],
+        "signature": "5fa74e3d15d788b7d563a533"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "d2b4186817ba6a66fad5c62f",
+      "source_key": "16ce7d7a83389925",
+      "source_node_id": "o-evangelho-segundo-o-espiritismo:chapter:16ce7d7a83389925",
+      "node_type": "chapter",
+      "segment_order": 194,
+      "display_title": "Coletânea de preces espíritas",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1796,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": true,
+        "tokens": [
+          "locator.type=paragraph_range",
+          "type=paragraph_range",
+          "value=1"
+        ],
+        "signature": "cb26c3635ba08808335d6fb5"
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "dc7db3c2d9e3850803df7d54",
+      "source_key": "bd6f1918c6b462f8",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:bd6f1918c6b462f8",
+      "node_type": "chapter",
+      "segment_order": 2,
+      "display_title": "O porvir e o nada",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2575,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "a406c0faaa2714464e1dba16",
+      "source_key": "b063a7ebeb31036c",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:b063a7ebeb31036c",
+      "node_type": "chapter",
+      "segment_order": 6,
+      "display_title": "O céu",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 3624,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "e42b2dcd778176ffbd2d57e4",
+      "source_key": "b8125beef58f9a24",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:b8125beef58f9a24",
+      "node_type": "chapter",
+      "segment_order": 13,
+      "display_title": "O purgatório",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1635,
+      "review_reasons": [
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "1926989bb8bcd51e49869333",
+      "source_key": "8851e017433221db",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:8851e017433221db",
+      "node_type": "chapter",
+      "segment_order": 14,
+      "display_title": "Doutrina das penas eternas",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 595,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "6afb91b70a7d9595ae14a899",
+      "source_key": "f64454f36cb8de88",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:f64454f36cb8de88",
+      "node_type": "chapter",
+      "segment_order": 20,
+      "display_title": "As penas futuras segundo o Espiritismo",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 239,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "c30e437e71e9f42210059b38",
+      "source_key": "9781d6e4ebee2a8d",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:9781d6e4ebee2a8d",
+      "node_type": "chapter",
+      "segment_order": 32,
+      "display_title": "Intervenção dos demônios nas modernas manifestações",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 6037,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "88bb671b5307719a96aa6151",
+      "source_key": "1292d2d9abe27b0a",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:1292d2d9abe27b0a",
+      "node_type": "chapter",
+      "segment_order": 33,
+      "display_title": "Da proibição de evocar os mortos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 3279,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "ef26ce6f08de7eb8031c0eb1",
+      "source_key": "958866f80eb8f2d5",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:958866f80eb8f2d5",
+      "node_type": "chapter",
+      "segment_order": 35,
+      "display_title": "O passamento",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2593,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "6b99323d8928f38d69ff405f",
+      "source_key": "8a91fe3b461ccafb",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "node_type": "chapter",
+      "segment_order": 36,
+      "display_title": "Espíritos felizes",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 5556,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "6c23ed9e29c51b000fb4ab94",
+      "source_key": "0ee32e90d408d42b",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:0ee32e90d408d42b",
+      "node_type": "chapter",
+      "segment_order": 61,
+      "display_title": "Espíritos sofredores",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "brief",
+      "legacy_word_count_estimate": 160,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "7d8f2cdd5b89a9fb2ad73f15",
+      "source_key": "0085e912dd0113bd",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:0085e912dd0113bd",
+      "node_type": "chapter",
+      "segment_order": 72,
+      "display_title": "Suicidas",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 6200,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "51b82acf7aef58fd6b87b4f4",
+      "source_key": "e84833a6b7cb0a8c",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:e84833a6b7cb0a8c",
+      "node_type": "chapter",
+      "segment_order": 82,
+      "display_title": "Criminosos arrependidos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 4918,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "639ab28a1db2664290a9d896",
+      "source_key": "0813bb2fd6a7d081",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:0813bb2fd6a7d081",
+      "node_type": "chapter",
+      "segment_order": 88,
+      "display_title": "Espíritos endurecidos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1253,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "9677fbf29f37b9ef4265b22d",
+      "source_key": "60f5a60806ac759c",
+      "source_node_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "node_type": "chapter",
+      "segment_order": 94,
+      "display_title": "Expiações terrestres",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 4823,
+      "review_reasons": [
+        "container-intro-boundary",
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "e7d84130e4bf3b9b3491f407",
+      "source_key": "af0595094b00dbc4",
+      "source_node_id": "a-genese:chapter:af0595094b00dbc4",
+      "node_type": "chapter",
+      "segment_order": 3,
+      "display_title": "Caráter da revelação espírita",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 13080,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "5a3da07746e53d048c0be7a1",
+      "source_key": "b7284bbc42f35bcf",
+      "source_node_id": "a-genese:chapter:b7284bbc42f35bcf",
+      "node_type": "chapter",
+      "segment_order": 13,
+      "display_title": "Papel da Ciência na Gênese",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2672,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "c6c53722cadee005f10f4552",
+      "source_key": "a2a42f3b752ead20",
+      "source_node_id": "a-genese:chapter:a2a42f3b752ead20",
+      "node_type": "chapter",
+      "segment_order": 14,
+      "display_title": "Antigos e modernos sistemas do mundo",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2699,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "9f292005724999f516ae8ad2",
+      "source_key": "123410ff215322e1",
+      "source_node_id": "a-genese:chapter:123410ff215322e1",
+      "node_type": "chapter",
+      "segment_order": 30,
+      "display_title": "Esboço geológico da Terra",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "standard",
+      "legacy_word_count_estimate": 560,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "c9e4ae8409d0950c750f5008",
+      "source_key": "6a880ca93b62f14e",
+      "source_node_id": "a-genese:chapter:6a880ca93b62f14e",
+      "node_type": "chapter",
+      "segment_order": 57,
+      "display_title": "Gênese espiritual",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1745,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "1dc8ca5923f689a0e47df078",
+      "source_key": "a0051f14fb2993f9",
+      "source_node_id": "a-genese:chapter:a0051f14fb2993f9",
+      "node_type": "chapter",
+      "segment_order": 74,
+      "display_title": "Os fluidos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 2220,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "fa5fb56ae07620742b47b0ac",
+      "source_key": "7c0495505da74005",
+      "source_node_id": "a-genese:chapter:7c0495505da74005",
+      "node_type": "chapter",
+      "segment_order": 115,
+      "display_title": "Teoria da presciência",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 3458,
+      "review_reasons": [
+        "legacy-word-count-oversized",
+        "manual-reconstruction-review",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "1ebde6847b9a9be307b5fe84",
+      "source_key": "d24c2b7cab43629a",
+      "source_node_id": "a-genese:chapter:d24c2b7cab43629a",
+      "node_type": "chapter",
+      "segment_order": 133,
+      "display_title": "São chegados os tempos",
+      "proposal_kind": "container-intro-review",
+      "estimated_size_band": "long",
+      "legacy_word_count_estimate": 1805,
+      "review_reasons": [
+        "container-intro-boundary",
+        "manual-reconstruction-review",
+        "same-page-successor-boundary",
+        "split-required-by-reconstruction-plan"
+      ],
+      "primary_reason": "manual-reconstruction-review",
+      "priority": "P1",
+      "disposition": "manual-structural-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "structural-review-required",
+      "resolution_rationale": "structural-reconstruction-decision",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    }
+  ],
+  "application_boundary": {
+    "boundary_approved": false,
+    "content_approved": false,
+    "database_change_applied": false,
+    "production_modified": false,
+    "cutover_enabled": false
+  }
+}

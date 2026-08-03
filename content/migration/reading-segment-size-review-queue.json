@@ -1,0 +1,396 @@
+{
+  "schema_version": 1,
+  "status": "delivery-size-review-required",
+  "policy_version": "2026-08-03-reading-segment-resolution-analysis-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "item_count": 10,
+  "items": [
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "16c28baf011ed4e87066d86d",
+      "source_key": "3b7d85819a5ad978",
+      "source_node_id": "o-livro-dos-espiritos:section:3b7d85819a5ad978",
+      "node_type": "section",
+      "segment_order": 63,
+      "display_title": "Escolha das provas",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2685,
+      "review_reasons": [
+        "legacy-word-count-oversized"
+      ],
+      "primary_reason": "legacy-word-count-oversized",
+      "priority": "P3",
+      "disposition": "manual-size-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "delivery-size-review-required",
+      "resolution_rationale": "oversized-reader-unit-estimate",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "808961848c538c38fca14748",
+      "source_key": "fbcba34e0ffefed3",
+      "source_node_id": "o-ceu-e-o-inferno:section:fbcba34e0ffefed3",
+      "node_type": "section",
+      "segment_order": 11,
+      "display_title": "Quadro do inferno pagão",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2594,
+      "review_reasons": [
+        "legacy-word-count-oversized"
+      ],
+      "primary_reason": "legacy-word-count-oversized",
+      "priority": "P3",
+      "disposition": "manual-size-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "delivery-size-review-required",
+      "resolution_rationale": "oversized-reader-unit-estimate",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "a4b5bcf0450d33aad264ebca",
+      "source_key": "abbb52d8aabed411",
+      "source_node_id": "o-ceu-e-o-inferno:section:abbb52d8aabed411",
+      "node_type": "section",
+      "segment_order": 12,
+      "display_title": "Esboço do inferno cristão",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2899,
+      "review_reasons": [
+        "legacy-word-count-oversized"
+      ],
+      "primary_reason": "legacy-word-count-oversized",
+      "priority": "P3",
+      "disposition": "manual-size-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "delivery-size-review-required",
+      "resolution_rationale": "oversized-reader-unit-estimate",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "8749477a69fc03a0b3a5c493",
+      "source_key": "95bfb372f416047d",
+      "source_node_id": "o-ceu-e-o-inferno:section:95bfb372f416047d",
+      "node_type": "section",
+      "segment_order": 23,
+      "display_title": "Código penal da vida futura",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 3258,
+      "review_reasons": [
+        "legacy-word-count-oversized"
+      ],
+      "primary_reason": "legacy-word-count-oversized",
+      "priority": "P3",
+      "disposition": "manual-size-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "delivery-size-review-required",
+      "resolution_rationale": "oversized-reader-unit-estimate",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "1420eca7cfec33604023bc0d",
+      "source_key": "f72bc4ed91d10b37",
+      "source_node_id": "o-ceu-e-o-inferno:section:f72bc4ed91d10b37",
+      "node_type": "section",
+      "segment_order": 30,
+      "display_title": "Os demônios segundo a Igreja",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 4038,
+      "review_reasons": [
+        "legacy-word-count-oversized"
+      ],
+      "primary_reason": "legacy-word-count-oversized",
+      "priority": "P3",
+      "disposition": "manual-size-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "delivery-size-review-required",
+      "resolution_rationale": "oversized-reader-unit-estimate",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 4,
+      "book_slug": "o-ceu-e-o-inferno",
+      "segment_key": "5e3a569f9550ce723e9c29a9",
+      "source_key": "4ac0b0f3adb937e3",
+      "source_node_id": "o-ceu-e-o-inferno:section:4ac0b0f3adb937e3",
+      "node_type": "section",
+      "segment_order": 71,
+      "display_title": "Claire",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 3006,
+      "review_reasons": [
+        "legacy-word-count-oversized"
+      ],
+      "primary_reason": "legacy-word-count-oversized",
+      "priority": "P3",
+      "disposition": "manual-size-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "delivery-size-review-required",
+      "resolution_rationale": "oversized-reader-unit-estimate",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "1941cade6bbb6c63caccad25",
+      "source_key": "9d7857fd9cb70f8e",
+      "source_node_id": "a-genese:section:9d7857fd9cb70f8e",
+      "node_type": "section",
+      "segment_order": 61,
+      "display_title": "Encarnação dos Espíritos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 2577,
+      "review_reasons": [
+        "legacy-word-count-oversized"
+      ],
+      "primary_reason": "legacy-word-count-oversized",
+      "priority": "P3",
+      "disposition": "manual-size-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "delivery-size-review-required",
+      "resolution_rationale": "oversized-reader-unit-estimate",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "b12d8b4a9bd294dc3e34a19b",
+      "source_key": "fcaffe63df986c98",
+      "source_node_id": "a-genese:section:fcaffe63df986c98",
+      "node_type": "section",
+      "segment_order": 67,
+      "display_title": "Os seis dias",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 3524,
+      "review_reasons": [
+        "legacy-word-count-oversized"
+      ],
+      "primary_reason": "legacy-word-count-oversized",
+      "priority": "P3",
+      "disposition": "manual-size-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "delivery-size-review-required",
+      "resolution_rationale": "oversized-reader-unit-estimate",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "aa07a0431e4d667d42791174",
+      "source_key": "cc31ab814ac921aa",
+      "source_node_id": "a-genese:section:cc31ab814ac921aa",
+      "node_type": "section",
+      "segment_order": 68,
+      "display_title": "Perda do paraíso",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 4273,
+      "review_reasons": [
+        "legacy-word-count-oversized"
+      ],
+      "primary_reason": "legacy-word-count-oversized",
+      "priority": "P3",
+      "disposition": "manual-size-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "delivery-size-review-required",
+      "resolution_rationale": "oversized-reader-unit-estimate",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    },
+    {
+      "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "segment_key": "bc70d948978094a85f9a032c",
+      "source_key": "f608d1718b990475",
+      "source_node_id": "a-genese:section:f608d1718b990475",
+      "node_type": "section",
+      "segment_order": 134,
+      "display_title": "Sinais dos tempos",
+      "proposal_kind": "leaf-node",
+      "estimated_size_band": "oversized",
+      "legacy_word_count_estimate": 5213,
+      "review_reasons": [
+        "legacy-word-count-oversized"
+      ],
+      "primary_reason": "legacy-word-count-oversized",
+      "priority": "P3",
+      "disposition": "manual-size-review",
+      "active_boundary_review": true,
+      "metadata_deferred": false,
+      "boundary_approved": false,
+      "content_approved": false,
+      "database_change_applied": false,
+      "resolution_path": "delivery-size-review-required",
+      "resolution_rationale": "oversized-reader-unit-estimate",
+      "current_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "successor_anchor_evidence": {
+        "available": false,
+        "tokens": [],
+        "signature": null
+      },
+      "proposed_resolution": null
+    }
+  ],
+  "application_boundary": {
+    "boundary_approved": false,
+    "content_approved": false,
+    "database_change_applied": false,
+    "production_modified": false,
+    "cutover_enabled": false
+  }
+}
