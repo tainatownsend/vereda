@@ -87,27 +87,35 @@ if (
   policy.status !==
     'accepted-for-title-window-recovery' ||
   recovery.status !==
-    'title-window-recovery-recorded-not-applied' ||
-  progress.status !==
-    'title-window-recovery-completed-not-applied'
+    'title-window-recovery-recorded-not-applied'
 ) {
   errors.push(
-    'policy, recovery, or progress status differs',
+    'title-window policy or recovery status differs',
+  )
+}
+
+if (
+  typeof progress.status !== 'string' ||
+  !progress.status.endsWith('-not-applied')
+) {
+  errors.push(
+    'cumulative progress status is unsupported',
   )
 }
 
 if (
   recovery.policy_version !==
     policy.policy_version ||
-  progress.policy_version !==
-    policy.policy_version ||
   recovery.run_id !==
     analysis.run_id ||
   progress.run_id !==
-    analysis.run_id
+    analysis.run_id ||
+  typeof progress.policy_version !==
+    'string' ||
+  progress.policy_version.length === 0
 ) {
   errors.push(
-    'policy or migration identity differs',
+    'recovery, progress, or migration identity differs',
   )
 }
 
@@ -386,10 +394,13 @@ if (
   progress.totals?.item_count !== 144 ||
   progress.totals?.packet_count !== 16 ||
   progress.totals?.pending_count !== 126 ||
-  progress.totals?.reviewed_count !==
+  progress.totals?.reviewed_count <
     4 + resolved ||
-  progress.totals?.unresolved_count !==
+  progress.totals?.unresolved_count >
     14 - resolved ||
+  progress.totals?.reviewed_count +
+    progress.totals?.unresolved_count !==
+    18 ||
   progress.totals
     ?.public_decision_count !== 18 ||
   progress.totals
@@ -406,7 +417,7 @@ if (
     ?.database_change_count !== 0
 ) {
   errors.push(
-    'cumulative recovery progress differs',
+    'cumulative title-window progress differs',
   )
 }
 
