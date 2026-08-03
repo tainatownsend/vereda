@@ -11,9 +11,9 @@
     "contains_user_data": false
   },
   "artifacts": {
-    "migration_sql_sha256": "d7c8554b04641955659ab64c910315c3176d3feb10d7a535e8581d2114ef76a3",
-    "preflight_sql_sha256": "155360e0a8fceed7fc2fee789d91007703530ac9800836cf77181ec45543f6cb",
-    "reader_language_contract_sha256": "c5dec6d1b480b50f9cdbe93a310150d286f74e2a6e2f5b79a3fccf346424618c"
+    "migration_sql_sha256": "3ffb034f4684af881d2fb01b158d6d446fa0074fa36f2f4f14e99c6e4dbe991b",
+    "preflight_sql_sha256": "58c642da51e581bd06473ccaa1918226e64172de9b0206fef7f26791faa954d6",
+    "reader_language_contract_sha256": "4cc3cb3cef310be6b55c6b8391e8c3f105937e4c69db5e0ffb3281becbfc7fbf"
   },
   "terminology": {
     "legacy_database_unit": "section",

@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "status": "preflight-passed",
+  "captured_at": "2026-08-03T04:15:14.622Z",
+  "source_csv": {
+    "filename": "vereda_pr_0016_production_preflight.csv",
+    "sha256": "8a5231be82b972f0cf3ef759b1ece303ef26a628c77111d66d624155258f0856"
+  },
+  "expected_snapshot": {
+    "row_count": 908,
+    "sha256": "c48cf38c6e927f40039539875d7533e584fb155fcc53b59c3cfa61c701305256"
+  },
+  "summary": {
+    "check_count": 6,
+    "blocking_check_count": 4,
+    "blocking_failure_count": 0,
+    "production_section_count": 908,
+    "snapshot_row_count_matches": true,
+    "contains_user_identifiers": false
+  },
+  "checks": [
+    {
+      "check_key": "duplicate-section-positions",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {}
+    },
+    {
+      "check_key": "orphan-reading-sessions",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {}
+    },
+    {
+      "check_key": "progress-position-out-of-range",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {}
+    },
+    {
+      "check_key": "reading-session-book-mismatches",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {}
+    },
+    {
+      "check_key": "aggregate-dependencies",
+      "severity": "info",
+      "passed": true,
+      "actual_value": "3",
+      "details": {
+        "progress_rows": 3,
+        "reading_sessions": 198,
+        "users_with_sessions": 1,
+        "contains_user_identifiers": false
+      }
+    },
+    {
+      "check_key": "section-total",
+      "severity": "info",
+      "passed": true,
+      "actual_value": "908",
+      "details": {
+        "represented_books": 5
+      }
+    }
+  ],
+  "validation_errors": []
+}

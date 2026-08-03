@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vereda.app/schemas/staging-post-apply-evidence-v1.json",
+  "title": "Vereda Staging Post-Application Evidence",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "captured_at",
+    "source_csv",
+    "summary",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "status": {
+      "enum": [
+        "staging-foundation-verified",
+        "staging-foundation-blocked"
+      ]
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_csv": {
+      "type": "object",
+      "required": [
+        "filename",
+        "sha256"
+      ],
+      "properties": {
+        "filename": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "check_count",
+        "blocking_failure_count",
+        "production_section_count",
+        "staging_row_count",
+        "application_roles_denied",
+        "service_role_has_usage"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 8
+    }
+  },
+  "additionalProperties": false
+}
