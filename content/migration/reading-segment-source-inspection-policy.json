@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-packet-generation",
+  "policy_version": "2026-08-03-source-inspection-packets-v1",
+  "purpose": "Prepare content-free, deterministic editorial review packets for the 144 reading-segment cases whose canonical boundary cannot be resolved from committed metadata alone.",
+  "inspection_lanes": {
+    "container-intro-only": {
+      "priority": 1,
+      "required_reasons": [
+        "container-intro-boundary"
+      ],
+      "forbidden_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "decision_options": [
+        "retain-intro-segment",
+        "merge-intro-with-successor",
+        "exclude-structural-heading",
+        "unresolved"
+      ]
+    },
+    "container-intro-same-page": {
+      "priority": 2,
+      "required_reasons": [
+        "container-intro-boundary",
+        "same-page-successor-boundary"
+      ],
+      "decision_options": [
+        "retain-intro-and-confirm-successor-start",
+        "merge-intro-with-successor",
+        "exclude-structural-heading",
+        "adjust-successor-start",
+        "unresolved"
+      ]
+    },
+    "same-page-no-semantic-anchor": {
+      "priority": 3,
+      "required_reasons": [
+        "same-page-successor-boundary"
+      ],
+      "forbidden_reasons": [
+        "container-intro-boundary"
+      ],
+      "decision_options": [
+        "confirm-successor-start",
+        "adjust-successor-start",
+        "merge-with-successor",
+        "unresolved"
+      ]
+    },
+    "other-source-inspection": {
+      "priority": 4,
+      "decision_options": [
+        "confirm-current-boundary",
+        "adjust-current-boundary",
+        "exclude-proposed-segment",
+        "unresolved"
+      ]
+    }
+  },
+  "context_window": {
+    "include_previous_segment": true,
+    "include_current_segment": true,
+    "include_successor_segment": true,
+    "include_source_pdf_page": true,
+    "include_printed_page": true,
+    "include_locator_metadata": true,
+    "include_full_text": false,
+    "include_source_excerpt": false
+  },
+  "packet_rules": {
+    "maximum_items_per_packet": 20,
+    "group_by": [
+      "inspection_lane",
+      "book_id"
+    ],
+    "stable_order": [
+      "inspection_lane_priority",
+      "book_id",
+      "source_pdf_page",
+      "printed_page",
+      "segment_order",
+      "segment_key"
+    ]
+  },
+  "review_boundary": {
+    "packets_generated": true,
+    "source_text_reviewed": false,
+    "boundary_decision_recorded": false,
+    "boundary_approved": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
