@@ -1,0 +1,340 @@
+{
+  "schema_version": 1,
+  "status": "mechanical-boundaries-applied-and-verified",
+  "policy_version": "2026-08-03-mechanical-boundary-application-evidence-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "plan_policy_version": "2026-08-03-mechanical-boundary-application-plan-v1",
+  "captured_at": "2026-08-03T18:04:58.284Z",
+  "totals": {
+    "staged_segment_count": 812,
+    "target_segment_count": 166,
+    "target_content_review_count": 166,
+    "target_boundary_review_count": 0,
+    "unaffected_boundary_review_count": 646,
+    "unaffected_content_review_count": 0,
+    "preflight_check_count": 19,
+    "verification_check_count": 20,
+    "application_audit_event_count": 1,
+    "content_row_count": 0,
+    "successor_mapping_count": 0,
+    "dependency_snapshot_count": 0,
+    "dry_run_result_count": 0,
+    "production_section_count": 908
+  },
+  "checksums": {
+    "application_plan_sha256": "244f0c5ba59b9554d9ebe1e99d56973c0224f924c12bfcfdf9e7596087d62498",
+    "preflight_sql_sha256": "47047cd7d5a5bba645379f753dd4907346d103007289a17b0c2e7576e5795d8f",
+    "application_sql_sha256": "8488eb10488f2f25fe5872a52500afba4e51a5591ad16d28ed08544f9e28d9e5",
+    "verification_sql_sha256": "45daa71183f5b0ccbaf4a1021fbc9dc66b12918245afacd351fdb66dd75888d8",
+    "preflight_csv_sha256": "e724ca559d3ceb9094a773fa2f3b56febca8a45b260f5837961baf425b4c3831",
+    "verification_csv_sha256": "45e926d2ab6e7ceca01f1cbd30b673e16cf241965864c036e14cfe59fa931f6a"
+  },
+  "preflight": {
+    "status": "passed",
+    "check_count": 19,
+    "checks": [
+      {
+        "check_key": "application-roles-denied",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "false",
+        "details": "{\"expected_any_access\":false}"
+      },
+      {
+        "check_key": "content-review-before-application",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected\":0}"
+      },
+      {
+        "check_key": "dependency-snapshot-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected\":0}"
+      },
+      {
+        "check_key": "dry-run-result-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected\":0}"
+      },
+      {
+        "check_key": "migration-run-status",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "reviewing",
+        "details": "{\"expected\":\"reviewing\"}"
+      },
+      {
+        "check_key": "prior-application-audit-event-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected\":0}"
+      },
+      {
+        "check_key": "production-section-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "908",
+        "details": "{\"expected\":908}"
+      },
+      {
+        "check_key": "reading-segment-total",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "812",
+        "details": "{\"expected\":812}"
+      },
+      {
+        "check_key": "rights-status",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "blocked",
+        "details": "{\"expected\":\"blocked\"}"
+      },
+      {
+        "check_key": "successor-mapping-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected\":0}"
+      },
+      {
+        "check_key": "target-boundary-review-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "166",
+        "details": "{\"expected\":166}"
+      },
+      {
+        "check_key": "target-content-remains-null",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected\":0}"
+      },
+      {
+        "check_key": "target-end-successor-locator-match",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected_mismatches\":0}"
+      },
+      {
+        "check_key": "target-key-uniqueness",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected_duplicates\":0}"
+      },
+      {
+        "check_key": "target-manifest-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "166",
+        "details": "{\"expected\":166}"
+      },
+      {
+        "check_key": "target-rows-present",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "166",
+        "details": "{\"expected\":166}"
+      },
+      {
+        "check_key": "target-start-locator-match",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected_mismatches\":0}"
+      },
+      {
+        "check_key": "target-successor-key-match",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected_mismatches\":0}"
+      },
+      {
+        "check_key": "unaffected-segment-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "646",
+        "details": "{\"expected\":646}"
+      }
+    ]
+  },
+  "application": {
+    "status": "applied-once-and-audit-confirmed",
+    "planned_transition": {
+      "from": "boundary-review",
+      "to": "content-review",
+      "target_count": 166
+    },
+    "database_application_authorized": true,
+    "content_approved": false,
+    "content_loaded": false
+  },
+  "verification": {
+    "status": "passed",
+    "check_count": 20,
+    "checks": [
+      {
+        "check_key": "application-audit-decision-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "166",
+        "details": "{\"expected\":166}"
+      },
+      {
+        "check_key": "application-audit-event-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "1",
+        "details": "{\"expected\":1}"
+      },
+      {
+        "check_key": "application-roles-denied",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "false",
+        "details": "{\"expected_any_access\":false}"
+      },
+      {
+        "check_key": "content-remains-null",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected\":0}"
+      },
+      {
+        "check_key": "dependency-snapshot-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected\":0}"
+      },
+      {
+        "check_key": "dry-run-result-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected\":0}"
+      },
+      {
+        "check_key": "migration-run-status",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "reviewing",
+        "details": "{\"expected\":\"reviewing\"}"
+      },
+      {
+        "check_key": "non-target-boundary-review-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "646",
+        "details": "{\"expected\":646}"
+      },
+      {
+        "check_key": "non-target-content-review-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected\":0}"
+      },
+      {
+        "check_key": "production-section-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "908",
+        "details": "{\"expected\":908}"
+      },
+      {
+        "check_key": "reading-segment-total",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "812",
+        "details": "{\"expected\":812}"
+      },
+      {
+        "check_key": "rights-status",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "blocked",
+        "details": "{\"expected\":\"blocked\"}"
+      },
+      {
+        "check_key": "segment-key-uniqueness",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected_duplicates\":0}"
+      },
+      {
+        "check_key": "segment-order-contiguous",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected_invalid_books\":0}"
+      },
+      {
+        "check_key": "successor-mapping-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected\":0}"
+      },
+      {
+        "check_key": "target-boundary-review-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected\":0}"
+      },
+      {
+        "check_key": "target-content-review-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "166",
+        "details": "{\"expected\":166}"
+      },
+      {
+        "check_key": "target-end-locator-unchanged",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected_mismatches\":0}"
+      },
+      {
+        "check_key": "target-start-locator-unchanged",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected_mismatches\":0}"
+      },
+      {
+        "check_key": "unexpected-approval-status-count",
+        "severity": "blocking",
+        "passed": true,
+        "actual_value": "0",
+        "details": "{\"expected\":0}"
+      }
+    ]
+  },
+  "application_boundary": {
+    "staging_status_updated": true,
+    "boundary_decisions_applied": true,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}

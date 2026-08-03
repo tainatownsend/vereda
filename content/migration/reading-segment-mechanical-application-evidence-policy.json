@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-controlled-application",
+  "policy_version": "2026-08-03-mechanical-boundary-application-evidence-v1",
+  "purpose": "Capture and validate evidence for the one-time application of the 166 independently accepted mechanical boundary decisions.",
+  "expected": {
+    "migration_run_id": "adcff561-8f92-545c-a219-615818a454f4",
+    "staged_segment_count": 812,
+    "target_segment_count": 166,
+    "unaffected_segment_count": 646,
+    "preflight_check_count": 19,
+    "verification_check_count": 20,
+    "target_status_after_application": "content-review",
+    "unaffected_status_after_application": "boundary-review",
+    "application_audit_event_count": 1,
+    "content_row_count": 0,
+    "successor_mapping_count": 0,
+    "dependency_snapshot_count": 0,
+    "dry_run_result_count": 0,
+    "production_section_count": 908
+  },
+  "source_artifacts": {
+    "application_plan": "content/migration/reading-segment-mechanical-application-plan.json",
+    "preflight_sql": "supabase/audits/mechanical_boundary_application_preflight.sql",
+    "application_sql": "supabase/staging/20260803110000_apply_mechanical_boundary_decisions_v1.sql",
+    "verification_sql": "supabase/audits/mechanical_boundary_application_verification.sql"
+  },
+  "captured_artifacts": {
+    "preflight_csv": "content/migration/evidence/mechanical-boundary-application-preflight.csv",
+    "verification_csv": "content/migration/evidence/mechanical-boundary-application-verification.csv",
+    "evidence_manifest": "content/migration/reading-segment-mechanical-application-evidence.json",
+    "summary_report": "content/migration/reports/reading-segment-mechanical-application-evidence-summary.md"
+  },
+  "application_boundary": {
+    "database_application_authorized": true,
+    "sql_application_requires_passing_preflight": true,
+    "sql_application_must_be_one_time": true,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
