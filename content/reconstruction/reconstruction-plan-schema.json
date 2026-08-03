@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vereda.app/schemas/reconstruction-plan-v1.json",
+  "title": "Vereda Book Reconstruction Plan",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "book",
+    "inputs",
+    "strategy",
+    "summary",
+    "current_section_decisions",
+    "canonical_coverage",
+    "migration_blockers"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "status": {
+      "const": "diagnostic-plan"
+    },
+    "book": {
+      "type": "object",
+      "required": ["book_id", "slug", "title"],
+      "properties": {
+        "book_id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "slug": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "inputs": {
+      "type": "object",
+      "required": [
+        "comparison_sha256",
+        "canonical_map_sha256"
+      ],
+      "properties": {
+        "comparison_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "canonical_map_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "strategy": {
+      "enum": [
+        "metadata-alignment",
+        "targeted-staging-reconstruction",
+        "full-staging-reconstruction"
+      ]
+    },
+    "summary": {
+      "type": "object"
+    },
+    "current_section_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "decision_id",
+          "current_section_id",
+          "current_sec_position",
+          "action",
+          "manual_review_required",
+          "progress_strategy",
+          "reason"
+        ]
+      }
+    },
+    "canonical_coverage": {
+      "type": "array"
+    },
+    "migration_blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

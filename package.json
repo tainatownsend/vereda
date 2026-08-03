@@ -19,7 +19,10 @@
     "content:comparison:import": "node scripts/content_pipeline/import_current_structure.mjs",
     "content:comparison:run": "node scripts/content_pipeline/run_python.mjs scripts/content_pipeline/compare_structures.py",
     "content:comparison:validate": "node scripts/content_pipeline/validate_comparison.mjs",
-    "content:comparison:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_structure_comparison.py"
+    "content:comparison:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_structure_comparison.py",
+    "content:reconstruction:build": "node scripts/content_pipeline/run_python.mjs scripts/content_pipeline/build_reconstruction_plan.py",
+    "content:reconstruction:validate": "node scripts/content_pipeline/validate_reconstruction_plan.mjs",
+    "content:reconstruction:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_reconstruction_plan.py"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
