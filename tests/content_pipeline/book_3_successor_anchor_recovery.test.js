@@ -10,7 +10,7 @@ import {
 
 const recovery = JSON.parse(
   readFileSync(
-    'content/migration/reading-segment-title-window-recovery-decisions.json',
+    'content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json',
     'utf8',
   ),
 )
@@ -21,7 +21,7 @@ const progress = JSON.parse(
   ),
 )
 
-describe('current-title window recovery', () => {
+describe('Book 3 successor-anchor recovery', () => {
   it('processes exactly three queued cases', () => {
     expect(
       recovery.recoveries,
@@ -33,35 +33,22 @@ describe('current-title window recovery', () => {
     ).toBe(3)
   })
 
-  it('records only defensible replacement outcomes', () => {
+  it('records only defensible recovery outcomes', () => {
     for (
       const item of
       recovery.recoveries
     ) {
-      expect(
+      const evidence =
         item.evidence
-          .source_pdf_page_reviewed,
+
+      expect(
+        evidence.original_source_pdf_page,
       ).toBeGreaterThan(0)
 
       if (
         item.recovery_status ===
         'resolved'
       ) {
-        expect(
-          typeof item.evidence
-            .current_title_match_method,
-        ).toBe('string')
-        expect(
-          item.evidence
-            .current_title_match_score,
-        ).toBeGreaterThan(0)
-        expect(
-          item.evidence
-            .current_title_window_line_count,
-        ).toBeGreaterThan(0)
-        expect(
-          item.evidence.toc_signal_count,
-        ).toBe(0)
         expect([
           'exclude-structural-heading',
           'retain-intro-segment',
@@ -69,9 +56,21 @@ describe('current-title window recovery', () => {
           item.selected_decision,
         )
         expect(
-          item.evidence
-            .successor_title_found,
+          evidence.successor_title_found,
         ).toBe(true)
+        expect(
+          evidence.pair_ambiguous,
+        ).toBe(false)
+        expect(
+          evidence.toc_like,
+        ).toBe(false)
+        expect(
+          evidence
+            .successor_source_pdf_page_reviewed,
+        ).toBeGreaterThanOrEqual(
+          evidence
+            .source_pdf_page_reviewed,
+        )
         expect(
           item.supersedes_original_unresolved,
         ).toBe(true)
@@ -88,47 +87,11 @@ describe('current-title window recovery', () => {
         expect(
           typeof item.unresolved_reason,
         ).toBe('string')
-
-        if (
-          item.evidence
-            .current_title_match_method ===
-          null
-        ) {
-          expect(
-            item.evidence
-              .current_title_match_score,
-          ).toBeNull()
-          expect(
-            item.evidence
-              .current_title_window_line_count,
-          ).toBe(0)
-          expect(
-            item.evidence
-              .successor_title_found,
-          ).toBe(false)
-          expect(
-            item.evidence
-              .successor_source_pdf_page_reviewed,
-          ).toBeNull()
-        } else {
-          expect(
-            item.evidence
-              .current_title_match_score,
-          ).toBeGreaterThan(0)
-          expect(
-            item.evidence
-              .current_title_window_line_count,
-          ).toBeGreaterThan(0)
-          expect(
-            item.evidence
-              .toc_signal_count,
-          ).toBe(0)
-        }
       }
     }
   })
 
-  it('keeps public recovery evidence content-free', () => {
+  it('keeps public evidence content-free', () => {
     expect(
       recovery.contains_full_text,
     ).toBe(false)
@@ -155,7 +118,7 @@ describe('current-title window recovery', () => {
     }
   })
 
-  it('updates cumulative status without adding public decisions', () => {
+  it('updates cumulative progress without adding decision identities', () => {
     const resolved =
       recovery.totals.resolved_count
 
@@ -163,38 +126,37 @@ describe('current-title window recovery', () => {
       item_count: 144,
       packet_count: 16,
       pending_count: 126,
+      reviewed_count: 4 + resolved,
+      unresolved_count: 14 - resolved,
       public_decision_count: 18,
       completed_packet_count: 4,
       pending_packet_count: 12,
-      title_window_recovered_count:
+      title_window_recovered_count: 0,
+      title_window_still_unresolved_count: 3,
+      non_contents_recovered_count: 0,
+      non_contents_still_unresolved_count: 1,
+      book_3_successor_anchor_recovered_count:
         resolved,
-      title_window_still_unresolved_count:
+      book_3_successor_anchor_still_unresolved_count:
         3 - resolved,
       database_change_count: 0,
     })
-    expect(
-      progress.totals.reviewed_count,
-    ).toBeGreaterThanOrEqual(
-      4 + resolved,
-    )
-    expect(
-      progress.totals.unresolved_count,
-    ).toBeLessThanOrEqual(
-      14 - resolved,
-    )
+
     expect(
       progress.totals.reviewed_count +
         progress.totals.unresolved_count,
     ).toBe(18)
   })
 
-  it('preserves the non-application boundary', () => {
-    expect(
+  it('preserves the complete non-application boundary', () => {
+    const boundary =
       recovery.recovery_boundary
-        .local_sources_read,
+
+    expect(
+      boundary.local_source_read,
     ).toBe(true)
     expect(
-      recovery.recovery_boundary
+      boundary
         .structured_recovery_attempts_recorded,
     ).toBe(true)
 
@@ -202,11 +164,11 @@ describe('current-title window recovery', () => {
       field,
       value,
     ] of Object.entries(
-      recovery.recovery_boundary,
+      boundary,
     )) {
       if (
         ![
-          'local_sources_read',
+          'local_source_read',
           'structured_recovery_attempts_recorded',
         ].includes(field)
       ) {
