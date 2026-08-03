@@ -74,10 +74,8 @@ if (
 }
 
 if (
-  ![
-    'container-intro-review-completed-not-applied',
-    'title-window-recovery-completed-not-applied',
-  ].includes(progress.status)
+  typeof progress.status !== 'string' ||
+  !progress.status.endsWith('-not-applied')
 ) {
   errors.push(
     'cumulative progress status is unsupported',

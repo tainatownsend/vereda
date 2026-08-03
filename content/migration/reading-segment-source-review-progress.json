@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "status": "title-window-recovery-completed-not-applied",
-  "policy_version": "2026-08-03-title-window-recovery-v1",
+  "status": "non-contents-recovery-completed-not-applied",
+  "policy_version": "2026-08-03-non-contents-recovery-v1",
   "run_id": "adcff561-8f92-545c-a219-615818a454f4",
   "totals": {
     "item_count": 144,
@@ -17,7 +17,9 @@
     "remaining_boundary_review_count": 646,
     "database_change_count": 0,
     "title_window_recovered_count": 0,
-    "title_window_still_unresolved_count": 3
+    "title_window_still_unresolved_count": 3,
+    "non_contents_recovered_count": 0,
+    "non_contents_still_unresolved_count": 1
   },
   "packets": [
     {

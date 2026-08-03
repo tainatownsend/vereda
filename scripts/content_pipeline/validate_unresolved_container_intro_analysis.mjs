@@ -368,10 +368,10 @@ for (const forbidden of [
 }
 
 if (
-  ![
-    'container-intro-review-completed-not-applied',
-    'title-window-recovery-completed-not-applied',
-  ].includes(progress.status) ||
+  (
+    typeof progress.status !== 'string' ||
+    !progress.status.endsWith('-not-applied')
+  ) ||
   progress.totals?.pending_count !== 126 ||
   progress.totals?.reviewed_count < 4 ||
   progress.totals?.unresolved_count > 14 ||
