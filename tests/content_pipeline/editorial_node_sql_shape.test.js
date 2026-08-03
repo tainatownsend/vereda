@@ -2,19 +2,26 @@ import { readFileSync } from 'node:fs'
 
 import { describe, expect, it } from 'vitest'
 
+const normalizeNewlines = (value) =>
+  value.replace(/\r\n?/g, '\n')
+
 const manifest = JSON.parse(
   readFileSync(
     'content/migration/editorial-node-load-manifest.json',
     'utf8',
   ),
 )
-const loadSql = readFileSync(
-  manifest.artifacts.load_sql,
-  'utf8',
+const loadSql = normalizeNewlines(
+  readFileSync(
+    manifest.artifacts.load_sql,
+    'utf8',
+  ),
 )
-const verificationSql = readFileSync(
-  manifest.artifacts.verification_sql,
-  'utf8',
+const verificationSql = normalizeNewlines(
+  readFileSync(
+    manifest.artifacts.verification_sql,
+    'utf8',
+  ),
 )
 
 describe('editorial-node load SQL', () => {

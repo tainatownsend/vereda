@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-design",
+  "design_version": "2026-08-03-reading-segment-boundaries-v1",
+  "purpose": "Define deterministic, reviewable Reader delivery-unit proposals without loading complete source text.",
+  "candidate_rules": {
+    "leaf_editorial_node": "Create one candidate proposal for every canonical leaf node.",
+    "container_intro_signal": "Create a separate intro-boundary proposal only when a non-leaf canonical node has a direct legacy-record signal.",
+    "structural_container_without_signal": "Keep as editorial structure only; do not create a segment proposal."
+  },
+  "identity": {
+    "algorithm": "sha256",
+    "inputs": [
+      "migration_run_id",
+      "book_id",
+      "canonical_source_key",
+      "proposal_kind",
+      "boundary_version"
+    ],
+    "hex_length": 24
+  },
+  "boundary_policy": {
+    "boundary_version": 1,
+    "approval_status": "boundary-review",
+    "start_basis": "Canonical source-map locator metadata.",
+    "end_basis": "The next proposed segment start, represented as an exclusive provisional boundary.",
+    "last_segment_end": "End of work.",
+    "same_page_successor": "Manual boundary review required.",
+    "missing_locator": "Blocked pending boundary evidence."
+  },
+  "size_bands": {
+    "brief": {
+      "minimum_words": 1,
+      "maximum_words": 450
+    },
+    "standard": {
+      "minimum_words": 451,
+      "maximum_words": 1200
+    },
+    "long": {
+      "minimum_words": 1201,
+      "maximum_words": 2500
+    },
+    "oversized": {
+      "minimum_words": 2501,
+      "maximum_words": null
+    },
+    "unknown": {
+      "minimum_words": null,
+      "maximum_words": null
+    }
+  },
+  "rights_boundary": {
+    "rights_status": "blocked",
+    "complete_source_text_allowed": false,
+    "reader_publication_allowed": false,
+    "production_cutover_allowed": false
+  },
+  "database_boundary": {
+    "sql_generated": true,
+    "sql_applied_in_pr_0018": false,
+    "reading_segments_loaded": false,
+    "successor_mappings_loaded": false,
+    "dependency_snapshot_captured": false,
+    "production_tables_modified": false
+  }
+}

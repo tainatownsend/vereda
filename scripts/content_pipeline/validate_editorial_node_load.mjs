@@ -15,13 +15,20 @@ const loadSqlPath = path.resolve(
 const verificationSqlPath = path.resolve(
   manifest.artifacts.verification_sql,
 )
-const loadSql = await readFile(
-  loadSqlPath,
-  'utf8',
+const normalizeNewlines = (value) =>
+  value.replace(/\r\n?/g, '\n')
+
+const loadSql = normalizeNewlines(
+  await readFile(
+    loadSqlPath,
+    'utf8',
+  ),
 )
-const verificationSql = await readFile(
-  verificationSqlPath,
-  'utf8',
+const verificationSql = normalizeNewlines(
+  await readFile(
+    verificationSqlPath,
+    'utf8',
+  ),
 )
 
 const sha256 = (value) =>
