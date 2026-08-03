@@ -25,7 +25,11 @@
     "content:reconstruction:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_reconstruction_plan.py",
     "content:staging:build": "node scripts/content_pipeline/run_python.mjs scripts/content_pipeline/build_staging_manifest.py",
     "content:staging:validate": "node scripts/content_pipeline/validate_staging_foundation.mjs",
-    "content:staging:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_staging_manifest.py"
+    "content:staging:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_staging_manifest.py",
+    "content:staging:preflight:import": "node scripts/content_pipeline/import_staging_preflight.mjs",
+    "content:staging:preflight:validate": "node scripts/content_pipeline/validate_staging_preflight.mjs",
+    "content:staging:post-apply:import": "node scripts/content_pipeline/import_staging_post_apply.mjs",
+    "content:staging:post-apply:validate": "node scripts/content_pipeline/validate_staging_post_apply.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

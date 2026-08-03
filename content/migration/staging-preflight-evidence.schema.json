@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vereda.app/schemas/staging-preflight-evidence-v1.json",
+  "title": "Vereda Staging Application Preflight Evidence",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "captured_at",
+    "source_csv",
+    "expected_snapshot",
+    "summary",
+    "checks"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "status": {
+      "enum": [
+        "preflight-passed",
+        "preflight-blocked"
+      ]
+    },
+    "captured_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_csv": {
+      "type": "object",
+      "required": [
+        "filename",
+        "sha256"
+      ],
+      "properties": {
+        "filename": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "expected_snapshot": {
+      "type": "object",
+      "required": [
+        "row_count",
+        "sha256"
+      ],
+      "properties": {
+        "row_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "check_count",
+        "blocking_check_count",
+        "blocking_failure_count",
+        "production_section_count",
+        "snapshot_row_count_matches",
+        "contains_user_identifiers"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 6
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "staging-foundation-verified",
+  "captured_at": "2026-08-03T04:23:21.704Z",
+  "source_csv": {
+    "filename": "vereda_pr_0016_staging_post_apply.csv",
+    "sha256": "6d44c176600fd294f5b9bb083c3cb797f595e1c090a38a1bdc4a63f780313b2b"
+  },
+  "summary": {
+    "check_count": 8,
+    "blocking_failure_count": 0,
+    "production_section_count": 908,
+    "staging_row_count": 0,
+    "application_roles_denied": true,
+    "service_role_has_usage": true
+  },
+  "checks": [
+    {
+      "check_key": "application-roles-denied",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "false",
+      "details": {
+        "expected_any_access": false
+      }
+    },
+    {
+      "check_key": "production-section-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "908",
+      "details": {
+        "books": 5,
+        "expected": 908,
+        "progress_rows": 3,
+        "reading_sessions": 198,
+        "contains_user_identifiers": false
+      }
+    },
+    {
+      "check_key": "service-role-has-usage",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "true",
+      "details": {
+        "expected": true
+      }
+    },
+    {
+      "check_key": "staging-function-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "2",
+      "details": {
+        "expected": 2
+      }
+    },
+    {
+      "check_key": "staging-is-empty",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "mappings": 0,
+        "audit_events": 0,
+        "migration_runs": 0,
+        "dry_run_results": 0,
+        "editorial_nodes": 0,
+        "reading_segments": 0,
+        "dependency_snapshots": 0
+      }
+    },
+    {
+      "check_key": "staging-schema-exists",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "present",
+      "details": {}
+    },
+    {
+      "check_key": "staging-table-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "7",
+      "details": {
+        "expected": 7
+      }
+    },
+    {
+      "check_key": "staging-view-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "1",
+      "details": {
+        "expected": 1
+      }
+    }
+  ],
+  "validation_errors": []
+}
