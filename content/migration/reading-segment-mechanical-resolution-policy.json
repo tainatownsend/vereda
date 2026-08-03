@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-proposal-generation",
+  "policy_version": "2026-08-03-mechanical-resolution-proposals-v1",
+  "purpose": "Create deterministic and reviewable boundary-resolution proposals for the 166 PR-0021 mechanical candidates without approving or applying them.",
+  "resolution_method": {
+    "id": "canonical-successor-start-anchor",
+    "description": "Use the verified canonical start locator of the immediately following segment as the proposed exclusive end boundary of the current segment.",
+    "require_same_book": true,
+    "require_adjacent_segment_order": true,
+    "require_design_successor_link": true,
+    "require_exact_successor_locator_match": true,
+    "require_shared_page_evidence": true,
+    "require_distinct_non_page_anchor_signatures": true
+  },
+  "proposal_status": "proposed-not-approved",
+  "maximum_review_batch_size": 25,
+  "application_boundary": {
+    "sql_generated": false,
+    "sql_applied": false,
+    "staging_updated": false,
+    "boundary_approved": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
