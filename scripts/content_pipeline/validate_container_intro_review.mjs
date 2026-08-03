@@ -66,27 +66,37 @@ if (
   policy.status !==
     'accepted-for-container-intro-review' ||
   decisions.status !==
-    'container-intro-review-recorded-not-applied' ||
-  progress.status !==
-    'container-intro-review-completed-not-applied'
+    'container-intro-review-recorded-not-applied'
 ) {
   errors.push(
-    'policy, decisions, or progress status differs',
+    'container-intro policy or decision status differs',
+  )
+}
+
+if (
+  ![
+    'container-intro-review-completed-not-applied',
+    'title-window-recovery-completed-not-applied',
+  ].includes(progress.status)
+) {
+  errors.push(
+    'cumulative progress status is unsupported',
   )
 }
 
 if (
   decisions.policy_version !==
     policy.policy_version ||
-  progress.policy_version !==
-    policy.policy_version ||
   decisions.run_id !==
     worklist.run_id ||
   progress.run_id !==
-    worklist.run_id
+    worklist.run_id ||
+  typeof progress.policy_version !==
+    'string' ||
+  progress.policy_version.length === 0
 ) {
   errors.push(
-    'review policy or migration identity differs',
+    'decision, progress, or migration identity differs',
   )
 }
 
@@ -346,16 +356,11 @@ for (
   }
 }
 
-const expectedProgress = {
+const preservedProgress = {
   item_count: 144,
   packet_count: 16,
   pending_count: 126,
   in_review_count: 0,
-  reviewed_count:
-    2 +
-    decisions.totals.reviewed_count,
-  unresolved_count:
-    decisions.totals.unresolved_count,
   public_decision_count: 18,
   completed_packet_count: 4,
   pending_packet_count: 12,
@@ -368,7 +373,7 @@ for (const [
   field,
   expected,
 ] of Object.entries(
-  expectedProgress,
+  preservedProgress,
 )) {
   if (
     progress.totals?.[field] !==
@@ -378,6 +383,18 @@ for (const [
       `${field}: expected ${expected}; received ${progress.totals?.[field]}`,
     )
   }
+}
+
+if (
+  progress.totals?.reviewed_count < 4 ||
+  progress.totals?.unresolved_count > 14 ||
+  progress.totals?.reviewed_count +
+    progress.totals?.unresolved_count !==
+    18
+) {
+  errors.push(
+    'cumulative reviewed and unresolved totals are inconsistent',
+  )
 }
 
 const pilotPacket =

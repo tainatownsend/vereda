@@ -66,6 +66,7 @@ if (
   ![
     'pilot-packet-reviewed-not-applied',
     'container-intro-review-completed-not-applied',
+    'title-window-recovery-completed-not-applied',
   ].includes(progress.status)
 ) {
   errors.push(
