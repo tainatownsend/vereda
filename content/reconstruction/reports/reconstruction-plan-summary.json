@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "status": "diagnostic-plan",
+  "book_count": 5,
+  "books": [
+    {
+      "book": {
+        "book_id": 1,
+        "slug": "o-livro-dos-espiritos",
+        "title": "O Livro dos Espíritos"
+      },
+      "strategy": "full-staging-reconstruction",
+      "summary": {
+        "current_section_count": 228,
+        "canonical_node_count": 200,
+        "action_counts": {
+          "keep": 190,
+          "reclassify": 1,
+          "review": 21,
+          "split": 16
+        },
+        "coverage_counts": {
+          "covered": 184,
+          "covered-role-review": 1,
+          "missing-current-unit": 9,
+          "multiple-current-records": 6
+        },
+        "manual_review_count": 38,
+        "direct_provisional_mapping_count": 191,
+        "blocked_progress_mapping_count": 21
+      },
+      "migration_blockers": [
+        "Unmatched current records require manual source comparison.",
+        "Split candidates do not yet have verified successor content boundaries.",
+        "Canonical units without direct current coverage require staging reconstruction.",
+        "Many-to-one relationships require explicit merge and completion rules.",
+        "Production redistribution rights remain unresolved.",
+        "Content-level checksums have not been compared.",
+        "Active progress and session dependency counts have not been joined to the candidate mappings.",
+        "Rollback tables and cutover transactions have not been designed or executed."
+      ]
+    },
+    {
+      "book": {
+        "book_id": 2,
+        "slug": "o-livro-dos-mediuns",
+        "title": "O Livro dos Médiuns"
+      },
+      "strategy": "full-staging-reconstruction",
+      "summary": {
+        "current_section_count": 147,
+        "canonical_node_count": 135,
+        "action_counts": {
+          "keep": 68,
+          "review": 13,
+          "split": 66
+        },
+        "coverage_counts": {
+          "covered": 39,
+          "missing-current-unit": 67,
+          "multiple-current-records": 29
+        },
+        "manual_review_count": 79,
+        "direct_provisional_mapping_count": 68,
+        "blocked_progress_mapping_count": 13
+      },
+      "migration_blockers": [
+        "Unmatched current records require manual source comparison.",
+        "Split candidates do not yet have verified successor content boundaries.",
+        "Canonical units without direct current coverage require staging reconstruction.",
+        "Many-to-one relationships require explicit merge and completion rules.",
+        "Production redistribution rights remain unresolved.",
+        "Content-level checksums have not been compared.",
+        "Active progress and session dependency counts have not been joined to the candidate mappings.",
+        "Rollback tables and cutover transactions have not been designed or executed."
+      ]
+    },
+    {
+      "book": {
+        "book_id": 3,
+        "slug": "o-evangelho-segundo-o-espiritismo",
+        "title": "O Evangelho Segundo o Espiritismo"
+      },
+      "strategy": "full-staging-reconstruction",
+      "summary": {
+        "current_section_count": 241,
+        "canonical_node_count": 235,
+        "action_counts": {
+          "keep": 185,
+          "reclassify": 2,
+          "review": 4,
+          "split": 50
+        },
+        "coverage_counts": {
+          "covered": 160,
+          "covered-role-review": 2,
+          "missing-current-unit": 48,
+          "multiple-current-records": 25
+        },
+        "manual_review_count": 56,
+        "direct_provisional_mapping_count": 187,
+        "blocked_progress_mapping_count": 4
+      },
+      "migration_blockers": [
+        "Unmatched current records require manual source comparison.",
+        "Split candidates do not yet have verified successor content boundaries.",
+        "Canonical units without direct current coverage require staging reconstruction.",
+        "Many-to-one relationships require explicit merge and completion rules.",
+        "Production redistribution rights remain unresolved.",
+        "Content-level checksums have not been compared.",
+        "Active progress and session dependency counts have not been joined to the candidate mappings.",
+        "Rollback tables and cutover transactions have not been designed or executed."
+      ]
+    },
+    {
+      "book": {
+        "book_id": 4,
+        "slug": "o-ceu-e-o-inferno",
+        "title": "O Céu e o Inferno"
+      },
+      "strategy": "full-staging-reconstruction",
+      "summary": {
+        "current_section_count": 146,
+        "canonical_node_count": 110,
+        "action_counts": {
+          "keep": 106,
+          "review": 2,
+          "split": 38
+        },
+        "coverage_counts": {
+          "covered": 92,
+          "missing-current-unit": 4,
+          "multiple-current-records": 14
+        },
+        "manual_review_count": 40,
+        "direct_provisional_mapping_count": 106,
+        "blocked_progress_mapping_count": 2
+      },
+      "migration_blockers": [
+        "Unmatched current records require manual source comparison.",
+        "Split candidates do not yet have verified successor content boundaries.",
+        "Canonical units without direct current coverage require staging reconstruction.",
+        "Many-to-one relationships require explicit merge and completion rules.",
+        "Production redistribution rights remain unresolved.",
+        "Content-level checksums have not been compared.",
+        "Active progress and session dependency counts have not been joined to the candidate mappings.",
+        "Rollback tables and cutover transactions have not been designed or executed."
+      ]
+    },
+    {
+      "book": {
+        "book_id": 5,
+        "slug": "a-genese",
+        "title": "A Gênese"
+      },
+      "strategy": "targeted-staging-reconstruction",
+      "summary": {
+        "current_section_count": 146,
+        "canonical_node_count": 146,
+        "action_counts": {
+          "keep": 130,
+          "review": 6,
+          "split": 10
+        },
+        "coverage_counts": {
+          "covered": 122,
+          "missing-current-unit": 16,
+          "multiple-current-records": 8
+        },
+        "manual_review_count": 16,
+        "direct_provisional_mapping_count": 130,
+        "blocked_progress_mapping_count": 6
+      },
+      "migration_blockers": [
+        "Unmatched current records require manual source comparison.",
+        "Split candidates do not yet have verified successor content boundaries.",
+        "Canonical units without direct current coverage require staging reconstruction.",
+        "Many-to-one relationships require explicit merge and completion rules.",
+        "Production redistribution rights remain unresolved.",
+        "Content-level checksums have not been compared.",
+        "Active progress and session dependency counts have not been joined to the candidate mappings.",
+        "Rollback tables and cutover transactions have not been designed or executed."
+      ]
+    }
+  ]
+}

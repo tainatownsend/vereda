@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "status": "proposed",
+  "principles": [
+    "Never overwrite production sections in place.",
+    "Never delete current sections before progress mappings are validated.",
+    "Preserve current section IDs during staging and comparison.",
+    "Use deterministic canonical source keys as editorial references.",
+    "Use provisional reading-segment keys only after content boundaries are approved.",
+    "Block migration when a current section has no reliable canonical relationship.",
+    "Preserve completed progress conservatively when one current section becomes multiple successors.",
+    "Keep reading-session history immutable."
+  ],
+  "action_rules": {
+    "keep": {
+      "default_progress_strategy": "retain-current-section-until-cutover",
+      "automatic_cutover_allowed": false,
+      "required_evidence": [
+        "canonical title alignment",
+        "content-boundary verification",
+        "staging checksum verification"
+      ]
+    },
+    "relabel-review": {
+      "default_progress_strategy": "retain-current-section-id-if-boundary-unchanged",
+      "automatic_cutover_allowed": false,
+      "required_evidence": [
+        "manual title review",
+        "content-boundary verification"
+      ]
+    },
+    "reclassify": {
+      "default_progress_strategy": "retain-current-section-id-if-boundary-unchanged",
+      "automatic_cutover_allowed": false,
+      "required_evidence": [
+        "manual editorial-role review",
+        "content-boundary verification"
+      ]
+    },
+    "split": {
+      "default_progress_strategy": "map-current-progress-to-first-unread-successor",
+      "automatic_cutover_allowed": false,
+      "required_evidence": [
+        "approved successor boundaries",
+        "ordered successor list",
+        "completion-distribution rule",
+        "resume-position rule",
+        "rollback mapping"
+      ]
+    },
+    "review": {
+      "default_progress_strategy": "block-migration",
+      "automatic_cutover_allowed": false,
+      "required_evidence": [
+        "manual source comparison",
+        "resolved canonical relationship"
+      ]
+    }
+  },
+  "completion_rules": {
+    "completed_current_section_split_into_successors": {
+      "proposed_rule": "mark all verified successor segments complete only when the current section is proven to cover the complete successor range",
+      "otherwise": "block automatic completion transfer"
+    },
+    "incomplete_current_section_split_into_successors": {
+      "proposed_rule": "resume at the first successor whose verified boundary contains or follows the current resume location",
+      "otherwise": "resume at the first successor and retain the original mapping for rollback"
+    },
+    "multiple_current_sections_merged_into_one_successor": {
+      "proposed_rule": "mark the successor complete only when every contributing current section is complete",
+      "otherwise": "keep the successor incomplete"
+    }
+  },
+  "session_history": {
+    "rule": "immutable",
+    "migration_behavior": "retain original reading_sessions references and add a separate migration mapping when required"
+  }
+}
