@@ -1,0 +1,506 @@
+{
+  "schema_version": 1,
+  "status": "source-inspection-page-index",
+  "policy_version": "2026-08-03-source-inspection-packets-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "item_count": 144,
+  "page_entry_count": 16,
+  "pages": [
+    {
+      "book_id": 1,
+      "source_pdf_page": 6,
+      "item_count": 7,
+      "inspection_lanes": [
+        "container-intro-only",
+        "container-intro-same-page",
+        "same-page-no-semantic-anchor"
+      ],
+      "segment_keys": [
+        "a3d180e5c494585ecaa9a8c9",
+        "005ffe831efc9eafe3feefe7",
+        "0974c4855ff81772209f63dd",
+        "5e1078f260731224f9ea5c50",
+        "f29485d36682a7ecfafed5b2",
+        "aa17779baca79e9ead8a975d",
+        "9b2694748ef4c22927e48120"
+      ],
+      "inspection_ids": [
+        "2348e64b4b3a4029ea2c12ab",
+        "951bde717f873c51c4bf35c4",
+        "c9ed22dddc5806d58a224dc8",
+        "cb6a5e7315cee652db1815af",
+        "4eec462142a5b414790a3ed2",
+        "c99a26a44ac604389a77b2f4",
+        "2101fa88fd8e1632c63458ba"
+      ]
+    },
+    {
+      "book_id": 1,
+      "source_pdf_page": 7,
+      "item_count": 5,
+      "inspection_lanes": [
+        "container-intro-same-page"
+      ],
+      "segment_keys": [
+        "6ee63ec04cb3364032a4d703",
+        "db8bb3a8b36c8c95b97c00e0",
+        "f0ac467d6c6e4e4f0baf7fe1",
+        "2f3e67c9f34c474e73bcf639",
+        "4c72b47f1cf2e2b58a02c44e"
+      ],
+      "inspection_ids": [
+        "f376276385ec0dc93eeefce2",
+        "9cf1afa4a92416e5cfe9a60d",
+        "a2200edc6c64a40ae76e5613",
+        "15dc4605326bf08c7dbd05ef",
+        "8028f192209a18372d0ec346"
+      ]
+    },
+    {
+      "book_id": 1,
+      "source_pdf_page": 8,
+      "item_count": 10,
+      "inspection_lanes": [
+        "container-intro-only",
+        "container-intro-same-page",
+        "same-page-no-semantic-anchor"
+      ],
+      "segment_keys": [
+        "d709f621f896bf4419b76509",
+        "847140d127f8ddf39e438fd9",
+        "f1231ff81195f3fa0895a09e",
+        "b5ee4fd7d0855519a9c77d25",
+        "d3e0088557e9bffc9f03ce16",
+        "cbe5e7101232bd957c49e30b",
+        "7a3ce00315ec0a8bc3212322",
+        "ca34fe5d192f446074599420",
+        "fdc8bf68518dafb73f957139",
+        "563a1dfdad23a068ad5d4138"
+      ],
+      "inspection_ids": [
+        "16c8a3f3f0b322d244c4f6b8",
+        "2c9929ae877b08eb1c100e50",
+        "1f231905bd4661a48e95de85",
+        "7b12efbd664e1acd29b6aec1",
+        "cc916155469ae70b9d938cf6",
+        "b09eb638fb3c6e0c1bede92b",
+        "89436c19d5a926d49e22a8a0",
+        "3850147765c7a5d98ca04fbb",
+        "e6943c5a2d591d333bfff4f0",
+        "eef34ac768790704d6589d49"
+      ]
+    },
+    {
+      "book_id": 1,
+      "source_pdf_page": 9,
+      "item_count": 11,
+      "inspection_lanes": [
+        "container-intro-only",
+        "container-intro-same-page",
+        "same-page-no-semantic-anchor"
+      ],
+      "segment_keys": [
+        "68d35864698f00302a76550b",
+        "632fe546f78ac36f7ab54266",
+        "740ed56a085f9249e88041f2",
+        "1df74b6839d2b7fad9a18bb3",
+        "23cb579b9ce697747236822a",
+        "a769078e8dfe76c417ff30ac",
+        "e3005337277b129ef1f59aca",
+        "c9235ca7dec397e12d501623",
+        "af72f1d6af0f8deb0a13360c",
+        "40c75d9a34cd34a010229db0",
+        "dd4668ae4e69736954812aeb"
+      ],
+      "inspection_ids": [
+        "98163bcd16227fc4997caf7e",
+        "163157550f0fa244c6d6bda7",
+        "7035d576214b53154c0ec900",
+        "e02fa42b122e860c7911dd8d",
+        "6fdbb32c46c723156ca1f5e8",
+        "64b62106b2f06a5c98491f10",
+        "5dbf4d4909caabad7a7da356",
+        "16f86368b89d13da1195c5cb",
+        "f86c62a6e7cf5d78e9820a29",
+        "ae7558c3fcb5e22f85694519",
+        "66d5c5c0b8ca2039bcb5ba0c"
+      ]
+    },
+    {
+      "book_id": 2,
+      "source_pdf_page": 6,
+      "item_count": 8,
+      "inspection_lanes": [
+        "container-intro-only",
+        "same-page-no-semantic-anchor"
+      ],
+      "segment_keys": [
+        "451877fb2e9043922a604180",
+        "e3750489416607a8779a506c",
+        "d4303cfb1227455df49c3636",
+        "0ece331adf907f3b0f84a68f",
+        "461505522a3a1448a4c87e9e",
+        "846388d052d7b5d6c55ef4b0",
+        "ae3f5201e9fa12cf865ec958",
+        "27e685beed7bd675f1d459b5"
+      ],
+      "inspection_ids": [
+        "5ab7ab2f1bf300f100a3c57e",
+        "60422ae0f1f071d51a942b93",
+        "cd817c94b8ed400022cb8b1a",
+        "dc882978c55afcc2505c8074",
+        "ab2b73e7c4eb2f6d15aef539",
+        "1ca5704da02eb07536445dd4",
+        "73266958ee162fdb947f519f",
+        "745ad987105e2b1c1a92b86a"
+      ]
+    },
+    {
+      "book_id": 2,
+      "source_pdf_page": 7,
+      "item_count": 27,
+      "inspection_lanes": [
+        "container-intro-only",
+        "same-page-no-semantic-anchor"
+      ],
+      "segment_keys": [
+        "7370c0c547b6e99a9f02cfd9",
+        "2b6a174a8df71951cf035e6a",
+        "b2096739e72fed1231059ae5",
+        "49c1115582d8b34a99cc5d3d",
+        "8874f5003ba4ebadd4f9d7a3",
+        "d3ab36bc2b9d5a4d453cdd95",
+        "bcf3d69fc4ba9dcb428de1b8",
+        "eadad9e5982dbd4f6246e0ea",
+        "cc6899ab5fff646f9f3623ce",
+        "2732ec5f7192bd89044a580e",
+        "4df248dbf139fc06d98d48d6",
+        "50e8805f014876969f36c08d",
+        "f86f5f660d02e8dcdec363dd",
+        "70a00e8db490f2f33b321522",
+        "29dbc2af252b7975bfdfc9d2",
+        "ab19b110dd7b59dd2b8a8270",
+        "5506be25c8edfc428b3445fa",
+        "5b1d851d20f4e2fb0dfea066",
+        "6f6cf98df2f8bf63df4949b2",
+        "83c3ad7dd6608dc01066c5dc",
+        "8ec6b067095e088f7466a476",
+        "96cff0d7dc39aa3dc47a54e4",
+        "c0f3b9746d1c793dae593249",
+        "1d427008b83d974f1d928280",
+        "36a87049c6bae33e27018814",
+        "57326f6ac49fd3318b7439d1",
+        "3f267937da87df55946a9ec3"
+      ],
+      "inspection_ids": [
+        "5cb2b634d6f527f00c235e84",
+        "190a8154114a45cf007a4107",
+        "7f22cabe24c6362362eead2e",
+        "aec02a4d41af31ae230aab39",
+        "6b148af8e79b934c383a7a5a",
+        "936c5d95aa5eb7d1212df369",
+        "9f65748ea94cd4972a76eaba",
+        "eef807527943e82c139cce13",
+        "cb15dc6242ecdfbb027d8de0",
+        "0aa12b3e136c670062ba2db3",
+        "8d8513dd3452bf0e0b16dae1",
+        "62ff1a751605100a12b1b885",
+        "10901ead453cd6457505f3f5",
+        "3b5d334faf9b056cf4b99d4a",
+        "b0f6cbc440ffc2bf27d78b5b",
+        "dff4ad59e1b0cdcc85ee1243",
+        "846c36e3cfe052ce8fdc2eb3",
+        "5480aee03ad64d5151470b7e",
+        "570988ba7efb19e32d2fd96b",
+        "5def06350d9358c774857977",
+        "cb3cc2eaaf01ebc2747b3565",
+        "bb2af6673b8a049e7aa7b595",
+        "c5bc7008442244b22f4ffba1",
+        "713fb81a0829c9a183b4b70d",
+        "67bb8ff883f95d1ca6091931",
+        "6c7cbff7d50f2641398b482c",
+        "91f9e966ee89d8f7ab241fa7"
+      ]
+    },
+    {
+      "book_id": 2,
+      "source_pdf_page": 8,
+      "item_count": 25,
+      "inspection_lanes": [
+        "container-intro-only",
+        "same-page-no-semantic-anchor"
+      ],
+      "segment_keys": [
+        "3e2862b193da5ea95fc0acee",
+        "45cf2cc25a379e6c068dbcc7",
+        "0df37af09ff41ce78a93fca0",
+        "08aff1ed7292cbda8723ef60",
+        "e86226f44c5fbf2493cd071f",
+        "dba23a05a9aee9123deaae3c",
+        "ab77c3f8a7c7a5a6f7dc2526",
+        "5e4832754f32baf1e8daa666",
+        "d453a364c1a20d0b21c85c6a",
+        "c172855c2ef75f24e632a536",
+        "e473f826634eaf9b1d4499f4",
+        "a4750ce1343cec2fc2e3fa69",
+        "918e63ca4702c1297043b7be",
+        "d14186ad26de6fedc981a33e",
+        "a1c1f52d63a279303f045a01",
+        "d5f756c19934aa57901c3a54",
+        "2b22588e2aa43ba3f5ad9a51",
+        "069c36d7dd83c0277d11ba8e",
+        "08d7913f6af64eb513865b6a",
+        "100e7a6c78c5d22eb91c82a9",
+        "1636f3697c5b061474bea0ff",
+        "12dbd6a011eca30eeb9c6822",
+        "a7e6f2445c2d4384b6cd3166",
+        "040ef1695077f62862ff2a01",
+        "d74f3076519ddd4e07ececb0"
+      ],
+      "inspection_ids": [
+        "d9e313f2c0d4ce15e5dd9888",
+        "69e80d17d0314c5007a7d9ac",
+        "1173a7cfd3d5fdd13c48cc5f",
+        "0d6f988f6a7d48d6a9ec79f2",
+        "f3601f8bbd9158ba60ebd4c0",
+        "a400525e775112ca2fb568b2",
+        "26eff4bb3ba0dfdd3972f54c",
+        "678a271e959cc7eb4b7fd509",
+        "416a047065bd2b7f14953bd9",
+        "f796a50bc812e5578177e9d3",
+        "4c1108c5062464d6d6faed29",
+        "45501b7fb084daeef2fdfe7b",
+        "8caa5a7d94f773d619552e61",
+        "69cd38cfae2806613180a8b2",
+        "b69df13354f27cc5b54dcf6c",
+        "637478ff6037ee3c67b5d144",
+        "56ecdc94ade530b98aa62e6b",
+        "50d2fea88856f77081bdbb99",
+        "6557ecf7a9bee93ca2fda18e",
+        "56621183f97e6371afb22491",
+        "958aeb29badce8d466ffacac",
+        "d37066b46c608085b91a139d",
+        "86ab2b184ec55de7912c9cb2",
+        "860fc90e8b1f976a042a1e8e",
+        "37775b3f68fd0a4c477953b1"
+      ]
+    },
+    {
+      "book_id": 2,
+      "source_pdf_page": 9,
+      "item_count": 19,
+      "inspection_lanes": [
+        "container-intro-only",
+        "same-page-no-semantic-anchor"
+      ],
+      "segment_keys": [
+        "d25afe84b978d277e4502e1c",
+        "1cade84bc2a1f17af5796ef8",
+        "dde19d4ee577c5c0c4d51a50",
+        "82bd31a7e9033b97c87a48f9",
+        "1456e2b3294d301a78e5cf72",
+        "1ea97f6309ed08451096e49b",
+        "b1b5a3ae962f8e7924e2020c",
+        "c7c12401bf19ceaa875ec409",
+        "4759b2252cea02241a67d388",
+        "4bb021e741e7beb59b7a95d1",
+        "d5f63a018ee98a856bb121fa",
+        "cfa234d24f2f65c708a90a72",
+        "b3eefd00bc66e06f8073b95f",
+        "574707d5f0923fa7947f068d",
+        "048dae1652ad0db1740ac444",
+        "1a787ffe502af23b14cb48e0",
+        "6f60a11cdd8a3de795869a2b",
+        "98ab3cc0a147b2c09e1f4ba7",
+        "78292d40f0ef490a23250c30"
+      ],
+      "inspection_ids": [
+        "d862712e156d2caa76857daf",
+        "8693de5ed562fbcce0fd2037",
+        "ede8ce78f3c29fcb79bc5e17",
+        "062c6dbf156a1b96c00478a0",
+        "4c57a7027a1cafc1dbf59457",
+        "1f4f8d2a68c4e814a45a65f5",
+        "2c245b2b7b48011810318e39",
+        "61aca3bce87627110bc3b921",
+        "85a885a17c991b170bbd85cd",
+        "d53f4d842b47d5e3123c76f2",
+        "05f7ad9d25dacfedec93b533",
+        "b5797f4d406d2c9bf80e0465",
+        "6a52ec746131d5e6140e2bfa",
+        "615de0172c9025cb5b915126",
+        "5cdc89683aa07d3009bbd376",
+        "219a2d46c5fa2db7361785f5",
+        "03211a5a4cfe866e0e14c4bf",
+        "75bb65ff20bc8d40690251ff",
+        "74d8b17ce62c9a03a568af3b"
+      ]
+    },
+    {
+      "book_id": 3,
+      "source_pdf_page": 8,
+      "item_count": 1,
+      "inspection_lanes": [
+        "same-page-no-semantic-anchor"
+      ],
+      "segment_keys": [
+        "9d8aad897894831700cfd109"
+      ],
+      "inspection_ids": [
+        "d89edaa48cf723bd3cbfcadb"
+      ]
+    },
+    {
+      "book_id": 3,
+      "source_pdf_page": 9,
+      "item_count": 1,
+      "inspection_lanes": [
+        "container-intro-only"
+      ],
+      "segment_keys": [
+        "f026ae4f95969ab96c88c2ac"
+      ],
+      "inspection_ids": [
+        "a307e5d2380dae68b790e497"
+      ]
+    },
+    {
+      "book_id": 3,
+      "source_pdf_page": 10,
+      "item_count": 2,
+      "inspection_lanes": [
+        "container-intro-only"
+      ],
+      "segment_keys": [
+        "67f61955dad711b936e5f59e",
+        "8f9201f1456b853f349fcb41"
+      ],
+      "inspection_ids": [
+        "c23cec50aede1df2e634d0af",
+        "37148ad1940e78bd8325a7e9"
+      ]
+    },
+    {
+      "book_id": 4,
+      "source_pdf_page": 6,
+      "item_count": 6,
+      "inspection_lanes": [
+        "container-intro-only",
+        "container-intro-same-page",
+        "same-page-no-semantic-anchor"
+      ],
+      "segment_keys": [
+        "ef828749e83d6cc8558e5737",
+        "8e9626db621b38dd240f023d",
+        "c4aa4ec13bb0a5eddb05893a",
+        "9acd30a0517e99c916370355",
+        "544eb4008b02ec5d4f1b0c0a",
+        "9679a904e31daae1e3e56906"
+      ],
+      "inspection_ids": [
+        "ef5fd9eb7d107017d7111dd9",
+        "2aacf10a9fb6ff6bf0525bd6",
+        "bedfaf63580fbd88772461b8",
+        "26567a2bca2248340b299601",
+        "04664813d0e9f46407a706d7",
+        "8aad9c18e9c405dbdc1f9e20"
+      ]
+    },
+    {
+      "book_id": 4,
+      "source_pdf_page": 7,
+      "item_count": 2,
+      "inspection_lanes": [
+        "container-intro-only",
+        "container-intro-same-page"
+      ],
+      "segment_keys": [
+        "5382690e2426da4ee3978f67",
+        "16fbb4387179c1ab2df992e7"
+      ],
+      "inspection_ids": [
+        "f5b45bee3464fd921bc0a7a3",
+        "65be44421a5032a3e9911207"
+      ]
+    },
+    {
+      "book_id": 5,
+      "source_pdf_page": 6,
+      "item_count": 5,
+      "inspection_lanes": [
+        "container-intro-same-page",
+        "same-page-no-semantic-anchor"
+      ],
+      "segment_keys": [
+        "23007dc1fc187a6815c513fe",
+        "7adc963866a7a8f0e4032223",
+        "f754887de0b4ba992aa5b65d",
+        "6d5e399b0300c55668d17cd6",
+        "de257ebe96af3ffbdc12ce4f"
+      ],
+      "inspection_ids": [
+        "d84649d6819a55d5a92ebd96",
+        "8a9002840aa78d47b4a76905",
+        "371272c457fc15fcdf02563a",
+        "e446917550fe8fbe7abb8beb",
+        "2171cd4a72a7e276f72c9dc8"
+      ]
+    },
+    {
+      "book_id": 5,
+      "source_pdf_page": 7,
+      "item_count": 4,
+      "inspection_lanes": [
+        "container-intro-same-page"
+      ],
+      "segment_keys": [
+        "9178279f438d3b63471c0b0b",
+        "b0f495272843306f365ee87b",
+        "b427f6b67bcd303e7f143fad",
+        "801091337487ce45678a0c70"
+      ],
+      "inspection_ids": [
+        "5f4dadf39dda09fb146a87fb",
+        "617face270821ad719a91a5d",
+        "b589b60b13a98cc6e598fd34",
+        "5c3b585e3cbb1903dbe43875"
+      ]
+    },
+    {
+      "book_id": 5,
+      "source_pdf_page": 8,
+      "item_count": 11,
+      "inspection_lanes": [
+        "container-intro-same-page",
+        "same-page-no-semantic-anchor"
+      ],
+      "segment_keys": [
+        "8243eec0bd1e08154b4113c5",
+        "45946bdf3fa0a1488036ed42",
+        "41256a94961280b0ec185b2a",
+        "143693537c3cf3b5ea10a44d",
+        "a1927465f07f14bb9497ab9b",
+        "967bb923009521831a90dedd",
+        "5614b07b464989d7e8bc9a4b",
+        "88dddcb471bd451858bc4dc2",
+        "51343da79da82b5b257c9e2b",
+        "113f7ff843bb375048d0a053",
+        "cc17fbf1ec2b82c33161adc6"
+      ],
+      "inspection_ids": [
+        "308ba0a28d15878c5da9ff8a",
+        "9256bdd179a21f1d39fdf0cd",
+        "2296cb1ebdf5662c23ecea1d",
+        "e3992d246d30456ec6147928",
+        "65e8f7883ad4f4e6dd727834",
+        "4c79b6a2cf5cbe32f724f98a",
+        "eee02b6b8417511d91a04327",
+        "2ea62a75175d8d61f9974336",
+        "b0a41753614ee27d66f487f2",
+        "9d3108b29f38f42b3528d928",
+        "4841347de1950be3f1179cb1"
+      ]
+    }
+  ],
+  "contains_full_text": false
+}
