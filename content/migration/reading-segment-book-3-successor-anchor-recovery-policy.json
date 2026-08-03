@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-book-3-successor-anchor-recovery",
+  "policy_version": "2026-08-03-book-3-successor-anchor-recovery-v1",
+  "purpose": "Attempt a bounded recovery of the three Book 3 container introductions whose canonical successor anchors were not found inside the original six-page search window.",
+  "resolution_lane": "successor-anchor-recovery",
+  "target_batch": {
+    "batch_id": "successor-anchor-recovery-book-3-batch-01",
+    "book_id": 3,
+    "item_count": 3,
+    "analysis_ids": [
+      "325c389cfc408bf7e0b7c3ca",
+      "aa1b368380ae8dfb917b8587",
+      "24273a3b3646942318a587a4"
+    ],
+    "original_decision_ids": [
+      "f2bff0a165605794c5b6066c",
+      "5dfd679f9d1d2145cf8b6d40",
+      "f0eb9634f4633149d54d8636"
+    ],
+    "segment_keys": [
+      "f026ae4f95969ab96c88c2ac",
+      "67f61955dad711b936e5f59e",
+      "8f9201f1456b853f349fcb41"
+    ]
+  },
+  "expected_pairs": [
+    {
+      "segment_key": "f026ae4f95969ab96c88c2ac",
+      "display_title": "Não separeis o que Deus juntou",
+      "successor_title": "Indissolubilidade do casamento",
+      "original_source_pdf_page": 280
+    },
+    {
+      "segment_key": "67f61955dad711b936e5f59e",
+      "display_title": "Buscai e achareis",
+      "successor_title": "Ajuda-te a ti mesmo, que o céu te ajudará",
+      "original_source_pdf_page": 304
+    },
+    {
+      "segment_key": "8f9201f1456b853f349fcb41",
+      "display_title": "Dai gratuitamente o que gratuitamente recebestes",
+      "successor_title": "Dom de curar",
+      "original_source_pdf_page": 310
+    }
+  ],
+  "matching_rules": {
+    "canonical_source_sha256_required": true,
+    "current_page_radius": 2,
+    "maximum_current_title_window_lines": 8,
+    "maximum_successor_title_window_lines": 8,
+    "maximum_successor_search_pages": 30,
+    "punctuation_insensitive": true,
+    "accent_insensitive": true,
+    "multi_line_reconstruction": true,
+    "contents_occurrences_forbidden": true,
+    "current_successor_pair_required_for_resolution": true,
+    "ambiguous_top_pair_forbidden": true
+  },
+  "classification_rules": {
+    "heading_only": {
+      "selected_decision": "exclude-structural-heading",
+      "minimum_confidence": "medium"
+    },
+    "independent_prose": {
+      "selected_decision": "retain-intro-segment",
+      "minimum_confidence": "medium"
+    },
+    "insufficient_evidence": {
+      "selected_decision": "unresolved",
+      "reviewer_confidence": "low"
+    }
+  },
+  "forbidden_public_fields": [
+    "source_text",
+    "source_excerpt",
+    "quoted_text",
+    "quotation",
+    "full_text",
+    "normalized_content",
+    "private_notes",
+    "reviewer_notes",
+    "ocr_text",
+    "page_text",
+    "between_lines",
+    "matched_lines",
+    "candidate_page_text"
+  ],
+  "recovery_boundary": {
+    "local_source_read": true,
+    "structured_recovery_attempts_recorded": true,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "historical_decision_artifacts_modified": false,
+    "prior_recovery_artifacts_modified": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}

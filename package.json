@@ -69,7 +69,9 @@
     "content:staging:segments:source-review:title-window:recover": "python scripts/content_pipeline/recover_title_windows.py",
     "content:staging:segments:source-review:title-window:validate": "node scripts/content_pipeline/validate_title_window_recovery.mjs",
     "content:staging:segments:source-review:non-contents:recover": "python scripts/content_pipeline/recover_non_contents_occurrence.py",
-    "content:staging:segments:source-review:non-contents:validate": "node scripts/content_pipeline/validate_non_contents_occurrence_recovery.mjs"
+    "content:staging:segments:source-review:non-contents:validate": "node scripts/content_pipeline/validate_non_contents_occurrence_recovery.mjs",
+    "content:staging:segments:source-review:successor-anchor:book-3:recover": "python scripts/content_pipeline/recover_book_3_successor_anchors.py",
+    "content:staging:segments:source-review:successor-anchor:book-3:validate": "node scripts/content_pipeline/validate_book_3_successor_anchor_recovery.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

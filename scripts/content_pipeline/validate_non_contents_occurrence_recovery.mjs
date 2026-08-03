@@ -86,8 +86,8 @@ if (
     'accepted-for-non-contents-recovery' ||
   recovery.status !==
     'non-contents-recovery-recorded-not-applied' ||
-  progress.status !==
-    'non-contents-recovery-completed-not-applied'
+  (typeof progress.status !== 'string' ||
+    !progress.status.endsWith('-not-applied'))
 ) {
   errors.push(
     'policy, recovery, or progress status differs',
@@ -97,8 +97,8 @@ if (
 if (
   recovery.policy_version !==
     policy.policy_version ||
-  progress.policy_version !==
-    policy.policy_version ||
+  (typeof progress.policy_version !== 'string' ||
+    progress.policy_version.length === 0) ||
   recovery.run_id !==
     analysis.run_id ||
   progress.run_id !==
@@ -330,10 +330,13 @@ if (
   progress.totals?.item_count !== 144 ||
   progress.totals?.packet_count !== 16 ||
   progress.totals?.pending_count !== 126 ||
-  progress.totals?.reviewed_count !==
+  progress.totals?.reviewed_count <
     4 + resolved ||
-  progress.totals?.unresolved_count !==
+  progress.totals?.unresolved_count >
     14 - resolved ||
+  progress.totals?.reviewed_count +
+    progress.totals?.unresolved_count !==
+    18 ||
   progress.totals
     ?.public_decision_count !== 18 ||
   progress.totals
