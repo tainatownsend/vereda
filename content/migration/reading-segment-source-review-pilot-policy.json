@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-pilot-source-review",
+  "policy_version": "2026-08-03-source-review-pilot-v1",
+  "purpose": "Review the smallest bounded source-inspection packet using the verified local source edition and commit only structured, content-free evidence.",
+  "packet": {
+    "packet_id": "container-intro-only-book-4-packet-01",
+    "book_id": 4,
+    "book_slug": "o-ceu-e-o-inferno",
+    "expected_item_count": 2,
+    "expected_inspection_lane": "container-intro-only",
+    "expected_titles": [
+      "PRIMEIRA PARTE — Doutrina",
+      "SEGUNDA PARTE — Exemplos"
+    ]
+  },
+  "source": {
+    "source_file": "WEB-O-Ceu-e-o-inferno-Guillon.pdf",
+    "source_sha256": "68c4a430173adca380e87e4ebe014699b594f1ea893fa7c92ce8bfdc0b90374d",
+    "expected_pdf_page_count": 409,
+    "usage": "local-structural-analysis-only",
+    "rights_status": "permission-required-for-production"
+  },
+  "selection_rules": {
+    "find_pages_containing_all_normalized_title_tokens": true,
+    "score_table_of_contents_signals": true,
+    "prefer_lowest_table_of_contents_score": true,
+    "require_zero_table_of_contents_signals": true,
+    "require_zero_prose_signals": true,
+    "require_distinct_selected_pages": true,
+    "allow_source_text_only_in_gitignored_workspace": true
+  },
+  "decision_rule": {
+    "when_visible_content_is_structural_without_prose": {
+      "visible_prose_presence": "heading-only",
+      "selected_decision": "exclude-structural-heading",
+      "reviewer_confidence": "high"
+    }
+  },
+  "public_evidence_allowlist": [
+    "source_file",
+    "source_sha256",
+    "source_pdf_page_reviewed",
+    "printed_page_reviewed",
+    "visible_prose_presence",
+    "successor_anchor_type",
+    "locator_type",
+    "locator_value",
+    "source_reference_only",
+    "candidate_page_count",
+    "toc_signal_count",
+    "prose_signal_count",
+    "structural_line_count"
+  ],
+  "forbidden_public_fields": [
+    "source_text",
+    "source_excerpt",
+    "quoted_text",
+    "quotation",
+    "full_text",
+    "normalized_content",
+    "private_notes",
+    "reviewer_notes",
+    "ocr_text",
+    "page_text"
+  ],
+  "review_boundary": {
+    "pilot_packet_reviewed": true,
+    "structured_decisions_recorded": true,
+    "source_text_inspected_locally": true,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
