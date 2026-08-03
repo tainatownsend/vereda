@@ -34,7 +34,10 @@
     "content:staging:nodes:validate": "node scripts/content_pipeline/validate_editorial_node_load.mjs",
     "content:staging:nodes:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_editorial_node_load.py",
     "content:staging:nodes:verify:import": "node scripts/content_pipeline/import_editorial_node_verification.mjs",
-    "content:staging:nodes:verify:validate": "node scripts/content_pipeline/validate_editorial_node_evidence.mjs"
+    "content:staging:nodes:verify:validate": "node scripts/content_pipeline/validate_editorial_node_evidence.mjs",
+    "content:staging:segments:design:build": "node scripts/content_pipeline/run_python.mjs scripts/content_pipeline/build_reading_segment_design.py",
+    "content:staging:segments:design:validate": "node scripts/content_pipeline/validate_reading_segment_design.mjs",
+    "content:staging:segments:design:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_reading_segment_design.py"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
