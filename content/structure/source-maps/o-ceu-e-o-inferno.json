@@ -1,0 +1,1722 @@
+{
+  "schema_version": 1,
+  "book": {
+    "book_id": 4,
+    "slug": "o-ceu-e-o-inferno",
+    "title": "O Céu e o Inferno"
+  },
+  "source": {
+    "source_file": "WEB-O-Ceu-e-o-inferno-Guillon.pdf",
+    "source_sha256": "68c4a430173adca380e87e4ebe014699b594f1ea893fa7c92ce8bfdc0b90374d",
+    "toc_pdf_pages": [
+      6,
+      7,
+      8
+    ],
+    "toc_text_sha256": "044b325f8a79f160dfe84c6560ad77aabcb33a74eda8706be5cc0b24370cbdb1",
+    "rights_status": "permission-required-for-production"
+  },
+  "counts": {
+    "front_matter": 0,
+    "divisions": 2,
+    "chapters": 19,
+    "groups": 0,
+    "sections": 87,
+    "back_matter": 2,
+    "total_nodes": 110
+  },
+  "nodes": [
+    {
+      "id": "o-ceu-e-o-inferno:division:36046d5a4a823882",
+      "source_key": "36046d5a4a823882",
+      "parent_id": null,
+      "order": 1,
+      "depth": 0,
+      "type": "division",
+      "label": null,
+      "title": "PRIMEIRA PARTE — Doutrina",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:bd6f1918c6b462f8",
+      "source_key": "bd6f1918c6b462f8",
+      "parent_id": "o-ceu-e-o-inferno:division:36046d5a4a823882",
+      "order": 2,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo I",
+      "title": "O porvir e o nada",
+      "source_pdf_page": 6,
+      "printed_page": 11,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:e8bca143f7c10c6c",
+      "source_key": "e8bca143f7c10c6c",
+      "parent_id": "o-ceu-e-o-inferno:division:36046d5a4a823882",
+      "order": 3,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo II",
+      "title": "Temor da morte",
+      "source_pdf_page": 6,
+      "printed_page": 19,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:0b581031ca5e7177",
+      "source_key": "0b581031ca5e7177",
+      "parent_id": "o-ceu-e-o-inferno:chapter:e8bca143f7c10c6c",
+      "order": 4,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Causas do temor da morte",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 19
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:cdedb1c23a136a3e",
+      "source_key": "cdedb1c23a136a3e",
+      "parent_id": "o-ceu-e-o-inferno:chapter:e8bca143f7c10c6c",
+      "order": 5,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Por que os espíritas não temem a morte",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 23
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:b063a7ebeb31036c",
+      "source_key": "b063a7ebeb31036c",
+      "parent_id": "o-ceu-e-o-inferno:division:36046d5a4a823882",
+      "order": 6,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo III",
+      "title": "O céu",
+      "source_pdf_page": 6,
+      "printed_page": 25,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:9b25848479a1d4fc",
+      "source_key": "9b25848479a1d4fc",
+      "parent_id": "o-ceu-e-o-inferno:division:36046d5a4a823882",
+      "order": 7,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo IV",
+      "title": "O inferno",
+      "source_pdf_page": 6,
+      "printed_page": 37,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:040dfc020c5960ee",
+      "source_key": "040dfc020c5960ee",
+      "parent_id": "o-ceu-e-o-inferno:chapter:9b25848479a1d4fc",
+      "order": 8,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Intuição das penas futuras",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 37
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:1484d72deafb70e5",
+      "source_key": "1484d72deafb70e5",
+      "parent_id": "o-ceu-e-o-inferno:chapter:9b25848479a1d4fc",
+      "order": 9,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O inferno cristão imitado do inferno pagão",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 38
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:07df27d54cb14e7c",
+      "source_key": "07df27d54cb14e7c",
+      "parent_id": "o-ceu-e-o-inferno:chapter:9b25848479a1d4fc",
+      "order": 10,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Os limbos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 40
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:fbcba34e0ffefed3",
+      "source_key": "fbcba34e0ffefed3",
+      "parent_id": "o-ceu-e-o-inferno:chapter:9b25848479a1d4fc",
+      "order": 11,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Quadro do inferno pagão",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 41
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:abbb52d8aabed411",
+      "source_key": "abbb52d8aabed411",
+      "parent_id": "o-ceu-e-o-inferno:chapter:9b25848479a1d4fc",
+      "order": 12,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Esboço do inferno cristão",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 48
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:b8125beef58f9a24",
+      "source_key": "b8125beef58f9a24",
+      "parent_id": "o-ceu-e-o-inferno:division:36046d5a4a823882",
+      "order": 13,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo V",
+      "title": "O purgatório",
+      "source_pdf_page": 6,
+      "printed_page": 57,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:8851e017433221db",
+      "source_key": "8851e017433221db",
+      "parent_id": "o-ceu-e-o-inferno:division:36046d5a4a823882",
+      "order": 14,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VI",
+      "title": "Doutrina das penas eternas",
+      "source_pdf_page": 6,
+      "printed_page": 63,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:1ff019f5aea45e01",
+      "source_key": "1ff019f5aea45e01",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8851e017433221db",
+      "order": 15,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Origem da doutrina das penas eternas",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 63
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:10ef443a41ec3716",
+      "source_key": "10ef443a41ec3716",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8851e017433221db",
+      "order": 16,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Argumentos a favor das penas eternas",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 68
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:269e5eb177195519",
+      "source_key": "269e5eb177195519",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8851e017433221db",
+      "order": 17,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Impossibilidade material das penas eternas",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 72
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:1a71050b739a2580",
+      "source_key": "1a71050b739a2580",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8851e017433221db",
+      "order": 18,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A doutrina das penas eternas fez sua época",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 74
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:b05ac0726bba7331",
+      "source_key": "b05ac0726bba7331",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8851e017433221db",
+      "order": 19,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Ezequiel contra a eternidade das penas e o pecado original",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 76
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:f64454f36cb8de88",
+      "source_key": "f64454f36cb8de88",
+      "parent_id": "o-ceu-e-o-inferno:division:36046d5a4a823882",
+      "order": 20,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VII",
+      "title": "As penas futuras segundo o Espiritismo",
+      "source_pdf_page": 6,
+      "printed_page": 79,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:29a7fa0ba4b64e73",
+      "source_key": "29a7fa0ba4b64e73",
+      "parent_id": "o-ceu-e-o-inferno:chapter:f64454f36cb8de88",
+      "order": 21,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A carne é fraca",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 79
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:be4ec434510b11da",
+      "source_key": "be4ec434510b11da",
+      "parent_id": "o-ceu-e-o-inferno:chapter:f64454f36cb8de88",
+      "order": 22,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Princípios da Doutrina Espírita sobre as penas futuras",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 82
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:95bfb372f416047d",
+      "source_key": "95bfb372f416047d",
+      "parent_id": "o-ceu-e-o-inferno:chapter:f64454f36cb8de88",
+      "order": 23,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Código penal da vida futura",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 82
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:c86d7b2504dd6790",
+      "source_key": "c86d7b2504dd6790",
+      "parent_id": "o-ceu-e-o-inferno:division:36046d5a4a823882",
+      "order": 24,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VIII",
+      "title": "Os anjos",
+      "source_pdf_page": 6,
+      "printed_page": 93,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:2a475d26d1a923a6",
+      "source_key": "2a475d26d1a923a6",
+      "parent_id": "o-ceu-e-o-inferno:chapter:c86d7b2504dd6790",
+      "order": 25,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Os anjos segundo a Igreja",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 93
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:959e09d8dcb0bb69",
+      "source_key": "959e09d8dcb0bb69",
+      "parent_id": "o-ceu-e-o-inferno:chapter:c86d7b2504dd6790",
+      "order": 26,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Refutação",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 97
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:7522830903b70ea9",
+      "source_key": "7522830903b70ea9",
+      "parent_id": "o-ceu-e-o-inferno:chapter:c86d7b2504dd6790",
+      "order": 27,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Os anjos segundo o Espiritismo",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 102
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:1dc493030bb5faf0",
+      "source_key": "1dc493030bb5faf0",
+      "parent_id": "o-ceu-e-o-inferno:division:36046d5a4a823882",
+      "order": 28,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo IX",
+      "title": "Os demônios",
+      "source_pdf_page": 6,
+      "printed_page": 105,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:bb0459a3f399dfce",
+      "source_key": "bb0459a3f399dfce",
+      "parent_id": "o-ceu-e-o-inferno:chapter:1dc493030bb5faf0",
+      "order": 29,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Origem da crença nos demônios",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 105
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:f72bc4ed91d10b37",
+      "source_key": "f72bc4ed91d10b37",
+      "parent_id": "o-ceu-e-o-inferno:chapter:1dc493030bb5faf0",
+      "order": 30,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Os demônios segundo a Igreja",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 108
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:3d64462982913738",
+      "source_key": "3d64462982913738",
+      "parent_id": "o-ceu-e-o-inferno:chapter:1dc493030bb5faf0",
+      "order": 31,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Os demônios segundo o Espiritismo",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 118
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:9781d6e4ebee2a8d",
+      "source_key": "9781d6e4ebee2a8d",
+      "parent_id": "o-ceu-e-o-inferno:division:36046d5a4a823882",
+      "order": 32,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo X",
+      "title": "Intervenção dos demônios nas modernas manifestações",
+      "source_pdf_page": 7,
+      "printed_page": 121,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:1292d2d9abe27b0a",
+      "source_key": "1292d2d9abe27b0a",
+      "parent_id": "o-ceu-e-o-inferno:division:36046d5a4a823882",
+      "order": 33,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo XI",
+      "title": "Da proibição de evocar os mortos",
+      "source_pdf_page": 7,
+      "printed_page": 139,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:division:7183e549b85b7e66",
+      "source_key": "7183e549b85b7e66",
+      "parent_id": null,
+      "order": 34,
+      "depth": 0,
+      "type": "division",
+      "label": null,
+      "title": "SEGUNDA PARTE — Exemplos",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:958866f80eb8f2d5",
+      "source_key": "958866f80eb8f2d5",
+      "parent_id": "o-ceu-e-o-inferno:division:7183e549b85b7e66",
+      "order": 35,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo I",
+      "title": "O passamento",
+      "source_pdf_page": 7,
+      "printed_page": 151,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "source_key": "8a91fe3b461ccafb",
+      "parent_id": "o-ceu-e-o-inferno:division:7183e549b85b7e66",
+      "order": 36,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo II",
+      "title": "Espíritos felizes",
+      "source_pdf_page": 7,
+      "printed_page": 159,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:33f3e38b8a54691c",
+      "source_key": "33f3e38b8a54691c",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 37,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Sanson",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 159
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:5fcfd6cc043b3728",
+      "source_key": "5fcfd6cc043b3728",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 38,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Jobard",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 168
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:5aac44416187c526",
+      "source_key": "5aac44416187c526",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 39,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Samuel Philippe",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 173
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:498cfae38284e212",
+      "source_key": "498cfae38284e212",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 40,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Van Durst",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 177
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:a0b1cc18b0bdad15",
+      "source_key": "a0b1cc18b0bdad15",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 41,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Sixdeniers",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 178
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:8cef4d28e71647ad",
+      "source_key": "8cef4d28e71647ad",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 42,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O doutor Demeure",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 181
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:c15746f1117c9928",
+      "source_key": "c15746f1117c9928",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 43,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A viúva Foulon, nascida Wollis",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 186
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:a977fd88642bcc75",
+      "source_key": "a977fd88642bcc75",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 44,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Um médico russo",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 193
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:9fd1f94de8fc88aa",
+      "source_key": "9fd1f94de8fc88aa",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 45,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Bernardin",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 197
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:e01eff344b851aa7",
+      "source_key": "e01eff344b851aa7",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 46,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A condessa Paula",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 198
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:7389de0f9f58fd24",
+      "source_key": "7389de0f9f58fd24",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 47,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Jean Reynaud",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 201
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:f7d1853a504f8d32",
+      "source_key": "f7d1853a504f8d32",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 48,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Antoine Costeau",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 205
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:f5751d7aecafa246",
+      "source_key": "f5751d7aecafa246",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 49,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A Srta. Emma",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 208
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:45c7fb3f005a8031",
+      "source_key": "45c7fb3f005a8031",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 50,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O doutor Vignal",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 209
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:9a62855f9a463509",
+      "source_key": "9a62855f9a463509",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 51,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Victor Lebufle",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 212
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:7e119966ae39a2cd",
+      "source_key": "7e119966ae39a2cd",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 52,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A Sra. Anaïs Gourdon",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 214
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:ee87ee6d05da806a",
+      "source_key": "ee87ee6d05da806a",
+      "parent_id": "o-ceu-e-o-inferno:chapter:8a91fe3b461ccafb",
+      "order": 53,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Maurice Gontran",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 215
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:ccc06fbf8b40acde",
+      "source_key": "ccc06fbf8b40acde",
+      "parent_id": "o-ceu-e-o-inferno:division:7183e549b85b7e66",
+      "order": 54,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo III",
+      "title": "Espíritos em condições medianas",
+      "source_pdf_page": 7,
+      "printed_page": 219,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:79c2ad0f6fd85e17",
+      "source_key": "79c2ad0f6fd85e17",
+      "parent_id": "o-ceu-e-o-inferno:chapter:ccc06fbf8b40acde",
+      "order": 55,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Joseph Bré",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 219
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:d211b30c42aa0482",
+      "source_key": "d211b30c42aa0482",
+      "parent_id": "o-ceu-e-o-inferno:chapter:ccc06fbf8b40acde",
+      "order": 56,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Sra. Hélène Michel",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 220
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:a563eadf7ab082b4",
+      "source_key": "a563eadf7ab082b4",
+      "parent_id": "o-ceu-e-o-inferno:chapter:ccc06fbf8b40acde",
+      "order": 57,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O marquês de Saint- -Paul",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 222
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:c11d45079e45329d",
+      "source_key": "c11d45079e45329d",
+      "parent_id": "o-ceu-e-o-inferno:chapter:ccc06fbf8b40acde",
+      "order": 58,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Sr. Cardon, médico",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 224
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:a31e5991bf5b036a",
+      "source_key": "a31e5991bf5b036a",
+      "parent_id": "o-ceu-e-o-inferno:chapter:ccc06fbf8b40acde",
+      "order": 59,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Eric Stanislas",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 228
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:8627ca8df9007af5",
+      "source_key": "8627ca8df9007af5",
+      "parent_id": "o-ceu-e-o-inferno:chapter:ccc06fbf8b40acde",
+      "order": 60,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Sra. Anna Belleville",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 229
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:0ee32e90d408d42b",
+      "source_key": "0ee32e90d408d42b",
+      "parent_id": "o-ceu-e-o-inferno:division:7183e549b85b7e66",
+      "order": 61,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo IV",
+      "title": "Espíritos sofredores",
+      "source_pdf_page": 7,
+      "printed_page": 235,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:e05b6b8254a43eb0",
+      "source_key": "e05b6b8254a43eb0",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0ee32e90d408d42b",
+      "order": 62,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O castigo",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 235
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:7d00e0a74379fe68",
+      "source_key": "7d00e0a74379fe68",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0ee32e90d408d42b",
+      "order": 63,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Novel",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 237
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:20dcc7cffd70ba09",
+      "source_key": "20dcc7cffd70ba09",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0ee32e90d408d42b",
+      "order": 64,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Auguste Michel",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 238
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:921cdaf51547d1af",
+      "source_key": "921cdaf51547d1af",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0ee32e90d408d42b",
+      "order": 65,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Exprobrações de um boêmio",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 240
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:d1675567a0f5061d",
+      "source_key": "d1675567a0f5061d",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0ee32e90d408d42b",
+      "order": 66,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Lisbeth",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 241
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:203969a6d6a2cc30",
+      "source_key": "203969a6d6a2cc30",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0ee32e90d408d42b",
+      "order": 67,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Príncipe Ouran",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 244
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:9ee0830bb669d1f0",
+      "source_key": "9ee0830bb669d1f0",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0ee32e90d408d42b",
+      "order": 68,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Pascal Lavic",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 247
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:d98a171ab8db6ad4",
+      "source_key": "d98a171ab8db6ad4",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0ee32e90d408d42b",
+      "order": 69,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Ferdinand Bertin",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 248
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:9dae846c7c5b87a8",
+      "source_key": "9dae846c7c5b87a8",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0ee32e90d408d42b",
+      "order": 70,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "François Riquier",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 252
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:4ac0b0f3adb937e3",
+      "source_key": "4ac0b0f3adb937e3",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0ee32e90d408d42b",
+      "order": 71,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Claire",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 253
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:0085e912dd0113bd",
+      "source_key": "0085e912dd0113bd",
+      "parent_id": "o-ceu-e-o-inferno:division:7183e549b85b7e66",
+      "order": 72,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo V",
+      "title": "Suicidas",
+      "source_pdf_page": 7,
+      "printed_page": 263,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:ab9a714290597eb4",
+      "source_key": "ab9a714290597eb4",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0085e912dd0113bd",
+      "order": 73,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O suicida da Samaritana",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 263
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:302dfb11e64ff30c",
+      "source_key": "302dfb11e64ff30c",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0085e912dd0113bd",
+      "order": 74,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O pai e o conscrito",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 265
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:ff26dec106381254",
+      "source_key": "ff26dec106381254",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0085e912dd0113bd",
+      "order": 75,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "François- -Simon Louvet",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 268
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:a81580a21d01b8d3",
+      "source_key": "a81580a21d01b8d3",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0085e912dd0113bd",
+      "order": 76,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Mãe e filho",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 269
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:26b73cb278a2c7db",
+      "source_key": "26b73cb278a2c7db",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0085e912dd0113bd",
+      "order": 77,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Duplo suicídio, por amor e por dever",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 272
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:2df215abe0fddf1f",
+      "source_key": "2df215abe0fddf1f",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0085e912dd0113bd",
+      "order": 78,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Louis e a pespontadeira de botinas",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 275
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:9869374328395575",
+      "source_key": "9869374328395575",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0085e912dd0113bd",
+      "order": 79,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Um ateu",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 278
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:2ae82be4e829a3e8",
+      "source_key": "2ae82be4e829a3e8",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0085e912dd0113bd",
+      "order": 80,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Félicien",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 284
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:9719567bc0d9fd47",
+      "source_key": "9719567bc0d9fd47",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0085e912dd0113bd",
+      "order": 81,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Antoine Bell",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 288
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:e84833a6b7cb0a8c",
+      "source_key": "e84833a6b7cb0a8c",
+      "parent_id": "o-ceu-e-o-inferno:division:7183e549b85b7e66",
+      "order": 82,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VI",
+      "title": "Criminosos arrependidos",
+      "source_pdf_page": 7,
+      "printed_page": 293,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:628113c54cb85a83",
+      "source_key": "628113c54cb85a83",
+      "parent_id": "o-ceu-e-o-inferno:chapter:e84833a6b7cb0a8c",
+      "order": 83,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Verger",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 293
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:7a86df7cc4b370d8",
+      "source_key": "7a86df7cc4b370d8",
+      "parent_id": "o-ceu-e-o-inferno:chapter:e84833a6b7cb0a8c",
+      "order": 84,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Lemaire",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 296
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:1f45d8ad423428cf",
+      "source_key": "1f45d8ad423428cf",
+      "parent_id": "o-ceu-e-o-inferno:chapter:e84833a6b7cb0a8c",
+      "order": 85,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Benoist",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 299
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:c0510ccaa870a9fd",
+      "source_key": "c0510ccaa870a9fd",
+      "parent_id": "o-ceu-e-o-inferno:chapter:e84833a6b7cb0a8c",
+      "order": 86,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O Espírito de Castelnaudary",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 302
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:c02a6b6f15bae49c",
+      "source_key": "c02a6b6f15bae49c",
+      "parent_id": "o-ceu-e-o-inferno:chapter:e84833a6b7cb0a8c",
+      "order": 87,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Jacques Latour",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 308
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:0813bb2fd6a7d081",
+      "source_key": "0813bb2fd6a7d081",
+      "parent_id": "o-ceu-e-o-inferno:division:7183e549b85b7e66",
+      "order": 88,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VII",
+      "title": "Espíritos endurecidos",
+      "source_pdf_page": 7,
+      "printed_page": 321,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:c7f062d1fddda72e",
+      "source_key": "c7f062d1fddda72e",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0813bb2fd6a7d081",
+      "order": 89,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Lapommeray",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 321
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:fcba3502fd38e729",
+      "source_key": "fcba3502fd38e729",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0813bb2fd6a7d081",
+      "order": 90,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Angèle, nulidade sobre a Terra",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 326
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:4d5a8b20ac3f3d70",
+      "source_key": "4d5a8b20ac3f3d70",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0813bb2fd6a7d081",
+      "order": 91,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Um Espírito aborrecido",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 329
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:a7948b1afd1b5bf5",
+      "source_key": "a7948b1afd1b5bf5",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0813bb2fd6a7d081",
+      "order": 92,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A rainha de Oude",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 331
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:618328ceee81c1ec",
+      "source_key": "618328ceee81c1ec",
+      "parent_id": "o-ceu-e-o-inferno:chapter:0813bb2fd6a7d081",
+      "order": 93,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Xumène",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 334
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "source_key": "60f5a60806ac759c",
+      "parent_id": "o-ceu-e-o-inferno:division:7183e549b85b7e66",
+      "order": 94,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VIII",
+      "title": "Expiações terrestres",
+      "source_pdf_page": 8,
+      "printed_page": 337,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:f2d6c0b85b1af1dd",
+      "source_key": "f2d6c0b85b1af1dd",
+      "parent_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "order": 95,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Marcel, o menino do no 4",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 337
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:f470b4833a81e1eb",
+      "source_key": "f470b4833a81e1eb",
+      "parent_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "order": 96,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Szymel Slizgol",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 340
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:940f87bb998b0c6e",
+      "source_key": "940f87bb998b0c6e",
+      "parent_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "order": 97,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Julienne-Marie, a mendiga",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 345
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:ef64ead6a324ae42",
+      "source_key": "ef64ead6a324ae42",
+      "parent_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "order": 98,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Max, o mendigo",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 349
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:067a420f38fc233f",
+      "source_key": "067a420f38fc233f",
+      "parent_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "order": 99,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "História de um criado",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 352
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:292f2840fd6b54f7",
+      "source_key": "292f2840fd6b54f7",
+      "parent_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "order": 100,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Antonio B...",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 354
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:23c30e826aa47071",
+      "source_key": "23c30e826aa47071",
+      "parent_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "order": 101,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Letil",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 357
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:480588fbbd595466",
+      "source_key": "480588fbbd595466",
+      "parent_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "order": 102,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Um sábio ambicioso",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 359
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:8f8029269fd26477",
+      "source_key": "8f8029269fd26477",
+      "parent_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "order": 103,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Charles de Saint-G..., idiota",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 361
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:7742381987b5d1a8",
+      "source_key": "7742381987b5d1a8",
+      "parent_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "order": 104,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Adélaïde-Marguerite Gosse",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 366
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:f95da131fe27f822",
+      "source_key": "f95da131fe27f822",
+      "parent_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "order": 105,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Clara Rivier",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 367
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:9d37823f1aad40ce",
+      "source_key": "9d37823f1aad40ce",
+      "parent_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "order": 106,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Françoise Vernhes",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 370
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:2f8952719e3c5f12",
+      "source_key": "2f8952719e3c5f12",
+      "parent_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "order": 107,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Anna Bitter",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 372
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:section:421d24f9c73ae2f8",
+      "source_key": "421d24f9c73ae2f8",
+      "parent_id": "o-ceu-e-o-inferno:chapter:60f5a60806ac759c",
+      "order": 108,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Joseph Maître, o cego",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 375
+      }
+    },
+    {
+      "id": "o-ceu-e-o-inferno:back_matter:a37da91f90a647d2",
+      "source_key": "a37da91f90a647d2",
+      "parent_id": null,
+      "order": 109,
+      "depth": 0,
+      "type": "back_matter",
+      "label": null,
+      "title": "Nota Explicativa",
+      "source_pdf_page": 8,
+      "printed_page": 379,
+      "locator": null
+    },
+    {
+      "id": "o-ceu-e-o-inferno:back_matter:3363ac66db35b351",
+      "source_key": "3363ac66db35b351",
+      "parent_id": null,
+      "order": 110,
+      "depth": 0,
+      "type": "back_matter",
+      "label": null,
+      "title": "Índice Geral",
+      "source_pdf_page": 8,
+      "printed_page": 385,
+      "locator": null
+    }
+  ],
+  "review_flags": []
+}

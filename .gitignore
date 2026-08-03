@@ -38,3 +38,5 @@ content/staging/extracted/*
 !content/staging/extracted/.gitkeep
 content/staging/normalized/*
 !content/staging/normalized/.gitkeep
+__pycache__/
+*.py[cod]
