@@ -48,7 +48,9 @@
     "content:staging:segments:resolution:validate": "node scripts/content_pipeline/validate_reading_segment_resolution_analysis.mjs",
     "content:staging:segments:resolution:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_reading_segment_resolution_analysis.py",
     "content:staging:segments:mechanical:propose": "node scripts/content_pipeline/run_python.mjs scripts/content_pipeline/build_mechanical_resolution_proposals.py",
-    "content:staging:segments:mechanical:validate": "node scripts/content_pipeline/validate_mechanical_resolution_proposals.mjs"
+    "content:staging:segments:mechanical:validate": "node scripts/content_pipeline/validate_mechanical_resolution_proposals.mjs",
+    "content:staging:segments:mechanical:review:build": "node scripts/content_pipeline/build_mechanical_resolution_review.mjs",
+    "content:staging:segments:mechanical:review:validate": "node scripts/content_pipeline/validate_mechanical_resolution_review.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

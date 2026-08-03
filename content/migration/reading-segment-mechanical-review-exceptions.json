@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "status": "review-exceptions",
+  "policy_version": "2026-08-03-mechanical-resolution-review-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "item_count": 0,
+  "unresolved_count": 0,
+  "rejected_count": 0,
+  "items": []
+}

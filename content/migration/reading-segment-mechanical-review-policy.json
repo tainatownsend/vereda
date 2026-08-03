@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-independent-review",
+  "policy_version": "2026-08-03-mechanical-resolution-review-v1",
+  "purpose": "Independently review every PR-0022 mechanical resolution proposal against canonical design evidence and record an explicit, unapplied decision.",
+  "decision_values": [
+    "accepted-for-future-application",
+    "rejected",
+    "unresolved"
+  ],
+  "acceptance_requirements": {
+    "proposal_status": "proposed-not-approved",
+    "resolution_method": "canonical-successor-start-anchor",
+    "candidate_path": "mechanical-anchor-candidate",
+    "candidate_rationale": "distinct-non-page-canonical-anchors",
+    "required_review_reason": "same-page-successor-boundary",
+    "same_migration_run": true,
+    "same_book": true,
+    "adjacent_segment_order": true,
+    "design_successor_link": true,
+    "proposal_current_start_matches_design": true,
+    "proposal_end_matches_successor_start": true,
+    "design_next_start_matches_successor_start": true,
+    "shared_page_rederived": true,
+    "current_locator_is_semantic": true,
+    "successor_locator_is_semantic": true,
+    "semantic_locators_differ": true,
+    "proposal_application_flags_remain_false": true
+  },
+  "rejection_rules": {
+    "identity_or_link_conflict": "rejected",
+    "proposal_already_applied_or_approved": "rejected"
+  },
+  "unresolved_rules": {
+    "missing_design_or_candidate_evidence": "unresolved",
+    "insufficient_semantic_locator_evidence": "unresolved"
+  },
+  "batching": {
+    "maximum_items_per_batch": 25,
+    "group_by": [
+      "decision",
+      "book_id"
+    ],
+    "stable_order": [
+      "decision",
+      "book_id",
+      "segment_order",
+      "resolution_id"
+    ]
+  },
+  "application_boundary": {
+    "decision_package_generated": true,
+    "database_application_authorized": false,
+    "sql_generated": false,
+    "sql_applied": false,
+    "staging_updated": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
