@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "status": "editorial-nodes-verified",
+  "captured_at": "2026-08-03T04:36:50.967Z",
+  "migration_version": "2026-08-03-editorial-structure-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "source_csv": {
+    "filename": "vereda_pr_0017_editorial_node_verification.csv",
+    "sha256": "6e546e35287641543f69b282b81118ce61425b227761599d9f27886300b2b2d8"
+  },
+  "summary": {
+    "check_count": 22,
+    "blocking_failure_count": 0,
+    "editorial_node_count": 826,
+    "book_count": 5,
+    "reading_segment_count": 0,
+    "successor_mapping_count": 0,
+    "dependency_snapshot_count": 0,
+    "production_section_count": 908,
+    "contains_full_text": false,
+    "production_modified": false,
+    "cutover_enabled": false
+  },
+  "checks": [
+    {
+      "check_key": "application-roles-denied",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "false",
+      "details": {
+        "expected_any_access": false
+      }
+    },
+    {
+      "check_key": "audit-event-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "1",
+      "details": {
+        "expected": 1
+      }
+    },
+    {
+      "check_key": "book-1-node-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "200",
+      "details": {
+        "slug": "o-livro-dos-espiritos",
+        "expected": 200
+      }
+    },
+    {
+      "check_key": "book-2-node-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "135",
+      "details": {
+        "slug": "o-livro-dos-mediuns",
+        "expected": 135
+      }
+    },
+    {
+      "check_key": "book-3-node-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "235",
+      "details": {
+        "slug": "o-evangelho-segundo-o-espiritismo",
+        "expected": 235
+      }
+    },
+    {
+      "check_key": "book-4-node-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "110",
+      "details": {
+        "slug": "o-ceu-e-o-inferno",
+        "expected": 110
+      }
+    },
+    {
+      "check_key": "book-5-node-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "146",
+      "details": {
+        "slug": "a-genese",
+        "expected": 146
+      }
+    },
+    {
+      "check_key": "dependency-snapshot-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    },
+    {
+      "check_key": "dry-run-result-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    },
+    {
+      "check_key": "editorial-node-total",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "826",
+      "details": {
+        "expected": 826
+      }
+    },
+    {
+      "check_key": "editorial-parent-orphans",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    },
+    {
+      "check_key": "forbidden-locator-keys",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    },
+    {
+      "check_key": "migration-run-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "1",
+      "details": {
+        "expected": 1
+      }
+    },
+    {
+      "check_key": "migration-run-id",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "adcff561-8f92-545c-a219-615818a454f4",
+      "details": {
+        "expected": "adcff561-8f92-545c-a219-615818a454f4"
+      }
+    },
+    {
+      "check_key": "migration-run-status",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "loaded",
+      "details": {
+        "expected": "loaded"
+      }
+    },
+    {
+      "check_key": "migration-version",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "2026-08-03-editorial-structure-v1",
+      "details": {
+        "expected": "2026-08-03-editorial-structure-v1"
+      }
+    },
+    {
+      "check_key": "production-section-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "908",
+      "details": {
+        "expected": 908,
+        "contains_user_identifiers": false
+      }
+    },
+    {
+      "check_key": "reading-segment-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    },
+    {
+      "check_key": "reconstruction-plan-checksum",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "659c8691129a7fb1739994a9969228e268440cb025178d1636542fae333bc215",
+      "details": {
+        "expected": "659c8691129a7fb1739994a9969228e268440cb025178d1636542fae333bc215"
+      }
+    },
+    {
+      "check_key": "rights-status",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "blocked",
+      "details": {
+        "expected": "blocked"
+      }
+    },
+    {
+      "check_key": "source-map-checksums",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "{\"a-genese\": \"b98a04efdda049015dac10e3c2d6b0ab5ab7b5b9487867c19478ed3c48151de6\", \"o-ceu-e-o-inferno\": \"a11cb7e2872a7915d412b951fbec6ee2017fd5b6fae5f6434081f36a3e0e3c1b\", \"o-livro-dos-mediuns\": \"569d70fe853607cd8f9408578312b376554b1397454ccf9b1e4d8fdeba214a29\", \"o-livro-dos-espiritos\": \"0e8735ac7581eb21af09842c2a96f0774622868fae329bb76e0f70a079e0e839\", \"o-evangelho-segundo-o-espiritismo\": \"a2c35f092ec351caefa9860837f77619453e8669c3732fd857fe78b6a94f2f6e\"}",
+      "details": {
+        "expected_book_count": 5
+      }
+    },
+    {
+      "check_key": "successor-mapping-count",
+      "severity": "blocking",
+      "passed": true,
+      "actual_value": "0",
+      "details": {
+        "expected": 0
+      }
+    }
+  ],
+  "validation_errors": []
+}

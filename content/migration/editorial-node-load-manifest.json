@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "status": "prepared-not-applied",
+  "migration_version": "2026-08-03-editorial-structure-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "rights_status": "blocked",
+  "contains_full_text": false,
+  "production_mutation_allowed": false,
+  "cutover_allowed": false,
+  "production_snapshot": {
+    "row_count": 908,
+    "sha256": "c48cf38c6e927f40039539875d7533e584fb155fcc53b59c3cfa61c701305256"
+  },
+  "reconstruction_plan_bundle": {
+    "sha256": "659c8691129a7fb1739994a9969228e268440cb025178d1636542fae333bc215",
+    "files": [
+      {
+        "path": "content/reconstruction/plans/o-livro-dos-espiritos.json",
+        "sha256": "4e37f1aba43e0f740248db176b9bf5b663f83cf3bf49f79143d5635aac5bf549"
+      },
+      {
+        "path": "content/reconstruction/plans/o-livro-dos-mediuns.json",
+        "sha256": "9d0a2d8ef64e10b355dd744a75f274028b2c62d50e2202a69a65a9b0e9796919"
+      },
+      {
+        "path": "content/reconstruction/plans/o-evangelho-segundo-o-espiritismo.json",
+        "sha256": "265d28c22669a223de81baa3b164606945e7bc80c210a33d3bc4024be6797fb3"
+      },
+      {
+        "path": "content/reconstruction/plans/o-ceu-e-o-inferno.json",
+        "sha256": "f8eb93a68fb99170588f642bedebbb8afbb086c88218f7e465325e3e9ce46632"
+      },
+      {
+        "path": "content/reconstruction/plans/a-genese.json",
+        "sha256": "92a7b42d1fa98b5da56116885f8833fa50bf3b4692a657f98f9f8859b4b1c6ac"
+      }
+    ]
+  },
+  "source_map_checksums": {
+    "o-livro-dos-espiritos": "0e8735ac7581eb21af09842c2a96f0774622868fae329bb76e0f70a079e0e839",
+    "o-livro-dos-mediuns": "569d70fe853607cd8f9408578312b376554b1397454ccf9b1e4d8fdeba214a29",
+    "o-evangelho-segundo-o-espiritismo": "a2c35f092ec351caefa9860837f77619453e8669c3732fd857fe78b6a94f2f6e",
+    "o-ceu-e-o-inferno": "a11cb7e2872a7915d412b951fbec6ee2017fd5b6fae5f6434081f36a3e0e3c1b",
+    "a-genese": "b98a04efdda049015dac10e3c2d6b0ab5ab7b5b9487867c19478ed3c48151de6"
+  },
+  "totals": {
+    "book_count": 5,
+    "editorial_node_count": 826,
+    "reading_segment_count": 0,
+    "successor_mapping_count": 0,
+    "dependency_snapshot_count": 0
+  },
+  "books": [
+    {
+      "book_id": 1,
+      "slug": "o-livro-dos-espiritos",
+      "title": "O Livro dos Espíritos",
+      "editorial_node_count": 200,
+      "source_map_sha256": "0e8735ac7581eb21af09842c2a96f0774622868fae329bb76e0f70a079e0e839",
+      "reconstruction_plan_sha256": "4e37f1aba43e0f740248db176b9bf5b663f83cf3bf49f79143d5635aac5bf549"
+    },
+    {
+      "book_id": 2,
+      "slug": "o-livro-dos-mediuns",
+      "title": "O Livro dos Médiuns",
+      "editorial_node_count": 135,
+      "source_map_sha256": "569d70fe853607cd8f9408578312b376554b1397454ccf9b1e4d8fdeba214a29",
+      "reconstruction_plan_sha256": "9d0a2d8ef64e10b355dd744a75f274028b2c62d50e2202a69a65a9b0e9796919"
+    },
+    {
+      "book_id": 3,
+      "slug": "o-evangelho-segundo-o-espiritismo",
+      "title": "O Evangelho Segundo o Espiritismo",
+      "editorial_node_count": 235,
+      "source_map_sha256": "a2c35f092ec351caefa9860837f77619453e8669c3732fd857fe78b6a94f2f6e",
+      "reconstruction_plan_sha256": "265d28c22669a223de81baa3b164606945e7bc80c210a33d3bc4024be6797fb3"
+    },
+    {
+      "book_id": 4,
+      "slug": "o-ceu-e-o-inferno",
+      "title": "O Céu e o Inferno",
+      "editorial_node_count": 110,
+      "source_map_sha256": "a11cb7e2872a7915d412b951fbec6ee2017fd5b6fae5f6434081f36a3e0e3c1b",
+      "reconstruction_plan_sha256": "f8eb93a68fb99170588f642bedebbb8afbb086c88218f7e465325e3e9ce46632"
+    },
+    {
+      "book_id": 5,
+      "slug": "a-genese",
+      "title": "A Gênese",
+      "editorial_node_count": 146,
+      "source_map_sha256": "b98a04efdda049015dac10e3c2d6b0ab5ab7b5b9487867c19478ed3c48151de6",
+      "reconstruction_plan_sha256": "92a7b42d1fa98b5da56116885f8833fa50bf3b4692a657f98f9f8859b4b1c6ac"
+    }
+  ],
+  "artifacts": {
+    "load_sql": "supabase/staging/20260803050000_load_editorial_nodes_v1.sql",
+    "load_sql_sha256": "719506eea6d77c15c849e32142e207657263ae5b56ed67917dfebfedaf2b49cc",
+    "verification_sql": "supabase/audits/editorial_node_staging_verification.sql",
+    "verification_sql_sha256": "ab4f4610580c35bd96af1030d755f2b46c861b3912991254f55a18d80286eb3f"
+  },
+  "verification": {
+    "required_check_keys": [
+      "migration-run-count",
+      "migration-run-id",
+      "migration-version",
+      "migration-run-status",
+      "rights-status",
+      "reconstruction-plan-checksum",
+      "source-map-checksums",
+      "editorial-node-total",
+      "book-1-node-count",
+      "book-2-node-count",
+      "book-3-node-count",
+      "book-4-node-count",
+      "book-5-node-count",
+      "editorial-parent-orphans",
+      "forbidden-locator-keys",
+      "reading-segment-count",
+      "successor-mapping-count",
+      "dependency-snapshot-count",
+      "dry-run-result-count",
+      "audit-event-count",
+      "production-section-count",
+      "application-roles-denied"
+    ],
+    "expected_actual_values": {
+      "migration-run-count": "1",
+      "migration-run-id": "adcff561-8f92-545c-a219-615818a454f4",
+      "migration-version": "2026-08-03-editorial-structure-v1",
+      "migration-run-status": "loaded",
+      "rights-status": "blocked",
+      "reconstruction-plan-checksum": "659c8691129a7fb1739994a9969228e268440cb025178d1636542fae333bc215",
+      "editorial-node-total": "826",
+      "book-1-node-count": "200",
+      "book-2-node-count": "135",
+      "book-3-node-count": "235",
+      "book-4-node-count": "110",
+      "book-5-node-count": "146",
+      "editorial-parent-orphans": "0",
+      "forbidden-locator-keys": "0",
+      "reading-segment-count": "0",
+      "successor-mapping-count": "0",
+      "dependency-snapshot-count": "0",
+      "dry-run-result-count": "0",
+      "audit-event-count": "1",
+      "production-section-count": "908",
+      "application-roles-denied": "false"
+    }
+  },
+  "application_boundary": {
+    "migration_run_rows": 1,
+    "editorial_nodes_only": true,
+    "reading_segments_loaded": false,
+    "successor_mappings_loaded": false,
+    "dependency_snapshot_captured": false,
+    "dry_run_executed": false,
+    "production_tables_modified": false,
+    "cutover_enabled": false
+  }
+}
