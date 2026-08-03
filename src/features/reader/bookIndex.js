@@ -1,5 +1,10 @@
+import {
+  getReaderIndexFallbackLabel,
+  READER_COPY,
+} from '@/features/reader/readerCopy'
+
 const DEFAULT_PART = 'Conteúdo'
-const DEFAULT_CHAPTER = 'Seções'
+const DEFAULT_CHAPTER = READER_COPY.defaultIndexGroup
 
 export function buildBookIndex(sections) {
   const parts = []
@@ -54,7 +59,7 @@ export function getIndexSectionLabel(section) {
   if (section.kind === 'chapter_intro') {
     return section.chapter_title || section.title || 'Abertura do capítulo'
   }
-  return section.title || `Seção ${section.sec_position}`
+  return section.title || getReaderIndexFallbackLabel(section.sec_position)
 }
 
 export function getIndexItemState({

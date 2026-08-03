@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "accepted-for-implementation",
+  "status": "implemented",
   "decision": "Separate source structure, Reader delivery units, and user-facing language.",
   "internal_terms": {
     "legacy_section": {
@@ -38,6 +38,14 @@
   },
   "implementation_scope": {
     "pr_0014": "Terminology contract and staging-model distinction.",
-    "pr_0015": "Reader copy and navigation implementation."
-  }
+    "pr_0015": "Implemented Reader navigation actions, index terminology, accessibility labels, goal messaging, and loading errors."
+  },
+  "implemented_files": [
+    "src/pages/ReaderPage.jsx",
+    "src/features/reader/BookIndexPanel.jsx",
+    "src/features/reader/bookIndex.js",
+    "src/features/reader/readerCopy.js",
+    "src/features/reader/readerService.js",
+    "src/features/reader/useReadingSession.js"
+  ]
 }

@@ -20,6 +20,10 @@ import {
 
 import { useAuthStore, useUIStore } from '@/store'
 import { useBooks, useReadingTime, useScrollProgress } from '@/hooks'
+import {
+  getReaderPrimaryAction,
+  READER_COPY,
+} from '@/features/reader/readerCopy'
 import { READER_PHASE } from '@/features/reader/readerMachine'
 import BookIndexPanel from '@/features/reader/BookIndexPanel'
 import { useReadingSession } from '@/features/reader/useReadingSession'
@@ -59,6 +63,13 @@ export default function ReaderPage() {
   const readingTime = useReadingTime(currentSection?.word_count)
   const isChapterIntro = currentSection?.kind === 'chapter_intro'
   const isPartIntro = currentSection?.kind === 'part_intro'
+  const isFinalReadingUnit =
+    Boolean(currentSection?.sec_position) &&
+    Number(currentSection.sec_position) === Number(session.lastPosition)
+  const primaryAction = getReaderPrimaryAction({
+    isChapterIntro,
+    isFinalReadingUnit,
+  })
 
   useEffect(() => {
     const handlePointerDown = (event) => {
@@ -174,7 +185,7 @@ export default function ReaderPage() {
   if (!currentSection) {
     return (
       <ReaderError
-        message="Não encontramos a próxima seção desta obra."
+        message={READER_COPY.missingContinuation}
         onRetry={session.reload}
         onBack={() => navigate('/home')}
       />
@@ -301,8 +312,7 @@ export default function ReaderPage() {
               aria-hidden="true"
             />
             <p className="text-sm leading-relaxed text-muted dark:text-night-muted">
-              Seu momento de estudo de hoje está completo. Você pode terminar
-              esta seção e decidir se deseja continuar.
+              {READER_COPY.dailyGoalNotice}
             </p>
           </div>
         </div>
@@ -354,25 +364,30 @@ export default function ReaderPage() {
       <footer className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-canvas/95 px-4 pb-safe pt-3 backdrop-blur-md dark:border-night-line dark:bg-night/95">
         <div className="mx-auto flex max-w-[72ch] gap-3 pb-3">
           {currentSection.sec_position > 1 && (
-            <button
-              type="button"
+            <Button
+              variant="secondary"
               onClick={session.goToPrevious}
-              className="flex h-14 w-14 shrink-0 items-center justify-center rounded-vesMd border border-line bg-surface text-sage-800 hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-300 dark:hover:bg-sage-950"
-              aria-label="Voltar para a seção anterior"
+              className="min-w-0 flex-1"
+              aria-label={READER_COPY.actions.previous.ariaLabel}
             >
-              <ChevronLeft size={22} aria-hidden="true" />
-            </button>
+              <ChevronLeft size={20} aria-hidden="true" />
+              {READER_COPY.actions.previous.label}
+            </Button>
           )}
 
           <Button
             onClick={session.completeCurrentSection}
             loading={session.saving}
-            className="flex-1"
+            className="min-w-0 flex-1"
+            aria-label={primaryAction.ariaLabel}
           >
-            {isChapterIntro ? 'Começar capítulo' : 'Próxima seção'}
-            {!session.saving && (
-              <ChevronRight size={20} aria-hidden="true" />
-            )}
+            {primaryAction.label}
+            {!session.saving &&
+              (primaryAction.icon === 'complete' ? (
+                <Check size={20} aria-hidden="true" />
+              ) : (
+                <ChevronRight size={20} aria-hidden="true" />
+              ))}
           </Button>
         </div>
       </footer>
