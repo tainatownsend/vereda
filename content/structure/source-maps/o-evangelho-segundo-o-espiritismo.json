@@ -1,0 +1,3677 @@
+{
+  "schema_version": 1,
+  "book": {
+    "book_id": 3,
+    "slug": "o-evangelho-segundo-o-espiritismo",
+    "title": "O Evangelho Segundo o Espiritismo"
+  },
+  "source": {
+    "source_file": "WEB-O-Evangelho-segundo-o-Espiritismo-Guillon.pdf",
+    "source_sha256": "524a5b59607794335e2f704f58108c12ec16c7937516ff0c5efb07964aa455af",
+    "toc_pdf_pages": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "toc_text_sha256": "c8519d2de3d0bf9cd2334745e86e843b0edb72b7d4ecd79099cc951e7d2a07ce",
+    "rights_status": "permission-required-for-production"
+  },
+  "counts": {
+    "front_matter": 4,
+    "divisions": 0,
+    "chapters": 28,
+    "groups": 5,
+    "sections": 196,
+    "back_matter": 2,
+    "total_nodes": 235
+  },
+  "nodes": [
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:front_matter:6a4738dbc8f85e8c",
+      "source_key": "6a4738dbc8f85e8c",
+      "parent_id": null,
+      "order": 1,
+      "depth": 0,
+      "type": "front_matter",
+      "label": null,
+      "title": "Nota da Editora",
+      "source_pdf_page": 6,
+      "printed_page": 11,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:front_matter:934c5644bdd4752e",
+      "source_key": "934c5644bdd4752e",
+      "parent_id": null,
+      "order": 2,
+      "depth": 0,
+      "type": "front_matter",
+      "label": null,
+      "title": "Explicação",
+      "source_pdf_page": 6,
+      "printed_page": 13,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:front_matter:bf747732e4175546",
+      "source_key": "bf747732e4175546",
+      "parent_id": null,
+      "order": 3,
+      "depth": 0,
+      "type": "front_matter",
+      "label": null,
+      "title": "Prefácio",
+      "source_pdf_page": 6,
+      "printed_page": 15,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:front_matter:7d45ca2b969108ab",
+      "source_key": "7d45ca2b969108ab",
+      "parent_id": null,
+      "order": 4,
+      "depth": 0,
+      "type": "front_matter",
+      "label": null,
+      "title": "Introdução",
+      "source_pdf_page": 6,
+      "printed_page": 17,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:8a2818f098324598",
+      "source_key": "8a2818f098324598",
+      "parent_id": null,
+      "order": 5,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo I",
+      "title": "Não vim destruir a lei",
+      "source_pdf_page": 6,
+      "printed_page": 41,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:1cb153e45f0d850e",
+      "source_key": "1cb153e45f0d850e",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:8a2818f098324598",
+      "order": 6,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "As três revelações: Moisés, Cristo, Espiritismo",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 7"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:1eb085eb3da05c20",
+      "source_key": "1eb085eb3da05c20",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:8a2818f098324598",
+      "order": 7,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Aliança da Ciência e da Religião",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "8"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:ceacaa5287373f78",
+      "source_key": "ceacaa5287373f78",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:8a2818f098324598",
+      "order": 8,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: A nova era",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "9 a 11"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:feed99e9906b4d14",
+      "source_key": "feed99e9906b4d14",
+      "parent_id": null,
+      "order": 9,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo II",
+      "title": "Meu Reino não é deste mundo",
+      "source_pdf_page": 6,
+      "printed_page": 51,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:eab2cc1864e46eb8",
+      "source_key": "eab2cc1864e46eb8",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:feed99e9906b4d14",
+      "order": 10,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A vida futura",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 3"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:4994984bdfaa5548",
+      "source_key": "4994984bdfaa5548",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:feed99e9906b4d14",
+      "order": 11,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A realeza de Jesus",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:8e5a80c61f2c722c",
+      "source_key": "8e5a80c61f2c722c",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:feed99e9906b4d14",
+      "order": 12,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O ponto de vista",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5 a 7"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:d07355a2e50e184a",
+      "source_key": "d07355a2e50e184a",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:feed99e9906b4d14",
+      "order": 13,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: Uma realeza terrestre",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "8"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:cb8bbbf90c300761",
+      "source_key": "cb8bbbf90c300761",
+      "parent_id": null,
+      "order": 14,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo III",
+      "title": "Há muitas moradas na casa de meu Pai",
+      "source_pdf_page": 6,
+      "printed_page": 57,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:6e95b00a2e65b8cc",
+      "source_key": "6e95b00a2e65b8cc",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:cb8bbbf90c300761",
+      "order": 15,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Diferentes estados da alma na erraticidade",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 e 2"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:f2c23881d5ca18e6",
+      "source_key": "f2c23881d5ca18e6",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:cb8bbbf90c300761",
+      "order": 16,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Diferentes categorias de mundos habitados",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "3 a 5"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:ca2433df464f9158",
+      "source_key": "ca2433df464f9158",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:cb8bbbf90c300761",
+      "order": 17,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Destinação da Terra. Causas das misérias humanas",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "6 e 7"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:b46a7d10b596afd2",
+      "source_key": "b46a7d10b596afd2",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:cb8bbbf90c300761",
+      "order": 18,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: Mundos inferiores e mundos superiores",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "8 a 12"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:2fd4b1ec5fafebd1",
+      "source_key": "2fd4b1ec5fafebd1",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:cb8bbbf90c300761",
+      "order": 19,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Mundos de expiações e de provas",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "13 a 15"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:7666c08df9d43e93",
+      "source_key": "7666c08df9d43e93",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:cb8bbbf90c300761",
+      "order": 20,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Mundos regeneradores",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "16 a 18"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:e90f6fb9cd0d33e0",
+      "source_key": "e90f6fb9cd0d33e0",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:cb8bbbf90c300761",
+      "order": 21,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Progressão dos mundos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "19"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:20b609be29c3e1e6",
+      "source_key": "20b609be29c3e1e6",
+      "parent_id": null,
+      "order": 22,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo IV",
+      "title": "Ninguém poderá ver o Reino de Deus se não nascer de novo",
+      "source_pdf_page": 6,
+      "printed_page": 67,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:3a8a76cf3b8f8253",
+      "source_key": "3a8a76cf3b8f8253",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:20b609be29c3e1e6",
+      "order": 23,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Ressurreição e reencarnação",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 17"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:ccbba847312d31bf",
+      "source_key": "ccbba847312d31bf",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:20b609be29c3e1e6",
+      "order": 24,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A reencarnação fortalece os laços de família, ao passo que a unicidade da existência os rompe",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "18 a 23"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:1582ce795beb0aa5",
+      "source_key": "1582ce795beb0aa5",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:20b609be29c3e1e6",
+      "order": 25,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: Limites da encarnação",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "24"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:7f471d65f6267a37",
+      "source_key": "7f471d65f6267a37",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:20b609be29c3e1e6",
+      "order": 26,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Necessidade da encarnação",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "25 e 26"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "source_key": "abd764d47a7f62c4",
+      "parent_id": null,
+      "order": 27,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo V",
+      "title": "Bem-aventurados os aflitos",
+      "source_pdf_page": 7,
+      "printed_page": 79,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:a02c06f96ef76f0f",
+      "source_key": "a02c06f96ef76f0f",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 28,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Justiça das aflições",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 3"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:c38b20bca5083e82",
+      "source_key": "c38b20bca5083e82",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 29,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Causas atuais das aflições",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "4 e 5"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:59f04d2c35094f8c",
+      "source_key": "59f04d2c35094f8c",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 30,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Causas anteriores das aflições",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "6 a 10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:c4f913feb420d030",
+      "source_key": "c4f913feb420d030",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 31,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Esquecimento do passado",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "11"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:1e9a8db489343788",
+      "source_key": "1e9a8db489343788",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 32,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Motivos de resignação",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "12 e 13"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:ead2c8758446aa43",
+      "source_key": "ead2c8758446aa43",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 33,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O suicídio e a loucura",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "14 a 17"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:9413001c2134fe4c",
+      "source_key": "9413001c2134fe4c",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 34,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: Bem e mal sofrer",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "18"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:28c6c6812ca142da",
+      "source_key": "28c6c6812ca142da",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 35,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O mal e o remédio",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "19"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:c936cbd9e8957325",
+      "source_key": "c936cbd9e8957325",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 36,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A felicidade não é deste mundo",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "20"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:9591e0797f814b76",
+      "source_key": "9591e0797f814b76",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 37,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Perda de pessoas amadas. Mortes prematuras",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "21"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:bf8fefe0caee64aa",
+      "source_key": "bf8fefe0caee64aa",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 38,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Se fosse um homem de bem, teria morrido",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "22"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:0fe9158754c12daf",
+      "source_key": "0fe9158754c12daf",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 39,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Os tormentos voluntários",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "23"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:740f29c13f7122eb",
+      "source_key": "740f29c13f7122eb",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 40,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A desgraça real",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "24"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:09d5650b176ce585",
+      "source_key": "09d5650b176ce585",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 41,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A melancolia",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "25"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:7cbccd2f02210ff3",
+      "source_key": "7cbccd2f02210ff3",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 42,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Provas voluntárias. O verdadeiro cilício",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "26"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:c17ac1350afbdb75",
+      "source_key": "c17ac1350afbdb75",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 43,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Dever-se-á pôr termo às provas do próximo?",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "27"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:a1f167a5b1a44d1a",
+      "source_key": "a1f167a5b1a44d1a",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 44,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Será lícito abreviar a vida de um doente que sofra sem esperança de cura?",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "28"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:7264231671aab9ae",
+      "source_key": "7264231671aab9ae",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 45,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Sacrifício da própria vida",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "29 e 30"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:55c793a78f0e5513",
+      "source_key": "55c793a78f0e5513",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:abd764d47a7f62c4",
+      "order": 46,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Proveito dos sofrimentos para outrem",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "31"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:b2f320bb88040a71",
+      "source_key": "b2f320bb88040a71",
+      "parent_id": null,
+      "order": 47,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo VI",
+      "title": "O Cristo Consolador",
+      "source_pdf_page": 7,
+      "printed_page": 105,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:c546d626c7920c34",
+      "source_key": "c546d626c7920c34",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:b2f320bb88040a71",
+      "order": 48,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O jugo leve",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 e 2"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:6ca613754ad19867",
+      "source_key": "6ca613754ad19867",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:b2f320bb88040a71",
+      "order": 49,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Consolador Prometido",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "3 e 4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:e585eca45fe17e4b",
+      "source_key": "e585eca45fe17e4b",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:b2f320bb88040a71",
+      "order": 50,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: Advento do Espírito de Verdade",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5 a 8"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:8be239c4c28806e1",
+      "source_key": "8be239c4c28806e1",
+      "parent_id": null,
+      "order": 51,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo VII",
+      "title": "Bem-aventurados os pobres de espírito",
+      "source_pdf_page": 7,
+      "printed_page": 111,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:2d2ff1edb420ccb6",
+      "source_key": "2d2ff1edb420ccb6",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:8be239c4c28806e1",
+      "order": 52,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O que se deve entender por pobres de espírito",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 e 2"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:a3a2d3aadfd5a342",
+      "source_key": "a3a2d3aadfd5a342",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:8be239c4c28806e1",
+      "order": 53,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Aquele que se eleva será rebaixado",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "3 a 6"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:2e32fd9f3e01da79",
+      "source_key": "2e32fd9f3e01da79",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:8be239c4c28806e1",
+      "order": 54,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Mistérios ocultos aos doutos e aos prudentes",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "7 a 10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:c20f3e0762555451",
+      "source_key": "c20f3e0762555451",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:8be239c4c28806e1",
+      "order": 55,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: O orgulho e a humildade",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "11 e 12"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:ee8f617e84e036d2",
+      "source_key": "ee8f617e84e036d2",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:8be239c4c28806e1",
+      "order": 56,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Missão do homem inteligente na Terra",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "13"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:4429333fe7ab2487",
+      "source_key": "4429333fe7ab2487",
+      "parent_id": null,
+      "order": 57,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo VIII",
+      "title": "Bem-aventurados os que têm puro o coração",
+      "source_pdf_page": 7,
+      "printed_page": 123,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:8b7585b90c6151d0",
+      "source_key": "8b7585b90c6151d0",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:4429333fe7ab2487",
+      "order": 58,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Simplicidade e pureza de coração",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:3c75017da42158d8",
+      "source_key": "3c75017da42158d8",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:4429333fe7ab2487",
+      "order": 59,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Pecado por pensamentos. Adultério",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5 a 7"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:19f0e72536966ed9",
+      "source_key": "19f0e72536966ed9",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:4429333fe7ab2487",
+      "order": 60,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Verdadeira pureza. Mãos não lavadas",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "8 a 10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:4c4ac6758ed4be29",
+      "source_key": "4c4ac6758ed4be29",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:4429333fe7ab2487",
+      "order": 61,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Escândalos. Se a vossa mão é motivo de escândalo, cortai-a",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "11 a 17"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:16b3cc4a1725dc73",
+      "source_key": "16b3cc4a1725dc73",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:4429333fe7ab2487",
+      "order": 62,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: Deixai que venham a mim as criancinhas",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "18 e 19"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:1e6c34348c75fbe9",
+      "source_key": "1e6c34348c75fbe9",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:4429333fe7ab2487",
+      "order": 63,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Bem-aventurados os que têm fechados os olhos",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "20 e 21"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:c3bf6ff6b1463501",
+      "source_key": "c3bf6ff6b1463501",
+      "parent_id": null,
+      "order": 64,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo IX",
+      "title": "Bem-aventurados os que são brandos e pacíficos",
+      "source_pdf_page": 7,
+      "printed_page": 135,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:2857a8bdae6400a4",
+      "source_key": "2857a8bdae6400a4",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c3bf6ff6b1463501",
+      "order": 65,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Injúrias e violências",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 5"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:e0b350233e719759",
+      "source_key": "e0b350233e719759",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c3bf6ff6b1463501",
+      "order": 66,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: A afabilidade e a doçura",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "6"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:a8afea4eca39c89d",
+      "source_key": "a8afea4eca39c89d",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c3bf6ff6b1463501",
+      "order": 67,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A paciência",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "7"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:d5246ba836bb2ecf",
+      "source_key": "d5246ba836bb2ecf",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c3bf6ff6b1463501",
+      "order": 68,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Obediência e resignação",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "8"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:eff708244b44ad3e",
+      "source_key": "eff708244b44ad3e",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c3bf6ff6b1463501",
+      "order": 69,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A cólera",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "9 e 10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:e13a7c25a85e52be",
+      "source_key": "e13a7c25a85e52be",
+      "parent_id": null,
+      "order": 70,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo X",
+      "title": "Bem-aventurados os que são misericordiosos",
+      "source_pdf_page": 7,
+      "printed_page": 141,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:d2a81e0f376535b2",
+      "source_key": "d2a81e0f376535b2",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:e13a7c25a85e52be",
+      "order": 71,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Perdoai, para que Deus vos perdoe",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:c911194ed7716bcb",
+      "source_key": "c911194ed7716bcb",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:e13a7c25a85e52be",
+      "order": 72,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Reconciliação com os adversários",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5 e 6"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:f907cde882b7a119",
+      "source_key": "f907cde882b7a119",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:e13a7c25a85e52be",
+      "order": 73,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O sacrifício mais agradável a Deus",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "7 e 8"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:e99f761b382e193e",
+      "source_key": "e99f761b382e193e",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:e13a7c25a85e52be",
+      "order": 74,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O argueiro e a trave no olho",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "9 e 10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:176ed5879bba79a8",
+      "source_key": "176ed5879bba79a8",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:e13a7c25a85e52be",
+      "order": 75,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Não julgueis, para não serdes julgados. Atire a primeira pedra aquele que estiver sem pecado",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "11 a 13"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:9315e614d7330fc8",
+      "source_key": "9315e614d7330fc8",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:e13a7c25a85e52be",
+      "order": 76,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: Perdão das ofensas",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "14 e 15"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:28ad4e5c58dab161",
+      "source_key": "28ad4e5c58dab161",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:e13a7c25a85e52be",
+      "order": 77,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A indulgência",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "16 a 18"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:005722efacf6c7ab",
+      "source_key": "005722efacf6c7ab",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:e13a7c25a85e52be",
+      "order": 78,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "É permitido repreender os outros, notar as imperfeições de outrem, divulgar o mal de outrem?",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "19 a 21"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:05a8e761c4362ed4",
+      "source_key": "05a8e761c4362ed4",
+      "parent_id": null,
+      "order": 79,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XI",
+      "title": "Amar o próximo como a si mesmo",
+      "source_pdf_page": 8,
+      "printed_page": 153,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:cb585f27af40922f",
+      "source_key": "cb585f27af40922f",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:05a8e761c4362ed4",
+      "order": 80,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O mandamento maior. Fazermos aos outros o que queiramos que os outros nos façam. Parábola dos Credores e dos Devedores",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:203af11a97b5071c",
+      "source_key": "203af11a97b5071c",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:05a8e761c4362ed4",
+      "order": 81,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Dai a César o que é de César",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5 a 7"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:41776a1a001323a1",
+      "source_key": "41776a1a001323a1",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:05a8e761c4362ed4",
+      "order": 82,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: A lei de amor",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "8 a 10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:72056b82696c9f37",
+      "source_key": "72056b82696c9f37",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:05a8e761c4362ed4",
+      "order": 83,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O egoísmo",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "11 e 12"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:eddd2d8d1f0d3ae1",
+      "source_key": "eddd2d8d1f0d3ae1",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:05a8e761c4362ed4",
+      "order": 84,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A fé e a caridade",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "13"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:c13bffe9ec5c6189",
+      "source_key": "c13bffe9ec5c6189",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:05a8e761c4362ed4",
+      "order": 85,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Caridade para com os criminosos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "14"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:a9e2d9548cd648b6",
+      "source_key": "a9e2d9548cd648b6",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:05a8e761c4362ed4",
+      "order": 86,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Deve-se expor a vida por um malfeitor?",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "15"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:42e1b00ef742c0ee",
+      "source_key": "42e1b00ef742c0ee",
+      "parent_id": null,
+      "order": 87,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XII",
+      "title": "Amai os vossos inimigos",
+      "source_pdf_page": 8,
+      "printed_page": 165,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:e7ce82a4701d9187",
+      "source_key": "e7ce82a4701d9187",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:42e1b00ef742c0ee",
+      "order": 88,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Retribuir o mal com o bem",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:a16f5217e66a2b6e",
+      "source_key": "a16f5217e66a2b6e",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:42e1b00ef742c0ee",
+      "order": 89,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Os inimigos desencarnados",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5 e 6"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:44429f81f48aa5e7",
+      "source_key": "44429f81f48aa5e7",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:42e1b00ef742c0ee",
+      "order": 90,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Se alguém vos bater na face direita, apresentai-lhe também a outra",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "7 e 8"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:55c5a244e1235970",
+      "source_key": "55c5a244e1235970",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:42e1b00ef742c0ee",
+      "order": 91,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: A vingança",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "9"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:60240d58f4df10cd",
+      "source_key": "60240d58f4df10cd",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:42e1b00ef742c0ee",
+      "order": 92,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O ódio",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:af9b2d0aac670576",
+      "source_key": "af9b2d0aac670576",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:42e1b00ef742c0ee",
+      "order": 93,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O duelo",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "11 a 16"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:29b9c6ddac59e109",
+      "source_key": "29b9c6ddac59e109",
+      "parent_id": null,
+      "order": 94,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XIII",
+      "title": "Não saiba a vossa mão esquerda o que dê a vossa mão direita",
+      "source_pdf_page": 8,
+      "printed_page": 177,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:b26875fe555b110a",
+      "source_key": "b26875fe555b110a",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:29b9c6ddac59e109",
+      "order": 95,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Fazer o bem sem ostentação",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 3"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:de7647e184ddbf38",
+      "source_key": "de7647e184ddbf38",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:29b9c6ddac59e109",
+      "order": 96,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Os infortúnios ocultos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:2fc3dcc2292bb157",
+      "source_key": "2fc3dcc2292bb157",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:29b9c6ddac59e109",
+      "order": 97,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O óbolo da viúva",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5 e 6"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:df5ce3936acfbcd0",
+      "source_key": "df5ce3936acfbcd0",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:29b9c6ddac59e109",
+      "order": 98,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Convidar os pobres e os estropiados. Dar sem esperar retribuição",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "7 e 8"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:653b939f90ab7235",
+      "source_key": "653b939f90ab7235",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:29b9c6ddac59e109",
+      "order": 99,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: A caridade material e a caridade moral",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "9 e 10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:4fb8e5bb0bf7cb97",
+      "source_key": "4fb8e5bb0bf7cb97",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:29b9c6ddac59e109",
+      "order": 100,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A beneficência",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "11 a 16"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:9834bc494941095b",
+      "source_key": "9834bc494941095b",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:29b9c6ddac59e109",
+      "order": 101,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A piedade: 17. Os órfãos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "18"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:7454abd8389c7469",
+      "source_key": "7454abd8389c7469",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:29b9c6ddac59e109",
+      "order": 102,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Benefícios pagos com a ingratidão",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "19"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:8695e52f098e8c30",
+      "source_key": "8695e52f098e8c30",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:29b9c6ddac59e109",
+      "order": 103,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Beneficência exclusiva",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "20"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:116319a813065617",
+      "source_key": "116319a813065617",
+      "parent_id": null,
+      "order": 104,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XIV",
+      "title": "Honrai a vosso pai e a vossa mãe",
+      "source_pdf_page": 8,
+      "printed_page": 197,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:f51e1631153d5d81",
+      "source_key": "f51e1631153d5d81",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:116319a813065617",
+      "order": 105,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Piedade filial",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:474bc8d82f79c21c",
+      "source_key": "474bc8d82f79c21c",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:116319a813065617",
+      "order": 106,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Quem é minha mãe e quem são meus irmãos?",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5 a 7"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:b6abae3682eb089f",
+      "source_key": "b6abae3682eb089f",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:116319a813065617",
+      "order": 107,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A parentela corporal e a parentela espiritual",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "8"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:5d6b73dd440adabd",
+      "source_key": "5d6b73dd440adabd",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:116319a813065617",
+      "order": 108,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: A ingratidão dos filhos e os laços de família",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "9"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:931716ce4ee40774",
+      "source_key": "931716ce4ee40774",
+      "parent_id": null,
+      "order": 109,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XV",
+      "title": "Fora da caridade não há salvação",
+      "source_pdf_page": 8,
+      "printed_page": 207,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:d33bb5e65a79527c",
+      "source_key": "d33bb5e65a79527c",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:931716ce4ee40774",
+      "order": 110,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O de que precisa o Espírito para ser salvo. Parábola do Bom Samaritano",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 3"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:7dfed11efa128cb6",
+      "source_key": "7dfed11efa128cb6",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:931716ce4ee40774",
+      "order": 111,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O mandamento maior",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "4 e 5"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:83f28067d4662780",
+      "source_key": "83f28067d4662780",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:931716ce4ee40774",
+      "order": 112,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Necessidade da caridade, segundo Paulo",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "6 e 7"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:240fda6277fb10b5",
+      "source_key": "240fda6277fb10b5",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:931716ce4ee40774",
+      "order": 113,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Fora da Igreja não há salvação. Fora da verdade não há salvação",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "8 e 9"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:2948e2f81dba6ba9",
+      "source_key": "2948e2f81dba6ba9",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:931716ce4ee40774",
+      "order": 114,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: Fora da caridade não há salvação",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:7831a72e951d3101",
+      "source_key": "7831a72e951d3101",
+      "parent_id": null,
+      "order": 115,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XVI",
+      "title": "Não se pode servir a Deus e a Mamon",
+      "source_pdf_page": 8,
+      "printed_page": 215,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:8571e3a1c5590a95",
+      "source_key": "8571e3a1c5590a95",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7831a72e951d3101",
+      "order": 116,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Salvação dos ricos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 e 2"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:f4eed6eb003dce4b",
+      "source_key": "f4eed6eb003dce4b",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7831a72e951d3101",
+      "order": 117,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Preservar-se da avareza",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "3"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:03049de1e7eb61a5",
+      "source_key": "03049de1e7eb61a5",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7831a72e951d3101",
+      "order": 118,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Jesus em casa de Zaqueu",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:3ff5d72ca216fe32",
+      "source_key": "3ff5d72ca216fe32",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7831a72e951d3101",
+      "order": 119,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Parábola do Mau Rico",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:22877f3011b90a50",
+      "source_key": "22877f3011b90a50",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7831a72e951d3101",
+      "order": 120,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Parábola dos Talentos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "6"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:fa2741afc176688e",
+      "source_key": "fa2741afc176688e",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7831a72e951d3101",
+      "order": 121,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Utilidade providencial da riqueza. Provas da riqueza e da miséria",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "7"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:9a42582457518469",
+      "source_key": "9a42582457518469",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7831a72e951d3101",
+      "order": 122,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Desigualdade das riquezas",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "8"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:1dc7031d0c76b09b",
+      "source_key": "1dc7031d0c76b09b",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7831a72e951d3101",
+      "order": 123,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: A verdadeira propriedade",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "9 e 10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:4ea2b6ce1df9393e",
+      "source_key": "4ea2b6ce1df9393e",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7831a72e951d3101",
+      "order": 124,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Emprego da riqueza",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "11 a 13"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:b905bc09c0ed19ef",
+      "source_key": "b905bc09c0ed19ef",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7831a72e951d3101",
+      "order": 125,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Desprendimento dos bens terrenos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "14"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:97d43642411a2ccf",
+      "source_key": "97d43642411a2ccf",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7831a72e951d3101",
+      "order": 126,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Transmissão da riqueza",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "15"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:c3f3ddcb525377c1",
+      "source_key": "c3f3ddcb525377c1",
+      "parent_id": null,
+      "order": 127,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XVII",
+      "title": "Sede perfeitos",
+      "source_pdf_page": 9,
+      "printed_page": 231,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:85485a836b6feb8c",
+      "source_key": "85485a836b6feb8c",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c3f3ddcb525377c1",
+      "order": 128,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Caracteres da perfeição",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 e 2"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:9345871acf2dc955",
+      "source_key": "9345871acf2dc955",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c3f3ddcb525377c1",
+      "order": 129,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O homem de bem",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "3"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:082af4337cc605a6",
+      "source_key": "082af4337cc605a6",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c3f3ddcb525377c1",
+      "order": 130,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Os bons espíritas",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:e4a31a68a6bcc7ee",
+      "source_key": "e4a31a68a6bcc7ee",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c3f3ddcb525377c1",
+      "order": 131,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Parábola do Semeador",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5 e 6"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:4bacc8308c73b273",
+      "source_key": "4bacc8308c73b273",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c3f3ddcb525377c1",
+      "order": 132,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: O dever",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "7"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:1ec4b548313ed9c4",
+      "source_key": "1ec4b548313ed9c4",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c3f3ddcb525377c1",
+      "order": 133,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A virtude",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "8"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:79ea449c378dc9e1",
+      "source_key": "79ea449c378dc9e1",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c3f3ddcb525377c1",
+      "order": 134,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Os superiores e os inferiores",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "9"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:2d75814f8fbde270",
+      "source_key": "2d75814f8fbde270",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c3f3ddcb525377c1",
+      "order": 135,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O homem no mundo",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:3130533fa0645462",
+      "source_key": "3130533fa0645462",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c3f3ddcb525377c1",
+      "order": 136,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Cuidar do corpo e do espírito",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "11"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:7f0e83d61ca559d5",
+      "source_key": "7f0e83d61ca559d5",
+      "parent_id": null,
+      "order": 137,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XVIII",
+      "title": "Muitos os chamados, poucos os escolhidos",
+      "source_pdf_page": 9,
+      "printed_page": 243,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:9e4e0647692ba6d0",
+      "source_key": "9e4e0647692ba6d0",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7f0e83d61ca559d5",
+      "order": 138,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Parábola do Festim das Bodas",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 e 2"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:67e161937ebee0d5",
+      "source_key": "67e161937ebee0d5",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7f0e83d61ca559d5",
+      "order": 139,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A porta estreita",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "3 a 5"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:2c11e17cf8b7f38f",
+      "source_key": "2c11e17cf8b7f38f",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7f0e83d61ca559d5",
+      "order": 140,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Nem todos os que dizem: “Senhor! Senhor!” entrarão no Reino dos Céus",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "6 a 9"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:f1c9ed2d7e45029f",
+      "source_key": "f1c9ed2d7e45029f",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7f0e83d61ca559d5",
+      "order": 141,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Muito se pedirá àquele que muito recebeu",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "10 a 12"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:e2bd506ea7043b4c",
+      "source_key": "e2bd506ea7043b4c",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7f0e83d61ca559d5",
+      "order": 142,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: Dar-se-á àquele que tem",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "13 a 15"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:e289a1b2b6701f30",
+      "source_key": "e289a1b2b6701f30",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7f0e83d61ca559d5",
+      "order": 143,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Pelas suas obras é que se reconhece o cristão",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "16"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:99bfc7bd060b3fd0",
+      "source_key": "99bfc7bd060b3fd0",
+      "parent_id": null,
+      "order": 144,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XIX",
+      "title": "A fé transporta montanhas",
+      "source_pdf_page": 9,
+      "printed_page": 253,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:2a52d4b9e6a681e9",
+      "source_key": "2a52d4b9e6a681e9",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:99bfc7bd060b3fd0",
+      "order": 145,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Poder da fé",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 5"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:f8084496bced5bef",
+      "source_key": "f8084496bced5bef",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:99bfc7bd060b3fd0",
+      "order": 146,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A fé religiosa. Condição da fé inabalável",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "6 e 7"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:2d121ea2e59e7c6d",
+      "source_key": "2d121ea2e59e7c6d",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:99bfc7bd060b3fd0",
+      "order": 147,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Parábola da Figueira que Secou",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "8 a 10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:73c1a4d01c57d447",
+      "source_key": "73c1a4d01c57d447",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:99bfc7bd060b3fd0",
+      "order": 148,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: A fé: mãe da esperança e da caridade",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "11"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:e1d1f3f2b0667c07",
+      "source_key": "e1d1f3f2b0667c07",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:99bfc7bd060b3fd0",
+      "order": 149,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "A fé humana e a divina",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "12"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:86596137967a3f21",
+      "source_key": "86596137967a3f21",
+      "parent_id": null,
+      "order": 150,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XX",
+      "title": "Os trabalhadores da última hora",
+      "source_pdf_page": 9,
+      "printed_page": 261,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:bb1051248ab7fc20",
+      "source_key": "bb1051248ab7fc20",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:86596137967a3f21",
+      "order": 151,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: Os últimos serão os primeiros",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 3"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:999c702c70c56686",
+      "source_key": "999c702c70c56686",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:86596137967a3f21",
+      "order": 152,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Missão dos espíritas",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:f13ec08e079aa773",
+      "source_key": "f13ec08e079aa773",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:86596137967a3f21",
+      "order": 153,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Os obreiros do Senhor",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:0f6d29444044bb0d",
+      "source_key": "0f6d29444044bb0d",
+      "parent_id": null,
+      "order": 154,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XXI",
+      "title": "Haverá falsos cristos e falsos profetas",
+      "source_pdf_page": 9,
+      "printed_page": 267,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:1b8f17ee84eb3ebc",
+      "source_key": "1b8f17ee84eb3ebc",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:0f6d29444044bb0d",
+      "order": 155,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Conhece-se a árvore pelo fruto",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 3"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:067f18f5d41d60d8",
+      "source_key": "067f18f5d41d60d8",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:0f6d29444044bb0d",
+      "order": 156,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Missão dos profetas",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:1ea98b65e4659fb0",
+      "source_key": "1ea98b65e4659fb0",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:0f6d29444044bb0d",
+      "order": 157,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Prodígios dos falsos profetas",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:d26b218a1a57538c",
+      "source_key": "d26b218a1a57538c",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:0f6d29444044bb0d",
+      "order": 158,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Não creais em todos os Espíritos",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "6 e 7"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:8e7e64a2194c754c",
+      "source_key": "8e7e64a2194c754c",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:0f6d29444044bb0d",
+      "order": 159,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: Os falsos profetas",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "8"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:0c9073442024fbd8",
+      "source_key": "0c9073442024fbd8",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:0f6d29444044bb0d",
+      "order": 160,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Caracteres do verdadeiro profeta",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "9"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:dcf64c7196a83239",
+      "source_key": "dcf64c7196a83239",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:0f6d29444044bb0d",
+      "order": 161,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Os falsos profetas da erraticidade",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:10d0185b0808fc7f",
+      "source_key": "10d0185b0808fc7f",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:0f6d29444044bb0d",
+      "order": 162,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Jeremias e os falsos profetas",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "11"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:be3c752810fae1d3",
+      "source_key": "be3c752810fae1d3",
+      "parent_id": null,
+      "order": 163,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XXII",
+      "title": "Não separeis o que Deus juntou",
+      "source_pdf_page": 9,
+      "printed_page": 277,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:940c034723c698e8",
+      "source_key": "940c034723c698e8",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:be3c752810fae1d3",
+      "order": 164,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Indissolubilidade do casamento",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:039ee55b4b539c70",
+      "source_key": "039ee55b4b539c70",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:be3c752810fae1d3",
+      "order": 165,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "O divórcio",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:644b74453d56c150",
+      "source_key": "644b74453d56c150",
+      "parent_id": null,
+      "order": 166,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XXIII",
+      "title": "Estranha moral",
+      "source_pdf_page": 9,
+      "printed_page": 281,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:48be150ee162e92d",
+      "source_key": "48be150ee162e92d",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:644b74453d56c150",
+      "order": 167,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Odiar os pais",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 3"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:bf8b00bfacacfef5",
+      "source_key": "bf8b00bfacacfef5",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:644b74453d56c150",
+      "order": 168,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Abandonar pai, mãe e filhos",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "4 a 6"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:74f27dfb344cf3b2",
+      "source_key": "74f27dfb344cf3b2",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:644b74453d56c150",
+      "order": 169,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Deixar aos mortos o cuidado de enterrar seus mortos",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "7 e 8"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:208c20145b6ee5a4",
+      "source_key": "208c20145b6ee5a4",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:644b74453d56c150",
+      "order": 170,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Não vim trazer a paz, mas a divisão",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "9 a 18"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:41077b555b40b85c",
+      "source_key": "41077b555b40b85c",
+      "parent_id": null,
+      "order": 171,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XXIV",
+      "title": "Não ponhais a candeia debaixo do alqueire",
+      "source_pdf_page": 9,
+      "printed_page": 291,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:d9e729edff827da4",
+      "source_key": "d9e729edff827da4",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:41077b555b40b85c",
+      "order": 172,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Candeia sob o alqueire. Por que fala Jesus por parábolas",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 7"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:3239437b8ac36e10",
+      "source_key": "3239437b8ac36e10",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:41077b555b40b85c",
+      "order": 173,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Não vades ter com os gentios",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "8 a 10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:93da9bd5a21815cc",
+      "source_key": "93da9bd5a21815cc",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:41077b555b40b85c",
+      "order": 174,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Não são os que gozam saúde que precisam de médico",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "11 e 12"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:da73a66bfcd9507a",
+      "source_key": "da73a66bfcd9507a",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:41077b555b40b85c",
+      "order": 175,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Coragem da fé",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "13 a 16"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:482702995c062759",
+      "source_key": "482702995c062759",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:41077b555b40b85c",
+      "order": 176,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Carregar sua cruz. Quem quiser salvar a vida, perdê-la-á",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "17 a 19"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:7ee8e14cf2b3dfbd",
+      "source_key": "7ee8e14cf2b3dfbd",
+      "parent_id": null,
+      "order": 177,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XXV",
+      "title": "Buscai e achareis",
+      "source_pdf_page": 10,
+      "printed_page": 299,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:1819b2b55433835d",
+      "source_key": "1819b2b55433835d",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7ee8e14cf2b3dfbd",
+      "order": 178,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Ajuda-te a ti mesmo, que o céu te ajudará",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 5"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:cba141f32aa69e5d",
+      "source_key": "cba141f32aa69e5d",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7ee8e14cf2b3dfbd",
+      "order": 179,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Observai os pássaros do céu",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "6 a 8"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:42f980073b7ab72f",
+      "source_key": "42f980073b7ab72f",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:7ee8e14cf2b3dfbd",
+      "order": 180,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Não vos afadigueis pela posse do ouro",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "9 a 11"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:069a82afbb9131f1",
+      "source_key": "069a82afbb9131f1",
+      "parent_id": null,
+      "order": 181,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XXVI",
+      "title": "Dai gratuitamente o que gratuitamente recebestes",
+      "source_pdf_page": 10,
+      "printed_page": 305,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:445088a8ed30f363",
+      "source_key": "445088a8ed30f363",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:069a82afbb9131f1",
+      "order": 182,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Dom de curar",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 e 2"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:c23fd1da131556de",
+      "source_key": "c23fd1da131556de",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:069a82afbb9131f1",
+      "order": 183,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Preces pagas",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "3 e 4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:af91e6bc43edfbb0",
+      "source_key": "af91e6bc43edfbb0",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:069a82afbb9131f1",
+      "order": 184,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Mercadores expulsos do templo",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5 e 6"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:05fb6072c6c10b57",
+      "source_key": "05fb6072c6c10b57",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:069a82afbb9131f1",
+      "order": 185,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Mediunidade gratuita",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "7 a 10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:c2c82cb03b23a9be",
+      "source_key": "c2c82cb03b23a9be",
+      "parent_id": null,
+      "order": 186,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XXVII",
+      "title": "Pedi e obtereis",
+      "source_pdf_page": 10,
+      "printed_page": 311,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:3ff4f3617d86bc8f",
+      "source_key": "3ff4f3617d86bc8f",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c2c82cb03b23a9be",
+      "order": 187,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Qualidades da prece",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1 a 4"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:c43f1a7cd8930ccf",
+      "source_key": "c43f1a7cd8930ccf",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c2c82cb03b23a9be",
+      "order": 188,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Eficácia da prece",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "5 a 8"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:10ad264e9ccc12c2",
+      "source_key": "10ad264e9ccc12c2",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c2c82cb03b23a9be",
+      "order": 189,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Ação da prece. Transmissão do pensamento",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "9 a 15"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:9fc6d79d98629d4e",
+      "source_key": "9fc6d79d98629d4e",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c2c82cb03b23a9be",
+      "order": 190,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Preces inteligíveis",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "16 e 17"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:59ae1400a083c155",
+      "source_key": "59ae1400a083c155",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c2c82cb03b23a9be",
+      "order": 191,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Da prece pelos mortos e pelos Espíritos sofredores",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "18 a 21"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:2a1a3545b9965790",
+      "source_key": "2a1a3545b9965790",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c2c82cb03b23a9be",
+      "order": 192,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Instruções dos Espíritos: Maneira de orar",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "22"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:834448407b597eaa",
+      "source_key": "834448407b597eaa",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:c2c82cb03b23a9be",
+      "order": 193,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Felicidade que a prece proporciona",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "23"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:chapter:16ce7d7a83389925",
+      "source_key": "16ce7d7a83389925",
+      "parent_id": null,
+      "order": 194,
+      "depth": 0,
+      "type": "chapter",
+      "label": "Capítulo XXVIII",
+      "title": "Coletânea de preces espíritas",
+      "source_pdf_page": 10,
+      "printed_page": 325,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:cb17acec132c44e0",
+      "source_key": "cb17acec132c44e0",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:16ce7d7a83389925",
+      "order": 195,
+      "depth": 1,
+      "type": "section",
+      "label": null,
+      "title": "Preâmbulo",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "1"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:group:aea9298e11b2bd52",
+      "source_key": "aea9298e11b2bd52",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:16ce7d7a83389925",
+      "order": 196,
+      "depth": 1,
+      "type": "group",
+      "label": null,
+      "title": "I – Preces gerais",
+      "source_pdf_page": 10,
+      "printed_page": 327,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:f438dd94af879fee",
+      "source_key": "f438dd94af879fee",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:aea9298e11b2bd52",
+      "order": 197,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Oração dominical",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "2 e 3"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:b94c7238d386c766",
+      "source_key": "b94c7238d386c766",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:aea9298e11b2bd52",
+      "order": 198,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Reuniões espíritas",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "4 a 7"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:ed233878241f115c",
+      "source_key": "ed233878241f115c",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:aea9298e11b2bd52",
+      "order": 199,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Para os médiuns",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "8 a 10"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:group:32c714818b9fc68b",
+      "source_key": "32c714818b9fc68b",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:16ce7d7a83389925",
+      "order": 200,
+      "depth": 1,
+      "type": "group",
+      "label": null,
+      "title": "II – Preces por aquele mesmo que ora",
+      "source_pdf_page": 10,
+      "printed_page": 337,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:46e49b719f6e9623",
+      "source_key": "46e49b719f6e9623",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:32c714818b9fc68b",
+      "order": 201,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Aos anjos guardiães e aos Espíritos protetores",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "11 a 14"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:344d1bc955fbfa9a",
+      "source_key": "344d1bc955fbfa9a",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:32c714818b9fc68b",
+      "order": 202,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Para afastar os maus Espíritos",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "15 a 17"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:00fcbfd79330b2ce",
+      "source_key": "00fcbfd79330b2ce",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:32c714818b9fc68b",
+      "order": 203,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Para pedir a corrigenda de um defeito",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "18 e 19"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:9d59d6de18bc6db1",
+      "source_key": "9d59d6de18bc6db1",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:32c714818b9fc68b",
+      "order": 204,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Para pedir a força de resistir a uma tentação",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "20 e 21"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:2840a01722080ec5",
+      "source_key": "2840a01722080ec5",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:32c714818b9fc68b",
+      "order": 205,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Ação de graças pela vitória alcançada sobre uma tentação",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "22 e 23"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:5aaf7768f6977fa8",
+      "source_key": "5aaf7768f6977fa8",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:32c714818b9fc68b",
+      "order": 206,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Para pedir um conselho",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "24 e 25"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:6e0e64c515dac57f",
+      "source_key": "6e0e64c515dac57f",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:32c714818b9fc68b",
+      "order": 207,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Nas aflições da vida",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "26 e 27"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:40414e49f30470e4",
+      "source_key": "40414e49f30470e4",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:32c714818b9fc68b",
+      "order": 208,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Ação de graças por um favor obtido",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "28 e 29"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:f4572b27f62ce5fa",
+      "source_key": "f4572b27f62ce5fa",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:32c714818b9fc68b",
+      "order": 209,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Ato de submissão e de resignação",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "30 a 33"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:ab1f7f3bcebb158a",
+      "source_key": "ab1f7f3bcebb158a",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:32c714818b9fc68b",
+      "order": 210,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Num perigo iminente",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "34 e 35"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:081daf378e7185fe",
+      "source_key": "081daf378e7185fe",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:32c714818b9fc68b",
+      "order": 211,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Ação de graças por haver escapado a um perigo",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "36 e 37"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:00251d1059a4d8cc",
+      "source_key": "00251d1059a4d8cc",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:32c714818b9fc68b",
+      "order": 212,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "À hora de dormir",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "38 e 39"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:568886791de3abb7",
+      "source_key": "568886791de3abb7",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:32c714818b9fc68b",
+      "order": 213,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Prevendo próxima a morte",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "40 e 41"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:group:f5d10224b4d0d890",
+      "source_key": "f5d10224b4d0d890",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:16ce7d7a83389925",
+      "order": 214,
+      "depth": 1,
+      "type": "group",
+      "label": null,
+      "title": "III – Preces por outrem",
+      "source_pdf_page": 10,
+      "printed_page": 349,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:4f20cb8c2bdab375",
+      "source_key": "4f20cb8c2bdab375",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:f5d10224b4d0d890",
+      "order": 215,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Por alguém que esteja em aflição",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "42 e 43"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:73d5b8796ef86b77",
+      "source_key": "73d5b8796ef86b77",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:f5d10224b4d0d890",
+      "order": 216,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Ação de graças por um benefício concedido a outrem",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "44 e 45"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:ccbb12b4ab055cb0",
+      "source_key": "ccbb12b4ab055cb0",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:f5d10224b4d0d890",
+      "order": 217,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Pelos nossos inimigos e pelos que nos querem mal",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "46 e 47"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:e2bd93be3be5bfa6",
+      "source_key": "e2bd93be3be5bfa6",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:f5d10224b4d0d890",
+      "order": 218,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Ação de graças pelo bem concedido aos nossos inimigos",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "48 e 49"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:d32d7d3158893c9f",
+      "source_key": "d32d7d3158893c9f",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:f5d10224b4d0d890",
+      "order": 219,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Pelos inimigos do Espiritismo",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "50 a 52"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:f20b50af7e08f5fd",
+      "source_key": "f20b50af7e08f5fd",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:f5d10224b4d0d890",
+      "order": 220,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Por uma criança que acaba de nascer",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "53 a 56"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:273fff196bffa374",
+      "source_key": "273fff196bffa374",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:f5d10224b4d0d890",
+      "order": 221,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Por um agonizante",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "57 e 58"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:group:e348af53515ec259",
+      "source_key": "e348af53515ec259",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:16ce7d7a83389925",
+      "order": 222,
+      "depth": 1,
+      "type": "group",
+      "label": null,
+      "title": "IV – Preces pelos que já não são da Terra",
+      "source_pdf_page": 10,
+      "printed_page": 355,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:a7cc53605ee3dd3e",
+      "source_key": "a7cc53605ee3dd3e",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:e348af53515ec259",
+      "order": 223,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Por alguém que acaba de morrer",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "59 a 61"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:b8642c32622ece8c",
+      "source_key": "b8642c32622ece8c",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:e348af53515ec259",
+      "order": 224,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Pelas pessoas a quem tivemos afeição",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "62 e 63"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:ba500c7e6e1450b1",
+      "source_key": "ba500c7e6e1450b1",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:e348af53515ec259",
+      "order": 225,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Pelas almas sofredoras que pedem preces",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "64 a 66"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:7d7c169f13513135",
+      "source_key": "7d7c169f13513135",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:e348af53515ec259",
+      "order": 226,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Por um inimigo que morreu",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "67 e 68"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:8cd97a9e25364346",
+      "source_key": "8cd97a9e25364346",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:e348af53515ec259",
+      "order": 227,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Por um criminoso",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "69 e 70"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:1d8434d35cd6b196",
+      "source_key": "1d8434d35cd6b196",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:e348af53515ec259",
+      "order": 228,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Por um suicida",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "71 e 72"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:4a8392a915cbbe72",
+      "source_key": "4a8392a915cbbe72",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:e348af53515ec259",
+      "order": 229,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Pelos Espíritos penitentes",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "73 e 74"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:3a7a259cd6b62159",
+      "source_key": "3a7a259cd6b62159",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:e348af53515ec259",
+      "order": 230,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Pelos Espíritos endurecidos",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "75 e 76"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:group:74aa80ffae50bb12",
+      "source_key": "74aa80ffae50bb12",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:chapter:16ce7d7a83389925",
+      "order": 231,
+      "depth": 1,
+      "type": "group",
+      "label": null,
+      "title": "V – Preces pelos doentes e pelos obsidiados",
+      "source_pdf_page": 11,
+      "printed_page": 365,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:a336a8f28c402538",
+      "source_key": "a336a8f28c402538",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:74aa80ffae50bb12",
+      "order": 232,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Pelos doentes",
+      "source_pdf_page": 11,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "77 a 80"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:section:fea5b54b1bf84bbd",
+      "source_key": "fea5b54b1bf84bbd",
+      "parent_id": "o-evangelho-segundo-o-espiritismo:group:74aa80ffae50bb12",
+      "order": 233,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Pelos obsidiados",
+      "source_pdf_page": 11,
+      "printed_page": null,
+      "locator": {
+        "type": "paragraph_range",
+        "value": "81 a 84"
+      }
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:back_matter:29618b6e164aebfe",
+      "source_key": "29618b6e164aebfe",
+      "parent_id": null,
+      "order": 234,
+      "depth": 0,
+      "type": "back_matter",
+      "label": null,
+      "title": "Nota Explicativa",
+      "source_pdf_page": 11,
+      "printed_page": 371,
+      "locator": null
+    },
+    {
+      "id": "o-evangelho-segundo-o-espiritismo:back_matter:8bd56e3bc31a22a8",
+      "source_key": "8bd56e3bc31a22a8",
+      "parent_id": null,
+      "order": 235,
+      "depth": 0,
+      "type": "back_matter",
+      "label": null,
+      "title": "Índice Geral",
+      "source_pdf_page": 11,
+      "printed_page": 377,
+      "locator": null
+    }
+  ],
+  "review_flags": []
+}

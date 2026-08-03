@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://vereda.app/schemas/editorial-structure-map-v1.json",
+  "title": "Vereda Editorial Structure Map",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "book",
+    "source",
+    "counts",
+    "nodes",
+    "review_flags"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "book": {
+      "type": "object",
+      "required": ["book_id", "slug", "title"],
+      "properties": {
+        "book_id": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "slug": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "source_file",
+        "source_sha256",
+        "toc_pdf_pages",
+        "toc_text_sha256",
+        "rights_status"
+      ],
+      "properties": {
+        "source_file": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "toc_pdf_pages": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "minItems": 1
+        },
+        "toc_text_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "rights_status": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "counts": {
+      "type": "object",
+      "required": [
+        "front_matter",
+        "divisions",
+        "chapters",
+        "groups",
+        "sections",
+        "back_matter",
+        "total_nodes"
+      ],
+      "properties": {
+        "front_matter": { "type": "integer", "minimum": 0 },
+        "divisions": { "type": "integer", "minimum": 0 },
+        "chapters": { "type": "integer", "minimum": 0 },
+        "groups": { "type": "integer", "minimum": 0 },
+        "sections": { "type": "integer", "minimum": 0 },
+        "back_matter": { "type": "integer", "minimum": 0 },
+        "total_nodes": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "source_key",
+          "order",
+          "depth",
+          "type",
+          "title",
+          "source_pdf_page"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_key": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{16}$"
+          },
+          "parent_id": {
+            "type": ["string", "null"]
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "depth": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "type": {
+            "enum": [
+              "front_matter",
+              "division",
+              "chapter",
+              "group",
+              "section",
+              "back_matter"
+            ]
+          },
+          "label": {
+            "type": ["string", "null"]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_pdf_page": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "printed_page": {
+            "type": ["integer", "null"],
+            "minimum": 1
+          },
+          "locator": {
+            "type": ["object", "null"],
+            "properties": {
+              "type": {
+                "enum": ["printed_page", "paragraph_range"]
+              },
+              "value": {
+                "type": ["integer", "string"]
+              }
+            },
+            "required": ["type", "value"],
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "review_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

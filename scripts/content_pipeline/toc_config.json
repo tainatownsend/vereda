@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "works": [
+    {
+      "book_id": 1,
+      "slug": "o-livro-dos-espiritos",
+      "toc_pdf_pages": [6, 7, 8, 9, 10],
+      "expected_divisions": 4,
+      "expected_chapters": 29,
+      "detail_separator": "semicolon",
+      "detail_locator": "page",
+      "division_titles": []
+    },
+    {
+      "book_id": 2,
+      "slug": "o-livro-dos-mediuns",
+      "toc_pdf_pages": [6, 7, 8, 9],
+      "expected_divisions": 2,
+      "expected_chapters": 36,
+      "detail_separator": "dash",
+      "detail_locator": "none",
+      "division_titles": []
+    },
+    {
+      "book_id": 3,
+      "slug": "o-evangelho-segundo-o-espiritismo",
+      "toc_pdf_pages": [6, 7, 8, 9, 10, 11],
+      "expected_divisions": 0,
+      "expected_chapters": 28,
+      "detail_separator": "dash",
+      "detail_locator": "paragraph",
+      "division_titles": []
+    },
+    {
+      "book_id": 4,
+      "slug": "o-ceu-e-o-inferno",
+      "toc_pdf_pages": [6, 7, 8],
+      "expected_divisions": 2,
+      "expected_chapters": 19,
+      "detail_separator": "semicolon",
+      "detail_locator": "page",
+      "division_titles": []
+    },
+    {
+      "book_id": 5,
+      "slug": "a-genese",
+      "toc_pdf_pages": [6, 7, 8, 9],
+      "expected_divisions": 3,
+      "expected_chapters": 18,
+      "detail_separator": "semicolon",
+      "detail_locator": "page",
+      "division_titles": [
+        "A Gênese segundo o Espiritismo",
+        "Os milagres segundo o Espiritismo",
+        "As predições segundo o Espiritismo"
+      ]
+    }
+  ]
+}

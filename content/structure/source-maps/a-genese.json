@@ -1,0 +1,2239 @@
+{
+  "schema_version": 1,
+  "book": {
+    "book_id": 5,
+    "slug": "a-genese",
+    "title": "A Gênese"
+  },
+  "source": {
+    "source_file": "WEB-A-Genese-Guillon.pdf",
+    "source_sha256": "c8589e820ee845ceef851f94b697153d82a8d858dd34d99aac694dae22b16488",
+    "toc_pdf_pages": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "toc_text_sha256": "dd6317961f1b789f09a08a1e9be57ca03088d251b7cdb2bfc413db75b61b4bf0",
+    "rights_status": "permission-required-for-production"
+  },
+  "counts": {
+    "front_matter": 2,
+    "divisions": 3,
+    "chapters": 18,
+    "groups": 6,
+    "sections": 115,
+    "back_matter": 2,
+    "total_nodes": 146
+  },
+  "nodes": [
+    {
+      "id": "a-genese:front_matter:19b929fd38d1afa2",
+      "source_key": "19b929fd38d1afa2",
+      "parent_id": null,
+      "order": 1,
+      "depth": 0,
+      "type": "front_matter",
+      "label": null,
+      "title": "Nota da Editora",
+      "source_pdf_page": 6,
+      "printed_page": 9,
+      "locator": null
+    },
+    {
+      "id": "a-genese:front_matter:644fea731d3f9981",
+      "source_key": "644fea731d3f9981",
+      "parent_id": null,
+      "order": 2,
+      "depth": 0,
+      "type": "front_matter",
+      "label": null,
+      "title": "Introdução",
+      "source_pdf_page": 6,
+      "printed_page": 11,
+      "locator": null
+    },
+    {
+      "id": "a-genese:division:35951e5f8c1ad9fe",
+      "source_key": "35951e5f8c1ad9fe",
+      "parent_id": null,
+      "order": 3,
+      "depth": 0,
+      "type": "division",
+      "label": null,
+      "title": "A Gênese segundo o Espiritismo",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": null
+    },
+    {
+      "id": "a-genese:chapter:af0595094b00dbc4",
+      "source_key": "af0595094b00dbc4",
+      "parent_id": "a-genese:division:35951e5f8c1ad9fe",
+      "order": 4,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo I",
+      "title": "Caráter da revelação espírita",
+      "source_pdf_page": 6,
+      "printed_page": 17,
+      "locator": null
+    },
+    {
+      "id": "a-genese:chapter:7a69729d545d44ec",
+      "source_key": "7a69729d545d44ec",
+      "parent_id": "a-genese:division:35951e5f8c1ad9fe",
+      "order": 5,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo II",
+      "title": "Deus",
+      "source_pdf_page": 6,
+      "printed_page": 49,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:1cc749a484f3787d",
+      "source_key": "1cc749a484f3787d",
+      "parent_id": "a-genese:chapter:7a69729d545d44ec",
+      "order": 6,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Existência de Deus",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 49
+      }
+    },
+    {
+      "id": "a-genese:section:6e289fb52ab4300e",
+      "source_key": "6e289fb52ab4300e",
+      "parent_id": "a-genese:chapter:7a69729d545d44ec",
+      "order": 7,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Da natureza divina",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 51
+      }
+    },
+    {
+      "id": "a-genese:section:8db39298159e9943",
+      "source_key": "8db39298159e9943",
+      "parent_id": "a-genese:chapter:7a69729d545d44ec",
+      "order": 8,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A Providência",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 55
+      }
+    },
+    {
+      "id": "a-genese:section:becc0d198df71200",
+      "source_key": "becc0d198df71200",
+      "parent_id": "a-genese:chapter:7a69729d545d44ec",
+      "order": 9,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A visão de Deus",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 59
+      }
+    },
+    {
+      "id": "a-genese:chapter:ba73a1edf9cf0984",
+      "source_key": "ba73a1edf9cf0984",
+      "parent_id": "a-genese:division:35951e5f8c1ad9fe",
+      "order": 10,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo III",
+      "title": "O bem e o mal",
+      "source_pdf_page": 6,
+      "printed_page": 63,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:2ef1a83403eee616",
+      "source_key": "2ef1a83403eee616",
+      "parent_id": "a-genese:chapter:ba73a1edf9cf0984",
+      "order": 11,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Origem do bem e do mal",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 63
+      }
+    },
+    {
+      "id": "a-genese:section:3a94d77b84a2e939",
+      "source_key": "3a94d77b84a2e939",
+      "parent_id": "a-genese:chapter:ba73a1edf9cf0984",
+      "order": 12,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O instinto e a inteligência",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 67
+      }
+    },
+    {
+      "id": "a-genese:section:f372f8a647f3409e",
+      "source_key": "f372f8a647f3409e",
+      "parent_id": "a-genese:chapter:ba73a1edf9cf0984",
+      "order": 13,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Destruição dos seres vivos uns pelos outros",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 72
+      }
+    },
+    {
+      "id": "a-genese:chapter:b7284bbc42f35bcf",
+      "source_key": "b7284bbc42f35bcf",
+      "parent_id": "a-genese:division:35951e5f8c1ad9fe",
+      "order": 14,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo IV",
+      "title": "Papel da Ciência na Gênese",
+      "source_pdf_page": 6,
+      "printed_page": 75,
+      "locator": null
+    },
+    {
+      "id": "a-genese:chapter:a2a42f3b752ead20",
+      "source_key": "a2a42f3b752ead20",
+      "parent_id": "a-genese:division:35951e5f8c1ad9fe",
+      "order": 15,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo V",
+      "title": "Antigos e modernos sistemas do mundo",
+      "source_pdf_page": 6,
+      "printed_page": 83,
+      "locator": null
+    },
+    {
+      "id": "a-genese:chapter:13b8701c61562c39",
+      "source_key": "13b8701c61562c39",
+      "parent_id": "a-genese:division:35951e5f8c1ad9fe",
+      "order": 16,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VI",
+      "title": "Uranografia geral",
+      "source_pdf_page": 6,
+      "printed_page": 91,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:fea241074d671c5b",
+      "source_key": "fea241074d671c5b",
+      "parent_id": "a-genese:chapter:13b8701c61562c39",
+      "order": 17,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O espaço e o tempo",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 91
+      }
+    },
+    {
+      "id": "a-genese:section:eedb3d40d7a997e5",
+      "source_key": "eedb3d40d7a997e5",
+      "parent_id": "a-genese:chapter:13b8701c61562c39",
+      "order": 18,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A matéria",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 94
+      }
+    },
+    {
+      "id": "a-genese:section:15010139e77461c3",
+      "source_key": "15010139e77461c3",
+      "parent_id": "a-genese:chapter:13b8701c61562c39",
+      "order": 19,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "As leis e as forças",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 97
+      }
+    },
+    {
+      "id": "a-genese:section:54f40b8c84d0cede",
+      "source_key": "54f40b8c84d0cede",
+      "parent_id": "a-genese:chapter:13b8701c61562c39",
+      "order": 20,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A criação primária",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 99
+      }
+    },
+    {
+      "id": "a-genese:section:2c807b1d9605ef63",
+      "source_key": "2c807b1d9605ef63",
+      "parent_id": "a-genese:chapter:13b8701c61562c39",
+      "order": 21,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A criação universal",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 102
+      }
+    },
+    {
+      "id": "a-genese:section:cbbc3e0534b221b2",
+      "source_key": "cbbc3e0534b221b2",
+      "parent_id": "a-genese:chapter:13b8701c61562c39",
+      "order": 22,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Os sóis e os planetas",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 104
+      }
+    },
+    {
+      "id": "a-genese:section:6d0b10c401780982",
+      "source_key": "6d0b10c401780982",
+      "parent_id": "a-genese:chapter:13b8701c61562c39",
+      "order": 23,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Os satélites",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 105
+      }
+    },
+    {
+      "id": "a-genese:section:d8e88d5ca3643c43",
+      "source_key": "d8e88d5ca3643c43",
+      "parent_id": "a-genese:chapter:13b8701c61562c39",
+      "order": 24,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Os cometas",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 108
+      }
+    },
+    {
+      "id": "a-genese:section:8374240cd5ca6d37",
+      "source_key": "8374240cd5ca6d37",
+      "parent_id": "a-genese:chapter:13b8701c61562c39",
+      "order": 25,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A Via Láctea",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 109
+      }
+    },
+    {
+      "id": "a-genese:section:07baad0babc6e3e4",
+      "source_key": "07baad0babc6e3e4",
+      "parent_id": "a-genese:chapter:13b8701c61562c39",
+      "order": 26,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "As estrelas fixas",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 111
+      }
+    },
+    {
+      "id": "a-genese:section:8ecd06ff55ba4b26",
+      "source_key": "8ecd06ff55ba4b26",
+      "parent_id": "a-genese:chapter:13b8701c61562c39",
+      "order": 27,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Os desertos do espaço",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 114
+      }
+    },
+    {
+      "id": "a-genese:section:d2da706a720db629",
+      "source_key": "d2da706a720db629",
+      "parent_id": "a-genese:chapter:13b8701c61562c39",
+      "order": 28,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Eterna sucessão dos mundos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 116
+      }
+    },
+    {
+      "id": "a-genese:section:110093f69011cdbe",
+      "source_key": "110093f69011cdbe",
+      "parent_id": "a-genese:chapter:13b8701c61562c39",
+      "order": 29,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A vida universal",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 118
+      }
+    },
+    {
+      "id": "a-genese:section:b2b41915ec4d05ee",
+      "source_key": "b2b41915ec4d05ee",
+      "parent_id": "a-genese:chapter:13b8701c61562c39",
+      "order": 30,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Diversidade dos mundos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 119
+      }
+    },
+    {
+      "id": "a-genese:chapter:123410ff215322e1",
+      "source_key": "123410ff215322e1",
+      "parent_id": "a-genese:division:35951e5f8c1ad9fe",
+      "order": 31,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VII",
+      "title": "Esboço geológico da Terra",
+      "source_pdf_page": 6,
+      "printed_page": 123,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:7cbd8c3d6f6a24b2",
+      "source_key": "7cbd8c3d6f6a24b2",
+      "parent_id": "a-genese:chapter:123410ff215322e1",
+      "order": 32,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Períodos geológicos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 123
+      }
+    },
+    {
+      "id": "a-genese:section:f1e91a6576b7e1ef",
+      "source_key": "f1e91a6576b7e1ef",
+      "parent_id": "a-genese:chapter:123410ff215322e1",
+      "order": 33,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Estado primitivo do globo",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 129
+      }
+    },
+    {
+      "id": "a-genese:section:023ec0e9328811bd",
+      "source_key": "023ec0e9328811bd",
+      "parent_id": "a-genese:chapter:123410ff215322e1",
+      "order": 34,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Período primário",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 131
+      }
+    },
+    {
+      "id": "a-genese:section:285fac7b6d3a8e4b",
+      "source_key": "285fac7b6d3a8e4b",
+      "parent_id": "a-genese:chapter:123410ff215322e1",
+      "order": 35,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Período de transição",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 132
+      }
+    },
+    {
+      "id": "a-genese:section:176f310b323ca992",
+      "source_key": "176f310b323ca992",
+      "parent_id": "a-genese:chapter:123410ff215322e1",
+      "order": 36,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Período secundário",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 135
+      }
+    },
+    {
+      "id": "a-genese:section:ce227ece6795ebca",
+      "source_key": "ce227ece6795ebca",
+      "parent_id": "a-genese:chapter:123410ff215322e1",
+      "order": 37,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Período terciário",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 138
+      }
+    },
+    {
+      "id": "a-genese:section:38b8a406335e82fc",
+      "source_key": "38b8a406335e82fc",
+      "parent_id": "a-genese:chapter:123410ff215322e1",
+      "order": 38,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Período diluviano",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 142
+      }
+    },
+    {
+      "id": "a-genese:section:c78a3bca3910454c",
+      "source_key": "c78a3bca3910454c",
+      "parent_id": "a-genese:chapter:123410ff215322e1",
+      "order": 39,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Período pós-diluviano ou atual. Nascimento do homem",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 144
+      }
+    },
+    {
+      "id": "a-genese:chapter:b74a85ea0b19410e",
+      "source_key": "b74a85ea0b19410e",
+      "parent_id": "a-genese:division:35951e5f8c1ad9fe",
+      "order": 40,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VIII",
+      "title": "Teorias sobre a formação da Terra",
+      "source_pdf_page": 6,
+      "printed_page": 147,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:a94f1ab12407a3e3",
+      "source_key": "a94f1ab12407a3e3",
+      "parent_id": "a-genese:chapter:b74a85ea0b19410e",
+      "order": 41,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Teoria da projeção",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 147
+      }
+    },
+    {
+      "id": "a-genese:section:dd4aa94eb885fdb2",
+      "source_key": "dd4aa94eb885fdb2",
+      "parent_id": "a-genese:chapter:b74a85ea0b19410e",
+      "order": 42,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Teoria da condensação",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 150
+      }
+    },
+    {
+      "id": "a-genese:section:17d784f8eeb9bc17",
+      "source_key": "17d784f8eeb9bc17",
+      "parent_id": "a-genese:chapter:b74a85ea0b19410e",
+      "order": 43,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Teoria da incrustação",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 150
+      }
+    },
+    {
+      "id": "a-genese:section:e7bfb13055460106",
+      "source_key": "e7bfb13055460106",
+      "parent_id": "a-genese:chapter:b74a85ea0b19410e",
+      "order": 44,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Alma da Terra",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 153
+      }
+    },
+    {
+      "id": "a-genese:chapter:c0c676f816849837",
+      "source_key": "c0c676f816849837",
+      "parent_id": "a-genese:division:35951e5f8c1ad9fe",
+      "order": 45,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo IX",
+      "title": "Revoluções do globo",
+      "source_pdf_page": 7,
+      "printed_page": 155,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:8cff37049df024a7",
+      "source_key": "8cff37049df024a7",
+      "parent_id": "a-genese:chapter:c0c676f816849837",
+      "order": 46,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Revoluções gerais ou parciais",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 155
+      }
+    },
+    {
+      "id": "a-genese:section:56934150e289cabf",
+      "source_key": "56934150e289cabf",
+      "parent_id": "a-genese:chapter:c0c676f816849837",
+      "order": 47,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Idade das montanhas",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 156
+      }
+    },
+    {
+      "id": "a-genese:section:c48b46e6b528a461",
+      "source_key": "c48b46e6b528a461",
+      "parent_id": "a-genese:chapter:c0c676f816849837",
+      "order": 48,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Dilúvio bíblico",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 157
+      }
+    },
+    {
+      "id": "a-genese:section:43d5cc67f239f1e0",
+      "source_key": "43d5cc67f239f1e0",
+      "parent_id": "a-genese:chapter:c0c676f816849837",
+      "order": 49,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Revoluções periódicas",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 158
+      }
+    },
+    {
+      "id": "a-genese:section:dd69f51f515c285b",
+      "source_key": "dd69f51f515c285b",
+      "parent_id": "a-genese:chapter:c0c676f816849837",
+      "order": 50,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Cataclismos futuros",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 161
+      }
+    },
+    {
+      "id": "a-genese:section:8db2e6742ebd930a",
+      "source_key": "8db2e6742ebd930a",
+      "parent_id": "a-genese:chapter:c0c676f816849837",
+      "order": 51,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Aumento ou diminuição do volume da Terra",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 163
+      }
+    },
+    {
+      "id": "a-genese:chapter:77b5b1d9c9b1a5ce",
+      "source_key": "77b5b1d9c9b1a5ce",
+      "parent_id": "a-genese:division:35951e5f8c1ad9fe",
+      "order": 52,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo X",
+      "title": "Gênese orgânica",
+      "source_pdf_page": 7,
+      "printed_page": 167,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:c0c47813d7682b9f",
+      "source_key": "c0c47813d7682b9f",
+      "parent_id": "a-genese:chapter:77b5b1d9c9b1a5ce",
+      "order": 53,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Formação primária dos seres vivos",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 167
+      }
+    },
+    {
+      "id": "a-genese:section:ffd10a10d0d6698e",
+      "source_key": "ffd10a10d0d6698e",
+      "parent_id": "a-genese:chapter:77b5b1d9c9b1a5ce",
+      "order": 54,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Princípio vital",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 174
+      }
+    },
+    {
+      "id": "a-genese:section:392535f6aba405f6",
+      "source_key": "392535f6aba405f6",
+      "parent_id": "a-genese:chapter:77b5b1d9c9b1a5ce",
+      "order": 55,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Geração espontânea",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 176
+      }
+    },
+    {
+      "id": "a-genese:section:571219248f85b91f",
+      "source_key": "571219248f85b91f",
+      "parent_id": "a-genese:chapter:77b5b1d9c9b1a5ce",
+      "order": 56,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Escala dos seres orgânicos",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 177
+      }
+    },
+    {
+      "id": "a-genese:section:1693b5eca039ac8c",
+      "source_key": "1693b5eca039ac8c",
+      "parent_id": "a-genese:chapter:77b5b1d9c9b1a5ce",
+      "order": 57,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O homem corpóreo",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 179
+      }
+    },
+    {
+      "id": "a-genese:chapter:6a880ca93b62f14e",
+      "source_key": "6a880ca93b62f14e",
+      "parent_id": "a-genese:division:35951e5f8c1ad9fe",
+      "order": 58,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo XI",
+      "title": "Gênese espiritual",
+      "source_pdf_page": 7,
+      "printed_page": 183,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:86b57a362db2aa3b",
+      "source_key": "86b57a362db2aa3b",
+      "parent_id": "a-genese:chapter:6a880ca93b62f14e",
+      "order": 59,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Princípio espiritual",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 183
+      }
+    },
+    {
+      "id": "a-genese:section:807800606d883921",
+      "source_key": "807800606d883921",
+      "parent_id": "a-genese:chapter:6a880ca93b62f14e",
+      "order": 60,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "União do princípio espiritual à matéria",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 186
+      }
+    },
+    {
+      "id": "a-genese:section:925fa4f2bbfc4b06",
+      "source_key": "925fa4f2bbfc4b06",
+      "parent_id": "a-genese:chapter:6a880ca93b62f14e",
+      "order": 61,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Hipótese sobre a origem do corpo humano",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 188
+      }
+    },
+    {
+      "id": "a-genese:section:9d7857fd9cb70f8e",
+      "source_key": "9d7857fd9cb70f8e",
+      "parent_id": "a-genese:chapter:6a880ca93b62f14e",
+      "order": 62,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Encarnação dos Espíritos",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 189
+      }
+    },
+    {
+      "id": "a-genese:section:ed7081dd924da1d4",
+      "source_key": "ed7081dd924da1d4",
+      "parent_id": "a-genese:chapter:6a880ca93b62f14e",
+      "order": 63,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Reencarnações",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 196
+      }
+    },
+    {
+      "id": "a-genese:section:6bd54580322e02b4",
+      "source_key": "6bd54580322e02b4",
+      "parent_id": "a-genese:chapter:6a880ca93b62f14e",
+      "order": 64,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Emigrações e imigrações dos Espíritos",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 198
+      }
+    },
+    {
+      "id": "a-genese:section:6e7e5507e5e269fc",
+      "source_key": "6e7e5507e5e269fc",
+      "parent_id": "a-genese:chapter:6a880ca93b62f14e",
+      "order": 65,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Raça adâmica",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 200
+      }
+    },
+    {
+      "id": "a-genese:section:ed5872eefc3db57d",
+      "source_key": "ed5872eefc3db57d",
+      "parent_id": "a-genese:chapter:6a880ca93b62f14e",
+      "order": 66,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Doutrina dos anjos decaídos e da perda do paraíso",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 203
+      }
+    },
+    {
+      "id": "a-genese:chapter:d25535e0493af0fa",
+      "source_key": "d25535e0493af0fa",
+      "parent_id": "a-genese:division:35951e5f8c1ad9fe",
+      "order": 67,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo XII",
+      "title": "Gênese moisaica",
+      "source_pdf_page": 7,
+      "printed_page": 209,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:fcaffe63df986c98",
+      "source_key": "fcaffe63df986c98",
+      "parent_id": "a-genese:chapter:d25535e0493af0fa",
+      "order": 68,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Os seis dias",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 209
+      }
+    },
+    {
+      "id": "a-genese:section:cc31ab814ac921aa",
+      "source_key": "cc31ab814ac921aa",
+      "parent_id": "a-genese:chapter:d25535e0493af0fa",
+      "order": 69,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Perda do paraíso",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 218
+      }
+    },
+    {
+      "id": "a-genese:division:d6c0ddea4f3369ac",
+      "source_key": "d6c0ddea4f3369ac",
+      "parent_id": null,
+      "order": 70,
+      "depth": 0,
+      "type": "division",
+      "label": null,
+      "title": "Os milagres segundo o Espiritismo",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": null
+    },
+    {
+      "id": "a-genese:chapter:4685321434f67c73",
+      "source_key": "4685321434f67c73",
+      "parent_id": "a-genese:division:d6c0ddea4f3369ac",
+      "order": 71,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo XIII",
+      "title": "Caracteres dos milagres",
+      "source_pdf_page": 7,
+      "printed_page": 231,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:610f42bf1a6bf94c",
+      "source_key": "610f42bf1a6bf94c",
+      "parent_id": "a-genese:chapter:4685321434f67c73",
+      "order": 72,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Os milagres no sentido teológico",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 231
+      }
+    },
+    {
+      "id": "a-genese:section:84a5f73d101522e6",
+      "source_key": "84a5f73d101522e6",
+      "parent_id": "a-genese:chapter:4685321434f67c73",
+      "order": 73,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O Espiritismo não faz milagres",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 233
+      }
+    },
+    {
+      "id": "a-genese:section:48a378f88a9605f2",
+      "source_key": "48a378f88a9605f2",
+      "parent_id": "a-genese:chapter:4685321434f67c73",
+      "order": 74,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Faz Deus milagres?",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 238
+      }
+    },
+    {
+      "id": "a-genese:section:059d99c19ee11beb",
+      "source_key": "059d99c19ee11beb",
+      "parent_id": "a-genese:chapter:4685321434f67c73",
+      "order": 75,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O sobrenatural e as religiões",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 240
+      }
+    },
+    {
+      "id": "a-genese:chapter:a0051f14fb2993f9",
+      "source_key": "a0051f14fb2993f9",
+      "parent_id": "a-genese:division:d6c0ddea4f3369ac",
+      "order": 76,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo XIV",
+      "title": "Os fluidos",
+      "source_pdf_page": 7,
+      "printed_page": 243,
+      "locator": null
+    },
+    {
+      "id": "a-genese:group:fa73b1c0cb502f50",
+      "source_key": "fa73b1c0cb502f50",
+      "parent_id": "a-genese:chapter:a0051f14fb2993f9",
+      "order": 77,
+      "depth": 2,
+      "type": "group",
+      "label": null,
+      "title": "I. Natureza e propriedades dos fluidos",
+      "source_pdf_page": 7,
+      "printed_page": 243,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:84ab2b2a6fc87c84",
+      "source_key": "84ab2b2a6fc87c84",
+      "parent_id": "a-genese:group:fa73b1c0cb502f50",
+      "order": 78,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Elementos fluídicos",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 243
+      }
+    },
+    {
+      "id": "a-genese:section:504a3793dbd588a0",
+      "source_key": "504a3793dbd588a0",
+      "parent_id": "a-genese:group:fa73b1c0cb502f50",
+      "order": 79,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Formação e propriedades do perispírito",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 246
+      }
+    },
+    {
+      "id": "a-genese:section:02154f19dd9bd09c",
+      "source_key": "02154f19dd9bd09c",
+      "parent_id": "a-genese:group:fa73b1c0cb502f50",
+      "order": 80,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Ação dos Espíritos sobre os fluidos. Criações fluídicas. Fotografia do pensamento",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 250
+      }
+    },
+    {
+      "id": "a-genese:section:ff6d5ed7de16fd9c",
+      "source_key": "ff6d5ed7de16fd9c",
+      "parent_id": "a-genese:group:fa73b1c0cb502f50",
+      "order": 81,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Qualidades dos fluidos",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 252
+      }
+    },
+    {
+      "id": "a-genese:group:5113cc40c91ad700",
+      "source_key": "5113cc40c91ad700",
+      "parent_id": "a-genese:chapter:a0051f14fb2993f9",
+      "order": 82,
+      "depth": 2,
+      "type": "group",
+      "label": null,
+      "title": "II. Explicação de alguns fenômenos considerados sobrenaturais",
+      "source_pdf_page": 7,
+      "printed_page": 256,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:b4e32e234f0292fe",
+      "source_key": "b4e32e234f0292fe",
+      "parent_id": "a-genese:group:5113cc40c91ad700",
+      "order": 83,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Vista espiritual ou psíquica. Dupla vista. Sonambulismo. Sonhos",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 256
+      }
+    },
+    {
+      "id": "a-genese:section:04c14ec163e76c33",
+      "source_key": "04c14ec163e76c33",
+      "parent_id": "a-genese:group:5113cc40c91ad700",
+      "order": 84,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Catalepsia. Ressurreições",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 259
+      }
+    },
+    {
+      "id": "a-genese:section:5282179c191b4d14",
+      "source_key": "5282179c191b4d14",
+      "parent_id": "a-genese:group:5113cc40c91ad700",
+      "order": 85,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Curas",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 261
+      }
+    },
+    {
+      "id": "a-genese:section:2b1b0aa088a95d41",
+      "source_key": "2b1b0aa088a95d41",
+      "parent_id": "a-genese:group:5113cc40c91ad700",
+      "order": 86,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Aparições. Transfigurações",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 262
+      }
+    },
+    {
+      "id": "a-genese:section:763f26f4ac26b321",
+      "source_key": "763f26f4ac26b321",
+      "parent_id": "a-genese:group:5113cc40c91ad700",
+      "order": 87,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Manifestações físicas. Mediunidade",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 265
+      }
+    },
+    {
+      "id": "a-genese:section:57048f469c2e0233",
+      "source_key": "57048f469c2e0233",
+      "parent_id": "a-genese:group:5113cc40c91ad700",
+      "order": 88,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Obsessões e possessões",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 268
+      }
+    },
+    {
+      "id": "a-genese:chapter:b40691f78ebdfee6",
+      "source_key": "b40691f78ebdfee6",
+      "parent_id": "a-genese:division:d6c0ddea4f3369ac",
+      "order": 89,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo XV",
+      "title": "Os milagres do Evangelho",
+      "source_pdf_page": 8,
+      "printed_page": 273,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:5ee5fda8b564eb0a",
+      "source_key": "5ee5fda8b564eb0a",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 90,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Superioridade da natureza de Jesus",
+      "source_pdf_page": 8,
+      "printed_page": 273,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:32b327202c62a090",
+      "source_key": "32b327202c62a090",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 91,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Sonhos",
+      "source_pdf_page": 8,
+      "printed_page": 275,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:a5c717f7405c7ec9",
+      "source_key": "a5c717f7405c7ec9",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 92,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Estrela dos magos",
+      "source_pdf_page": 8,
+      "printed_page": 275,
+      "locator": null
+    },
+    {
+      "id": "a-genese:group:baeccbc9efe2994c",
+      "source_key": "baeccbc9efe2994c",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 93,
+      "depth": 2,
+      "type": "group",
+      "label": null,
+      "title": "Dupla vista",
+      "source_pdf_page": 8,
+      "printed_page": 276,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:c7cf5ffb3cb3188b",
+      "source_key": "c7cf5ffb3cb3188b",
+      "parent_id": "a-genese:group:baeccbc9efe2994c",
+      "order": 94,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Entrada de Jesus em Jerusalém",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 276
+      }
+    },
+    {
+      "id": "a-genese:section:cd85c68eb2262bf9",
+      "source_key": "cd85c68eb2262bf9",
+      "parent_id": "a-genese:group:baeccbc9efe2994c",
+      "order": 95,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Beijo de Judas",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 276
+      }
+    },
+    {
+      "id": "a-genese:section:a85c0816e8f68a12",
+      "source_key": "a85c0816e8f68a12",
+      "parent_id": "a-genese:group:baeccbc9efe2994c",
+      "order": 96,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Pesca milagrosa",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 277
+      }
+    },
+    {
+      "id": "a-genese:section:4f4cf31e97acbd93",
+      "source_key": "4f4cf31e97acbd93",
+      "parent_id": "a-genese:group:baeccbc9efe2994c",
+      "order": 97,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Vocação de Pedro, André, Tiago, João e Mateus",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 277
+      }
+    },
+    {
+      "id": "a-genese:group:7da9c3e4c6db7dc9",
+      "source_key": "7da9c3e4c6db7dc9",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 98,
+      "depth": 2,
+      "type": "group",
+      "label": null,
+      "title": "Curas",
+      "source_pdf_page": 8,
+      "printed_page": 279,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:d2dec5911463f0e2",
+      "source_key": "d2dec5911463f0e2",
+      "parent_id": "a-genese:group:7da9c3e4c6db7dc9",
+      "order": 99,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Perda de sangue",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 279
+      }
+    },
+    {
+      "id": "a-genese:section:3cd1246688c9ba8c",
+      "source_key": "3cd1246688c9ba8c",
+      "parent_id": "a-genese:group:7da9c3e4c6db7dc9",
+      "order": 100,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Cego de Betsaida",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 280
+      }
+    },
+    {
+      "id": "a-genese:section:6fa7de66077f89e9",
+      "source_key": "6fa7de66077f89e9",
+      "parent_id": "a-genese:group:7da9c3e4c6db7dc9",
+      "order": 101,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Paralítico",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 280
+      }
+    },
+    {
+      "id": "a-genese:section:d08a4639e310654b",
+      "source_key": "d08a4639e310654b",
+      "parent_id": "a-genese:group:7da9c3e4c6db7dc9",
+      "order": 102,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Os dez leprosos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 281
+      }
+    },
+    {
+      "id": "a-genese:section:0a3bb35cc3bcf470",
+      "source_key": "0a3bb35cc3bcf470",
+      "parent_id": "a-genese:group:7da9c3e4c6db7dc9",
+      "order": 103,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Mão seca",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 282
+      }
+    },
+    {
+      "id": "a-genese:section:d2d73f978eec0bfc",
+      "source_key": "d2d73f978eec0bfc",
+      "parent_id": "a-genese:group:7da9c3e4c6db7dc9",
+      "order": 104,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "A mulher curvada",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 283
+      }
+    },
+    {
+      "id": "a-genese:section:2fed683d6cf78f7b",
+      "source_key": "2fed683d6cf78f7b",
+      "parent_id": "a-genese:group:7da9c3e4c6db7dc9",
+      "order": 105,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "O paralítico da piscina",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 283
+      }
+    },
+    {
+      "id": "a-genese:section:5600647ce64e19ab",
+      "source_key": "5600647ce64e19ab",
+      "parent_id": "a-genese:group:7da9c3e4c6db7dc9",
+      "order": 106,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Cego de nascença",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 285
+      }
+    },
+    {
+      "id": "a-genese:section:eefd323f5810215d",
+      "source_key": "eefd323f5810215d",
+      "parent_id": "a-genese:group:7da9c3e4c6db7dc9",
+      "order": 107,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "Numerosas curas operadas por Jesus",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 288
+      }
+    },
+    {
+      "id": "a-genese:section:6ab7af16ca97b195",
+      "source_key": "6ab7af16ca97b195",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 108,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Possessos",
+      "source_pdf_page": 8,
+      "printed_page": 290,
+      "locator": null
+    },
+    {
+      "id": "a-genese:group:0e91f2a2746faf3d",
+      "source_key": "0e91f2a2746faf3d",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 109,
+      "depth": 2,
+      "type": "group",
+      "label": null,
+      "title": "Ressurreições",
+      "source_pdf_page": 8,
+      "printed_page": 293,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:0bb783dc777c3db0",
+      "source_key": "0bb783dc777c3db0",
+      "parent_id": "a-genese:group:0e91f2a2746faf3d",
+      "order": 110,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "A filha de Jairo",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 293
+      }
+    },
+    {
+      "id": "a-genese:section:7cf60f3bfebb6f7a",
+      "source_key": "7cf60f3bfebb6f7a",
+      "parent_id": "a-genese:group:0e91f2a2746faf3d",
+      "order": 111,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "O filho da viúva de Naim",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 294
+      }
+    },
+    {
+      "id": "a-genese:section:03599811358d3112",
+      "source_key": "03599811358d3112",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 112,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Jesus caminha sobre a água",
+      "source_pdf_page": 8,
+      "printed_page": 296,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:e685619111a28451",
+      "source_key": "e685619111a28451",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 113,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Transfiguração",
+      "source_pdf_page": 8,
+      "printed_page": 297,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:358638f98cef5859",
+      "source_key": "358638f98cef5859",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 114,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Tempestade aplacada",
+      "source_pdf_page": 8,
+      "printed_page": 298,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:8f59906cb58239ad",
+      "source_key": "8f59906cb58239ad",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 115,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Bodas de Caná",
+      "source_pdf_page": 8,
+      "printed_page": 298,
+      "locator": null
+    },
+    {
+      "id": "a-genese:group:4988e6678cbe7757",
+      "source_key": "4988e6678cbe7757",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 116,
+      "depth": 2,
+      "type": "group",
+      "label": null,
+      "title": "Multiplicação dos pães",
+      "source_pdf_page": 8,
+      "printed_page": 299,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:c165b29614e1b147",
+      "source_key": "c165b29614e1b147",
+      "parent_id": "a-genese:group:4988e6678cbe7757",
+      "order": 117,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "O fermento dos fariseus",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 300
+      }
+    },
+    {
+      "id": "a-genese:section:5591375472e3f0b2",
+      "source_key": "5591375472e3f0b2",
+      "parent_id": "a-genese:group:4988e6678cbe7757",
+      "order": 118,
+      "depth": 3,
+      "type": "section",
+      "label": null,
+      "title": "O pão do céu",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 301
+      }
+    },
+    {
+      "id": "a-genese:section:2053f2faf93a3a13",
+      "source_key": "2053f2faf93a3a13",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 119,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Tentação de Jesus",
+      "source_pdf_page": 8,
+      "printed_page": 303,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:662ad53ce60d3732",
+      "source_key": "662ad53ce60d3732",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 120,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Prodígios por ocasião da morte de Jesus",
+      "source_pdf_page": 8,
+      "printed_page": 304,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:571992d8e2e200a2",
+      "source_key": "571992d8e2e200a2",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 121,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Aparição de Jesus após sua morte",
+      "source_pdf_page": 8,
+      "printed_page": 305,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:786a01f3863fcb3a",
+      "source_key": "786a01f3863fcb3a",
+      "parent_id": "a-genese:chapter:b40691f78ebdfee6",
+      "order": 122,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Desaparecimento do corpo de Jesus",
+      "source_pdf_page": 8,
+      "printed_page": 310,
+      "locator": null
+    },
+    {
+      "id": "a-genese:division:5ef1e2b43c045863",
+      "source_key": "5ef1e2b43c045863",
+      "parent_id": null,
+      "order": 123,
+      "depth": 0,
+      "type": "division",
+      "label": null,
+      "title": "As predições segundo o Espiritismo",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": null
+    },
+    {
+      "id": "a-genese:chapter:7c0495505da74005",
+      "source_key": "7c0495505da74005",
+      "parent_id": "a-genese:division:5ef1e2b43c045863",
+      "order": 124,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo XVI",
+      "title": "Teoria da presciência",
+      "source_pdf_page": 8,
+      "printed_page": 317,
+      "locator": null
+    },
+    {
+      "id": "a-genese:chapter:1e0437074e7bfda7",
+      "source_key": "1e0437074e7bfda7",
+      "parent_id": "a-genese:division:5ef1e2b43c045863",
+      "order": 125,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo XVII",
+      "title": "Predições do Evangelho",
+      "source_pdf_page": 8,
+      "printed_page": 327,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:a2f6c0226e8ddb4d",
+      "source_key": "a2f6c0226e8ddb4d",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 126,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Ninguém é profeta em sua terra",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 327
+      }
+    },
+    {
+      "id": "a-genese:section:2ef83aeba52d44ca",
+      "source_key": "2ef83aeba52d44ca",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 127,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Morte e paixão de Jesus",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 329
+      }
+    },
+    {
+      "id": "a-genese:section:8548ec2cd72724af",
+      "source_key": "8548ec2cd72724af",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 128,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Perseguição aos apóstolos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 331
+      }
+    },
+    {
+      "id": "a-genese:section:c6e762b20f963639",
+      "source_key": "c6e762b20f963639",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 129,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Cidades impenitentes",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 331
+      }
+    },
+    {
+      "id": "a-genese:section:c301b9930af2a76c",
+      "source_key": "c301b9930af2a76c",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 130,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Ruína do Templo e de Jerusalém",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 332
+      }
+    },
+    {
+      "id": "a-genese:section:f5fa9d2bd204571c",
+      "source_key": "f5fa9d2bd204571c",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 131,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Maldição contra os fariseus",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 333
+      }
+    },
+    {
+      "id": "a-genese:section:1e22622f60c0b15f",
+      "source_key": "1e22622f60c0b15f",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 132,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Minhas palavras não passarão",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 335
+      }
+    },
+    {
+      "id": "a-genese:section:cef857c6b86fb169",
+      "source_key": "cef857c6b86fb169",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 133,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A pedra angular",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 336
+      }
+    },
+    {
+      "id": "a-genese:section:29d0ac724fb21e9b",
+      "source_key": "29d0ac724fb21e9b",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 134,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Parábola dos vinhateiros homicidas",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 336
+      }
+    },
+    {
+      "id": "a-genese:section:c532cc0f51097b55",
+      "source_key": "c532cc0f51097b55",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 135,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Um só rebanho e um só pastor",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 338
+      }
+    },
+    {
+      "id": "a-genese:section:eaf010e15ee2cfe1",
+      "source_key": "eaf010e15ee2cfe1",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 136,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Advento de Elias",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 340
+      }
+    },
+    {
+      "id": "a-genese:section:7f32e6b3db1a84c5",
+      "source_key": "7f32e6b3db1a84c5",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 137,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Anunciação do Consolador",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 340
+      }
+    },
+    {
+      "id": "a-genese:section:3c46bd51d333964d",
+      "source_key": "3c46bd51d333964d",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 138,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Segundo advento do Cristo",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 344
+      }
+    },
+    {
+      "id": "a-genese:section:59a81ce051e6aa04",
+      "source_key": "59a81ce051e6aa04",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 139,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Sinais precursores",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 346
+      }
+    },
+    {
+      "id": "a-genese:section:2ea119dfa4da1abc",
+      "source_key": "2ea119dfa4da1abc",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 140,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Vossos filhos e vossas filhas profetizarão",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 350
+      }
+    },
+    {
+      "id": "a-genese:section:9e3553a3f9843730",
+      "source_key": "9e3553a3f9843730",
+      "parent_id": "a-genese:chapter:1e0437074e7bfda7",
+      "order": 141,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Juízo final",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 351
+      }
+    },
+    {
+      "id": "a-genese:chapter:d24c2b7cab43629a",
+      "source_key": "d24c2b7cab43629a",
+      "parent_id": "a-genese:division:5ef1e2b43c045863",
+      "order": 142,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo XVIII",
+      "title": "São chegados os tempos",
+      "source_pdf_page": 9,
+      "printed_page": 355,
+      "locator": null
+    },
+    {
+      "id": "a-genese:section:f608d1718b990475",
+      "source_key": "f608d1718b990475",
+      "parent_id": "a-genese:chapter:d24c2b7cab43629a",
+      "order": 143,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Sinais dos tempos",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 355
+      }
+    },
+    {
+      "id": "a-genese:section:ff53a190ca79c2b0",
+      "source_key": "ff53a190ca79c2b0",
+      "parent_id": "a-genese:chapter:d24c2b7cab43629a",
+      "order": 144,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A geração nova",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 369
+      }
+    },
+    {
+      "id": "a-genese:back_matter:b8dfb61bbd1a474c",
+      "source_key": "b8dfb61bbd1a474c",
+      "parent_id": null,
+      "order": 145,
+      "depth": 0,
+      "type": "back_matter",
+      "label": null,
+      "title": "Nota Explicativa",
+      "source_pdf_page": 9,
+      "printed_page": 375,
+      "locator": null
+    },
+    {
+      "id": "a-genese:back_matter:a6a04a974c09f91b",
+      "source_key": "a6a04a974c09f91b",
+      "parent_id": null,
+      "order": 146,
+      "depth": 0,
+      "type": "back_matter",
+      "label": null,
+      "title": "Índice Geral",
+      "source_pdf_page": 9,
+      "printed_page": 381,
+      "locator": null
+    }
+  ],
+  "review_flags": []
+}

@@ -1,0 +1,3116 @@
+{
+  "schema_version": 1,
+  "book": {
+    "book_id": 1,
+    "slug": "o-livro-dos-espiritos",
+    "title": "O Livro dos Espíritos"
+  },
+  "source": {
+    "source_file": "WEB-Livro-dos-Espíritos-Guillon-1.pdf",
+    "source_sha256": "e99b4014ae3f00e5e6e888d43a0c4ef257efffe58840c795c8a26325a19a4983",
+    "toc_pdf_pages": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "toc_text_sha256": "ca5905cb758362920d4ef49a423267784eaa41aebeeee7d8a80673cbda75e671",
+    "rights_status": "permission-required-for-production"
+  },
+  "counts": {
+    "front_matter": 3,
+    "divisions": 4,
+    "chapters": 29,
+    "groups": 0,
+    "sections": 161,
+    "back_matter": 3,
+    "total_nodes": 200
+  },
+  "nodes": [
+    {
+      "id": "o-livro-dos-espiritos:front_matter:6a4738dbc8f85e8c",
+      "source_key": "6a4738dbc8f85e8c",
+      "parent_id": null,
+      "order": 1,
+      "depth": 0,
+      "type": "front_matter",
+      "label": null,
+      "title": "Nota da Editora",
+      "source_pdf_page": 6,
+      "printed_page": 11,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:front_matter:b86004f2c1f943fb",
+      "source_key": "b86004f2c1f943fb",
+      "parent_id": null,
+      "order": 2,
+      "depth": 0,
+      "type": "front_matter",
+      "label": null,
+      "title": "Introdução ao estudo da Doutrina Espírita",
+      "source_pdf_page": 6,
+      "printed_page": 13,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:front_matter:0e6da772f1cebf11",
+      "source_key": "0e6da772f1cebf11",
+      "parent_id": null,
+      "order": 3,
+      "depth": 0,
+      "type": "front_matter",
+      "label": null,
+      "title": "Prolegômenos",
+      "source_pdf_page": 6,
+      "printed_page": 49,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:division:ebde4b3effbf1881",
+      "source_key": "ebde4b3effbf1881",
+      "parent_id": null,
+      "order": 4,
+      "depth": 0,
+      "type": "division",
+      "label": null,
+      "title": "PARTE PRIMEIRA — Das causas primárias",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:872ad5d38ea86464",
+      "source_key": "872ad5d38ea86464",
+      "parent_id": "o-livro-dos-espiritos:division:ebde4b3effbf1881",
+      "order": 5,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo I",
+      "title": "De Deus",
+      "source_pdf_page": 6,
+      "printed_page": 55,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:89c605b46f3c6ab9",
+      "source_key": "89c605b46f3c6ab9",
+      "parent_id": "o-livro-dos-espiritos:chapter:872ad5d38ea86464",
+      "order": 6,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Deus e o infinito",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 55
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:b6a20d9c50f11b9b",
+      "source_key": "b6a20d9c50f11b9b",
+      "parent_id": "o-livro-dos-espiritos:chapter:872ad5d38ea86464",
+      "order": 7,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Provas da existência de Deus",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 56
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:ab6709ea61cd283d",
+      "source_key": "ab6709ea61cd283d",
+      "parent_id": "o-livro-dos-espiritos:chapter:872ad5d38ea86464",
+      "order": 8,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Atributos da Divindade",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 57
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:bc4e273d707c1d95",
+      "source_key": "bc4e273d707c1d95",
+      "parent_id": "o-livro-dos-espiritos:chapter:872ad5d38ea86464",
+      "order": 9,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Panteísmo",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 59
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:0f21e3591c06280b",
+      "source_key": "0f21e3591c06280b",
+      "parent_id": "o-livro-dos-espiritos:division:ebde4b3effbf1881",
+      "order": 10,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo II",
+      "title": "Dos elementos gerais do Universo",
+      "source_pdf_page": 6,
+      "printed_page": 61,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:1a43423b52e02301",
+      "source_key": "1a43423b52e02301",
+      "parent_id": "o-livro-dos-espiritos:chapter:0f21e3591c06280b",
+      "order": 11,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Conhecimento do princípio das coisas",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 61
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:d18124090b9e82aa",
+      "source_key": "d18124090b9e82aa",
+      "parent_id": "o-livro-dos-espiritos:chapter:0f21e3591c06280b",
+      "order": 12,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Espírito e matéria",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 62
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:d1584aaf395ff8a3",
+      "source_key": "d1584aaf395ff8a3",
+      "parent_id": "o-livro-dos-espiritos:chapter:0f21e3591c06280b",
+      "order": 13,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Propriedades da matéria",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 64
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:0bb24a2586a2e15a",
+      "source_key": "0bb24a2586a2e15a",
+      "parent_id": "o-livro-dos-espiritos:chapter:0f21e3591c06280b",
+      "order": 14,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Espaço universal",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 66
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:e2cb7feb2d244637",
+      "source_key": "e2cb7feb2d244637",
+      "parent_id": "o-livro-dos-espiritos:division:ebde4b3effbf1881",
+      "order": 15,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo III",
+      "title": "Da criação",
+      "source_pdf_page": 6,
+      "printed_page": 67,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:f7eb03ad22487fd3",
+      "source_key": "f7eb03ad22487fd3",
+      "parent_id": "o-livro-dos-espiritos:chapter:e2cb7feb2d244637",
+      "order": 16,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Formação dos mundos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 67
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:b0f43c5b7491d2bf",
+      "source_key": "b0f43c5b7491d2bf",
+      "parent_id": "o-livro-dos-espiritos:chapter:e2cb7feb2d244637",
+      "order": 17,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Formação dos seres vivos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 68
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:a340ad23aff9f0e9",
+      "source_key": "a340ad23aff9f0e9",
+      "parent_id": "o-livro-dos-espiritos:chapter:e2cb7feb2d244637",
+      "order": 18,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Povoamento da Terra. Adão",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 70
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:36056597aad6f488",
+      "source_key": "36056597aad6f488",
+      "parent_id": "o-livro-dos-espiritos:chapter:e2cb7feb2d244637",
+      "order": 19,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Diversidade das raças humanas",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 70
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:44cc4a330291f43f",
+      "source_key": "44cc4a330291f43f",
+      "parent_id": "o-livro-dos-espiritos:chapter:e2cb7feb2d244637",
+      "order": 20,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Pluralidade dos mundos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 71
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:61d3614daa61521c",
+      "source_key": "61d3614daa61521c",
+      "parent_id": "o-livro-dos-espiritos:chapter:e2cb7feb2d244637",
+      "order": 21,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Considerações e concordâncias bíblicas concernentes à Criação",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 72
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:fbf5afa69b837271",
+      "source_key": "fbf5afa69b837271",
+      "parent_id": "o-livro-dos-espiritos:division:ebde4b3effbf1881",
+      "order": 22,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo IV",
+      "title": "Do princípio vital",
+      "source_pdf_page": 6,
+      "printed_page": 77,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:048e354ea05b4ae4",
+      "source_key": "048e354ea05b4ae4",
+      "parent_id": "o-livro-dos-espiritos:chapter:fbf5afa69b837271",
+      "order": 23,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Seres orgânicos e inorgânicos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 77
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:6b2ac889843632cd",
+      "source_key": "6b2ac889843632cd",
+      "parent_id": "o-livro-dos-espiritos:chapter:fbf5afa69b837271",
+      "order": 24,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A vida e a morte",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 79
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:60bfb323273be3de",
+      "source_key": "60bfb323273be3de",
+      "parent_id": "o-livro-dos-espiritos:chapter:fbf5afa69b837271",
+      "order": 25,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Inteligência e instinto",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 80
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:division:20ca3a4d1b9795b2",
+      "source_key": "20ca3a4d1b9795b2",
+      "parent_id": null,
+      "order": 26,
+      "depth": 0,
+      "type": "division",
+      "label": null,
+      "title": "PARTE SEGUNDA — Do mundo espírita ou mundo dos Espíritos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:4a7586bee3a51565",
+      "source_key": "4a7586bee3a51565",
+      "parent_id": "o-livro-dos-espiritos:division:20ca3a4d1b9795b2",
+      "order": 27,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo I",
+      "title": "Dos Espíritos",
+      "source_pdf_page": 6,
+      "printed_page": 85,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:272497554a8d6863",
+      "source_key": "272497554a8d6863",
+      "parent_id": "o-livro-dos-espiritos:chapter:4a7586bee3a51565",
+      "order": 28,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Origem e natureza dos Espíritos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 85
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:1fef70d32f93dd1e",
+      "source_key": "1fef70d32f93dd1e",
+      "parent_id": "o-livro-dos-espiritos:chapter:4a7586bee3a51565",
+      "order": 29,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Mundo normal primitivo",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 87
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:1cb41316817bc6a9",
+      "source_key": "1cb41316817bc6a9",
+      "parent_id": "o-livro-dos-espiritos:chapter:4a7586bee3a51565",
+      "order": 30,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Forma e ubiquidade dos Espíritos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 88
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:abad294a42268a74",
+      "source_key": "abad294a42268a74",
+      "parent_id": "o-livro-dos-espiritos:chapter:4a7586bee3a51565",
+      "order": 31,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Perispírito",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 89
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:cb7ab7ca5a1482a2",
+      "source_key": "cb7ab7ca5a1482a2",
+      "parent_id": "o-livro-dos-espiritos:chapter:4a7586bee3a51565",
+      "order": 32,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Diferentes ordens de Espíritos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 90
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:56956d1982806155",
+      "source_key": "56956d1982806155",
+      "parent_id": "o-livro-dos-espiritos:chapter:4a7586bee3a51565",
+      "order": 33,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Escala espírita",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 91
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:902491b971ec7953",
+      "source_key": "902491b971ec7953",
+      "parent_id": "o-livro-dos-espiritos:chapter:4a7586bee3a51565",
+      "order": 34,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Terceira ordem – Espíritos imperfeitos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 93
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:595bfbb3f2d01e65",
+      "source_key": "595bfbb3f2d01e65",
+      "parent_id": "o-livro-dos-espiritos:chapter:4a7586bee3a51565",
+      "order": 35,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Segunda ordem – Bons Espíritos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 96
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:c05e53894280b35e",
+      "source_key": "c05e53894280b35e",
+      "parent_id": "o-livro-dos-espiritos:chapter:4a7586bee3a51565",
+      "order": 36,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Primeira Ordem – Espíritos puros",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 97
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:518d77310533f5b2",
+      "source_key": "518d77310533f5b2",
+      "parent_id": "o-livro-dos-espiritos:chapter:4a7586bee3a51565",
+      "order": 37,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Progressão dos Espíritos",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 98
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:5eb83ed8dd360709",
+      "source_key": "5eb83ed8dd360709",
+      "parent_id": "o-livro-dos-espiritos:chapter:4a7586bee3a51565",
+      "order": 38,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Anjos e demônios",
+      "source_pdf_page": 6,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 102
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:c5dea371968b57af",
+      "source_key": "c5dea371968b57af",
+      "parent_id": "o-livro-dos-espiritos:division:20ca3a4d1b9795b2",
+      "order": 39,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo II",
+      "title": "Da encarnação dos Espíritos",
+      "source_pdf_page": 7,
+      "printed_page": 105,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:d5756c37f84f451c",
+      "source_key": "d5756c37f84f451c",
+      "parent_id": "o-livro-dos-espiritos:chapter:c5dea371968b57af",
+      "order": 40,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Objetivo da encarnação",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 105
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:9747ad34f814e1ee",
+      "source_key": "9747ad34f814e1ee",
+      "parent_id": "o-livro-dos-espiritos:chapter:c5dea371968b57af",
+      "order": 41,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A alma",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 106
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:a21109031efa7f44",
+      "source_key": "a21109031efa7f44",
+      "parent_id": "o-livro-dos-espiritos:chapter:c5dea371968b57af",
+      "order": 42,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Materialismo",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 110
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:c37ec5f131ccad39",
+      "source_key": "c37ec5f131ccad39",
+      "parent_id": "o-livro-dos-espiritos:division:20ca3a4d1b9795b2",
+      "order": 43,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo III",
+      "title": "Da volta do Espírito, extinta a vida corpórea, à vida espiritual",
+      "source_pdf_page": 7,
+      "printed_page": 115,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:8668b32e34d99e27",
+      "source_key": "8668b32e34d99e27",
+      "parent_id": "o-livro-dos-espiritos:chapter:c37ec5f131ccad39",
+      "order": 44,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A alma após a morte, sua individualidade. Vida eterna",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 115
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:bc47f7c7ef4d7f99",
+      "source_key": "bc47f7c7ef4d7f99",
+      "parent_id": "o-livro-dos-espiritos:chapter:c37ec5f131ccad39",
+      "order": 45,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Separação da alma e do corpo",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 117
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:accd480ba10e514f",
+      "source_key": "accd480ba10e514f",
+      "parent_id": "o-livro-dos-espiritos:chapter:c37ec5f131ccad39",
+      "order": 46,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Perturbação espiritual",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 120
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:d4e7ef1f4ae78d93",
+      "source_key": "d4e7ef1f4ae78d93",
+      "parent_id": "o-livro-dos-espiritos:division:20ca3a4d1b9795b2",
+      "order": 47,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo IV",
+      "title": "Da pluralidade das existências",
+      "source_pdf_page": 7,
+      "printed_page": 123,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:f58c3fdcee27f162",
+      "source_key": "f58c3fdcee27f162",
+      "parent_id": "o-livro-dos-espiritos:chapter:d4e7ef1f4ae78d93",
+      "order": 48,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A reencarnação",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 123
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:9f31dcbf65b822bc",
+      "source_key": "9f31dcbf65b822bc",
+      "parent_id": "o-livro-dos-espiritos:chapter:d4e7ef1f4ae78d93",
+      "order": 49,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Justiça da reencarnação",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 124
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:9cb67401ccf0b315",
+      "source_key": "9cb67401ccf0b315",
+      "parent_id": "o-livro-dos-espiritos:chapter:d4e7ef1f4ae78d93",
+      "order": 50,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Encarnação nos diferentes mundos",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 125
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:7ca038dcc3f96b91",
+      "source_key": "7ca038dcc3f96b91",
+      "parent_id": "o-livro-dos-espiritos:chapter:d4e7ef1f4ae78d93",
+      "order": 51,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Transmigrações progressivas",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 130
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:454114085bccca65",
+      "source_key": "454114085bccca65",
+      "parent_id": "o-livro-dos-espiritos:chapter:d4e7ef1f4ae78d93",
+      "order": 52,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Sorte das crianças depois da morte",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 134
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:54413ba9d6215c09",
+      "source_key": "54413ba9d6215c09",
+      "parent_id": "o-livro-dos-espiritos:chapter:d4e7ef1f4ae78d93",
+      "order": 53,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Sexos nos Espíritos",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 135
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:95c3281bb251f370",
+      "source_key": "95c3281bb251f370",
+      "parent_id": "o-livro-dos-espiritos:chapter:d4e7ef1f4ae78d93",
+      "order": 54,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Parentesco, filiação",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 136
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:c6ba1093822abee7",
+      "source_key": "c6ba1093822abee7",
+      "parent_id": "o-livro-dos-espiritos:chapter:d4e7ef1f4ae78d93",
+      "order": 55,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Parecenças físicas e morais",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 137
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:9cf75f20d8694837",
+      "source_key": "9cf75f20d8694837",
+      "parent_id": "o-livro-dos-espiritos:chapter:d4e7ef1f4ae78d93",
+      "order": 56,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Ideias inatas",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 140
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:107a6b5c0c461c16",
+      "source_key": "107a6b5c0c461c16",
+      "parent_id": "o-livro-dos-espiritos:division:20ca3a4d1b9795b2",
+      "order": 57,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo V",
+      "title": "Considerações sobre a pluralidade das existências",
+      "source_pdf_page": 7,
+      "printed_page": 143,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:d30952b47f4ea17f",
+      "source_key": "d30952b47f4ea17f",
+      "parent_id": "o-livro-dos-espiritos:division:20ca3a4d1b9795b2",
+      "order": 58,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VI",
+      "title": "Da vida espírita",
+      "source_pdf_page": 7,
+      "printed_page": 153,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:ba14a0660fcb6a67",
+      "source_key": "ba14a0660fcb6a67",
+      "parent_id": "o-livro-dos-espiritos:chapter:d30952b47f4ea17f",
+      "order": 59,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Espíritos errantes",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 153
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:8072049a59ae2088",
+      "source_key": "8072049a59ae2088",
+      "parent_id": "o-livro-dos-espiritos:chapter:d30952b47f4ea17f",
+      "order": 60,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Mundos transitórios",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 156
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:e9c2b2edfcbe0bc6",
+      "source_key": "e9c2b2edfcbe0bc6",
+      "parent_id": "o-livro-dos-espiritos:chapter:d30952b47f4ea17f",
+      "order": 61,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Percepções, sensações e sofrimentos dos Espíritos",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 158
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:a8def8a3e1698c75",
+      "source_key": "a8def8a3e1698c75",
+      "parent_id": "o-livro-dos-espiritos:chapter:d30952b47f4ea17f",
+      "order": 62,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Ensaio teórico da sensação nos Espíritos",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 162
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:3b7d85819a5ad978",
+      "source_key": "3b7d85819a5ad978",
+      "parent_id": "o-livro-dos-espiritos:chapter:d30952b47f4ea17f",
+      "order": 63,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Escolha das provas",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 168
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:9d4cc803c6779464",
+      "source_key": "9d4cc803c6779464",
+      "parent_id": "o-livro-dos-espiritos:chapter:d30952b47f4ea17f",
+      "order": 64,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "As relações no além-túmulo",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 176
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:409fef0d24a4496f",
+      "source_key": "409fef0d24a4496f",
+      "parent_id": "o-livro-dos-espiritos:chapter:d30952b47f4ea17f",
+      "order": 65,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Relações de simpatia e de antipatia entre os Espíritos. Metades eternas",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 179
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:d70bebcb0f947a7e",
+      "source_key": "d70bebcb0f947a7e",
+      "parent_id": "o-livro-dos-espiritos:chapter:d30952b47f4ea17f",
+      "order": 66,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Recordação da existência corpórea",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 182
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:5907b72503715c4b",
+      "source_key": "5907b72503715c4b",
+      "parent_id": "o-livro-dos-espiritos:chapter:d30952b47f4ea17f",
+      "order": 67,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Comemoração dos mortos. Funerais",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 186
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:8ca1225ae9943fd1",
+      "source_key": "8ca1225ae9943fd1",
+      "parent_id": "o-livro-dos-espiritos:division:20ca3a4d1b9795b2",
+      "order": 68,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VII",
+      "title": "Da volta do Espírito à vida corporal",
+      "source_pdf_page": 7,
+      "printed_page": 191,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:450b9643d755446c",
+      "source_key": "450b9643d755446c",
+      "parent_id": "o-livro-dos-espiritos:chapter:8ca1225ae9943fd1",
+      "order": 69,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Prelúdio da volta",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 191
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:a9bb848afa81a2a1",
+      "source_key": "a9bb848afa81a2a1",
+      "parent_id": "o-livro-dos-espiritos:chapter:8ca1225ae9943fd1",
+      "order": 70,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "União da alma e do corpo",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 194
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:4ead136f4600fc88",
+      "source_key": "4ead136f4600fc88",
+      "parent_id": "o-livro-dos-espiritos:chapter:8ca1225ae9943fd1",
+      "order": 71,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Faculdades morais e intelectuais do homem",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 198
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:2417c1f7bd00cb43",
+      "source_key": "2417c1f7bd00cb43",
+      "parent_id": "o-livro-dos-espiritos:chapter:8ca1225ae9943fd1",
+      "order": 72,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Influência do organismo",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 200
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:a1dc5aa96d3c2c79",
+      "source_key": "a1dc5aa96d3c2c79",
+      "parent_id": "o-livro-dos-espiritos:chapter:8ca1225ae9943fd1",
+      "order": 73,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Idiotismo, loucura",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 201
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:4f911ca0d4cab845",
+      "source_key": "4f911ca0d4cab845",
+      "parent_id": "o-livro-dos-espiritos:chapter:8ca1225ae9943fd1",
+      "order": 74,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A infância",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 204
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:2861ddb73f68e4e1",
+      "source_key": "2861ddb73f68e4e1",
+      "parent_id": "o-livro-dos-espiritos:chapter:8ca1225ae9943fd1",
+      "order": 75,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Simpatia e antipatia terrenas",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 207
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:e69d3686e0e0318e",
+      "source_key": "e69d3686e0e0318e",
+      "parent_id": "o-livro-dos-espiritos:chapter:8ca1225ae9943fd1",
+      "order": 76,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Esquecimento do passado",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 209
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:d46c925f0d53d40f",
+      "source_key": "d46c925f0d53d40f",
+      "parent_id": "o-livro-dos-espiritos:division:20ca3a4d1b9795b2",
+      "order": 77,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VIII",
+      "title": "Da emancipação da alma",
+      "source_pdf_page": 7,
+      "printed_page": 215,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:e9e470c3c53e7719",
+      "source_key": "e9e470c3c53e7719",
+      "parent_id": "o-livro-dos-espiritos:chapter:d46c925f0d53d40f",
+      "order": 78,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O sono e os sonhos",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 215
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:262973c40564b80e",
+      "source_key": "262973c40564b80e",
+      "parent_id": "o-livro-dos-espiritos:chapter:d46c925f0d53d40f",
+      "order": 79,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Visitas espíritas entre pessoas vivas",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 221
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:2fdf476a3c6ece2a",
+      "source_key": "2fdf476a3c6ece2a",
+      "parent_id": "o-livro-dos-espiritos:chapter:d46c925f0d53d40f",
+      "order": 80,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Transmissão oculta do pensamento",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 222
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:cb9f1b48c21ad762",
+      "source_key": "cb9f1b48c21ad762",
+      "parent_id": "o-livro-dos-espiritos:chapter:d46c925f0d53d40f",
+      "order": 81,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Letargia, catalepsia, mortes aparentes",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 223
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:bd8a2ebd31a4dbbb",
+      "source_key": "bd8a2ebd31a4dbbb",
+      "parent_id": "o-livro-dos-espiritos:chapter:d46c925f0d53d40f",
+      "order": 82,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Sonambulismo",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 224
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:d9493f5d86c5b461",
+      "source_key": "d9493f5d86c5b461",
+      "parent_id": "o-livro-dos-espiritos:chapter:d46c925f0d53d40f",
+      "order": 83,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Êxtase",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 228
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:5e62a81a3b023d59",
+      "source_key": "5e62a81a3b023d59",
+      "parent_id": "o-livro-dos-espiritos:chapter:d46c925f0d53d40f",
+      "order": 84,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Dupla vista",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 229
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:f917af7a3e27ed4a",
+      "source_key": "f917af7a3e27ed4a",
+      "parent_id": "o-livro-dos-espiritos:chapter:d46c925f0d53d40f",
+      "order": 85,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Resumo teórico do sonambulismo, do êxtase e da dupla vista",
+      "source_pdf_page": 7,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 231
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "source_key": "5d6fba1a034ccb46",
+      "parent_id": "o-livro-dos-espiritos:division:20ca3a4d1b9795b2",
+      "order": 86,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo IX",
+      "title": "Da intervenção dos Espíritos no mundo corporal",
+      "source_pdf_page": 8,
+      "printed_page": 237,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:e988e8b4c89a2bdd",
+      "source_key": "e988e8b4c89a2bdd",
+      "parent_id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "order": 87,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Faculdade que têm os Espíritos de penetrar os nossos pensamentos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 237
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:0b57880f626dea52",
+      "source_key": "0b57880f626dea52",
+      "parent_id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "order": 88,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Influência oculta dos Espíritos em nossos pensamentos e atos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 238
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:bdeb8be7a8aaa867",
+      "source_key": "bdeb8be7a8aaa867",
+      "parent_id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "order": 89,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Possessos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 241
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:4bf1c0e173d858f7",
+      "source_key": "4bf1c0e173d858f7",
+      "parent_id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "order": 90,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Convulsionários",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 243
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:4396a63cb3f1bab1",
+      "source_key": "4396a63cb3f1bab1",
+      "parent_id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "order": 91,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Afeição que os Espíritos votam a certas pessoas",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 245
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:e4e36465656a68de",
+      "source_key": "e4e36465656a68de",
+      "parent_id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "order": 92,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Anjos da guarda. Espíritos protetores, familiares ou simpáticos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 246
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:7881c45cd397bf10",
+      "source_key": "7881c45cd397bf10",
+      "parent_id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "order": 93,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Pressentimentos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 257
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:8c6a11686eabd422",
+      "source_key": "8c6a11686eabd422",
+      "parent_id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "order": 94,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Influência dos Espíritos nos acontecimentos da vida",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 258
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:b856084697d0c7d4",
+      "source_key": "b856084697d0c7d4",
+      "parent_id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "order": 95,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Ação dos Espíritos nos fenômenos da Natureza",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 262
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:dd6b67aa356a5d4e",
+      "source_key": "dd6b67aa356a5d4e",
+      "parent_id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "order": 96,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Os Espíritos durante os combates",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 264
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:eae96b244b6271cf",
+      "source_key": "eae96b244b6271cf",
+      "parent_id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "order": 97,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Pactos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 266
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:7f3f9c64792024c6",
+      "source_key": "7f3f9c64792024c6",
+      "parent_id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "order": 98,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Poder oculto. Talismãs. Feiticeiros",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 267
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:153f6deaf2dda963",
+      "source_key": "153f6deaf2dda963",
+      "parent_id": "o-livro-dos-espiritos:chapter:5d6fba1a034ccb46",
+      "order": 99,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Bênçãos e maldições",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 269
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:e389ef21b03022c2",
+      "source_key": "e389ef21b03022c2",
+      "parent_id": "o-livro-dos-espiritos:division:20ca3a4d1b9795b2",
+      "order": 100,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo X",
+      "title": "Das ocupações e missões dos Espíritos",
+      "source_pdf_page": 8,
+      "printed_page": 271,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:ed76f876ac44ebbf",
+      "source_key": "ed76f876ac44ebbf",
+      "parent_id": "o-livro-dos-espiritos:division:20ca3a4d1b9795b2",
+      "order": 101,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo XI",
+      "title": "Dos três reinos",
+      "source_pdf_page": 8,
+      "printed_page": 281,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:4921b17feda20172",
+      "source_key": "4921b17feda20172",
+      "parent_id": "o-livro-dos-espiritos:chapter:ed76f876ac44ebbf",
+      "order": 102,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Os minerais e as plantas",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 281
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:80404e6cfc738087",
+      "source_key": "80404e6cfc738087",
+      "parent_id": "o-livro-dos-espiritos:chapter:ed76f876ac44ebbf",
+      "order": 103,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Os animais e o homem",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 283
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:ba250d129d97d8a4",
+      "source_key": "ba250d129d97d8a4",
+      "parent_id": "o-livro-dos-espiritos:chapter:ed76f876ac44ebbf",
+      "order": 104,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Metempsicose",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 290
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:division:1f8d47440393d1f5",
+      "source_key": "1f8d47440393d1f5",
+      "parent_id": null,
+      "order": 105,
+      "depth": 0,
+      "type": "division",
+      "label": null,
+      "title": "PARTE TERCEIRA — Das leis morais",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:e8a8ed8f8296d729",
+      "source_key": "e8a8ed8f8296d729",
+      "parent_id": "o-livro-dos-espiritos:division:1f8d47440393d1f5",
+      "order": 106,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo I",
+      "title": "Da lei divina ou natural",
+      "source_pdf_page": 8,
+      "printed_page": 295,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:506030451b860e98",
+      "source_key": "506030451b860e98",
+      "parent_id": "o-livro-dos-espiritos:chapter:e8a8ed8f8296d729",
+      "order": 107,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Caracteres da lei natural",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 295
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:e0d2e48b24446fe2",
+      "source_key": "e0d2e48b24446fe2",
+      "parent_id": "o-livro-dos-espiritos:chapter:e8a8ed8f8296d729",
+      "order": 108,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Conhecimento da lei natural",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 296
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:fd67cf33cb50ab3e",
+      "source_key": "fd67cf33cb50ab3e",
+      "parent_id": "o-livro-dos-espiritos:chapter:e8a8ed8f8296d729",
+      "order": 109,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O bem e o mal",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 299
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:448e47bef504ea82",
+      "source_key": "448e47bef504ea82",
+      "parent_id": "o-livro-dos-espiritos:chapter:e8a8ed8f8296d729",
+      "order": 110,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Divisão da lei natural",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 303
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:fc4351cd7ace6579",
+      "source_key": "fc4351cd7ace6579",
+      "parent_id": "o-livro-dos-espiritos:division:1f8d47440393d1f5",
+      "order": 111,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo II",
+      "title": "Da lei de adoração",
+      "source_pdf_page": 8,
+      "printed_page": 305,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:6579bc6a57e8e288",
+      "source_key": "6579bc6a57e8e288",
+      "parent_id": "o-livro-dos-espiritos:chapter:fc4351cd7ace6579",
+      "order": 112,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Objetivo da adoração",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 305
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:741e6a73118bc2da",
+      "source_key": "741e6a73118bc2da",
+      "parent_id": "o-livro-dos-espiritos:chapter:fc4351cd7ace6579",
+      "order": 113,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Adoração exterior",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 306
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:0aa38d673b9761a9",
+      "source_key": "0aa38d673b9761a9",
+      "parent_id": "o-livro-dos-espiritos:chapter:fc4351cd7ace6579",
+      "order": 114,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Vida contemplativa",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 307
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:c44d18198d8317b7",
+      "source_key": "c44d18198d8317b7",
+      "parent_id": "o-livro-dos-espiritos:chapter:fc4351cd7ace6579",
+      "order": 115,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "A prece",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 307
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:454bf7b5f98c7c69",
+      "source_key": "454bf7b5f98c7c69",
+      "parent_id": "o-livro-dos-espiritos:chapter:fc4351cd7ace6579",
+      "order": 116,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Politeísmo",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 311
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:71b900658e539621",
+      "source_key": "71b900658e539621",
+      "parent_id": "o-livro-dos-espiritos:chapter:fc4351cd7ace6579",
+      "order": 117,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Sacrifícios",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 312
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:681e0ede5940c2a1",
+      "source_key": "681e0ede5940c2a1",
+      "parent_id": "o-livro-dos-espiritos:division:1f8d47440393d1f5",
+      "order": 118,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo III",
+      "title": "Da lei do trabalho",
+      "source_pdf_page": 8,
+      "printed_page": 317,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:5170534e974f2b36",
+      "source_key": "5170534e974f2b36",
+      "parent_id": "o-livro-dos-espiritos:chapter:681e0ede5940c2a1",
+      "order": 119,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Necessidade do trabalho",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 317
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:bd0be4033be6a8bd",
+      "source_key": "bd0be4033be6a8bd",
+      "parent_id": "o-livro-dos-espiritos:chapter:681e0ede5940c2a1",
+      "order": 120,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Limite do trabalho. Repouso",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 319
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:bc85d1940cf4a7b2",
+      "source_key": "bc85d1940cf4a7b2",
+      "parent_id": "o-livro-dos-espiritos:division:1f8d47440393d1f5",
+      "order": 121,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo IV",
+      "title": "Da lei de reprodução",
+      "source_pdf_page": 8,
+      "printed_page": 321,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:d610b124b1daf36a",
+      "source_key": "d610b124b1daf36a",
+      "parent_id": "o-livro-dos-espiritos:chapter:bc85d1940cf4a7b2",
+      "order": 122,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "População do globo",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 321
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:33a5db2c547d2d04",
+      "source_key": "33a5db2c547d2d04",
+      "parent_id": "o-livro-dos-espiritos:chapter:bc85d1940cf4a7b2",
+      "order": 123,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Sucessão e aperfeiçoamento das raças",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 321
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:f96f10b58e71ca36",
+      "source_key": "f96f10b58e71ca36",
+      "parent_id": "o-livro-dos-espiritos:chapter:bc85d1940cf4a7b2",
+      "order": 124,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Obstáculos à reprodução",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 323
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:10b0c9d3e5dd5f4e",
+      "source_key": "10b0c9d3e5dd5f4e",
+      "parent_id": "o-livro-dos-espiritos:chapter:bc85d1940cf4a7b2",
+      "order": 125,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Casamento e celibato",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 324
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:b809967f4b153903",
+      "source_key": "b809967f4b153903",
+      "parent_id": "o-livro-dos-espiritos:chapter:bc85d1940cf4a7b2",
+      "order": 126,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Poligamia",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 325
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:84c0c35c5d9c1858",
+      "source_key": "84c0c35c5d9c1858",
+      "parent_id": "o-livro-dos-espiritos:division:1f8d47440393d1f5",
+      "order": 127,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo V",
+      "title": "Da lei de conservação",
+      "source_pdf_page": 8,
+      "printed_page": 327,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:be9fdeb11282f72c",
+      "source_key": "be9fdeb11282f72c",
+      "parent_id": "o-livro-dos-espiritos:chapter:84c0c35c5d9c1858",
+      "order": 128,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Instinto de conservação",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 327
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:60b7c016fb8f1121",
+      "source_key": "60b7c016fb8f1121",
+      "parent_id": "o-livro-dos-espiritos:chapter:84c0c35c5d9c1858",
+      "order": 129,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Meios de conservação",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 327
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:af04aa480d1ef01a",
+      "source_key": "af04aa480d1ef01a",
+      "parent_id": "o-livro-dos-espiritos:chapter:84c0c35c5d9c1858",
+      "order": 130,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Gozo dos bens terrenos",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 330
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:42597ed9482211a4",
+      "source_key": "42597ed9482211a4",
+      "parent_id": "o-livro-dos-espiritos:chapter:84c0c35c5d9c1858",
+      "order": 131,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Necessário e supérfluo",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 331
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:da1c19edc1f59287",
+      "source_key": "da1c19edc1f59287",
+      "parent_id": "o-livro-dos-espiritos:chapter:84c0c35c5d9c1858",
+      "order": 132,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Privações voluntárias. Mortificações",
+      "source_pdf_page": 8,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 332
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:a18b53eb72230c17",
+      "source_key": "a18b53eb72230c17",
+      "parent_id": "o-livro-dos-espiritos:division:1f8d47440393d1f5",
+      "order": 133,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VI",
+      "title": "Da lei de destruição",
+      "source_pdf_page": 9,
+      "printed_page": 335,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:348c3016571353e4",
+      "source_key": "348c3016571353e4",
+      "parent_id": "o-livro-dos-espiritos:chapter:a18b53eb72230c17",
+      "order": 134,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Destruição necessária e destruição abusiva",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 335
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:be358c4d55ef6e7d",
+      "source_key": "be358c4d55ef6e7d",
+      "parent_id": "o-livro-dos-espiritos:chapter:a18b53eb72230c17",
+      "order": 135,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Flagelos destruidores",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 337
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:af9db75061878416",
+      "source_key": "af9db75061878416",
+      "parent_id": "o-livro-dos-espiritos:chapter:a18b53eb72230c17",
+      "order": 136,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Guerras",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 339
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:49b6d11cc4c1046e",
+      "source_key": "49b6d11cc4c1046e",
+      "parent_id": "o-livro-dos-espiritos:chapter:a18b53eb72230c17",
+      "order": 137,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Assassínio",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 340
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:9e8d78c376613667",
+      "source_key": "9e8d78c376613667",
+      "parent_id": "o-livro-dos-espiritos:chapter:a18b53eb72230c17",
+      "order": 138,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Crueldade",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 341
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:a3fbdf0f557162d6",
+      "source_key": "a3fbdf0f557162d6",
+      "parent_id": "o-livro-dos-espiritos:chapter:a18b53eb72230c17",
+      "order": 139,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Duelo",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 342
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:5607289c64e7cf4c",
+      "source_key": "5607289c64e7cf4c",
+      "parent_id": "o-livro-dos-espiritos:chapter:a18b53eb72230c17",
+      "order": 140,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Pena de morte",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 343
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:74ce300b149f1f6a",
+      "source_key": "74ce300b149f1f6a",
+      "parent_id": "o-livro-dos-espiritos:division:1f8d47440393d1f5",
+      "order": 141,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VII",
+      "title": "Da lei de sociedade",
+      "source_pdf_page": 9,
+      "printed_page": 347,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:78098a9a7bc90e93",
+      "source_key": "78098a9a7bc90e93",
+      "parent_id": "o-livro-dos-espiritos:chapter:74ce300b149f1f6a",
+      "order": 142,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Necessidade da vida social",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 347
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:c40daa69b4c5c3b2",
+      "source_key": "c40daa69b4c5c3b2",
+      "parent_id": "o-livro-dos-espiritos:chapter:74ce300b149f1f6a",
+      "order": 143,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Vida de insulamento. Voto de silêncio",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 348
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:0c36955d1e3d66a0",
+      "source_key": "0c36955d1e3d66a0",
+      "parent_id": "o-livro-dos-espiritos:chapter:74ce300b149f1f6a",
+      "order": 144,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Laços de família",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 349
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:18ea3212f9c7c2ce",
+      "source_key": "18ea3212f9c7c2ce",
+      "parent_id": "o-livro-dos-espiritos:division:1f8d47440393d1f5",
+      "order": 145,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo VIII",
+      "title": "Da lei do progresso",
+      "source_pdf_page": 9,
+      "printed_page": 351,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:5cc7bf6e457c5d32",
+      "source_key": "5cc7bf6e457c5d32",
+      "parent_id": "o-livro-dos-espiritos:chapter:18ea3212f9c7c2ce",
+      "order": 146,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Estado de natureza",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 351
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:30a0290ba85566cf",
+      "source_key": "30a0290ba85566cf",
+      "parent_id": "o-livro-dos-espiritos:chapter:18ea3212f9c7c2ce",
+      "order": 147,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Marcha do progresso",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 352
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:8aa8155e246419ae",
+      "source_key": "8aa8155e246419ae",
+      "parent_id": "o-livro-dos-espiritos:chapter:18ea3212f9c7c2ce",
+      "order": 148,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Povos degenerados",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 355
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:083f2f894f86e249",
+      "source_key": "083f2f894f86e249",
+      "parent_id": "o-livro-dos-espiritos:chapter:18ea3212f9c7c2ce",
+      "order": 149,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Civilização",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 358
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:92b88f1dc8b58369",
+      "source_key": "92b88f1dc8b58369",
+      "parent_id": "o-livro-dos-espiritos:chapter:18ea3212f9c7c2ce",
+      "order": 150,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Progresso da legislação humana",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 359
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:686770ae9ad9c76f",
+      "source_key": "686770ae9ad9c76f",
+      "parent_id": "o-livro-dos-espiritos:chapter:18ea3212f9c7c2ce",
+      "order": 151,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Influência do Espiritismo no progresso",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 360
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:1bd4ba64f1f12e55",
+      "source_key": "1bd4ba64f1f12e55",
+      "parent_id": "o-livro-dos-espiritos:division:1f8d47440393d1f5",
+      "order": 152,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo IX",
+      "title": "Da lei de igualdade",
+      "source_pdf_page": 9,
+      "printed_page": 363,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:a83008c02f744f67",
+      "source_key": "a83008c02f744f67",
+      "parent_id": "o-livro-dos-espiritos:chapter:1bd4ba64f1f12e55",
+      "order": 153,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Igualdade natural",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 363
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:43a93f093a392b0d",
+      "source_key": "43a93f093a392b0d",
+      "parent_id": "o-livro-dos-espiritos:chapter:1bd4ba64f1f12e55",
+      "order": 154,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Desigualdade das aptidões",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 363
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:886edf538c06154c",
+      "source_key": "886edf538c06154c",
+      "parent_id": "o-livro-dos-espiritos:chapter:1bd4ba64f1f12e55",
+      "order": 155,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Desigualdades sociais",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 364
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:6f6f91cf77a17b18",
+      "source_key": "6f6f91cf77a17b18",
+      "parent_id": "o-livro-dos-espiritos:chapter:1bd4ba64f1f12e55",
+      "order": 156,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Desigualdade das riquezas",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 365
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:e0232a0be1f1fbe1",
+      "source_key": "e0232a0be1f1fbe1",
+      "parent_id": "o-livro-dos-espiritos:chapter:1bd4ba64f1f12e55",
+      "order": 157,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "As provas de riqueza e de miséria",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 366
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:d43dffb056bf8384",
+      "source_key": "d43dffb056bf8384",
+      "parent_id": "o-livro-dos-espiritos:chapter:1bd4ba64f1f12e55",
+      "order": 158,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Igualdade dos direitos do homem e da mulher",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 367
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:d73053d100ae7f8b",
+      "source_key": "d73053d100ae7f8b",
+      "parent_id": "o-livro-dos-espiritos:chapter:1bd4ba64f1f12e55",
+      "order": 159,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Igualdade perante o túmulo",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 368
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:00c1b20f978464cb",
+      "source_key": "00c1b20f978464cb",
+      "parent_id": "o-livro-dos-espiritos:division:1f8d47440393d1f5",
+      "order": 160,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo X",
+      "title": "Da lei de liberdade",
+      "source_pdf_page": 9,
+      "printed_page": 371,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:e1e2ccf154283cc3",
+      "source_key": "e1e2ccf154283cc3",
+      "parent_id": "o-livro-dos-espiritos:chapter:00c1b20f978464cb",
+      "order": 161,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Liberdade natural",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 371
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:7e9b7aaee362ae5c",
+      "source_key": "7e9b7aaee362ae5c",
+      "parent_id": "o-livro-dos-espiritos:chapter:00c1b20f978464cb",
+      "order": 162,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Escravidão",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 372
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:4ee9e6e001cb5b58",
+      "source_key": "4ee9e6e001cb5b58",
+      "parent_id": "o-livro-dos-espiritos:chapter:00c1b20f978464cb",
+      "order": 163,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Liberdade de pensar",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 373
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:9b34809558cd54c7",
+      "source_key": "9b34809558cd54c7",
+      "parent_id": "o-livro-dos-espiritos:chapter:00c1b20f978464cb",
+      "order": 164,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Liberdade de consciência",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 373
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:ca0a9f830abd36bf",
+      "source_key": "ca0a9f830abd36bf",
+      "parent_id": "o-livro-dos-espiritos:chapter:00c1b20f978464cb",
+      "order": 165,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Livre-arbítrio",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 375
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:5e9204c217609806",
+      "source_key": "5e9204c217609806",
+      "parent_id": "o-livro-dos-espiritos:chapter:00c1b20f978464cb",
+      "order": 166,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Fatalidade",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 377
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:c45b2f01cfa72748",
+      "source_key": "c45b2f01cfa72748",
+      "parent_id": "o-livro-dos-espiritos:chapter:00c1b20f978464cb",
+      "order": 167,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Conhecimento do futuro",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 383
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:cba92e22d57c36da",
+      "source_key": "cba92e22d57c36da",
+      "parent_id": "o-livro-dos-espiritos:chapter:00c1b20f978464cb",
+      "order": 168,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Resumo teórico do móvel das ações humanas",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 385
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:dde16443013e2432",
+      "source_key": "dde16443013e2432",
+      "parent_id": "o-livro-dos-espiritos:division:1f8d47440393d1f5",
+      "order": 169,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo XI",
+      "title": "Da lei de justiça, de amor e de caridade",
+      "source_pdf_page": 9,
+      "printed_page": 389,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:b8333ac20653540b",
+      "source_key": "b8333ac20653540b",
+      "parent_id": "o-livro-dos-espiritos:chapter:dde16443013e2432",
+      "order": 170,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Justiça e direitos naturais",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 389
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:b3454b293db607d4",
+      "source_key": "b3454b293db607d4",
+      "parent_id": "o-livro-dos-espiritos:chapter:dde16443013e2432",
+      "order": 171,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Direito de propriedade. Roubo",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 392
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:72b735a3ef6dd246",
+      "source_key": "72b735a3ef6dd246",
+      "parent_id": "o-livro-dos-espiritos:chapter:dde16443013e2432",
+      "order": 172,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Caridade e amor do próximo",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 393
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:615e79db0982afa9",
+      "source_key": "615e79db0982afa9",
+      "parent_id": "o-livro-dos-espiritos:chapter:dde16443013e2432",
+      "order": 173,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Amor materno e filial",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 395
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:c3f9ad458cd64b5e",
+      "source_key": "c3f9ad458cd64b5e",
+      "parent_id": "o-livro-dos-espiritos:division:1f8d47440393d1f5",
+      "order": 174,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo XII",
+      "title": "Da perfeição moral",
+      "source_pdf_page": 9,
+      "printed_page": 397,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:f31bd51fa50979ad",
+      "source_key": "f31bd51fa50979ad",
+      "parent_id": "o-livro-dos-espiritos:chapter:c3f9ad458cd64b5e",
+      "order": 175,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "As virtudes e os vícios",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 397
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:fde0e28a80a97bc4",
+      "source_key": "fde0e28a80a97bc4",
+      "parent_id": "o-livro-dos-espiritos:chapter:c3f9ad458cd64b5e",
+      "order": 176,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Paixões",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 402
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:383dd3bbafbe9e09",
+      "source_key": "383dd3bbafbe9e09",
+      "parent_id": "o-livro-dos-espiritos:chapter:c3f9ad458cd64b5e",
+      "order": 177,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O egoísmo",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 404
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:7806c39877585f8a",
+      "source_key": "7806c39877585f8a",
+      "parent_id": "o-livro-dos-espiritos:chapter:c3f9ad458cd64b5e",
+      "order": 178,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Caracteres do homem de bem",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 407
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:84bd0a5b6779a6b6",
+      "source_key": "84bd0a5b6779a6b6",
+      "parent_id": "o-livro-dos-espiritos:chapter:c3f9ad458cd64b5e",
+      "order": 179,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Conhecimento de si mesmo",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 408
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:division:2db50fec14e0dbef",
+      "source_key": "2db50fec14e0dbef",
+      "parent_id": null,
+      "order": 180,
+      "depth": 0,
+      "type": "division",
+      "label": null,
+      "title": "PARTE QUARTA — Das esperanças e consolações",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:2f2fe37e410cd33f",
+      "source_key": "2f2fe37e410cd33f",
+      "parent_id": "o-livro-dos-espiritos:division:2db50fec14e0dbef",
+      "order": 181,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo I",
+      "title": "Das penas e gozos terrestres",
+      "source_pdf_page": 9,
+      "printed_page": 413,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:d924879ce05743e5",
+      "source_key": "d924879ce05743e5",
+      "parent_id": "o-livro-dos-espiritos:chapter:2f2fe37e410cd33f",
+      "order": 182,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Felicidade e infelicidade relativas",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 413
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:535b6ec806e8a081",
+      "source_key": "535b6ec806e8a081",
+      "parent_id": "o-livro-dos-espiritos:chapter:2f2fe37e410cd33f",
+      "order": 183,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Perda dos entes queridos",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 418
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:8b83e6ea164ff4d4",
+      "source_key": "8b83e6ea164ff4d4",
+      "parent_id": "o-livro-dos-espiritos:chapter:2f2fe37e410cd33f",
+      "order": 184,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Decepções. Ingratidão. Afeições destruídas",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 420
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:0329f37894ce4349",
+      "source_key": "0329f37894ce4349",
+      "parent_id": "o-livro-dos-espiritos:chapter:2f2fe37e410cd33f",
+      "order": 185,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Uniões antipáticas",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 421
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:c3e0be883848d79c",
+      "source_key": "c3e0be883848d79c",
+      "parent_id": "o-livro-dos-espiritos:chapter:2f2fe37e410cd33f",
+      "order": 186,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Temor da morte",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 423
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:6bcff82f0ee58890",
+      "source_key": "6bcff82f0ee58890",
+      "parent_id": "o-livro-dos-espiritos:chapter:2f2fe37e410cd33f",
+      "order": 187,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Desgosto da vida. Suicídio",
+      "source_pdf_page": 9,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 424
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:chapter:69361133c38be55e",
+      "source_key": "69361133c38be55e",
+      "parent_id": "o-livro-dos-espiritos:division:2db50fec14e0dbef",
+      "order": 188,
+      "depth": 1,
+      "type": "chapter",
+      "label": "Capítulo II",
+      "title": "Das penas e gozos futuros",
+      "source_pdf_page": 10,
+      "printed_page": 431,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:1a4a37c051f5e263",
+      "source_key": "1a4a37c051f5e263",
+      "parent_id": "o-livro-dos-espiritos:chapter:69361133c38be55e",
+      "order": 189,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "O nada. Vida futura",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 431
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:6a11563d63e2a94e",
+      "source_key": "6a11563d63e2a94e",
+      "parent_id": "o-livro-dos-espiritos:chapter:69361133c38be55e",
+      "order": 190,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Intuição das penas e gozos futuros",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 432
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:b45f866dbb996870",
+      "source_key": "b45f866dbb996870",
+      "parent_id": "o-livro-dos-espiritos:chapter:69361133c38be55e",
+      "order": 191,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Intervenção de Deus nas penas e recompensas",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 433
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:0433728dbe4a30c8",
+      "source_key": "0433728dbe4a30c8",
+      "parent_id": "o-livro-dos-espiritos:chapter:69361133c38be55e",
+      "order": 192,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Natureza das penas e gozos futuros",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 434
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:966c2a183ab57f76",
+      "source_key": "966c2a183ab57f76",
+      "parent_id": "o-livro-dos-espiritos:chapter:69361133c38be55e",
+      "order": 193,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Penas temporais",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 441
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:6798030da5e6f0c4",
+      "source_key": "6798030da5e6f0c4",
+      "parent_id": "o-livro-dos-espiritos:chapter:69361133c38be55e",
+      "order": 194,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Expiação e arrependimento",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 443
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:11a71afa5b2cac33",
+      "source_key": "11a71afa5b2cac33",
+      "parent_id": "o-livro-dos-espiritos:chapter:69361133c38be55e",
+      "order": 195,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Duração das penas futuras",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 447
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:0b34cdfc48d4b1aa",
+      "source_key": "0b34cdfc48d4b1aa",
+      "parent_id": "o-livro-dos-espiritos:chapter:69361133c38be55e",
+      "order": 196,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Ressurreição da carne",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 454
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:section:a1a7e8faddeb5306",
+      "source_key": "a1a7e8faddeb5306",
+      "parent_id": "o-livro-dos-espiritos:chapter:69361133c38be55e",
+      "order": 197,
+      "depth": 2,
+      "type": "section",
+      "label": null,
+      "title": "Paraíso, inferno e purgatório",
+      "source_pdf_page": 10,
+      "printed_page": null,
+      "locator": {
+        "type": "printed_page",
+        "value": 456
+      }
+    },
+    {
+      "id": "o-livro-dos-espiritos:back_matter:08849515b369dc8e",
+      "source_key": "08849515b369dc8e",
+      "parent_id": null,
+      "order": 198,
+      "depth": 0,
+      "type": "back_matter",
+      "label": null,
+      "title": "Conclusão",
+      "source_pdf_page": 10,
+      "printed_page": 461,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:back_matter:29e85a9a8616fe0b",
+      "source_key": "29e85a9a8616fe0b",
+      "parent_id": null,
+      "order": 199,
+      "depth": 0,
+      "type": "back_matter",
+      "label": null,
+      "title": "Nota explicativa",
+      "source_pdf_page": 10,
+      "printed_page": 477,
+      "locator": null
+    },
+    {
+      "id": "o-livro-dos-espiritos:back_matter:1f35502ee0e6cc19",
+      "source_key": "1f35502ee0e6cc19",
+      "parent_id": null,
+      "order": 200,
+      "depth": 0,
+      "type": "back_matter",
+      "label": null,
+      "title": "Índice geral",
+      "source_pdf_page": 10,
+      "printed_page": 483,
+      "locator": null
+    }
+  ],
+  "review_flags": []
+}
