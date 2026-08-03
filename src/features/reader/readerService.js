@@ -1,3 +1,4 @@
+import { READER_COPY } from '@/features/reader/readerCopy'
 import { supabase } from '@/lib/supabase'
 
 export const SECTION_COLUMNS =
@@ -71,7 +72,7 @@ export async function getReaderSections({ userId, bookId }) {
     p_book_id: bookId,
   })
 
-  throwIfError(error, 'Não foi possível carregar as seções.')
+  throwIfError(error, READER_COPY.errors.loadReading)
 
   return (data || []).map(normalizeSection)
 }
@@ -104,7 +105,7 @@ export async function getNextSection({ bookId, position }) {
     .limit(1)
     .maybeSingle()
 
-  throwIfError(error, 'Não foi possível carregar a próxima seção.')
+  throwIfError(error, READER_COPY.errors.loadContinuation)
 
   return data ? normalizeSection(data) : null
 }
@@ -133,7 +134,7 @@ export async function getPreviousSection({ bookId, position }) {
     .limit(1)
     .maybeSingle()
 
-  throwIfError(error, 'Não foi possível carregar a seção anterior.')
+  throwIfError(error, READER_COPY.errors.loadPrevious)
 
   return data ? normalizeSection(data) : null
 }

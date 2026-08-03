@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
+import { READER_COPY } from '@/features/reader/readerCopy'
 import {
   findSectionIndex,
   READER_PHASE,
@@ -247,7 +248,7 @@ export function useReadingSession({
           })
 
           if (!targetSections.length) {
-            throw new Error('A seção escolhida não pôde ser carregada.')
+            throw new Error(READER_COPY.errors.selectedUnit)
           }
 
           setSections(targetSections)
@@ -357,7 +358,7 @@ export function useReadingSession({
         })
 
         if (!nextSections.length) {
-          throw new Error('A próxima seção não pôde ser carregada.')
+          throw new Error(READER_COPY.missingContinuation)
         }
 
         setSections(nextSections)

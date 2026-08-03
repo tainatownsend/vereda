@@ -2,7 +2,7 @@
 
 - Status: Accepted
 - Decision date: 2026-08-02
-- Implementation: PR-0014 contract; PR-0015 interface
+- Implementation: PR-0014 contract; PR-0015 interface completed
 
 ## Context
 
@@ -99,5 +99,6 @@ Examples:
 
 PR-0014 records the contract and uses `reading_segments` in staging.
 
-PR-0015 will implement the Reader copy and navigation changes without changing
-progress persistence.
+PR-0015 implements the Reader copy and navigation changes without changing
+progress persistence, current section identifiers, RPC contracts, or reading-session
+history.

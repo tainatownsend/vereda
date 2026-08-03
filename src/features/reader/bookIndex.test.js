@@ -77,6 +77,6 @@ describe('bookIndex', () => {
         kind: 'content',
         sec_position: 12,
       }),
-    ).toBe('Seção 12')
+    ).toBe('Trecho 12')
   })
 })

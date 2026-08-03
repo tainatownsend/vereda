@@ -13,6 +13,7 @@ import {
   getIndexItemState,
   getIndexSectionLabel,
 } from '@/features/reader/bookIndex'
+import { READER_COPY } from '@/features/reader/readerCopy'
 
 export default function BookIndexPanel({
   open,
@@ -109,8 +110,7 @@ export default function BookIndexPanel({
               {bookTitle}
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-              Escolha uma parte, capítulo ou seção. Abrir um item não altera
-              seu progresso oficial.
+              {READER_COPY.indexDescription}
             </p>
           </div>
 
@@ -275,7 +275,7 @@ function IndexStateIcon({ state }) {
     return (
       <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-sage-700 dark:border-sage-300">
         <span className="h-2 w-2 rounded-full bg-sage-700 dark:bg-sage-300" />
-        <span className="sr-only">Seção atual</span>
+        <span className="sr-only">{READER_COPY.currentUnitLabel}</span>
       </span>
     )
   }
