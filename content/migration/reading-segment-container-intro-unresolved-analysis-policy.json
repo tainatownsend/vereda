@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-unresolved-analysis",
+  "policy_version": "2026-08-03-container-intro-unresolved-analysis-v1",
+  "purpose": "Analyze the 14 unresolved container-intro-only outcomes and prepare deterministic resolution batches without rereading source files or changing any review decision.",
+  "expected": {
+    "unresolved_count": 14,
+    "reviewed_count_preserved": 4,
+    "pending_count_preserved": 126,
+    "public_decision_count_preserved": 18,
+    "completed_packet_count_preserved": 4,
+    "pending_packet_count_preserved": 12,
+    "resolution_lane_count": 3,
+    "resolution_batch_count": 5
+  },
+  "resolution_lanes": {
+    "current-title-window-recovery": {
+      "priority": 1,
+      "source_reason": "current-title-window-not-found",
+      "expected_count": 3,
+      "diagnosis": "Candidate source pages existed, but the line-window matcher could not reconstruct the current canonical title.",
+      "recommended_method": "Test normalized token windows, punctuation-insensitive joins, and multi-line title reconstruction against locally held private evidence.",
+      "decision_change_allowed": false
+    },
+    "non-contents-occurrence-recovery": {
+      "priority": 2,
+      "source_reason": "selected-page-has-contents-signals",
+      "expected_count": 1,
+      "diagnosis": "The only selected occurrence resembled a table-of-contents entry rather than the canonical source opening.",
+      "recommended_method": "Use canonical structure-map locators and a page-range search beyond the contents section to recover a non-contents occurrence.",
+      "decision_change_allowed": false
+    },
+    "successor-anchor-recovery": {
+      "priority": 3,
+      "source_reason": "successor-title-not-found",
+      "expected_count": 10,
+      "diagnosis": "The current title was selected, but the canonical successor title was not found inside the bounded six-page search window.",
+      "recommended_method": "Generate successor-title variants from canonical metadata and test a wider anchor-only search without classifying prose or changing decisions.",
+      "decision_change_allowed": false
+    }
+  },
+  "batch_rules": {
+    "group_by": [
+      "resolution_lane",
+      "book_id"
+    ],
+    "stable_order": [
+      "resolution_lane_priority",
+      "book_id",
+      "segment_order",
+      "segment_key"
+    ]
+  },
+  "public_evidence_allowlist": [
+    "analysis_id",
+    "decision_id",
+    "inspection_id",
+    "packet_id",
+    "book_id",
+    "book_slug",
+    "segment_key",
+    "segment_order",
+    "display_title",
+    "unresolved_reason",
+    "resolution_lane",
+    "resolution_lane_priority",
+    "diagnosis",
+    "recommended_method",
+    "evidence_snapshot",
+    "diagnosis_flags",
+    "requires_local_source_reinspection",
+    "decision_change_allowed",
+    "source_text_included",
+    "source_excerpt_included",
+    "database_change_applied",
+    "cutover_enabled"
+  ],
+  "forbidden_public_fields": [
+    "source_text",
+    "source_excerpt",
+    "quoted_text",
+    "quotation",
+    "full_text",
+    "normalized_content",
+    "private_notes",
+    "reviewer_notes",
+    "ocr_text",
+    "page_text",
+    "between_lines"
+  ],
+  "analysis_boundary": {
+    "analysis_generated": true,
+    "resolution_batches_generated": true,
+    "source_files_read": false,
+    "source_text_read": false,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "review_decision_changed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
