@@ -40,7 +40,10 @@
     "content:staging:segments:design:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_reading_segment_design.py",
     "content:staging:segments:apply:verify:build": "node scripts/content_pipeline/build_reading_segment_application_verification.mjs",
     "content:staging:segments:apply:import": "node scripts/content_pipeline/import_reading_segment_application.mjs",
-    "content:staging:segments:apply:validate": "node scripts/content_pipeline/validate_reading_segment_application_evidence.mjs"
+    "content:staging:segments:apply:validate": "node scripts/content_pipeline/validate_reading_segment_application_evidence.mjs",
+    "content:staging:segments:triage:build": "node scripts/content_pipeline/run_python.mjs scripts/content_pipeline/triage_reading_segment_reviews.py",
+    "content:staging:segments:triage:validate": "node scripts/content_pipeline/validate_reading_segment_review_triage.mjs",
+    "content:staging:segments:triage:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_reading_segment_review_triage.py"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-triage",
+  "policy_version": "2026-08-03-reading-segment-review-triage-v1",
+  "purpose": "Separate boundary-critical review work from metadata-only diagnostics without approving content, boundaries, mappings, or cutover.",
+  "reason_classification": {
+    "missing-start-locator": {
+      "category": "boundary-blocker",
+      "priority": "P0",
+      "manual_review_required": true,
+      "description": "A segment start cannot be evaluated without locator evidence."
+    },
+    "split-required-by-reconstruction-plan": {
+      "category": "structural-decision",
+      "priority": "P1",
+      "manual_review_required": true,
+      "description": "The legacy-to-canonical reconstruction requires an explicit split decision."
+    },
+    "manual-reconstruction-review": {
+      "category": "structural-decision",
+      "priority": "P1",
+      "manual_review_required": true,
+      "description": "The reconstruction plan already requires editorial judgment."
+    },
+    "same-page-successor-boundary": {
+      "category": "boundary-evidence",
+      "priority": "P2",
+      "manual_review_required": true,
+      "description": "Adjacent proposals begin on the same page and need finer boundary evidence."
+    },
+    "container-intro-boundary": {
+      "category": "boundary-evidence",
+      "priority": "P2",
+      "manual_review_required": true,
+      "description": "A structural container may have a separate introduction that must be confirmed."
+    },
+    "legacy-word-count-oversized": {
+      "category": "delivery-size",
+      "priority": "P3",
+      "manual_review_required": true,
+      "description": "The legacy estimate indicates a potentially oversized Reader unit."
+    },
+    "no-legacy-word-count-estimate": {
+      "category": "metadata-only",
+      "priority": "P4",
+      "manual_review_required": false,
+      "description": "Missing legacy size metadata does not itself make a canonical boundary invalid."
+    }
+  },
+  "dispositions": {
+    "manual-boundary-review": {
+      "description": "Retain in the active boundary-review queue."
+    },
+    "manual-structural-review": {
+      "description": "Retain and prioritize because a structural reconstruction decision is required."
+    },
+    "manual-size-review": {
+      "description": "Retain for Reader delivery-size review."
+    },
+    "defer-metadata-only": {
+      "description": "Remove from the active boundary-review workload while preserving the missing estimate as deferred metadata."
+    }
+  },
+  "automation_boundary": {
+    "eligible_reason_set": [
+      "no-legacy-word-count-estimate"
+    ],
+    "may_change_database": false,
+    "may_approve_boundary": false,
+    "may_approve_content": false,
+    "may_create_mapping": false,
+    "may_enable_cutover": false
+  },
+  "batching": {
+    "maximum_items_per_batch": 25,
+    "group_by": [
+      "priority",
+      "book_id"
+    ],
+    "stable_order": [
+      "priority",
+      "book_id",
+      "segment_order",
+      "segment_key"
+    ]
+  }
+}
