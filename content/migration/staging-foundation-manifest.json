@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "status": "blocked-not-applied",
+  "database_scope": "private-content-staging",
+  "production_mutation_allowed": false,
+  "cutover_allowed": false,
+  "source_snapshot": {
+    "row_count": 908,
+    "sha256": "c48cf38c6e927f40039539875d7533e584fb155fcc53b59c3cfa61c701305256",
+    "contains_full_text": false,
+    "contains_user_data": false
+  },
+  "artifacts": {
+    "migration_sql_sha256": "d7c8554b04641955659ab64c910315c3176d3feb10d7a535e8581d2114ef76a3",
+    "preflight_sql_sha256": "155360e0a8fceed7fc2fee789d91007703530ac9800836cf77181ec45543f6cb",
+    "reader_language_contract_sha256": "c5dec6d1b480b50f9cdbe93a310150d286f74e2a6e2f5b79a3fccf346424618c"
+  },
+  "terminology": {
+    "legacy_database_unit": "section",
+    "canonical_source_unit": "editorial_node",
+    "future_reader_unit": "reading_segment",
+    "user_facing_unit_when_required": "trecho",
+    "primary_navigation_action": "Continuar"
+  },
+  "totals": {
+    "book_count": 5,
+    "current_section_decision_count": 908,
+    "manual_review_count": 229,
+    "blocked_progress_mapping_count": 46,
+    "strategy_counts": {
+      "full-staging-reconstruction": 4,
+      "targeted-staging-reconstruction": 1
+    }
+  },
+  "plans": [
+    {
+      "book": {
+        "book_id": 1,
+        "slug": "o-livro-dos-espiritos",
+        "title": "O Livro dos Espíritos"
+      },
+      "strategy": "full-staging-reconstruction",
+      "plan_sha256": "4e37f1aba43e0f740248db176b9bf5b663f83cf3bf49f79143d5635aac5bf549",
+      "decision_count": 228,
+      "manual_review_count": 38,
+      "blocked_progress_mapping_count": 21,
+      "migration_blocker_count": 8
+    },
+    {
+      "book": {
+        "book_id": 2,
+        "slug": "o-livro-dos-mediuns",
+        "title": "O Livro dos Médiuns"
+      },
+      "strategy": "full-staging-reconstruction",
+      "plan_sha256": "9d0a2d8ef64e10b355dd744a75f274028b2c62d50e2202a69a65a9b0e9796919",
+      "decision_count": 147,
+      "manual_review_count": 79,
+      "blocked_progress_mapping_count": 13,
+      "migration_blocker_count": 8
+    },
+    {
+      "book": {
+        "book_id": 3,
+        "slug": "o-evangelho-segundo-o-espiritismo",
+        "title": "O Evangelho Segundo o Espiritismo"
+      },
+      "strategy": "full-staging-reconstruction",
+      "plan_sha256": "265d28c22669a223de81baa3b164606945e7bc80c210a33d3bc4024be6797fb3",
+      "decision_count": 241,
+      "manual_review_count": 56,
+      "blocked_progress_mapping_count": 4,
+      "migration_blocker_count": 8
+    },
+    {
+      "book": {
+        "book_id": 4,
+        "slug": "o-ceu-e-o-inferno",
+        "title": "O Céu e o Inferno"
+      },
+      "strategy": "full-staging-reconstruction",
+      "plan_sha256": "f8eb93a68fb99170588f642bedebbb8afbb086c88218f7e465325e3e9ce46632",
+      "decision_count": 146,
+      "manual_review_count": 40,
+      "blocked_progress_mapping_count": 2,
+      "migration_blocker_count": 8
+    },
+    {
+      "book": {
+        "book_id": 5,
+        "slug": "a-genese",
+        "title": "A Gênese"
+      },
+      "strategy": "targeted-staging-reconstruction",
+      "plan_sha256": "92a7b42d1fa98b5da56116885f8833fa50bf3b4692a657f98f9f8859b4b1c6ac",
+      "decision_count": 146,
+      "manual_review_count": 16,
+      "blocked_progress_mapping_count": 6,
+      "migration_blocker_count": 8
+    }
+  ],
+  "required_before_application": [
+    "review migration SQL",
+    "run read-only production preflight",
+    "confirm staging schema isolation",
+    "confirm aggregate dependency policy"
+  ],
+  "required_before_cutover": [
+    "redistribution rights resolved",
+    "reading-segment boundaries approved",
+    "content checksums verified",
+    "all mapping reviews approved",
+    "dependency snapshot captured",
+    "dry run passes with zero blocking failures",
+    "rollback transaction rehearsed"
+  ]
+}
