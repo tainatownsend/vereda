@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-implementation",
+  "decision": "Separate source structure, Reader delivery units, and user-facing language.",
+  "internal_terms": {
+    "legacy_section": {
+      "meaning": "A current record in public.sections during the migration period.",
+      "usage": "Compatibility code, legacy mappings, and rollback references only."
+    },
+    "editorial_node": {
+      "meaning": "A canonical source unit such as a division, chapter, group, or subsection.",
+      "usage": "Source structure and editorial identity."
+    },
+    "reading_segment": {
+      "meaning": "An ordered Reader delivery unit with an approved content boundary.",
+      "usage": "Staging and future Reader persistence."
+    }
+  },
+  "user_facing_language": {
+    "unit_noun_when_required": "trecho",
+    "primary_navigation_action": "Continuar",
+    "previous_navigation_action": "Voltar",
+    "chapter_intro_action": "Começar capítulo",
+    "book_final_action": "Concluir obra",
+    "missing_next_message": "Não encontramos a continuação desta leitura.",
+    "daily_goal_message": "Seu momento de estudo de hoje está completo. Você pode concluir esta leitura e decidir se deseja continuar."
+  },
+  "forbidden_navigation_copy": [
+    "Próxima seção",
+    "Seção anterior",
+    "Voltar para a seção anterior",
+    "terminar esta seção"
+  ],
+  "accessibility": {
+    "previous_button_label": "Voltar na leitura",
+    "continue_button_label": "Continuar a leitura",
+    "final_button_label": "Concluir a obra"
+  },
+  "implementation_scope": {
+    "pr_0014": "Terminology contract and staging-model distinction.",
+    "pr_0015": "Reader copy and navigation implementation."
+  }
+}

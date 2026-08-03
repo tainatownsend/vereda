@@ -71,8 +71,11 @@ The mapping layer must support:
 - one-to-one;
 - one-to-many;
 - many-to-one;
-- unmatched-current;
-- missing-current-unit.
+- unmatched-current.
+
+A canonical unit without a current predecessor is tracked through canonical
+coverage and staged reading segments. It does not create a
+current-to-successor mapping because no legacy `current_section_id` exists.
 
 ## Approval boundary
 
