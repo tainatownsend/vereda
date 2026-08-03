@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "status": "container-intro-resolution-queue-prepared",
+  "policy_version": "2026-08-03-container-intro-unresolved-analysis-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "item_count": 14,
+  "batch_count": 5,
+  "batches": [
+    {
+      "batch_id": "current-title-window-recovery-book-1-batch-01",
+      "resolution_lane": "current-title-window-recovery",
+      "resolution_lane_priority": 1,
+      "book_id": 1,
+      "item_count": 2,
+      "unresolved_reasons": [
+        "current-title-window-not-found"
+      ],
+      "recommended_method": "Test normalized token windows, punctuation-insensitive joins, and multi-line title reconstruction against locally held private evidence.",
+      "analysis_ids": [
+        "215a7498de24c81e5c4ed62d",
+        "368c9ec02407a05dd3c4ce6a"
+      ],
+      "decision_ids": [
+        "55a707da2697fdbc75ed6026",
+        "bd93d0a79af0c6ac89621b9b"
+      ],
+      "segment_keys": [
+        "a3d180e5c494585ecaa9a8c9",
+        "005ffe831efc9eafe3feefe7"
+      ],
+      "status": "analysis-ready-not-resolved",
+      "source_files_read": false,
+      "decisions_changed": false,
+      "database_change_applied": false
+    },
+    {
+      "batch_id": "current-title-window-recovery-book-2-batch-01",
+      "resolution_lane": "current-title-window-recovery",
+      "resolution_lane_priority": 1,
+      "book_id": 2,
+      "item_count": 1,
+      "unresolved_reasons": [
+        "current-title-window-not-found"
+      ],
+      "recommended_method": "Test normalized token windows, punctuation-insensitive joins, and multi-line title reconstruction against locally held private evidence.",
+      "analysis_ids": [
+        "92c59158a6e946bffc02b14b"
+      ],
+      "decision_ids": [
+        "db8485152ac6cd56305ce7ad"
+      ],
+      "segment_keys": [
+        "451877fb2e9043922a604180"
+      ],
+      "status": "analysis-ready-not-resolved",
+      "source_files_read": false,
+      "decisions_changed": false,
+      "database_change_applied": false
+    },
+    {
+      "batch_id": "non-contents-occurrence-recovery-book-1-batch-01",
+      "resolution_lane": "non-contents-occurrence-recovery",
+      "resolution_lane_priority": 2,
+      "book_id": 1,
+      "item_count": 1,
+      "unresolved_reasons": [
+        "selected-page-has-contents-signals"
+      ],
+      "recommended_method": "Use canonical structure-map locators and a page-range search beyond the contents section to recover a non-contents occurrence.",
+      "analysis_ids": [
+        "b8b07e688edd657f0a44b3b2"
+      ],
+      "decision_ids": [
+        "7ed50cfb0fbbb85ff6f4e8cc"
+      ],
+      "segment_keys": [
+        "d709f621f896bf4419b76509"
+      ],
+      "status": "analysis-ready-not-resolved",
+      "source_files_read": false,
+      "decisions_changed": false,
+      "database_change_applied": false
+    },
+    {
+      "batch_id": "successor-anchor-recovery-book-2-batch-01",
+      "resolution_lane": "successor-anchor-recovery",
+      "resolution_lane_priority": 3,
+      "book_id": 2,
+      "item_count": 7,
+      "unresolved_reasons": [
+        "successor-title-not-found"
+      ],
+      "recommended_method": "Generate successor-title variants from canonical metadata and test a wider anchor-only search without classifying prose or changing decisions.",
+      "analysis_ids": [
+        "ca40cf78e0714881f7a0741e",
+        "2a9274338daf092d57ab9337",
+        "0f74de17669f07b90e2247a2",
+        "7558863a892860067fce999c",
+        "71dfbe24beabbf76d1248ba4",
+        "c2670809822e8a164163ccdb",
+        "bf5bd7104dc6129f8ec64a9b"
+      ],
+      "decision_ids": [
+        "2c2dc1ac3460e74a5026421d",
+        "c2744f1a1e5cd5fb451399d1",
+        "13fe9e4b4790ba5a9763de50",
+        "dc6aa9ca83cc0adce9732111",
+        "0e3166bd2ca498e63667cd57",
+        "a0b8368df9752efbf458c0a6",
+        "d5a57f0853651ab43732af3b"
+      ],
+      "segment_keys": [
+        "e3750489416607a8779a506c",
+        "7370c0c547b6e99a9f02cfd9",
+        "45cf2cc25a379e6c068dbcc7",
+        "0df37af09ff41ce78a93fca0",
+        "d25afe84b978d277e4502e1c",
+        "1cade84bc2a1f17af5796ef8",
+        "dde19d4ee577c5c0c4d51a50"
+      ],
+      "status": "analysis-ready-not-resolved",
+      "source_files_read": false,
+      "decisions_changed": false,
+      "database_change_applied": false
+    },
+    {
+      "batch_id": "successor-anchor-recovery-book-3-batch-01",
+      "resolution_lane": "successor-anchor-recovery",
+      "resolution_lane_priority": 3,
+      "book_id": 3,
+      "item_count": 3,
+      "unresolved_reasons": [
+        "successor-title-not-found"
+      ],
+      "recommended_method": "Generate successor-title variants from canonical metadata and test a wider anchor-only search without classifying prose or changing decisions.",
+      "analysis_ids": [
+        "325c389cfc408bf7e0b7c3ca",
+        "aa1b368380ae8dfb917b8587",
+        "24273a3b3646942318a587a4"
+      ],
+      "decision_ids": [
+        "f2bff0a165605794c5b6066c",
+        "5dfd679f9d1d2145cf8b6d40",
+        "f0eb9634f4633149d54d8636"
+      ],
+      "segment_keys": [
+        "f026ae4f95969ab96c88c2ac",
+        "67f61955dad711b936e5f59e",
+        "8f9201f1456b853f349fcb41"
+      ],
+      "status": "analysis-ready-not-resolved",
+      "source_files_read": false,
+      "decisions_changed": false,
+      "database_change_applied": false
+    }
+  ],
+  "source_files_read": false,
+  "source_text_read": false,
+  "decisions_changed": false,
+  "database_change_applied": false,
+  "cutover_enabled": false
+}
