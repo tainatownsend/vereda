@@ -15,7 +15,11 @@
     "content:sources:inspect": "node scripts/content_pipeline/run_python.mjs scripts/content_pipeline/inspect_sources.py",
     "content:structure:extract": "node scripts/content_pipeline/run_python.mjs scripts/content_pipeline/extract_structure_maps.py",
     "content:structure:validate": "node scripts/content_pipeline/validate_structure_maps.mjs",
-    "content:structure:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_structure_parser.py"
+    "content:structure:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_structure_parser.py",
+    "content:comparison:import": "node scripts/content_pipeline/import_current_structure.mjs",
+    "content:comparison:run": "node scripts/content_pipeline/run_python.mjs scripts/content_pipeline/compare_structures.py",
+    "content:comparison:validate": "node scripts/content_pipeline/validate_comparison.mjs",
+    "content:comparison:test": "node scripts/content_pipeline/run_python.mjs -m unittest tests/content_pipeline/test_structure_comparison.py"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
