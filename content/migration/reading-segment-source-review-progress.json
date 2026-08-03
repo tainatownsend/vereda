@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "status": "pilot-packet-reviewed-not-applied",
+  "policy_version": "2026-08-03-source-review-pilot-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "totals": {
+    "item_count": 144,
+    "packet_count": 16,
+    "pending_count": 142,
+    "in_review_count": 0,
+    "reviewed_count": 2,
+    "unresolved_count": 0,
+    "public_decision_count": 2,
+    "completed_packet_count": 1,
+    "pending_packet_count": 15,
+    "completed_mechanical_count": 166,
+    "remaining_boundary_review_count": 646,
+    "database_change_count": 0
+  },
+  "packets": [
+    {
+      "packet_id": "container-intro-only-book-1-packet-01",
+      "book_id": 1,
+      "inspection_lane": "container-intro-only",
+      "item_count": 4,
+      "pending_count": 4,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    },
+    {
+      "packet_id": "container-intro-only-book-2-packet-01",
+      "book_id": 2,
+      "inspection_lane": "container-intro-only",
+      "item_count": 9,
+      "pending_count": 9,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    },
+    {
+      "packet_id": "container-intro-only-book-3-packet-01",
+      "book_id": 3,
+      "inspection_lane": "container-intro-only",
+      "item_count": 3,
+      "pending_count": 3,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    },
+    {
+      "packet_id": "container-intro-only-book-4-packet-01",
+      "book_id": 4,
+      "inspection_lane": "container-intro-only",
+      "item_count": 2,
+      "pending_count": 0,
+      "in_review_count": 0,
+      "reviewed_count": 2,
+      "unresolved_count": 0,
+      "status": "reviewed-not-applied"
+    },
+    {
+      "packet_id": "container-intro-same-page-book-1-packet-01",
+      "book_id": 1,
+      "inspection_lane": "container-intro-same-page",
+      "item_count": 20,
+      "pending_count": 20,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    },
+    {
+      "packet_id": "container-intro-same-page-book-1-packet-02",
+      "book_id": 1,
+      "inspection_lane": "container-intro-same-page",
+      "item_count": 3,
+      "pending_count": 3,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    },
+    {
+      "packet_id": "container-intro-same-page-book-4-packet-01",
+      "book_id": 4,
+      "inspection_lane": "container-intro-same-page",
+      "item_count": 5,
+      "pending_count": 5,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    },
+    {
+      "packet_id": "container-intro-same-page-book-5-packet-01",
+      "book_id": 5,
+      "inspection_lane": "container-intro-same-page",
+      "item_count": 10,
+      "pending_count": 10,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-1-packet-01",
+      "book_id": 1,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "item_count": 6,
+      "pending_count": 6,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-01",
+      "book_id": 2,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "item_count": 20,
+      "pending_count": 20,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-02",
+      "book_id": 2,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "item_count": 20,
+      "pending_count": 20,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-03",
+      "book_id": 2,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "item_count": 20,
+      "pending_count": 20,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-04",
+      "book_id": 2,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "item_count": 10,
+      "pending_count": 10,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-3-packet-01",
+      "book_id": 3,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "item_count": 1,
+      "pending_count": 1,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-4-packet-01",
+      "book_id": 4,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "item_count": 1,
+      "pending_count": 1,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-5-packet-01",
+      "book_id": 5,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "item_count": 10,
+      "pending_count": 10,
+      "in_review_count": 0,
+      "reviewed_count": 0,
+      "unresolved_count": 0,
+      "status": "pending"
+    }
+  ],
+  "application_boundary": {
+    "structured_decisions_recorded": true,
+    "boundary_approved": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}

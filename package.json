@@ -59,7 +59,9 @@
     "content:staging:segments:source-inspection:packets:validate": "node scripts/content_pipeline/validate_source_inspection_packets.mjs",
     "content:staging:segments:source-review:framework:build": "node scripts/content_pipeline/build_source_review_framework.mjs",
     "content:staging:segments:source-review:framework:validate": "node scripts/content_pipeline/validate_source_review_framework.mjs",
-    "content:staging:segments:source-review:workspace:prepare": "node scripts/content_pipeline/prepare_source_review_workspace.mjs"
+    "content:staging:segments:source-review:workspace:prepare": "node scripts/content_pipeline/prepare_source_review_workspace.mjs",
+    "content:staging:segments:source-review:pilot:review": "python scripts/content_pipeline/review_source_packet_pilot.py",
+    "content:staging:segments:source-review:pilot:validate": "node scripts/content_pipeline/validate_source_review_pilot.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
