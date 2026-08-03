@@ -56,7 +56,10 @@
     "content:staging:segments:mechanical:application:evidence:capture": "node scripts/content_pipeline/capture_mechanical_boundary_application_evidence.mjs",
     "content:staging:segments:mechanical:application:evidence:validate": "node scripts/content_pipeline/validate_mechanical_boundary_application_evidence.mjs",
     "content:staging:segments:source-inspection:packets:build": "node scripts/content_pipeline/build_source_inspection_packets.mjs",
-    "content:staging:segments:source-inspection:packets:validate": "node scripts/content_pipeline/validate_source_inspection_packets.mjs"
+    "content:staging:segments:source-inspection:packets:validate": "node scripts/content_pipeline/validate_source_inspection_packets.mjs",
+    "content:staging:segments:source-review:framework:build": "node scripts/content_pipeline/build_source_review_framework.mjs",
+    "content:staging:segments:source-review:framework:validate": "node scripts/content_pipeline/validate_source_review_framework.mjs",
+    "content:staging:segments:source-review:workspace:prepare": "node scripts/content_pipeline/prepare_source_review_workspace.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

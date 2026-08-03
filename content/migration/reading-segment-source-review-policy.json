@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-review-framework",
+  "policy_version": "2026-08-03-source-review-decision-framework-v1",
+  "purpose": "Define a content-free, auditable workflow for recording structured source-inspection decisions without applying them to staging or exposing source text.",
+  "review_statuses": [
+    "pending",
+    "in-review",
+    "reviewed",
+    "unresolved"
+  ],
+  "confidence_levels": [
+    "high",
+    "medium",
+    "low"
+  ],
+  "evidence_enums": {
+    "visible_prose_presence": [
+      "independent-prose",
+      "heading-only",
+      "heading-and-prose",
+      "no-visible-content",
+      "unclear"
+    ],
+    "successor_anchor_type": [
+      "heading",
+      "numbered-item",
+      "paragraph-break",
+      "page-break",
+      "other-structural-marker",
+      "no-distinct-anchor",
+      "unclear"
+    ],
+    "locator_type": [
+      "source-pdf-page",
+      "printed-page",
+      "numbered-item",
+      "structural-heading",
+      "paragraph-index",
+      "other-structural-locator"
+    ]
+  },
+  "evidence_requirements": {
+    "container-intro-only": [
+      "source_pdf_page_reviewed",
+      "visible_prose_presence",
+      "selected_decision",
+      "reviewer_confidence"
+    ],
+    "container-intro-same-page": [
+      "source_pdf_page_reviewed",
+      "visible_prose_presence",
+      "successor_anchor_type",
+      "selected_decision",
+      "reviewer_confidence"
+    ],
+    "same-page-no-semantic-anchor": [
+      "source_pdf_page_reviewed",
+      "successor_anchor_type",
+      "selected_decision",
+      "reviewer_confidence"
+    ],
+    "other-source-inspection": [
+      "source_pdf_page_reviewed",
+      "selected_decision",
+      "reviewer_confidence"
+    ]
+  },
+  "public_record_allowlist": [
+    "decision_id",
+    "inspection_id",
+    "packet_id",
+    "run_id",
+    "policy_version",
+    "book_id",
+    "book_slug",
+    "segment_key",
+    "segment_order",
+    "display_title",
+    "inspection_lane",
+    "review_reasons",
+    "decision_options",
+    "required_evidence",
+    "source_reference",
+    "context_reference",
+    "review_status",
+    "selected_decision",
+    "evidence",
+    "reviewer_confidence",
+    "review_completed_at",
+    "source_text_included",
+    "source_excerpt_included",
+    "boundary_decision_recorded",
+    "boundary_approved",
+    "database_change_applied",
+    "content_approved",
+    "content_loaded",
+    "cutover_enabled"
+  ],
+  "forbidden_public_fields": [
+    "source_text",
+    "source_excerpt",
+    "quoted_text",
+    "quotation",
+    "full_text",
+    "normalized_content",
+    "private_notes",
+    "reviewer_notes",
+    "ocr_text"
+  ],
+  "private_workspace": {
+    "directory": ".vereda-private/source-review",
+    "gitignored": true,
+    "may_contain_private_notes": true,
+    "may_contain_temporary_source_excerpt": true,
+    "public_import_must_strip_private_fields": true
+  },
+  "review_boundary": {
+    "framework_generated": true,
+    "private_workspace_generated": true,
+    "source_text_reviewed": false,
+    "public_decision_recorded": false,
+    "boundary_approved": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
