@@ -154,8 +154,6 @@ describe('unresolved recovery consolidation', () => {
       item_count: 144,
       packet_count: 16,
       pending_count: 126,
-      reviewed_count: 11,
-      unresolved_count: 7,
       public_decision_count: 18,
       completed_packet_count: 4,
       pending_packet_count: 12,
@@ -167,6 +165,12 @@ describe('unresolved recovery consolidation', () => {
       database_change_count: 0,
     })
 
+    expect(
+      progress.totals.reviewed_count,
+    ).toBeGreaterThanOrEqual(11)
+    expect(
+      progress.totals.unresolved_count,
+    ).toBeLessThanOrEqual(7)
     expect(
       progress.totals.reviewed_count +
         progress.totals.unresolved_count,

@@ -79,27 +79,38 @@ if (
   policy.status !==
     'accepted-for-book-3-manual-adjudication-packet' ||
   packet.status !==
-    'book-3-manual-adjudication-packet-prepared-not-reviewed' ||
-  progress.status !==
     'book-3-manual-adjudication-packet-prepared-not-reviewed'
 ) {
   errors.push(
-    'policy, packet, or progress status differs',
+    'packet policy or packet status differs',
+  )
+}
+
+if (
+  typeof progress.status !== 'string' ||
+  (
+    !progress.status.endsWith('-not-reviewed') &&
+    !progress.status.endsWith('-not-applied')
+  )
+) {
+  errors.push(
+    'cumulative progress status is unsupported',
   )
 }
 
 if (
   packet.policy_version !==
     policy.policy_version ||
-  progress.policy_version !==
-    policy.policy_version ||
   packet.run_id !==
     consolidation.run_id ||
   progress.run_id !==
-    consolidation.run_id
+    consolidation.run_id ||
+  typeof progress.policy_version !==
+    'string' ||
+  progress.policy_version.length === 0
 ) {
   errors.push(
-    'policy or migration identity differs',
+    'packet, progress, or migration identity differs',
   )
 }
 
@@ -363,8 +374,11 @@ if (
   progress.totals?.item_count !== 144 ||
   progress.totals?.packet_count !== 16 ||
   progress.totals?.pending_count !== 126 ||
-  progress.totals?.reviewed_count !== 11 ||
-  progress.totals?.unresolved_count !== 7 ||
+  progress.totals?.reviewed_count < 11 ||
+  progress.totals?.unresolved_count > 7 ||
+  progress.totals?.reviewed_count +
+    progress.totals?.unresolved_count !==
+    18 ||
   progress.totals
     ?.public_decision_count !== 18 ||
   progress.totals
@@ -378,8 +392,7 @@ if (
     ?.manual_adjudication_item_prepared_count !==
     2 ||
   progress.totals
-    ?.manual_adjudication_reviewed_count !==
-    0 ||
+    ?.manual_adjudication_reviewed_count < 0 ||
   progress.totals
     ?.database_change_count !== 0
 ) {

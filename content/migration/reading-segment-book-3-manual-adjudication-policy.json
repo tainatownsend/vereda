@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-book-3-manual-adjudication",
+  "policy_version": "2026-08-03-book-3-manual-adjudication-v1",
+  "purpose": "Manually adjudicate the two Book 3 successor-anchor cases using the private reviewer packet prepared by PR-0036, while committing only structured source references and decisions.",
+  "target_packet": {
+    "manual_batch_id": "manual-successor-anchor-adjudication-book-3-batch-01",
+    "packet_item_count": 2,
+    "segment_keys": [
+      "67f61955dad711b936e5f59e",
+      "8f9201f1456b853f349fcb41"
+    ],
+    "packet_item_ids": [
+      "8e181b7416ff783ccd27cf9e",
+      "5d90f82ee0d3d8d5629ed552"
+    ],
+    "original_decision_ids": [
+      "5dfd679f9d1d2145cf8b6d40",
+      "f0eb9634f4633149d54d8636"
+    ]
+  },
+  "expected_adjudications": [
+    {
+      "segment_key": "67f61955dad711b936e5f59e",
+      "display_title": "Buscai e achareis",
+      "successor_title": "Ajuda-te a ti mesmo, que o céu te ajudará",
+      "source_pdf_page_reviewed": 300,
+      "successor_source_pdf_page_reviewed": 300,
+      "selected_decision": "exclude-structural-heading",
+      "reviewer_confidence": "high"
+    },
+    {
+      "segment_key": "8f9201f1456b853f349fcb41",
+      "display_title": "Dai gratuitamente o que gratuitamente recebestes",
+      "successor_title": "Dom de curar",
+      "source_pdf_page_reviewed": 306,
+      "successor_source_pdf_page_reviewed": 306,
+      "selected_decision": "exclude-structural-heading",
+      "reviewer_confidence": "high"
+    }
+  ],
+  "decision_requirements": {
+    "current_title_exact_heading_required": true,
+    "successor_exact_heading_required": true,
+    "same_page_chapter_opening_required": true,
+    "independent_prose_between_forbidden": true,
+    "source_reference_only": true,
+    "manual_review_questions_answered": true,
+    "unresolved_allowed_when_boundary_not_defensible": true
+  },
+  "review_question_keys": [
+    "current_title_is_structural_heading",
+    "expected_successor_is_present",
+    "alternative_anchor_is_required",
+    "independent_prose_exists_between",
+    "source_boundary_is_defensible"
+  ],
+  "forbidden_public_fields": [
+    "source_text",
+    "source_excerpt",
+    "quoted_text",
+    "quotation",
+    "full_text",
+    "normalized_content",
+    "private_notes",
+    "reviewer_notes",
+    "ocr_text",
+    "page_text",
+    "context_text",
+    "matched_lines",
+    "candidate_page_text",
+    "intervening_lines"
+  ],
+  "adjudication_boundary": {
+    "private_reviewer_packet_read": true,
+    "manual_review_completed": true,
+    "structured_decisions_recorded": true,
+    "source_pdf_read": false,
+    "historical_decision_artifacts_modified": false,
+    "recovery_artifacts_modified": false,
+    "consolidation_artifacts_modified": false,
+    "packet_artifact_modified": false,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
