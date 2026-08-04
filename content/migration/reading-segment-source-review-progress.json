@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "status": "book-3-manual-adjudication-recorded-not-applied",
-  "policy_version": "2026-08-03-book-3-manual-adjudication-v1",
+  "status": "remaining-manual-adjudication-recorded-not-applied",
+  "policy_version": "2026-08-03-remaining-manual-adjudication-v1",
   "run_id": "adcff561-8f92-545c-a219-615818a454f4",
   "totals": {
     "item_count": 144,
     "packet_count": 16,
     "pending_count": 126,
     "in_review_count": 0,
-    "reviewed_count": 13,
-    "unresolved_count": 5,
+    "reviewed_count": 16,
+    "unresolved_count": 2,
     "public_decision_count": 18,
     "completed_packet_count": 4,
     "pending_packet_count": 12,
@@ -29,14 +29,14 @@
     "recovery_still_unresolved_count_total": 7,
     "manual_adjudication_item_count": 7,
     "manual_adjudication_batch_count": 4,
-    "manual_adjudication_packet_prepared_count": 1,
-    "manual_adjudication_item_prepared_count": 2,
-    "manual_adjudication_reviewed_count": 2,
-    "manual_adjudication_resolved_count": 2,
-    "manual_adjudication_still_unresolved_count": 0,
-    "manual_adjudication_remaining_count": 5,
-    "manual_adjudication_completed_batch_count": 1,
-    "manual_adjudication_pending_batch_count": 3
+    "manual_adjudication_packet_prepared_count": 4,
+    "manual_adjudication_item_prepared_count": 7,
+    "manual_adjudication_reviewed_count": 7,
+    "manual_adjudication_resolved_count": 5,
+    "manual_adjudication_still_unresolved_count": 2,
+    "manual_adjudication_remaining_count": 2,
+    "manual_adjudication_completed_batch_count": 4,
+    "manual_adjudication_pending_batch_count": 0
   },
   "packets": [
     {
@@ -46,8 +46,8 @@
       "item_count": 4,
       "pending_count": 0,
       "in_review_count": 0,
-      "reviewed_count": 1,
-      "unresolved_count": 3,
+      "reviewed_count": 3,
+      "unresolved_count": 1,
       "status": "review-completed-with-unresolved"
     },
     {
@@ -57,8 +57,8 @@
       "item_count": 9,
       "pending_count": 0,
       "in_review_count": 0,
-      "reviewed_count": 7,
-      "unresolved_count": 2,
+      "reviewed_count": 8,
+      "unresolved_count": 1,
       "status": "review-completed-with-unresolved"
     },
     {

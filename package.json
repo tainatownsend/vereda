@@ -79,7 +79,9 @@
     "content:staging:segments:source-review:manual:book-3:packet:prepare": "python scripts/content_pipeline/prepare_book_3_manual_adjudication_packet.py",
     "content:staging:segments:source-review:manual:book-3:packet:validate": "node scripts/content_pipeline/validate_book_3_manual_adjudication_packet.mjs",
     "content:staging:segments:source-review:manual:book-3:adjudicate": "python scripts/content_pipeline/record_book_3_manual_adjudication.py",
-    "content:staging:segments:source-review:manual:book-3:adjudication:validate": "node scripts/content_pipeline/validate_book_3_manual_adjudication.mjs"
+    "content:staging:segments:source-review:manual:book-3:adjudication:validate": "node scripts/content_pipeline/validate_book_3_manual_adjudication.mjs",
+    "content:staging:segments:source-review:manual:remaining:adjudicate": "python scripts/content_pipeline/adjudicate_remaining_manual_backlog.py",
+    "content:staging:segments:source-review:manual:remaining:validate": "node scripts/content_pipeline/validate_remaining_manual_backlog.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

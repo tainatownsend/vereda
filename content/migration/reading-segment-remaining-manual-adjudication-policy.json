@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-remaining-manual-adjudication",
+  "policy_version": "2026-08-03-remaining-manual-adjudication-v1",
+  "purpose": "Diagnose and manually adjudicate every remaining item in the existing manual-adjudication backlog, while auditing all pending source-review packets and preserving strict public/private evidence separation.",
+  "target_totals": {
+    "manual_batch_count": 3,
+    "manual_item_count": 5,
+    "book_1_item_count": 3,
+    "book_2_item_count": 2,
+    "pending_source_review_packet_count": 12,
+    "pending_source_review_item_count": 126
+  },
+  "targets": [
+    {
+      "segment_key": "a3d180e5c494585ecaa9a8c9",
+      "book_id": 1,
+      "display_title": "PARTE PRIMEIRA — Das causas primárias",
+      "successor_title": "De Deus",
+      "manual_batch_id": "manual-current-title-adjudication-book-1-batch-01",
+      "source_page_hints": [54]
+    },
+    {
+      "segment_key": "005ffe831efc9eafe3feefe7",
+      "book_id": 1,
+      "display_title": "PARTE SEGUNDA — Do mundo espírita ou mundo dos Espíritos",
+      "successor_title": "Dos Espíritos",
+      "manual_batch_id": "manual-current-title-adjudication-book-1-batch-01",
+      "source_page_hints": [86]
+    },
+    {
+      "segment_key": "d709f621f896bf4419b76509",
+      "book_id": 1,
+      "display_title": "PARTE TERCEIRA — Das leis morais",
+      "successor_title": "Da lei divina ou natural",
+      "manual_batch_id": "manual-source-opening-adjudication-book-1-batch-01",
+      "source_page_hints": [295, 298, 300]
+    },
+    {
+      "segment_key": "451877fb2e9043922a604180",
+      "book_id": 2,
+      "display_title": "PRIMEIRA PARTE — Noções preliminares",
+      "successor_title": "Há Espíritos?",
+      "manual_batch_id": "manual-current-title-adjudication-book-2-batch-01",
+      "source_page_hints": [16]
+    },
+    {
+      "segment_key": "e3750489416607a8779a506c",
+      "book_id": 2,
+      "display_title": "SEGUNDA PARTE — Das manifestações espíritas",
+      "successor_title": "Da ação dos Espíritos sobre a matéria",
+      "manual_batch_id": "manual-current-title-adjudication-book-2-batch-01",
+      "source_page_hints": [40, 45, 349]
+    }
+  ],
+  "matching_rules": {
+    "canonical_source_sha256_required": true,
+    "contents_candidates_excluded": true,
+    "maximum_current_window_lines": 10,
+    "maximum_successor_window_lines": 5,
+    "maximum_successor_distance_pages": 3,
+    "minimum_subtitle_token_coverage": 0.72,
+    "maximum_public_candidates_per_item": 8,
+    "ambiguous_pair_score_gap": 0.2,
+    "automatic_resolution_requires_exact_successor": true,
+    "unresolved_allowed_when_boundary_not_defensible": true
+  },
+  "decision_rules": {
+    "exclude_structural_heading": "Use only when the current part heading and expected successor form a defensible source opening and no independent prose occurs between them.",
+    "retain_intro_segment": "Use only when independent prose is present between the current heading and the next defensible anchor.",
+    "unresolved": "Use when the current heading, successor, pair identity, or intervening content remains ambiguous."
+  },
+  "forbidden_public_fields": [
+    "source_text",
+    "source_excerpt",
+    "quoted_text",
+    "quotation",
+    "full_text",
+    "normalized_content",
+    "private_notes",
+    "reviewer_notes",
+    "ocr_text",
+    "page_text",
+    "context_text",
+    "matched_lines",
+    "intervening_lines",
+    "candidate_page_text"
+  ],
+  "adjudication_boundary": {
+    "local_sources_read": true,
+    "private_evidence_generated": true,
+    "structured_diagnostics_recorded": true,
+    "manual_review_completed": true,
+    "structured_decisions_recorded": true,
+    "pending_backlog_audited": true,
+    "historical_decision_artifacts_modified": false,
+    "recovery_artifacts_modified": false,
+    "consolidation_artifacts_modified": false,
+    "manual_queue_modified": false,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
