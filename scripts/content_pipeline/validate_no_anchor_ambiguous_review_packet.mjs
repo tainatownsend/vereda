@@ -1,21 +1,14 @@
 import {
-  createHash,
-} from 'node:crypto'
-import {
   readFile,
 } from 'node:fs/promises'
+import {
+  sha256LegacyCrlf,
+} from './hash_utils.mjs'
 
 const readJson = async (filePath) =>
   JSON.parse(
     await readFile(filePath, 'utf8'),
   )
-
-const sha256 = async (filePath) =>
-  createHash('sha256')
-    .update(
-      await readFile(filePath),
-    )
-    .digest('hex')
 
 const [
   policy,
@@ -457,12 +450,12 @@ if (
 if (
   packet.input_hashes
     ?.discovery_corpus_sha256 !==
-    await sha256(
+    await sha256LegacyCrlf(
       'content/migration/reading-segment-no-anchor-discovery-corpus.json',
     ) ||
   packet.input_hashes
     ?.progress_sha256 !==
-    await sha256(
+    await sha256LegacyCrlf(
       'content/migration/reading-segment-source-review-progress.json',
     ) ||
   !/^[a-f0-9]{64}$/.test(

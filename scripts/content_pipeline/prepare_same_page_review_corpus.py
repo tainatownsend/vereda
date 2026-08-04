@@ -13,6 +13,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from hash_utils import sha256_legacy_crlf
+
 from pypdf import PdfReader
 
 ROOT = Path.cwd()

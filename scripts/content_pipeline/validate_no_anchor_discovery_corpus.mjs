@@ -1,19 +1,14 @@
 import {
-  createHash,
-} from 'node:crypto'
-import {
   readFile,
 } from 'node:fs/promises'
+import {
+  sha256LegacyCrlf,
+} from './hash_utils.mjs'
 
 const readJson = async (filePath) =>
   JSON.parse(
     await readFile(filePath, 'utf8'),
   )
-
-const sha256 = async (filePath) =>
-  createHash('sha256')
-    .update(await readFile(filePath))
-    .digest('hex')
 
 const [
   policy,
@@ -164,19 +159,19 @@ if (
 }
 
 const expectedHashes = {
-  worklist_sha256: await sha256(
+  worklist_sha256: await sha256LegacyCrlf(
     'content/migration/reading-segment-source-review-worklist.json',
   ),
-  inspection_packets_sha256: await sha256(
+  inspection_packets_sha256: await sha256LegacyCrlf(
     'content/migration/reading-segment-source-inspection-packets.json',
   ),
-  pending_audit_sha256: await sha256(
+  pending_audit_sha256: await sha256LegacyCrlf(
     'content/migration/reading-segment-pending-source-review-audit.json',
   ),
-  progress_sha256: await sha256(
+  progress_sha256: await sha256LegacyCrlf(
     'content/migration/reading-segment-source-review-progress.json',
   ),
-  pr0041_integration_sha256: await sha256(
+  pr0041_integration_sha256: await sha256LegacyCrlf(
     'content/migration/reading-segment-same-page-progress-integration-evidence.json',
   ),
 }

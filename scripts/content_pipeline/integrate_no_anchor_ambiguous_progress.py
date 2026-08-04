@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 import copy
-import hashlib
 import json
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+from hash_utils import canonical_json_sha256
 
 ROOT = Path.cwd()
 
@@ -48,19 +49,6 @@ def write_json(path: Path, value: dict[str, Any]) -> None:
         encoding="utf-8",
         newline="\n",
     )
-
-
-def sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-
-    with path.open("rb") as handle:
-        for chunk in iter(
-            lambda: handle.read(1024 * 1024),
-            b"",
-        ):
-            digest.update(chunk)
-
-    return digest.hexdigest()
 
 
 def selected_state(
@@ -412,22 +400,24 @@ def main() -> None:
             "progress_model"
         ],
         "input_hashes": {
-            "decision_artifact_sha256": sha256(
+            "hash_algorithm": "sha256-canonical-json-v1",
+            "canonicalization": "parse JSON; recursively sort object keys; preserve array order; serialize compact UTF-8 JSON without insignificant whitespace; normalize integer-valued JSON numbers without a fractional suffix; hash UTF-8 bytes with SHA-256",
+            "decision_artifact_sha256": canonical_json_sha256(
                 PATHS["decisions"]
             ),
-            "integration_plan_sha256": sha256(
+            "integration_plan_sha256": canonical_json_sha256(
                 PATHS["plan"]
             ),
-            "discovery_corpus_sha256": sha256(
+            "discovery_corpus_sha256": canonical_json_sha256(
                 PATHS["corpus"]
             ),
-            "historical_progress_sha256": sha256(
+            "historical_progress_sha256": canonical_json_sha256(
                 PATHS[
                     "historical_progress"
                 ]
             ),
         },
-        "current_progress_sha256": sha256(
+        "current_progress_sha256": canonical_json_sha256(
             PATHS["current_progress"]
         ),
         "historical_baseline": baseline,

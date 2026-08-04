@@ -8,6 +8,10 @@ import {
   it,
 } from 'vitest'
 
+import {
+  canonicalJsonSha256FromValue,
+} from '../../scripts/content_pipeline/hash_utils.mjs'
+
 const readJson = (path) =>
   JSON.parse(
     readFileSync(
@@ -155,6 +159,52 @@ describe(
           cutover_enabled:
             false,
         })
+      },
+    )
+  },
+)
+
+
+
+describe(
+  'no-anchor ambiguous progress integration canonical JSON hashing',
+  () => {
+    const hashJsonText = (text) =>
+      canonicalJsonSha256FromValue(
+        JSON.parse(text),
+      )
+
+    it(
+      'hashes equivalent JSON independent of line endings, indentation, and key ordering',
+      () => {
+        const lf = '{\n  "b": [true, null, "é"],\n  "a": {"d": 2, "c": 1.5}\n}\n'
+        const crlf = lf.replaceAll(
+          '\n',
+          '\r\n',
+        )
+        const reordered = '{"a":{"c":1.5,"d":2},"b":[true,null,"é"]}'
+
+        expect(
+          hashJsonText(lf),
+        ).toBe(hashJsonText(crlf))
+        expect(
+          hashJsonText(lf),
+        ).toBe(hashJsonText(reordered))
+      },
+    )
+
+    it(
+      'hashes semantic JSON changes differently',
+      () => {
+        expect(
+          hashJsonText(
+            '{"a":1,"b":[true,null]}',
+          ),
+        ).not.toBe(
+          hashJsonText(
+            '{"a":1,"b":[false,null]}',
+          ),
+        )
       },
     )
   },
