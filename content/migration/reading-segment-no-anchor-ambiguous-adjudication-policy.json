@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-no-anchor-ambiguous-adjudication",
+  "policy_version": "2026-08-03-no-anchor-ambiguous-adjudication-v1",
+  "purpose": "Record structured manual-review outcomes for all 25 ambiguous no-anchor items without integrating cumulative progress or applying editorial boundaries.",
+  "source_packet": {
+    "status": "no-anchor-ambiguous-review-packet-prepared-not-reviewed",
+    "item_count": 25,
+    "candidate_count": 125,
+    "batch_count": 6
+  },
+  "preserved_lane": {
+    "source_status": "anchor-evidence-prepared-not-reviewed",
+    "item_count": 63,
+    "must_remain_unchanged": true
+  },
+  "expected_totals": {
+    "item_count": 25,
+    "resolved_count": 16,
+    "unresolved_count": 9,
+    "confirm_successor_start_count": 10,
+    "adjust_successor_start_count": 6,
+    "merge_with_successor_count": 0,
+    "candidate_override_count": 8,
+    "high_confidence_count": 10,
+    "medium_confidence_count": 6,
+    "low_confidence_count": 9
+  },
+  "review_outcomes": [
+    "confirm-successor-start",
+    "adjust-successor-start",
+    "merge-with-successor",
+    "unresolved"
+  ],
+  "confidence_levels": [
+    "high",
+    "medium",
+    "low"
+  ],
+  "decision_rules": {
+    "candidate_indexes_are_zero_based": true,
+    "resolved_outcome_requires_candidate": true,
+    "unresolved_outcome_requires_null_candidate": true,
+    "selected_candidate_must_exist_in_source_packet": true,
+    "current_must_precede_successor": true,
+    "manual_review_must_be_complete": true,
+    "source_text_must_remain_private": true,
+    "public_rationale_must_use_structured_codes": true
+  },
+  "forbidden_public_fields": [
+    "block_text",
+    "block_lines",
+    "page_text",
+    "source_text",
+    "source_excerpt",
+    "quoted_text",
+    "quotation",
+    "full_text",
+    "normalized_content",
+    "private_notes",
+    "reviewer_notes",
+    "ocr_text",
+    "candidate_page_text",
+    "matched_lines",
+    "between_lines"
+  ],
+  "adjudication_boundary": {
+    "private_review_packet_read": true,
+    "manual_review_completed": true,
+    "structured_decisions_recorded": true,
+    "prepared_items_modified": false,
+    "cumulative_progress_modified": false,
+    "historical_artifacts_modified": false,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
