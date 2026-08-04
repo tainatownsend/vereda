@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "status": "manual-adjudication-queue-prepared-not-reviewed",
+  "policy_version": "2026-08-03-unresolved-recovery-consolidation-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "item_count": 7,
+  "batch_count": 4,
+  "lane_counts": {
+    "manual-current-title-adjudication": 4,
+    "manual-source-opening-adjudication": 1,
+    "manual-successor-anchor-adjudication": 2
+  },
+  "batches": [
+    {
+      "batch_id": "manual-current-title-adjudication-book-1-batch-01",
+      "manual_adjudication_lane": "manual-current-title-adjudication",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "item_count": 2,
+      "consolidation_ids": [
+        "658951114edf53b815c4a837",
+        "f7dc43839c54ed280644b292"
+      ],
+      "recovery_ids": [
+        "7a38b1577c62670511d44795",
+        "fcafa4b48036b5ef7ac843da"
+      ],
+      "original_decision_ids": [
+        "55a707da2697fdbc75ed6026",
+        "bd93d0a79af0c6ac89621b9b"
+      ],
+      "segment_keys": [
+        "a3d180e5c494585ecaa9a8c9",
+        "005ffe831efc9eafe3feefe7"
+      ],
+      "status": "manual-adjudication-required-not-reviewed",
+      "requires_authorized_manual_source_review": true,
+      "source_files_read": false,
+      "source_text_included": false,
+      "decisions_changed": false,
+      "database_change_applied": false
+    },
+    {
+      "batch_id": "manual-current-title-adjudication-book-2-batch-01",
+      "manual_adjudication_lane": "manual-current-title-adjudication",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "item_count": 2,
+      "consolidation_ids": [
+        "a6a2f5c1fa7845b7864f7538",
+        "b8f27235113a1ebd17f3a188"
+      ],
+      "recovery_ids": [
+        "c16d7e05b7d9b805fbfe26e6",
+        "4c9a8b601c5ab69ae0ce322f"
+      ],
+      "original_decision_ids": [
+        "db8485152ac6cd56305ce7ad",
+        "2c2dc1ac3460e74a5026421d"
+      ],
+      "segment_keys": [
+        "451877fb2e9043922a604180",
+        "e3750489416607a8779a506c"
+      ],
+      "status": "manual-adjudication-required-not-reviewed",
+      "requires_authorized_manual_source_review": true,
+      "source_files_read": false,
+      "source_text_included": false,
+      "decisions_changed": false,
+      "database_change_applied": false
+    },
+    {
+      "batch_id": "manual-source-opening-adjudication-book-1-batch-01",
+      "manual_adjudication_lane": "manual-source-opening-adjudication",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "item_count": 1,
+      "consolidation_ids": [
+        "fcfa646dd5a5a7195db7b437"
+      ],
+      "recovery_ids": [
+        "8ed6992b7d3b07ed51e9e9f4"
+      ],
+      "original_decision_ids": [
+        "7ed50cfb0fbbb85ff6f4e8cc"
+      ],
+      "segment_keys": [
+        "d709f621f896bf4419b76509"
+      ],
+      "status": "manual-adjudication-required-not-reviewed",
+      "requires_authorized_manual_source_review": true,
+      "source_files_read": false,
+      "source_text_included": false,
+      "decisions_changed": false,
+      "database_change_applied": false
+    },
+    {
+      "batch_id": "manual-successor-anchor-adjudication-book-3-batch-01",
+      "manual_adjudication_lane": "manual-successor-anchor-adjudication",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "item_count": 2,
+      "consolidation_ids": [
+        "268816b54f950b591fda6730",
+        "3dbf268e49880a1ffa423207"
+      ],
+      "recovery_ids": [
+        "5ac6b81e15979b772ac25eb7",
+        "576c522379bf520b48c0baf3"
+      ],
+      "original_decision_ids": [
+        "5dfd679f9d1d2145cf8b6d40",
+        "f0eb9634f4633149d54d8636"
+      ],
+      "segment_keys": [
+        "67f61955dad711b936e5f59e",
+        "8f9201f1456b853f349fcb41"
+      ],
+      "status": "manual-adjudication-required-not-reviewed",
+      "requires_authorized_manual_source_review": true,
+      "source_files_read": false,
+      "source_text_included": false,
+      "decisions_changed": false,
+      "database_change_applied": false
+    }
+  ],
+  "queue_boundary": {
+    "source_files_read": false,
+    "source_text_read": false,
+    "manual_review_completed": false,
+    "decisions_changed": false,
+    "boundary_approved": false,
+    "database_change_applied": false,
+    "cutover_enabled": false
+  }
+}

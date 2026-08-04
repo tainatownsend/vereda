@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-unresolved-recovery-consolidation",
+  "policy_version": "2026-08-03-unresolved-recovery-consolidation-v1",
+  "purpose": "Consolidate all outcomes from the four bounded recovery stages, preserve resolved decisions without application, and route every remaining unresolved case into deterministic manual-adjudication batches.",
+  "source_recovery_artifacts": [
+    {
+      "source_id": "pr-0031-title-window",
+      "artifact": "content/migration/reading-segment-title-window-recovery-decisions.json",
+      "expected_attempt_count": 3,
+      "expected_resolved_count": 0,
+      "expected_still_unresolved_count": 3
+    },
+    {
+      "source_id": "pr-0032-non-contents",
+      "artifact": "content/migration/reading-segment-non-contents-recovery-decision.json",
+      "expected_attempt_count": 1,
+      "expected_resolved_count": 0,
+      "expected_still_unresolved_count": 1
+    },
+    {
+      "source_id": "pr-0033-book-3-successor-anchor",
+      "artifact": "content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json",
+      "expected_attempt_count": 3,
+      "expected_resolved_count": 1,
+      "expected_still_unresolved_count": 2
+    },
+    {
+      "source_id": "pr-0034-book-2-successor-anchor",
+      "artifact": "content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json",
+      "expected_attempt_count": 7,
+      "expected_resolved_count": 6,
+      "expected_still_unresolved_count": 1
+    }
+  ],
+  "expected_totals": {
+    "recovery_attempt_count": 14,
+    "resolved_recovery_count": 7,
+    "still_unresolved_count": 7,
+    "resolved_exclude_structural_heading_count": 7,
+    "resolved_retain_intro_segment_count": 0,
+    "manual_adjudication_item_count": 7,
+    "manual_adjudication_batch_count": 4
+  },
+  "manual_adjudication_lanes": {
+    "manual-current-title-adjudication": {
+      "description": "The canonical current title could not be confirmed by bounded automated recovery. An authorized reviewer must inspect the local source structure and determine whether a defensible source opening exists.",
+      "expected_item_count": 4
+    },
+    "manual-source-opening-adjudication": {
+      "description": "The original occurrence was contents-like and no later defensible source opening was recovered. An authorized reviewer must identify the actual opening or preserve the unresolved state.",
+      "expected_item_count": 1
+    },
+    "manual-successor-anchor-adjudication": {
+      "description": "The current title was confirmed but the canonical successor was not recovered inside the expanded window. An authorized reviewer must adjudicate the source boundary.",
+      "expected_item_count": 2
+    }
+  },
+  "batching_rules": {
+    "group_by_manual_lane": true,
+    "group_by_book": true,
+    "stable_order_by_segment_order": true,
+    "one_batch_per_lane_and_book": true
+  },
+  "public_evidence_rules": {
+    "source_text_allowed": false,
+    "source_excerpt_allowed": false,
+    "private_review_notes_allowed": false,
+    "recovery_artifact_mutation_allowed": false,
+    "new_review_decision_allowed": false
+  },
+  "consolidation_boundary": {
+    "source_files_read": false,
+    "source_text_read": false,
+    "recovery_outcomes_consolidated": true,
+    "manual_batches_generated": true,
+    "historical_decision_artifacts_modified": false,
+    "recovery_artifacts_modified": false,
+    "new_review_decision_recorded": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
