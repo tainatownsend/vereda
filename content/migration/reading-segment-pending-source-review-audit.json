@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "status": "pending-source-review-backlog-audited-not-reviewed",
+  "policy_version": "2026-08-03-remaining-manual-adjudication-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "totals": {
+    "pending_packet_count": 12,
+    "pending_item_count": 126,
+    "container_intro_same_page_count": 38,
+    "same_page_no_semantic_anchor_count": 88,
+    "database_change_count": 0
+  },
+  "counts_by_book": {
+    "1": 29,
+    "2": 70,
+    "3": 1,
+    "4": 6,
+    "5": 20
+  },
+  "counts_by_lane": {
+    "container-intro-same-page": 38,
+    "same-page-no-semantic-anchor": 88
+  },
+  "packets": [
+    {
+      "packet_id": "container-intro-same-page-book-1-packet-01",
+      "book_id": 1,
+      "inspection_lane": "container-intro-same-page",
+      "pending_count": 20,
+      "recommended_action": "bounded-same-page-structural-review",
+      "risk_level": "medium"
+    },
+    {
+      "packet_id": "container-intro-same-page-book-1-packet-02",
+      "book_id": 1,
+      "inspection_lane": "container-intro-same-page",
+      "pending_count": 3,
+      "recommended_action": "bounded-same-page-structural-review",
+      "risk_level": "medium"
+    },
+    {
+      "packet_id": "container-intro-same-page-book-4-packet-01",
+      "book_id": 4,
+      "inspection_lane": "container-intro-same-page",
+      "pending_count": 5,
+      "recommended_action": "bounded-same-page-structural-review",
+      "risk_level": "medium"
+    },
+    {
+      "packet_id": "container-intro-same-page-book-5-packet-01",
+      "book_id": 5,
+      "inspection_lane": "container-intro-same-page",
+      "pending_count": 10,
+      "recommended_action": "bounded-same-page-structural-review",
+      "risk_level": "medium"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-1-packet-01",
+      "book_id": 1,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "pending_count": 6,
+      "recommended_action": "semantic-anchor-discovery",
+      "risk_level": "high"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-01",
+      "book_id": 2,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "pending_count": 20,
+      "recommended_action": "semantic-anchor-discovery",
+      "risk_level": "high"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-02",
+      "book_id": 2,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "pending_count": 20,
+      "recommended_action": "semantic-anchor-discovery",
+      "risk_level": "high"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-03",
+      "book_id": 2,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "pending_count": 20,
+      "recommended_action": "semantic-anchor-discovery",
+      "risk_level": "high"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-04",
+      "book_id": 2,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "pending_count": 10,
+      "recommended_action": "semantic-anchor-discovery",
+      "risk_level": "high"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-3-packet-01",
+      "book_id": 3,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "pending_count": 1,
+      "recommended_action": "semantic-anchor-discovery",
+      "risk_level": "high"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-4-packet-01",
+      "book_id": 4,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "pending_count": 1,
+      "recommended_action": "semantic-anchor-discovery",
+      "risk_level": "high"
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-5-packet-01",
+      "book_id": 5,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "pending_count": 10,
+      "recommended_action": "semantic-anchor-discovery",
+      "risk_level": "high"
+    }
+  ],
+  "recommended_sequence": [
+    {
+      "phase": 1,
+      "inspection_lane": "container-intro-same-page",
+      "item_count": 38,
+      "reason": "Bounded same-page evidence provides the lowest-risk next review phase."
+    },
+    {
+      "phase": 2,
+      "inspection_lane": "same-page-no-semantic-anchor",
+      "item_count": 88,
+      "reason": "These items require semantic-anchor discovery after the lower-risk same-page lane."
+    }
+  ],
+  "audit_boundary": {
+    "source_files_read_for_pending_items": false,
+    "pending_items_reviewed": false,
+    "pending_decisions_recorded": false,
+    "database_change_applied": false,
+    "cutover_enabled": false
+  }
+}

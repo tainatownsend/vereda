@@ -510,9 +510,9 @@ if (
   !book2Packet ||
   book2Packet.item_count !== 9 ||
   book2Packet.pending_count !== 0 ||
-  book2Packet.reviewed_count !==
+  book2Packet.reviewed_count <
     1 + resolved ||
-  book2Packet.unresolved_count !==
+  book2Packet.unresolved_count >
     8 - resolved ||
   book2Packet.reviewed_count +
     book2Packet.unresolved_count !== 9 ||

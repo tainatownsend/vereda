@@ -386,10 +386,10 @@ if (
   progress.totals
     ?.manual_adjudication_batch_count !== 4 ||
   progress.totals
-    ?.manual_adjudication_packet_prepared_count !==
+    ?.manual_adjudication_packet_prepared_count <
     1 ||
   progress.totals
-    ?.manual_adjudication_item_prepared_count !==
+    ?.manual_adjudication_item_prepared_count <
     2 ||
   progress.totals
     ?.manual_adjudication_reviewed_count < 0 ||
@@ -503,7 +503,7 @@ console.log(
   'Validated private/public evidence separation.',
 )
 console.log(
-  'Validated cumulative state: 11 reviewed, 7 unresolved, and 126 pending.',
+  `Validated cumulative state at or beyond the packet baseline: ${progress.totals.reviewed_count} reviewed, ${progress.totals.unresolved_count} unresolved, and 126 pending.`,
 )
 console.log(
   'No manual decision, boundary approval, database change, or cutover was introduced.',

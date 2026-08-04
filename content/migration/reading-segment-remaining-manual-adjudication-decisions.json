@@ -1,0 +1,713 @@
+{
+  "schema_version": 1,
+  "status": "remaining-manual-adjudication-recorded-not-applied",
+  "policy_version": "2026-08-03-remaining-manual-adjudication-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "rights_status": "blocked",
+  "contains_full_text": false,
+  "contains_source_excerpt": false,
+  "totals": {
+    "item_count": 5,
+    "reviewed_count": 3,
+    "unresolved_count": 2,
+    "exclude_structural_heading_count": 3,
+    "retain_intro_segment_count": 0,
+    "high_confidence_count": 0,
+    "medium_confidence_count": 3,
+    "manual_review_completed_count": 5,
+    "new_public_decision_identity_count": 0,
+    "boundary_approved_count": 0,
+    "database_change_count": 0
+  },
+  "sources": [
+    {
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "source_file": "WEB-Livro-dos-Espíritos-Guillon-1.pdf",
+      "source_sha256": "e99b4014ae3f00e5e6e888d43a0c4ef257efffe58840c795c8a26325a19a4983",
+      "pdf_page_count": 529
+    },
+    {
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "source_file": "WEB-Livro-dos-Mediuns-Guillon-1.pdf",
+      "source_sha256": "f260cc74e5c0feaf0203f33a3b19cc1919f40479ea246de53865569e538809a7",
+      "pdf_page_count": 449
+    }
+  ],
+  "decisions": [
+    {
+      "manual_decision_id": "c750c1b9ed1fde03fdb6a601",
+      "consolidation_id": "658951114edf53b815c4a837",
+      "recovery_id": "7a38b1577c62670511d44795",
+      "original_decision_id": "55a707da2697fdbc75ed6026",
+      "analysis_id": "215a7498de24c81e5c4ed62d",
+      "inspection_id": "2348e64b4b3a4029ea2c12ab",
+      "source_packet_id": "container-intro-only-book-1-packet-01",
+      "manual_batch_id": "manual-current-title-adjudication-book-1-batch-01",
+      "manual_adjudication_lane": "manual-current-title-adjudication",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "a3d180e5c494585ecaa9a8c9",
+      "segment_order": 4,
+      "display_title": "PARTE PRIMEIRA — Das causas primárias",
+      "successor_title": "De Deus",
+      "review_status": "reviewed",
+      "selected_decision": "exclude-structural-heading",
+      "reviewer_confidence": "medium",
+      "unresolved_reason": null,
+      "evidence": {
+        "source_file": "WEB-Livro-dos-Espíritos-Guillon-1.pdf",
+        "source_sha256": "e99b4014ae3f00e5e6e888d43a0c4ef257efffe58840c795c8a26325a19a4983",
+        "current_candidate_count": 2,
+        "successor_candidate_count": 573,
+        "pair_candidate_count": 34,
+        "pair_score_gap": 0.035,
+        "pair_ambiguous": false,
+        "current_title_found": true,
+        "successor_title_found": true,
+        "current_candidates": [
+          {
+            "source_pdf_page": 54,
+            "match_method": "manual-part-title-exact",
+            "match_score": 6.825,
+            "window_line_count": 6,
+            "toc_like": false,
+            "subtitle_token_coverage": 1.0
+          },
+          {
+            "source_pdf_page": 54,
+            "match_method": "manual-part-title-exact",
+            "match_score": 6.79,
+            "window_line_count": 7,
+            "toc_like": false,
+            "subtitle_token_coverage": 1.0
+          }
+        ],
+        "successor_candidates": [
+          {
+            "source_pdf_page": 56,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 58,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 60,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 68,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 56,
+            "match_method": "normalized-exact",
+            "match_score": 4.825,
+            "window_line_count": 2,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 443,
+            "match_method": "normalized-exact",
+            "match_score": 4.696842,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 60,
+            "match_method": "normalized-exact",
+            "match_score": 4.66,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 325,
+            "match_method": "normalized-exact",
+            "match_score": 4.66,
+            "window_line_count": 1,
+            "toc_like": false
+          }
+        ],
+        "source_reference_only": true,
+        "visible_prose_presence": "heading-only",
+        "structural_line_count": 2,
+        "prose_signal_count": 0,
+        "prose_word_count": 0,
+        "source_pdf_page_reviewed": 54,
+        "successor_source_pdf_page_reviewed": 56,
+        "current_title_match_method": "manual-part-title-exact",
+        "successor_match_method": "normalized-exact",
+        "successor_distance_pages": 2,
+        "pair_score": 11.925,
+        "anchor_relationship": "bounded-multi-page-source-opening",
+        "source_boundary_is_defensible": true,
+        "independent_prose_exists_between": false
+      },
+      "manual_review_completed": true,
+      "review_questions_answered": true,
+      "supersedes_original_unresolved": true,
+      "source_text_included": false,
+      "source_excerpt_included": false,
+      "boundary_decision_recorded": true,
+      "boundary_approved": false,
+      "database_change_applied": false,
+      "content_approved": false,
+      "content_loaded": false,
+      "cutover_enabled": false
+    },
+    {
+      "manual_decision_id": "898bfcc2e62682d097bee713",
+      "consolidation_id": "f7dc43839c54ed280644b292",
+      "recovery_id": "fcafa4b48036b5ef7ac843da",
+      "original_decision_id": "bd93d0a79af0c6ac89621b9b",
+      "analysis_id": "368c9ec02407a05dd3c4ce6a",
+      "inspection_id": "951bde717f873c51c4bf35c4",
+      "source_packet_id": "container-intro-only-book-1-packet-01",
+      "manual_batch_id": "manual-current-title-adjudication-book-1-batch-01",
+      "manual_adjudication_lane": "manual-current-title-adjudication",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "005ffe831efc9eafe3feefe7",
+      "segment_order": 26,
+      "display_title": "PARTE SEGUNDA — Do mundo espírita ou mundo dos Espíritos",
+      "successor_title": "Dos Espíritos",
+      "review_status": "reviewed",
+      "selected_decision": "exclude-structural-heading",
+      "reviewer_confidence": "medium",
+      "unresolved_reason": null,
+      "evidence": {
+        "source_file": "WEB-Livro-dos-Espíritos-Guillon-1.pdf",
+        "source_sha256": "e99b4014ae3f00e5e6e888d43a0c4ef257efffe58840c795c8a26325a19a4983",
+        "current_candidate_count": 3,
+        "successor_candidate_count": 595,
+        "pair_candidate_count": 39,
+        "pair_score_gap": 0.035,
+        "pair_ambiguous": false,
+        "current_title_found": true,
+        "successor_title_found": true,
+        "current_candidates": [
+          {
+            "source_pdf_page": 84,
+            "match_method": "manual-part-title-token-coverage",
+            "match_score": 5.571667,
+            "window_line_count": 8,
+            "toc_like": false,
+            "subtitle_token_coverage": 0.833333
+          },
+          {
+            "source_pdf_page": 84,
+            "match_method": "manual-part-title-token-coverage",
+            "match_score": 5.536667,
+            "window_line_count": 9,
+            "toc_like": false,
+            "subtitle_token_coverage": 0.833333
+          },
+          {
+            "source_pdf_page": 84,
+            "match_method": "manual-part-title-token-coverage",
+            "match_score": 5.501667,
+            "window_line_count": 10,
+            "toc_like": false,
+            "subtitle_token_coverage": 0.833333
+          }
+        ],
+        "successor_candidates": [
+          {
+            "source_pdf_page": 86,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 88,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 90,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 92,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 94,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 96,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 98,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 100,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          }
+        ],
+        "source_reference_only": true,
+        "visible_prose_presence": "heading-only",
+        "structural_line_count": 2,
+        "prose_signal_count": 0,
+        "prose_word_count": 0,
+        "source_pdf_page_reviewed": 84,
+        "successor_source_pdf_page_reviewed": 86,
+        "current_title_match_method": "manual-part-title-token-coverage",
+        "successor_match_method": "normalized-exact",
+        "successor_distance_pages": 2,
+        "pair_score": 10.671667,
+        "anchor_relationship": "bounded-multi-page-source-opening",
+        "source_boundary_is_defensible": true,
+        "independent_prose_exists_between": false
+      },
+      "manual_review_completed": true,
+      "review_questions_answered": true,
+      "supersedes_original_unresolved": true,
+      "source_text_included": false,
+      "source_excerpt_included": false,
+      "boundary_decision_recorded": true,
+      "boundary_approved": false,
+      "database_change_applied": false,
+      "content_approved": false,
+      "content_loaded": false,
+      "cutover_enabled": false
+    },
+    {
+      "manual_decision_id": "42500a20312c864479e910c1",
+      "consolidation_id": "fcfa646dd5a5a7195db7b437",
+      "recovery_id": "8ed6992b7d3b07ed51e9e9f4",
+      "original_decision_id": "7ed50cfb0fbbb85ff6f4e8cc",
+      "analysis_id": "b8b07e688edd657f0a44b3b2",
+      "inspection_id": "16c8a3f3f0b322d244c4f6b8",
+      "source_packet_id": "container-intro-only-book-1-packet-01",
+      "manual_batch_id": "manual-source-opening-adjudication-book-1-batch-01",
+      "manual_adjudication_lane": "manual-source-opening-adjudication",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "segment_key": "d709f621f896bf4419b76509",
+      "segment_order": 105,
+      "display_title": "PARTE TERCEIRA — Das leis morais",
+      "successor_title": "Da lei divina ou natural",
+      "review_status": "unresolved",
+      "selected_decision": "unresolved",
+      "reviewer_confidence": "low",
+      "unresolved_reason": "defensible-current-successor-pair-not-found",
+      "evidence": {
+        "source_file": "WEB-Livro-dos-Espíritos-Guillon-1.pdf",
+        "source_sha256": "e99b4014ae3f00e5e6e888d43a0c4ef257efffe58840c795c8a26325a19a4983",
+        "current_candidate_count": 0,
+        "successor_candidate_count": 10,
+        "pair_candidate_count": 0,
+        "pair_score_gap": null,
+        "pair_ambiguous": false,
+        "current_title_found": false,
+        "successor_title_found": true,
+        "current_candidates": [],
+        "successor_candidates": [
+          {
+            "source_pdf_page": 296,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 298,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 300,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 302,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 304,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 296,
+            "match_method": "normalized-exact",
+            "match_score": 4.91,
+            "window_line_count": 2,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 294,
+            "match_method": "normalized-exact",
+            "match_score": 4.733559,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 296,
+            "match_method": "normalized-exact",
+            "match_score": 4.646885,
+            "window_line_count": 3,
+            "toc_like": false
+          }
+        ],
+        "source_reference_only": true,
+        "visible_prose_presence": "unclear",
+        "structural_line_count": 0,
+        "prose_signal_count": 0,
+        "prose_word_count": 0,
+        "source_pdf_page_reviewed": null,
+        "successor_source_pdf_page_reviewed": null,
+        "current_title_match_method": null,
+        "successor_match_method": null,
+        "successor_distance_pages": null,
+        "pair_score": null,
+        "anchor_relationship": null,
+        "source_boundary_is_defensible": false,
+        "independent_prose_exists_between": null
+      },
+      "manual_review_completed": true,
+      "review_questions_answered": true,
+      "supersedes_original_unresolved": false,
+      "source_text_included": false,
+      "source_excerpt_included": false,
+      "boundary_decision_recorded": false,
+      "boundary_approved": false,
+      "database_change_applied": false,
+      "content_approved": false,
+      "content_loaded": false,
+      "cutover_enabled": false
+    },
+    {
+      "manual_decision_id": "c7448bd7c081bb297c3a2bb2",
+      "consolidation_id": "a6a2f5c1fa7845b7864f7538",
+      "recovery_id": "c16d7e05b7d9b805fbfe26e6",
+      "original_decision_id": "db8485152ac6cd56305ce7ad",
+      "analysis_id": "92c59158a6e946bffc02b14b",
+      "inspection_id": "5ab7ab2f1bf300f100a3c57e",
+      "source_packet_id": "container-intro-only-book-2-packet-01",
+      "manual_batch_id": "manual-current-title-adjudication-book-2-batch-01",
+      "manual_adjudication_lane": "manual-current-title-adjudication",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "451877fb2e9043922a604180",
+      "segment_order": 3,
+      "display_title": "PRIMEIRA PARTE — Noções preliminares",
+      "successor_title": "Há Espíritos?",
+      "review_status": "reviewed",
+      "selected_decision": "exclude-structural-heading",
+      "reviewer_confidence": "medium",
+      "unresolved_reason": null,
+      "evidence": {
+        "source_file": "WEB-Livro-dos-Mediuns-Guillon-1.pdf",
+        "source_sha256": "f260cc74e5c0feaf0203f33a3b19cc1919f40479ea246de53865569e538809a7",
+        "current_candidate_count": 2,
+        "successor_candidate_count": 37,
+        "pair_candidate_count": 6,
+        "pair_score_gap": 0.035,
+        "pair_ambiguous": false,
+        "current_title_found": true,
+        "successor_title_found": true,
+        "current_candidates": [
+          {
+            "source_pdf_page": 16,
+            "match_method": "manual-part-title-exact",
+            "match_score": 6.825,
+            "window_line_count": 6,
+            "toc_like": false,
+            "subtitle_token_coverage": 1.0
+          },
+          {
+            "source_pdf_page": 16,
+            "match_method": "manual-part-title-exact",
+            "match_score": 6.79,
+            "window_line_count": 7,
+            "toc_like": false,
+            "subtitle_token_coverage": 1.0
+          }
+        ],
+        "successor_candidates": [
+          {
+            "source_pdf_page": 18,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 20,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 22,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 18,
+            "match_method": "normalized-exact",
+            "match_score": 4.873077,
+            "window_line_count": 2,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 16,
+            "match_method": "normalized-exact",
+            "match_score": 4.605714,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 18,
+            "match_method": "normalized-exact",
+            "match_score": 4.508649,
+            "window_line_count": 3,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 16,
+            "match_method": "normalized-exact",
+            "match_score": 4.266364,
+            "window_line_count": 2,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 16,
+            "match_method": "normalized-exact",
+            "match_score": 4.201053,
+            "window_line_count": 3,
+            "toc_like": false
+          }
+        ],
+        "source_reference_only": true,
+        "visible_prose_presence": "heading-only",
+        "structural_line_count": 2,
+        "prose_signal_count": 0,
+        "prose_word_count": 0,
+        "source_pdf_page_reviewed": 16,
+        "successor_source_pdf_page_reviewed": 18,
+        "current_title_match_method": "manual-part-title-exact",
+        "successor_match_method": "normalized-exact",
+        "successor_distance_pages": 2,
+        "pair_score": 11.925,
+        "anchor_relationship": "bounded-multi-page-source-opening",
+        "source_boundary_is_defensible": true,
+        "independent_prose_exists_between": false
+      },
+      "manual_review_completed": true,
+      "review_questions_answered": true,
+      "supersedes_original_unresolved": true,
+      "source_text_included": false,
+      "source_excerpt_included": false,
+      "boundary_decision_recorded": true,
+      "boundary_approved": false,
+      "database_change_applied": false,
+      "content_approved": false,
+      "content_loaded": false,
+      "cutover_enabled": false
+    },
+    {
+      "manual_decision_id": "40facbc6402e87fc746ee362",
+      "consolidation_id": "b8f27235113a1ebd17f3a188",
+      "recovery_id": "4c9a8b601c5ab69ae0ce322f",
+      "original_decision_id": "2c2dc1ac3460e74a5026421d",
+      "analysis_id": "ca40cf78e0714881f7a0741e",
+      "inspection_id": "60422ae0f1f071d51a942b93",
+      "source_packet_id": "container-intro-only-book-2-packet-01",
+      "manual_batch_id": "manual-current-title-adjudication-book-2-batch-01",
+      "manual_adjudication_lane": "manual-current-title-adjudication",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "segment_key": "e3750489416607a8779a506c",
+      "segment_order": 15,
+      "display_title": "SEGUNDA PARTE — Das manifestações espíritas",
+      "successor_title": "Da ação dos Espíritos sobre a matéria",
+      "review_status": "unresolved",
+      "selected_decision": "unresolved",
+      "reviewer_confidence": "low",
+      "unresolved_reason": "defensible-current-successor-pair-not-found",
+      "evidence": {
+        "source_file": "WEB-Livro-dos-Mediuns-Guillon-1.pdf",
+        "source_sha256": "f260cc74e5c0feaf0203f33a3b19cc1919f40479ea246de53865569e538809a7",
+        "current_candidate_count": 1,
+        "successor_candidate_count": 10,
+        "pair_candidate_count": 0,
+        "pair_score_gap": null,
+        "pair_ambiguous": false,
+        "current_title_found": true,
+        "successor_title_found": true,
+        "current_candidates": [
+          {
+            "source_pdf_page": 349,
+            "match_method": "manual-part-title-token-coverage",
+            "match_score": 5.895,
+            "window_line_count": 4,
+            "toc_like": false,
+            "subtitle_token_coverage": 1.0
+          }
+        ],
+        "successor_candidates": [
+          {
+            "source_pdf_page": 66,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 68,
+            "match_method": "normalized-exact",
+            "match_score": 5.0,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 64,
+            "match_method": "normalized-exact",
+            "match_score": 4.99,
+            "window_line_count": 2,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 64,
+            "match_method": "normalized-exact",
+            "match_score": 4.913684,
+            "window_line_count": 3,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 62,
+            "match_method": "normalized-exact",
+            "match_score": 4.790588,
+            "window_line_count": 1,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 64,
+            "match_method": "normalized-exact",
+            "match_score": 4.700575,
+            "window_line_count": 4,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 62,
+            "match_method": "normalized-exact",
+            "match_score": 4.444867,
+            "window_line_count": 2,
+            "toc_like": false
+          },
+          {
+            "source_pdf_page": 62,
+            "match_method": "normalized-exact",
+            "match_score": 4.383478,
+            "window_line_count": 3,
+            "toc_like": false
+          }
+        ],
+        "source_reference_only": true,
+        "visible_prose_presence": "unclear",
+        "structural_line_count": 0,
+        "prose_signal_count": 0,
+        "prose_word_count": 0,
+        "source_pdf_page_reviewed": null,
+        "successor_source_pdf_page_reviewed": null,
+        "current_title_match_method": null,
+        "successor_match_method": null,
+        "successor_distance_pages": null,
+        "pair_score": null,
+        "anchor_relationship": null,
+        "source_boundary_is_defensible": false,
+        "independent_prose_exists_between": null
+      },
+      "manual_review_completed": true,
+      "review_questions_answered": true,
+      "supersedes_original_unresolved": false,
+      "source_text_included": false,
+      "source_excerpt_included": false,
+      "boundary_decision_recorded": false,
+      "boundary_approved": false,
+      "database_change_applied": false,
+      "content_approved": false,
+      "content_loaded": false,
+      "cutover_enabled": false
+    }
+  ],
+  "adjudication_boundary": {
+    "local_sources_read": true,
+    "private_evidence_generated": true,
+    "structured_diagnostics_recorded": true,
+    "manual_review_completed": true,
+    "structured_decisions_recorded": true,
+    "pending_backlog_audited": true,
+    "historical_decision_artifacts_modified": false,
+    "recovery_artifacts_modified": false,
+    "consolidation_artifacts_modified": false,
+    "manual_queue_modified": false,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}

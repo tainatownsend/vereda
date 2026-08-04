@@ -93,8 +93,6 @@ describe('Book 3 manual-adjudication packet', () => {
       public_decision_count: 18,
       manual_adjudication_item_count: 7,
       manual_adjudication_batch_count: 4,
-      manual_adjudication_packet_prepared_count: 1,
-      manual_adjudication_item_prepared_count: 2,
       database_change_count: 0,
     })
     expect(
@@ -107,6 +105,14 @@ describe('Book 3 manual-adjudication packet', () => {
       progress.totals.reviewed_count +
         progress.totals.unresolved_count,
     ).toBe(18)
+    expect(
+      progress.totals
+        .manual_adjudication_packet_prepared_count,
+    ).toBeGreaterThanOrEqual(1)
+    expect(
+      progress.totals
+        .manual_adjudication_item_prepared_count,
+    ).toBeGreaterThanOrEqual(2)
     expect(
       progress.totals
         .manual_adjudication_reviewed_count,

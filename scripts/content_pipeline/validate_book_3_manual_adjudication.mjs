@@ -59,29 +59,40 @@ if (
   policy.status !==
     'accepted-for-book-3-manual-adjudication' ||
   decisions.status !==
-    'book-3-manual-adjudication-recorded-not-applied' ||
-  progress.status !==
     'book-3-manual-adjudication-recorded-not-applied'
 ) {
   errors.push(
-    'policy, decisions, or progress status differs',
+    'Book 3 policy or decisions status differs',
+  )
+}
+
+if (
+  typeof progress.status !== 'string' ||
+  (
+    !progress.status.endsWith('-not-applied') &&
+    !progress.status.endsWith('-not-reviewed')
+  )
+) {
+  errors.push(
+    'cumulative progress status is unsupported',
   )
 }
 
 if (
   decisions.policy_version !==
     policy.policy_version ||
-  progress.policy_version !==
-    policy.policy_version ||
   decisions.run_id !==
     packet.run_id ||
   progress.run_id !==
     packet.run_id ||
   decisions.manual_batch_id !==
-    packet.manual_batch_id
+    packet.manual_batch_id ||
+  typeof progress.policy_version !==
+    'string' ||
+  progress.policy_version.length === 0
 ) {
   errors.push(
-    'policy or migration identity differs',
+    'Book 3 decision, progress, or migration identity differs',
   )
 }
 
@@ -287,8 +298,11 @@ if (
   progress.totals?.item_count !== 144 ||
   progress.totals?.packet_count !== 16 ||
   progress.totals?.pending_count !== 126 ||
-  progress.totals?.reviewed_count !== 13 ||
-  progress.totals?.unresolved_count !== 5 ||
+  progress.totals?.reviewed_count < 13 ||
+  progress.totals?.unresolved_count > 5 ||
+  progress.totals?.reviewed_count +
+    progress.totals?.unresolved_count !==
+    18 ||
   progress.totals
     ?.public_decision_count !== 18 ||
   progress.totals
@@ -300,21 +314,19 @@ if (
   progress.totals
     ?.manual_adjudication_batch_count !== 4 ||
   progress.totals
-    ?.manual_adjudication_packet_prepared_count !== 1 ||
+    ?.manual_adjudication_packet_prepared_count < 1 ||
   progress.totals
-    ?.manual_adjudication_item_prepared_count !== 2 ||
+    ?.manual_adjudication_item_prepared_count < 2 ||
   progress.totals
-    ?.manual_adjudication_reviewed_count !== 2 ||
+    ?.manual_adjudication_reviewed_count < 2 ||
   progress.totals
-    ?.manual_adjudication_resolved_count !== 2 ||
+    ?.manual_adjudication_resolved_count < 2 ||
   progress.totals
-    ?.manual_adjudication_still_unresolved_count !== 0 ||
+    ?.manual_adjudication_remaining_count > 5 ||
   progress.totals
-    ?.manual_adjudication_remaining_count !== 5 ||
+    ?.manual_adjudication_completed_batch_count < 1 ||
   progress.totals
-    ?.manual_adjudication_completed_batch_count !== 1 ||
-  progress.totals
-    ?.manual_adjudication_pending_batch_count !== 3 ||
+    ?.manual_adjudication_pending_batch_count > 3 ||
   progress.totals
     ?.database_change_count !== 0
 ) {

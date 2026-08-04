@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "status": "manual-adjudication-backlog-reviewed-with-unresolved-not-applied",
+  "policy_version": "2026-08-03-remaining-manual-adjudication-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "totals": {
+    "original_item_count": 7,
+    "reviewed_item_count": 7,
+    "resolved_item_count": 5,
+    "unresolved_item_count": 2,
+    "completed_batch_count": 4,
+    "pending_batch_count": 0,
+    "database_change_count": 0
+  },
+  "batches": [
+    {
+      "batch_id": "manual-current-title-adjudication-book-1-batch-01",
+      "item_count": 2,
+      "reviewed_count": 2,
+      "resolved_count": 2,
+      "unresolved_count": 0,
+      "status": "reviewed-resolved-not-applied"
+    },
+    {
+      "batch_id": "manual-current-title-adjudication-book-2-batch-01",
+      "item_count": 2,
+      "reviewed_count": 2,
+      "resolved_count": 1,
+      "unresolved_count": 1,
+      "status": "reviewed-with-unresolved-not-applied"
+    },
+    {
+      "batch_id": "manual-source-opening-adjudication-book-1-batch-01",
+      "item_count": 1,
+      "reviewed_count": 1,
+      "resolved_count": 0,
+      "unresolved_count": 1,
+      "status": "reviewed-with-unresolved-not-applied"
+    },
+    {
+      "batch_id": "manual-successor-anchor-adjudication-book-3-batch-01",
+      "item_count": 2,
+      "reviewed_count": 2,
+      "resolved_count": 2,
+      "unresolved_count": 0,
+      "status": "reviewed-resolved-not-applied"
+    }
+  ],
+  "closure_boundary": {
+    "all_existing_manual_batches_reviewed": true,
+    "all_existing_manual_batches_resolved": false,
+    "boundary_approved": false,
+    "database_change_applied": false,
+    "cutover_enabled": false
+  }
+}
