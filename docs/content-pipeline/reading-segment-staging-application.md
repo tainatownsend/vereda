@@ -99,37 +99,34 @@ PR-0019 does not:
 - resolve publication rights;
 - enable cutover.
 
-## PR-0048 reviewed boundary application package
+## PR-0048 reviewed boundary application semantics and readiness
 
-PR-0048 prepares a deterministic, review-only application package for the current cumulative public source-review decision set. It does not execute SQL and does not connect to Supabase.
+PR-0048 now defines a readiness-classification package rather than an executable application package. The repository does not yet define safe source-review database mutation semantics for `adjust-successor-start` or `exclude-structural-heading` / merge outcomes, and it does not approve source-review status-only advancement merely because the mechanical pipeline used that model.
 
 Commands:
 
 ```sh
-npm run content:staging:segments:reviewed-boundary:application:package:build
-npm run content:staging:segments:reviewed-boundary:application:package:validate
+npm run content:staging:segments:reviewed-boundary:application:readiness:build
+npm run content:staging:segments:reviewed-boundary:application:readiness:validate
 ```
 
 Generated artifacts:
 
-- `content/migration/reading-segment-reviewed-boundary-application-policy.json`
-- `content/migration/reading-segment-reviewed-boundary-application-plan.json`
-- `content/migration/reading-segment-reviewed-boundary-application-evidence.json`
-- `content/migration/reports/reading-segment-reviewed-boundary-application-summary.md`
-- `supabase/staging/20260804120000_prepare_reviewed_boundary_application_pr0048.sql`
-- `supabase/audits/reviewed_boundary_application_pr0048_pre_apply_verification.sql`
-- `supabase/audits/reviewed_boundary_application_pr0048_post_apply_verification.sql`
+- `content/migration/reading-segment-reviewed-boundary-application-semantics-policy.json`
+- `content/migration/reading-segment-reviewed-boundary-application-readiness-plan.json`
+- `content/migration/reading-segment-reviewed-boundary-application-readiness-evidence.json`
+- `content/migration/reading-segment-reviewed-boundary-missing-contracts.json`
+- `content/migration/reports/reading-segment-reviewed-boundary-application-readiness-summary.md`
+- `supabase/audits/reviewed_boundary_application_pr0048_readiness_inspection.sql`
 
-The package records 144 public decisions, excludes the 11 unresolved decisions, and prepares 133 reviewed operations. Final boundary flags remain: package prepared and validated, migration not applied, database/Supabase/production not modified, user progress and reader sessions not modified, and cutover not enabled.
+The readiness package records 144 public decisions, 74 status-only candidates, 6 locator-mutation contract requirements, 53 merge contract requirements, and 11 unresolved decisions that are not eligible. No decision is marked application-ready. No executable or mutating SQL is generated.
 
-### PR-0048 outcome-to-operation mapping
+### PR-0048 readiness classification
 
-The reviewed-boundary package derives its operation mapping from the existing source-inspection and adjudication semantics rather than from the generated package alone:
-
-| Public outcome | Eligible? | Operation type | Mutation semantics | Existing authority | Count |
+| Public outcome | Readiness category | Application-ready? | Existing authority | Missing authority | Count |
 | --- | --- | --- | --- | --- | ---: |
-| `confirm-successor-start` | Yes | `confirm_successor_start` | Preserve the current segment and successor ordering, record the reviewed boundary trace, and advance the scoped staging segment from `boundary-review` to `content-review`. | `content/migration/reading-segment-source-inspection-policy.json` lists this as a same-page successor-boundary decision; no-anchor adjudication validators accept it as a resolved outcome. | 73 |
-| `adjust-successor-start` | Yes | `adjust_successor_start` | Preserve the current segment identity, use the approved successor-start locator metadata, record the reviewed boundary trace, and advance the scoped staging segment from `boundary-review` to `content-review`. | `content/migration/reading-segment-source-inspection-policy.json` lists this as a same-page successor-boundary decision; no-anchor adjudication validators accept it as a resolved outcome. | 6 |
-| `exclude-structural-heading` | Yes | `merge_with_successor` | Treat the current structural heading as non-independent content, merge the reviewed boundary into the successor relationship, record the reviewed boundary trace, and advance the scoped staging segment from `boundary-review` to `content-review`. | Container-intro and same-page review documentation define this when no independent prose exists between current and successor headings; the source-inspection policy also exposes the equivalent `merge-intro-with-successor` lane option. | 53 |
-| `retain-intro-segment` | Yes | `confirm_successor_start` | Retain the intro as an independent segment because prose exists before the successor, record the reviewed boundary trace, and advance the scoped staging segment from `boundary-review` to `content-review`. | Container-intro documentation defines this when independent prose signals exist between current and successor headings; the source-inspection policy also exposes `retain-intro-and-confirm-successor-start`. | 1 |
-| `unresolved` | No | none | Generate no application SQL operation; record only safe public exclusion metadata. | Source-inspection policy and source-review validators treat unresolved decisions as not approved and not applied. | 11 |
+| `confirm-successor-start` | `status-only-candidate` | No | Historical mechanical application supports scoped status-only advancement with unchanged segment identity, order, and locators. | Formal source-review contract approving status-only advancement for this outcome. | 73 |
+| `retain-intro-segment` | `status-only-candidate` | No | Container-intro review defines retained intro as independent prose before successor; historical mechanical application supports status-only advancement for mechanical decisions. | Formal source-review contract approving status-only advancement for retained intro outcomes. | 1 |
+| `adjust-successor-start` | `locator-mutation-contract-required` | No | Editorial review artifacts define the outcome meaning. | Exact target row, locator column, current locator, replacement locator, ordering/overlap/reconstruction invariants, audit, and rollback contract. | 6 |
+| `exclude-structural-heading` | `merge-contract-required` | No | Editorial review artifacts define structural-heading exclusion when no independent prose exists. | Whether current segment remains, is disabled, or is deleted; locator absorption; successor field changes; ordering, reconstruction, user-progress safety, audit, and rollback contract. | 53 |
+| `unresolved` | `unresolved-not-eligible` | No | Review artifacts record unresolved outcomes as not approved and not applied. | None for application; unresolved records remain excluded until resolved. | 11 |

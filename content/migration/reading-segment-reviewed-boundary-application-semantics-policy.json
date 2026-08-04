@@ -1,0 +1,25 @@
+{
+  "schema_version": "pr0048-reviewed-boundary-application-semantics-policy-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "status": "application-semantics-documented-not-approved",
+  "rights_status": "credited-source-edition",
+  "hash_algorithm": "sha256-canonical-json-v1",
+  "text_hash_algorithm": "sha256-normalized-lf-text-v1",
+  "purpose": "Define reviewed boundary application semantics and readiness without authorizing database mutation.",
+  "existing_authority": {
+    "staging_schema": "supabase/migrations/20260803033000_content_staging_foundation.sql",
+    "mechanical_status_only_policy": "content/migration/reading-segment-mechanical-application-policy.json",
+    "editorial_outcome_policy": "content/migration/reading-segment-source-inspection-policy.json"
+  },
+  "boundaries": {
+    "application_ready_operations": 0,
+    "executable_sql_generated": false,
+    "mutating_sql_generated": false,
+    "sql_executed": false,
+    "migration_applied": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "production_modified": false,
+    "cutover_enabled": false
+  }
+}
