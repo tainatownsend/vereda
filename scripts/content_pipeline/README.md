@@ -84,3 +84,12 @@ After source inspection, the next stage will:
 4. compare the maps with current Supabase sections;
 5. identify a legally reusable production-text source;
 6. design progress migration.
+
+### PR-0047 remaining no-anchor backlog progress integration
+
+PR-0047 integrates the PR-0046 remaining no-anchor backlog adjudication decisions into the cumulative source-review progress snapshot only. It updates `content/migration/reading-segment-source-review-progress-current.json`, writes canonical JSON hash evidence with `sha256-canonical-json-v1`, and leaves the historical progress baseline immutable.
+
+- Integrate: `npm run content:staging:segments:source-review:no-anchor:remaining:progress:integrate`
+- Validate: `npm run content:staging:segments:source-review:no-anchor:remaining:progress:validate`
+
+The integration and validation commands do not generate SQL, apply database changes, modify Supabase, modify production, alter UI behavior, update reader sessions, rewrite user progress, or enable cutover.

@@ -10,12 +10,18 @@ import {
   canonicalJsonSha256,
 } from './hash_utils.mjs'
 
+export const PR0045_CURRENT_PROGRESS_SNAPSHOT =
+  'content/migration/reading-segment-source-review-progress-pr0045-current.json'
+
 const readJson = async (path) =>
   JSON.parse(
     await readFile(path, 'utf8'),
   )
 
-export const validate = async () => {
+export const validate = async ({
+  currentProgressPath =
+    PR0045_CURRENT_PROGRESS_SNAPSHOT,
+} = {}) => {
   const [
     policy,
     decisions,
@@ -42,7 +48,7 @@ export const validate = async () => {
       'content/migration/reading-segment-source-review-progress.json',
     ),
     readJson(
-      'content/migration/reading-segment-source-review-progress-current.json',
+      currentProgressPath,
     ),
     readJson(
       'content/migration/reading-segment-no-anchor-ambiguous-progress-integration-evidence.json',
@@ -257,7 +263,7 @@ export const validate = async () => {
       ) ||
     evidence.current_progress_sha256 !==
       await canonicalJsonSha256(
-        'content/migration/reading-segment-source-review-progress-current.json',
+        currentProgressPath,
       )
   ) {
     errors.push(
@@ -274,7 +280,9 @@ export const validate = async () => {
       true ||
     evidence.progress_model
       ?.current_progress_file !==
-      'content/migration/reading-segment-source-review-progress-current.json'
+      'content/migration/reading-segment-source-review-progress-current.json' ||
+    currentProgressPath !==
+      PR0045_CURRENT_PROGRESS_SNAPSHOT
   ) {
     errors.push(
       'progress model differs',
@@ -328,34 +336,48 @@ export const validate = async () => {
   }
 
   if (errors.length) {
-    console.error(
-      'No-anchor ambiguous progress integration validation failed:',
+    const error = new Error(
+      errors.join('\n'),
     )
-
-    for (const error of errors) {
-      console.error(`- ${error}`)
-    }
-
-    process.exit(1)
+    error.errors = errors
+    throw error
   }
 
-  console.log(
-    'Validated immutable historical progress and the current cumulative snapshot.',
-  )
-  console.log(
-    'Validated 25 integrated decisions: 16 reviewed and 9 unresolved.',
-  )
-  console.log(
-    'Validated current state: 70 reviewed, 11 unresolved, and 63 pending.',
-  )
-  console.log(
-    'No historical validator, historical test, database, production, or cutover change was introduced.',
-  )
+  return {
+    decisionCount: 25,
+    resolved: 16,
+    unresolved: 9,
+    currentState: target,
+  }
 }
 
 if (
   import.meta.url ===
   pathToFileURL(process.argv[1]).href
 ) {
-  await validate()
+  try {
+    await validate()
+    console.log(
+      'Validated immutable historical progress and the archived PR-0045 current snapshot.',
+    )
+    console.log(
+      'Validated 25 integrated decisions: 16 reviewed and 9 unresolved.',
+    )
+    console.log(
+      'Validated current state: 70 reviewed, 11 unresolved, and 63 pending.',
+    )
+    console.log(
+      'No historical validator, historical test, database, production, or cutover change was introduced.',
+    )
+  } catch (error) {
+    console.error(
+      'No-anchor ambiguous progress integration validation failed:',
+    )
+
+    for (const message of error.errors || [error.message]) {
+      console.error(`- ${message}`)
+    }
+
+    process.exit(1)
+  }
 }
