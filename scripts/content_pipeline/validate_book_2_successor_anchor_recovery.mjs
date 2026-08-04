@@ -12,13 +12,14 @@ const [
   queue,
   titleRecovery,
   nonContentsRecovery,
+  book3Recovery,
   recovery,
   progress,
   application,
   gitignore,
 ] = await Promise.all([
   readJson(
-    'content/migration/reading-segment-book-3-successor-anchor-recovery-policy.json',
+    'content/migration/reading-segment-book-2-successor-anchor-recovery-policy.json',
   ),
   readJson(
     'content/sources/manifest.json',
@@ -45,6 +46,9 @@ const [
     'content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json',
   ),
   readJson(
+    'content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json',
+  ),
+  readJson(
     'content/migration/reading-segment-source-review-progress.json',
   ),
   readJson(
@@ -55,7 +59,7 @@ const [
 
 const errors = []
 const source = sources.works.find(
-  (work) => work.book_id === 3,
+  (work) => work.book_id === 2,
 )
 const expectedDecisionIds = new Set(
   policy.target_batch
@@ -99,37 +103,29 @@ const expectedBySegment = new Map(
 
 if (
   policy.status !==
-    'accepted-for-book-3-successor-anchor-recovery' ||
+    'accepted-for-book-2-successor-anchor-recovery' ||
   recovery.status !==
-    'book-3-successor-anchor-recovery-recorded-not-applied'
+    'book-2-successor-anchor-recovery-recorded-not-applied' ||
+  progress.status !==
+    'book-2-successor-anchor-recovery-completed-not-applied'
 ) {
   errors.push(
-    'Book 3 policy or recovery status differs',
-  )
-}
-
-if (
-  typeof progress.status !== 'string' ||
-  !progress.status.endsWith('-not-applied')
-) {
-  errors.push(
-    'cumulative progress status is unsupported',
+    'policy, recovery, or progress status differs',
   )
 }
 
 if (
   recovery.policy_version !==
     policy.policy_version ||
+  progress.policy_version !==
+    policy.policy_version ||
   recovery.run_id !==
     analysis.run_id ||
   progress.run_id !==
-    analysis.run_id ||
-  typeof progress.policy_version !==
-    'string' ||
-  progress.policy_version.length === 0
+    analysis.run_id
 ) {
   errors.push(
-    'recovery, progress, or migration identity differs',
+    'policy or migration identity differs',
   )
 }
 
@@ -142,7 +138,7 @@ const batch = queue.batches.find(
 if (
   !source ||
   !batch ||
-  batch.item_count !== 3 ||
+  batch.item_count !== 7 ||
   titleRecovery.totals
     ?.resolved_count !== 0 ||
   titleRecovery.totals
@@ -150,7 +146,11 @@ if (
   nonContentsRecovery.totals
     ?.resolved_count !== 0 ||
   nonContentsRecovery.totals
-    ?.still_unresolved_count !== 1
+    ?.still_unresolved_count !== 1 ||
+  book3Recovery.totals
+    ?.resolved_count !== 1 ||
+  book3Recovery.totals
+    ?.still_unresolved_count !== 2
 ) {
   errors.push(
     'source, queue, or prior recovery baseline differs',
@@ -162,20 +162,20 @@ if (
   recovery.contains_source_excerpt !==
     false ||
   recovery.totals
-    ?.target_item_count !== 3 ||
-  recovery.recoveries?.length !== 3 ||
+    ?.target_item_count !== 7 ||
+  recovery.recoveries?.length !== 7 ||
   recovery.totals
     ?.resolved_count +
     recovery.totals
       ?.still_unresolved_count !==
-    3 ||
+    7 ||
   recovery.totals
     ?.boundary_approved_count !== 0 ||
   recovery.totals
     ?.database_change_count !== 0
 ) {
   errors.push(
-    'Book 3 successor-anchor totals differ',
+    'Book 2 successor-anchor totals differ',
   )
 }
 
@@ -236,7 +236,7 @@ for (
       'successor-title-not-found' ||
     analysisItem.resolution_lane !==
       'successor-anchor-recovery' ||
-    analysisItem.book_id !== 3 ||
+    analysisItem.book_id !== 2 ||
     analysisItem.segment_key !==
       item.segment_key ||
     baseline.inspection_id !==
@@ -250,7 +250,13 @@ for (
     evidence.source_sha256 !==
       source.source_sha256 ||
     evidence.source_file !==
-      source.source_file
+      source.source_file ||
+    ![
+      'local-radius',
+      'global-exact-fallback',
+    ].includes(
+      evidence.search_scope,
+    )
   ) {
     errors.push(
       `${item.segment_key}: recovery baseline or source identity differs`,
@@ -287,12 +293,12 @@ for (
       evidence.successor_distance_pages >
         policy.matching_rules
           .maximum_successor_search_pages ||
-      typeof evidence
+      evidence
         .current_title_match_method !==
-        'string' ||
-      typeof evidence
+        'normalized-exact' ||
+      evidence
         .successor_match_method !==
-        'string' ||
+        'normalized-exact' ||
       evidence.current_title_match_score <=
         0 ||
       evidence.successor_match_score <=
@@ -399,9 +405,9 @@ for (
 }
 
 if (
-  recoveryIds.size !== 3 ||
-  originalDecisionIds.size !== 3 ||
-  segmentKeys.size !== 3 ||
+  recoveryIds.size !== 7 ||
+  originalDecisionIds.size !== 7 ||
+  segmentKeys.size !== 7 ||
   JSON.stringify(
     [...originalDecisionIds].sort(),
   ) !== JSON.stringify(
@@ -420,13 +426,10 @@ if (
   progress.totals?.item_count !== 144 ||
   progress.totals?.packet_count !== 16 ||
   progress.totals?.pending_count !== 126 ||
-  progress.totals?.reviewed_count <
-    4 + resolved ||
-  progress.totals?.unresolved_count >
-    14 - resolved ||
-  progress.totals?.reviewed_count +
-    progress.totals?.unresolved_count !==
-    18 ||
+  progress.totals?.reviewed_count !==
+    5 + resolved ||
+  progress.totals?.unresolved_count !==
+    13 - resolved ||
   progress.totals
     ?.public_decision_count !== 18 ||
   progress.totals
@@ -445,15 +448,21 @@ if (
     1 ||
   progress.totals
     ?.book_3_successor_anchor_recovered_count !==
-    resolved ||
+    1 ||
   progress.totals
     ?.book_3_successor_anchor_still_unresolved_count !==
-    3 - resolved ||
+    2 ||
+  progress.totals
+    ?.book_2_successor_anchor_recovered_count !==
+    resolved ||
+  progress.totals
+    ?.book_2_successor_anchor_still_unresolved_count !==
+    7 - resolved ||
   progress.totals
     ?.database_change_count !== 0
 ) {
   errors.push(
-    'cumulative Book 3 successor-anchor progress differs',
+    'cumulative Book 2 successor-anchor progress differs',
   )
 }
 
@@ -467,22 +476,31 @@ if (
   )
 }
 
-const packet = progress.packets.find(
+const book2Packet = progress.packets.find(
+  (item) =>
+    item.packet_id ===
+    'container-intro-only-book-2-packet-01',
+)
+const book3Packet = progress.packets.find(
   (item) =>
     item.packet_id ===
     'container-intro-only-book-3-packet-01',
 )
 
 if (
-  !packet ||
-  packet.item_count !== 3 ||
-  packet.pending_count !== 0 ||
-  packet.reviewed_count !== resolved ||
-  packet.unresolved_count !==
-    3 - resolved
+  !book2Packet ||
+  book2Packet.item_count !== 9 ||
+  book2Packet.pending_count !== 0 ||
+  book2Packet.reviewed_count !==
+    1 + resolved ||
+  book2Packet.unresolved_count !==
+    8 - resolved ||
+  !book3Packet ||
+  book3Packet.reviewed_count !== 1 ||
+  book3Packet.unresolved_count !== 2
 ) {
   errors.push(
-    'Book 3 packet progress differs',
+    'Book 2 or Book 3 packet progress differs',
   )
 }
 
@@ -541,7 +559,7 @@ if (
 
 if (errors.length) {
   console.error(
-    'Book 3 successor-anchor recovery validation failed:',
+    'Book 2 successor-anchor recovery validation failed:',
   )
 
   for (const error of errors) {
@@ -552,7 +570,7 @@ if (errors.length) {
 }
 
 console.log(
-  'Validated 3 Book 3 successor-anchor recovery attempts.',
+  'Validated 7 Book 2 successor-anchor recovery attempts.',
 )
 console.log(
   `Resolved outcomes: ${recovery.totals.resolved_count}.`,

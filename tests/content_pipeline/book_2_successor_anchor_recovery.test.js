@@ -10,7 +10,7 @@ import {
 
 const recovery = JSON.parse(
   readFileSync(
-    'content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json',
+    'content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json',
     'utf8',
   ),
 )
@@ -21,19 +21,19 @@ const progress = JSON.parse(
   ),
 )
 
-describe('Book 3 successor-anchor recovery', () => {
-  it('processes exactly three queued cases', () => {
+describe('Book 2 successor-anchor recovery', () => {
+  it('processes exactly seven queued cases', () => {
     expect(
       recovery.recoveries,
-    ).toHaveLength(3)
+    ).toHaveLength(7)
     expect(
       recovery.totals.resolved_count +
         recovery.totals
           .still_unresolved_count,
-    ).toBe(3)
+    ).toBe(7)
   })
 
-  it('records only defensible recovery outcomes', () => {
+  it('records only exact and non-ambiguous resolved pairs', () => {
     for (
       const item of
       recovery.recoveries
@@ -41,9 +41,12 @@ describe('Book 3 successor-anchor recovery', () => {
       const evidence =
         item.evidence
 
-      expect(
-        evidence.original_source_pdf_page,
-      ).toBeGreaterThan(0)
+      expect([
+        'local-radius',
+        'global-exact-fallback',
+      ]).toContain(
+        evidence.search_scope,
+      )
 
       if (
         item.recovery_status ===
@@ -55,6 +58,14 @@ describe('Book 3 successor-anchor recovery', () => {
         ]).toContain(
           item.selected_decision,
         )
+        expect(
+          evidence
+            .current_title_match_method,
+        ).toBe('normalized-exact')
+        expect(
+          evidence
+            .successor_match_method,
+        ).toBe('normalized-exact')
         expect(
           evidence.successor_title_found,
         ).toBe(true)
@@ -126,6 +137,8 @@ describe('Book 3 successor-anchor recovery', () => {
       item_count: 144,
       packet_count: 16,
       pending_count: 126,
+      reviewed_count: 5 + resolved,
+      unresolved_count: 13 - resolved,
       public_decision_count: 18,
       completed_packet_count: 4,
       pending_packet_count: 12,
@@ -133,22 +146,15 @@ describe('Book 3 successor-anchor recovery', () => {
       title_window_still_unresolved_count: 3,
       non_contents_recovered_count: 0,
       non_contents_still_unresolved_count: 1,
-      book_3_successor_anchor_recovered_count:
+      book_3_successor_anchor_recovered_count: 1,
+      book_3_successor_anchor_still_unresolved_count: 2,
+      book_2_successor_anchor_recovered_count:
         resolved,
-      book_3_successor_anchor_still_unresolved_count:
-        3 - resolved,
+      book_2_successor_anchor_still_unresolved_count:
+        7 - resolved,
       database_change_count: 0,
     })
-    expect(
-      progress.totals.reviewed_count,
-    ).toBeGreaterThanOrEqual(
-      4 + resolved,
-    )
-    expect(
-      progress.totals.unresolved_count,
-    ).toBeLessThanOrEqual(
-      14 - resolved,
-    )
+
     expect(
       progress.totals.reviewed_count +
         progress.totals.unresolved_count,

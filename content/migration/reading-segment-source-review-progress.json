@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
-  "status": "book-3-successor-anchor-recovery-completed-not-applied",
-  "policy_version": "2026-08-03-book-3-successor-anchor-recovery-v1",
+  "status": "book-2-successor-anchor-recovery-completed-not-applied",
+  "policy_version": "2026-08-03-book-2-successor-anchor-recovery-v1",
   "run_id": "adcff561-8f92-545c-a219-615818a454f4",
   "totals": {
     "item_count": 144,
     "packet_count": 16,
     "pending_count": 126,
     "in_review_count": 0,
-    "reviewed_count": 5,
-    "unresolved_count": 13,
+    "reviewed_count": 11,
+    "unresolved_count": 7,
     "public_decision_count": 18,
     "completed_packet_count": 4,
     "pending_packet_count": 12,
@@ -21,7 +21,9 @@
     "non_contents_recovered_count": 0,
     "non_contents_still_unresolved_count": 1,
     "book_3_successor_anchor_recovered_count": 1,
-    "book_3_successor_anchor_still_unresolved_count": 2
+    "book_3_successor_anchor_still_unresolved_count": 2,
+    "book_2_successor_anchor_recovered_count": 6,
+    "book_2_successor_anchor_still_unresolved_count": 1
   },
   "packets": [
     {
@@ -42,8 +44,8 @@
       "item_count": 9,
       "pending_count": 0,
       "in_review_count": 0,
-      "reviewed_count": 1,
-      "unresolved_count": 8,
+      "reviewed_count": 7,
+      "unresolved_count": 2,
       "status": "review-completed-with-unresolved"
     },
     {
