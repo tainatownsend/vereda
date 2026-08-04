@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-same-page-review-corpus-preparation",
+  "policy_version": "2026-08-03-same-page-review-corpus-v1",
+  "purpose": "Prepare source-grounded public and private evidence for all 38 pending container-intro-same-page cases without recording review decisions or changing cumulative progress.",
+  "target": {
+    "inspection_lane": "container-intro-same-page",
+    "packet_count": 4,
+    "item_count": 38,
+    "packet_ids": [
+      "container-intro-same-page-book-1-packet-01",
+      "container-intro-same-page-book-1-packet-02",
+      "container-intro-same-page-book-4-packet-01",
+      "container-intro-same-page-book-5-packet-01"
+    ],
+    "counts_by_book": {
+      "1": 23,
+      "4": 5,
+      "5": 10
+    }
+  },
+  "source_books": [
+    {
+      "book_id": 1,
+      "slug": "o-livro-dos-espiritos"
+    },
+    {
+      "book_id": 4,
+      "slug": "o-ceu-e-o-inferno"
+    },
+    {
+      "book_id": 5,
+      "slug": "a-genese"
+    }
+  ],
+  "matching_rules": {
+    "canonical_source_sha256_required": true,
+    "current_and_successor_same_pdf_page_required_for_prepared_status": true,
+    "current_heading_must_precede_successor_heading": true,
+    "maximum_heading_window_lines": 5,
+    "minimum_token_coverage": 0.72,
+    "minimum_sequence_ratio": 0.68,
+    "maximum_printed_page_distance": 24,
+    "maximum_public_pair_candidates": 5,
+    "ambiguous_pair_score_gap": 0.18,
+    "front_matter_occurrences_penalized": true,
+    "incomplete_evidence_allowed": true,
+    "ambiguous_evidence_allowed": true
+  },
+  "review_statuses": [
+    "evidence-prepared-not-reviewed",
+    "evidence-ambiguous-not-reviewed",
+    "evidence-incomplete-not-reviewed"
+  ],
+  "review_questions": [
+    "Does the current heading occur before the canonical successor heading on the same source page?",
+    "Does independent introductory prose exist between the two headings?",
+    "Does the visible source support retaining, merging, adjusting, or excluding the current segment?",
+    "Can the final decision be recorded without committing source text?"
+  ],
+  "forbidden_public_fields": [
+    "source_text",
+    "source_excerpt",
+    "quoted_text",
+    "quotation",
+    "full_text",
+    "normalized_content",
+    "private_notes",
+    "reviewer_notes",
+    "ocr_text",
+    "page_text",
+    "context_text",
+    "matched_lines",
+    "current_matched_lines",
+    "successor_matched_lines",
+    "intervening_lines",
+    "candidate_page_text"
+  ],
+  "preparation_boundary": {
+    "canonical_sources_read_locally": true,
+    "private_evidence_generated": true,
+    "public_corpus_generated": true,
+    "manual_review_completed": false,
+    "review_decision_recorded": false,
+    "cumulative_progress_modified": false,
+    "historical_artifacts_modified": false,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
