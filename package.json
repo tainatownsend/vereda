@@ -89,7 +89,9 @@
     "content:staging:segments:source-review:same-page:progress:integrate": "python scripts/content_pipeline/integrate_same_page_review_progress.py",
     "content:staging:segments:source-review:same-page:progress:validate": "node scripts/content_pipeline/validate_same_page_progress_integration.mjs",
     "content:staging:segments:source-review:no-anchor:corpus:prepare": "python scripts/content_pipeline/prepare_no_anchor_discovery_corpus.py",
-    "content:staging:segments:source-review:no-anchor:corpus:validate": "node scripts/content_pipeline/validate_no_anchor_discovery_corpus.mjs"
+    "content:staging:segments:source-review:no-anchor:corpus:validate": "node scripts/content_pipeline/validate_no_anchor_discovery_corpus.mjs",
+    "content:staging:segments:source-review:no-anchor:ambiguous:packet:prepare": "python scripts/content_pipeline/prepare_no_anchor_ambiguous_review_packet.py",
+    "content:staging:segments:source-review:no-anchor:ambiguous:packet:validate": "node scripts/content_pipeline/validate_no_anchor_ambiguous_review_packet.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

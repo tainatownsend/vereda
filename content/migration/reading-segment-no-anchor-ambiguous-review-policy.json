@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-no-anchor-ambiguous-review-packet",
+  "policy_version": "2026-08-03-no-anchor-ambiguous-review-packet-v1",
+  "purpose": "Prepare a deterministic manual-review packet for the 25 ambiguous no-anchor discovery items without recording editorial decisions.",
+  "source_corpus": {
+    "status": "no-anchor-discovery-corpus-prepared-not-reviewed",
+    "item_count": 88,
+    "prepared_count": 63,
+    "ambiguous_count": 25,
+    "incomplete_count": 0
+  },
+  "target": {
+    "source_status": "anchor-evidence-ambiguous-not-reviewed",
+    "item_count": 25,
+    "manual_review_required": true,
+    "manual_review_completed": false,
+    "review_decision_count": 0
+  },
+  "preserved_lane": {
+    "source_status": "anchor-evidence-prepared-not-reviewed",
+    "item_count": 63,
+    "must_remain_unchanged": true
+  },
+  "candidate_rules": {
+    "minimum_public_pair_candidates": 2,
+    "maximum_public_pair_candidates": 5,
+    "candidate_indexes_are_zero_based": true,
+    "private_candidate_text_required": true,
+    "public_candidate_text_forbidden": true,
+    "current_must_precede_successor": true,
+    "source_pdf_pages_must_be_positive": true
+  },
+  "review_outcomes": [
+    "confirm-successor-start",
+    "adjust-successor-start",
+    "merge-with-successor",
+    "unresolved"
+  ],
+  "review_questions": [
+    "Which private pair candidate most defensibly identifies the current and successor boundaries?",
+    "Does the selected current anchor represent the canonical current-section start rather than a contents entry, running header, quotation, or incidental occurrence?",
+    "Does the selected successor anchor represent the canonical successor-section start rather than an occurrence inside the current section?",
+    "Does the selected pair preserve canonical order without crossing an intervening section boundary?",
+    "Should the eventual outcome confirm the successor start, adjust the successor start, merge the current segment with the successor, or remain unresolved?",
+    "Can the eventual decision be recorded without reproducing source text in the repository?"
+  ],
+  "forbidden_public_fields": [
+    "block_text",
+    "block_lines",
+    "page_text",
+    "source_text",
+    "source_excerpt",
+    "quoted_text",
+    "quotation",
+    "full_text",
+    "normalized_content",
+    "private_notes",
+    "reviewer_notes",
+    "ocr_text",
+    "candidate_page_text",
+    "matched_lines",
+    "between_lines"
+  ],
+  "preparation_boundary": {
+    "private_discovery_evidence_read": true,
+    "ambiguous_items_isolated": true,
+    "private_review_packet_generated": true,
+    "public_review_packet_generated": true,
+    "prepared_items_modified": false,
+    "manual_review_completed": false,
+    "review_decisions_recorded": false,
+    "cumulative_progress_modified": false,
+    "historical_artifacts_modified": false,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
