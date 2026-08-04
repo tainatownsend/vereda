@@ -1,0 +1,208 @@
+{
+  "schema_version": 2,
+  "status": "no-anchor-ambiguous-progress-integrated-not-applied",
+  "policy_version": "2026-08-03-no-anchor-ambiguous-progress-integration-v2",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "rights_status": "credited-source-edition",
+  "contains_full_text": false,
+  "contains_source_excerpt": false,
+  "generated_at": "2026-08-04T05:47:52Z",
+  "progress_model": {
+    "historical_progress_file": "content/migration/reading-segment-source-review-progress.json",
+    "current_progress_file": "content/migration/reading-segment-source-review-progress-current.json",
+    "historical_progress_is_immutable": true,
+    "later_prs_must_read_current_progress": true
+  },
+  "input_hashes": {
+    "decision_artifact_sha256": "9b017f93c9e1802c9c8898890285ca4bc4c7a53d47134650185012a3d26fdfba",
+    "integration_plan_sha256": "615cb518f875ae3940365f9a2417cb300a4cb6a26b2ef0bec19eb3ac0a1178b6",
+    "discovery_corpus_sha256": "7433d94cc63842eb3b5570c7b0938739b9982f326ec526218df35adae366fa01",
+    "historical_progress_sha256": "8d5112ffb345cc2757872a02008dfc96ba0bc9b4f36666ca9199fbe328396fa2"
+  },
+  "current_progress_sha256": "53052565be5bdf752141e74035e855599ae5324722038a475e33de7b8305492a",
+  "historical_baseline": {
+    "reviewed_count": 54,
+    "unresolved_count": 2,
+    "pending_count": 88,
+    "public_decision_count": 56,
+    "completed_packet_count": 8,
+    "pending_packet_count": 8
+  },
+  "applied_delta": {
+    "reviewed_count": 16,
+    "unresolved_count": 9,
+    "pending_count": -25,
+    "public_decision_count": 25,
+    "completed_packet_count": 0,
+    "pending_packet_count": 0
+  },
+  "current_state": {
+    "reviewed_count": 70,
+    "unresolved_count": 11,
+    "pending_count": 63,
+    "public_decision_count": 81,
+    "completed_packet_count": 8,
+    "pending_packet_count": 8
+  },
+  "decision_totals": {
+    "item_count": 25,
+    "resolved_count": 16,
+    "unresolved_count": 9,
+    "confirm_successor_start_count": 10,
+    "adjust_successor_start_count": 6,
+    "merge_with_successor_count": 0,
+    "candidate_override_count": 8
+  },
+  "packet_updates": [
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-1-packet-01",
+      "book_id": 1,
+      "before": {
+        "pending_count": 6,
+        "reviewed_count": 0,
+        "unresolved_count": 0,
+        "status": "pending"
+      },
+      "applied_delta": {
+        "pending_count": -1,
+        "reviewed_count": 1,
+        "unresolved_count": 0
+      },
+      "after": {
+        "pending_count": 5,
+        "reviewed_count": 1,
+        "unresolved_count": 0,
+        "status": "review-in-progress-not-applied"
+      }
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-01",
+      "book_id": 2,
+      "before": {
+        "pending_count": 20,
+        "reviewed_count": 0,
+        "unresolved_count": 0,
+        "status": "pending"
+      },
+      "applied_delta": {
+        "pending_count": -9,
+        "reviewed_count": 7,
+        "unresolved_count": 2
+      },
+      "after": {
+        "pending_count": 11,
+        "reviewed_count": 7,
+        "unresolved_count": 2,
+        "status": "review-in-progress-not-applied"
+      }
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-02",
+      "book_id": 2,
+      "before": {
+        "pending_count": 20,
+        "reviewed_count": 0,
+        "unresolved_count": 0,
+        "status": "pending"
+      },
+      "applied_delta": {
+        "pending_count": -4,
+        "reviewed_count": 0,
+        "unresolved_count": 4
+      },
+      "after": {
+        "pending_count": 16,
+        "reviewed_count": 0,
+        "unresolved_count": 4,
+        "status": "review-in-progress-not-applied"
+      }
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-03",
+      "book_id": 2,
+      "before": {
+        "pending_count": 20,
+        "reviewed_count": 0,
+        "unresolved_count": 0,
+        "status": "pending"
+      },
+      "applied_delta": {
+        "pending_count": -6,
+        "reviewed_count": 4,
+        "unresolved_count": 2
+      },
+      "after": {
+        "pending_count": 14,
+        "reviewed_count": 4,
+        "unresolved_count": 2,
+        "status": "review-in-progress-not-applied"
+      }
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-04",
+      "book_id": 2,
+      "before": {
+        "pending_count": 10,
+        "reviewed_count": 0,
+        "unresolved_count": 0,
+        "status": "pending"
+      },
+      "applied_delta": {
+        "pending_count": -2,
+        "reviewed_count": 1,
+        "unresolved_count": 1
+      },
+      "after": {
+        "pending_count": 8,
+        "reviewed_count": 1,
+        "unresolved_count": 1,
+        "status": "review-in-progress-not-applied"
+      }
+    },
+    {
+      "packet_id": "same-page-no-semantic-anchor-book-5-packet-01",
+      "book_id": 5,
+      "before": {
+        "pending_count": 10,
+        "reviewed_count": 0,
+        "unresolved_count": 0,
+        "status": "pending"
+      },
+      "applied_delta": {
+        "pending_count": -3,
+        "reviewed_count": 3,
+        "unresolved_count": 0
+      },
+      "after": {
+        "pending_count": 7,
+        "reviewed_count": 3,
+        "unresolved_count": 0,
+        "status": "review-in-progress-not-applied"
+      }
+    }
+  ],
+  "preserved_prepared_lane": {
+    "status": "anchor-evidence-prepared-not-reviewed",
+    "item_count": 63,
+    "packet_count": 8
+  },
+  "integration_boundary": {
+    "validated_decisions_integrated": true,
+    "current_progress_snapshot_created": true,
+    "historical_progress_modified": false,
+    "historical_validators_modified": false,
+    "historical_tests_modified": false,
+    "historical_decision_artifacts_modified": false,
+    "historical_discovery_artifacts_modified": false,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_loaded": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
