@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "policy_version": "pr-0046-remaining-no-anchor-backlog-adjudication-v1",
+  "status": "accepted-for-remaining-no-anchor-backlog-adjudication",
+  "title": "PR-0046 remaining prepared no-anchor backlog adjudication policy",
+  "rights_status": "credited-source-edition",
+  "contains_full_text": false,
+  "contains_source_excerpt": false,
+  "hash_algorithm": "sha256-canonical-json-v1",
+  "selection_rule": "Select corpus items with corpus_status anchor-evidence-prepared-not-reviewed from the no-anchor discovery corpus, excluding PR-0044 no-anchor ambiguous adjudication decisions.",
+  "decision_rule": "Resolve as confirm-successor-start only when the selected public pair is the unique strongest recorded public pair for the item, preserves current-before-successor order, and belongs to the prepared non-ambiguous no-anchor lane; otherwise leave unresolved for later review.",
+  "ordering": [
+    "book_id",
+    "packet_id",
+    "segment_order",
+    "segment_key"
+  ],
+  "allowed_outcomes": [
+    "confirm-successor-start",
+    "adjust-successor-start",
+    "merge-with-successor",
+    "unresolved"
+  ],
+  "confidence_rule": "High confidence requires exactly one public pair candidate or a strongest same-page selected pair. Medium confidence is allowed for cross-page strongest selected pairs when the pair is ordered, non-ambiguous, and strictly strongest by public pair_score.",
+  "adjudication_boundary": {
+    "adjudication_recorded": true,
+    "integration_deferred": true,
+    "progress_update_applied": false,
+    "boundary_approved": false,
+    "database_change_applied": false,
+    "source_text_included": false,
+    "source_excerpt_included": false,
+    "private_evidence_included": false,
+    "cutover_enabled": false
+  },
+  "expected_eligibility": {
+    "eligible_item_count": 63,
+    "decision_count": 63
+  }
+}

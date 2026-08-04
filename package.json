@@ -95,7 +95,9 @@
     "content:staging:segments:source-review:no-anchor:ambiguous:adjudicate": "python scripts/content_pipeline/adjudicate_no_anchor_ambiguous_review.py",
     "content:staging:segments:source-review:no-anchor:ambiguous:adjudication:validate": "node scripts/content_pipeline/validate_no_anchor_ambiguous_adjudication.mjs",
     "content:staging:segments:source-review:no-anchor:ambiguous:progress:integrate": "python scripts/content_pipeline/integrate_no_anchor_ambiguous_progress.py",
-    "content:staging:segments:source-review:no-anchor:ambiguous:progress:validate": "node scripts/content_pipeline/validate_no_anchor_ambiguous_progress_integration.mjs"
+    "content:staging:segments:source-review:no-anchor:ambiguous:progress:validate": "node scripts/content_pipeline/validate_no_anchor_ambiguous_progress_integration.mjs",
+    "content:staging:segments:source-review:no-anchor:remaining:adjudicate": "python scripts/content_pipeline/adjudicate_remaining_no_anchor_backlog.py",
+    "content:staging:segments:source-review:no-anchor:remaining:adjudication:validate": "node scripts/content_pipeline/validate_remaining_no_anchor_backlog_adjudication.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
