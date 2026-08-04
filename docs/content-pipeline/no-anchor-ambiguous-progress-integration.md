@@ -34,6 +34,29 @@ content/migration/reading-segment-source-review-progress-current.json
 
 Later source-review PRs must read and update the current file.
 
+## Input integrity hashes
+
+PR-0045A corrects content-pipeline input-integrity validation without changing
+historical decisions, discovery corpus membership, review outcomes, or either
+progress snapshot. Immutable PR-0041 through PR-0044 evidence keeps its recorded
+hash values and validates those historical fields with `sha256-legacy-crlf-v1`:
+read text, normalize `CRLF -> LF`, `CR -> LF`, then `LF -> CRLF`, and hash the
+resulting UTF-8 bytes with SHA-256. That legacy contract exists only to validate
+representation-level historical evidence generated from CRLF working-tree bytes.
+
+PR-0045 integration evidence records `sha256-canonical-json-v1` hashes for JSON
+inputs. The canonicalization contract is:
+
+1. parse JSON;
+2. recursively sort object keys;
+3. preserve array ordering;
+4. serialize as compact UTF-8 JSON with no insignificant whitespace;
+5. normalize integer-valued JSON numbers without a fractional suffix;
+6. hash the resulting UTF-8 bytes with SHA-256.
+
+This makes validation independent of LF versus CRLF working-tree line endings
+while still detecting semantic JSON changes.
+
 ## State
 
 | Metric | Historical baseline | Current |

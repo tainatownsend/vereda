@@ -1,9 +1,9 @@
 import {
-  createHash,
-} from 'node:crypto'
-import {
   readFile,
 } from 'node:fs/promises'
+import {
+  sha256LegacyCrlf,
+} from './hash_utils.mjs'
 
 const readJson = async (filePath) =>
   JSON.parse(
@@ -12,13 +12,6 @@ const readJson = async (filePath) =>
       'utf8',
     ),
   )
-
-const sha256 = async (filePath) =>
-  createHash('sha256')
-    .update(
-      await readFile(filePath),
-    )
-    .digest('hex')
 
 const [
   policy,
@@ -188,15 +181,15 @@ if (
 }
 
 const expectedImmutableHashes = {
-  worklist_sha256: await sha256(
+  worklist_sha256: await sha256LegacyCrlf(
     'content/migration/reading-segment-source-review-worklist.json',
   ),
   inspection_packets_sha256:
-    await sha256(
+    await sha256LegacyCrlf(
       'content/migration/reading-segment-source-inspection-packets.json',
     ),
   pending_audit_sha256:
-    await sha256(
+    await sha256LegacyCrlf(
       'content/migration/reading-segment-pending-source-review-audit.json',
     ),
 }
@@ -218,7 +211,7 @@ for (const [
 }
 
 const currentProgressHash =
-  await sha256(
+  await sha256LegacyCrlf(
     'content/migration/reading-segment-source-review-progress.json',
   )
 
