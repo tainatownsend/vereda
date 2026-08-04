@@ -55,12 +55,22 @@ if (
   consolidation.status !==
     'unresolved-recovery-outcomes-consolidated-not-applied' ||
   queue.status !==
-    'manual-adjudication-queue-prepared-not-reviewed' ||
-  progress.status !==
-    'unresolved-recovery-consolidated-not-applied'
+    'manual-adjudication-queue-prepared-not-reviewed'
 ) {
   errors.push(
-    'policy, consolidation, queue, or progress status differs',
+    'policy, consolidation, or queue status differs',
+  )
+}
+
+if (
+  typeof progress.status !== 'string' ||
+  (
+    !progress.status.endsWith('-not-applied') &&
+    !progress.status.endsWith('-not-reviewed')
+  )
+) {
+  errors.push(
+    'cumulative progress status is unsupported',
   )
 }
 
@@ -69,17 +79,18 @@ if (
     policy.policy_version ||
   queue.policy_version !==
     policy.policy_version ||
-  progress.policy_version !==
-    policy.policy_version ||
   consolidation.run_id !==
     titleWindow.run_id ||
   queue.run_id !==
     titleWindow.run_id ||
   progress.run_id !==
-    titleWindow.run_id
+    titleWindow.run_id ||
+  typeof progress.policy_version !==
+    'string' ||
+  progress.policy_version.length === 0
 ) {
   errors.push(
-    'policy or migration identity differs',
+    'policy, progress, or migration identity differs',
   )
 }
 

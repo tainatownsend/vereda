@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "status": "unresolved-recovery-consolidated-not-applied",
-  "policy_version": "2026-08-03-unresolved-recovery-consolidation-v1",
+  "status": "book-3-manual-adjudication-packet-prepared-not-reviewed",
+  "policy_version": "2026-08-03-book-3-manual-adjudication-packet-v1",
   "run_id": "adcff561-8f92-545c-a219-615818a454f4",
   "totals": {
     "item_count": 144,
@@ -28,7 +28,10 @@
     "recovery_resolved_count_total": 7,
     "recovery_still_unresolved_count_total": 7,
     "manual_adjudication_item_count": 7,
-    "manual_adjudication_batch_count": 4
+    "manual_adjudication_batch_count": 4,
+    "manual_adjudication_packet_prepared_count": 1,
+    "manual_adjudication_item_prepared_count": 2,
+    "manual_adjudication_reviewed_count": 0
   },
   "packets": [
     {

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-book-3-manual-adjudication-packet",
+  "policy_version": "2026-08-03-book-3-manual-adjudication-packet-v1",
+  "purpose": "Prepare a private, source-grounded reviewer packet for the two Book 3 successor-anchor cases that remain unresolved after bounded automated recovery.",
+  "target_batch": {
+    "batch_id": "manual-successor-anchor-adjudication-book-3-batch-01",
+    "manual_adjudication_lane": "manual-successor-anchor-adjudication",
+    "book_id": 3,
+    "item_count": 2,
+    "consolidation_ids": [
+      "268816b54f950b591fda6730",
+      "3dbf268e49880a1ffa423207"
+    ],
+    "recovery_ids": [
+      "5ac6b81e15979b772ac25eb7",
+      "576c522379bf520b48c0baf3"
+    ],
+    "original_decision_ids": [
+      "5dfd679f9d1d2145cf8b6d40",
+      "f0eb9634f4633149d54d8636"
+    ],
+    "segment_keys": [
+      "67f61955dad711b936e5f59e",
+      "8f9201f1456b853f349fcb41"
+    ]
+  },
+  "expected_pairs": [
+    {
+      "segment_key": "67f61955dad711b936e5f59e",
+      "display_title": "Buscai e achareis",
+      "successor_title": "Ajuda-te a ti mesmo, que o céu te ajudará",
+      "original_source_pdf_page": 304
+    },
+    {
+      "segment_key": "8f9201f1456b853f349fcb41",
+      "display_title": "Dai gratuitamente o que gratuitamente recebestes",
+      "successor_title": "Dom de curar",
+      "original_source_pdf_page": 310
+    }
+  ],
+  "packet_rules": {
+    "canonical_source_sha256_required": true,
+    "current_title_page_radius": 5,
+    "current_title_maximum_window_lines": 8,
+    "successor_candidate_maximum_window_lines": 8,
+    "successor_candidate_limit": 8,
+    "successor_fuzzy_minimum_token_coverage": 0.45,
+    "successor_fuzzy_minimum_sequence_ratio": 0.35,
+    "private_context_page_radius": 0,
+    "contents_candidates_excluded": true,
+    "manual_review_required": true,
+    "automatic_decision_allowed": false
+  },
+  "review_questions": [
+    "Is the current title a structural chapter heading rather than independent prose?",
+    "Does the expected successor appear under a wording, line-break, or typography variant?",
+    "Is there another defensible semantic anchor that marks the end of the introductory heading?",
+    "Does any prose between the current title and the next defensible anchor belong to the current segment?",
+    "Should the final decision remain unresolved when the source boundary cannot be defended?"
+  ],
+  "forbidden_public_fields": [
+    "source_text",
+    "source_excerpt",
+    "quoted_text",
+    "quotation",
+    "full_text",
+    "normalized_content",
+    "private_notes",
+    "reviewer_notes",
+    "ocr_text",
+    "page_text",
+    "context_text",
+    "matched_lines",
+    "candidate_page_text"
+  ],
+  "packet_boundary": {
+    "local_source_read": true,
+    "private_reviewer_packet_generated": true,
+    "public_packet_generated": true,
+    "manual_review_completed": false,
+    "new_review_decision_recorded": false,
+    "historical_decision_artifacts_modified": false,
+    "recovery_artifacts_modified": false,
+    "consolidation_artifacts_modified": false,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}

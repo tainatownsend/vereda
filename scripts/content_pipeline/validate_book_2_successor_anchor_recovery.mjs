@@ -3,6 +3,15 @@ import { readFile } from 'node:fs/promises'
 const readJson = async (filePath) =>
   JSON.parse(await readFile(filePath, 'utf8'))
 
+const isSupportedCumulativeStatus = (
+  status,
+) =>
+  typeof status === 'string' &&
+  (
+    status.endsWith('-not-applied') ||
+    status.endsWith('-not-reviewed')
+  )
+
 const [
   policy,
   sources,
@@ -113,8 +122,7 @@ if (
 }
 
 if (
-  typeof progress.status !== 'string' ||
-  !progress.status.endsWith('-not-applied')
+  !isSupportedCumulativeStatus(progress.status)
 ) {
   errors.push(
     'cumulative progress status is unsupported',

@@ -1,0 +1,410 @@
+{
+  "schema_version": 1,
+  "status": "book-3-manual-adjudication-packet-prepared-not-reviewed",
+  "policy_version": "2026-08-03-book-3-manual-adjudication-packet-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "manual_batch_id": "manual-successor-anchor-adjudication-book-3-batch-01",
+  "manual_adjudication_lane": "manual-successor-anchor-adjudication",
+  "rights_status": "blocked",
+  "contains_full_text": false,
+  "contains_source_excerpt": false,
+  "totals": {
+    "packet_item_count": 2,
+    "current_title_candidate_count": 16,
+    "successor_candidate_count": 16,
+    "exact_successor_candidate_count": 16,
+    "fuzzy_successor_candidate_count": 0,
+    "manual_review_completed_count": 0,
+    "new_review_decision_count": 0,
+    "boundary_approved_count": 0,
+    "database_change_count": 0
+  },
+  "source": {
+    "book_id": 3,
+    "book_slug": "o-evangelho-segundo-o-espiritismo",
+    "source_file": "WEB-O-Evangelho-segundo-o-Espiritismo-Guillon.pdf",
+    "source_sha256": "524a5b59607794335e2f704f58108c12ec16c7937516ff0c5efb07964aa455af",
+    "pdf_page_count": 417
+  },
+  "packet_items": [
+    {
+      "packet_item_id": "8e181b7416ff783ccd27cf9e",
+      "consolidation_id": "268816b54f950b591fda6730",
+      "recovery_id": "5ac6b81e15979b772ac25eb7",
+      "original_decision_id": "5dfd679f9d1d2145cf8b6d40",
+      "analysis_id": "aa1b368380ae8dfb917b8587",
+      "inspection_id": "c23cec50aede1df2e634d0af",
+      "source_packet_id": "container-intro-only-book-3-packet-01",
+      "manual_batch_id": "manual-successor-anchor-adjudication-book-3-batch-01",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "67f61955dad711b936e5f59e",
+      "segment_order": 177,
+      "display_title": "Buscai e achareis",
+      "successor_title": "Ajuda-te a ti mesmo, que o céu te ajudará",
+      "original_source_pdf_page": 304,
+      "current_title_candidate_count": 8,
+      "successor_candidate_count": 8,
+      "exact_successor_candidate_count": 8,
+      "fuzzy_successor_candidate_count": 0,
+      "current_title_candidates": [
+        {
+          "source_pdf_page": 304,
+          "match_method": "normalized-exact",
+          "score": 5.0,
+          "window_line_count": 1,
+          "toc_like": false,
+          "page_distance_from_original": 0
+        },
+        {
+          "source_pdf_page": 304,
+          "match_method": "normalized-exact",
+          "score": 4.844737,
+          "window_line_count": 2,
+          "toc_like": false,
+          "page_distance_from_original": 0
+        },
+        {
+          "source_pdf_page": 304,
+          "match_method": "normalized-exact",
+          "score": 3.758246,
+          "window_line_count": 3,
+          "toc_like": false,
+          "page_distance_from_original": 0
+        },
+        {
+          "source_pdf_page": 304,
+          "match_method": "normalized-exact",
+          "score": 3.395166,
+          "window_line_count": 4,
+          "toc_like": false,
+          "page_distance_from_original": 0
+        },
+        {
+          "source_pdf_page": 302,
+          "match_method": "normalized-exact",
+          "score": 5.0,
+          "window_line_count": 1,
+          "toc_like": false,
+          "page_distance_from_original": 2
+        },
+        {
+          "source_pdf_page": 302,
+          "match_method": "normalized-exact",
+          "score": 4.844737,
+          "window_line_count": 2,
+          "toc_like": false,
+          "page_distance_from_original": 2
+        },
+        {
+          "source_pdf_page": 302,
+          "match_method": "normalized-exact",
+          "score": 3.964762,
+          "window_line_count": 1,
+          "toc_like": false,
+          "page_distance_from_original": 2
+        },
+        {
+          "source_pdf_page": 302,
+          "match_method": "normalized-exact",
+          "score": 3.689091,
+          "window_line_count": 3,
+          "toc_like": false,
+          "page_distance_from_original": 2
+        }
+      ],
+      "successor_candidates": [
+        {
+          "source_pdf_page": 300,
+          "match_method": "normalized-exact",
+          "score": 4.0,
+          "window_line_count": 1,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 1.0
+        },
+        {
+          "source_pdf_page": 300,
+          "match_method": "normalized-exact",
+          "score": 3.819565,
+          "window_line_count": 1,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 0.869565
+        },
+        {
+          "source_pdf_page": 300,
+          "match_method": "normalized-exact",
+          "score": 3.592273,
+          "window_line_count": 2,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 0.727273
+        },
+        {
+          "source_pdf_page": 300,
+          "match_method": "normalized-exact",
+          "score": 3.558945,
+          "window_line_count": 1,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 0.733945
+        },
+        {
+          "source_pdf_page": 300,
+          "match_method": "normalized-exact",
+          "score": 3.544286,
+          "window_line_count": 3,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 0.714286
+        },
+        {
+          "source_pdf_page": 300,
+          "match_method": "normalized-exact",
+          "score": 3.41,
+          "window_line_count": 4,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 0.64
+        },
+        {
+          "source_pdf_page": 300,
+          "match_method": "normalized-exact",
+          "score": 3.337015,
+          "window_line_count": 2,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 0.597015
+        },
+        {
+          "source_pdf_page": 300,
+          "match_method": "normalized-exact",
+          "score": 3.237945,
+          "window_line_count": 2,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 0.547945
+        }
+      ],
+      "review_questions": [
+        "Is the current title a structural chapter heading rather than independent prose?",
+        "Does the expected successor appear under a wording, line-break, or typography variant?",
+        "Is there another defensible semantic anchor that marks the end of the introductory heading?",
+        "Does any prose between the current title and the next defensible anchor belong to the current segment?",
+        "Should the final decision remain unresolved when the source boundary cannot be defended?"
+      ],
+      "packet_status": "packet-prepared-not-reviewed",
+      "selected_decision": "unresolved",
+      "manual_review_required": true,
+      "automated_recovery_exhausted": true,
+      "source_text_included": false,
+      "source_excerpt_included": false,
+      "manual_review_completed": false,
+      "boundary_approved": false,
+      "database_change_applied": false,
+      "cutover_enabled": false
+    },
+    {
+      "packet_item_id": "5d90f82ee0d3d8d5629ed552",
+      "consolidation_id": "3dbf268e49880a1ffa423207",
+      "recovery_id": "576c522379bf520b48c0baf3",
+      "original_decision_id": "f0eb9634f4633149d54d8636",
+      "analysis_id": "24273a3b3646942318a587a4",
+      "inspection_id": "37148ad1940e78bd8325a7e9",
+      "source_packet_id": "container-intro-only-book-3-packet-01",
+      "manual_batch_id": "manual-successor-anchor-adjudication-book-3-batch-01",
+      "book_id": 3,
+      "book_slug": "o-evangelho-segundo-o-espiritismo",
+      "segment_key": "8f9201f1456b853f349fcb41",
+      "segment_order": 181,
+      "display_title": "Dai gratuitamente o que gratuitamente recebestes",
+      "successor_title": "Dom de curar",
+      "original_source_pdf_page": 310,
+      "current_title_candidate_count": 8,
+      "successor_candidate_count": 8,
+      "exact_successor_candidate_count": 8,
+      "fuzzy_successor_candidate_count": 0,
+      "current_title_candidates": [
+        {
+          "source_pdf_page": 310,
+          "match_method": "normalized-exact",
+          "score": 5.0,
+          "window_line_count": 1,
+          "toc_like": false,
+          "page_distance_from_original": 0
+        },
+        {
+          "source_pdf_page": 310,
+          "match_method": "normalized-exact",
+          "score": 4.91,
+          "window_line_count": 2,
+          "toc_like": false,
+          "page_distance_from_original": 0
+        },
+        {
+          "source_pdf_page": 310,
+          "match_method": "normalized-exact",
+          "score": 3.951429,
+          "window_line_count": 3,
+          "toc_like": false,
+          "page_distance_from_original": 0
+        },
+        {
+          "source_pdf_page": 310,
+          "match_method": "normalized-exact",
+          "score": 3.286364,
+          "window_line_count": 4,
+          "toc_like": false,
+          "page_distance_from_original": 0
+        },
+        {
+          "source_pdf_page": 308,
+          "match_method": "normalized-exact",
+          "score": 5.0,
+          "window_line_count": 1,
+          "toc_like": false,
+          "page_distance_from_original": 2
+        },
+        {
+          "source_pdf_page": 308,
+          "match_method": "normalized-exact",
+          "score": 4.91,
+          "window_line_count": 2,
+          "toc_like": false,
+          "page_distance_from_original": 2
+        },
+        {
+          "source_pdf_page": 308,
+          "match_method": "normalized-exact",
+          "score": 4.518462,
+          "window_line_count": 3,
+          "toc_like": false,
+          "page_distance_from_original": 2
+        },
+        {
+          "source_pdf_page": 308,
+          "match_method": "normalized-exact",
+          "score": 3.725248,
+          "window_line_count": 4,
+          "toc_like": false,
+          "page_distance_from_original": 2
+        }
+      ],
+      "successor_candidates": [
+        {
+          "source_pdf_page": 306,
+          "match_method": "normalized-exact",
+          "score": 4.0,
+          "window_line_count": 1,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 1.0
+        },
+        {
+          "source_pdf_page": 306,
+          "match_method": "normalized-exact",
+          "score": 3.425,
+          "window_line_count": 1,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 0.5
+        },
+        {
+          "source_pdf_page": 306,
+          "match_method": "normalized-exact",
+          "score": 3.24,
+          "window_line_count": 2,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 0.375
+        },
+        {
+          "source_pdf_page": 306,
+          "match_method": "normalized-exact",
+          "score": 3.193767,
+          "window_line_count": 2,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 0.328767
+        },
+        {
+          "source_pdf_page": 306,
+          "match_method": "normalized-exact",
+          "score": 3.062727,
+          "window_line_count": 2,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 0.272727
+        },
+        {
+          "source_pdf_page": 306,
+          "match_method": "normalized-exact",
+          "score": 3.002423,
+          "window_line_count": 3,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 0.247423
+        },
+        {
+          "source_pdf_page": 306,
+          "match_method": "normalized-exact",
+          "score": 2.962424,
+          "window_line_count": 4,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 0.242424
+        },
+        {
+          "source_pdf_page": 306,
+          "match_method": "normalized-exact",
+          "score": 2.942624,
+          "window_line_count": 3,
+          "toc_like": false,
+          "token_coverage": 1.0,
+          "sequence_ratio": 0.237624
+        }
+      ],
+      "review_questions": [
+        "Is the current title a structural chapter heading rather than independent prose?",
+        "Does the expected successor appear under a wording, line-break, or typography variant?",
+        "Is there another defensible semantic anchor that marks the end of the introductory heading?",
+        "Does any prose between the current title and the next defensible anchor belong to the current segment?",
+        "Should the final decision remain unresolved when the source boundary cannot be defended?"
+      ],
+      "packet_status": "packet-prepared-not-reviewed",
+      "selected_decision": "unresolved",
+      "manual_review_required": true,
+      "automated_recovery_exhausted": true,
+      "source_text_included": false,
+      "source_excerpt_included": false,
+      "manual_review_completed": false,
+      "boundary_approved": false,
+      "database_change_applied": false,
+      "cutover_enabled": false
+    }
+  ],
+  "packet_boundary": {
+    "local_source_read": true,
+    "private_reviewer_packet_generated": true,
+    "public_packet_generated": true,
+    "manual_review_completed": false,
+    "new_review_decision_recorded": false,
+    "historical_decision_artifacts_modified": false,
+    "recovery_artifacts_modified": false,
+    "consolidation_artifacts_modified": false,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
