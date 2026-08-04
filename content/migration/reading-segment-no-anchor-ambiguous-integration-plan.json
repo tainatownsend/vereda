@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "no-anchor-ambiguous-integration-planned-not-applied",
+  "policy_version": "2026-08-03-no-anchor-ambiguous-adjudication-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "source_decision_status": "no-anchor-ambiguous-adjudication-recorded-not-integrated",
+  "current_state": {
+    "reviewed_count": 54,
+    "unresolved_count": 2,
+    "pending_count": 88,
+    "public_decision_count": 56,
+    "completed_packet_count": 8,
+    "pending_packet_count": 8
+  },
+  "planned_delta": {
+    "reviewed_count": 16,
+    "unresolved_count": 9,
+    "pending_count": -25,
+    "public_decision_count": 25,
+    "completed_packet_count": 0,
+    "pending_packet_count": 0
+  },
+  "projected_state": {
+    "reviewed_count": 70,
+    "unresolved_count": 11,
+    "pending_count": 63,
+    "public_decision_count": 81,
+    "completed_packet_count": 8,
+    "pending_packet_count": 8
+  },
+  "preserved_prepared_lane": {
+    "item_count": 63,
+    "status": "anchor-evidence-prepared-not-reviewed"
+  },
+  "packet_completion_delta": {
+    "completed_packet_count": 0,
+    "reason": "Every affected packet still contains prepared items awaiting adjudication."
+  },
+  "integration_boundary": {
+    "decisions_validated": true,
+    "progress_update_planned": true,
+    "progress_update_applied": false,
+    "historical_validators_modified": false,
+    "database_change_applied": false,
+    "cutover_enabled": false
+  }
+}
