@@ -105,27 +105,35 @@ if (
   policy.status !==
     'accepted-for-book-2-successor-anchor-recovery' ||
   recovery.status !==
-    'book-2-successor-anchor-recovery-recorded-not-applied' ||
-  progress.status !==
-    'book-2-successor-anchor-recovery-completed-not-applied'
+    'book-2-successor-anchor-recovery-recorded-not-applied'
 ) {
   errors.push(
-    'policy, recovery, or progress status differs',
+    'Book 2 policy or recovery status differs',
+  )
+}
+
+if (
+  typeof progress.status !== 'string' ||
+  !progress.status.endsWith('-not-applied')
+) {
+  errors.push(
+    'cumulative progress status is unsupported',
   )
 }
 
 if (
   recovery.policy_version !==
     policy.policy_version ||
-  progress.policy_version !==
-    policy.policy_version ||
   recovery.run_id !==
     analysis.run_id ||
   progress.run_id !==
-    analysis.run_id
+    analysis.run_id ||
+  typeof progress.policy_version !==
+    'string' ||
+  progress.policy_version.length === 0
 ) {
   errors.push(
-    'policy or migration identity differs',
+    'recovery, progress, or migration identity differs',
   )
 }
 
