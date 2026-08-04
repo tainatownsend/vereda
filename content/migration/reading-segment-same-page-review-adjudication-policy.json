@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-same-page-corpus-adjudication",
+  "policy_version": "2026-08-03-same-page-review-adjudication-v1",
+  "purpose": "Adjudicate all 38 items in the PR-0039 same-page evidence corpus while preserving source text privately and deferring cumulative progress integration.",
+  "target": {
+    "item_count": 38,
+    "packet_count": 4,
+    "expected_decision": "exclude-structural-heading",
+    "expected_unresolved_count": 0
+  },
+  "candidate_selection": {
+    "default": "top-ranked-private-pair",
+    "manual_overrides": [
+      {
+        "segment_key": "db8bb3a8b36c8c95b97c00e0",
+        "candidate_index": 1,
+        "expected_source_pdf_page": 116,
+        "reason": "Prefer the canonical successor heading over the synopsis-line occurrence."
+      },
+      {
+        "segment_key": "8e9626db621b38dd240f023d",
+        "candidate_index": 1,
+        "expected_source_pdf_page": 20,
+        "reason": "Prefer the actual current heading over the synopsis-line occurrence."
+      },
+      {
+        "segment_key": "f754887de0b4ba992aa5b65d",
+        "candidate_index": 2,
+        "expected_source_pdf_page": 92,
+        "reason": "Prefer the chapter opening over a running-header and prose-page occurrence."
+      },
+      {
+        "segment_key": "6d5e399b0300c55668d17cd6",
+        "candidate_index": 0,
+        "expected_source_pdf_page": 148,
+        "reason": "Resolve the close candidate score using the shortest canonical current-heading window."
+      }
+    ]
+  },
+  "decision_rules": {
+    "same_page_required": true,
+    "current_heading_must_precede_successor": true,
+    "independent_prose_between_headings_allowed": false,
+    "structural_synopsis_lines_allowed": true,
+    "manual_override_confidence": "medium",
+    "non_override_exact_pair_confidence": "high",
+    "non_override_non_exact_pair_confidence": "medium"
+  },
+  "integration_boundary": {
+    "current_reviewed_count": 16,
+    "current_unresolved_count": 2,
+    "current_pending_count": 126,
+    "current_public_decision_count": 18,
+    "projected_reviewed_count": 54,
+    "projected_unresolved_count": 2,
+    "projected_pending_count": 88,
+    "projected_public_decision_count": 56,
+    "projected_completed_packet_count": 8,
+    "projected_pending_packet_count": 8
+  },
+  "forbidden_public_fields": [
+    "source_text",
+    "source_excerpt",
+    "quoted_text",
+    "quotation",
+    "full_text",
+    "normalized_content",
+    "private_notes",
+    "reviewer_notes",
+    "ocr_text",
+    "page_text",
+    "context_text",
+    "matched_lines",
+    "current_matched_lines",
+    "successor_matched_lines",
+    "intervening_lines",
+    "candidate_page_text"
+  ],
+  "adjudication_boundary": {
+    "private_corpus_read": true,
+    "manual_review_completed": true,
+    "structured_decisions_recorded": true,
+    "integration_plan_generated": true,
+    "cumulative_progress_modified": false,
+    "historical_artifacts_modified": false,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}

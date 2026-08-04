@@ -83,7 +83,9 @@
     "content:staging:segments:source-review:manual:remaining:adjudicate": "python scripts/content_pipeline/adjudicate_remaining_manual_backlog.py",
     "content:staging:segments:source-review:manual:remaining:validate": "node scripts/content_pipeline/validate_remaining_manual_backlog.mjs",
     "content:staging:segments:source-review:same-page:corpus:prepare": "python scripts/content_pipeline/prepare_same_page_review_corpus.py",
-    "content:staging:segments:source-review:same-page:corpus:validate": "node scripts/content_pipeline/validate_same_page_review_corpus.mjs"
+    "content:staging:segments:source-review:same-page:corpus:validate": "node scripts/content_pipeline/validate_same_page_review_corpus.mjs",
+    "content:staging:segments:source-review:same-page:adjudicate": "python scripts/content_pipeline/adjudicate_same_page_review_corpus.py",
+    "content:staging:segments:source-review:same-page:adjudication:validate": "node scripts/content_pipeline/validate_same_page_review_adjudication.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

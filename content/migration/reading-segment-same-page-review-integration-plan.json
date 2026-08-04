@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "same-page-review-integration-planned-not-applied",
+  "policy_version": "2026-08-03-same-page-review-adjudication-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "source_decision_status": "same-page-review-adjudication-recorded-not-integrated",
+  "current_state": {
+    "reviewed_count": 16,
+    "unresolved_count": 2,
+    "pending_count": 126,
+    "public_decision_count": 18,
+    "completed_packet_count": 4,
+    "pending_packet_count": 12
+  },
+  "planned_delta": {
+    "reviewed_count": 38,
+    "unresolved_count": 0,
+    "pending_count": -38,
+    "public_decision_count": 38,
+    "completed_packet_count": 4,
+    "pending_packet_count": -4
+  },
+  "projected_state": {
+    "reviewed_count": 54,
+    "unresolved_count": 2,
+    "pending_count": 88,
+    "public_decision_count": 56,
+    "completed_packet_count": 8,
+    "pending_packet_count": 8
+  },
+  "packet_updates": [
+    {
+      "packet_id": "container-intro-same-page-book-1-packet-01",
+      "reviewed_count": 20,
+      "unresolved_count": 0,
+      "pending_count": 0,
+      "projected_status": "reviewed-not-applied"
+    },
+    {
+      "packet_id": "container-intro-same-page-book-1-packet-02",
+      "reviewed_count": 3,
+      "unresolved_count": 0,
+      "pending_count": 0,
+      "projected_status": "reviewed-not-applied"
+    },
+    {
+      "packet_id": "container-intro-same-page-book-4-packet-01",
+      "reviewed_count": 5,
+      "unresolved_count": 0,
+      "pending_count": 0,
+      "projected_status": "reviewed-not-applied"
+    },
+    {
+      "packet_id": "container-intro-same-page-book-5-packet-01",
+      "reviewed_count": 10,
+      "unresolved_count": 0,
+      "pending_count": 0,
+      "projected_status": "reviewed-not-applied"
+    }
+  ],
+  "integration_boundary": {
+    "decisions_validated": true,
+    "progress_update_planned": true,
+    "progress_update_applied": false,
+    "historical_validators_modified": false,
+    "database_change_applied": false,
+    "cutover_enabled": false
+  }
+}
