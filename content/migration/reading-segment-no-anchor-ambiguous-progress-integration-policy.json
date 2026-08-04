@@ -1,0 +1,81 @@
+{
+  "schema_version": 2,
+  "status": "accepted-for-no-anchor-ambiguous-progress-integration",
+  "policy_version": "2026-08-03-no-anchor-ambiguous-progress-integration-v2",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "rights_status": "credited-source-edition",
+  "target": {
+    "decision_count": 25,
+    "resolved_count": 16,
+    "unresolved_count": 9,
+    "preserved_prepared_count": 63,
+    "historical_baseline": {
+      "reviewed_count": 54,
+      "unresolved_count": 2,
+      "pending_count": 88,
+      "public_decision_count": 56,
+      "completed_packet_count": 8,
+      "pending_packet_count": 8
+    },
+    "current_state": {
+      "reviewed_count": 70,
+      "unresolved_count": 11,
+      "pending_count": 63,
+      "public_decision_count": 81,
+      "completed_packet_count": 8,
+      "pending_packet_count": 8
+    },
+    "affected_packet_ids": [
+      "same-page-no-semantic-anchor-book-1-packet-01",
+      "same-page-no-semantic-anchor-book-2-packet-01",
+      "same-page-no-semantic-anchor-book-2-packet-02",
+      "same-page-no-semantic-anchor-book-2-packet-03",
+      "same-page-no-semantic-anchor-book-2-packet-04",
+      "same-page-no-semantic-anchor-book-5-packet-01"
+    ],
+    "no_anchor_packet_ids": [
+      "same-page-no-semantic-anchor-book-1-packet-01",
+      "same-page-no-semantic-anchor-book-2-packet-01",
+      "same-page-no-semantic-anchor-book-2-packet-02",
+      "same-page-no-semantic-anchor-book-2-packet-03",
+      "same-page-no-semantic-anchor-book-2-packet-04",
+      "same-page-no-semantic-anchor-book-3-packet-01",
+      "same-page-no-semantic-anchor-book-4-packet-01",
+      "same-page-no-semantic-anchor-book-5-packet-01"
+    ]
+  },
+  "progress_model": {
+    "historical_progress_file": "content/migration/reading-segment-source-review-progress.json",
+    "current_progress_file": "content/migration/reading-segment-source-review-progress-current.json",
+    "historical_progress_is_immutable": true,
+    "later_prs_must_read_current_progress": true
+  },
+  "integration_rules": {
+    "resolved_decision_moves_pending_to_reviewed": true,
+    "unresolved_decision_moves_pending_to_unresolved": true,
+    "prepared_items_remain_pending": true,
+    "affected_packets_remain_open": true,
+    "completed_packet_count_change": 0,
+    "pending_packet_count_change": 0,
+    "packet_status_after_partial_integration": "review-in-progress-not-applied"
+  },
+  "integration_boundary": {
+    "validated_decisions_integrated": true,
+    "current_progress_snapshot_created": true,
+    "historical_progress_modified": false,
+    "historical_validators_modified": false,
+    "historical_tests_modified": false,
+    "historical_decision_artifacts_modified": false,
+    "historical_discovery_artifacts_modified": false,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_loaded": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}

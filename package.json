@@ -93,7 +93,9 @@
     "content:staging:segments:source-review:no-anchor:ambiguous:packet:prepare": "python scripts/content_pipeline/prepare_no_anchor_ambiguous_review_packet.py",
     "content:staging:segments:source-review:no-anchor:ambiguous:packet:validate": "node scripts/content_pipeline/validate_no_anchor_ambiguous_review_packet.mjs",
     "content:staging:segments:source-review:no-anchor:ambiguous:adjudicate": "python scripts/content_pipeline/adjudicate_no_anchor_ambiguous_review.py",
-    "content:staging:segments:source-review:no-anchor:ambiguous:adjudication:validate": "node scripts/content_pipeline/validate_no_anchor_ambiguous_adjudication.mjs"
+    "content:staging:segments:source-review:no-anchor:ambiguous:adjudication:validate": "node scripts/content_pipeline/validate_no_anchor_ambiguous_adjudication.mjs",
+    "content:staging:segments:source-review:no-anchor:ambiguous:progress:integrate": "python scripts/content_pipeline/integrate_no_anchor_ambiguous_progress.py",
+    "content:staging:segments:source-review:no-anchor:ambiguous:progress:validate": "node scripts/content_pipeline/validate_no_anchor_ambiguous_progress_integration.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
