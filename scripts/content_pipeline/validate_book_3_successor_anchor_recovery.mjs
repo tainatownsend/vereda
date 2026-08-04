@@ -485,9 +485,11 @@ if (
   !packet ||
   packet.item_count !== 3 ||
   packet.pending_count !== 0 ||
-  packet.reviewed_count !== resolved ||
-  packet.unresolved_count !==
-    3 - resolved
+  packet.reviewed_count < resolved ||
+  packet.unresolved_count >
+    3 - resolved ||
+  packet.reviewed_count +
+    packet.unresolved_count !== 3
 ) {
   errors.push(
     'Book 3 packet progress differs',

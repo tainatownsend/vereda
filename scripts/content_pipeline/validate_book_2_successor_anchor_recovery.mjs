@@ -442,10 +442,13 @@ if (
   progress.totals?.item_count !== 144 ||
   progress.totals?.packet_count !== 16 ||
   progress.totals?.pending_count !== 126 ||
-  progress.totals?.reviewed_count !==
+  progress.totals?.reviewed_count <
     5 + resolved ||
-  progress.totals?.unresolved_count !==
+  progress.totals?.unresolved_count >
     13 - resolved ||
+  progress.totals?.reviewed_count +
+    progress.totals?.unresolved_count !==
+    18 ||
   progress.totals
     ?.public_decision_count !== 18 ||
   progress.totals
@@ -511,9 +514,15 @@ if (
     1 + resolved ||
   book2Packet.unresolved_count !==
     8 - resolved ||
+  book2Packet.reviewed_count +
+    book2Packet.unresolved_count !== 9 ||
   !book3Packet ||
-  book3Packet.reviewed_count !== 1 ||
-  book3Packet.unresolved_count !== 2
+  book3Packet.item_count !== 3 ||
+  book3Packet.pending_count !== 0 ||
+  book3Packet.reviewed_count < 1 ||
+  book3Packet.unresolved_count > 2 ||
+  book3Packet.reviewed_count +
+    book3Packet.unresolved_count !== 3
 ) {
   errors.push(
     'Book 2 or Book 3 packet progress differs',

@@ -77,7 +77,9 @@
     "content:staging:segments:source-review:recovery:consolidate": "node scripts/content_pipeline/consolidate_unresolved_recoveries.mjs",
     "content:staging:segments:source-review:recovery:consolidation:validate": "node scripts/content_pipeline/validate_unresolved_recovery_consolidation.mjs",
     "content:staging:segments:source-review:manual:book-3:packet:prepare": "python scripts/content_pipeline/prepare_book_3_manual_adjudication_packet.py",
-    "content:staging:segments:source-review:manual:book-3:packet:validate": "node scripts/content_pipeline/validate_book_3_manual_adjudication_packet.mjs"
+    "content:staging:segments:source-review:manual:book-3:packet:validate": "node scripts/content_pipeline/validate_book_3_manual_adjudication_packet.mjs",
+    "content:staging:segments:source-review:manual:book-3:adjudicate": "python scripts/content_pipeline/record_book_3_manual_adjudication.py",
+    "content:staging:segments:source-review:manual:book-3:adjudication:validate": "node scripts/content_pipeline/validate_book_3_manual_adjudication.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
