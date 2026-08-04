@@ -2,13 +2,16 @@ import { readFile } from 'node:fs/promises'
 import { canonicalJsonSha256, HASH_ALGORITHMS } from './hash_utils.mjs'
 import { canResolveConfirmSuccessorStart, deriveDecisionTotals, selectedCandidateIndex } from './remaining_no_anchor_backlog_rules.mjs'
 
+export const PR0046_CURRENT_PROGRESS_SNAPSHOT = 'content/migration/reading-segment-source-review-progress-pr0045-current.json'
 const readJson = async (path) => JSON.parse(await readFile(path, 'utf8'))
+
+export const validateRemainingNoAnchorBacklogAdjudication = async ({ currentProgressPath = PR0046_CURRENT_PROGRESS_SNAPSHOT } = {}) => {
 const [policy, decisions, plan, corpus, currentProgress, historicalProgress, pr0044, gitignore] = await Promise.all([
   readJson('content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-policy.json'),
   readJson('content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json'),
   readJson('content/migration/reading-segment-remaining-no-anchor-backlog-integration-plan.json'),
   readJson('content/migration/reading-segment-no-anchor-discovery-corpus.json'),
-  readJson('content/migration/reading-segment-source-review-progress-current.json'),
+  readJson(currentProgressPath),
   readJson('content/migration/reading-segment-source-review-progress.json'),
   readJson('content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json'),
   readFile('.gitignore', 'utf8'),
@@ -109,7 +112,7 @@ const projectedState = Object.fromEntries(Object.entries(currentState).map(([key
 if (JSON.stringify(plan.current_state) !== JSON.stringify(currentState) || JSON.stringify(plan.planned_delta) !== JSON.stringify(plannedDelta) || JSON.stringify(plan.projected_state) !== JSON.stringify(projectedState)) errors.push('integration projection differs')
 const expectedHashes = {
   historical_progress: await canonicalJsonSha256('content/migration/reading-segment-source-review-progress.json'),
-  current_progress: await canonicalJsonSha256('content/migration/reading-segment-source-review-progress-current.json'),
+  current_progress: await canonicalJsonSha256(currentProgressPath),
   discovery_corpus: await canonicalJsonSha256('content/migration/reading-segment-no-anchor-discovery-corpus.json'),
   pr0044_decisions: await canonicalJsonSha256('content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json'),
 }
@@ -117,9 +120,22 @@ for (const [name, hash] of Object.entries(expectedHashes)) {
   if (decisions.input_hashes?.[name]?.hash_algorithm !== HASH_ALGORITHMS.canonicalJsonSha256 || decisions.input_hashes?.[name]?.sha256 !== hash) errors.push(`${name} canonical hash differs`)
 }
 if (!gitignore.split(/\r?\n/).includes('.vereda-private/')) errors.push('private workspace is not ignored')
+if (currentProgressPath !== PR0046_CURRENT_PROGRESS_SNAPSHOT) errors.push('historical PR-0046 validator must use the archived pre-PR-0047 current snapshot')
 if (errors.length) {
+  const error = new Error(errors.join('\n'))
+  error.errors = errors
+  throw error
+}
+return { decisionCount: derivedTotals.decision_count, uniqueHighestCount, tiedHighestCount }
+}
+
+try {
+  if (import.meta.url === (await import('node:url')).pathToFileURL(process.argv[1]).href) {
+    const result = await validateRemainingNoAnchorBacklogAdjudication()
+    console.log(`Remaining no-anchor backlog adjudication validation passed: ${result.decisionCount} decisions; ${result.uniqueHighestCount} unique highest-score items; ${result.tiedHighestCount} tied highest-score items; integration deferred.`)
+  }
+} catch (error) {
   console.error('Remaining no-anchor backlog adjudication validation failed:')
-  for (const error of errors) console.error(`- ${error}`)
+  for (const message of error.errors || [error.message]) console.error(`- ${message}`)
   process.exit(1)
 }
-console.log(`Remaining no-anchor backlog adjudication validation passed: ${derivedTotals.decision_count} decisions; ${uniqueHighestCount} unique highest-score items; ${tiedHighestCount} tied highest-score items; integration deferred.`)

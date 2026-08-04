@@ -24,7 +24,7 @@ const historical = readJson(
   'content/migration/reading-segment-source-review-progress.json',
 )
 const current = readJson(
-  'content/migration/reading-segment-source-review-progress-current.json',
+  'content/migration/reading-segment-source-review-progress-pr0045-current.json',
 )
 const evidence = readJson(
   'content/migration/reading-segment-no-anchor-ambiguous-progress-integration-evidence.json',
@@ -55,7 +55,7 @@ describe(
     )
 
     it(
-      'creates the current cumulative state',
+      'validates the archived PR-0045 current cumulative state',
       () => {
         expect(
           current.status,

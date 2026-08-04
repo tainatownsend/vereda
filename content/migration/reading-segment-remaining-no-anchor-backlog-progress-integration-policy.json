@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "accepted-for-remaining-no-anchor-backlog-progress-integration",
+  "policy_version": "pr-0047-remaining-no-anchor-backlog-progress-integration-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "rights_status": "credited-source-edition",
+  "progress_model": {
+    "historical_progress_file": "content/migration/reading-segment-source-review-progress.json",
+    "current_progress_file": "content/migration/reading-segment-source-review-progress-current.json",
+    "historical_progress_is_immutable": true,
+    "later_prs_must_read_current_progress": true
+  },
+  "integration_rules": {
+    "decision_count": 63,
+    "all_decisions_must_be_currently_pending": true,
+    "resolved_decision_moves_pending_to_reviewed": true,
+    "unresolved_decision_moves_pending_to_unresolved": true,
+    "packet_completion_derived_from_remaining_pending_items": true,
+    "public_decisions_are_counted_once": true,
+    "hash_algorithm": "sha256-canonical-json-v1"
+  },
+  "integration_boundary": {
+    "cumulative_progress_updated": true,
+    "historical_progress_modified": false,
+    "historical_artifacts_modified": false,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "private_evidence_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "staging_tables_modified": false,
+    "supabase_modified": false,
+    "production_modified": false,
+    "ui_modified": false,
+    "reader_sessions_modified": false,
+    "user_progress_modified": false,
+    "cutover_enabled": false
+  }
+}
