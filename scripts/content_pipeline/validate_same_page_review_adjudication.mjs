@@ -369,14 +369,16 @@ if (
 }
 
 if (
-  progress.status !==
-    'remaining-manual-adjudication-recorded-not-applied' ||
-  progress.totals?.reviewed_count !== 16 ||
-  progress.totals?.unresolved_count !== 2 ||
-  progress.totals?.pending_count !== 126 ||
-  progress.totals?.public_decision_count !== 18 ||
-  progress.totals?.completed_packet_count !== 4 ||
-  progress.totals?.pending_packet_count !== 12
+  ![
+    'remaining-manual-adjudication-recorded-not-applied',
+    'same-page-review-integrated-not-applied',
+  ].includes(progress.status) ||
+  progress.totals?.reviewed_count < 16 ||
+  progress.totals?.unresolved_count > 2 ||
+  progress.totals?.pending_count > 126 ||
+  progress.totals?.public_decision_count < 18 ||
+  progress.totals?.completed_packet_count < 4 ||
+  progress.totals?.pending_packet_count > 12
 ) {
   errors.push(
     'cumulative progress changed in the adjudication PR',

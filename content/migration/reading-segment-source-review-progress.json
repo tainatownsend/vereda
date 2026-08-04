@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
-  "status": "remaining-manual-adjudication-recorded-not-applied",
-  "policy_version": "2026-08-03-remaining-manual-adjudication-v1",
+  "status": "same-page-review-integrated-not-applied",
+  "policy_version": "2026-08-03-same-page-progress-integration-v1",
   "run_id": "adcff561-8f92-545c-a219-615818a454f4",
   "totals": {
     "item_count": 144,
     "packet_count": 16,
-    "pending_count": 126,
+    "pending_count": 88,
     "in_review_count": 0,
-    "reviewed_count": 16,
+    "reviewed_count": 54,
     "unresolved_count": 2,
-    "public_decision_count": 18,
-    "completed_packet_count": 4,
-    "pending_packet_count": 12,
+    "public_decision_count": 56,
+    "completed_packet_count": 8,
+    "pending_packet_count": 8,
     "completed_mechanical_count": 166,
     "remaining_boundary_review_count": 646,
     "database_change_count": 0,
@@ -36,7 +36,12 @@
     "manual_adjudication_still_unresolved_count": 2,
     "manual_adjudication_remaining_count": 2,
     "manual_adjudication_completed_batch_count": 4,
-    "manual_adjudication_pending_batch_count": 0
+    "manual_adjudication_pending_batch_count": 0,
+    "same_page_review_item_count": 38,
+    "same_page_review_reviewed_count": 38,
+    "same_page_review_unresolved_count": 0,
+    "same_page_review_excluded_count": 38,
+    "same_page_review_completed_packet_count": 4
   },
   "packets": [
     {
@@ -88,44 +93,44 @@
       "book_id": 1,
       "inspection_lane": "container-intro-same-page",
       "item_count": 20,
-      "pending_count": 20,
+      "pending_count": 0,
       "in_review_count": 0,
-      "reviewed_count": 0,
+      "reviewed_count": 20,
       "unresolved_count": 0,
-      "status": "pending"
+      "status": "reviewed-not-applied"
     },
     {
       "packet_id": "container-intro-same-page-book-1-packet-02",
       "book_id": 1,
       "inspection_lane": "container-intro-same-page",
       "item_count": 3,
-      "pending_count": 3,
+      "pending_count": 0,
       "in_review_count": 0,
-      "reviewed_count": 0,
+      "reviewed_count": 3,
       "unresolved_count": 0,
-      "status": "pending"
+      "status": "reviewed-not-applied"
     },
     {
       "packet_id": "container-intro-same-page-book-4-packet-01",
       "book_id": 4,
       "inspection_lane": "container-intro-same-page",
       "item_count": 5,
-      "pending_count": 5,
+      "pending_count": 0,
       "in_review_count": 0,
-      "reviewed_count": 0,
+      "reviewed_count": 5,
       "unresolved_count": 0,
-      "status": "pending"
+      "status": "reviewed-not-applied"
     },
     {
       "packet_id": "container-intro-same-page-book-5-packet-01",
       "book_id": 5,
       "inspection_lane": "container-intro-same-page",
       "item_count": 10,
-      "pending_count": 10,
+      "pending_count": 0,
       "in_review_count": 0,
-      "reviewed_count": 0,
+      "reviewed_count": 10,
       "unresolved_count": 0,
-      "status": "pending"
+      "status": "reviewed-not-applied"
     },
     {
       "packet_id": "same-page-no-semantic-anchor-book-1-packet-01",

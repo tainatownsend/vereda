@@ -373,14 +373,13 @@ if (
 if (
   progress.totals?.item_count !== 144 ||
   progress.totals?.packet_count !== 16 ||
-  progress.totals?.pending_count !== 126 ||
+  progress.totals?.pending_count > 126 ||
   progress.totals?.reviewed_count < 11 ||
   progress.totals?.unresolved_count > 7 ||
   progress.totals?.reviewed_count +
-    progress.totals?.unresolved_count !==
-    18 ||
+    progress.totals?.unresolved_count < 18 ||
   progress.totals
-    ?.public_decision_count !== 18 ||
+    ?.public_decision_count < 18 ||
   progress.totals
     ?.manual_adjudication_item_count !== 7 ||
   progress.totals

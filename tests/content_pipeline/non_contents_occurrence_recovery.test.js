@@ -122,13 +122,12 @@ describe('non-contents occurrence recovery', () => {
     const resolved =
       recovery.totals.resolved_count
 
-    expect(progress.totals).toMatchObject({
+    expect(
+      progress.totals,
+    ).toMatchObject({
       item_count: 144,
       packet_count: 16,
-      pending_count: 126,
-      public_decision_count: 18,
-      completed_packet_count: 4,
-      pending_packet_count: 12,
+
       title_window_recovered_count: 0,
       title_window_still_unresolved_count: 3,
       non_contents_recovered_count:
@@ -137,6 +136,18 @@ describe('non-contents occurrence recovery', () => {
         1 - resolved,
       database_change_count: 0,
     })
+    expect(
+      progress.totals.pending_count,
+    ).toBeLessThanOrEqual(126)
+    expect(
+      progress.totals.public_decision_count,
+    ).toBeGreaterThanOrEqual(18)
+    expect(
+      progress.totals.completed_packet_count,
+    ).toBeGreaterThanOrEqual(4)
+    expect(
+      progress.totals.pending_packet_count,
+    ).toBeLessThanOrEqual(12)
     expect(
       progress.totals.reviewed_count,
     ).toBeGreaterThanOrEqual(
@@ -150,7 +161,7 @@ describe('non-contents occurrence recovery', () => {
     expect(
       progress.totals.reviewed_count +
         progress.totals.unresolved_count,
-    ).toBe(18)
+    ).toBeGreaterThanOrEqual(18)
   })
 
   it('preserves the complete non-application boundary', () => {

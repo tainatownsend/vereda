@@ -365,11 +365,7 @@ for (
 const preservedProgress = {
   item_count: 144,
   packet_count: 16,
-  pending_count: 126,
   in_review_count: 0,
-  public_decision_count: 18,
-  completed_packet_count: 4,
-  pending_packet_count: 12,
   completed_mechanical_count: 166,
   remaining_boundary_review_count: 646,
   database_change_count: 0,
@@ -392,11 +388,21 @@ for (const [
 }
 
 if (
+  progress.totals?.pending_count > 126 ||
+  progress.totals?.public_decision_count < 18 ||
+  progress.totals?.completed_packet_count < 4 ||
+  progress.totals?.pending_packet_count > 12
+) {
+  errors.push(
+    'container-intro cumulative progress regressed',
+  )
+}
+
+if (
   progress.totals?.reviewed_count < 4 ||
   progress.totals?.unresolved_count > 14 ||
   progress.totals?.reviewed_count +
-    progress.totals?.unresolved_count !==
-    18
+    progress.totals?.unresolved_count < 18
 ) {
   errors.push(
     'cumulative reviewed and unresolved totals are inconsistent',
@@ -443,18 +449,14 @@ for (
       )
     }
   } else if (
-    packet.packet_id !==
-      pilot.packet_id &&
-    (
-      packet.pending_count !==
-        packet.item_count ||
-      packet.reviewed_count !== 0 ||
-      packet.unresolved_count !== 0 ||
-      packet.status !== 'pending'
-    )
+    packet.pending_count +
+      packet.reviewed_count +
+      packet.unresolved_count !==
+      packet.item_count ||
+    packet.in_review_count !== 0
   ) {
     errors.push(
-      `${packet.packet_id}: non-target packet changed`,
+      `${packet.packet_id}: later packet progress is inconsistent`,
     )
   }
 }

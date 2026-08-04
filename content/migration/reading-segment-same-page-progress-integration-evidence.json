@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "status": "same-page-review-progress-integrated-not-applied",
+  "policy_version": "2026-08-03-same-page-progress-integration-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "generated_at": "2026-08-04T03:46:46Z",
+  "input_hashes": {
+    "decision_artifact_sha256": "06afc710992b602063a12e6c747e04d826311aa88cf94851631c12046da92783",
+    "integration_plan_sha256": "bf0eac197200c57787841795ca9b729e480cfa005cd87732c06cb3721adf257b",
+    "progress_before_sha256": "9e969048acb1e62b7a15ae04ffba308bb9ab1634574f3366209b5de25bc5c85f"
+  },
+  "current_state": {
+    "reviewed_count": 16,
+    "unresolved_count": 2,
+    "pending_count": 126,
+    "public_decision_count": 18,
+    "completed_packet_count": 4,
+    "pending_packet_count": 12
+  },
+  "applied_delta": {
+    "reviewed_count": 38,
+    "unresolved_count": 0,
+    "pending_count": -38,
+    "public_decision_count": 38,
+    "completed_packet_count": 4,
+    "pending_packet_count": -4
+  },
+  "integrated_state": {
+    "reviewed_count": 54,
+    "unresolved_count": 2,
+    "pending_count": 88,
+    "public_decision_count": 56,
+    "completed_packet_count": 8,
+    "pending_packet_count": 8
+  },
+  "updated_packet_ids": [
+    "container-intro-same-page-book-1-packet-01",
+    "container-intro-same-page-book-1-packet-02",
+    "container-intro-same-page-book-4-packet-01",
+    "container-intro-same-page-book-5-packet-01"
+  ],
+  "preserved_pending_lane": {
+    "inspection_lane": "same-page-no-semantic-anchor",
+    "packet_count": 8,
+    "item_count": 88
+  },
+  "preserved_manual_state": {
+    "unresolved_count": 2,
+    "manual_adjudication_reviewed_count": 7,
+    "manual_adjudication_resolved_count": 5,
+    "manual_adjudication_still_unresolved_count": 2
+  },
+  "integration_boundary": {
+    "validated_decisions_integrated": true,
+    "cumulative_progress_modified": true,
+    "packet_progress_modified": true,
+    "historical_validator_compatibility_updated": true,
+    "historical_test_compatibility_updated": true,
+    "historical_decision_artifacts_modified": false,
+    "historical_audit_modified": false,
+    "source_text_read": false,
+    "source_text_committed": false,
+    "source_excerpt_committed": false,
+    "boundary_approved": false,
+    "sql_generated": false,
+    "database_change_applied": false,
+    "content_approved": false,
+    "content_loaded": false,
+    "successor_mapping_created": false,
+    "dependency_snapshot_captured": false,
+    "production_modified": false,
+    "progress_migrated": false,
+    "reading_sessions_rewritten": false,
+    "cutover_enabled": false
+  }
+}
