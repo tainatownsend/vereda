@@ -3,6 +3,15 @@ import { readFile } from 'node:fs/promises'
 const readJson = async (filePath) =>
   JSON.parse(await readFile(filePath, 'utf8'))
 
+const isSupportedCumulativeStatus = (
+  status,
+) =>
+  typeof status === 'string' &&
+  (
+    status.endsWith('-not-applied') ||
+    status.endsWith('-not-reviewed')
+  )
+
 const [
   policy,
   sources,
@@ -86,8 +95,7 @@ if (
     'accepted-for-non-contents-recovery' ||
   recovery.status !==
     'non-contents-recovery-recorded-not-applied' ||
-  (typeof progress.status !== 'string' ||
-    !progress.status.endsWith('-not-applied'))
+  (!isSupportedCumulativeStatus(progress.status))
 ) {
   errors.push(
     'policy, recovery, or progress status differs',

@@ -3,6 +3,15 @@ import { readFile } from 'node:fs/promises'
 const readJson = async (filePath) =>
   JSON.parse(await readFile(filePath, 'utf8'))
 
+const isSupportedCumulativeStatus = (
+  status,
+) =>
+  typeof status === 'string' &&
+  (
+    status.endsWith('-not-applied') ||
+    status.endsWith('-not-reviewed')
+  )
+
 const [
   policy,
   decisions,
@@ -369,8 +378,7 @@ for (const forbidden of [
 
 if (
   (
-    typeof progress.status !== 'string' ||
-    !progress.status.endsWith('-not-applied')
+    !isSupportedCumulativeStatus(progress.status)
   ) ||
   progress.totals?.pending_count !== 126 ||
   progress.totals?.reviewed_count < 4 ||

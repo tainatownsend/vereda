@@ -75,7 +75,9 @@
     "content:staging:segments:source-review:successor-anchor:book-2:recover": "python scripts/content_pipeline/recover_book_2_successor_anchors.py",
     "content:staging:segments:source-review:successor-anchor:book-2:validate": "node scripts/content_pipeline/validate_book_2_successor_anchor_recovery.mjs",
     "content:staging:segments:source-review:recovery:consolidate": "node scripts/content_pipeline/consolidate_unresolved_recoveries.mjs",
-    "content:staging:segments:source-review:recovery:consolidation:validate": "node scripts/content_pipeline/validate_unresolved_recovery_consolidation.mjs"
+    "content:staging:segments:source-review:recovery:consolidation:validate": "node scripts/content_pipeline/validate_unresolved_recovery_consolidation.mjs",
+    "content:staging:segments:source-review:manual:book-3:packet:prepare": "python scripts/content_pipeline/prepare_book_3_manual_adjudication_packet.py",
+    "content:staging:segments:source-review:manual:book-3:packet:validate": "node scripts/content_pipeline/validate_book_3_manual_adjudication_packet.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
