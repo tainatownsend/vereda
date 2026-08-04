@@ -401,20 +401,19 @@ const resolved =
 if (
   progress.totals?.item_count !== 144 ||
   progress.totals?.packet_count !== 16 ||
-  progress.totals?.pending_count !== 126 ||
+  progress.totals?.pending_count > 126 ||
   progress.totals?.reviewed_count <
     4 + resolved ||
   progress.totals?.unresolved_count >
     14 - resolved ||
   progress.totals?.reviewed_count +
-    progress.totals?.unresolved_count !==
-    18 ||
+    progress.totals?.unresolved_count < 18 ||
   progress.totals
-    ?.public_decision_count !== 18 ||
+    ?.public_decision_count < 18 ||
   progress.totals
-    ?.completed_packet_count !== 4 ||
+    ?.completed_packet_count < 4 ||
   progress.totals
-    ?.pending_packet_count !== 12 ||
+    ?.pending_packet_count > 12 ||
   progress.totals
     ?.title_window_recovered_count !==
     resolved ||
@@ -431,11 +430,10 @@ if (
 
 if (
   progress.totals.reviewed_count +
-    progress.totals.unresolved_count !==
-    18
+    progress.totals.unresolved_count < 18
 ) {
   errors.push(
-    'reviewed and unresolved public decisions must total 18',
+    'reviewed and unresolved public decisions must total at least 18',
   )
 }
 

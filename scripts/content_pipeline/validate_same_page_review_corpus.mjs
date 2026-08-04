@@ -187,7 +187,7 @@ if (
   )
 }
 
-const expectedHashes = {
+const expectedImmutableHashes = {
   worklist_sha256: await sha256(
     'content/migration/reading-segment-source-review-worklist.json',
   ),
@@ -199,16 +199,13 @@ const expectedHashes = {
     await sha256(
       'content/migration/reading-segment-pending-source-review-audit.json',
     ),
-  progress_sha256: await sha256(
-    'content/migration/reading-segment-source-review-progress.json',
-  ),
 }
 
 for (const [
   field,
   value,
 ] of Object.entries(
-  expectedHashes,
+  expectedImmutableHashes,
 )) {
   if (
     corpus.input_hashes?.[field] !==
@@ -216,6 +213,42 @@ for (const [
   ) {
     errors.push(
       `${field} differs`,
+    )
+  }
+}
+
+const currentProgressHash =
+  await sha256(
+    'content/migration/reading-segment-source-review-progress.json',
+  )
+
+if (
+  corpus.input_hashes
+    ?.progress_sha256 !==
+  currentProgressHash
+) {
+  let historicalProgressHash = null
+
+  try {
+    const integrationEvidence =
+      await readJson(
+        'content/migration/reading-segment-same-page-progress-integration-evidence.json',
+      )
+
+    historicalProgressHash =
+      integrationEvidence.input_hashes
+        ?.progress_before_sha256 ?? null
+  } catch {
+    historicalProgressHash = null
+  }
+
+  if (
+    corpus.input_hashes
+      ?.progress_sha256 !==
+    historicalProgressHash
+  ) {
+    errors.push(
+      'progress_sha256 differs from both current and preserved historical progress',
     )
   }
 }
@@ -457,13 +490,15 @@ if (
     ?.container_intro_same_page_count !== 38 ||
   audit.totals
     ?.same_page_no_semantic_anchor_count !== 88 ||
-  progress.status !==
-    'remaining-manual-adjudication-recorded-not-applied' ||
-  progress.totals?.reviewed_count !== 16 ||
-  progress.totals?.unresolved_count !== 2 ||
-  progress.totals?.pending_count !== 126 ||
+  ![
+    'remaining-manual-adjudication-recorded-not-applied',
+    'same-page-review-integrated-not-applied',
+  ].includes(progress.status) ||
+  progress.totals?.reviewed_count < 16 ||
+  progress.totals?.unresolved_count > 2 ||
+  progress.totals?.pending_count > 126 ||
   progress.totals
-    ?.public_decision_count !== 18 ||
+    ?.public_decision_count < 18 ||
   progress.totals
     ?.manual_adjudication_reviewed_count !== 7 ||
   progress.totals

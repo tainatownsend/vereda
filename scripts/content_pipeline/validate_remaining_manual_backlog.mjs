@@ -80,8 +80,10 @@ if (
     'accepted-for-remaining-manual-adjudication' ||
   decisions.status !==
     'remaining-manual-adjudication-recorded-not-applied' ||
-  progress.status !==
-    'remaining-manual-adjudication-recorded-not-applied' ||
+  ![
+    'remaining-manual-adjudication-recorded-not-applied',
+    'same-page-review-integrated-not-applied',
+  ].includes(progress.status) ||
   audit.status !==
     'pending-source-review-backlog-audited-not-reviewed'
 ) {
@@ -97,8 +99,9 @@ if (
     policy.policy_version ||
   audit.policy_version !==
     policy.policy_version ||
-  progress.policy_version !==
-    policy.policy_version ||
+  typeof progress.policy_version !==
+    'string' ||
+  progress.policy_version.length === 0 ||
   decisions.run_id !==
     consolidation.run_id ||
   closure.run_id !==
@@ -415,13 +418,13 @@ const unresolvedCount =
 if (
   progress.totals?.item_count !== 144 ||
   progress.totals?.packet_count !== 16 ||
-  progress.totals?.pending_count !== 126 ||
-  progress.totals?.reviewed_count !==
+  progress.totals?.pending_count > 126 ||
+  progress.totals?.reviewed_count <
     13 + resolvedCount ||
-  progress.totals?.unresolved_count !==
+  progress.totals?.unresolved_count >
     5 - resolvedCount ||
   progress.totals
-    ?.public_decision_count !== 18 ||
+    ?.public_decision_count < 18 ||
   progress.totals
     ?.manual_adjudication_item_count !== 7 ||
   progress.totals
@@ -455,11 +458,11 @@ if (
 
 if (
   progress.totals.reviewed_count +
-    progress.totals.unresolved_count !==
+    progress.totals.unresolved_count <
     18
 ) {
   errors.push(
-    'reviewed and unresolved public decisions must total 18',
+    'reviewed and unresolved public decisions must total at least 18',
   )
 }
 

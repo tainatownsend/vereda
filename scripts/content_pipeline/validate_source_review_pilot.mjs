@@ -296,14 +296,12 @@ if (
   progress.totals?.in_review_count !== 0 ||
   progress.totals?.pending_count +
     progress.totals?.reviewed_count +
-    progress.totals?.unresolved_count !==
-    144 ||
+    progress.totals?.unresolved_count !== 144 ||
   progress.totals?.public_decision_count !==
     progress.totals?.reviewed_count +
       progress.totals?.unresolved_count ||
   progress.totals?.completed_packet_count +
-    progress.totals?.pending_packet_count !==
-    16
+    progress.totals?.pending_packet_count !== 16
 ) {
   errors.push(
     'cumulative review progress totals are inconsistent',

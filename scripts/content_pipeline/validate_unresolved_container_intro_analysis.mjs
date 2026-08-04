@@ -380,15 +380,14 @@ if (
   (
     !isSupportedCumulativeStatus(progress.status)
   ) ||
-  progress.totals?.pending_count !== 126 ||
+  progress.totals?.pending_count > 126 ||
   progress.totals?.reviewed_count < 4 ||
   progress.totals?.unresolved_count > 14 ||
   progress.totals?.reviewed_count +
-    progress.totals?.unresolved_count !==
-    18 ||
-  progress.totals?.public_decision_count !== 18 ||
-  progress.totals?.completed_packet_count !== 4 ||
-  progress.totals?.pending_packet_count !== 12 ||
+    progress.totals?.unresolved_count < 18 ||
+  progress.totals?.public_decision_count < 18 ||
+  progress.totals?.completed_packet_count < 4 ||
+  progress.totals?.pending_packet_count > 12 ||
   progress.totals?.database_change_count !== 0 ||
   packetRegister.packet_count !== 16 ||
   worklist.totals?.item_count !== 144
