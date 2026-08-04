@@ -1,0 +1,30 @@
+{
+  "schema_version": "pr0048-reviewed-boundary-application-policy-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "status": "reviewed-boundary-application-package-prepared-not-applied",
+  "rights_status": "credited-source-edition",
+  "hash_algorithm": "sha256-canonical-json-v1",
+  "text_hash_algorithm": "sha256-normalized-lf-text-v1",
+  "database_objects": [
+    "content_staging.reading_segments",
+    "content_staging.migration_audit_events"
+  ],
+  "allowed_outcome_operations": {
+    "confirm-successor-start": "confirm_successor_start",
+    "adjust-successor-start": "adjust_successor_start",
+    "merge-with-successor": "merge_with_successor",
+    "exclude-structural-heading": "merge_with_successor",
+    "retain-intro-segment": "confirm_successor_start"
+  },
+  "application_boundary": {
+    "package_prepared": true,
+    "package_validated": true,
+    "migration_applied": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "production_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "cutover_enabled": false
+  }
+}

@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
+import { sha256LegacyCrlfFromText } from './hash_utils.mjs'
 
 const readJson = async (filePath) =>
   JSON.parse(await readFile(filePath, 'utf8'))
@@ -43,7 +44,7 @@ const [
   readJson(paths.policy),
   readJson(paths.plan),
   readJson(paths.evidence),
-  readFile(paths.plan),
+  readFile(paths.plan, 'utf8'),
   readFile(paths.preflightSql, 'utf8').then(
     normalizeNewlines,
   ),
@@ -53,8 +54,8 @@ const [
   readFile(paths.verificationSql, 'utf8').then(
     normalizeNewlines,
   ),
-  readFile(paths.preflightCsv),
-  readFile(paths.verificationCsv),
+  readFile(paths.preflightCsv, 'utf8'),
+  readFile(paths.verificationCsv, 'utf8'),
 ])
 
 const errors = []
@@ -123,26 +124,41 @@ for (const check of [
 }
 
 const checksumInputs = {
-  application_plan_sha256:
-    planBytes,
-  preflight_sql_sha256:
-    preflightSql,
-  application_sql_sha256:
-    applicationSql,
-  verification_sql_sha256:
-    verificationSql,
-  preflight_csv_sha256:
-    preflightCsv,
-  verification_csv_sha256:
-    verificationCsv,
+  application_plan_sha256: {
+    value: planBytes,
+    hash: sha256LegacyCrlfFromText,
+    compatibility: 'PR-0024/PR-0025 legacy CRLF-normalized historical evidence hash',
+  },
+  preflight_sql_sha256: {
+    value: preflightSql,
+    hash: sha256,
+  },
+  application_sql_sha256: {
+    value: applicationSql,
+    hash: sha256,
+  },
+  verification_sql_sha256: {
+    value: verificationSql,
+    hash: sha256,
+  },
+  preflight_csv_sha256: {
+    value: preflightCsv,
+    hash: sha256LegacyCrlfFromText,
+    compatibility: 'PR-0025 legacy CRLF-normalized historical evidence hash',
+  },
+  verification_csv_sha256: {
+    value: verificationCsv,
+    hash: sha256LegacyCrlfFromText,
+    compatibility: 'PR-0025 legacy CRLF-normalized historical evidence hash',
+  },
 }
 
-for (const [field, bytes] of Object.entries(
+for (const [field, input] of Object.entries(
   checksumInputs,
 )) {
   if (
     evidence.checksums?.[field] !==
-    sha256(bytes)
+    input.hash(input.value)
   ) {
     errors.push(
       `${field}: checksum differs`,

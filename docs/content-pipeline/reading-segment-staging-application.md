@@ -98,3 +98,38 @@ PR-0019 does not:
 - connect staging to the Reader;
 - resolve publication rights;
 - enable cutover.
+
+## PR-0048 reviewed boundary application package
+
+PR-0048 prepares a deterministic, review-only application package for the current cumulative public source-review decision set. It does not execute SQL and does not connect to Supabase.
+
+Commands:
+
+```sh
+npm run content:staging:segments:reviewed-boundary:application:package:build
+npm run content:staging:segments:reviewed-boundary:application:package:validate
+```
+
+Generated artifacts:
+
+- `content/migration/reading-segment-reviewed-boundary-application-policy.json`
+- `content/migration/reading-segment-reviewed-boundary-application-plan.json`
+- `content/migration/reading-segment-reviewed-boundary-application-evidence.json`
+- `content/migration/reports/reading-segment-reviewed-boundary-application-summary.md`
+- `supabase/staging/20260804120000_prepare_reviewed_boundary_application_pr0048.sql`
+- `supabase/audits/reviewed_boundary_application_pr0048_pre_apply_verification.sql`
+- `supabase/audits/reviewed_boundary_application_pr0048_post_apply_verification.sql`
+
+The package records 144 public decisions, excludes the 11 unresolved decisions, and prepares 133 reviewed operations. Final boundary flags remain: package prepared and validated, migration not applied, database/Supabase/production not modified, user progress and reader sessions not modified, and cutover not enabled.
+
+### PR-0048 outcome-to-operation mapping
+
+The reviewed-boundary package derives its operation mapping from the existing source-inspection and adjudication semantics rather than from the generated package alone:
+
+| Public outcome | Eligible? | Operation type | Mutation semantics | Existing authority | Count |
+| --- | --- | --- | --- | --- | ---: |
+| `confirm-successor-start` | Yes | `confirm_successor_start` | Preserve the current segment and successor ordering, record the reviewed boundary trace, and advance the scoped staging segment from `boundary-review` to `content-review`. | `content/migration/reading-segment-source-inspection-policy.json` lists this as a same-page successor-boundary decision; no-anchor adjudication validators accept it as a resolved outcome. | 73 |
+| `adjust-successor-start` | Yes | `adjust_successor_start` | Preserve the current segment identity, use the approved successor-start locator metadata, record the reviewed boundary trace, and advance the scoped staging segment from `boundary-review` to `content-review`. | `content/migration/reading-segment-source-inspection-policy.json` lists this as a same-page successor-boundary decision; no-anchor adjudication validators accept it as a resolved outcome. | 6 |
+| `exclude-structural-heading` | Yes | `merge_with_successor` | Treat the current structural heading as non-independent content, merge the reviewed boundary into the successor relationship, record the reviewed boundary trace, and advance the scoped staging segment from `boundary-review` to `content-review`. | Container-intro and same-page review documentation define this when no independent prose exists between current and successor headings; the source-inspection policy also exposes the equivalent `merge-intro-with-successor` lane option. | 53 |
+| `retain-intro-segment` | Yes | `confirm_successor_start` | Retain the intro as an independent segment because prose exists before the successor, record the reviewed boundary trace, and advance the scoped staging segment from `boundary-review` to `content-review`. | Container-intro documentation defines this when independent prose signals exist between current and successor headings; the source-inspection policy also exposes `retain-intro-and-confirm-successor-start`. | 1 |
+| `unresolved` | No | none | Generate no application SQL operation; record only safe public exclusion metadata. | Source-inspection policy and source-review validators treat unresolved decisions as not approved and not applied. | 11 |
