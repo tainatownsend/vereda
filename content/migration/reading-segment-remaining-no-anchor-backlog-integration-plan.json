@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "status": "remaining-no-anchor-backlog-integration-planned-for-pr-0047-not-applied",
+  "policy_version": "pr-0046-remaining-no-anchor-backlog-adjudication-v1",
+  "source_decision_status": "remaining-no-anchor-backlog-adjudication-recorded-not-integrated",
+  "adjudication_recorded": true,
+  "integration_deferred": true,
+  "pr0047_will_update_cumulative_progress": true,
+  "current_state": {
+    "reviewed_count": 70,
+    "unresolved_count": 11,
+    "pending_count": 63,
+    "public_decision_count": 81,
+    "completed_packet_count": 8,
+    "pending_packet_count": 8
+  },
+  "planned_delta": {
+    "reviewed_count": 63,
+    "unresolved_count": 0,
+    "pending_count": -63,
+    "public_decision_count": 63,
+    "completed_packet_count": 8,
+    "pending_packet_count": -8
+  },
+  "projected_state": {
+    "reviewed_count": 133,
+    "unresolved_count": 11,
+    "pending_count": 0,
+    "public_decision_count": 144,
+    "completed_packet_count": 16,
+    "pending_packet_count": 0
+  },
+  "totals": {
+    "eligible_item_count": 63,
+    "decision_count": 63,
+    "resolved_count": 63,
+    "unresolved_count": 0,
+    "confirm_successor_start_count": 63,
+    "adjust_successor_start_count": 0,
+    "merge_with_successor_count": 0,
+    "candidate_override_count": 0,
+    "manual_review_completed_count": 63,
+    "cumulative_progress_change_count": 0,
+    "boundary_approved_count": 0,
+    "database_change_count": 0
+  },
+  "counts_by_outcome": {
+    "confirm-successor-start": 63,
+    "adjust-successor-start": 0,
+    "merge-with-successor": 0,
+    "unresolved": 0
+  },
+  "counts_by_confidence": {
+    "high": 27,
+    "medium": 36
+  },
+  "outcome_distribution_by_book": {
+    "1": {
+      "confirm-successor-start": 5
+    },
+    "2": {
+      "confirm-successor-start": 49
+    },
+    "3": {
+      "confirm-successor-start": 1
+    },
+    "4": {
+      "confirm-successor-start": 1
+    },
+    "5": {
+      "confirm-successor-start": 7
+    }
+  },
+  "outcome_distribution_by_packet": {
+    "same-page-no-semantic-anchor-book-1-packet-01": {
+      "confirm-successor-start": 5
+    },
+    "same-page-no-semantic-anchor-book-2-packet-01": {
+      "confirm-successor-start": 11
+    },
+    "same-page-no-semantic-anchor-book-2-packet-02": {
+      "confirm-successor-start": 16
+    },
+    "same-page-no-semantic-anchor-book-2-packet-03": {
+      "confirm-successor-start": 14
+    },
+    "same-page-no-semantic-anchor-book-2-packet-04": {
+      "confirm-successor-start": 8
+    },
+    "same-page-no-semantic-anchor-book-3-packet-01": {
+      "confirm-successor-start": 1
+    },
+    "same-page-no-semantic-anchor-book-4-packet-01": {
+      "confirm-successor-start": 1
+    },
+    "same-page-no-semantic-anchor-book-5-packet-01": {
+      "confirm-successor-start": 7
+    }
+  },
+  "packet_level_projected_changes": {
+    "same-page-no-semantic-anchor-book-1-packet-01": {
+      "selected_items": 5,
+      "pending_delta": -5,
+      "projected_packet_status": "completed"
+    },
+    "same-page-no-semantic-anchor-book-2-packet-01": {
+      "selected_items": 11,
+      "pending_delta": -11,
+      "projected_packet_status": "completed"
+    },
+    "same-page-no-semantic-anchor-book-2-packet-02": {
+      "selected_items": 16,
+      "pending_delta": -16,
+      "projected_packet_status": "completed"
+    },
+    "same-page-no-semantic-anchor-book-2-packet-03": {
+      "selected_items": 14,
+      "pending_delta": -14,
+      "projected_packet_status": "completed"
+    },
+    "same-page-no-semantic-anchor-book-2-packet-04": {
+      "selected_items": 8,
+      "pending_delta": -8,
+      "projected_packet_status": "completed"
+    },
+    "same-page-no-semantic-anchor-book-3-packet-01": {
+      "selected_items": 1,
+      "pending_delta": -1,
+      "projected_packet_status": "completed"
+    },
+    "same-page-no-semantic-anchor-book-4-packet-01": {
+      "selected_items": 1,
+      "pending_delta": -1,
+      "projected_packet_status": "completed"
+    },
+    "same-page-no-semantic-anchor-book-5-packet-01": {
+      "selected_items": 7,
+      "pending_delta": -7,
+      "projected_packet_status": "completed"
+    }
+  },
+  "projected_completed_packet_total": 16,
+  "projected_pending_packet_total": 0,
+  "integration_boundary": {
+    "adjudication_recorded": true,
+    "integration_deferred": true,
+    "progress_update_applied": false,
+    "boundary_approved": false,
+    "database_change_applied": false,
+    "source_text_included": false,
+    "source_excerpt_included": false,
+    "private_evidence_included": false,
+    "cutover_enabled": false
+  }
+}
