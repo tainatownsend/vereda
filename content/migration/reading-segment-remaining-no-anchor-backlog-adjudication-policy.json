@@ -3,7 +3,7 @@
   "policy_version": "pr-0046-remaining-no-anchor-backlog-adjudication-v1",
   "status": "accepted-for-remaining-no-anchor-backlog-adjudication",
   "title": "PR-0046 remaining prepared no-anchor backlog adjudication policy",
-  "rights_status": "blocked",
+  "rights_status": "credited-source-edition",
   "contains_full_text": false,
   "contains_source_excerpt": false,
   "hash_algorithm": "sha256-canonical-json-v1",
@@ -33,14 +33,8 @@
     "private_evidence_included": false,
     "cutover_enabled": false
   },
-  "expected_totals": {
+  "expected_eligibility": {
     "eligible_item_count": 63,
-    "decision_count": 63,
-    "resolved_count": 63,
-    "unresolved_count": 0,
-    "confirm_successor_start_count": 63,
-    "adjust_successor_start_count": 0,
-    "merge_with_successor_count": 0,
-    "candidate_override_count": 0
+    "decision_count": 63
   }
 }

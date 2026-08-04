@@ -45,11 +45,12 @@ def candidate_index_for(item: dict[str, Any], pair: dict[str, Any]) -> int:
     return matches[0]
 
 
-def strongest_public_pair(item: dict[str, Any]) -> dict[str, Any]:
+def maximum_score_candidates(item: dict[str, Any]) -> list[dict[str, Any]]:
     candidates = item.get("pair_candidates") or []
     if not candidates:
         raise RuntimeError(f"{item['segment_key']}: no public pair candidates")
-    return max(candidates, key=lambda candidate: candidate.get("pair_score", float("-inf")))
+    maximum_score = max(candidate.get("pair_score", float("-inf")) for candidate in candidates)
+    return [candidate for candidate in candidates if candidate.get("pair_score", float("-inf")) == maximum_score]
 
 
 def confidence_for(item: dict[str, Any], pair: dict[str, Any]) -> str:
@@ -99,7 +100,7 @@ def main() -> None:
         "policy_version": POLICY_VERSION,
         "status": "accepted-for-remaining-no-anchor-backlog-adjudication",
         "title": "PR-0046 remaining prepared no-anchor backlog adjudication policy",
-        "rights_status": "blocked",
+        "rights_status": "credited-source-edition",
         "contains_full_text": False,
         "contains_source_excerpt": False,
         "hash_algorithm": SHA256_CANONICAL_JSON_V1,
@@ -119,15 +120,9 @@ def main() -> None:
             "private_evidence_included": False,
             "cutover_enabled": False,
         },
-        "expected_totals": {
+        "expected_eligibility": {
             "eligible_item_count": 63,
-            "decision_count": 63,
-            "resolved_count": 63,
-            "unresolved_count": 0,
-            "confirm_successor_start_count": 63,
-            "adjust_successor_start_count": 0,
-            "merge_with_successor_count": 0,
-            "candidate_override_count": 0,
+            "decision_count": 63
         },
     }
     write_json("content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-policy.json", policy)
@@ -139,9 +134,9 @@ def main() -> None:
     counts_by_packet: dict[str, collections.Counter[str]] = collections.defaultdict(collections.Counter)
     for item in items:
         pair = item["selected_pair"]
-        strongest = strongest_public_pair(item)
+        top_candidates = maximum_score_candidates(item)
         pair_index = candidate_index_for(item, pair)
-        if pair != strongest or not pair["current_precedes_successor"] or item["pair_ambiguous"]:
+        if len(top_candidates) != 1 or pair != top_candidates[0] or not pair["current_precedes_successor"] or item["pair_ambiguous"]:
             outcome = "unresolved"
             confidence = "low"
             rationale = "Public evidence is not sufficient to identify a strongest ordered successor-start pair without ambiguity."
@@ -214,8 +209,11 @@ def main() -> None:
         "boundary_approved_count": 0,
         "database_change_count": 0,
     }
-    if {key: totals[key] for key in policy["expected_totals"]} != policy["expected_totals"]:
-        raise RuntimeError(f"Unexpected PR-0046 totals: {totals}")
+    if (
+        totals["eligible_item_count"] != policy["expected_eligibility"]["eligible_item_count"]
+        or totals["decision_count"] != policy["expected_eligibility"]["decision_count"]
+    ):
+        raise RuntimeError(f"Unexpected PR-0046 eligibility totals: {totals}")
 
     by_book = collections.defaultdict(list)
     for item in items:
@@ -265,7 +263,7 @@ def main() -> None:
         "status": "remaining-no-anchor-backlog-adjudication-recorded-not-integrated",
         "policy_version": POLICY_VERSION,
         "run_id": corpus["run_id"],
-        "rights_status": "blocked",
+        "rights_status": "credited-source-edition",
         "contains_full_text": False,
         "contains_source_excerpt": False,
         "generated_at": GENERATED_AT,
@@ -291,7 +289,11 @@ def main() -> None:
     write_json("content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json", artifact)
 
     current_state = {key: progress["totals"][key] for key in ["reviewed_count", "unresolved_count", "pending_count", "public_decision_count", "completed_packet_count", "pending_packet_count"]}
-    planned_delta = {"reviewed_count": resolved, "unresolved_count": unresolved, "pending_count": -len(decisions), "public_decision_count": len(decisions), "completed_packet_count": 8, "pending_packet_count": -8}
+    pending_by_packet = {packet["packet_id"]: packet["pending_count"] for packet in progress["packets"] if packet["inspection_lane"] == "same-page-no-semantic-anchor"}
+    decided_by_packet = collections.Counter(decision["packet_id"] for decision in decisions)
+    completed_packet_delta = sum(1 for packet_id, pending_count in pending_by_packet.items() if decided_by_packet[packet_id] == pending_count)
+    pending_packet_delta = -completed_packet_delta
+    planned_delta = {"reviewed_count": resolved, "unresolved_count": unresolved, "pending_count": -len(decisions), "public_decision_count": len(decisions), "completed_packet_count": completed_packet_delta, "pending_packet_count": pending_packet_delta}
     projected_state = {key: current_state[key] + planned_delta[key] for key in current_state}
     plan = {
         "schema_version": 1,
@@ -313,7 +315,7 @@ def main() -> None:
             packet_id: {
                 "selected_items": sum(1 for item in items if item["packet_id"] == packet_id),
                 "pending_delta": -sum(1 for item in items if item["packet_id"] == packet_id),
-                "projected_packet_status": "completed",
+                "projected_packet_status": "completed" if sum(1 for decision in decisions if decision["packet_id"] == packet_id) == pending_by_packet[packet_id] else "still-pending",
             }
             for packet_id in sorted({item["packet_id"] for item in items})
         },
