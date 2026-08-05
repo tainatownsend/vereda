@@ -1,0 +1,75 @@
+{
+  "schema_version": "pr0051-source-review-structural-heading-merge-contract-v1",
+  "contract_id": "reading-segment-source-review-structural-heading-merge-contract-pr0051",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "structural_heading_merge_contract_approved": false,
+  "rights_status": "credited-source-edition",
+  "hash_algorithm": "sha256-canonical-json-v1",
+  "text_hash_algorithm": "sha256-normalized-lf-text-v1",
+  "authority": {
+    "readiness_policy": "content/migration/reading-segment-reviewed-boundary-application-semantics-policy.json",
+    "readiness_plan": "content/migration/reading-segment-reviewed-boundary-application-readiness-plan.json",
+    "status_only_contract": "content/migration/reading-segment-source-review-status-only-contract.json",
+    "successor_locator_contract": "content/migration/reading-segment-source-review-successor-locator-adjustment-contract.json",
+    "staging_schema": "supabase/migrations/20260803033000_content_staging_foundation.sql",
+    "source_inspection_packets": "content/migration/reading-segment-source-inspection-packets.json",
+    "operation_models": "content/migration/reading-segment-source-review-structural-heading-operation-models.json"
+  },
+  "result": {
+    "application_ready_merge_decisions": 0,
+    "complete_operation_records": 0,
+    "incomplete_operation_records": 53,
+    "executable_sql_generated": false,
+    "sql_executed": false
+  },
+  "authorized_mutation": null,
+  "supported_operation_models": [],
+  "rejected_operation_models": [
+    "A-soft-exclusion",
+    "B-status-based-exclusion",
+    "C-logical-merge-without-text-mutation",
+    "D-physical-segment-merge",
+    "E-editorial-node-only-exclusion"
+  ],
+  "changed_fields": [],
+  "preserved_fields": [
+    "source text",
+    "heading segment key",
+    "successor segment key when repository-provided",
+    "segment order",
+    "start locator",
+    "end locator",
+    "book identity",
+    "source-page identity",
+    "user progress",
+    "reader sessions",
+    "bookmarks",
+    "notes",
+    "highlights"
+  ],
+  "preconditions": [],
+  "postconditions": [],
+  "idempotency": {
+    "approved": false,
+    "reason": "No idempotent merge/exclusion operation is approved without complete operation semantics."
+  },
+  "rollback": {
+    "approved": false,
+    "reason": "No rollback is approved without exact changed-field and reference-restoration authority."
+  },
+  "safety_assertions": {
+    "executable_sql_generated": false,
+    "sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "production_modified": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "bookmarks_modified": false,
+    "notes_modified": false,
+    "highlights_modified": false,
+    "cutover_enabled": false
+  }
+}

@@ -105,7 +105,9 @@
     "content:staging:segments:source-review:status-only:contract:build": "node scripts/content_pipeline/build_source_review_status_only_contract.mjs",
     "content:staging:segments:source-review:status-only:contract:validate": "node scripts/content_pipeline/validate_source_review_status_only_contract.mjs",
     "content:staging:segments:source-review:successor-locator:contract:build": "node scripts/content_pipeline/build_source_review_successor_locator_adjustment_contract.mjs",
-    "content:staging:segments:source-review:successor-locator:contract:validate": "node scripts/content_pipeline/validate_source_review_successor_locator_adjustment_contract.mjs"
+    "content:staging:segments:source-review:successor-locator:contract:validate": "node scripts/content_pipeline/validate_source_review_successor_locator_adjustment_contract.mjs",
+    "content:staging:segments:source-review:structural-heading:contract:build": "node scripts/content_pipeline/build_source_review_structural_heading_merge_contract.mjs",
+    "content:staging:segments:source-review:structural-heading:contract:validate": "node scripts/content_pipeline/validate_source_review_structural_heading_merge_contract.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
