@@ -1,0 +1,55 @@
+{
+  "schema_version": "pr0055-reviewed-boundary-audit-triage-baseline-evidence-v1",
+  "validator_command": "npm run content:staging:segments:triage:validate",
+  "base_commit": "91e5a5f0041e1b8f5e8d06146338c9a7060d7b9e",
+  "base_result": "failed: source review queue checksum differs from triage input",
+  "pr0055_result": "failed unchanged: source review queue checksum differs from triage input",
+  "classification": "pre-existing base failure; PR-0055 does not alter consumed triage authority",
+  "consumed_files": [
+    {
+      "path": "content/migration/reading-segment-review-policy.json",
+      "sha256": "a68243da1b380ba80efe03b2b3fc320949ff73dd23b0d058a78c7abc68f3927a",
+      "modified_by_pr0055": false
+    },
+    {
+      "path": "content/migration/reading-segment-design-manifest.json",
+      "sha256": "029eb8dfc2897b43388ab430eff82369a3b89453b7b070375b2d94a20ea98132",
+      "modified_by_pr0055": false
+    },
+    {
+      "path": "content/migration/reading-segment-review-queue.json",
+      "sha256": "3045ca47395bfa47fb883eddaaa6a0b048a4a68e9e80897e2bdba48bb7f3d505",
+      "modified_by_pr0055": false,
+      "actual_checksum": "3045ca47395bfa47fb883eddaaa6a0b048a4a68e9e80897e2bdba48bb7f3d505"
+    },
+    {
+      "path": "content/migration/reading-segment-application-evidence.json",
+      "sha256": "b756ae73ccad3dee7649e2d93e0802415366116f7e42b0efada7f523bf55829c",
+      "modified_by_pr0055": false
+    },
+    {
+      "path": "content/migration/reading-segment-review-triage.json",
+      "sha256": "74762f26cce60d2df87b6c662946f9b2697a6472c04b8b3dff96e2263e1d569d",
+      "modified_by_pr0055": false,
+      "expected_review_queue_checksum": "06d53501303eaca9aa8a1ba9f81aa10fed02801996eba90ba38f9e15b3440b66"
+    },
+    {
+      "path": "content/migration/reading-segment-active-review-queue.json",
+      "sha256": "5fda0aeae4552c61bc0dbfd77da2d601314aa7ef669e190935f15ebaf69ce704",
+      "modified_by_pr0055": false
+    },
+    {
+      "path": "content/migration/reading-segment-deferred-metadata.json",
+      "sha256": "64b44263d40f7c53a6f2ec2ca4985b675be64ab04986aa8401a607eb128bce5a",
+      "modified_by_pr0055": false
+    },
+    {
+      "path": "content/migration/reading-segment-review-batches.json",
+      "sha256": "2e6928c18819734f03283004690f86673e2f9c10b62fe41945bd6fdd98ee0864",
+      "modified_by_pr0055": false
+    }
+  ],
+  "pr0055_changes_consumed_files": false,
+  "schema_interpretation_changed": false,
+  "resolution_rule": "outcome 2: record pre-existing base failure unchanged and add regression coverage; do not claim all validators passed"
+}

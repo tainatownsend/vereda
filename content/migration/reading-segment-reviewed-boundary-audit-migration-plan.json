@@ -1,0 +1,19 @@
+{
+  "schema_version": "pr0055-reviewed-boundary-audit-migration-plan-v1",
+  "approved": true,
+  "migration_path": "supabase/migrations/20260805005500_reviewed_boundary_audit_identity.sql",
+  "deterministic": true,
+  "execute": false,
+  "operations": [
+    "add seven nullable identity columns",
+    "add scoped reviewed-boundary check constraints including length-delimited sha256 event_key equivalence",
+    "add scoped partial unique index on event_key"
+  ],
+  "forbidden_operations": [
+    "insert",
+    "update reading_segments",
+    "application sql",
+    "rollback sql",
+    "external connection"
+  ]
+}

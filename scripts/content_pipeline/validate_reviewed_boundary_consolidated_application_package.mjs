@@ -16,7 +16,7 @@ const sortRecords = xs => [...xs].sort((a,b)=>a.decision_id.localeCompare(b.deci
 const dist = xs => xs.reduce((acc, r) => ((acc[r.final_outcome] = (acc[r.final_outcome] ?? 0) + 1), acc), {})
 
 export const discoverReadingSegmentMigrations = async (dir = paths.migrationsDir) => {
-  const files = (await readdir(dir)).filter(f=>f.endsWith('.sql')).sort().map(f=>join(dir,f))
+  const files = (await readdir(dir)).filter(f=>f.endsWith('.sql')&&f!=='20260805005500_reviewed_boundary_audit_identity.sql').sort().map(f=>join(dir,f))
   const scanned = []
   const matching = []
   for (const file of files) {

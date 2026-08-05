@@ -113,7 +113,9 @@
     "content:staging:segments:reviewed-boundary:consolidated:application:build": "node scripts/content_pipeline/build_reviewed_boundary_consolidated_application_package.mjs",
     "content:staging:segments:reviewed-boundary:consolidated:application:validate": "node scripts/content_pipeline/validate_reviewed_boundary_consolidated_application_package.mjs",
     "content:staging:segments:reviewed-boundary:execution-authority:build": "node scripts/content_pipeline/build_reviewed_boundary_execution_authority.mjs",
-    "content:staging:segments:reviewed-boundary:execution-authority:validate": "node scripts/content_pipeline/validate_reviewed_boundary_execution_authority.mjs"
+    "content:staging:segments:reviewed-boundary:execution-authority:validate": "node scripts/content_pipeline/validate_reviewed_boundary_execution_authority.mjs",
+    "content:staging:segments:reviewed-boundary:audit-identity:build": "node scripts/content_pipeline/build_reviewed_boundary_audit_identity.mjs",
+    "content:staging:segments:reviewed-boundary:audit-identity:validate": "node scripts/content_pipeline/validate_reviewed_boundary_audit_identity.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

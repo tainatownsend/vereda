@@ -1,0 +1,38 @@
+{
+  "schema_version": "pr0055-reviewed-boundary-audit-event-identity-contract-v1",
+  "approved": true,
+  "package_id": "reading-segment-reviewed-boundary-execution",
+  "package_version": "1.0.0",
+  "event_version": 1,
+  "logical_identity": [
+    "package_id",
+    "event_action",
+    "run_id",
+    "decision_id",
+    "book_id",
+    "segment_key",
+    "event_version"
+  ],
+  "event_key_algorithm": "sha256-v1-length-delimited-reviewed-boundary-event-key",
+  "deterministic_event_key": "lowercase hex sha256 of length-delimited canonical material over package_id, event_action, run_id, decision_id, book_id, segment_key, and event_version",
+  "canonical_material_fields": [
+    "package_id",
+    "event_action",
+    "run_id",
+    "decision_id",
+    "book_id",
+    "segment_key",
+    "event_version"
+  ],
+  "canonical_material_encoding": "sha256-v1 label followed by |field_name=decimal_length:value for each identity field in fixed order; nulls are prohibited by reviewed-boundary checks",
+  "collision_handling": "sha256 collision is treated as AUDIT_CONFLICT unless every immutable field and canonical payload also match",
+  "rejects_identity_sources": [
+    "id",
+    "created_at",
+    "random uuid",
+    "details-only serialization"
+  ],
+  "application_event_action": "status-advanced",
+  "rollback_event_action": "status-rollback",
+  "rollback_distinction": "event_action and before/after statuses differ, so application and rollback event_key values differ"
+}

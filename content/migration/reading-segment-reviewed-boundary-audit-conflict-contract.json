@@ -1,0 +1,11 @@
+{
+  "schema_version": "pr0055-reviewed-boundary-audit-conflict-contract-v1",
+  "approved": true,
+  "first_run": "0 matching application events and 74 boundary-review rows: insert 74 immutable events in the same future transaction as status updates",
+  "conflict_target": "ON CONFLICT (event_key) WHERE package_id = 'reading-segment-reviewed-boundary-execution' and event_version = 1 and decision_id is not null and book_id is not null and segment_key is not null and event_action in ('status-advanced', 'status-rollback') and event_key is not null DO NOTHING",
+  "duplicate_behavior": "Predicate-bearing ON CONFLICT may DO NOTHING only when followed by equality verification of every structured identity column, event_type, canonical details payload, run_id, before/after status, target identity, authority_manifest_hash, and package_hash; DO NOTHING alone never proves equality; exact match is verified no-op",
+  "conflicting_duplicate": "same logical identity or event_key with any immutable difference fails closed as AUDIT_CONFLICT",
+  "partial_state": "counts must be exactly 0 or 74 for applicable state; any 1..73 event count, event/status disagreement, or status without event fails closed",
+  "complete_repeat": "74 matching events plus 74 content-review rows is classified as complete verified no-op for application; rollback still requires later authority",
+  "rollback_not_authorized": "schema supports rollback event identity but does not authorize rollback execution"
+}

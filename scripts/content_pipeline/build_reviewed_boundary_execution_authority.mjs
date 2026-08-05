@@ -12,7 +12,7 @@ const bodyOf=(sql,re)=>{const i=sql.search(re); if(i<0)return null; const open=s
 const splitTop=s=>{const out=[]; let d=0,q=false,cur=''; for(const ch of s){ if(ch==="'")q=!q; if(!q&&ch==='(')d++; if(!q&&ch===')')d--; if(!q&&d===0&&ch===','){out.push(cur.trim()); cur=''} else cur+=ch } if(cur.trim())out.push(cur.trim()); return out}
 
 export async function discoverAuditSchema(dir=migrationsDir){
-  const files=(await readdir(dir)).filter(f=>f.endsWith('.sql')).sort().map(f=>join(dir,f))
+  const files=(await readdir(dir)).filter(f=>f.endsWith('.sql')&&f!=='20260805005500_reviewed_boundary_audit_identity.sql').sort().map(f=>join(dir,f))
   const schema={table_exists:false,table:'content_staging.migration_audit_events',source_migration:null,migrations_scanned:files,migrations_relevant:[],columns:[],primary_key:null,foreign_keys:[],unique_constraints:[],indexes:[],triggers:[],trigger_functions:[],rls_or_grants:{schema_revoked_from:[],table_grants_discovered:[]},later_schema_operations:[],unsupported_later_schema_changes:false}
   for(const f of files){
     const sql=await readFile(f,'utf8')

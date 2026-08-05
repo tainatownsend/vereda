@@ -1,0 +1,22 @@
+{
+  "schema_version": "pr0055-reviewed-boundary-audit-compatibility-assessment-v1",
+  "approved": true,
+  "existing_producers": [
+    {
+      "producer": "content_staging_foundation migration functions",
+      "files": [
+        "supabase/migrations/20260803033000_content_staging_foundation.sql"
+      ],
+      "insert_compatibility": "unaffected; new columns nullable for legacy rows"
+    },
+    {
+      "producer": "repository code search",
+      "files": [],
+      "insert_compatibility": "no application code inserting migration_audit_events found outside migrations/tests/artifacts"
+    }
+  ],
+  "legacy_rows": "preserved with null new identity columns; partial unique index excludes them",
+  "existing_insert_compatibility": "existing inserts specifying run_id,event_type,details continue to satisfy nullable added columns and defaults",
+  "unrelated_namespaces": "unaffected because check constraints and unique index are scoped to reviewed-boundary package_id",
+  "producers_requiring_modification": []
+}
