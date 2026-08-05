@@ -1,0 +1,44 @@
+{
+  "schema_version": "pr0052-final-unresolved-adjudication-policy-v3",
+  "rights_status": "credited-source-edition",
+  "allowed_outcomes": [
+    "confirm-successor-start",
+    "adjust-successor-start",
+    "exclude-structural-heading",
+    "retain-intro-segment",
+    "unresolved"
+  ],
+  "allowed_unresolved_reason_codes": [
+    "no-selected-candidate",
+    "successor-identity-unavailable",
+    "insufficient-public-authority-to-distinguish-outcomes"
+  ],
+  "hash_algorithm": "sha256-canonical-json-v1",
+  "text_hash_algorithm": "sha256-normalized-lf-text-v1",
+  "resolution_standard": "resolve only when public repository evidence proves exactly one deterministic existing outcome; low confidence remains unresolved",
+  "confidence_policy": {
+    "adjudication_confidence_values": [
+      "high",
+      "medium",
+      "low"
+    ],
+    "high": "all identities exact, one outcome uniquely supported, no competing interpretation, multiple consistent artifacts",
+    "medium": "one outcome clearly strongest, minor non-material evidence absent, no reasonable competing outcome, and rule permits resolution",
+    "low": "ambiguous, incomplete, conflicting, or source-dependent evidence; final unresolved records must use low adjudication confidence"
+  },
+  "safety_assertions": {
+    "executable_sql_generated": false,
+    "sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "production_modified": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "bookmarks_modified": false,
+    "notes_modified": false,
+    "highlights_modified": false,
+    "cutover_enabled": false
+  }
+}

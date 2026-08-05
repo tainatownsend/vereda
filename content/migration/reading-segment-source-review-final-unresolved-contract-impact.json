@@ -1,0 +1,111 @@
+{
+  "schema_version": "pr0052-final-unresolved-contract-impact-v3",
+  "assessed_decision_count": 11,
+  "application_ready_under_current_contracts": 0,
+  "future_superseding_contract_required_count": 0,
+  "safety_assertions": {
+    "executable_sql_generated": false,
+    "sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "production_modified": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "bookmarks_modified": false,
+    "notes_modified": false,
+    "highlights_modified": false,
+    "cutover_enabled": false
+  },
+  "records": [
+    {
+      "decision_id": "7ed50cfb0fbbb85ff6f4e8cc",
+      "final_outcome": "unresolved",
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false
+    },
+    {
+      "decision_id": "3897756c407152ae53987665",
+      "final_outcome": "unresolved",
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false
+    },
+    {
+      "decision_id": "2c2dc1ac3460e74a5026421d",
+      "final_outcome": "unresolved",
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false
+    },
+    {
+      "decision_id": "db952fd8631751ca9109b6c3",
+      "final_outcome": "unresolved",
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false
+    },
+    {
+      "decision_id": "1e0bd9a0cd99cf00dedd3aa2",
+      "final_outcome": "unresolved",
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false
+    },
+    {
+      "decision_id": "e256bd63353ee92d4ef96065",
+      "final_outcome": "unresolved",
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false
+    },
+    {
+      "decision_id": "85c7cf5ee49d466b5485bcab",
+      "final_outcome": "unresolved",
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false
+    },
+    {
+      "decision_id": "705841cb923bc4d9fa3ac25b",
+      "final_outcome": "unresolved",
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false
+    },
+    {
+      "decision_id": "cbff5e6026f25411e8509d48",
+      "final_outcome": "unresolved",
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false
+    },
+    {
+      "decision_id": "2ef17a38ada4fd37a77787e4",
+      "final_outcome": "unresolved",
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false
+    },
+    {
+      "decision_id": "250162b56cbec579275e37fa",
+      "final_outcome": "unresolved",
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false
+    }
+  ]
+}
