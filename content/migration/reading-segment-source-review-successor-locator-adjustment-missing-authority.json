@@ -1,0 +1,91 @@
+{
+  "schema_version": "pr0050-source-review-successor-locator-adjustment-missing-authority-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "incomplete_decision_count": 6,
+  "records": [
+    {
+      "decision_id": "e473600ca608d57db6a3ea23",
+      "book_id": 1,
+      "packet_id": "same-page-no-semantic-anchor-book-1-packet-01",
+      "missing_authority": [
+        "expected_current_locator",
+        "approved_replacement_locator",
+        "ordering_invariant",
+        "overlap_invariant",
+        "reconstruction_invariant",
+        "audit_requirements",
+        "rollback_behavior"
+      ]
+    },
+    {
+      "decision_id": "e5017ea69081bdcd0c70da11",
+      "book_id": 2,
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-01",
+      "missing_authority": [
+        "expected_current_locator",
+        "approved_replacement_locator",
+        "ordering_invariant",
+        "overlap_invariant",
+        "reconstruction_invariant",
+        "audit_requirements",
+        "rollback_behavior"
+      ]
+    },
+    {
+      "decision_id": "df9c53a270eea25a6c52bab4",
+      "book_id": 2,
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-01",
+      "missing_authority": [
+        "expected_current_locator",
+        "approved_replacement_locator",
+        "ordering_invariant",
+        "overlap_invariant",
+        "reconstruction_invariant",
+        "audit_requirements",
+        "rollback_behavior"
+      ]
+    },
+    {
+      "decision_id": "aae34d255521a908694e178e",
+      "book_id": 2,
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-01",
+      "missing_authority": [
+        "expected_current_locator",
+        "approved_replacement_locator",
+        "ordering_invariant",
+        "overlap_invariant",
+        "reconstruction_invariant",
+        "audit_requirements",
+        "rollback_behavior"
+      ]
+    },
+    {
+      "decision_id": "1961a13f1508773d5a7a233c",
+      "book_id": 2,
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-03",
+      "missing_authority": [
+        "expected_current_locator",
+        "approved_replacement_locator",
+        "ordering_invariant",
+        "overlap_invariant",
+        "reconstruction_invariant",
+        "audit_requirements",
+        "rollback_behavior"
+      ]
+    },
+    {
+      "decision_id": "06af1c2475d97f65669d306a",
+      "book_id": 5,
+      "packet_id": "same-page-no-semantic-anchor-book-5-packet-01",
+      "missing_authority": [
+        "expected_current_locator",
+        "approved_replacement_locator",
+        "ordering_invariant",
+        "overlap_invariant",
+        "reconstruction_invariant",
+        "audit_requirements",
+        "rollback_behavior"
+      ]
+    }
+  ]
+}

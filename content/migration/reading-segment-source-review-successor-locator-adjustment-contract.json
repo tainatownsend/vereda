@@ -1,0 +1,66 @@
+{
+  "schema_version": "pr0050-source-review-successor-locator-adjustment-contract-v1",
+  "contract_id": "reading-segment-source-review-successor-locator-adjustment-contract-pr0050",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "locator_mutation_contract_approved": false,
+  "rights_status": "credited-source-edition",
+  "hash_algorithm": "sha256-canonical-json-v1",
+  "text_hash_algorithm": "sha256-normalized-lf-text-v1",
+  "authority": {
+    "source_review_readiness": "content/migration/reading-segment-reviewed-boundary-application-readiness-plan.json",
+    "source_review_semantics_policy": "content/migration/reading-segment-reviewed-boundary-application-semantics-policy.json",
+    "status_only_contract": "content/migration/reading-segment-source-review-status-only-contract.json",
+    "status_only_plan": "content/migration/reading-segment-source-review-status-only-eligibility-plan.json",
+    "staging_schema": "supabase/migrations/20260803033000_content_staging_foundation.sql",
+    "source_inspection_packets": "content/migration/reading-segment-source-inspection-packets.json"
+  },
+  "result": {
+    "application_ready_locator_decisions": 0,
+    "complete_contract_records": 0,
+    "incomplete_contract_records": 6,
+    "executable_sql_generated": false,
+    "sql_executed": false
+  },
+  "target_contract": {
+    "table": "content_staging.reading_segments",
+    "target_locator_column": "not approved; repository does not provide approved successor locator values",
+    "target_json_path": "not approved"
+  },
+  "authorized_mutation": null,
+  "preserved_fields": [
+    "segment key",
+    "segment order",
+    "end locator",
+    "unrelated start-locator keys",
+    "book identity",
+    "source-page identity",
+    "current segment identity",
+    "successor identity",
+    "source text",
+    "reader content",
+    "user progress",
+    "reader sessions"
+  ],
+  "preconditions": [],
+  "postconditions": [],
+  "idempotency": {
+    "approved": false,
+    "reason": "No repeated execution contract is approved without exact current and approved locator authority."
+  },
+  "rollback": {
+    "approved": false,
+    "reason": "No rollback contract is approved without exact previous locator authority."
+  },
+  "safety_assertions": {
+    "executable_sql_generated": false,
+    "sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "production_modified": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "cutover_enabled": false
+  }
+}
