@@ -101,7 +101,9 @@
     "content:staging:segments:source-review:no-anchor:remaining:progress:integrate": "python scripts/content_pipeline/integrate_remaining_no_anchor_backlog_progress.py",
     "content:staging:segments:source-review:no-anchor:remaining:progress:validate": "node scripts/content_pipeline/validate_remaining_no_anchor_backlog_progress_integration.mjs",
     "content:staging:segments:reviewed-boundary:application:readiness:build": "node scripts/content_pipeline/classify_reviewed_boundary_application_readiness.mjs",
-    "content:staging:segments:reviewed-boundary:application:readiness:validate": "node scripts/content_pipeline/validate_reviewed_boundary_application_readiness.mjs"
+    "content:staging:segments:reviewed-boundary:application:readiness:validate": "node scripts/content_pipeline/validate_reviewed_boundary_application_readiness.mjs",
+    "content:staging:segments:source-review:status-only:contract:build": "node scripts/content_pipeline/build_source_review_status_only_contract.mjs",
+    "content:staging:segments:source-review:status-only:contract:validate": "node scripts/content_pipeline/validate_source_review_status_only_contract.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

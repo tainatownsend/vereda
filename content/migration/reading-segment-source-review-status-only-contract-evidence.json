@@ -1,0 +1,50 @@
+{
+  "schema_version": "pr0049-source-review-status-only-contract-evidence-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "status_only_contract_approved": true,
+  "totals": {
+    "public_decision_count": 144,
+    "status_only_application_ready_decisions": 74,
+    "locator_mutation_contract_required": 6,
+    "merge_contract_required": 53,
+    "unresolved_not_eligible": 11
+  },
+  "outcome_distribution": {
+    "adjust-successor-start": 6,
+    "confirm-successor-start": 73,
+    "exclude-structural-heading": 53,
+    "retain-intro-segment": 1,
+    "unresolved": 11
+  },
+  "input_hashes": {
+    "immutable_historical_progress_sha256": "1e70e26523edf7c61f36917c57c60514bebf181b6b9e43c7cf85cc84bac174e5",
+    "archived_pr0045_pr0046_progress_snapshot_sha256": "564882a99baddc793739eb32183c5cdeed25f9668619f4a835f6da00b6a0938a",
+    "current_cumulative_progress_sha256": "fdf0395a53622101ecbc486d1896ba05c73c01e37778bea24d3d4c9bcba9da10",
+    "pr0048_readiness_policy_sha256": "36c0fe5c801c2f80c92c037a183ffd877dfd53d138c2df36ca40d4af2e914b04",
+    "pr0048_readiness_plan_sha256": "475e52feba1553d3d23a11fa50d739c5f8e60384891848dabdcf107ed28bd3f1",
+    "mechanical_application_policy_sha256": "e258a1a3b9d4c65b60d4af2c85b1264cea01c0f5faaa5d20b4e75bd1c22265da",
+    "mechanical_application_plan_sha256": "c4825e700eabaadfdc277ad083df0288084cbd2c3e477e5b78243bc955601214",
+    "mechanical_application_evidence_sha256": "85a30a48024a78aaa77639c41cafa59e1c412102a9bb27c74a9aa3d53e23e94b",
+    "reading_segment_source_review_container_intro_decisions_sha256": "b36a21b65b3afb9674bb32a204e607d2fc55db442ce8f731aa66cab32cb4cfb4",
+    "reading_segment_source_review_pilot_decisions_sha256": "152f2ad2a1c770e04c245f0f650839858be7f78cd259a60cee28d908596dbdca",
+    "reading_segment_same_page_review_decisions_sha256": "bcf18a5a86fd1dd4d1c8d4d979a064cbe4e7c974af41c3cfa517793a3e27b695",
+    "reading_segment_no_anchor_ambiguous_adjudication_decisions_sha256": "3aff3531e0bf594fe6ff3259acaac90eabcd84786642132413c7a57f5003ea76",
+    "reading_segment_remaining_no_anchor_backlog_adjudication_decisions_sha256": "5c92c8846653826080a3d60dc2ea6b3c863dd5ddd52735a5e438ac27ef154ebb"
+  },
+  "artifact_hashes": {
+    "contract_sha256": "607a69c4905ed3d35bc42866d09558a9410d53f1b4966c4e91e599d942593d90",
+    "eligibility_plan_sha256": "dab1fea337a39a5d0244ffb9d660efbf1fd18b3c545a6267ae21711914fc3ea4"
+  },
+  "assertions": {
+    "executable_sql_generated": false,
+    "sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "production_modified": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "cutover_enabled": false
+  }
+}
