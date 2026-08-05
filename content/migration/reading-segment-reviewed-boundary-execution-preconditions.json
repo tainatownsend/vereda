@@ -1,0 +1,16 @@
+{
+  "schema_version": "pr0054-reviewed-boundary-execution-preconditions-v1",
+  "approved": false,
+  "required": [
+    "exact 74 target membership",
+    "exact boundary-review current status",
+    "exact content baselines for all 74",
+    "zero duplicate audit events",
+    "package/hash authority matches"
+  ],
+  "blocking": [
+    "content baseline coverage",
+    "audit uniqueness/conflict authority",
+    "rollback gate"
+  ]
+}

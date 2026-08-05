@@ -1,0 +1,18 @@
+{
+  "schema_version": "pr0054-reviewed-boundary-execution-failure-semantics-v1",
+  "approved": false,
+  "fail_closed": true,
+  "errors": [
+    "TARGET_MISSING",
+    "TARGET_DUPLICATE",
+    "STATUS_UNEXPECTED",
+    "HASH_MISMATCH",
+    "EXCLUDED_DECISION_PRESENT",
+    "AUDIT_CONFLICT",
+    "PACKAGE_ID_MISMATCH",
+    "RUN_ID_MISMATCH",
+    "PARTIAL_APPLICATION"
+  ],
+  "partial_state_reconciliation": "not authorized",
+  "required_effect": "no partial database state after transaction failure"
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "pr0054-reviewed-boundary-execution-state-machine-v1",
+  "approved": false,
+  "states": {
+    "schema_version": "pr0054-reviewed-boundary-execution-idempotency-contract-v1",
+    "approved": false,
+    "state_A_first_application": {
+      "accepted_when": [
+        "74 targets exist exactly once",
+        "all status boundary-review",
+        "zero matching audit events",
+        "package hashes match",
+        "content baselines match"
+      ],
+      "result": [
+        "74 rows content-review",
+        "74 audit events",
+        "exact row/event assertions"
+      ]
+    },
+    "state_B_complete_safe_repeat": {
+      "chosen_behavior": "verified no-op success would be safest, but remains blocked until stable audit identity exists"
+    },
+    "state_C_partial_prior_application": "fail closed; no remaining-row-only updates",
+    "state_D_unexpected_state": "abort",
+    "error_categories": [
+      "TARGET_MISSING",
+      "TARGET_DUPLICATE",
+      "STATUS_UNEXPECTED",
+      "HASH_MISMATCH",
+      "EXCLUDED_DECISION_PRESENT",
+      "AUDIT_CONFLICT",
+      "PACKAGE_ID_MISMATCH",
+      "RUN_ID_MISMATCH",
+      "PARTIAL_APPLICATION"
+    ]
+  }
+}

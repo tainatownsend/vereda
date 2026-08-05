@@ -1,0 +1,43 @@
+{
+  "schema_version": "pr0054-reviewed-boundary-execution-missing-authority-v1",
+  "execution_authority_approved": false,
+  "missing_authority": [
+    {
+      "id": "audit-event-stable-identity",
+      "status": "blocking",
+      "requirement": "Add or authorize a stable uniqueness rule for one immutable event per decision; existing audit table has only identity id and no unique key over run_id/event_type/details."
+    },
+    {
+      "id": "audit-conflict-behavior",
+      "status": "blocking",
+      "requirement": "Authorize exact duplicate event conflict behavior; ON CONFLICT cannot be repository-grounded without a unique constraint."
+    },
+    {
+      "id": "rollback-downstream-gate",
+      "status": "blocking",
+      "requirement": "Define a repository-verifiable gate proving no downstream content-review work depends on these rows, or explicitly approve no rollback."
+    },
+    {
+      "id": "content-integrity-baselines",
+      "status": "blocking",
+      "requirement": "Provide per-target stored normalized_content_sha256 and independently recomputable content artifacts for all 74 targets."
+    }
+  ],
+  "safety_assertions": {
+    "executable_application_sql_generated": false,
+    "executable_rollback_sql_generated": false,
+    "sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "staging_modified": false,
+    "production_modified": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "bookmarks_modified": false,
+    "notes_modified": false,
+    "highlights_modified": false,
+    "cutover_enabled": false
+  }
+}

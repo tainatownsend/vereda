@@ -1,0 +1,47 @@
+{
+  "schema_version": "pr0054-reviewed-boundary-execution-rollback-contract-v1",
+  "approved": false,
+  "eligible_target_count": 74,
+  "transition": {
+    "column": "approval_status",
+    "from": "content-review",
+    "to": "boundary-review"
+  },
+  "preserved_columns": [
+    "run_id",
+    "book_id",
+    "segment_key",
+    "source_key",
+    "segment_order",
+    "segment_index",
+    "segment_count",
+    "boundary_version",
+    "start_locator",
+    "end_locator",
+    "display_title",
+    "content",
+    "word_count",
+    "normalized_content_sha256",
+    "created_at",
+    "updated_at"
+  ],
+  "required_current_state": "all 74 content-review with matching application audit events and no downstream dependency evidence",
+  "rollback_event_semantics": "blocked by audit uniqueness and downstream gate",
+  "idempotency": "blocked; complete repeat and partial rollback must fail closed until gate exists",
+  "row_count_assertions": {
+    "targets": 74,
+    "updated_rows": 74
+  },
+  "audit_count_assertions": {
+    "application_events": 74,
+    "rollback_events": "blocked"
+  },
+  "transaction_behavior": "single transaction, preconditions before mutation, rollback on any failure",
+  "migration_run_status_behavior": "blocked; no exact status transition authority for migration_runs",
+  "prohibition_conditions": [
+    "missing downstream gate",
+    "missing audit identity",
+    "partial state",
+    "unexpected row status"
+  ]
+}

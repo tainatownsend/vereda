@@ -1,0 +1,59 @@
+{
+  "schema_version": "pr0054-reviewed-boundary-execution-authority-policy-v1",
+  "package_id": "reading-segment-reviewed-boundary-execution-authority-pr0054",
+  "authority_for_package": "reading-segment-reviewed-boundary-consolidated-application-pr0053",
+  "execution_authority_approved": false,
+  "approval_result": "blocked",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "target_table": "content_staging.reading_segments",
+  "target_identity_columns": [
+    "run_id",
+    "book_id",
+    "segment_key"
+  ],
+  "authorized_target_count": 74,
+  "excluded_decision_count": 70,
+  "authorized_transition": {
+    "column": "approval_status",
+    "from": "boundary-review",
+    "to": "content-review"
+  },
+  "changed_columns": [
+    "approval_status"
+  ],
+  "preserved_columns": [
+    "run_id",
+    "book_id",
+    "segment_key",
+    "source_key",
+    "segment_order",
+    "segment_index",
+    "segment_count",
+    "boundary_version",
+    "start_locator",
+    "end_locator",
+    "display_title",
+    "content",
+    "word_count",
+    "normalized_content_sha256",
+    "created_at",
+    "updated_at"
+  ],
+  "safety_assertions": {
+    "executable_application_sql_generated": false,
+    "executable_rollback_sql_generated": false,
+    "sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "staging_modified": false,
+    "production_modified": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "bookmarks_modified": false,
+    "notes_modified": false,
+    "highlights_modified": false,
+    "cutover_enabled": false
+  }
+}
