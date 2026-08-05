@@ -29,6 +29,7 @@ export const artifactPaths = {
   manifest:'content/migration/reading-segment-reviewed-boundary-audit-authority-manifest.json',
   evidence:'content/migration/reading-segment-reviewed-boundary-audit-authority-evidence.json',
   triageBaseline:'content/migration/reading-segment-reviewed-boundary-audit-triage-baseline-evidence.json',
+  databaseValidation:'content/migration/reading-segment-reviewed-boundary-audit-database-validation-evidence.json',
   summary:'content/migration/reports/reading-segment-reviewed-boundary-audit-authority-summary.md',
   docs:'docs/content-pipeline/reviewed-boundary-audit-identity.md',
 }
@@ -44,3 +45,5 @@ export const historicalPaths = {
 
 export const conflictTargetPredicate = "package_id = 'reading-segment-reviewed-boundary-execution' and event_version = 1 and decision_id is not null and book_id is not null and segment_key is not null and event_action in ('status-advanced', 'status-rollback') and event_key is not null"
 export const eventKeyAlgorithm = 'sha256-v1-length-delimited-reviewed-boundary-event-key'
+
+export const eventTypes = { application: 'reading-segment-reviewed-boundary.status-advanced', rollback: 'reading-segment-reviewed-boundary.status-rollback' }

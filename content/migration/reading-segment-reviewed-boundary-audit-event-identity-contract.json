@@ -1,6 +1,6 @@
 {
   "schema_version": "pr0055-reviewed-boundary-audit-event-identity-contract-v1",
-  "approved": true,
+  "approved": false,
   "package_id": "reading-segment-reviewed-boundary-execution",
   "package_version": "1.0.0",
   "event_version": 1,
@@ -34,5 +34,10 @@
   ],
   "application_event_action": "status-advanced",
   "rollback_event_action": "status-rollback",
+  "event_type_relationship": {
+    "application": "reading-segment-reviewed-boundary.status-advanced",
+    "rollback": "reading-segment-reviewed-boundary.status-rollback",
+    "rule": "for reviewed-boundary package rows, event_type must equal reading-segment-reviewed-boundary. concatenated with event_action"
+  },
   "rollback_distinction": "event_action and before/after statuses differ, so application and rollback event_key values differ"
 }

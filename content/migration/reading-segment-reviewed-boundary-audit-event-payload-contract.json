@@ -1,6 +1,6 @@
 {
   "schema_version": "pr0055-reviewed-boundary-audit-event-payload-contract-v1",
-  "approved": true,
+  "approved": false,
   "details_jsonb_required_fields": [
     "package_id",
     "package_version",

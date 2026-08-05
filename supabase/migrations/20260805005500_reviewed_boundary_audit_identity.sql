@@ -1,5 +1,8 @@
 begin;
 
+create schema if not exists extensions;
+create extension if not exists pgcrypto with schema extensions;
+
 -- PR-0055: deterministic reviewed-boundary audit identity only.
 -- This migration preserves legacy content_staging.migration_audit_events rows and
 -- legacy insert producers by adding nullable compatibility columns. It does not
@@ -35,6 +38,12 @@ alter table content_staging.migration_audit_events
     or package_id <> 'reading-segment-reviewed-boundary-execution'
     or event_action in ('status-advanced', 'status-rollback')
   ),
+  add constraint migration_audit_events_reviewed_boundary_event_type_chk
+  check (
+    package_id is null
+    or package_id <> 'reading-segment-reviewed-boundary-execution'
+    or event_type = 'reading-segment-reviewed-boundary.' || event_action
+  ),
   add constraint migration_audit_events_reviewed_boundary_version_chk
   check (
     package_id is null
@@ -51,7 +60,7 @@ alter table content_staging.migration_audit_events
   check (
     package_id is null
     or package_id <> 'reading-segment-reviewed-boundary-execution'
-    or event_key = encode(digest(
+    or event_key = encode(extensions.digest(
       'sha256-v1-length-delimited-reviewed-boundary-event-key'
       || '|package_id=' || length(package_id)::text || ':' || package_id
       || '|event_action=' || length(event_action)::text || ':' || event_action

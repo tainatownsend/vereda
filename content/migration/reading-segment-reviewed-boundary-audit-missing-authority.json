@@ -1,7 +1,13 @@
 {
   "schema_version": "pr0055-reviewed-boundary-audit-missing-authority-v1",
-  "audit_identity_authority_approved": true,
-  "missing_authority": [],
+  "audit_identity_authority_approved": false,
+  "missing_authority": [
+    {
+      "id": "isolated-postgresql-execution-evidence",
+      "status": "blocking",
+      "requirement": "Run prerequisite staging foundation migration plus PR-0055 migration in disposable PostgreSQL; inspect catalogs; execute check-constraint and conflict-target tests."
+    }
+  ],
   "remaining_out_of_scope_blockers": [
     "rollback downstream gate",
     "complete content-integrity baselines"

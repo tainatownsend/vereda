@@ -1,6 +1,6 @@
 # PR-0055 Reviewed-Boundary Audit Identity
 
-Audit identity authority approved: true.
+Audit identity authority approved: false.
 
 PR-0055 extends content_staging.migration_audit_events with nullable structured identity columns and a reviewed-boundary-only partial unique index on event_key. Legacy audit rows remain valid because new columns are nullable and constraints are scoped to package_id = 'reading-segment-reviewed-boundary-execution'.
 
