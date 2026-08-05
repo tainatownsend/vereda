@@ -1,0 +1,44 @@
+{
+  "schema_version": "pr0053-reviewed-boundary-consolidated-application-evidence-v1",
+  "package_approved": false,
+  "totals": {
+    "public_decision_count": 144,
+    "authorized_decisions": 74,
+    "excluded_decisions": 70
+  },
+  "authorized_outcome_distribution": {
+    "confirm-successor-start": 73,
+    "retain-intro-segment": 1
+  },
+  "exclusion_distribution": {
+    "adjust-successor-start": 6,
+    "exclude-structural-heading": 53,
+    "unresolved": 11
+  },
+  "input_hashes": {
+    "status_contract_sha256": "607a69c4905ed3d35bc42866d09558a9410d53f1b4966c4e91e599d942593d90",
+    "status_plan_sha256": "dab1fea337a39a5d0244ffb9d660efbf1fd18b3c545a6267ae21711914fc3ea4",
+    "status_evidence_sha256": "533de6588add175a69af6b2c7509d25a36810cbdb24f81ea1fef0d12a2c06724",
+    "locator_contract_sha256": "1bd8f17cad98203f4b6f33c696edefe83d73d901d79b3a28b7e55745d76314ad",
+    "heading_contract_sha256": "88223c13eed0d0c1774f7d912280e8fefe57da1a23fde57f9972535bc1287fb9",
+    "final_unresolved_decisions_sha256": "59234bb7f2f6304c50efe3f9991f0f72721685d2464cceec4c1d563ae64d960e",
+    "staging_schema_sha256": "d7c8554b04641955659ab64c910315c3176d3feb10d7a535e8581d2114ef76a3"
+  },
+  "target_tuple_hash": "7cd1fc965c44a723a4cd357ef824348eb37056cf6bc785a07767203784cabf2d",
+  "exclusion_tuple_hash": "08fa181ba08acc37f16fce1ddac6876722f77b47da89241deadc6393c143abc0",
+  "safety_assertions": {
+    "executable_application_sql_generated": false,
+    "sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "production_modified": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "bookmarks_modified": false,
+    "notes_modified": false,
+    "highlights_modified": false,
+    "cutover_enabled": false
+  }
+}

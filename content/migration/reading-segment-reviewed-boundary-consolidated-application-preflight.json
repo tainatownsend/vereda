@@ -1,0 +1,15 @@
+{
+  "schema_version": "pr0053-reviewed-boundary-consolidated-preflight-v1",
+  "fail_closed": true,
+  "select_only_sql": "supabase/audits/reading_segment_reviewed_boundary_consolidated_preflight.sql",
+  "checks": [
+    "schema objects and constraints exist",
+    "exactly 74 target rows exist once by run_id/book_id/segment_key",
+    "each target has expected segment_order and boundary-review approval_status",
+    "authorized/excluded decision sets are disjoint",
+    "no conflicting audit event exists",
+    "locator values, content, and normalized_content_sha256 are preserved when authoritative baselines are available; missing baselines are recorded as missing authority",
+    "user reference tables are not targeted",
+    "public-decision and contract hashes match manifest"
+  ]
+}

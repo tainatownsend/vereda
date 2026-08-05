@@ -1,0 +1,8 @@
+{
+  "schema_version": "pr0053-reviewed-boundary-consolidated-audit-v1",
+  "audit_required": true,
+  "audit_complete": false,
+  "audit_table": "content_staging.migration_audit_events",
+  "executable_audit_sql_generated": false,
+  "blocking_reason": "PR-0049 requires one migration_audit_events record per decision but does not define exact event_type, payload schema, uniqueness key, timestamp rule, or conflict behavior for PR-0053."
+}

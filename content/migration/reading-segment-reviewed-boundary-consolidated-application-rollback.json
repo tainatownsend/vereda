@@ -1,0 +1,6 @@
+{
+  "schema_version": "pr0053-reviewed-boundary-consolidated-rollback-v1",
+  "rollback_sql_generated": false,
+  "rollback_authority_complete": false,
+  "blocking_reason": "PR-0049 explicitly defers rollback to a separately reviewed package and generated no rollback SQL."
+}
