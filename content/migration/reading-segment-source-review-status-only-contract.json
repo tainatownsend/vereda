@@ -1,0 +1,115 @@
+{
+  "schema_version": "pr0049-source-review-status-only-application-contract-v1",
+  "contract_id": "reading-segment-source-review-status-only-contract-pr0049",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "status_only_contract_approved": true,
+  "rights_status": "credited-source-edition",
+  "hash_algorithm": "sha256-canonical-json-v1",
+  "text_hash_algorithm": "sha256-normalized-lf-text-v1",
+  "authority": {
+    "source_review_readiness": "content/migration/reading-segment-reviewed-boundary-application-readiness-plan.json",
+    "source_review_semantics_policy": "content/migration/reading-segment-reviewed-boundary-application-semantics-policy.json",
+    "historical_mechanical_status_only_policy": "content/migration/reading-segment-mechanical-application-policy.json",
+    "historical_mechanical_status_only_plan": "content/migration/reading-segment-mechanical-application-plan.json",
+    "historical_mechanical_application_evidence": "content/migration/reading-segment-mechanical-application-evidence.json",
+    "staging_schema": "supabase/migrations/20260803033000_content_staging_foundation.sql"
+  },
+  "eligible_outcomes": [
+    "confirm-successor-start",
+    "retain-intro-segment"
+  ],
+  "approved_scope": {
+    "decision_count": 74,
+    "outcome_distribution": {
+      "confirm-successor-start": 73,
+      "retain-intro-segment": 1
+    }
+  },
+  "excluded_scope": {
+    "adjust-successor-start": 6,
+    "exclude-structural-heading": 53,
+    "unresolved": 11,
+    "unknown_outcomes": 0,
+    "duplicate_decisions": 0,
+    "conflicting_decisions": 0
+  },
+  "preconditions": [
+    "public decision exists exactly once",
+    "final outcome is confirm-successor-start or retain-intro-segment",
+    "final outcome is not unresolved",
+    "book identity is valid",
+    "segment_key is valid",
+    "segment_order is valid",
+    "content_staging.reading_segments row exists exactly once",
+    "staging row belongs to the expected run_id",
+    "current approval_status is boundary-review",
+    "current segment identity matches the reviewed decision",
+    "current start_locator matches the preserved staging value",
+    "current end_locator matches the preserved staging value",
+    "no conflicting locator or merge decision targets the same segment",
+    "no equivalent migration_audit_events record already exists"
+  ],
+  "authorized_mutation": {
+    "approval_status": {
+      "from": "boundary-review",
+      "to": "content-review"
+    },
+    "updated_at": "database-generated current timestamp",
+    "audit_event": "one migration_audit_events record per authorized decision following established migration audit convention"
+  },
+  "preserved_fields": [
+    "book identity",
+    "source-page identity",
+    "successor identity",
+    "segment_key",
+    "segment_order",
+    "start_locator",
+    "end_locator",
+    "source text",
+    "reader content",
+    "user progress",
+    "reader sessions"
+  ],
+  "postconditions": [
+    "exactly 74 scoped rows advanced",
+    "zero locator changes",
+    "zero segment identity changes",
+    "zero order changes",
+    "zero merge/delete/disable operations",
+    "exactly one audit record per authorized decision",
+    "no ineligible outcome applied",
+    "no unresolved decision applied",
+    "reconstruction invariants remain valid",
+    "all five books remain reconstructable"
+  ],
+  "idempotency": {
+    "already_applied_row": "future application must treat content-review plus matching audit as already applied and make no locator or identity changes",
+    "partially_applied_batch": "resume only unapplied rows that still satisfy all preconditions; report applied and skipped counts",
+    "duplicate_audit_events": "forbidden; validation must fail before mutation",
+    "unexpected_status": "forbidden unless it is the documented already-applied content-review state with matching audit",
+    "repeated_execution": "must be a no-op after the first complete authorized application"
+  },
+  "rollback": {
+    "status_return_to_boundary_review": "allowed only by a separately reviewed rollback package before content review begins and with one compensating audit event per row",
+    "forbidden_when": [
+      "locators or identity have changed outside this contract",
+      "content-review/editorial work has begun from the advanced status",
+      "audit trail is missing or duplicated",
+      "target row no longer matches the authorized identity"
+    ],
+    "locator_rollback_required": false,
+    "rollback_sql_generated": false
+  },
+  "safety_assertions": {
+    "executable_sql_generated": false,
+    "sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "production_modified": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "cutover_enabled": false
+  }
+}
