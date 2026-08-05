@@ -1,0 +1,326 @@
+{
+  "schema_version": "pr0050-source-review-successor-locator-adjustment-plan-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "locator_mutation_contract_approved": false,
+  "application_ready_locator_decisions": 0,
+  "complete_contract_records": 0,
+  "incomplete_contract_records": 6,
+  "exact_set_equality": {
+    "expected_adjust_successor_start_decisions": [
+      "e473600ca608d57db6a3ea23",
+      "e5017ea69081bdcd0c70da11",
+      "df9c53a270eea25a6c52bab4",
+      "aae34d255521a908694e178e",
+      "1961a13f1508773d5a7a233c",
+      "06af1c2475d97f65669d306a"
+    ],
+    "plan_decisions": [
+      "e473600ca608d57db6a3ea23",
+      "e5017ea69081bdcd0c70da11",
+      "df9c53a270eea25a6c52bab4",
+      "aae34d255521a908694e178e",
+      "1961a13f1508773d5a7a233c",
+      "06af1c2475d97f65669d306a"
+    ],
+    "missing": [],
+    "extra": [],
+    "duplicate_decision_ids": [],
+    "duplicate_target_rows": []
+  },
+  "records": [
+    {
+      "decision_id": "e473600ca608d57db6a3ea23",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "packet_id": "same-page-no-semantic-anchor-book-1-packet-01",
+      "current_segment_key": "ca34fe5d192f446074599420",
+      "current_segment_order": 114,
+      "successor_segment_key": "60eb94194acfaae62668dfaa",
+      "successor_segment_order": 115,
+      "final_outcome": "adjust-successor-start",
+      "review_status": "reviewed",
+      "reviewer_confidence": "high",
+      "source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "resolution_artifact": null,
+      "target": {
+        "table": "content_staging.reading_segments",
+        "row_identity": {
+          "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+          "book_id": 1,
+          "segment_key": "60eb94194acfaae62668dfaa",
+          "segment_order": 115
+        },
+        "target_column": null,
+        "target_json_path": null
+      },
+      "expected_current_locator": null,
+      "approved_replacement_locator": null,
+      "unchanged_locator_fields": [
+        "end_locator"
+      ],
+      "expected_previous_approval_status": "boundary-review",
+      "resulting_approval_status": null,
+      "ordering_preconditions": [],
+      "non_overlap_preconditions": [],
+      "reconstruction_preconditions": [],
+      "audit_event_identity": null,
+      "idempotency_identity": null,
+      "rollback_requirements": [],
+      "contract_completeness_status": "incomplete",
+      "missing_authority": [
+        "expected_current_locator",
+        "approved_replacement_locator",
+        "ordering_invariant",
+        "overlap_invariant",
+        "reconstruction_invariant",
+        "audit_requirements",
+        "rollback_behavior"
+      ]
+    },
+    {
+      "decision_id": "e5017ea69081bdcd0c70da11",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-01",
+      "current_segment_key": "ae3f5201e9fa12cf865ec958",
+      "current_segment_order": 13,
+      "successor_segment_key": "27e685beed7bd675f1d459b5",
+      "successor_segment_order": 14,
+      "final_outcome": "adjust-successor-start",
+      "review_status": "reviewed",
+      "reviewer_confidence": "medium",
+      "source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "resolution_artifact": null,
+      "target": {
+        "table": "content_staging.reading_segments",
+        "row_identity": {
+          "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+          "book_id": 2,
+          "segment_key": "27e685beed7bd675f1d459b5",
+          "segment_order": 14
+        },
+        "target_column": null,
+        "target_json_path": null
+      },
+      "expected_current_locator": null,
+      "approved_replacement_locator": null,
+      "unchanged_locator_fields": [
+        "end_locator"
+      ],
+      "expected_previous_approval_status": "boundary-review",
+      "resulting_approval_status": null,
+      "ordering_preconditions": [],
+      "non_overlap_preconditions": [],
+      "reconstruction_preconditions": [],
+      "audit_event_identity": null,
+      "idempotency_identity": null,
+      "rollback_requirements": [],
+      "contract_completeness_status": "incomplete",
+      "missing_authority": [
+        "expected_current_locator",
+        "approved_replacement_locator",
+        "ordering_invariant",
+        "overlap_invariant",
+        "reconstruction_invariant",
+        "audit_requirements",
+        "rollback_behavior"
+      ]
+    },
+    {
+      "decision_id": "df9c53a270eea25a6c52bab4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-01",
+      "current_segment_key": "27e685beed7bd675f1d459b5",
+      "current_segment_order": 14,
+      "successor_segment_key": "e3750489416607a8779a506c",
+      "successor_segment_order": 15,
+      "final_outcome": "adjust-successor-start",
+      "review_status": "reviewed",
+      "reviewer_confidence": "medium",
+      "source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "resolution_artifact": null,
+      "target": {
+        "table": "content_staging.reading_segments",
+        "row_identity": {
+          "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+          "book_id": 2,
+          "segment_key": "e3750489416607a8779a506c",
+          "segment_order": 15
+        },
+        "target_column": null,
+        "target_json_path": null
+      },
+      "expected_current_locator": null,
+      "approved_replacement_locator": null,
+      "unchanged_locator_fields": [
+        "end_locator"
+      ],
+      "expected_previous_approval_status": "boundary-review",
+      "resulting_approval_status": null,
+      "ordering_preconditions": [],
+      "non_overlap_preconditions": [],
+      "reconstruction_preconditions": [],
+      "audit_event_identity": null,
+      "idempotency_identity": null,
+      "rollback_requirements": [],
+      "contract_completeness_status": "incomplete",
+      "missing_authority": [
+        "expected_current_locator",
+        "approved_replacement_locator",
+        "ordering_invariant",
+        "overlap_invariant",
+        "reconstruction_invariant",
+        "audit_requirements",
+        "rollback_behavior"
+      ]
+    },
+    {
+      "decision_id": "aae34d255521a908694e178e",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-01",
+      "current_segment_key": "49c1115582d8b34a99cc5d3d",
+      "current_segment_order": 24,
+      "successor_segment_key": "8874f5003ba4ebadd4f9d7a3",
+      "successor_segment_order": 25,
+      "final_outcome": "adjust-successor-start",
+      "review_status": "reviewed",
+      "reviewer_confidence": "medium",
+      "source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "resolution_artifact": null,
+      "target": {
+        "table": "content_staging.reading_segments",
+        "row_identity": {
+          "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+          "book_id": 2,
+          "segment_key": "8874f5003ba4ebadd4f9d7a3",
+          "segment_order": 25
+        },
+        "target_column": null,
+        "target_json_path": null
+      },
+      "expected_current_locator": null,
+      "approved_replacement_locator": null,
+      "unchanged_locator_fields": [
+        "end_locator"
+      ],
+      "expected_previous_approval_status": "boundary-review",
+      "resulting_approval_status": null,
+      "ordering_preconditions": [],
+      "non_overlap_preconditions": [],
+      "reconstruction_preconditions": [],
+      "audit_event_identity": null,
+      "idempotency_identity": null,
+      "rollback_requirements": [],
+      "contract_completeness_status": "incomplete",
+      "missing_authority": [
+        "expected_current_locator",
+        "approved_replacement_locator",
+        "ordering_invariant",
+        "overlap_invariant",
+        "reconstruction_invariant",
+        "audit_requirements",
+        "rollback_behavior"
+      ]
+    },
+    {
+      "decision_id": "1961a13f1508773d5a7a233c",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-03",
+      "current_segment_key": "1636f3697c5b061474bea0ff",
+      "current_segment_order": 101,
+      "successor_segment_key": "12dbd6a011eca30eeb9c6822",
+      "successor_segment_order": 102,
+      "final_outcome": "adjust-successor-start",
+      "review_status": "reviewed",
+      "reviewer_confidence": "medium",
+      "source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "resolution_artifact": null,
+      "target": {
+        "table": "content_staging.reading_segments",
+        "row_identity": {
+          "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+          "book_id": 2,
+          "segment_key": "12dbd6a011eca30eeb9c6822",
+          "segment_order": 102
+        },
+        "target_column": null,
+        "target_json_path": null
+      },
+      "expected_current_locator": null,
+      "approved_replacement_locator": null,
+      "unchanged_locator_fields": [
+        "end_locator"
+      ],
+      "expected_previous_approval_status": "boundary-review",
+      "resulting_approval_status": null,
+      "ordering_preconditions": [],
+      "non_overlap_preconditions": [],
+      "reconstruction_preconditions": [],
+      "audit_event_identity": null,
+      "idempotency_identity": null,
+      "rollback_requirements": [],
+      "contract_completeness_status": "incomplete",
+      "missing_authority": [
+        "expected_current_locator",
+        "approved_replacement_locator",
+        "ordering_invariant",
+        "overlap_invariant",
+        "reconstruction_invariant",
+        "audit_requirements",
+        "rollback_behavior"
+      ]
+    },
+    {
+      "decision_id": "06af1c2475d97f65669d306a",
+      "book_id": 5,
+      "book_slug": "a-genese",
+      "packet_id": "same-page-no-semantic-anchor-book-5-packet-01",
+      "current_segment_key": "41256a94961280b0ec185b2a",
+      "current_segment_order": 87,
+      "successor_segment_key": "b8dd446b1744ead6a82b41b6",
+      "successor_segment_order": 88,
+      "final_outcome": "adjust-successor-start",
+      "review_status": "reviewed",
+      "reviewer_confidence": "high",
+      "source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "resolution_artifact": null,
+      "target": {
+        "table": "content_staging.reading_segments",
+        "row_identity": {
+          "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+          "book_id": 5,
+          "segment_key": "b8dd446b1744ead6a82b41b6",
+          "segment_order": 88
+        },
+        "target_column": null,
+        "target_json_path": null
+      },
+      "expected_current_locator": null,
+      "approved_replacement_locator": null,
+      "unchanged_locator_fields": [
+        "end_locator"
+      ],
+      "expected_previous_approval_status": "boundary-review",
+      "resulting_approval_status": null,
+      "ordering_preconditions": [],
+      "non_overlap_preconditions": [],
+      "reconstruction_preconditions": [],
+      "audit_event_identity": null,
+      "idempotency_identity": null,
+      "rollback_requirements": [],
+      "contract_completeness_status": "incomplete",
+      "missing_authority": [
+        "expected_current_locator",
+        "approved_replacement_locator",
+        "ordering_invariant",
+        "overlap_invariant",
+        "reconstruction_invariant",
+        "audit_requirements",
+        "rollback_behavior"
+      ]
+    }
+  ]
+}
