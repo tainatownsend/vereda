@@ -41,7 +41,7 @@
       {
         "name": "id",
         "type": "bigint",
-        "nullable": false,
+        "nullable": true,
         "default": "generated always as identity"
       },
       {
@@ -84,6 +84,16 @@
     "unique_constraints": [],
     "indexes": [],
     "triggers": [],
+    "trigger_functions": [
+      {
+        "file": "supabase/migrations/20260803033000_content_staging_foundation.sql",
+        "name": "content_staging.capture_dependency_snapshot"
+      },
+      {
+        "file": "supabase/migrations/20260803033000_content_staging_foundation.sql",
+        "name": "content_staging.evaluate_dry_run"
+      }
+    ],
     "rls_or_grants": {
       "schema_revoked_from": [
         "public",
@@ -92,6 +102,7 @@
       ],
       "table_grants_discovered": []
     },
+    "later_schema_operations": [],
     "unsupported_later_schema_changes": false
   },
   "safety_assertions": {
