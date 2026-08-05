@@ -116,7 +116,8 @@
     "content:staging:segments:reviewed-boundary:execution-authority:validate": "node scripts/content_pipeline/validate_reviewed_boundary_execution_authority.mjs",
     "content:staging:segments:reviewed-boundary:audit-identity:build": "node scripts/content_pipeline/build_reviewed_boundary_audit_identity.mjs",
     "content:staging:segments:reviewed-boundary:audit-identity:validate": "node scripts/content_pipeline/validate_reviewed_boundary_audit_identity.mjs",
-    "content:staging:segments:reviewed-boundary:audit-identity:db:test": "node scripts/content_pipeline/test_reviewed_boundary_audit_identity_postgres.mjs"
+    "content:staging:segments:reviewed-boundary:audit-identity:db:test": "node scripts/content_pipeline/test_reviewed_boundary_audit_identity_postgres.mjs",
+    "content:staging:segments:reviewed-boundary:audit-identity:db:evidence:validate": "node scripts/content_pipeline/validate_reviewed_boundary_audit_database_runtime_evidence.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

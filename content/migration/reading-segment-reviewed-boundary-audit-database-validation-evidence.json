@@ -6,8 +6,10 @@
   "workflow_path": ".github/workflows/reviewed-boundary-audit-database-validation.yml",
   "workflow_check_name": "Reviewed boundary audit database validation",
   "database_test_script": "scripts/content_pipeline/test_reviewed_boundary_audit_identity_postgres.mjs",
+  "runtime_evidence_validator": "scripts/content_pipeline/validate_reviewed_boundary_audit_database_runtime_evidence.mjs",
   "postgresql_service_image": "postgres:15",
-  "runtime_evidence_policy": "GitHub Actions overwrites this path at runtime and uploads it as an artifact; committed artifact remains blocked until a reviewed passing run URL is recorded",
+  "runtime_evidence_path": "tmp/reviewed-boundary-audit-database-validation-evidence.json",
+  "runtime_evidence_policy": "GitHub Actions writes a separate temporary runtime result and uploads only that file; this committed expected-evidence contract is never overwritten by CI",
   "required_runtime_fields": [
     "validation_mode",
     "workflow_name",

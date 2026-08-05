@@ -7,6 +7,8 @@ on:
       - '.github/workflows/reviewed-boundary-audit-database-validation.yml'
       - 'supabase/migrations/20260805005500_reviewed_boundary_audit_identity.sql'
       - 'scripts/content_pipeline/test_reviewed_boundary_audit_identity_postgres.mjs'
+      - 'scripts/content_pipeline/reviewed_boundary_audit_postgres_test_utils.mjs'
+      - 'scripts/content_pipeline/validate_reviewed_boundary_audit_database_runtime_evidence.mjs'
       - 'scripts/content_pipeline/fixtures/reviewed_boundary_audit_postgres_roles.sql'
       - 'scripts/content_pipeline/validate_reviewed_boundary_audit_identity.mjs'
       - 'scripts/content_pipeline/reviewed_boundary_audit_identity_constants.mjs'
@@ -37,7 +39,7 @@ jobs:
       PGUSER: postgres
       PGPASSWORD: postgres
       PGDATABASE: vereda_test
-      REVIEWED_BOUNDARY_AUDIT_DB_EVIDENCE: content/migration/reading-segment-reviewed-boundary-audit-database-validation-evidence.json
+      REVIEWED_BOUNDARY_AUDIT_DB_EVIDENCE: tmp/reviewed-boundary-audit-database-validation-evidence.json
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -53,12 +55,12 @@ jobs:
       - name: Run reviewed-boundary audit database validation
         run: npm run content:staging:segments:reviewed-boundary:audit-identity:db:test
       - name: Validate generated audit identity evidence
-        if: always() && hashFiles('content/migration/reading-segment-reviewed-boundary-audit-database-validation-evidence.json') != ''
-        run: npm run content:staging:segments:reviewed-boundary:audit-identity:validate
+        if: always() && hashFiles('tmp/reviewed-boundary-audit-database-validation-evidence.json') != ''
+        run: npm run content:staging:segments:reviewed-boundary:audit-identity:db:evidence:validate
       - name: Upload database validation evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: reviewed-boundary-audit-database-validation-evidence
-          path: content/migration/reading-segment-reviewed-boundary-audit-database-validation-evidence.json
+          path: tmp/reviewed-boundary-audit-database-validation-evidence.json
           if-no-files-found: error

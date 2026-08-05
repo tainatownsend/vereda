@@ -50,6 +50,8 @@ export const eventTypes = { application: 'reading-segment-reviewed-boundary.stat
 
 export const workflowPath = '.github/workflows/reviewed-boundary-audit-database-validation.yml'
 export const dbTestScriptPath = 'scripts/content_pipeline/test_reviewed_boundary_audit_identity_postgres.mjs'
+export const dbRuntimeValidatorPath = 'scripts/content_pipeline/validate_reviewed_boundary_audit_database_runtime_evidence.mjs'
+export const runtimeEvidencePath = 'tmp/reviewed-boundary-audit-database-validation-evidence.json'
 export const dbValidationCheckName = 'Reviewed boundary audit database validation'
 export const roleFixturePath = 'scripts/content_pipeline/fixtures/reviewed_boundary_audit_postgres_roles.sql'
 export const requiredSupabaseRoles = ['anon', 'authenticated', 'service_role']

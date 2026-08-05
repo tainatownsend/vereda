@@ -5,27 +5,26 @@ import { mkdir } from 'node:fs/promises'
 import { dirname } from 'node:path'
 import { canonicalizeJson } from './hash_utils.mjs'
 import { conflictTargetPredicate, eventActions, eventKeyAlgorithm, eventPackage, eventTypes, eventVersion, migrationPath, roleFixturePath, requiredSupabaseRoles, foundationMigrationPath } from './reviewed_boundary_audit_identity_constants.mjs'
+import { parsePostgresError, sqlLiteral, transactionalSql } from './reviewed_boundary_audit_postgres_test_utils.mjs'
 
-const evidencePath = process.env.REVIEWED_BOUNDARY_AUDIT_DB_EVIDENCE ?? 'content/migration/reading-segment-reviewed-boundary-audit-database-validation-evidence.json'
+const evidencePath = process.env.REVIEWED_BOUNDARY_AUDIT_DB_EVIDENCE ?? 'tmp/reviewed-boundary-audit-database-validation-evidence.json'
 const env = { ...process.env }
 const allowedHosts = new Set(['127.0.0.1', 'localhost', 'postgres'])
-const reject = (message) => { throw new Error(message) }
+const reject = message => { throw new Error(message) }
 if (!env.PGHOST || !allowedHosts.has(env.PGHOST)) reject(`PGHOST must be local GitHub Actions service host, got ${env.PGHOST ?? '<unset>'}`)
 if (/supabase\.co|postgres:\/\/|service_role/i.test(JSON.stringify({ PGHOST: env.PGHOST, PGDATABASE: env.PGDATABASE, PGUSER: env.PGUSER }))) reject('remote Supabase or service-role connection is forbidden')
 if (/prod|production|staging/i.test(env.PGDATABASE ?? '')) reject(`PGDATABASE must be disposable, got ${env.PGDATABASE}`)
 
-const psql = (sql, opts = {}) => execFileSync('psql', ['-v', 'ON_ERROR_STOP=1', ...(opts.tuples ? ['-At'] : []), '-c', sql], { env, encoding: 'utf8', stdio: opts.silent ? ['ignore', 'pipe', 'pipe'] : ['ignore', 'pipe', 'inherit'] }).trim()
-const psqlFile = (file) => execFileSync('psql', ['-v', 'ON_ERROR_STOP=1', '-f', file], { env, encoding: 'utf8', stdio: ['ignore', 'pipe', 'inherit'] })
-const expectFailure = (name, sql) => { try { psql(sql, { silent: true }); return { name, passed: false, expected: 'failure', error: 'statement unexpectedly succeeded' } } catch (error) { return { name, passed: true, expected: 'failure', sqlstate_or_error: String(error.stderr || error.message).split('\n').find(Boolean)?.slice(0, 220) ?? 'failed' } } }
-const expectSuccess = (name, sql) => { try { const out = psql(sql, { silent: true }); return { name, passed: true, expected: 'success', result: out.slice(0, 220) } } catch (error) { return { name, passed: false, expected: 'success', error: String(error.stderr || error.message).slice(0, 500) } } }
-const qJson = (sql) => JSON.parse(psql(sql, { tuples: true, silent: true }) || 'null')
-const sqlString = (value) => `'${String(value).replaceAll("'", "''")}'`
-const jsonSql = (value) => `${sqlString(JSON.stringify(value))}::jsonb`
+const psqlArgs = ['-v', 'ON_ERROR_STOP=1', '--set=VERBOSITY=verbose']
+const psql = (sql, tuples = false) => execFileSync('psql', [...psqlArgs, ...(tuples ? ['-At'] : []), '-c', sql], { env, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim()
+const psqlFile = file => execFileSync('psql', [...psqlArgs, '-f', file], { env, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] })
+const qJson = sql => JSON.parse(psql(sql, true) || 'null')
+const rowCount = () => Number(psql('select count(*) from content_staging.migration_audit_events;', true))
 const keyMaterial = ({ run_id, decision_id, book_id, segment_key, event_action, package_id = eventPackage, event_version = eventVersion }) => {
   const pairs = [['package_id', package_id], ['event_action', event_action], ['run_id', run_id], ['decision_id', decision_id], ['book_id', String(book_id)], ['segment_key', segment_key], ['event_version', String(event_version)]]
-  return eventKeyAlgorithm + pairs.map(([k, v]) => `|${k}=${String(v).length}:${v}`).join('')
+  return eventKeyAlgorithm + pairs.map(([key, value]) => `|${key}=${String(value).length}:${value}`).join('')
 }
-const eventKey = (input) => createHash('sha256').update(keyMaterial(input), 'utf8').digest('hex')
+const eventKey = input => createHash('sha256').update(keyMaterial(input), 'utf8').digest('hex')
 const details = (input, overrides = {}) => canonicalizeJson({
   package_id: input.package_id ?? eventPackage,
   package_version: '1.0.0',
@@ -43,11 +42,16 @@ const details = (input, overrides = {}) => canonicalizeJson({
   package_hash: 'b'.repeat(64),
   ...overrides,
 })
-const insertSql = (input, overrides = {}, conflict = '') => {
-  const pkg = input.package_id ?? eventPackage
-  const ev = input.event_version ?? eventVersion
-  const key = input.event_key ?? eventKey({ ...input, package_id: pkg, event_version: ev })
-  return `insert into content_staging.migration_audit_events (run_id,event_type,details,package_id,event_version,decision_id,book_id,segment_key,event_action,event_key) values (${sqlString(input.run_id)}::uuid, ${sqlString(input.event_type)}, ${jsonSql(details({ ...input, package_id: pkg, event_version: ev }, overrides))}, ${sqlString(pkg)}, ${ev}, ${sqlString(input.decision_id)}, ${input.book_id}, ${sqlString(input.segment_key)}, ${sqlString(input.event_action)}, ${sqlString(key)}) ${conflict} returning id;`
+const insertSql = (identity, { structured = {}, payload, payloadOverrides = {}, conflict = '' } = {}) => {
+  const values = { ...identity, ...structured }
+  const packageId = Object.hasOwn(values, 'package_id') ? values.package_id : eventPackage
+  const version = Object.hasOwn(values, 'event_version') ? values.event_version : eventVersion
+  const key = Object.hasOwn(values, 'event_key') ? values.event_key : eventKey({ ...identity, package_id: packageId, event_version: version })
+  const payloadValue = payload ?? details(identity, payloadOverrides)
+  const columns = ['run_id', 'event_type', 'details', 'package_id', 'event_version', 'decision_id', 'book_id', 'segment_key', 'event_action', 'event_key']
+  const literals = [sqlLiteral(values.run_id, 'uuid'), sqlLiteral(values.event_type), sqlLiteral(payloadValue, 'jsonb'), sqlLiteral(packageId), sqlLiteral(version), sqlLiteral(values.decision_id), sqlLiteral(values.book_id), sqlLiteral(values.segment_key), sqlLiteral(values.event_action), sqlLiteral(key)]
+  if (literals.some(value => value === '')) throw new Error('empty SQL value expression')
+  return `insert into content_staging.migration_audit_events (${columns.join(',')}) values (${literals.join(', ')}) ${conflict} returning id;`
 }
 const conflictClause = `on conflict (event_key) where ${conflictTargetPredicate} do nothing`
 const base = { run_id: '00000000-0000-4000-8000-000000000101', decision_id: 'decision000000000000000001', book_id: 1, segment_key: 'aaaaaaaaaaaaaaaaaaaa', event_action: eventActions.application, event_type: eventTypes.application }
@@ -60,16 +64,37 @@ create table if not exists public.reading_sessions (id integer primary key gener
 insert into public.books(id,title) values (1,'Test Book') on conflict do nothing;
 insert into public.sections(id,book_id,sec_position) values (1,1,1) on conflict do nothing;
 `
-const evidence = { validation_mode: 'github-actions-ephemeral-postgresql', workflow_name: 'Reviewed Boundary Audit Database Validation', local_host_classification: env.PGHOST, no_remote_database_used: true, no_secrets_used: true, applied_migrations: [], role_bootstrap: { fixture: roleFixturePath, required_roles: requiredSupabaseRoles, applied: false, roles: [] }, migration_success: false, tests: [], test_counts: {}, persistent_reviewed_boundary_row_count_after_cleanup: null, evidence_generation_timestamp_policy: 'no wall-clock timestamp committed; runtime artifact only' }
+const evidence = { validation_mode: 'github-actions-ephemeral-postgresql', workflow_name: 'Reviewed Boundary Audit Database Validation', local_host_classification: env.PGHOST, no_remote_database_used: true, no_secrets_used: true, applied_migrations: [], role_bootstrap: { fixture: roleFixturePath, required_roles: requiredSupabaseRoles, applied: false, roles: [] }, migration_success: false, tests: [], test_counts: { total: 0, passed: 0 }, persistent_reviewed_boundary_row_count_after_cleanup: null, evidence_generation_timestamp_policy: 'no wall-clock timestamp; runtime artifact only', passed: false }
+const recordCase = ({ id, statement, expectedSuccess, expectedSqlstate = null, expectedConstraint = null }) => {
+  const before = rowCount()
+  let actualSuccess = false
+  let result = ''
+  let error = { sqlstate: null, constraint: null, summary: null }
+  try {
+    result = psql(transactionalSql(statement), true)
+    actualSuccess = true
+  } catch (caught) {
+    error = parsePostgresError(caught)
+  }
+  const after = rowCount()
+  const expectedError = !expectedSuccess && error.sqlstate === expectedSqlstate && (!expectedConstraint || error.constraint === expectedConstraint)
+  const passed = (expectedSuccess ? actualSuccess : expectedError) && before === after
+  const test = { test_id: id, expected_success: expectedSuccess, actual_success: actualSuccess, expected_sqlstate: expectedSqlstate, actual_sqlstate: error.sqlstate, expected_constraint: expectedConstraint, actual_constraint: error.constraint, state_restored: before === after, passed }
+  if (!passed && error.summary) test.error_summary = error.summary
+  if (actualSuccess) test.result = result.slice(0, 220)
+  evidence.tests.push(test)
+  return test
+}
+const check = '23514'
 try {
-  evidence.postgresql_version = psql('select version();', { tuples: true, silent: true })
-  evidence.search_path = psql('show search_path;', { tuples: true, silent: true })
+  evidence.postgresql_version = psql('select version();', true)
+  evidence.search_path = psql('show search_path;', true)
   psqlFile(roleFixturePath)
   evidence.applied_migrations.push(roleFixturePath)
   evidence.role_bootstrap.applied = true
-  evidence.role_bootstrap.roles = qJson(`select json_agg(json_build_object('rolname', rolname, 'rolsuper', rolsuper, 'rolinherit', rolinherit, 'rolcreaterole', rolcreaterole, 'rolcreatedb', rolcreatedb, 'rolcanlogin', rolcanlogin, 'rolreplication', rolreplication) order by rolname) from pg_roles where rolname = any(array[${requiredSupabaseRoles.map(sqlString).join(',')}]);`)
-  if ((evidence.role_bootstrap.roles ?? []).length !== requiredSupabaseRoles.length || evidence.role_bootstrap.roles.some(r => r.rolsuper || r.rolcreaterole || r.rolcreatedb || r.rolcanlogin || r.rolreplication)) reject('Supabase role bootstrap privilege drift')
-  psql(minimalPrereq, { silent: true })
+  evidence.role_bootstrap.roles = qJson(`select json_agg(json_build_object('rolname', rolname, 'rolsuper', rolsuper, 'rolinherit', rolinherit, 'rolcreaterole', rolcreaterole, 'rolcreatedb', rolcreatedb, 'rolcanlogin', rolcanlogin, 'rolreplication', rolreplication) order by rolname) from pg_roles where rolname = any(array[${requiredSupabaseRoles.map(value => sqlLiteral(value)).join(',')}]);`)
+  if ((evidence.role_bootstrap.roles ?? []).length !== requiredSupabaseRoles.length || evidence.role_bootstrap.roles.some(role => role.rolsuper || role.rolcreaterole || role.rolcreatedb || role.rolcanlogin || role.rolreplication)) reject('Supabase role bootstrap privilege drift')
+  psql(minimalPrereq)
   evidence.applied_migrations.push('local-minimal-public-fixture')
   psqlFile(foundationMigrationPath)
   evidence.applied_migrations.push(foundationMigrationPath)
@@ -85,49 +110,59 @@ try {
     indexes: qJson(`select json_object_agg(indexname, indexdef) from pg_indexes where schemaname='content_staging' and tablename='migration_audit_events';`),
     triggers: qJson(`select coalesce(json_agg(tgname order by tgname),'[]'::json) from pg_trigger where tgrelid='content_staging.migration_audit_events'::regclass and not tgisinternal;`),
   }
-  psql(`insert into content_staging.migration_runs(id,migration_version,input_snapshot_sha256,reconstruction_plan_sha256) values ${['00000000-0000-4000-8000-000000000101','00000000-0000-4000-8000-000000000102'].map((id,i)=>`('${id}'::uuid,'test-${i}','${'c'.repeat(64)}','${'d'.repeat(64)}')`).join(',')};`, { silent: true })
-  const tests = []
-  tests.push(expectSuccess('legacy row with existing columns only succeeds', `insert into content_staging.migration_audit_events(run_id,event_type,details) values (${sqlString(base.run_id)}::uuid,'legacy.event','{}'::jsonb);`))
-  tests.push(expectSuccess('unrelated package row with null identity succeeds', `insert into content_staging.migration_audit_events(run_id,event_type,details,package_id) values (${sqlString(base.run_id)}::uuid,'other.event','{}'::jsonb,'other-package');`))
-  for (const field of ['event_version','decision_id','book_id','segment_key','event_action','event_key']) {
-    const x = { ...base }; if (field === 'event_key') x.event_key = null
-    let sql = insertSql(x).replace(field === 'event_version' ? ',1,' : field === 'book_id' ? ',1,' : field === 'event_key' ? `,${sqlString(eventKey(base))}` : `${sqlString(x[field])}`, field === 'event_version' || field === 'book_id' ? ',null,' : ',null')
-    tests.push(expectFailure(`missing ${field} fails`, sql))
-  }
-  tests.push(expectFailure('unsupported event_version fails', insertSql({ ...base, event_version: 2 })))
-  tests.push(expectFailure('unsupported event_action fails', insertSql({ ...base, event_action: 'bad-action', event_type: 'reading-segment-reviewed-boundary.bad-action' })))
-  tests.push(expectFailure('application wrong event_type fails', insertSql({ ...base, event_type: eventTypes.rollback })))
-  tests.push(expectFailure('rollback wrong event_type fails', insertSql({ ...rollback, event_type: eventTypes.application })))
-  for (const segment_key of ['bad', 'abc', 'AAAAAAAAAAAAAAAAAAAA']) tests.push(expectFailure(`invalid segment_key ${segment_key} fails`, insertSql({ ...base, decision_id: `seg${segment_key}`.toLowerCase().padEnd(24,'0').slice(0,24), segment_key })))
-  tests.push(expectFailure('arbitrary event_key fails', insertSql({ ...base, decision_id: 'decisionbadkey000000000', event_key: '0'.repeat(64) })))
-  tests.push(expectFailure('changed-field event_key fails', insertSql({ ...base, decision_id: 'decisionchangedkey0000', event_key: eventKey({ ...base, decision_id: 'otherdecision000000000' }) })))
-  tests.push(expectFailure('application key used for rollback fails', insertSql({ ...rollback, decision_id: 'decisionrollbackkey000', event_key: eventKey({ ...rollback, event_action: eventActions.application }) })))
-  tests.push(expectFailure('incorrect field order event_key fails', insertSql({ ...base, decision_id: 'decisionfieldorder0000', event_key: createHash('sha256').update('wrong-order').digest('hex') })))
-  const required = ['package_id','package_version','event_version','event_action','decision_id','run_id','book_id','segment_key','previous_approval_status','resulting_approval_status','target_table','target_identity','authority_manifest_hash','package_hash']
-  for (const key of required) { const d = details(base); delete d[key]; tests.push(expectFailure(`missing details.${key} fails`, insertSql({ ...base, decision_id: `missing${key}`.replace(/[^a-z0-9]/g,'').padEnd(24,'0').slice(0,24) }, d))) }
-  for (const [name, overrides] of Object.entries({ wrong_package_id:{package_id:'x'}, wrong_package_version:{package_version:'2.0.0'}, wrong_event_version:{event_version:2}, wrong_action:{event_action:eventActions.rollback}, wrong_decision:{decision_id:'x'}, wrong_run:{run_id:'00000000-0000-4000-8000-000000000999'}, wrong_book:{book_id:2}, wrong_segment:{segment_key:'b'.repeat(20)}, wrong_target_table:{target_table:'x'}, wrong_target_identity:{target_identity:{run_id:base.run_id,book_id:9,segment_key:base.segment_key}}, invalid_authority_hash:{authority_manifest_hash:'x'}, invalid_package_hash:{package_hash:'x'}, wrong_application_statuses:{previous_approval_status:'content-review'}, wrong_rollback_statuses:{previous_approval_status:'boundary-review'} })) tests.push(expectFailure(`${name} payload fails`, insertSql({ ...base, decision_id: name.replace(/[^a-z0-9]/g,'').padEnd(24,'0').slice(0,24), event_action: name === 'wrong_rollback_statuses' ? eventActions.rollback : eventActions.application, event_type: name === 'wrong_rollback_statuses' ? eventTypes.rollback : eventTypes.application }, overrides)))
-  tests.push(expectSuccess('valid application payload succeeds', insertSql({ ...base, decision_id:'validapplication000000' })))
-  tests.push(expectSuccess('valid rollback payload succeeds', insertSql({ ...rollback, decision_id:'validrollback00000000' })))
-  const first = psql(insertSql({ ...base, decision_id:'conflictbase00000000' }, {}, conflictClause), { tuples: true, silent: true })
-  const dup = psql(insertSql({ ...base, decision_id:'conflictbase00000000' }, {}, conflictClause), { tuples: true, silent: true })
-  evidence.conflict_target_result = { predicate_target_accepted: true, first_inserted: first !== '', exact_duplicate_inserted: dup !== '' ? 1 : 0 }
-  for (const variant of [{...base,run_id:'00000000-0000-4000-8000-000000000102',decision_id:'diffrun00000000000000'}, {...base,decision_id:'diffdecision000000000'}, {...base,decision_id:'diffbook0000000000000',book_id:2}, {...base,decision_id:'diffsegment000000000',segment_key:'bbbbbbbbbbbbbbbbbbbb'}, {...rollback,decision_id:'conflictbase00000000'}]) tests.push(expectSuccess(`conflict variant ${variant.decision_id} inserts`, insertSql(variant, {}, conflictClause)))
-  tests.push(expectFailure('plain ON CONFLICT event_key is not authorized/inferable', insertSql({ ...base, decision_id:'plainconflict00000000' }, {}, 'on conflict (event_key) do nothing')))
-  const existing = qJson(`select json_build_object('package_id',package_id,'event_version',event_version,'decision_id',decision_id,'run_id',run_id::text,'book_id',book_id,'segment_key',segment_key,'event_action',event_action,'event_type',event_type,'details',details) from content_staging.migration_audit_events where event_key=${sqlString(eventKey({ ...base, decision_id:'conflictbase00000000' }))} limit 1;`)
-  const expected = { package_id:eventPackage,event_version,event_action:eventActions.application,decision_id:'conflictbase00000000',run_id:base.run_id,book_id:base.book_id,segment_key:base.segment_key,event_type:eventTypes.application,details:details({...base,decision_id:'conflictbase00000000'}) }
-  evidence.duplicate_verification = { exact_duplicate_classification: JSON.stringify(canonicalizeJson(existing)) === JSON.stringify(canonicalizeJson(expected)) ? 'verified-no-op' : 'AUDIT_CONFLICT', conflicting_duplicate_classification: JSON.stringify(canonicalizeJson({ ...existing, details:{...existing.details, package_hash:'f'.repeat(64)}})) === JSON.stringify(canonicalizeJson(expected)) ? 'verified-no-op' : 'AUDIT_CONFLICT' }
-  evidence.tests = tests
-  evidence.test_counts = { total: tests.length + 8, passed: tests.filter(t=>t.passed).length + (evidence.conflict_target_result.first_inserted ? 1 : 0) + (evidence.conflict_target_result.exact_duplicate_inserted === 0 ? 1 : 0) + 6 + (evidence.duplicate_verification.exact_duplicate_classification === 'verified-no-op' ? 1 : 0) + (evidence.duplicate_verification.conflicting_duplicate_classification === 'AUDIT_CONFLICT' ? 1 : 0) }
-  psql(`delete from content_staging.migration_audit_events where package_id='${eventPackage}' or event_type in ('legacy.event','other.event'); delete from content_staging.migration_runs where migration_version like 'test-%';`, { silent: true })
-  evidence.persistent_reviewed_boundary_row_count_after_cleanup = Number(psql(`select count(*) from content_staging.migration_audit_events where package_id='${eventPackage}';`, { tuples: true, silent: true }))
-  evidence.cleanup_result = evidence.persistent_reviewed_boundary_row_count_after_cleanup === 0 ? 'passed' : 'failed'
-  evidence.passed = evidence.migration_success && evidence.extension_state?.digest_success === true && evidence.test_counts.passed === evidence.test_counts.total && evidence.cleanup_result === 'passed'
+  psql(`insert into content_staging.migration_runs(id,migration_version,input_snapshot_sha256,reconstruction_plan_sha256) values ${['00000000-0000-4000-8000-000000000101', '00000000-0000-4000-8000-000000000102'].map((id, index) => `(${sqlLiteral(id, 'uuid')},'test-${index}','${'c'.repeat(64)}','${'d'.repeat(64)}')`).join(',')};`)
+
+  recordCase({ id: 'legacy-row', statement: `insert into content_staging.migration_audit_events(run_id,event_type,details) values (${sqlLiteral(base.run_id, 'uuid')},'legacy.event','{}'::jsonb);`, expectedSuccess: true })
+  recordCase({ id: 'unrelated-package', statement: `insert into content_staging.migration_audit_events(run_id,event_type,details,package_id) values (${sqlLiteral(base.run_id, 'uuid')},'other.event','{}'::jsonb,'other-package');`, expectedSuccess: true })
+  for (const field of ['event_version', 'decision_id', 'book_id', 'segment_key', 'event_action', 'event_key']) recordCase({ id: `missing-${field}`, statement: insertSql(base, { structured: { [field]: null } }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_identity_complete_chk' })
+  recordCase({ id: 'unsupported-version', statement: insertSql({ ...base, event_version: 2 }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_version_chk' })
+  recordCase({ id: 'unsupported-action', statement: insertSql({ ...base, event_action: 'bad-action', event_type: 'reading-segment-reviewed-boundary.bad-action' }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_action_chk' })
+  recordCase({ id: 'application-wrong-event-type', statement: insertSql(base, { structured: { event_type: eventTypes.rollback } }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_event_type_chk' })
+  recordCase({ id: 'rollback-wrong-event-type', statement: insertSql(rollback, { structured: { event_type: eventTypes.application } }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_event_type_chk' })
+  for (const [index, segmentKey] of ['bad', 'abc', 'AAAAAAAAAAAAAAAAAAAA'].entries()) recordCase({ id: `invalid-segment-${index + 1}`, statement: insertSql({ ...base, decision_id: `segmentcase${index}`.padEnd(24, '0'), segment_key: segmentKey }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_segment_key_chk' })
+  for (const [id, key] of [['arbitrary-event-key', '0'.repeat(64)], ['changed-field-event-key', eventKey({ ...base, decision_id: 'otherdecision000000000' })], ['incorrect-field-order-key', createHash('sha256').update('wrong-order').digest('hex')]]) recordCase({ id, statement: insertSql({ ...base, decision_id: id.replaceAll('-', '').padEnd(24, '0').slice(0, 24) }, { structured: { event_key: key } }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_event_key_chk' })
+  recordCase({ id: 'application-key-used-for-rollback', statement: insertSql(rollback, { structured: { event_key: eventKey({ ...rollback, event_action: eventActions.application }) } }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_event_key_chk' })
+  const requiredDetails = ['package_id', 'package_version', 'event_version', 'event_action', 'decision_id', 'run_id', 'book_id', 'segment_key', 'previous_approval_status', 'resulting_approval_status', 'target_table', 'target_identity', 'authority_manifest_hash', 'package_hash']
+  for (const [index, key] of requiredDetails.entries()) { const payload = details({ ...base, decision_id: `missingdetail${index}`.padEnd(24, '0') }); delete payload[key]; const identity = { ...base, decision_id: `missingdetail${index}`.padEnd(24, '0') }; recordCase({ id: `missing-details-${key}`, statement: insertSql(identity, { payload }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_details_chk' }) }
+  const payloadDrifts = { wrong_package_id: { package_id: 'x' }, wrong_package_version: { package_version: '2.0.0' }, wrong_event_version: { event_version: 2 }, wrong_action: { event_action: eventActions.rollback }, wrong_decision: { decision_id: 'x' }, wrong_run: { run_id: '00000000-0000-4000-8000-000000000999' }, wrong_book: { book_id: 2 }, wrong_segment: { segment_key: 'b'.repeat(20) }, wrong_target_table: { target_table: 'x' }, wrong_target_identity: { target_identity: { run_id: base.run_id, book_id: 9, segment_key: base.segment_key } }, invalid_authority_hash: { authority_manifest_hash: 'x' }, invalid_package_hash: { package_hash: 'x' }, wrong_application_statuses: { previous_approval_status: 'content-review' } }
+  for (const [index, [name, payloadOverrides]] of Object.entries(payloadDrifts).entries()) { const identity = { ...base, decision_id: `payloaddrift${index}`.padEnd(24, '0') }; recordCase({ id: name, statement: insertSql(identity, { payloadOverrides }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_details_chk' }) }
+  recordCase({ id: 'wrong-rollback-statuses', statement: insertSql({ ...rollback, decision_id: 'wrongrollbackstatus00000' }, { payloadOverrides: { previous_approval_status: 'boundary-review' } }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_details_chk' })
+  recordCase({ id: 'valid-application', statement: insertSql({ ...base, decision_id: 'validapplication000000' }), expectedSuccess: true })
+  recordCase({ id: 'valid-rollback', statement: insertSql({ ...rollback, decision_id: 'validrollback00000000' }), expectedSuccess: true })
+
+  const conflictIdentity = { ...base, decision_id: 'conflictbase00000000' }
+  const conflictOutput = psql(transactionalSql(`${insertSql(conflictIdentity, { conflict: conflictClause })}\n${insertSql(conflictIdentity, { conflict: conflictClause })}`), true)
+  const returnedIds = conflictOutput.split(/\r?\n/).filter(line => /^\d+$/.test(line))
+  evidence.conflict_target_result = { predicate_target_accepted: true, first_inserted_rows: returnedIds.length >= 1 ? 1 : 0, exact_duplicate_inserted_rows: returnedIds.length === 1 ? 0 : 1, variants: [] }
+  const variants = [{ ...base, run_id: '00000000-0000-4000-8000-000000000102', decision_id: 'diffrun00000000000000' }, { ...base, decision_id: 'diffdecision000000000' }, { ...base, decision_id: 'diffbook0000000000000', book_id: 2 }, { ...base, decision_id: 'diffsegment000000000', segment_key: 'bbbbbbbbbbbbbbbbbbbb' }, { ...rollback, decision_id: conflictIdentity.decision_id }]
+  for (const [index, variant] of variants.entries()) evidence.conflict_target_result.variants.push(recordCase({ id: `conflict-variant-${index + 1}`, statement: insertSql(variant, { conflict: conflictClause }), expectedSuccess: true }).passed)
+  const plain = recordCase({ id: 'plain-conflict-target-no-arbiter', statement: insertSql({ ...base, decision_id: 'plainconflict00000000' }, { conflict: 'on conflict (event_key) do nothing' }), expectedSuccess: false, expectedSqlstate: '42P10' })
+  evidence.conflict_target_result.plain_target_rejected_with_no_arbiter = plain.passed
+
+  const originalPayload = details(conflictIdentity)
+  const changedPayload = details(conflictIdentity, { package_hash: 'f'.repeat(64) })
+  const verificationOutput = psql(transactionalSql(`${insertSql(conflictIdentity, { conflict: conflictClause })}
+with attempted as (${insertSql(conflictIdentity, { conflict: conflictClause }).replace(/;$/, '')}) select case when count(*) = 0 then 'verified-no-op' else 'unexpected-insert' end from attempted;
+with attempted as (${insertSql(conflictIdentity, { payload: changedPayload, conflict: conflictClause }).replace(/;$/, '')}) select case when count(*) = 0 and exists (select 1 from content_staging.migration_audit_events where event_key=${sqlLiteral(eventKey(conflictIdentity))} and package_id=${sqlLiteral(eventPackage)} and event_version=1 and decision_id=${sqlLiteral(conflictIdentity.decision_id)} and run_id=${sqlLiteral(conflictIdentity.run_id, 'uuid')} and book_id=1 and segment_key=${sqlLiteral(conflictIdentity.segment_key)} and event_action=${sqlLiteral(conflictIdentity.event_action)} and event_type=${sqlLiteral(conflictIdentity.event_type)} and details=${sqlLiteral(originalPayload, 'jsonb')}) and not exists (select 1 from content_staging.migration_audit_events where event_key=${sqlLiteral(eventKey(conflictIdentity))} and details=${sqlLiteral(changedPayload, 'jsonb')}) then 'AUDIT_CONFLICT' else 'verification-failed' end from attempted;`), true)
+  evidence.duplicate_verification = { exact_duplicate_classification: verificationOutput.includes('verified-no-op') ? 'verified-no-op' : 'failed', conflicting_duplicate_classification: verificationOutput.includes('AUDIT_CONFLICT') ? 'AUDIT_CONFLICT' : 'failed' }
+  evidence.test_counts = { total: evidence.tests.length + 4, passed: evidence.tests.filter(test => test.passed).length + (evidence.conflict_target_result.first_inserted_rows === 1 ? 1 : 0) + (evidence.conflict_target_result.exact_duplicate_inserted_rows === 0 ? 1 : 0) + (evidence.duplicate_verification.exact_duplicate_classification === 'verified-no-op' ? 1 : 0) + (evidence.duplicate_verification.conflicting_duplicate_classification === 'AUDIT_CONFLICT' ? 1 : 0) }
 } catch (error) {
-  evidence.passed = false
-  evidence.error = String(error.stderr || error.stack || error.message)
+  evidence.error_summary = parsePostgresError(error).summary || String(error.message).slice(0, 300)
+} finally {
+  try {
+    if (evidence.migration_success) {
+      psql(`delete from content_staging.migration_audit_events where package_id=${sqlLiteral(eventPackage)} or event_type in ('legacy.event','other.event'); delete from content_staging.migration_runs where migration_version like 'test-%';`)
+      evidence.persistent_reviewed_boundary_row_count_after_cleanup = Number(psql(`select count(*) from content_staging.migration_audit_events where package_id=${sqlLiteral(eventPackage)};`, true))
+      evidence.cleanup_result = evidence.persistent_reviewed_boundary_row_count_after_cleanup === 0 ? 'passed' : 'failed'
+    } else evidence.cleanup_result = 'not-applicable-before-migration'
+  } catch (error) {
+    evidence.cleanup_result = 'failed'
+    evidence.cleanup_error_summary = parsePostgresError(error).summary
+  }
+  evidence.passed = evidence.migration_success && evidence.extension_state?.digest_success === true && evidence.catalog_schema?.columns?.length === 12 && evidence.test_counts.total > 0 && evidence.test_counts.passed === evidence.test_counts.total && evidence.conflict_target_result?.predicate_target_accepted === true && evidence.conflict_target_result?.plain_target_rejected_with_no_arbiter === true && evidence.cleanup_result === 'passed'
+  await mkdir(dirname(evidencePath), { recursive: true })
+  writeFileSync(evidencePath, JSON.stringify(canonicalizeJson(evidence), null, 2) + '\n')
 }
-await mkdir(dirname(evidencePath), { recursive: true })
-writeFileSync(evidencePath, JSON.stringify(canonicalizeJson(evidence), null, 2) + '\n')
 if (!evidence.passed) {
   console.error(`Reviewed-boundary audit database validation failed; evidence written to ${evidencePath}`)
   process.exit(1)
