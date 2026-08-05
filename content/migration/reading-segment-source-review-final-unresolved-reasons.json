@@ -1,0 +1,270 @@
+{
+  "schema_version": "pr0052-final-unresolved-reasons-v2",
+  "unresolved_count": 11,
+  "records": [
+    {
+      "decision_id": "7ed50cfb0fbbb85ff6f4e8cc",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "packet_id": "container-intro-only-book-1-packet-01",
+      "current_segment_key": "d709f621f896bf4419b76509",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "no candidate records exist in inspected candidate sources"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "rationale": "7ed50cfb0fbbb85ff6f4e8cc remains unresolved for segment d709f621f896bf4419b76509 in packet container-intro-only-book-1-packet-01: candidate_count=0; strongest_score=not-recorded; tied_strongest_count=0; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate."
+    },
+    {
+      "decision_id": "3897756c407152ae53987665",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-01",
+      "current_segment_key": "461505522a3a1448a4c87e9e",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "rationale": "3897756c407152ae53987665 remains unresolved for segment 461505522a3a1448a4c87e9e in packet same-page-no-semantic-anchor-book-2-packet-01: candidate_count=10; strongest_score=10.39985; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate."
+    },
+    {
+      "decision_id": "2c2dc1ac3460e74a5026421d",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "container-intro-only-book-2-packet-01",
+      "current_segment_key": "e3750489416607a8779a506c",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "no candidate records exist in inspected candidate sources"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "rationale": "2c2dc1ac3460e74a5026421d remains unresolved for segment e3750489416607a8779a506c in packet container-intro-only-book-2-packet-01: candidate_count=0; strongest_score=not-recorded; tied_strongest_count=0; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate."
+    },
+    {
+      "decision_id": "db952fd8631751ca9109b6c3",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-01",
+      "current_segment_key": "29dbc2af252b7975bfdfc9d2",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "rationale": "db952fd8631751ca9109b6c3 remains unresolved for segment 29dbc2af252b7975bfdfc9d2 in packet same-page-no-semantic-anchor-book-2-packet-01: candidate_count=10; strongest_score=21.667475; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate."
+    },
+    {
+      "decision_id": "1e0bd9a0cd99cf00dedd3aa2",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-02",
+      "current_segment_key": "5506be25c8edfc428b3445fa",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "rationale": "1e0bd9a0cd99cf00dedd3aa2 remains unresolved for segment 5506be25c8edfc428b3445fa in packet same-page-no-semantic-anchor-book-2-packet-02: candidate_count=10; strongest_score=7.044858; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate."
+    },
+    {
+      "decision_id": "e256bd63353ee92d4ef96065",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-02",
+      "current_segment_key": "ab77c3f8a7c7a5a6f7dc2526",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "rationale": "e256bd63353ee92d4ef96065 remains unresolved for segment ab77c3f8a7c7a5a6f7dc2526 in packet same-page-no-semantic-anchor-book-2-packet-02: candidate_count=10; strongest_score=20.860445; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate."
+    },
+    {
+      "decision_id": "85c7cf5ee49d466b5485bcab",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-02",
+      "current_segment_key": "d453a364c1a20d0b21c85c6a",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "rationale": "85c7cf5ee49d466b5485bcab remains unresolved for segment d453a364c1a20d0b21c85c6a in packet same-page-no-semantic-anchor-book-2-packet-02: candidate_count=10; strongest_score=20.269244; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate."
+    },
+    {
+      "decision_id": "705841cb923bc4d9fa3ac25b",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-02",
+      "current_segment_key": "c172855c2ef75f24e632a536",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "rationale": "705841cb923bc4d9fa3ac25b remains unresolved for segment c172855c2ef75f24e632a536 in packet same-page-no-semantic-anchor-book-2-packet-02: candidate_count=10; strongest_score=21.300741; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate."
+    },
+    {
+      "decision_id": "cbff5e6026f25411e8509d48",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-03",
+      "current_segment_key": "1ea97f6309ed08451096e49b",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "rationale": "cbff5e6026f25411e8509d48 remains unresolved for segment 1ea97f6309ed08451096e49b in packet same-page-no-semantic-anchor-book-2-packet-03: candidate_count=10; strongest_score=19.267625; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate."
+    },
+    {
+      "decision_id": "2ef17a38ada4fd37a77787e4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-03",
+      "current_segment_key": "c7c12401bf19ceaa875ec409",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "rationale": "2ef17a38ada4fd37a77787e4 remains unresolved for segment c7c12401bf19ceaa875ec409 in packet same-page-no-semantic-anchor-book-2-packet-03: candidate_count=10; strongest_score=17.891881; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate."
+    },
+    {
+      "decision_id": "250162b56cbec579275e37fa",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-04",
+      "current_segment_key": "cfa234d24f2f65c708a90a72",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "rationale": "250162b56cbec579275e37fa remains unresolved for segment cfa234d24f2f65c708a90a72 in packet same-page-no-semantic-anchor-book-2-packet-04: candidate_count=10; strongest_score=5.82174; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate."
+    }
+  ]
+}

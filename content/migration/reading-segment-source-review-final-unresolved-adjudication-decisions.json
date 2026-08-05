@@ -1,0 +1,836 @@
+{
+  "schema_version": "pr0052-final-unresolved-adjudication-decisions-v2",
+  "public_decision_count": 144,
+  "original_unresolved_count": 11,
+  "final_outcome_distribution": {
+    "adjust-successor-start": 6,
+    "confirm-successor-start": 73,
+    "exclude-structural-heading": 53,
+    "retain-intro-segment": 1,
+    "unresolved": 11
+  },
+  "resolved_count": 0,
+  "still_unresolved_count": 11,
+  "resolved_high_confidence_count": 0,
+  "resolved_medium_confidence_count": 0,
+  "resolved_low_confidence_count": 0,
+  "unresolved_low_confidence_count": 11,
+  "decisions": [
+    {
+      "decision_id": "7ed50cfb0fbbb85ff6f4e8cc",
+      "book_id": 1,
+      "book_slug": "o-livro-dos-espiritos",
+      "packet_id": "container-intro-only-book-1-packet-01",
+      "original_authoritative_outcome": "unresolved",
+      "current_segment_key": "d709f621f896bf4419b76509",
+      "current_segment_order": 105,
+      "current_segment_title": null,
+      "predecessor_segment_key": null,
+      "predecessor_segment_order": null,
+      "successor_segment_key": null,
+      "successor_segment_order": null,
+      "successor_segment_title": null,
+      "candidate_source_artifacts_inspected": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json",
+        "content/migration/reading-segment-same-page-review-corpus.json",
+        "content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+        "content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-manual-adjudication-packet.json",
+        "content/migration/reading-segment-container-intro-unresolved-analysis.json"
+      ],
+      "matching_candidate_ids": [],
+      "public_candidate_count": 0,
+      "selected_candidate_identity": null,
+      "selected_candidate_ids": [],
+      "score_availability": "no-candidates",
+      "strongest_candidate_score": null,
+      "tied_strongest_candidate_count": 0,
+      "page_gap": null,
+      "semantic_anchor_classification": "not-publicly-determinative",
+      "structural_heading_evidence": "not-determinative-in-public-artifacts",
+      "intro_retention_evidence": "not-determinative-in-public-artifacts",
+      "locator_adjustment_evidence": "not-determinative-in-public-artifacts",
+      "evidence_artifact_paths": [
+        "content/migration/reading-segment-source-review-container-intro-decisions.json",
+        "manual-adjudication"
+      ],
+      "adjudication_rule_applied": "pr0052-preserve-unresolved-on-insufficient-distinguishing-public-authority",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "outcome_specific_rationale": "7ed50cfb0fbbb85ff6f4e8cc remains unresolved for segment d709f621f896bf4419b76509 in packet container-intro-only-book-1-packet-01: candidate_count=0; strongest_score=not-recorded; tied_strongest_count=0; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate.",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "no candidate records exist in inspected candidate sources"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false,
+      "exact_historical_source_artifact": "content/migration/reading-segment-source-review-container-intro-decisions.json",
+      "pr0052_resolution_artifact": "content/migration/reading-segment-source-review-final-unresolved-adjudication-decisions.json"
+    },
+    {
+      "decision_id": "3897756c407152ae53987665",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-01",
+      "original_authoritative_outcome": "unresolved",
+      "current_segment_key": "461505522a3a1448a4c87e9e",
+      "current_segment_order": 9,
+      "current_segment_title": null,
+      "predecessor_segment_key": null,
+      "predecessor_segment_order": null,
+      "successor_segment_key": null,
+      "successor_segment_order": null,
+      "successor_segment_title": null,
+      "candidate_source_artifacts_inspected": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json",
+        "content/migration/reading-segment-same-page-review-corpus.json",
+        "content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+        "content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-manual-adjudication-packet.json",
+        "content/migration/reading-segment-container-intro-unresolved-analysis.json"
+      ],
+      "matching_candidate_ids": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#7612dc749758a1f2b552687b#candidate-0",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#7612dc749758a1f2b552687b#candidate-1",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#7612dc749758a1f2b552687b#candidate-2",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#7612dc749758a1f2b552687b#candidate-3",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#7612dc749758a1f2b552687b#candidate-4",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#534d95a9e2505298b6ae7a76#candidate-0",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#534d95a9e2505298b6ae7a76#candidate-1",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#534d95a9e2505298b6ae7a76#candidate-2",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#534d95a9e2505298b6ae7a76#candidate-3",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#534d95a9e2505298b6ae7a76#candidate-4"
+      ],
+      "public_candidate_count": 10,
+      "selected_candidate_identity": null,
+      "selected_candidate_ids": [],
+      "score_availability": "all-scores-available",
+      "strongest_candidate_score": 10.39985,
+      "tied_strongest_candidate_count": 2,
+      "page_gap": null,
+      "semantic_anchor_classification": "not-publicly-determinative",
+      "structural_heading_evidence": "not-determinative-in-public-artifacts",
+      "intro_retention_evidence": "not-determinative-in-public-artifacts",
+      "locator_adjustment_evidence": "not-determinative-in-public-artifacts",
+      "evidence_artifact_paths": [
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json"
+      ],
+      "adjudication_rule_applied": "pr0052-preserve-unresolved-on-insufficient-distinguishing-public-authority",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "outcome_specific_rationale": "3897756c407152ae53987665 remains unresolved for segment 461505522a3a1448a4c87e9e in packet same-page-no-semantic-anchor-book-2-packet-01: candidate_count=10; strongest_score=10.39985; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate.",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false,
+      "exact_historical_source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "pr0052_resolution_artifact": "content/migration/reading-segment-source-review-final-unresolved-adjudication-decisions.json"
+    },
+    {
+      "decision_id": "2c2dc1ac3460e74a5026421d",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "container-intro-only-book-2-packet-01",
+      "original_authoritative_outcome": "unresolved",
+      "current_segment_key": "e3750489416607a8779a506c",
+      "current_segment_order": 15,
+      "current_segment_title": null,
+      "predecessor_segment_key": null,
+      "predecessor_segment_order": null,
+      "successor_segment_key": null,
+      "successor_segment_order": null,
+      "successor_segment_title": null,
+      "candidate_source_artifacts_inspected": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json",
+        "content/migration/reading-segment-same-page-review-corpus.json",
+        "content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+        "content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-manual-adjudication-packet.json",
+        "content/migration/reading-segment-container-intro-unresolved-analysis.json"
+      ],
+      "matching_candidate_ids": [],
+      "public_candidate_count": 0,
+      "selected_candidate_identity": null,
+      "selected_candidate_ids": [],
+      "score_availability": "no-candidates",
+      "strongest_candidate_score": null,
+      "tied_strongest_candidate_count": 0,
+      "page_gap": null,
+      "semantic_anchor_classification": "not-publicly-determinative",
+      "structural_heading_evidence": "not-determinative-in-public-artifacts",
+      "intro_retention_evidence": "not-determinative-in-public-artifacts",
+      "locator_adjustment_evidence": "not-determinative-in-public-artifacts",
+      "evidence_artifact_paths": [
+        "content/migration/reading-segment-source-review-container-intro-decisions.json",
+        "manual-adjudication"
+      ],
+      "adjudication_rule_applied": "pr0052-preserve-unresolved-on-insufficient-distinguishing-public-authority",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "outcome_specific_rationale": "2c2dc1ac3460e74a5026421d remains unresolved for segment e3750489416607a8779a506c in packet container-intro-only-book-2-packet-01: candidate_count=0; strongest_score=not-recorded; tied_strongest_count=0; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate.",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "no candidate records exist in inspected candidate sources"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false,
+      "exact_historical_source_artifact": "content/migration/reading-segment-source-review-container-intro-decisions.json",
+      "pr0052_resolution_artifact": "content/migration/reading-segment-source-review-final-unresolved-adjudication-decisions.json"
+    },
+    {
+      "decision_id": "db952fd8631751ca9109b6c3",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-01",
+      "original_authoritative_outcome": "unresolved",
+      "current_segment_key": "29dbc2af252b7975bfdfc9d2",
+      "current_segment_order": 41,
+      "current_segment_title": null,
+      "predecessor_segment_key": null,
+      "predecessor_segment_order": null,
+      "successor_segment_key": null,
+      "successor_segment_order": null,
+      "successor_segment_title": null,
+      "candidate_source_artifacts_inspected": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json",
+        "content/migration/reading-segment-same-page-review-corpus.json",
+        "content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+        "content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-manual-adjudication-packet.json",
+        "content/migration/reading-segment-container-intro-unresolved-analysis.json"
+      ],
+      "matching_candidate_ids": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#2635250a5caaf15707215fd1#candidate-0",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#2635250a5caaf15707215fd1#candidate-1",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#2635250a5caaf15707215fd1#candidate-2",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#2635250a5caaf15707215fd1#candidate-3",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#2635250a5caaf15707215fd1#candidate-4",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#8802ae3d4f82405a38a0d7f2#candidate-0",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#8802ae3d4f82405a38a0d7f2#candidate-1",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#8802ae3d4f82405a38a0d7f2#candidate-2",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#8802ae3d4f82405a38a0d7f2#candidate-3",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#8802ae3d4f82405a38a0d7f2#candidate-4"
+      ],
+      "public_candidate_count": 10,
+      "selected_candidate_identity": null,
+      "selected_candidate_ids": [],
+      "score_availability": "all-scores-available",
+      "strongest_candidate_score": 21.667475,
+      "tied_strongest_candidate_count": 2,
+      "page_gap": null,
+      "semantic_anchor_classification": "not-publicly-determinative",
+      "structural_heading_evidence": "not-determinative-in-public-artifacts",
+      "intro_retention_evidence": "not-determinative-in-public-artifacts",
+      "locator_adjustment_evidence": "not-determinative-in-public-artifacts",
+      "evidence_artifact_paths": [
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json"
+      ],
+      "adjudication_rule_applied": "pr0052-preserve-unresolved-on-insufficient-distinguishing-public-authority",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "outcome_specific_rationale": "db952fd8631751ca9109b6c3 remains unresolved for segment 29dbc2af252b7975bfdfc9d2 in packet same-page-no-semantic-anchor-book-2-packet-01: candidate_count=10; strongest_score=21.667475; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate.",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false,
+      "exact_historical_source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "pr0052_resolution_artifact": "content/migration/reading-segment-source-review-final-unresolved-adjudication-decisions.json"
+    },
+    {
+      "decision_id": "1e0bd9a0cd99cf00dedd3aa2",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-02",
+      "original_authoritative_outcome": "unresolved",
+      "current_segment_key": "5506be25c8edfc428b3445fa",
+      "current_segment_order": 43,
+      "current_segment_title": null,
+      "predecessor_segment_key": null,
+      "predecessor_segment_order": null,
+      "successor_segment_key": null,
+      "successor_segment_order": null,
+      "successor_segment_title": null,
+      "candidate_source_artifacts_inspected": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json",
+        "content/migration/reading-segment-same-page-review-corpus.json",
+        "content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+        "content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-manual-adjudication-packet.json",
+        "content/migration/reading-segment-container-intro-unresolved-analysis.json"
+      ],
+      "matching_candidate_ids": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#5911a3c976940aeae24bcfb4#candidate-0",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#5911a3c976940aeae24bcfb4#candidate-1",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#5911a3c976940aeae24bcfb4#candidate-2",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#5911a3c976940aeae24bcfb4#candidate-3",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#5911a3c976940aeae24bcfb4#candidate-4",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#a61ca93231d0beaa72fddb1c#candidate-0",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#a61ca93231d0beaa72fddb1c#candidate-1",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#a61ca93231d0beaa72fddb1c#candidate-2",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#a61ca93231d0beaa72fddb1c#candidate-3",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#a61ca93231d0beaa72fddb1c#candidate-4"
+      ],
+      "public_candidate_count": 10,
+      "selected_candidate_identity": null,
+      "selected_candidate_ids": [],
+      "score_availability": "all-scores-available",
+      "strongest_candidate_score": 7.044858,
+      "tied_strongest_candidate_count": 2,
+      "page_gap": null,
+      "semantic_anchor_classification": "not-publicly-determinative",
+      "structural_heading_evidence": "not-determinative-in-public-artifacts",
+      "intro_retention_evidence": "not-determinative-in-public-artifacts",
+      "locator_adjustment_evidence": "not-determinative-in-public-artifacts",
+      "evidence_artifact_paths": [
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json"
+      ],
+      "adjudication_rule_applied": "pr0052-preserve-unresolved-on-insufficient-distinguishing-public-authority",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "outcome_specific_rationale": "1e0bd9a0cd99cf00dedd3aa2 remains unresolved for segment 5506be25c8edfc428b3445fa in packet same-page-no-semantic-anchor-book-2-packet-02: candidate_count=10; strongest_score=7.044858; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate.",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false,
+      "exact_historical_source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "pr0052_resolution_artifact": "content/migration/reading-segment-source-review-final-unresolved-adjudication-decisions.json"
+    },
+    {
+      "decision_id": "e256bd63353ee92d4ef96065",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-02",
+      "original_authoritative_outcome": "unresolved",
+      "current_segment_key": "ab77c3f8a7c7a5a6f7dc2526",
+      "current_segment_order": 75,
+      "current_segment_title": null,
+      "predecessor_segment_key": null,
+      "predecessor_segment_order": null,
+      "successor_segment_key": null,
+      "successor_segment_order": null,
+      "successor_segment_title": null,
+      "candidate_source_artifacts_inspected": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json",
+        "content/migration/reading-segment-same-page-review-corpus.json",
+        "content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+        "content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-manual-adjudication-packet.json",
+        "content/migration/reading-segment-container-intro-unresolved-analysis.json"
+      ],
+      "matching_candidate_ids": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#cc22adeff3afdbd326505de5#candidate-0",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#cc22adeff3afdbd326505de5#candidate-1",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#cc22adeff3afdbd326505de5#candidate-2",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#cc22adeff3afdbd326505de5#candidate-3",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#cc22adeff3afdbd326505de5#candidate-4",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#9b641d349a7cb359eb7eb663#candidate-0",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#9b641d349a7cb359eb7eb663#candidate-1",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#9b641d349a7cb359eb7eb663#candidate-2",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#9b641d349a7cb359eb7eb663#candidate-3",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#9b641d349a7cb359eb7eb663#candidate-4"
+      ],
+      "public_candidate_count": 10,
+      "selected_candidate_identity": null,
+      "selected_candidate_ids": [],
+      "score_availability": "all-scores-available",
+      "strongest_candidate_score": 20.860445,
+      "tied_strongest_candidate_count": 2,
+      "page_gap": null,
+      "semantic_anchor_classification": "not-publicly-determinative",
+      "structural_heading_evidence": "not-determinative-in-public-artifacts",
+      "intro_retention_evidence": "not-determinative-in-public-artifacts",
+      "locator_adjustment_evidence": "not-determinative-in-public-artifacts",
+      "evidence_artifact_paths": [
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json"
+      ],
+      "adjudication_rule_applied": "pr0052-preserve-unresolved-on-insufficient-distinguishing-public-authority",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "outcome_specific_rationale": "e256bd63353ee92d4ef96065 remains unresolved for segment ab77c3f8a7c7a5a6f7dc2526 in packet same-page-no-semantic-anchor-book-2-packet-02: candidate_count=10; strongest_score=20.860445; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate.",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false,
+      "exact_historical_source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "pr0052_resolution_artifact": "content/migration/reading-segment-source-review-final-unresolved-adjudication-decisions.json"
+    },
+    {
+      "decision_id": "85c7cf5ee49d466b5485bcab",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-02",
+      "original_authoritative_outcome": "unresolved",
+      "current_segment_key": "d453a364c1a20d0b21c85c6a",
+      "current_segment_order": 79,
+      "current_segment_title": null,
+      "predecessor_segment_key": null,
+      "predecessor_segment_order": null,
+      "successor_segment_key": null,
+      "successor_segment_order": null,
+      "successor_segment_title": null,
+      "candidate_source_artifacts_inspected": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json",
+        "content/migration/reading-segment-same-page-review-corpus.json",
+        "content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+        "content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-manual-adjudication-packet.json",
+        "content/migration/reading-segment-container-intro-unresolved-analysis.json"
+      ],
+      "matching_candidate_ids": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#0311cff3fed7966ddc67d680#candidate-0",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#0311cff3fed7966ddc67d680#candidate-1",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#0311cff3fed7966ddc67d680#candidate-2",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#0311cff3fed7966ddc67d680#candidate-3",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#0311cff3fed7966ddc67d680#candidate-4",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#d9e6ed0df96c5c12ea32a02d#candidate-0",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#d9e6ed0df96c5c12ea32a02d#candidate-1",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#d9e6ed0df96c5c12ea32a02d#candidate-2",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#d9e6ed0df96c5c12ea32a02d#candidate-3",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#d9e6ed0df96c5c12ea32a02d#candidate-4"
+      ],
+      "public_candidate_count": 10,
+      "selected_candidate_identity": null,
+      "selected_candidate_ids": [],
+      "score_availability": "all-scores-available",
+      "strongest_candidate_score": 20.269244,
+      "tied_strongest_candidate_count": 2,
+      "page_gap": null,
+      "semantic_anchor_classification": "not-publicly-determinative",
+      "structural_heading_evidence": "not-determinative-in-public-artifacts",
+      "intro_retention_evidence": "not-determinative-in-public-artifacts",
+      "locator_adjustment_evidence": "not-determinative-in-public-artifacts",
+      "evidence_artifact_paths": [
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json"
+      ],
+      "adjudication_rule_applied": "pr0052-preserve-unresolved-on-insufficient-distinguishing-public-authority",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "outcome_specific_rationale": "85c7cf5ee49d466b5485bcab remains unresolved for segment d453a364c1a20d0b21c85c6a in packet same-page-no-semantic-anchor-book-2-packet-02: candidate_count=10; strongest_score=20.269244; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate.",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false,
+      "exact_historical_source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "pr0052_resolution_artifact": "content/migration/reading-segment-source-review-final-unresolved-adjudication-decisions.json"
+    },
+    {
+      "decision_id": "705841cb923bc4d9fa3ac25b",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-02",
+      "original_authoritative_outcome": "unresolved",
+      "current_segment_key": "c172855c2ef75f24e632a536",
+      "current_segment_order": 80,
+      "current_segment_title": null,
+      "predecessor_segment_key": null,
+      "predecessor_segment_order": null,
+      "successor_segment_key": null,
+      "successor_segment_order": null,
+      "successor_segment_title": null,
+      "candidate_source_artifacts_inspected": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json",
+        "content/migration/reading-segment-same-page-review-corpus.json",
+        "content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+        "content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-manual-adjudication-packet.json",
+        "content/migration/reading-segment-container-intro-unresolved-analysis.json"
+      ],
+      "matching_candidate_ids": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#a37e9c2b5c145242b648caf7#candidate-0",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#a37e9c2b5c145242b648caf7#candidate-1",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#a37e9c2b5c145242b648caf7#candidate-2",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#a37e9c2b5c145242b648caf7#candidate-3",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#a37e9c2b5c145242b648caf7#candidate-4",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#b9899c3dbc7001b66f1604a2#candidate-0",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#b9899c3dbc7001b66f1604a2#candidate-1",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#b9899c3dbc7001b66f1604a2#candidate-2",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#b9899c3dbc7001b66f1604a2#candidate-3",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#b9899c3dbc7001b66f1604a2#candidate-4"
+      ],
+      "public_candidate_count": 10,
+      "selected_candidate_identity": null,
+      "selected_candidate_ids": [],
+      "score_availability": "all-scores-available",
+      "strongest_candidate_score": 21.300741,
+      "tied_strongest_candidate_count": 2,
+      "page_gap": null,
+      "semantic_anchor_classification": "not-publicly-determinative",
+      "structural_heading_evidence": "not-determinative-in-public-artifacts",
+      "intro_retention_evidence": "not-determinative-in-public-artifacts",
+      "locator_adjustment_evidence": "not-determinative-in-public-artifacts",
+      "evidence_artifact_paths": [
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json"
+      ],
+      "adjudication_rule_applied": "pr0052-preserve-unresolved-on-insufficient-distinguishing-public-authority",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "outcome_specific_rationale": "705841cb923bc4d9fa3ac25b remains unresolved for segment c172855c2ef75f24e632a536 in packet same-page-no-semantic-anchor-book-2-packet-02: candidate_count=10; strongest_score=21.300741; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate.",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false,
+      "exact_historical_source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "pr0052_resolution_artifact": "content/migration/reading-segment-source-review-final-unresolved-adjudication-decisions.json"
+    },
+    {
+      "decision_id": "cbff5e6026f25411e8509d48",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-03",
+      "original_authoritative_outcome": "unresolved",
+      "current_segment_key": "1ea97f6309ed08451096e49b",
+      "current_segment_order": 110,
+      "current_segment_title": null,
+      "predecessor_segment_key": null,
+      "predecessor_segment_order": null,
+      "successor_segment_key": null,
+      "successor_segment_order": null,
+      "successor_segment_title": null,
+      "candidate_source_artifacts_inspected": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json",
+        "content/migration/reading-segment-same-page-review-corpus.json",
+        "content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+        "content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-manual-adjudication-packet.json",
+        "content/migration/reading-segment-container-intro-unresolved-analysis.json"
+      ],
+      "matching_candidate_ids": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#451fdda030b915f718b3e763#candidate-0",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#451fdda030b915f718b3e763#candidate-1",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#451fdda030b915f718b3e763#candidate-2",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#451fdda030b915f718b3e763#candidate-3",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#451fdda030b915f718b3e763#candidate-4",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#28c21a67b8d33d98835f4958#candidate-0",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#28c21a67b8d33d98835f4958#candidate-1",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#28c21a67b8d33d98835f4958#candidate-2",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#28c21a67b8d33d98835f4958#candidate-3",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#28c21a67b8d33d98835f4958#candidate-4"
+      ],
+      "public_candidate_count": 10,
+      "selected_candidate_identity": null,
+      "selected_candidate_ids": [],
+      "score_availability": "all-scores-available",
+      "strongest_candidate_score": 19.267625,
+      "tied_strongest_candidate_count": 2,
+      "page_gap": null,
+      "semantic_anchor_classification": "not-publicly-determinative",
+      "structural_heading_evidence": "not-determinative-in-public-artifacts",
+      "intro_retention_evidence": "not-determinative-in-public-artifacts",
+      "locator_adjustment_evidence": "not-determinative-in-public-artifacts",
+      "evidence_artifact_paths": [
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json"
+      ],
+      "adjudication_rule_applied": "pr0052-preserve-unresolved-on-insufficient-distinguishing-public-authority",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "outcome_specific_rationale": "cbff5e6026f25411e8509d48 remains unresolved for segment 1ea97f6309ed08451096e49b in packet same-page-no-semantic-anchor-book-2-packet-03: candidate_count=10; strongest_score=19.267625; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate.",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false,
+      "exact_historical_source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "pr0052_resolution_artifact": "content/migration/reading-segment-source-review-final-unresolved-adjudication-decisions.json"
+    },
+    {
+      "decision_id": "2ef17a38ada4fd37a77787e4",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-03",
+      "original_authoritative_outcome": "unresolved",
+      "current_segment_key": "c7c12401bf19ceaa875ec409",
+      "current_segment_order": 112,
+      "current_segment_title": null,
+      "predecessor_segment_key": null,
+      "predecessor_segment_order": null,
+      "successor_segment_key": null,
+      "successor_segment_order": null,
+      "successor_segment_title": null,
+      "candidate_source_artifacts_inspected": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json",
+        "content/migration/reading-segment-same-page-review-corpus.json",
+        "content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+        "content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-manual-adjudication-packet.json",
+        "content/migration/reading-segment-container-intro-unresolved-analysis.json"
+      ],
+      "matching_candidate_ids": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#c5d7e6b724b932bfc6a04778#candidate-0",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#c5d7e6b724b932bfc6a04778#candidate-1",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#c5d7e6b724b932bfc6a04778#candidate-2",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#c5d7e6b724b932bfc6a04778#candidate-3",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#c5d7e6b724b932bfc6a04778#candidate-4",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#f9094cedcf2c8d9c47e38e03#candidate-0",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#f9094cedcf2c8d9c47e38e03#candidate-1",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#f9094cedcf2c8d9c47e38e03#candidate-2",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#f9094cedcf2c8d9c47e38e03#candidate-3",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#f9094cedcf2c8d9c47e38e03#candidate-4"
+      ],
+      "public_candidate_count": 10,
+      "selected_candidate_identity": null,
+      "selected_candidate_ids": [],
+      "score_availability": "all-scores-available",
+      "strongest_candidate_score": 17.891881,
+      "tied_strongest_candidate_count": 2,
+      "page_gap": null,
+      "semantic_anchor_classification": "not-publicly-determinative",
+      "structural_heading_evidence": "not-determinative-in-public-artifacts",
+      "intro_retention_evidence": "not-determinative-in-public-artifacts",
+      "locator_adjustment_evidence": "not-determinative-in-public-artifacts",
+      "evidence_artifact_paths": [
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json"
+      ],
+      "adjudication_rule_applied": "pr0052-preserve-unresolved-on-insufficient-distinguishing-public-authority",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "outcome_specific_rationale": "2ef17a38ada4fd37a77787e4 remains unresolved for segment c7c12401bf19ceaa875ec409 in packet same-page-no-semantic-anchor-book-2-packet-03: candidate_count=10; strongest_score=17.891881; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate.",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false,
+      "exact_historical_source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "pr0052_resolution_artifact": "content/migration/reading-segment-source-review-final-unresolved-adjudication-decisions.json"
+    },
+    {
+      "decision_id": "250162b56cbec579275e37fa",
+      "book_id": 2,
+      "book_slug": "o-livro-dos-mediuns",
+      "packet_id": "same-page-no-semantic-anchor-book-2-packet-04",
+      "original_authoritative_outcome": "unresolved",
+      "current_segment_key": "cfa234d24f2f65c708a90a72",
+      "current_segment_order": 116,
+      "current_segment_title": null,
+      "predecessor_segment_key": null,
+      "predecessor_segment_order": null,
+      "successor_segment_key": null,
+      "successor_segment_order": null,
+      "successor_segment_title": null,
+      "candidate_source_artifacts_inspected": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json",
+        "content/migration/reading-segment-same-page-review-corpus.json",
+        "content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json",
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+        "content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json",
+        "content/migration/reading-segment-book-3-manual-adjudication-packet.json",
+        "content/migration/reading-segment-container-intro-unresolved-analysis.json"
+      ],
+      "matching_candidate_ids": [
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#97ee999b9617ba1170ac1685#candidate-0",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#97ee999b9617ba1170ac1685#candidate-1",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#97ee999b9617ba1170ac1685#candidate-2",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#97ee999b9617ba1170ac1685#candidate-3",
+        "content/migration/reading-segment-no-anchor-discovery-corpus.json#97ee999b9617ba1170ac1685#candidate-4",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#84a059dbe5a9d695c01a8675#candidate-0",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#84a059dbe5a9d695c01a8675#candidate-1",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#84a059dbe5a9d695c01a8675#candidate-2",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#84a059dbe5a9d695c01a8675#candidate-3",
+        "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json#84a059dbe5a9d695c01a8675#candidate-4"
+      ],
+      "public_candidate_count": 10,
+      "selected_candidate_identity": null,
+      "selected_candidate_ids": [],
+      "score_availability": "all-scores-available",
+      "strongest_candidate_score": 5.82174,
+      "tied_strongest_candidate_count": 2,
+      "page_gap": null,
+      "semantic_anchor_classification": "not-publicly-determinative",
+      "structural_heading_evidence": "not-determinative-in-public-artifacts",
+      "intro_retention_evidence": "not-determinative-in-public-artifacts",
+      "locator_adjustment_evidence": "not-determinative-in-public-artifacts",
+      "evidence_artifact_paths": [
+        "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json"
+      ],
+      "adjudication_rule_applied": "pr0052-preserve-unresolved-on-insufficient-distinguishing-public-authority",
+      "final_outcome": "unresolved",
+      "adjudication_confidence": "low",
+      "outcome_specific_rationale": "250162b56cbec579275e37fa remains unresolved for segment cfa234d24f2f65c708a90a72 in packet same-page-no-semantic-anchor-book-2-packet-04: candidate_count=10; strongest_score=5.82174; tied_strongest_count=2; successor_identity_available=false; semantic_anchor=not-publicly-determinative; final_outcome=unresolved; downstream_lane=unresolved/ineligible lane; unresolved_reason=no-selected-candidate.",
+      "unresolved_reasons": [
+        {
+          "code": "no-selected-candidate",
+          "detail": "candidate records exist but none is adjudication-selected"
+        },
+        {
+          "code": "successor-identity-unavailable",
+          "detail": "successor segment identity is unavailable in public authority"
+        },
+        {
+          "code": "insufficient-public-authority-to-distinguish-outcomes",
+          "detail": "public artifacts do not distinguish successor confirmation, locator adjustment, structural-heading exclusion, and intro retention without additional public authority"
+        }
+      ],
+      "downstream_contract_lane": "unresolved/ineligible lane",
+      "application_ready": false,
+      "existing_contract_coverage": "not-covered-by-existing-immutable-contracts",
+      "future_superseding_contract_required": false,
+      "exact_historical_source_artifact": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "pr0052_resolution_artifact": "content/migration/reading-segment-source-review-final-unresolved-adjudication-decisions.json"
+    }
+  ]
+}
