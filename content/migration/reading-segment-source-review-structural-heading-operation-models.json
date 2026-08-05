@@ -1,0 +1,32 @@
+{
+  "schema_version": "pr0051-source-review-structural-heading-operation-models-v1",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "supported_operation_models": [],
+  "rejected_operation_models": [
+    {
+      "model": "A-soft-exclusion",
+      "approved": false,
+      "reason": "No repository authority defines a reader-facing exclusion/disabled field or reconstruction behavior for reviewed structural-heading rows."
+    },
+    {
+      "model": "B-status-based-exclusion",
+      "approved": false,
+      "reason": "Existing status-only authority advances approval_status but does not define approval_status as heading exclusion."
+    },
+    {
+      "model": "C-logical-merge-without-text-mutation",
+      "approved": false,
+      "reason": "No supported metadata link from heading row to successor or reader grouping semantics is defined."
+    },
+    {
+      "model": "D-physical-segment-merge",
+      "approved": false,
+      "reason": "No identity-remapping, locator absorption, reference-safety, audit, or rollback authority supports row deletion/remapping or text merge."
+    },
+    {
+      "model": "E-editorial-node-only-exclusion",
+      "approved": false,
+      "reason": "No authority shows editorial-node generation can omit/reclassify these headings while preserving staging rows and reconstruction."
+    }
+  ]
+}
