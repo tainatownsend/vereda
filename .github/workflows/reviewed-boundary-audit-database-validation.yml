@@ -7,6 +7,7 @@ on:
       - '.github/workflows/reviewed-boundary-audit-database-validation.yml'
       - 'supabase/migrations/20260805005500_reviewed_boundary_audit_identity.sql'
       - 'scripts/content_pipeline/test_reviewed_boundary_audit_identity_postgres.mjs'
+      - 'scripts/content_pipeline/fixtures/reviewed_boundary_audit_postgres_roles.sql'
       - 'scripts/content_pipeline/validate_reviewed_boundary_audit_identity.mjs'
       - 'scripts/content_pipeline/reviewed_boundary_audit_identity_constants.mjs'
       - 'content/migration/reading-segment-reviewed-boundary-audit-*.json'
@@ -52,8 +53,10 @@ jobs:
       - name: Run reviewed-boundary audit database validation
         run: npm run content:staging:segments:reviewed-boundary:audit-identity:db:test
       - name: Validate generated audit identity evidence
+        if: always() && hashFiles('content/migration/reading-segment-reviewed-boundary-audit-database-validation-evidence.json') != ''
         run: npm run content:staging:segments:reviewed-boundary:audit-identity:validate
       - name: Upload database validation evidence
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: reviewed-boundary-audit-database-validation-evidence

@@ -4,7 +4,7 @@ import { writeFileSync } from 'node:fs'
 import { mkdir } from 'node:fs/promises'
 import { dirname } from 'node:path'
 import { canonicalizeJson } from './hash_utils.mjs'
-import { conflictTargetPredicate, eventActions, eventKeyAlgorithm, eventPackage, eventTypes, eventVersion, migrationPath } from './reviewed_boundary_audit_identity_constants.mjs'
+import { conflictTargetPredicate, eventActions, eventKeyAlgorithm, eventPackage, eventTypes, eventVersion, migrationPath, roleFixturePath, requiredSupabaseRoles, foundationMigrationPath } from './reviewed_boundary_audit_identity_constants.mjs'
 
 const evidencePath = process.env.REVIEWED_BOUNDARY_AUDIT_DB_EVIDENCE ?? 'content/migration/reading-segment-reviewed-boundary-audit-database-validation-evidence.json'
 const env = { ...process.env }
@@ -60,14 +60,19 @@ create table if not exists public.reading_sessions (id integer primary key gener
 insert into public.books(id,title) values (1,'Test Book') on conflict do nothing;
 insert into public.sections(id,book_id,sec_position) values (1,1,1) on conflict do nothing;
 `
-const evidence = { validation_mode: 'github-actions-ephemeral-postgresql', workflow_name: 'Reviewed Boundary Audit Database Validation', local_host_classification: env.PGHOST, no_remote_database_used: true, no_secrets_used: true, applied_migrations: [], migration_success: false, tests: [], test_counts: {}, persistent_reviewed_boundary_row_count_after_cleanup: null, evidence_generation_timestamp_policy: 'no wall-clock timestamp committed; runtime artifact only' }
+const evidence = { validation_mode: 'github-actions-ephemeral-postgresql', workflow_name: 'Reviewed Boundary Audit Database Validation', local_host_classification: env.PGHOST, no_remote_database_used: true, no_secrets_used: true, applied_migrations: [], role_bootstrap: { fixture: roleFixturePath, required_roles: requiredSupabaseRoles, applied: false, roles: [] }, migration_success: false, tests: [], test_counts: {}, persistent_reviewed_boundary_row_count_after_cleanup: null, evidence_generation_timestamp_policy: 'no wall-clock timestamp committed; runtime artifact only' }
 try {
   evidence.postgresql_version = psql('select version();', { tuples: true, silent: true })
   evidence.search_path = psql('show search_path;', { tuples: true, silent: true })
+  psqlFile(roleFixturePath)
+  evidence.applied_migrations.push(roleFixturePath)
+  evidence.role_bootstrap.applied = true
+  evidence.role_bootstrap.roles = qJson(`select json_agg(json_build_object('rolname', rolname, 'rolsuper', rolsuper, 'rolinherit', rolinherit, 'rolcreaterole', rolcreaterole, 'rolcreatedb', rolcreatedb, 'rolcanlogin', rolcanlogin, 'rolreplication', rolreplication) order by rolname) from pg_roles where rolname = any(array[${requiredSupabaseRoles.map(sqlString).join(',')}]);`)
+  if ((evidence.role_bootstrap.roles ?? []).length !== requiredSupabaseRoles.length || evidence.role_bootstrap.roles.some(r => r.rolsuper || r.rolcreaterole || r.rolcreatedb || r.rolcanlogin || r.rolreplication)) reject('Supabase role bootstrap privilege drift')
   psql(minimalPrereq, { silent: true })
   evidence.applied_migrations.push('local-minimal-public-fixture')
-  psqlFile('supabase/migrations/20260803033000_content_staging_foundation.sql')
-  evidence.applied_migrations.push('supabase/migrations/20260803033000_content_staging_foundation.sql')
+  psqlFile(foundationMigrationPath)
+  evidence.applied_migrations.push(foundationMigrationPath)
   psqlFile(migrationPath)
   evidence.applied_migrations.push(migrationPath)
   evidence.migration_success = true

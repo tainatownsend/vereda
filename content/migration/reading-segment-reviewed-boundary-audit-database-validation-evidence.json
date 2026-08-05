@@ -14,6 +14,7 @@
     "postgresql_version",
     "local_host_classification",
     "no_remote_database_used",
+    "role_bootstrap",
     "extension_state",
     "search_path",
     "applied_migrations",
@@ -25,6 +26,31 @@
     "cleanup_result",
     "persistent_reviewed_boundary_row_count_after_cleanup"
   ],
+  "role_fixture_path": "scripts/content_pipeline/fixtures/reviewed_boundary_audit_postgres_roles.sql",
+  "required_supabase_roles": [
+    "anon",
+    "authenticated",
+    "service_role"
+  ],
+  "role_fixture_scope": "test-only fixture outside supabase/migrations; emulates Supabase platform roles for vanilla PostgreSQL CI only",
+  "role_privilege_policy": {
+    "login": false,
+    "superuser": false,
+    "createdb": false,
+    "createrole": false,
+    "replication": false
+  },
+  "migration_order": [
+    "scripts/content_pipeline/fixtures/reviewed_boundary_audit_postgres_roles.sql",
+    "local-minimal-public-fixture",
+    "supabase/migrations/20260803033000_content_staging_foundation.sql",
+    "supabase/migrations/20260805005500_reviewed_boundary_audit_identity.sql"
+  ],
+  "historical_foundation_migration": {
+    "path": "supabase/migrations/20260803033000_content_staging_foundation.sql",
+    "normalized_sha256": "d7c8554b04641955659ab64c910315c3176d3feb10d7a535e8581d2114ef76a3",
+    "preservation": "fixture does not modify historical migration content"
+  },
   "environment_type": "pending-github-actions",
   "postgresql_available": false,
   "remote_database_used": false,

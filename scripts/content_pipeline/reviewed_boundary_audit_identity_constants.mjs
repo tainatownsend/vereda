@@ -51,3 +51,7 @@ export const eventTypes = { application: 'reading-segment-reviewed-boundary.stat
 export const workflowPath = '.github/workflows/reviewed-boundary-audit-database-validation.yml'
 export const dbTestScriptPath = 'scripts/content_pipeline/test_reviewed_boundary_audit_identity_postgres.mjs'
 export const dbValidationCheckName = 'Reviewed boundary audit database validation'
+export const roleFixturePath = 'scripts/content_pipeline/fixtures/reviewed_boundary_audit_postgres_roles.sql'
+export const requiredSupabaseRoles = ['anon', 'authenticated', 'service_role']
+export const foundationMigrationPath = 'supabase/migrations/20260803033000_content_staging_foundation.sql'
+export const foundationMigrationSha256 = 'd7c8554b04641955659ab64c910315c3176d3feb10d7a535e8581d2114ef76a3'
