@@ -1,0 +1,12 @@
+{
+  "schema_version": "pr0053-reviewed-boundary-consolidated-postflight-v1",
+  "select_only_sql": "supabase/audits/reading_segment_reviewed_boundary_consolidated_postflight.sql",
+  "checks": [
+    "exactly 74 authorized rows have content-review",
+    "zero authorized rows remain boundary-review",
+    "all 70 excluded decisions are absent from application SQL and unchanged",
+    "future application SQL may update only approval_status; updated_at must remain unchanged because no trigger or explicit update authority exists; before/after proof requires a recorded baseline",
+    "audit exactness is checked only after audit authority exists",
+    "reconstruction and editorial-node validators remain required"
+  ]
+}

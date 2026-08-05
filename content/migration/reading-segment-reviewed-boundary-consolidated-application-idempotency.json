@@ -1,0 +1,8 @@
+{
+  "schema_version": "pr0053-reviewed-boundary-consolidated-idempotency-v1",
+  "idempotency_complete": false,
+  "first_application": "would require all 74 rows in boundary-review",
+  "safe_repeat": "blocked until exact audit and already-applied SQL behavior are authorized",
+  "partial_prior_application": "blocked; must fail closed rather than silently apply remaining rows",
+  "unexpected_state": "abort"
+}

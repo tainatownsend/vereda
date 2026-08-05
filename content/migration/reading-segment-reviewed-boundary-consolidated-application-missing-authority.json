@@ -1,0 +1,24 @@
+{
+  "schema_version": "pr0053-reviewed-boundary-consolidated-missing-authority-v1",
+  "package_approved": false,
+  "executable_application_sql_generated": false,
+  "executable_rollback_sql_generated": false,
+  "missing_authority": [
+    {
+      "authority": "audit inserts",
+      "blocking_reason": "PR-0049 requires one migration_audit_events record per decision but does not define exact event_type, payload schema, uniqueness key, timestamp rule, or conflict behavior for PR-0053."
+    },
+    {
+      "authority": "executable idempotency",
+      "blocking_reason": "PR-0049 describes safe repeat behavior but no repository-supported exact SQL reconciliation rule exists for first, repeated, or partial application."
+    },
+    {
+      "authority": "rollback SQL",
+      "blocking_reason": "PR-0049 explicitly defers rollback to a separately reviewed package and generated no rollback SQL."
+    },
+    {
+      "authority": "content hash preconditions",
+      "blocking_reason": "The status-only contract preserves content but does not provide exact per-row expected normalized_content_sha256 values or an independent expected hash of content for all 74 targets."
+    }
+  ]
+}

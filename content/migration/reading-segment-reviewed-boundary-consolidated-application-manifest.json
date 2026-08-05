@@ -1,0 +1,50 @@
+{
+  "schema_version": "pr0053-reviewed-boundary-consolidated-application-manifest-v1",
+  "package_id": "reading-segment-reviewed-boundary-consolidated-application-pr0053",
+  "package_version": "1.0.0",
+  "expected_main_base_authority": "d508bd0af61f3c1f2cd8fa0696820543c687bfcf",
+  "package_approved": false,
+  "rights_status": "credited-source-edition",
+  "hash_algorithms": {
+    "json": "sha256-canonical-json-v1",
+    "text_sql": "sha256-normalized-lf-text-v1"
+  },
+  "authorized_count": 74,
+  "excluded_count": 70,
+  "target_tuple_hash": "7cd1fc965c44a723a4cd357ef824348eb37056cf6bc785a07767203784cabf2d",
+  "exclusion_tuple_hash": "08fa181ba08acc37f16fce1ddac6876722f77b47da89241deadc6393c143abc0",
+  "sql_artifact_hashes": {
+    "executable_application_sql": null,
+    "executable_rollback_sql": null,
+    "preflight_select_sql_sha256": "a08d0e09867d16db21887397d4e585a13b1a613232bd220c77ea194290b77947",
+    "postflight_select_sql_sha256": "b99df58ab8cfd9eaa5bbe6c74f32c0a17d2e2e7555a160f76d9a30b648d6501e"
+  },
+  "artifact_hashes": {
+    "schema_model_sha256": "df1be19880a67ad96585cbf9f02b0ec6a11c2106be4a2b87b9a9798467eb3e19",
+    "policy_sha256": "7bd6b1c3d002bcfc766d9d994a6e2bfa963418ba90955f62b0da95acfc116216",
+    "plan_sha256": "184eee3e709042c01e0a778bbe8a1e1784dd858f08da27d760b7b930c88c6d9a",
+    "exclusions_sha256": "90fa0d03c52e6550db0e4bc9b8346e98c06fbab2564ffe772431213e43296af8",
+    "evidence_sha256": "cb13d993138626bdf6a7bd14ca3ce1e7654ccff89f23367c936ad2541015f841",
+    "preflight_sha256": "72235de2df0cd9408170d357d36158a8bd13db9aead3b00b2f947b5587e831d4",
+    "postflight_sha256": "627a77ddacd47b80d06afd7628e52d2a418a5e264d6f6dfe01bf249b12c2d556",
+    "idempotency_sha256": "b42652eba73e614989a4130e61b07d6a1d3e42e65e9b16f627e1b16cdc814758",
+    "audit_sha256": "084af7c07e79487519441c932b46ca5c2005dcdb8ac1d885112fc202a1126f67",
+    "rollback_sha256": "be40067180e30a70eff9c2b846ec5ce2f1aff82860db72949e1f4aae45315f03",
+    "missing_authority_sha256": "38f507fa4b19256518458462554f2d860cb17d18b74503d9c701be5ff1762e91"
+  },
+  "safety_assertions": {
+    "executable_application_sql_generated": false,
+    "sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "production_modified": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "bookmarks_modified": false,
+    "notes_modified": false,
+    "highlights_modified": false,
+    "cutover_enabled": false
+  }
+}

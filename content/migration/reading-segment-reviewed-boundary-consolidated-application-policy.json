@@ -1,0 +1,77 @@
+{
+  "schema_version": "pr0053-reviewed-boundary-consolidated-application-policy-v1",
+  "package_id": "reading-segment-reviewed-boundary-consolidated-application-pr0053",
+  "package_approved": false,
+  "rights_status": "credited-source-edition",
+  "run_id": "adcff561-8f92-545c-a219-615818a454f4",
+  "authorized_transition": {
+    "table": "content_staging.reading_segments",
+    "column": "approval_status",
+    "from": "boundary-review",
+    "to": "content-review"
+  },
+  "changed_columns": [
+    "approval_status"
+  ],
+  "column_classification": {
+    "explicitly_changed": [
+      "approval_status"
+    ],
+    "explicitly_preserved": [
+      "run_id",
+      "book_id",
+      "segment_key",
+      "source_key",
+      "segment_order",
+      "segment_index",
+      "segment_count",
+      "boundary_version",
+      "start_locator",
+      "end_locator",
+      "display_title",
+      "content",
+      "word_count",
+      "normalized_content_sha256",
+      "created_at",
+      "updated_at"
+    ],
+    "database_managed": [],
+    "unavailable_for_comparison": [],
+    "blocking_authority_missing": []
+  },
+  "unchanged_columns": [
+    "run_id",
+    "book_id",
+    "segment_key",
+    "source_key",
+    "segment_order",
+    "segment_index",
+    "segment_count",
+    "boundary_version",
+    "start_locator",
+    "end_locator",
+    "display_title",
+    "content",
+    "word_count",
+    "normalized_content_sha256",
+    "created_at",
+    "updated_at"
+  ],
+  "executable_application_sql_generated": false,
+  "executable_rollback_sql_generated": false,
+  "safety_assertions": {
+    "executable_application_sql_generated": false,
+    "sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "production_modified": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "bookmarks_modified": false,
+    "notes_modified": false,
+    "highlights_modified": false,
+    "cutover_enabled": false
+  }
+}

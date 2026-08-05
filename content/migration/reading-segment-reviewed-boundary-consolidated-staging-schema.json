@@ -1,0 +1,218 @@
+{
+  "schema_version": "pr0053-reviewed-boundary-consolidated-staging-schema-v1",
+  "source": "supabase/migrations/20260803033000_content_staging_foundation.sql",
+  "migrations_inspected": [
+    "supabase/migrations/20260803033000_content_staging_foundation.sql"
+  ],
+  "table": "content_staging.reading_segments",
+  "columns": [
+    {
+      "name": "run_id",
+      "data_type": "uuid",
+      "nullable": false,
+      "default": null,
+      "checks": [],
+      "foreign_key": "content_staging.migration_runs(id) on delete cascade"
+    },
+    {
+      "name": "book_id",
+      "data_type": "integer",
+      "nullable": false,
+      "default": null,
+      "checks": [],
+      "foreign_key": "public.books(id) on delete restrict"
+    },
+    {
+      "name": "segment_key",
+      "data_type": "text",
+      "nullable": false,
+      "default": null,
+      "checks": [
+        "segment_key ~ '^[a-f0-9]{20,64}$'"
+      ]
+    },
+    {
+      "name": "source_key",
+      "data_type": "text",
+      "nullable": false,
+      "default": null,
+      "checks": [],
+      "foreign_key": "content_staging.editorial_nodes(run_id, book_id, source_key) on delete restrict"
+    },
+    {
+      "name": "segment_order",
+      "data_type": "integer",
+      "nullable": false,
+      "default": null,
+      "checks": [
+        "segment_order > 0"
+      ]
+    },
+    {
+      "name": "segment_index",
+      "data_type": "integer",
+      "nullable": false,
+      "default": "1",
+      "checks": [
+        "segment_index > 0",
+        "segment_index <= segment_count"
+      ]
+    },
+    {
+      "name": "segment_count",
+      "data_type": "integer",
+      "nullable": false,
+      "default": "1",
+      "checks": [
+        "segment_count > 0"
+      ]
+    },
+    {
+      "name": "boundary_version",
+      "data_type": "integer",
+      "nullable": false,
+      "default": "1",
+      "checks": [
+        "boundary_version > 0"
+      ]
+    },
+    {
+      "name": "start_locator",
+      "data_type": "jsonb",
+      "nullable": true,
+      "default": null,
+      "checks": []
+    },
+    {
+      "name": "end_locator",
+      "data_type": "jsonb",
+      "nullable": true,
+      "default": null,
+      "checks": []
+    },
+    {
+      "name": "display_title",
+      "data_type": "text",
+      "nullable": true,
+      "default": null,
+      "checks": []
+    },
+    {
+      "name": "content",
+      "data_type": "text",
+      "nullable": true,
+      "default": null,
+      "checks": [
+        "approval_status approved requires content not null"
+      ]
+    },
+    {
+      "name": "word_count",
+      "data_type": "integer",
+      "nullable": true,
+      "default": null,
+      "checks": [
+        "word_count is null or word_count >= 0",
+        "approval_status approved requires word_count not null"
+      ]
+    },
+    {
+      "name": "normalized_content_sha256",
+      "data_type": "text",
+      "nullable": true,
+      "default": null,
+      "checks": [
+        "normalized_content_sha256 is null or normalized_content_sha256 ~ '^[a-f0-9]{64}$'",
+        "approval_status approved requires normalized_content_sha256 not null"
+      ]
+    },
+    {
+      "name": "approval_status",
+      "data_type": "text",
+      "nullable": false,
+      "default": "'draft'",
+      "checks": [
+        "approval_status in ('draft','boundary-review','content-review','approved','blocked')"
+      ]
+    },
+    {
+      "name": "created_at",
+      "data_type": "timestamptz",
+      "nullable": false,
+      "default": "now()",
+      "checks": []
+    },
+    {
+      "name": "updated_at",
+      "data_type": "timestamptz",
+      "nullable": false,
+      "default": "now()",
+      "checks": []
+    }
+  ],
+  "primary_key": [
+    "run_id",
+    "book_id",
+    "segment_key"
+  ],
+  "unique_constraints": [
+    [
+      "run_id",
+      "book_id",
+      "segment_order"
+    ]
+  ],
+  "foreign_keys": [
+    {
+      "columns": [
+        "run_id"
+      ],
+      "references": "content_staging.migration_runs(id)",
+      "on_delete": "cascade"
+    },
+    {
+      "columns": [
+        "book_id"
+      ],
+      "references": "public.books(id)",
+      "on_delete": "restrict"
+    },
+    {
+      "columns": [
+        "run_id",
+        "book_id",
+        "source_key"
+      ],
+      "references": "content_staging.editorial_nodes(run_id, book_id, source_key)",
+      "on_delete": "restrict"
+    }
+  ],
+  "triggers": [],
+  "updated_at_behavior": "default now() applies on INSERT only; no trigger or repository convention was found that updates content_staging.reading_segments.updated_at during UPDATE, so PR-0053 classifies updated_at as explicitly preserved by omission from the authorized update column set",
+  "column_classification": {
+    "explicitly_changed": [
+      "approval_status"
+    ],
+    "explicitly_preserved": [
+      "run_id",
+      "book_id",
+      "segment_key",
+      "source_key",
+      "segment_order",
+      "segment_index",
+      "segment_count",
+      "boundary_version",
+      "start_locator",
+      "end_locator",
+      "display_title",
+      "content",
+      "word_count",
+      "normalized_content_sha256",
+      "created_at",
+      "updated_at"
+    ],
+    "database_managed": [],
+    "unavailable_for_comparison": [],
+    "blocking_authority_missing": []
+  }
+}
