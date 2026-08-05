@@ -94,7 +94,7 @@
   "artifact_hashes": {
     "contract_sha256": "88223c13eed0d0c1774f7d912280e8fefe57da1a23fde57f9972535bc1287fb9",
     "plan_sha256": "9d30516910753ad1216e135c109fa785637149659c227685e77c2aaa0e517791",
-    "missing_authority_sha256": "15a1575404616c57af3a0b895bcc48f7e0b5dc1e4e9250487b17d4ead303f0ec",
+    "missing_authority_sha256": "cdc86025ef25cf0cdf1ec01f7778735898b0037e814d1d24d27ffea0a3382ff2",
     "operation_models_sha256": "01f8a14e4432f9f7513cb900544a3e062dd0e9743f28c5470d3f0c9b6ed43f1e"
   },
   "assertions": {
