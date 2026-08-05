@@ -1,0 +1,61 @@
+name: Reviewed Boundary Audit Database Validation
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/reviewed-boundary-audit-database-validation.yml'
+      - 'supabase/migrations/20260805005500_reviewed_boundary_audit_identity.sql'
+      - 'scripts/content_pipeline/test_reviewed_boundary_audit_identity_postgres.mjs'
+      - 'scripts/content_pipeline/validate_reviewed_boundary_audit_identity.mjs'
+      - 'scripts/content_pipeline/reviewed_boundary_audit_identity_constants.mjs'
+      - 'content/migration/reading-segment-reviewed-boundary-audit-*.json'
+      - 'tests/content_pipeline/reviewed_boundary_audit_identity.test.mjs'
+
+jobs:
+  reviewed-boundary-audit-database-validation:
+    name: Reviewed boundary audit database validation
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: vereda_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGHOST: 127.0.0.1
+      PGPORT: '5432'
+      PGUSER: postgres
+      PGPASSWORD: postgres
+      PGDATABASE: vereda_test
+      REVIEWED_BOUNDARY_AUDIT_DB_EVIDENCE: content/migration/reading-segment-reviewed-boundary-audit-database-validation-evidence.json
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Install PostgreSQL client
+        run: sudo apt-get update && sudo apt-get install -y postgresql-client
+      - name: Run reviewed-boundary audit database validation
+        run: npm run content:staging:segments:reviewed-boundary:audit-identity:db:test
+      - name: Validate generated audit identity evidence
+        run: npm run content:staging:segments:reviewed-boundary:audit-identity:validate
+      - name: Upload database validation evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-boundary-audit-database-validation-evidence
+          path: content/migration/reading-segment-reviewed-boundary-audit-database-validation-evidence.json
+          if-no-files-found: error

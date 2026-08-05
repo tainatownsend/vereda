@@ -47,3 +47,7 @@ export const conflictTargetPredicate = "package_id = 'reading-segment-reviewed-b
 export const eventKeyAlgorithm = 'sha256-v1-length-delimited-reviewed-boundary-event-key'
 
 export const eventTypes = { application: 'reading-segment-reviewed-boundary.status-advanced', rollback: 'reading-segment-reviewed-boundary.status-rollback' }
+
+export const workflowPath = '.github/workflows/reviewed-boundary-audit-database-validation.yml'
+export const dbTestScriptPath = 'scripts/content_pipeline/test_reviewed_boundary_audit_identity_postgres.mjs'
+export const dbValidationCheckName = 'Reviewed boundary audit database validation'
