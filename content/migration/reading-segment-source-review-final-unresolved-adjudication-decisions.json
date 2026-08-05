@@ -1,5 +1,5 @@
 {
-  "schema_version": "pr0052-final-unresolved-adjudication-decisions-v2",
+  "schema_version": "pr0052-final-unresolved-adjudication-decisions-v3",
   "public_decision_count": 144,
   "original_unresolved_count": 11,
   "final_outcome_distribution": {

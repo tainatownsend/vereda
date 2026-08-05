@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { createHash } from 'node:crypto'
 import { readFile } from 'node:fs/promises'
 import { canonicalJsonSha256FromValue } from '../../scripts/content_pipeline/hash_utils.mjs'
-import { candidateSources, deriveCandidateEvidence, deriveExpectedAdjudications, deriveFinalUnresolved, expectedRecord, paths } from '../../scripts/content_pipeline/build_source_review_final_unresolved_adjudication.mjs'
+import { deriveCandidateEvidence, deriveExpectedAdjudications, deriveFinalUnresolved, expectedRecord } from '../../scripts/content_pipeline/build_source_review_final_unresolved_adjudication.mjs'
+import { candidateSources, candidateSourcePathByKey, paths, requiredSafetyAssertions } from '../../scripts/content_pipeline/source_review_final_unresolved_constants.mjs'
 import { validateArtifactSet, validateArtifacts } from '../../scripts/content_pipeline/validate_source_review_final_unresolved_adjudication.mjs'
 
 const readJson = async p => JSON.parse(await readFile(p, 'utf8'))
@@ -56,19 +57,19 @@ describe('PR-0052 final unresolved adjudication hardening', () => {
     await expectInvalid(a => { a.decisions.resolved_low_confidence_count=1 }, 'confidence totals drift')
   })
   it('rejects generic/duplicated rationale and rationale field drift', async () => {
-    await expectInvalid(a => { a.decisions.decisions[0].outcome_specific_rationale='generic unresolved '+a.decisions.decisions[0].decision_id }, 'rationale field drift')
-    await expectInvalid(a => { a.decisions.decisions[1].outcome_specific_rationale=a.decisions.decisions[0].outcome_specific_rationale }, 'rationale field drift')
-    await expectInvalid(a => { a.decisions.decisions[0].outcome_specific_rationale=a.decisions.decisions[0].outcome_specific_rationale.replace('candidate_count=0','candidate_count=999') }, 'rationale field drift')
-    await expectInvalid(a => { a.decisions.decisions[0].outcome_specific_rationale=a.decisions.decisions[0].outcome_specific_rationale.replace('successor_identity_available=false','successor_identity_available=true') }, 'rationale field drift')
-    await expectInvalid(a => { a.decisions.decisions[0].outcome_specific_rationale=a.decisions.decisions[0].outcome_specific_rationale.replace(a.decisions.decisions[0].packet_id,'wrong-packet') }, 'rationale field drift')
-    await expectInvalid(a => { a.decisions.decisions[0].outcome_specific_rationale=a.decisions.decisions[0].outcome_specific_rationale.replace('downstream_lane=unresolved/ineligible lane','downstream_lane=status-only') }, 'rationale field drift')
+    await expectInvalid(a => { a.decisions.decisions[0].outcome_specific_rationale='generic unresolved '+a.decisions.decisions[0].decision_id }, 'outcome_specific_rationale')
+    await expectInvalid(a => { a.decisions.decisions[1].outcome_specific_rationale=a.decisions.decisions[0].outcome_specific_rationale }, 'outcome_specific_rationale')
+    await expectInvalid(a => { a.decisions.decisions[0].outcome_specific_rationale=a.decisions.decisions[0].outcome_specific_rationale.replace('candidate_count=0','candidate_count=999') }, 'outcome_specific_rationale')
+    await expectInvalid(a => { a.decisions.decisions[0].outcome_specific_rationale=a.decisions.decisions[0].outcome_specific_rationale.replace('successor_identity_available=false','successor_identity_available=true') }, 'outcome_specific_rationale')
+    await expectInvalid(a => { a.decisions.decisions[0].outcome_specific_rationale=a.decisions.decisions[0].outcome_specific_rationale.replace(a.decisions.decisions[0].packet_id,'wrong-packet') }, 'outcome_specific_rationale')
+    await expectInvalid(a => { a.decisions.decisions[0].outcome_specific_rationale=a.decisions.decisions[0].outcome_specific_rationale.replace('downstream_lane=unresolved/ineligible lane','downstream_lane=status-only') }, 'outcome_specific_rationale')
   })
   it('rejects missing, unsupported, duplicate, replaced, drifted, and evidence-inconsistent unresolved reasons', async () => {
     await expectInvalid(a => { a.decisions.decisions[0].unresolved_reasons=[] }, 'unresolved_reasons')
     await expectInvalid(a => { a.decisions.decisions[0].unresolved_reasons[0].code='unsupported' }, 'unresolved_reasons')
     await expectInvalid(a => { a.decisions.decisions[0].unresolved_reasons.push(clone(a.decisions.decisions[0].unresolved_reasons[0])) }, 'unresolved_reasons')
     await expectInvalid(a => { a.reasons.records.pop() }, 'reasons set mismatch')
-    await expectInvalid(a => { a.reasons.records[0].unresolved_reasons=[] }, 'reason-register')
+    await expectInvalid(a => { a.reasons.records[0].unresolved_reasons=[] }, 'reasons-record')
     await expectInvalid(a => { a.decisions.decisions[0].unresolved_reasons[0].detail='contradicts evidence' }, 'unresolved_reasons')
   })
   it('rejects downstream, application-ready, historical contract membership, and progress drift', async () => {
@@ -77,13 +78,36 @@ describe('PR-0052 final unresolved adjudication hardening', () => {
     await expectInvalid(a => { a.decisions.decisions[0].existing_contract_coverage='covered' }, 'existing_contract_coverage')
     await expectInvalid(a => { a.decisions.public_decision_count=145 }, 'decision totals drift')
   })
+
+  it('rejects field drift in plan, reasons, and impact records', async () => {
+    await expectInvalid(a => { a.plan.records[0].packet_id='wrong-packet' }, 'plan.packet_id')
+    await expectInvalid(a => { a.plan.records[0].matching_candidate_ids=['fabricated'] }, 'plan.matching_candidate_ids')
+    await expectInvalid(a => { a.reasons.records[0].packet_id='wrong-packet' }, 'reasons-record')
+    await expectInvalid(a => { a.reasons.records[0].rationale='generic' }, 'reasons-record')
+    await expectInvalid(a => { a.impact.records[0].downstream_contract_lane='status-only contract lane' }, 'impact-record')
+    await expectInvalid(a => { a.impact.records[0].future_superseding_contract_required=true }, 'impact-record')
+  })
   it('rejects hash mapping drift, stale hash, swapped paths, and missing/extra/renamed hash keys', async () => {
-    await expectInvalid(a => { delete a.evidence.field_to_path_hash_mapping.pr0049_status_only_contract }, 'hash key set drift')
-    await expectInvalid(a => { a.evidence.field_to_path_hash_mapping.extra={ path:'package.json', algorithm:'sha256-canonical-json-v1', sha256:'x' } }, 'hash key set drift')
-    await expectInvalid(a => { a.evidence.field_to_path_hash_mapping.renamed=a.evidence.field_to_path_hash_mapping.pr0049_status_only_contract; delete a.evidence.field_to_path_hash_mapping.pr0049_status_only_contract }, 'hash key set drift')
+    await expectInvalid(a => { delete a.evidence.field_to_path_hash_mapping.pr0049_status_only_contract }, 'hash key set')
+    await expectInvalid(a => { a.evidence.field_to_path_hash_mapping.extra={ path:'package.json', algorithm:'sha256-canonical-json-v1', sha256:'x' } }, 'hash key set')
+    await expectInvalid(a => { a.evidence.field_to_path_hash_mapping.renamed=a.evidence.field_to_path_hash_mapping.pr0049_status_only_contract; delete a.evidence.field_to_path_hash_mapping.pr0049_status_only_contract }, 'hash key set')
     await expectInvalid(a => { a.evidence.field_to_path_hash_mapping.pr0049_status_only_contract.sha256='0' }, 'stale hash')
     await expectInvalid(a => { a.evidence.field_to_path_hash_mapping.pr0049_status_only_contract.path='package.json' }, 'swapped path')
   })
+
+  it('rejects every candidate-source hash path swap explicitly', async () => {
+    for (const key of Object.keys(candidateSourcePathByKey)) await expectInvalid(a => { a.evidence.field_to_path_hash_mapping[key].path='package.json' }, `${key}: swapped path`)
+  }, 30000)
+  it('rejects every safety assertion when missing, extra, renamed, true, or string false', async () => {
+    for (const key of Object.keys(requiredSafetyAssertions)) {
+      await expectInvalid(a => { delete a.policy.safety_assertions[key] }, 'policy.safety-key-set')
+      await expectInvalid(a => { a.policy.safety_assertions[key] = true }, `policy.${key}`)
+      await expectInvalid(a => { a.policy.safety_assertions[key] = 'false' }, `policy.${key}`)
+    }
+    await expectInvalid(a => { a.policy.safety_assertions.extra=false }, 'policy.safety-key-set')
+    await expectInvalid(a => { a.evidence.safety_assertions.database_modified=true }, 'evidence.database_modified')
+    await expectInvalid(a => { a.impact.safety_assertions.production_modified=true }, 'impact.production_modified')
+  }, 30000)
   it('rejects source-text, private evidence, credentials, mutating SQL, and database/Supabase connection leakage', async () => {
     for (const key of ['source_text','source_excerpt','private_evidence','credentials','environment_values','migration_applied','database_modified_flag','production_modified_flag','cutover_enabled_flag']) await expectInvalid(a => { a.decisions.decisions[0][key]='x' }, 'unsafe key leaked')
     for (const sql of ['UPDATE x','INSERT INTO x','DELETE FROM x','MERGE x','ALTER TABLE x','DROP TABLE x']) await expectInvalid(a => { a.policy.note=sql }, 'mutating SQL token leaked')

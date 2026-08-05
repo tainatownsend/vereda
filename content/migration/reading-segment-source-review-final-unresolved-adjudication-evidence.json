@@ -1,5 +1,5 @@
 {
-  "schema_version": "pr0052-final-unresolved-adjudication-evidence-v2",
+  "schema_version": "pr0052-final-unresolved-adjudication-evidence-v3",
   "public_decision_count": 144,
   "original_unresolved_count": 11,
   "exact_set_equality": {
@@ -378,10 +378,20 @@
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "fdf0395a53622101ecbc486d1896ba05c73c01e37778bea24d3d4c9bcba9da10"
     },
+    "pr0048_readiness_policy": {
+      "path": "content/migration/reading-segment-reviewed-boundary-application-semantics-policy.json",
+      "algorithm": "sha256-canonical-json-v1",
+      "sha256": "36c0fe5c801c2f80c92c037a183ffd877dfd53d138c2df36ca40d4af2e914b04"
+    },
     "pr0048_readiness_plan": {
       "path": "content/migration/reading-segment-reviewed-boundary-application-readiness-plan.json",
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "475e52feba1553d3d23a11fa50d739c5f8e60384891848dabdcf107ed28bd3f1"
+    },
+    "pr0048_readiness_evidence": {
+      "path": "content/migration/reading-segment-reviewed-boundary-application-readiness-evidence.json",
+      "algorithm": "sha256-canonical-json-v1",
+      "sha256": "d50bcf3615d3ef0e76bea04ab6aa33fd04d3bbada99b136f77b6ced093f32bbb"
     },
     "pr0049_status_only_contract": {
       "path": "content/migration/reading-segment-source-review-status-only-contract.json",
@@ -393,6 +403,11 @@
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "dab1fea337a39a5d0244ffb9d660efbf1fd18b3c545a6267ae21711914fc3ea4"
     },
+    "pr0049_status_only_evidence": {
+      "path": "content/migration/reading-segment-source-review-status-only-contract-evidence.json",
+      "algorithm": "sha256-canonical-json-v1",
+      "sha256": "533de6588add175a69af6b2c7509d25a36810cbdb24f81ea1fef0d12a2c06724"
+    },
     "pr0050_locator_contract": {
       "path": "content/migration/reading-segment-source-review-successor-locator-adjustment-contract.json",
       "algorithm": "sha256-canonical-json-v1",
@@ -402,6 +417,16 @@
       "path": "content/migration/reading-segment-source-review-successor-locator-adjustment-plan.json",
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "e0359658ec435bc9dc874fc38f365504b4ece502f5395760294c15a67514e134"
+    },
+    "pr0050_locator_evidence": {
+      "path": "content/migration/reading-segment-source-review-successor-locator-adjustment-evidence.json",
+      "algorithm": "sha256-canonical-json-v1",
+      "sha256": "662846253277264fe100353be4c467e1fa5fee26eb29e7bb8b2239ffea511aea"
+    },
+    "pr0050_locator_missing_authority": {
+      "path": "content/migration/reading-segment-source-review-successor-locator-adjustment-missing-authority.json",
+      "algorithm": "sha256-canonical-json-v1",
+      "sha256": "90d32244f114eb8cab1124376f1f6e30e641181e2c6b690f9fcf3d7cc257a280"
     },
     "pr0051_structural_heading_contract": {
       "path": "content/migration/reading-segment-source-review-structural-heading-merge-contract.json",
@@ -413,98 +438,113 @@
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "9d30516910753ad1216e135c109fa785637149659c227685e77c2aaa0e517791"
     },
+    "pr0051_structural_heading_evidence": {
+      "path": "content/migration/reading-segment-source-review-structural-heading-merge-evidence.json",
+      "algorithm": "sha256-canonical-json-v1",
+      "sha256": "3e672cfa9d5e436e0af54e53ce397ddd90fbb9c45eb71a199f55eb697ef1cd8e"
+    },
+    "pr0051_structural_heading_missing_authority": {
+      "path": "content/migration/reading-segment-source-review-structural-heading-merge-missing-authority.json",
+      "algorithm": "sha256-canonical-json-v1",
+      "sha256": "cdc86025ef25cf0cdf1ec01f7778735898b0037e814d1d24d27ffea0a3382ff2"
+    },
+    "pr0051_structural_heading_operation_models": {
+      "path": "content/migration/reading-segment-source-review-structural-heading-operation-models.json",
+      "algorithm": "sha256-canonical-json-v1",
+      "sha256": "01f8a14e4432f9f7513cb900544a3e062dd0e9743f28c5470d3f0c9b6ed43f1e"
+    },
     "pr0052_policy": {
       "path": "content/migration/reading-segment-source-review-final-unresolved-adjudication-policy.json",
       "algorithm": "sha256-canonical-json-v1",
-      "sha256": "6989bf856690fba3d38f568581fd589345bd03abfdb9d8bc073c5e68af733213"
+      "sha256": "991437814a520b7f8684b4ae6c069652f404454558c5e31d3c5a832ae67cb4eb"
     },
     "pr0052_plan": {
       "path": "content/migration/reading-segment-source-review-final-unresolved-adjudication-plan.json",
       "algorithm": "sha256-canonical-json-v1",
-      "sha256": "e145935686f164b0ce43929484efddd8b87ddfe87c471297dbb23a9d6d4a9bfd"
+      "sha256": "8817014ec0c99b2342458b3f120dcbee8174e994104fc71854dab449cb8a5a08"
     },
     "pr0052_decisions": {
       "path": "content/migration/reading-segment-source-review-final-unresolved-adjudication-decisions.json",
       "algorithm": "sha256-canonical-json-v1",
-      "sha256": "c4705161f60ec36cd033cd0ba51cdf3815a61e48b6a8f165398ce744e5eae81c"
+      "sha256": "59234bb7f2f6304c50efe3f9991f0f72721685d2464cceec4c1d563ae64d960e"
     },
     "pr0052_reasons": {
       "path": "content/migration/reading-segment-source-review-final-unresolved-reasons.json",
       "algorithm": "sha256-canonical-json-v1",
-      "sha256": "03731f03f1f89de6912a4cc551aaab2c00e54a7956380726ae579317d04f9237"
+      "sha256": "a465ebd67c9a37e23c940121ee3635ab1eb65874ad0623b00c5123cb36b8074f"
     },
     "pr0052_impact": {
       "path": "content/migration/reading-segment-source-review-final-unresolved-contract-impact.json",
       "algorithm": "sha256-canonical-json-v1",
-      "sha256": "3714f8fc05f69a21e880c7a05234cc4d00028e1ad8e062b5dfe587f073322297"
+      "sha256": "ab343dea71bfbad6cae664180c51c6862be7f1f607ab33dcc1c5115e43404deb"
     },
-    "reading-segment-source-review-container-intro-decisions": {
+    "source_review_container_intro_decisions": {
       "path": "content/migration/reading-segment-source-review-container-intro-decisions.json",
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "b36a21b65b3afb9674bb32a204e607d2fc55db442ce8f731aa66cab32cb4cfb4"
     },
-    "reading-segment-source-review-pilot-decisions": {
+    "source_review_pilot_decisions": {
       "path": "content/migration/reading-segment-source-review-pilot-decisions.json",
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "152f2ad2a1c770e04c245f0f650839858be7f78cd259a60cee28d908596dbdca"
     },
-    "reading-segment-same-page-review-decisions": {
+    "same_page_review_decisions": {
       "path": "content/migration/reading-segment-same-page-review-decisions.json",
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "bcf18a5a86fd1dd4d1c8d4d979a064cbe4e7c974af41c3cfa517793a3e27b695"
     },
-    "reading-segment-no-anchor-ambiguous-adjudication-decisions": {
-      "path": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
-      "algorithm": "sha256-canonical-json-v1",
-      "sha256": "3aff3531e0bf594fe6ff3259acaac90eabcd84786642132413c7a57f5003ea76"
-    },
-    "reading-segment-remaining-no-anchor-backlog-adjudication-decisions": {
-      "path": "content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json",
-      "algorithm": "sha256-canonical-json-v1",
-      "sha256": "5c92c8846653826080a3d60dc2ea6b3c863dd5ddd52735a5e438ac27ef154ebb"
-    },
-    "reading-segment-no-anchor-discovery-corpus": {
+    "no_anchor_discovery_corpus": {
       "path": "content/migration/reading-segment-no-anchor-discovery-corpus.json",
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "fac22b6789455b4d6d9294517f2de5001e633ba5444f76118d89e0196d964667"
     },
-    "reading-segment-no-anchor-ambiguous-review-packet": {
+    "no_anchor_ambiguous_review_packet": {
       "path": "content/migration/reading-segment-no-anchor-ambiguous-review-packet.json",
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "6a6c9230eb70d9cf63e5b0dab50e3f2539e59f08ab0dafac241741eddc05a24f"
     },
-    "reading-segment-same-page-review-corpus": {
+    "same_page_review_corpus": {
       "path": "content/migration/reading-segment-same-page-review-corpus.json",
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "75975ef547c349e06b175b0b64c042e2d792630e98aecf53960e09aee70317b6"
     },
-    "reading-segment-book-2-successor-anchor-recovery-decisions": {
+    "remaining_no_anchor_backlog_adjudication": {
+      "path": "content/migration/reading-segment-remaining-no-anchor-backlog-adjudication-decisions.json",
+      "algorithm": "sha256-canonical-json-v1",
+      "sha256": "5c92c8846653826080a3d60dc2ea6b3c863dd5ddd52735a5e438ac27ef154ebb"
+    },
+    "no_anchor_ambiguous_adjudication": {
+      "path": "content/migration/reading-segment-no-anchor-ambiguous-adjudication-decisions.json",
+      "algorithm": "sha256-canonical-json-v1",
+      "sha256": "3aff3531e0bf594fe6ff3259acaac90eabcd84786642132413c7a57f5003ea76"
+    },
+    "book_2_successor_anchor_recovery": {
       "path": "content/migration/reading-segment-book-2-successor-anchor-recovery-decisions.json",
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "568035ca4978ea431c44ad827de8ae5e8b181b131a7f1fbc3d07c86c418844a5"
     },
-    "reading-segment-book-3-successor-anchor-recovery-decisions": {
+    "book_3_successor_anchor_recovery": {
       "path": "content/migration/reading-segment-book-3-successor-anchor-recovery-decisions.json",
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "f7eb3e237052c59825f86c4ec1746330c76fb61887f0809b3edb91984d7df74b"
     },
-    "reading-segment-book-3-manual-adjudication-packet": {
+    "book_3_manual_adjudication_packet": {
       "path": "content/migration/reading-segment-book-3-manual-adjudication-packet.json",
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "c95563b820e6937e78eaf409e6aa062c70745663e5f6cb4195c3b09446c272f7"
     },
-    "reading-segment-container-intro-unresolved-analysis": {
+    "container_intro_unresolved_analysis": {
       "path": "content/migration/reading-segment-container-intro-unresolved-analysis.json",
       "algorithm": "sha256-canonical-json-v1",
       "sha256": "3f791e97b8f198214d4176b141e988c6dd7d028037df5c957dea1e7cf041ba41"
     }
   },
   "artifact_hashes": {
-    "policy_sha256": "6989bf856690fba3d38f568581fd589345bd03abfdb9d8bc073c5e68af733213",
-    "plan_sha256": "e145935686f164b0ce43929484efddd8b87ddfe87c471297dbb23a9d6d4a9bfd",
-    "decisions_sha256": "c4705161f60ec36cd033cd0ba51cdf3815a61e48b6a8f165398ce744e5eae81c",
-    "reasons_sha256": "03731f03f1f89de6912a4cc551aaab2c00e54a7956380726ae579317d04f9237",
-    "impact_sha256": "3714f8fc05f69a21e880c7a05234cc4d00028e1ad8e062b5dfe587f073322297"
+    "policy_sha256": "991437814a520b7f8684b4ae6c069652f404454558c5e31d3c5a832ae67cb4eb",
+    "plan_sha256": "8817014ec0c99b2342458b3f120dcbee8174e994104fc71854dab449cb8a5a08",
+    "decisions_sha256": "59234bb7f2f6304c50efe3f9991f0f72721685d2464cceec4c1d563ae64d960e",
+    "reasons_sha256": "a465ebd67c9a37e23c940121ee3635ab1eb65874ad0623b00c5123cb36b8074f",
+    "impact_sha256": "ab343dea71bfbad6cae664180c51c6862be7f1f607ab33dcc1c5115e43404deb"
   },
   "safety_assertions": {
     "executable_sql_generated": false,

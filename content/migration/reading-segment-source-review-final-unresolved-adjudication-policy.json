@@ -1,5 +1,5 @@
 {
-  "schema_version": "pr0052-final-unresolved-adjudication-policy-v2",
+  "schema_version": "pr0052-final-unresolved-adjudication-policy-v3",
   "rights_status": "credited-source-edition",
   "allowed_outcomes": [
     "confirm-successor-start",
