@@ -1,51 +1,14 @@
-import { mkdir, writeFile, readFile } from 'node:fs/promises'
+import { mkdir, writeFile, readFile, readdir } from 'node:fs/promises'
 import { createHash } from 'node:crypto'
+import { join } from 'node:path'
 import { canonicalJsonSha256, canonicalJsonSha256FromValue } from './hash_utils.mjs'
-import { deriveStatusOnlyContract, paths as statusPaths } from './build_source_review_status_only_contract.mjs'
+import { deriveStatusOnlyContract } from './build_source_review_status_only_contract.mjs'
+import { paths, targetTable, targetColumns, changedColumns, preservedColumns, databaseManagedColumns, unavailableColumns, blockingColumns } from './reviewed_boundary_consolidated_constants.mjs'
 
-export const paths = {
-  policy: 'content/migration/reading-segment-reviewed-boundary-consolidated-application-policy.json',
-  plan: 'content/migration/reading-segment-reviewed-boundary-consolidated-application-plan.json',
-  exclusions: 'content/migration/reading-segment-reviewed-boundary-consolidated-exclusions.json',
-  manifest: 'content/migration/reading-segment-reviewed-boundary-consolidated-application-manifest.json',
-  evidence: 'content/migration/reading-segment-reviewed-boundary-consolidated-application-evidence.json',
-  schemaModel: 'content/migration/reading-segment-reviewed-boundary-consolidated-staging-schema.json',
-  preflight: 'content/migration/reading-segment-reviewed-boundary-consolidated-application-preflight.json',
-  postflight: 'content/migration/reading-segment-reviewed-boundary-consolidated-application-postflight.json',
-  idempotency: 'content/migration/reading-segment-reviewed-boundary-consolidated-application-idempotency.json',
-  audit: 'content/migration/reading-segment-reviewed-boundary-consolidated-application-audit.json',
-  rollback: 'content/migration/reading-segment-reviewed-boundary-consolidated-application-rollback.json',
-  missingAuthority: 'content/migration/reading-segment-reviewed-boundary-consolidated-application-missing-authority.json',
-  summary: 'content/migration/reports/reading-segment-reviewed-boundary-consolidated-application-summary.md',
-  docs: 'docs/content-pipeline/reviewed-boundary-consolidated-application-package.md',
-  preflightSql: 'supabase/audits/reading_segment_reviewed_boundary_consolidated_preflight.sql',
-  postflightSql: 'supabase/audits/reading_segment_reviewed_boundary_consolidated_postflight.sql',
-  stagingSchema: 'supabase/migrations/20260803033000_content_staging_foundation.sql',
-  statusContract: statusPaths.contract,
-  statusPlan: statusPaths.plan,
-  statusEvidence: statusPaths.evidence,
-  locatorContract: 'content/migration/reading-segment-source-review-successor-locator-adjustment-contract.json',
-  locatorPlan: 'content/migration/reading-segment-source-review-successor-locator-adjustment-plan.json',
-  locatorEvidence: 'content/migration/reading-segment-source-review-successor-locator-adjustment-evidence.json',
-  locatorMissing: 'content/migration/reading-segment-source-review-successor-locator-adjustment-missing-authority.json',
-  headingContract: 'content/migration/reading-segment-source-review-structural-heading-merge-contract.json',
-  headingPlan: 'content/migration/reading-segment-source-review-structural-heading-merge-plan.json',
-  headingEvidence: 'content/migration/reading-segment-source-review-structural-heading-merge-evidence.json',
-  headingMissing: 'content/migration/reading-segment-source-review-structural-heading-merge-missing-authority.json',
-  finalUnresolvedDecisions: 'content/migration/reading-segment-source-review-final-unresolved-adjudication-decisions.json',
-  finalUnresolvedEvidence: 'content/migration/reading-segment-source-review-final-unresolved-adjudication-evidence.json',
-}
 const lfSha = (text) => createHash('sha256').update(text.replace(/\r\n?/g, '\n'), 'utf8').digest('hex')
 export const normalizedTextSha256 = async (p) => lfSha(await readFile(p, 'utf8'))
 const dist = (xs, f) => xs.reduce((a, x) => ((a[f(x)] = (a[f(x)] ?? 0) + 1), a), {})
 const sort = (xs) => [...xs].sort((a,b)=>a.decision_id.localeCompare(b.decision_id))
-const targetTable = 'content_staging.reading_segments'
-const targetColumns = ['run_id','book_id','segment_key']
-const changedColumns = ['approval_status']
-const preservedColumns = ['run_id','book_id','segment_key','source_key','segment_order','segment_index','segment_count','boundary_version','start_locator','end_locator','display_title','content','word_count','normalized_content_sha256','created_at','updated_at']
-const databaseManagedColumns = []
-const blockingColumns = []
-const unavailableColumns = []
 const unchangedColumns = preservedColumns
 export const authoritativeSchema = {
   source: paths.stagingSchema,
@@ -116,9 +79,9 @@ export const derivePackage = async () => {
 }
 
 export const buildArtifacts = async () => {
-  const p = await derivePackage(); await mkdir('content/migration/reports',{recursive:true}); await mkdir('docs/content-pipeline',{recursive:true}); await mkdir('supabase/audits',{recursive:true})
+  const p = await derivePackage(); const scannedMigrations = (await readdir(paths.migrationsDir)).filter(f=>f.endsWith('.sql')).sort().map(f=>join(paths.migrationsDir,f)); const matchingMigrations = ['supabase/migrations/20260803033000_content_staging_foundation.sql']; await mkdir('content/migration/reports',{recursive:true}); await mkdir('docs/content-pipeline',{recursive:true}); await mkdir('supabase/audits',{recursive:true})
   const tupleHash = canonicalJsonSha256FromValue(p.authorized.map(r=>r.target_row_identity)); const exclusionHash = canonicalJsonSha256FromValue(p.excluded.map(r=>({decision_id:r.decision_id, lane:r.exclusion_lane})))
-  const schemaModel = { schema_version:'pr0053-reviewed-boundary-consolidated-staging-schema-v1', ...authoritativeSchema, column_classification:{ explicitly_changed:changedColumns, explicitly_preserved:preservedColumns, database_managed:databaseManagedColumns, unavailable_for_comparison:unavailableColumns, blocking_authority_missing:blockingColumns } }
+  const schemaModel = { schema_version:'pr0053-reviewed-boundary-consolidated-staging-schema-v1', ...authoritativeSchema, migrations_scanned:scannedMigrations, migrations_matching:matchingMigrations, column_classification:{ explicitly_changed:changedColumns, explicitly_preserved:preservedColumns, database_managed:databaseManagedColumns, unavailable_for_comparison:unavailableColumns, blocking_authority_missing:blockingColumns } }
   const policy = { schema_version:'pr0053-reviewed-boundary-consolidated-application-policy-v1', package_id:'reading-segment-reviewed-boundary-consolidated-application-pr0053', package_approved:false, rights_status:'credited-source-edition', run_id:p.runId, authorized_transition:{ table:targetTable, column:'approval_status', from:'boundary-review', to:'content-review' }, changed_columns:changedColumns, column_classification:{ explicitly_changed:changedColumns, explicitly_preserved:preservedColumns, database_managed:databaseManagedColumns, unavailable_for_comparison:unavailableColumns, blocking_authority_missing:blockingColumns }, unchanged_columns:unchangedColumns, executable_application_sql_generated:false, executable_rollback_sql_generated:false, safety_assertions:safety }
   const plan = { schema_version:'pr0053-reviewed-boundary-consolidated-application-plan-v1', package_approved:false, run_id:p.runId, authorized_decision_count:p.authorized.length, excluded_decision_count:p.excluded.length, target_table:targetTable, target_identity_columns:targetColumns, changed_columns:changedColumns, column_classification:{ explicitly_changed:changedColumns, explicitly_preserved:preservedColumns, database_managed:databaseManagedColumns, unavailable_for_comparison:unavailableColumns, blocking_authority_missing:blockingColumns }, unchanged_columns:unchangedColumns, application_records:p.authorized }
   const exclusions = { schema_version:'pr0053-reviewed-boundary-consolidated-exclusions-v1', excluded_decision_count:p.excluded.length, exclusion_distribution:p.exclusionDistribution, exclusions:p.excluded }
