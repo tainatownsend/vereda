@@ -1,0 +1,69 @@
+{
+  "table_exists": true,
+  "table": "content_staging.migration_audit_events",
+  "source_migration": "supabase/migrations/20260803033000_content_staging_foundation.sql",
+  "migrations_scanned": [
+    "supabase/migrations/20260802224500_reading_data_foundation.sql",
+    "supabase/migrations/20260803033000_content_staging_foundation.sql"
+  ],
+  "migrations_relevant": [
+    "supabase/migrations/20260802224500_reading_data_foundation.sql",
+    "supabase/migrations/20260803033000_content_staging_foundation.sql"
+  ],
+  "columns": [
+    {
+      "name": "id",
+      "type": "bigint",
+      "nullable": false,
+      "default": "generated always as identity"
+    },
+    {
+      "name": "run_id",
+      "type": "uuid",
+      "nullable": false,
+      "default": null
+    },
+    {
+      "name": "event_type",
+      "type": "text",
+      "nullable": false,
+      "default": null
+    },
+    {
+      "name": "details",
+      "type": "jsonb",
+      "nullable": false,
+      "default": "'{}'::jsonb"
+    },
+    {
+      "name": "created_at",
+      "type": "timestamptz",
+      "nullable": false,
+      "default": "now()"
+    }
+  ],
+  "primary_key": [
+    "id"
+  ],
+  "foreign_keys": [
+    {
+      "columns": [
+        "run_id"
+      ],
+      "references": "content_staging.migration_runs(id)",
+      "on_delete": "cascade"
+    }
+  ],
+  "unique_constraints": [],
+  "indexes": [],
+  "triggers": [],
+  "rls_or_grants": {
+    "schema_revoked_from": [
+      "public",
+      "anon",
+      "authenticated"
+    ],
+    "table_grants_discovered": []
+  },
+  "unsupported_later_schema_changes": false
+}

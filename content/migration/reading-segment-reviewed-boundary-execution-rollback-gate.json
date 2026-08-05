@@ -1,0 +1,12 @@
+{
+  "schema_version": "pr0054-reviewed-boundary-execution-rollback-gate-v1",
+  "approved": false,
+  "result": "blocked",
+  "searched_for": [
+    "content-review downstream approval/edit/audit events",
+    "migration_runs.status downstream package registration",
+    "reader progress/session/bookmark/note/highlight dependencies"
+  ],
+  "repository_mechanism_found": false,
+  "required_gate": "prove no later content-review approval/edit/audit event or downstream package registration depends on these rows"
+}

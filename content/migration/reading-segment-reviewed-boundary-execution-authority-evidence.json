@@ -1,0 +1,119 @@
+{
+  "schema_version": "pr0054-reviewed-boundary-execution-authority-evidence-v1",
+  "execution_authority_approved": false,
+  "totals": {
+    "public_decisions": 144,
+    "authorized_status_only_decisions": 74,
+    "excluded_decisions": 70
+  },
+  "authorized_outcomes": {
+    "confirm-successor-start": 73,
+    "retain-intro-segment": 1
+  },
+  "excluded_outcomes": {
+    "adjust-successor-start": 6,
+    "exclude-structural-heading": 53,
+    "unresolved": 11
+  },
+  "content_integrity": {
+    "target_count": 74,
+    "stored_hashes": 0,
+    "independent_hashes": 0,
+    "complete": 0,
+    "missing": 74,
+    "matches": 0,
+    "mismatches": 0,
+    "null_or_missing": 74
+  },
+  "audit_schema": {
+    "table_exists": true,
+    "table": "content_staging.migration_audit_events",
+    "source_migration": "supabase/migrations/20260803033000_content_staging_foundation.sql",
+    "migrations_scanned": [
+      "supabase/migrations/20260802224500_reading_data_foundation.sql",
+      "supabase/migrations/20260803033000_content_staging_foundation.sql"
+    ],
+    "migrations_relevant": [
+      "supabase/migrations/20260802224500_reading_data_foundation.sql",
+      "supabase/migrations/20260803033000_content_staging_foundation.sql"
+    ],
+    "columns": [
+      {
+        "name": "id",
+        "type": "bigint",
+        "nullable": false,
+        "default": "generated always as identity"
+      },
+      {
+        "name": "run_id",
+        "type": "uuid",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "event_type",
+        "type": "text",
+        "nullable": false,
+        "default": null
+      },
+      {
+        "name": "details",
+        "type": "jsonb",
+        "nullable": false,
+        "default": "'{}'::jsonb"
+      },
+      {
+        "name": "created_at",
+        "type": "timestamptz",
+        "nullable": false,
+        "default": "now()"
+      }
+    ],
+    "primary_key": [
+      "id"
+    ],
+    "foreign_keys": [
+      {
+        "columns": [
+          "run_id"
+        ],
+        "references": "content_staging.migration_runs(id)",
+        "on_delete": "cascade"
+      }
+    ],
+    "unique_constraints": [],
+    "indexes": [],
+    "triggers": [],
+    "rls_or_grants": {
+      "schema_revoked_from": [
+        "public",
+        "anon",
+        "authenticated"
+      ],
+      "table_grants_discovered": []
+    },
+    "unsupported_later_schema_changes": false
+  },
+  "safety_assertions": {
+    "executable_application_sql_generated": false,
+    "executable_rollback_sql_generated": false,
+    "sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "staging_modified": false,
+    "production_modified": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "bookmarks_modified": false,
+    "notes_modified": false,
+    "highlights_modified": false,
+    "cutover_enabled": false
+  },
+  "historical_hashes": {
+    "pr0053_plan": "184eee3e709042c01e0a778bbe8a1e1784dd858f08da27d760b7b930c88c6d9a",
+    "pr0053_manifest": "345397a1356294dc33f7c4d3ddfbbed5360fee3a8a7a01cc47611b442ab474d0",
+    "audit_migration": "d7c8554b04641955659ab64c910315c3176d3feb10d7a535e8581d2114ef76a3"
+  }
+}

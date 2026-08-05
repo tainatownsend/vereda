@@ -1,0 +1,7 @@
+{
+  "schema_version": "pr0054-reviewed-boundary-execution-transaction-contract-v1",
+  "approved": false,
+  "semantics": "single transaction; acquire deterministic lock if later authorized; perform all checks before mutation; assert 74 row updates and 74 audit inserts; abort rolls back all changes",
+  "mutation_before_checks_allowed": false,
+  "sql_generated": false
+}

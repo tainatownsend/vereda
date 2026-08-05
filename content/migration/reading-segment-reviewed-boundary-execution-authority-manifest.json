@@ -1,0 +1,43 @@
+{
+  "schema_version": "pr0054-reviewed-boundary-execution-authority-manifest-v1",
+  "package_id": "reading-segment-reviewed-boundary-execution-authority-pr0054",
+  "execution_authority_approved": false,
+  "hash_algorithms": {
+    "json": "sha256-canonical-json-v1",
+    "text_sql": "sha256-normalized-lf-text-v1",
+    "content": "sha256"
+  },
+  "artifact_hashes": {
+    "policy_sha256": "09d12b8b60d7b970b62197afb5d97821d1d2c83cbf3b61412aced133e17a57df",
+    "audit_sha256": "8634d5d4ca3e3ba5dd40d553bc8d719793627646d4ba7d48292ea4ce5c8228fb",
+    "schema_sha256": "4cb3da207e505d2a53ac6ec7f5d78819305d0f02049ea83f5f33bd0a1c73778c",
+    "idempotency_sha256": "f2e97c60defef2cf7d5158abfa32c410dadd857487ef777562728a9e8795b424",
+    "state_sha256": "43602bf4ef5302fa8e00e1b1897259ff1bfde7e1522de0468dde6ae1d76f00a1",
+    "rollback_sha256": "1b9dee7e7bc0db243b8239b4ee6642b7df8f51ce22e879d1b25004b09e490eda",
+    "gate_sha256": "cb5891169409bba9bf05228533886d20ad3049bcea7ac78e040f3a4cee9f3e8d",
+    "baselinePlan_sha256": "f64a7b9cc2f1f12d0d8f1e2ba40746d81f250a9b96113032fbccf5266a2ce5b9",
+    "baselineEvidence_sha256": "6e29152758e873ad66af1025cd673ebff068a815695f84d6560d009d8eacbd82",
+    "preconditions_sha256": "009d363c8c32c83e9d9f29d6de7752510c0dbf59649c119bd45f00928e3b8b3e",
+    "transaction_sha256": "b9c443bd66bd8b58bec7f5a5c3edce25b64fbc44cabdae2534facc196068e519",
+    "failure_sha256": "b26c6316a2e208126fe600f5fc2b5e784f3909811388589c44f33093863d9f6a",
+    "missing_sha256": "a3a0ca152f42fd731298beab070f5a6ac8516e1536b46c0fafd04ac525a5b3a1",
+    "evidence_sha256": "1661d587c2af7ced058d40a55261d3c5e73c061cb3f551c7f164a13ad311ee96"
+  },
+  "safety_assertions": {
+    "executable_application_sql_generated": false,
+    "executable_rollback_sql_generated": false,
+    "sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "staging_modified": false,
+    "production_modified": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "bookmarks_modified": false,
+    "notes_modified": false,
+    "highlights_modified": false,
+    "cutover_enabled": false
+  }
+}
