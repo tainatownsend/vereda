@@ -66,6 +66,7 @@
       "audit_event_identity": null,
       "idempotency_identity": null,
       "rollback_requirements": [],
+      "application_ready": false,
       "contract_completeness_status": "incomplete",
       "missing_authority": [
         "expected_current_locator",
@@ -115,6 +116,7 @@
       "audit_event_identity": null,
       "idempotency_identity": null,
       "rollback_requirements": [],
+      "application_ready": false,
       "contract_completeness_status": "incomplete",
       "missing_authority": [
         "expected_current_locator",
@@ -164,6 +166,7 @@
       "audit_event_identity": null,
       "idempotency_identity": null,
       "rollback_requirements": [],
+      "application_ready": false,
       "contract_completeness_status": "incomplete",
       "missing_authority": [
         "expected_current_locator",
@@ -213,6 +216,7 @@
       "audit_event_identity": null,
       "idempotency_identity": null,
       "rollback_requirements": [],
+      "application_ready": false,
       "contract_completeness_status": "incomplete",
       "missing_authority": [
         "expected_current_locator",
@@ -262,6 +266,7 @@
       "audit_event_identity": null,
       "idempotency_identity": null,
       "rollback_requirements": [],
+      "application_ready": false,
       "contract_completeness_status": "incomplete",
       "missing_authority": [
         "expected_current_locator",
@@ -311,6 +316,7 @@
       "audit_event_identity": null,
       "idempotency_identity": null,
       "rollback_requirements": [],
+      "application_ready": false,
       "contract_completeness_status": "incomplete",
       "missing_authority": [
         "expected_current_locator",

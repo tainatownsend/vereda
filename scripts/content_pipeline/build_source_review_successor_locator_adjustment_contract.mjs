@@ -54,7 +54,7 @@ export async function deriveLocatorAdjustmentContract() {
       expected_previous_approval_status:'boundary-review', resulting_approval_status:null,
       ordering_preconditions:[], non_overlap_preconditions:[], reconstruction_preconditions:[],
       audit_event_identity:null, idempotency_identity:null, rollback_requirements:[],
-      contract_completeness_status:'incomplete', missing_authority:missing
+      application_ready:false, contract_completeness_status:'incomplete', missing_authority:missing
     }
   })
   const complete = contractRecords.filter(r=>r.missing_authority.length===0)
