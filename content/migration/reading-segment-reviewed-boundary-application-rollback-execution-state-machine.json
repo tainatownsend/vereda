@@ -1,0 +1,104 @@
+{
+  "schema_version": "pr0057-execution-state-machine-v1",
+  "current_state": "PACKAGE_BLOCKED",
+  "states": [
+    "PACKAGE_BLOCKED",
+    "PREFLIGHT_REQUIRED",
+    "PREFLIGHT_FAILED",
+    "PREFLIGHT_PASSED",
+    "APPLICATION_READY",
+    "APPLICATION_STARTED",
+    "APPLICATION_COMMITTED",
+    "APPLICATION_NOOP_ALREADY_APPLIED",
+    "APPLICATION_FAILED",
+    "POSTFLIGHT_FAILED",
+    "ROLLBACK_REQUIRED",
+    "ROLLBACK_READY",
+    "ROLLBACK_STARTED",
+    "ROLLBACK_COMMITTED",
+    "ROLLBACK_FAILED",
+    "RECONCILED"
+  ],
+  "allowed_transitions": [
+    [
+      "PACKAGE_BLOCKED",
+      "PREFLIGHT_REQUIRED"
+    ],
+    [
+      "PREFLIGHT_REQUIRED",
+      "PREFLIGHT_FAILED"
+    ],
+    [
+      "PREFLIGHT_REQUIRED",
+      "PREFLIGHT_PASSED"
+    ],
+    [
+      "PREFLIGHT_PASSED",
+      "APPLICATION_READY"
+    ],
+    [
+      "APPLICATION_READY",
+      "APPLICATION_STARTED"
+    ],
+    [
+      "APPLICATION_STARTED",
+      "APPLICATION_COMMITTED"
+    ],
+    [
+      "APPLICATION_STARTED",
+      "APPLICATION_FAILED"
+    ],
+    [
+      "APPLICATION_STARTED",
+      "POSTFLIGHT_FAILED"
+    ],
+    [
+      "APPLICATION_COMMITTED",
+      "RECONCILED"
+    ],
+    [
+      "APPLICATION_READY",
+      "APPLICATION_NOOP_ALREADY_APPLIED"
+    ],
+    [
+      "APPLICATION_NOOP_ALREADY_APPLIED",
+      "RECONCILED"
+    ],
+    [
+      "APPLICATION_FAILED",
+      "ROLLBACK_REQUIRED"
+    ],
+    [
+      "POSTFLIGHT_FAILED",
+      "ROLLBACK_REQUIRED"
+    ],
+    [
+      "ROLLBACK_REQUIRED",
+      "ROLLBACK_READY"
+    ],
+    [
+      "ROLLBACK_READY",
+      "ROLLBACK_STARTED"
+    ],
+    [
+      "ROLLBACK_STARTED",
+      "ROLLBACK_COMMITTED"
+    ],
+    [
+      "ROLLBACK_STARTED",
+      "ROLLBACK_FAILED"
+    ],
+    [
+      "ROLLBACK_COMMITTED",
+      "RECONCILED"
+    ]
+  ],
+  "mandatory_guards": [
+    "preflight",
+    "audit conflict checks",
+    "content-integrity checks",
+    "transaction start",
+    "postflight",
+    "audit reconciliation"
+  ]
+}

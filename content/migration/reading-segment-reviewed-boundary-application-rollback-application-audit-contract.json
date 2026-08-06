@@ -1,0 +1,35 @@
+{
+  "schema_version": "pr0057-application-audit-contract-v1",
+  "identity_fields": [
+    "package_id",
+    "event_action",
+    "run_id",
+    "decision_id",
+    "book_id",
+    "segment_key",
+    "event_version"
+  ],
+  "event_key_algorithm": "sha256-v1-length-delimited-reviewed-boundary-event-key",
+  "application_action": "status-advanced",
+  "rollback_action": "status-rollback",
+  "details_fields": [
+    "previous status",
+    "intended status",
+    "observed status",
+    "identity hash",
+    "boundary hash",
+    "content hash",
+    "full pre-application hash",
+    "stored normalized-content digest",
+    "recomputed normalized-content digest",
+    "digest agreement",
+    "preflight classification",
+    "source artifact hashes",
+    "package manifest hash",
+    "execution mode",
+    "transaction execution identifier",
+    "application or rollback result"
+  ],
+  "full_content_prohibited": true,
+  "created_at": "database generated; caller does not supply"
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "pr0057-postflight-contract-v1",
+  "before_commit": true,
+  "assertions": [
+    "74 authoritative targets considered",
+    "each row exists exactly once",
+    "eligible statuses intended",
+    "boundary projections unchanged",
+    "content projections unchanged",
+    "stored/recomputed digest agrees",
+    "application events exactly once and payloads match",
+    "zero rollback events",
+    "zero unauthorized rows changed",
+    "affected row count equals MATCH count",
+    "reconciliation complete"
+  ],
+  "failure": "abort whole transaction"
+}

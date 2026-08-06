@@ -1,0 +1,25 @@
+{
+  "schema_version": "pr0057-execution-gate-v1",
+  "requirements": {
+    "audit_identity_authority_approved": false,
+    "content_integrity_authority_approved": false,
+    "source_snapshot_complete": false,
+    "source_snapshot_verified": false,
+    "application_preflight_ready": false,
+    "exact_target_count": 74,
+    "zero_blocking_drift_classifications": true,
+    "zero_audit_conflicts": true,
+    "runtime_database_identity_explicitly_approved": false,
+    "execution_mode_explicitly_apply": false,
+    "operator_confirmation_token_present": false,
+    "package_manifest_hash_matches": false
+  },
+  "application_execution_authorized": false,
+  "rollback_execution_authorized": false,
+  "rollback_additional_requirements": [
+    "rollback_baseline_ready",
+    "application execution confirmed",
+    "74 matching application events",
+    "later rollback authority explicitly granted"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "pr0057-missing-authority-v1",
+  "missing": [
+    "74 complete actual-content baselines",
+    "verified source snapshot",
+    "content-integrity approval",
+    "execution authority",
+    "runtime database identity approval",
+    "operator confirmation",
+    "later rollback authority"
+  ],
+  "fail_closed": true
+}
