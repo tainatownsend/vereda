@@ -1,0 +1,22 @@
+{
+  "schema_version": "pr0056-reviewed-boundary-content-integrity-missing-authority-v1",
+  "missing_target_count": 74,
+  "missing_fields": [
+    "source_key",
+    "segment_index",
+    "segment_count",
+    "boundary_version",
+    "start_locator",
+    "end_locator",
+    "display_title",
+    "word_count",
+    "stored_normalized_content_sha256",
+    "recomputed_normalized_content_sha256",
+    "stored_digest_matches_recomputed",
+    "content_byte_length",
+    "normalized_content_length",
+    "updated_at"
+  ],
+  "reason": "No authoritative repository artifact contains the actual 74 reading_segments rows or their content; static package records contain identity, segment_order, and status only.",
+  "required_future_evidence": "A local/runtime database collector must read actual content, recompute its digest with reviewed-boundary-content-normalization-v1, compare it to stored normalized_content_sha256, classify mismatches as STORED_CONTENT_DIGEST_MISMATCH, write output under tmp/, and match unchanged authoritative source hashes. Production and remote connections are prohibited."
+}

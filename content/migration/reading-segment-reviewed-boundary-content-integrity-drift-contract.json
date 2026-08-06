@@ -1,0 +1,116 @@
+{
+  "schema_version": "pr0056-reviewed-boundary-content-integrity-drift-contract-v1",
+  "precedence": [
+    "SOURCE_HASH_DRIFT",
+    "DUPLICATE_TARGET",
+    "UNAUTHORIZED_TARGET",
+    "IDENTITY_MISSING",
+    "INSUFFICIENT_BASELINE",
+    "STORED_CONTENT_DIGEST_MISMATCH",
+    "BOUNDARY_DRIFT",
+    "CONTENT_DRIFT",
+    "METADATA_DRIFT",
+    "STATUS_UNEXPECTED",
+    "STATUS_ALREADY_APPLIED",
+    "MATCH"
+  ],
+  "classifications": {
+    "MATCH": {
+      "permits_application": true,
+      "permits_idempotent_no_op": false,
+      "requires_manual_review": false,
+      "blocks_execution": false,
+      "permits_rollback": false,
+      "blocks_rollback": true
+    },
+    "STATUS_ALREADY_APPLIED": {
+      "permits_application": false,
+      "permits_idempotent_no_op": true,
+      "requires_manual_review": false,
+      "blocks_execution": false,
+      "permits_rollback": true,
+      "blocks_rollback": false
+    },
+    "STATUS_UNEXPECTED": {
+      "permits_application": false,
+      "permits_idempotent_no_op": false,
+      "requires_manual_review": true,
+      "blocks_execution": true,
+      "permits_rollback": false,
+      "blocks_rollback": true
+    },
+    "IDENTITY_MISSING": {
+      "permits_application": false,
+      "permits_idempotent_no_op": false,
+      "requires_manual_review": true,
+      "blocks_execution": true,
+      "permits_rollback": false,
+      "blocks_rollback": true
+    },
+    "BOUNDARY_DRIFT": {
+      "permits_application": false,
+      "permits_idempotent_no_op": false,
+      "requires_manual_review": true,
+      "blocks_execution": true,
+      "permits_rollback": false,
+      "blocks_rollback": true
+    },
+    "CONTENT_DRIFT": {
+      "permits_application": false,
+      "permits_idempotent_no_op": false,
+      "requires_manual_review": true,
+      "blocks_execution": true,
+      "permits_rollback": false,
+      "blocks_rollback": true
+    },
+    "STORED_CONTENT_DIGEST_MISMATCH": {
+      "permits_application": false,
+      "permits_idempotent_no_op": false,
+      "requires_manual_review": true,
+      "blocks_execution": true,
+      "permits_rollback": false,
+      "blocks_rollback": true
+    },
+    "METADATA_DRIFT": {
+      "permits_application": false,
+      "permits_idempotent_no_op": false,
+      "requires_manual_review": true,
+      "blocks_execution": true,
+      "permits_rollback": false,
+      "blocks_rollback": true
+    },
+    "SOURCE_HASH_DRIFT": {
+      "permits_application": false,
+      "permits_idempotent_no_op": false,
+      "requires_manual_review": true,
+      "blocks_execution": true,
+      "permits_rollback": false,
+      "blocks_rollback": true
+    },
+    "DUPLICATE_TARGET": {
+      "permits_application": false,
+      "permits_idempotent_no_op": false,
+      "requires_manual_review": true,
+      "blocks_execution": true,
+      "permits_rollback": false,
+      "blocks_rollback": true
+    },
+    "UNAUTHORIZED_TARGET": {
+      "permits_application": false,
+      "permits_idempotent_no_op": false,
+      "requires_manual_review": true,
+      "blocks_execution": true,
+      "permits_rollback": false,
+      "blocks_rollback": true
+    },
+    "INSUFFICIENT_BASELINE": {
+      "permits_application": false,
+      "permits_idempotent_no_op": false,
+      "requires_manual_review": true,
+      "blocks_execution": true,
+      "permits_rollback": false,
+      "blocks_rollback": true
+    }
+  },
+  "rule": "BOUNDARY_DRIFT, CONTENT_DRIFT, and STORED_CONTENT_DIGEST_MISMATCH always block status-only application and rollback"
+}
