@@ -1,0 +1,15 @@
+{
+  "schema_version": "pr0056-reviewed-boundary-content-integrity-policy-v1",
+  "package_id": "reading-segment-reviewed-boundary-content-integrity-pr0056",
+  "evidence_class": "expected repository snapshot with blocked runtime evidence contract",
+  "target_table": "content_staging.reading_segments",
+  "authorized_decision_count": 74,
+  "target_count": 74,
+  "allowed_mutation": [
+    "approval_status"
+  ],
+  "executable_sql_generated": false,
+  "application_data_mutated": false,
+  "execution_authority_approved": false,
+  "content_integrity_authority_approved": false
+}

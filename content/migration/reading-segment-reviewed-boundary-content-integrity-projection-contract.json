@@ -1,0 +1,41 @@
+{
+  "schema_version": "pr0056-reviewed-boundary-content-integrity-projection-contract-v1",
+  "algorithm": "sha256-canonical-json-v1",
+  "serialization": "recursively sort JSON object keys lexicographically, preserve array order, JSON.stringify without whitespace, hash UTF-8 bytes",
+  "identity_fields": [
+    "run_id",
+    "book_id",
+    "segment_key"
+  ],
+  "boundary_fields": [
+    "source_key",
+    "segment_order",
+    "segment_index",
+    "segment_count",
+    "boundary_version",
+    "start_locator",
+    "end_locator",
+    "display_title"
+  ],
+  "content_fields": [
+    "normalized_content_sha256",
+    "word_count",
+    "normalized_content_length",
+    "content_byte_length"
+  ],
+  "status_fields": [
+    "previous_approval_status",
+    "intended_resulting_approval_status"
+  ],
+  "full_pre_application_fields": [
+    "identity_sha256",
+    "boundary_sha256",
+    "content_sha256",
+    "previous_approval_status"
+  ],
+  "mutable_timestamps_excluded": [
+    "created_at",
+    "updated_at"
+  ],
+  "field_order_contract": "projection field arrays above are normative; serialized object keys are canonicalized lexicographically"
+}
