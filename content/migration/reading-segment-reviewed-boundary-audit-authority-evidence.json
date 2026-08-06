@@ -1,0 +1,38 @@
+{
+  "schema_version": "pr0055-reviewed-boundary-audit-authority-evidence-v1",
+  "audit_identity_authority_approved": false,
+  "pr0054_authority": {
+    "execution_authority_approved": false,
+    "authorized_target_count": 74
+  },
+  "hashes": {
+    "pr0053_manifest": "345397a1356294dc33f7c4d3ddfbbed5360fee3a8a7a01cc47611b442ab474d0",
+    "pr0053_evidence": "cb13d993138626bdf6a7bd14ca3ce1e7654ccff89f23367c936ad2541015f841",
+    "pr0054_manifest": "cfc55400d5a80b3823de241e85a363c24f3c1d2d900e7d6cd8994044e1b300c9",
+    "pr0054_schema": "21049806002a2af3eeb8c14833e41e78514b6f0c105b575a17c6ed3a0ac2193f",
+    "pre_existing_audit_migration": "d7c8554b04641955659ab64c910315c3176d3feb10d7a535e8581d2114ef76a3",
+    "proposed_migration": "a2d7444e7b68f08a84aa6245819cba5ecfefd4ffab242034e0987e5e8def04b4"
+  },
+  "safety_assertions": {
+    "audit_schema_migration_generated": true,
+    "audit_schema_migration_executed": false,
+    "executable_application_sql_generated": false,
+    "executable_rollback_sql_generated": false,
+    "application_sql_executed": false,
+    "rollback_sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "staging_modified": false,
+    "production_modified": false,
+    "reading_segments_modified": false,
+    "audit_events_inserted": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "bookmarks_modified": false,
+    "notes_modified": false,
+    "highlights_modified": false,
+    "cutover_enabled": false
+  }
+}

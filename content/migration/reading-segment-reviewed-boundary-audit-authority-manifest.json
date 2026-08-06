@@ -1,0 +1,46 @@
+{
+  "schema_version": "pr0055-reviewed-boundary-audit-authority-manifest-v1",
+  "package_id": "reading-segment-reviewed-boundary-audit-identity-pr0055",
+  "audit_identity_authority_approved": false,
+  "hash_algorithms": {
+    "json": "sha256-canonical-json-v1",
+    "text_sql": "sha256-normalized-lf-text-v1"
+  },
+  "artifact_hashes": {
+    "policy_sha256": "9b89f09e2c7b664c5b73cd3a838215cbcd6df9055ad8ce7e6b874eb964815ede",
+    "schemaContract_sha256": "33b28dca94bc87523e2221c7ef05f184988cc7e33e1c2bda4726a9620973d967",
+    "identity_sha256": "71dfc58f08c05fc9544fccd915fbccbb1a40e8df8acf1927b0ba693fbb45b02f",
+    "payload_sha256": "25f542e425250c5126e52c9686fc2897b7d872602c3e76cdfcefe52ffeecdee4",
+    "conflict_sha256": "04bf037b9de239ca45acfae95bcad15f238ca0e7da4d8061daccc2a46cf56f8e",
+    "compatibility_sha256": "deb9f73c9b313680c8deb2cf332a49a8af1b1eefbae7984adc458f17c34850c2",
+    "migrationPlan_sha256": "f1b287644523ddbf7effd1c5274884e8beab48b7821e08c7c9b4d82938531d34",
+    "migrationEvidence_sha256": "104e990aefe88c69c285c622c5500ccf93085881bcf486078347a92303c8c942",
+    "missing_sha256": "9efc695494c8e48dc7f87d777c29169ae50fe594120209d41435dc6f5be16d5d",
+    "evidence_sha256": "2362b23821fa0227ffd3d13cd32288d6d3b86cb8299930b5bd910a74e8aba84a",
+    "triageBaseline_sha256": "1cc33161021abc738dd5d9ed1019c8457d5ec3830c20fd6c003eb560c7e187da",
+    "databaseValidation_sha256": "6eea2420ffc259420281f948935b5761bbe34f29bb073294ba62620ed8aa6da5"
+  },
+  "migration_sha256": "a2d7444e7b68f08a84aa6245819cba5ecfefd4ffab242034e0987e5e8def04b4",
+  "safety_assertions": {
+    "audit_schema_migration_generated": true,
+    "audit_schema_migration_executed": false,
+    "executable_application_sql_generated": false,
+    "executable_rollback_sql_generated": false,
+    "application_sql_executed": false,
+    "rollback_sql_executed": false,
+    "database_modified": false,
+    "supabase_modified": false,
+    "staging_modified": false,
+    "production_modified": false,
+    "reading_segments_modified": false,
+    "audit_events_inserted": false,
+    "ui_modified": false,
+    "source_text_modified": false,
+    "user_progress_modified": false,
+    "reader_sessions_modified": false,
+    "bookmarks_modified": false,
+    "notes_modified": false,
+    "highlights_modified": false,
+    "cutover_enabled": false
+  }
+}

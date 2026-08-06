@@ -1,0 +1,39 @@
+{
+  "schema_version": "pr0055-reviewed-boundary-audit-event-payload-contract-v1",
+  "approved": false,
+  "details_jsonb_required_fields": [
+    "package_id",
+    "package_version",
+    "event_version",
+    "event_action",
+    "decision_id",
+    "run_id",
+    "book_id",
+    "segment_key",
+    "previous_approval_status",
+    "resulting_approval_status",
+    "target_table",
+    "target_identity",
+    "authority_manifest_hash",
+    "package_hash"
+  ],
+  "prohibited_fields": [
+    "source_text",
+    "source_excerpt",
+    "content_excerpt",
+    "credentials",
+    "connection_string",
+    "created_at"
+  ],
+  "application": {
+    "event_action": "status-advanced",
+    "previous_approval_status": "boundary-review",
+    "resulting_approval_status": "content-review"
+  },
+  "rollback": {
+    "event_action": "status-rollback",
+    "previous_approval_status": "content-review",
+    "resulting_approval_status": "boundary-review"
+  },
+  "timestamp_behavior": "created_at remains database-generated default now(); callers must not supply timestamps"
+}

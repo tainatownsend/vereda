@@ -1,0 +1,67 @@
+{
+  "schema_version": "pr0055-reviewed-boundary-audit-database-validation-evidence-v1",
+  "evidence_contract_version": "github-actions-ephemeral-postgresql-v1",
+  "committed_artifact_type": "expected-runtime-evidence-contract",
+  "validation_mode_required": "github-actions-ephemeral-postgresql",
+  "workflow_path": ".github/workflows/reviewed-boundary-audit-database-validation.yml",
+  "workflow_check_name": "Reviewed boundary audit database validation",
+  "database_test_script": "scripts/content_pipeline/test_reviewed_boundary_audit_identity_postgres.mjs",
+  "runtime_evidence_validator": "scripts/content_pipeline/validate_reviewed_boundary_audit_database_runtime_evidence.mjs",
+  "postgresql_service_image": "postgres:15",
+  "runtime_evidence_path": "tmp/reviewed-boundary-audit-database-validation-evidence.json",
+  "runtime_evidence_policy": "GitHub Actions writes a separate temporary runtime result and uploads only that file; this committed expected-evidence contract is never overwritten by CI",
+  "required_runtime_fields": [
+    "validation_mode",
+    "workflow_name",
+    "postgresql_version",
+    "local_host_classification",
+    "no_remote_database_used",
+    "role_bootstrap",
+    "extension_state",
+    "search_path",
+    "applied_migrations",
+    "migration_success",
+    "catalog_schema",
+    "test_counts",
+    "conflict_target_result",
+    "duplicate_verification",
+    "cleanup_result",
+    "persistent_reviewed_boundary_row_count_after_cleanup"
+  ],
+  "role_fixture_path": "scripts/content_pipeline/fixtures/reviewed_boundary_audit_postgres_roles.sql",
+  "required_supabase_roles": [
+    "anon",
+    "authenticated",
+    "service_role"
+  ],
+  "role_fixture_scope": "test-only fixture outside supabase/migrations; emulates Supabase platform roles for vanilla PostgreSQL CI only",
+  "role_privilege_policy": {
+    "login": false,
+    "superuser": false,
+    "createdb": false,
+    "createrole": false,
+    "replication": false
+  },
+  "migration_order": [
+    "scripts/content_pipeline/fixtures/reviewed_boundary_audit_postgres_roles.sql",
+    "local-minimal-public-fixture",
+    "supabase/migrations/20260803033000_content_staging_foundation.sql",
+    "supabase/migrations/20260805005500_reviewed_boundary_audit_identity.sql"
+  ],
+  "historical_foundation_migration": {
+    "path": "supabase/migrations/20260803033000_content_staging_foundation.sql",
+    "normalized_sha256": "d7c8554b04641955659ab64c910315c3176d3feb10d7a535e8581d2114ef76a3",
+    "preservation": "fixture does not modify historical migration content"
+  },
+  "environment_type": "pending-github-actions",
+  "postgresql_available": false,
+  "remote_database_used": false,
+  "supabase_remote_used": false,
+  "migration_success": false,
+  "catalog_schema_inspected": false,
+  "check_constraint_tests_executed": false,
+  "conflict_target_tests_executed": false,
+  "cleanup_result": "pending GitHub Actions ephemeral PostgreSQL run",
+  "persistent_data_mutation": false,
+  "approval_impact": "database-level executability remains unproven until the GitHub Actions workflow passes and its runtime evidence is reviewed"
+}
