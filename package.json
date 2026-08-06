@@ -4,6 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "content:staging:segments:reviewed-boundary:staging-authorization:build": "node scripts/content_pipeline/build_reviewed_boundary_staging_authorization.mjs",
+    "content:staging:segments:reviewed-boundary:staging-authorization:validate": "node scripts/content_pipeline/validate_reviewed_boundary_staging_authorization.mjs",
+    "content:staging:segments:reviewed-boundary:staging-authorization:admit": "node scripts/content_pipeline/admit_reviewed_boundary_staging_evidence.mjs",
+    "content:staging:segments:reviewed-boundary:staging-authorization:attest": "node scripts/content_pipeline/build_reviewed_boundary_staging_attestation.mjs",
+    "content:staging:segments:reviewed-boundary:staging-authorization:evaluate": "node scripts/content_pipeline/evaluate_reviewed_boundary_staging_authorization.mjs",
     "content:staging:segments:reviewed-boundary:application-rollback:build": "node scripts/content_pipeline/build_reviewed_boundary_application_rollback.mjs",
     "content:staging:segments:reviewed-boundary:application-rollback:validate": "node scripts/content_pipeline/validate_reviewed_boundary_application_rollback.mjs",
     "dev": "vite",
