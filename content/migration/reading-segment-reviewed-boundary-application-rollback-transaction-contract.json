@@ -1,0 +1,47 @@
+{
+  "schema_version": "pr0057-transaction-contract-v1",
+  "atomicity": "one all-or-nothing transaction for all 74 targets; never per-row commits",
+  "ordering": [
+    "run_id",
+    "book_id",
+    "segment_order",
+    "segment_key"
+  ],
+  "lock_strategy": "pg_advisory_xact_lock derived deterministically from package_id, then SELECT FOR UPDATE in canonical order",
+  "application_steps": [
+    "BEGIN",
+    "acquire package advisory transaction lock",
+    "verify authority",
+    "load exact target set",
+    "lock rows deterministically",
+    "preflight all targets",
+    "abort before mutation on any blocker",
+    "update approval_status only",
+    "insert matching audits with predicate-bearing conflict target and equality verification",
+    "verify mutation count",
+    "postflight and reconcile",
+    "COMMIT; otherwise automatic ROLLBACK"
+  ],
+  "rollback_steps": [
+    "BEGIN",
+    "same package lock",
+    "validate later rollback authority",
+    "load and lock exact targets",
+    "verify matching application events and applied statuses",
+    "recompute integrity",
+    "abort on drift/conflict",
+    "restore approval_status only",
+    "insert rollback audits",
+    "verify count",
+    "rollback postflight",
+    "COMMIT; otherwise automatic ROLLBACK"
+  ],
+  "guarded_sql_templates": {
+    "preflight": "SELECT ... FROM content_staging.reading_segments WHERE (run_id, book_id, segment_key) IN (SELECT * FROM jsonb_to_recordset($1)) ORDER BY run_id, book_id, segment_order, segment_key FOR UPDATE",
+    "application": "UPDATE content_staging.reading_segments SET approval_status = $1 WHERE run_id = $2 AND book_id = $3 AND segment_key = $4 AND approval_status = $5",
+    "audit": "INSERT INTO content_staging.migration_audit_events (...) VALUES (...) ON CONFLICT (event_key) WHERE package_id = 'reading-segment-reviewed-boundary-execution' AND event_version = 1 AND decision_id IS NOT NULL AND book_id IS NOT NULL AND segment_key IS NOT NULL AND event_key IS NOT NULL AND event_action IN ('status-advanced','status-rollback') DO NOTHING",
+    "postflight": "SELECT ...; -- compare all immutable projections, status, audit payload and exact counts before COMMIT",
+    "rollback": "UPDATE content_staging.reading_segments SET approval_status = $1 WHERE run_id = $2 AND book_id = $3 AND segment_key = $4 AND approval_status = $5"
+  },
+  "templates_are_non_executable": true
+}

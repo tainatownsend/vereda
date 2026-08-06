@@ -1,0 +1,160 @@
+{
+  "schema_version": "pr0057-preflight-contract-v1",
+  "normalization_algorithm": "reviewed-boundary-content-normalization-v1",
+  "runtime_content_rule": "load actual content; independently normalize and recompute digest, lengths, word count, stored digest agreement, and content projection hash; never trust stored digest alone",
+  "authority_checks": [
+    "package/version",
+    "exact 74 target set",
+    "execution authority",
+    "content integrity authority",
+    "snapshot complete and verified",
+    "application preflight ready",
+    "audit identity authority",
+    "rollback baseline ready for rollback"
+  ],
+  "identity_checks": [
+    "row exists exactly once",
+    "run_id/book_id/segment_key match",
+    "no duplicate or unauthorized target"
+  ],
+  "boundary_fields": [
+    "source_key",
+    "segment_order",
+    "segment_index",
+    "segment_count",
+    "boundary_version",
+    "start_locator",
+    "end_locator",
+    "display_title"
+  ],
+  "classifications": {
+    "MATCH": {
+      "application_allowed": true,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": false,
+      "transaction_must_abort": false,
+      "audit_event_behavior": "insert exactly once"
+    },
+    "STATUS_ALREADY_APPLIED": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": true,
+      "rollback_allowed": true,
+      "manual_review_required": false,
+      "transaction_must_abort": false,
+      "audit_event_behavior": "verify semantic identity; do not insert"
+    },
+    "STATUS_UNEXPECTED": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": true,
+      "transaction_must_abort": true,
+      "audit_event_behavior": "do not insert; reconcile"
+    },
+    "IDENTITY_MISSING": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": true,
+      "transaction_must_abort": true,
+      "audit_event_behavior": "do not insert; reconcile"
+    },
+    "BOUNDARY_DRIFT": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": true,
+      "transaction_must_abort": true,
+      "audit_event_behavior": "do not insert; reconcile"
+    },
+    "CONTENT_DRIFT": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": true,
+      "transaction_must_abort": true,
+      "audit_event_behavior": "do not insert; reconcile"
+    },
+    "STORED_CONTENT_DIGEST_MISMATCH": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": true,
+      "transaction_must_abort": true,
+      "audit_event_behavior": "do not insert; reconcile"
+    },
+    "METADATA_DRIFT": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": true,
+      "transaction_must_abort": true,
+      "audit_event_behavior": "do not insert; reconcile"
+    },
+    "SOURCE_HASH_DRIFT": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": true,
+      "transaction_must_abort": true,
+      "audit_event_behavior": "do not insert; reconcile"
+    },
+    "DUPLICATE_TARGET": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": true,
+      "transaction_must_abort": true,
+      "audit_event_behavior": "do not insert; reconcile"
+    },
+    "UNAUTHORIZED_TARGET": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": true,
+      "transaction_must_abort": true,
+      "audit_event_behavior": "do not insert; reconcile"
+    },
+    "INSUFFICIENT_BASELINE": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": true,
+      "transaction_must_abort": true,
+      "audit_event_behavior": "do not insert; reconcile"
+    },
+    "AUDIT_EVENT_CONFLICT": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": true,
+      "transaction_must_abort": true,
+      "audit_event_behavior": "do not insert; reconcile"
+    },
+    "AUDIT_IDENTITY_INVALID": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": true,
+      "transaction_must_abort": true,
+      "audit_event_behavior": "do not insert; reconcile"
+    },
+    "PACKAGE_AUTHORITY_BLOCKED": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": true,
+      "transaction_must_abort": true,
+      "audit_event_behavior": "do not insert; reconcile"
+    },
+    "TARGET_SET_MISMATCH": {
+      "application_allowed": false,
+      "idempotent_noop_allowed": false,
+      "rollback_allowed": false,
+      "manual_review_required": true,
+      "transaction_must_abort": true,
+      "audit_event_behavior": "do not insert; reconcile"
+    }
+  }
+}

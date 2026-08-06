@@ -1,0 +1,13 @@
+{
+  "schema_version": "pr0057-conflict-contract-v1",
+  "predicate_bearing_on_conflict_required": true,
+  "plain_on_conflict_event_key_invalid": true,
+  "cases": {
+    "exact_duplicate": "verified no-op",
+    "semantic_duplicate": "verify structured identity and canonical payload then no-op",
+    "identity_conflict": "abort and reconcile",
+    "payload_conflict": "abort and reconcile",
+    "application_versus_rollback": "distinct event_action and event_key",
+    "partial_state": "abort and reconcile"
+  }
+}

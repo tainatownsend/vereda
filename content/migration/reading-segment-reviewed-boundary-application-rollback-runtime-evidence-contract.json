@@ -1,0 +1,24 @@
+{
+  "schema_version": "pr0057-runtime-evidence-contract-v1",
+  "path": "tmp/reviewed-boundary-application-rollback-runtime-evidence.json",
+  "committed_passing_evidence": false,
+  "required_fields": [
+    "package_id",
+    "package_version",
+    "execution_identifier",
+    "database_engine_and_version",
+    "source_manifest_hashes",
+    "authority_state",
+    "target_count",
+    "preflight_classification_counts",
+    "application_mutation_count",
+    "idempotent_noop_count",
+    "audit_insert_count",
+    "conflict_count",
+    "postflight_result",
+    "rollback_result",
+    "zero_unauthorized_mutations",
+    "transaction_outcome",
+    "cleanup_outcome"
+  ]
+}

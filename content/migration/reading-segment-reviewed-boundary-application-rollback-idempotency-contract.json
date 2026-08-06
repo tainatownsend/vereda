@@ -1,0 +1,14 @@
+{
+  "schema_version": "pr0057-idempotency-contract-v1",
+  "first_application": "MATCH: mutate status once and insert one application event",
+  "exact_retry": "STATUS_ALREADY_APPLIED plus semantically identical event and unchanged integrity: no mutation, no insert, idempotent success",
+  "inconsistent_states": [
+    "status applied/audit missing",
+    "audit present/status not applied",
+    "1..73 rows applied",
+    "missing row",
+    "conflict",
+    "post-application integrity drift"
+  ],
+  "inconsistent_result": "block automated continuation; rollback transaction and require reconciliation"
+}

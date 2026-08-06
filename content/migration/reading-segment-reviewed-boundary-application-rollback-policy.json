@@ -1,0 +1,28 @@
+{
+  "schema_version": "pr0057-application-rollback-policy-v1",
+  "package_id": "reading-segment-reviewed-boundary-application-rollback-pr0057",
+  "package_version": "1.0.0",
+  "target_table": "content_staging.reading_segments",
+  "target_count": 74,
+  "only_permitted_mutation": [
+    "approval_status"
+  ],
+  "forbidden_explicit_mutations": [
+    "source_key",
+    "segment_order",
+    "segment_index",
+    "segment_count",
+    "boundary_version",
+    "start_locator",
+    "end_locator",
+    "display_title",
+    "content",
+    "word_count",
+    "normalized_content_sha256",
+    "created_at",
+    "updated_at"
+  ],
+  "default_execution_mode": "blocked",
+  "application_data_mutated": false,
+  "remote_connection_permitted": false
+}
