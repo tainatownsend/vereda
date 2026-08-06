@@ -1,0 +1,18 @@
+{
+  "schema_version": "pr0058-runtime-readiness-v1",
+  "source_snapshot_complete": false,
+  "source_snapshot_verified": false,
+  "content_integrity_authority_approved": false,
+  "application_preflight_ready": false,
+  "rollback_baseline_ready": false,
+  "application_execution_authorized": false,
+  "rollback_execution_authorized": false,
+  "production_collection_authorized": false,
+  "staging_preflight_result": "STAGING_PREFLIGHT_BLOCKED",
+  "application_mutation_count": 0,
+  "rollback_mutation_count": 0,
+  "audit_insertion_count": 0,
+  "full_content_persisted": false,
+  "no_application_or_rollback_occurred": true,
+  "no_production_connection_occurred": true
+}

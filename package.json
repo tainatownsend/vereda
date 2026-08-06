@@ -121,7 +121,12 @@
     "content:staging:segments:reviewed-boundary:audit-identity:db:test": "node scripts/content_pipeline/test_reviewed_boundary_audit_identity_postgres.mjs",
     "content:staging:segments:reviewed-boundary:audit-identity:db:evidence:validate": "node scripts/content_pipeline/validate_reviewed_boundary_audit_database_runtime_evidence.mjs",
     "content:staging:segments:reviewed-boundary:content-integrity:build": "node scripts/content_pipeline/build_reviewed_boundary_content_integrity.mjs",
-    "content:staging:segments:reviewed-boundary:content-integrity:validate": "node scripts/content_pipeline/validate_reviewed_boundary_content_integrity.mjs"
+    "content:staging:segments:reviewed-boundary:content-integrity:validate": "node scripts/content_pipeline/validate_reviewed_boundary_content_integrity.mjs",
+    "content:staging:segments:reviewed-boundary:runtime-integrity:build": "node scripts/content_pipeline/build_reviewed_boundary_runtime_integrity.mjs",
+    "content:staging:segments:reviewed-boundary:runtime-integrity:validate": "node scripts/content_pipeline/validate_reviewed_boundary_runtime_integrity.mjs",
+    "content:staging:segments:reviewed-boundary:runtime-integrity:collect": "node scripts/content_pipeline/collect_reviewed_boundary_runtime_integrity.mjs",
+    "content:staging:segments:reviewed-boundary:runtime-integrity:evidence:validate": "node scripts/content_pipeline/validate_reviewed_boundary_runtime_integrity_evidence.mjs",
+    "content:staging:segments:reviewed-boundary:runtime-integrity:db:test": "node scripts/content_pipeline/test_reviewed_boundary_runtime_integrity_postgres.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

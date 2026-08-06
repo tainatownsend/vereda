@@ -1,0 +1,46 @@
+name: Reviewed Boundary Runtime Integrity Staging Preflight Validation
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  postgres-15-fixture:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: vereda_fixture
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/vereda_fixture
+      KEEP_RUNTIME_EVIDENCE: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 22, cache: npm}
+      - run: npm ci
+      - name: Install fixture-only PostgreSQL client
+        run: npm install --no-save --ignore-scripts pg@8.16.3
+      - run: npm run content:staging:segments:reviewed-boundary:runtime-integrity:validate
+      - name: Reject blocked and production modes
+        run: |
+          ! npm run content:staging:segments:reviewed-boundary:runtime-integrity:collect
+          ! node scripts/content_pipeline/collect_reviewed_boundary_runtime_integrity.mjs --mode=production-readonly --expected-environment=production --operator-confirmation=ci --package-manifest-hash=$(printf a%.0s {1..64})
+      - name: PostgreSQL 15 synthetic fixture validation
+        run: npm run content:staging:segments:reviewed-boundary:runtime-integrity:db:test
+      - name: Upload temporary evidence on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-boundary-runtime-integrity-fixture-diagnostics
+          path: tmp/reviewed-boundary-runtime-integrity-staging-preflight-evidence.json
+          if-no-files-found: ignore
+      - name: Prove cleanup
+        if: always()
+        run: |
+          rm -f tmp/reviewed-boundary-runtime-integrity-staging-preflight-evidence.json
+          test ! -e tmp/reviewed-boundary-runtime-integrity-staging-preflight-evidence.json
+          test "$(psql "$DATABASE_URL" -Atc "select count(*) from pg_tables where schemaname='content_staging'")" = 0

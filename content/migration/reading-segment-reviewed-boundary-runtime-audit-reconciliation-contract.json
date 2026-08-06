@@ -1,0 +1,25 @@
+{
+  "schema_version": "pr0058-runtime-audit-reconciliation-v1",
+  "read_only": true,
+  "insert_events": false,
+  "classifications": [
+    "NO_APPLICATION_EVENT",
+    "MATCHING_APPLICATION_EVENT",
+    "APPLICATION_EVENT_STATUS_NOT_APPLIED",
+    "APPLIED_STATUS_EVENT_ABSENT",
+    "CONFLICTING_APPLICATION_EVENT",
+    "UNEXPECTED_ROLLBACK_EVENT",
+    "APPLICATION_AND_ROLLBACK_EXIST",
+    "DUPLICATE_SEMANTIC_EVENT",
+    "INVALID_EVENT_IDENTITY",
+    "INVALID_EVENT_PAYLOAD"
+  ],
+  "valid_application_event_requires": [
+    "structured identity matches",
+    "event_key matches",
+    "event_action matches",
+    "payload semantics match",
+    "target status consistent"
+  ],
+  "partial_or_contradictory_state_blocks": true
+}
