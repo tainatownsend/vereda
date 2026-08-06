@@ -1,0 +1,21 @@
+{
+  "schema_version": "pr0058-runtime-target-query-v1",
+  "identity_fields": [
+    "run_id",
+    "book_id",
+    "segment_key"
+  ],
+  "strategy": "parameterized VALUES CTE inner joined on all stable identity fields; compare observed identities to exact expected closed world",
+  "parameterized": true,
+  "broad_query_forbidden": true,
+  "select_for_update": false,
+  "detects": [
+    "missing expected target",
+    "duplicate returned identity",
+    "unexpected returned target",
+    "malformed identity",
+    "target-set mismatch",
+    "segment-order mismatch",
+    "cross-run contamination"
+  ]
+}

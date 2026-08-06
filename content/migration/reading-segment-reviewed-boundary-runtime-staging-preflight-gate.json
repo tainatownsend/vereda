@@ -1,0 +1,14 @@
+{
+  "schema_version": "pr0058-staging-preflight-gate-v1",
+  "initial_result": "STAGING_PREFLIGHT_BLOCKED",
+  "outcomes": [
+    "STAGING_PREFLIGHT_BLOCKED",
+    "STAGING_PREFLIGHT_MATCHED",
+    "STAGING_PREFLIGHT_ALREADY_APPLIED",
+    "STAGING_PREFLIGHT_INCONSISTENT",
+    "STAGING_PREFLIGHT_ERROR"
+  ],
+  "application_preflight_ready": false,
+  "application_execution_authorized": false,
+  "rollback_execution_authorized": false
+}

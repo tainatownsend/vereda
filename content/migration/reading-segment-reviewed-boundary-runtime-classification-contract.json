@@ -1,0 +1,168 @@
+{
+  "schema_version": "pr0058-runtime-classification-v1",
+  "classifications": {
+    "MATCH": {
+      "matches_expected_pre_application_state": true,
+      "later_application_may_be_permitted": true,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": false,
+      "preflight_must_fail": false
+    },
+    "STATUS_ALREADY_APPLIED": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": true,
+      "rollback_may_be_permitted": true,
+      "manual_review_required": false,
+      "preflight_must_fail": false
+    },
+    "STATUS_UNEXPECTED": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "IDENTITY_MISSING": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "DUPLICATE_TARGET": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "UNAUTHORIZED_TARGET": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "TARGET_SET_MISMATCH": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "BOUNDARY_DRIFT": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "CONTENT_DRIFT": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "STORED_CONTENT_DIGEST_MISMATCH": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "METADATA_DRIFT": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "SOURCE_HASH_DRIFT": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "INSUFFICIENT_BASELINE": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "AUDIT_EVENT_CONFLICT": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "AUDIT_IDENTITY_INVALID": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "PACKAGE_AUTHORITY_BLOCKED": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "DATABASE_IDENTITY_MISMATCH": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "SCHEMA_MISMATCH": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    },
+    "RUNTIME_MODE_BLOCKED": {
+      "matches_expected_pre_application_state": false,
+      "later_application_may_be_permitted": false,
+      "idempotent_no_op_may_be_permitted": false,
+      "rollback_may_be_permitted": false,
+      "manual_review_required": true,
+      "preflight_must_fail": true
+    }
+  },
+  "runtime_ready_requirements": [
+    "identity matches",
+    "boundary fields complete",
+    "content present",
+    "recomputed digest exists",
+    "stored digest matches recomputed digest",
+    "word counts agree",
+    "observed status equals expected previous status",
+    "no audit conflict",
+    "no source-hash drift"
+  ]
+}

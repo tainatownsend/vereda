@@ -1,0 +1,6 @@
+{
+  "schema_version": "pr0058-runtime-missing-authority-v1",
+  "real_staging_evidence_available": false,
+  "reason": "Actual database-backed row content is not present in repository artifacts; fixture evidence proves mechanics only.",
+  "required_action": "Deliberate staging-readonly collection and independent evidence review"
+}

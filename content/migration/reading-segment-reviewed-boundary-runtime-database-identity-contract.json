@@ -1,0 +1,39 @@
+{
+  "schema_version": "pr0058-runtime-database-identity-v1",
+  "required": [
+    "environment_name",
+    "project_identifier_or_database_fingerprint",
+    "postgresql_server_version",
+    "database_name",
+    "schemas",
+    "required_tables",
+    "migration_version_or_schema_fingerprint",
+    "read_only_collector_mode",
+    "package_manifest_hash",
+    "target_count",
+    "operator_confirmation_token",
+    "runtime_execution_identifier"
+  ],
+  "production_under_staging_rejected": true,
+  "credentials_redacted": true,
+  "required_reading_segments_columns": [
+    "run_id",
+    "book_id",
+    "segment_key",
+    "source_key",
+    "segment_order",
+    "segment_index",
+    "segment_count",
+    "boundary_version",
+    "start_locator",
+    "end_locator",
+    "display_title",
+    "content",
+    "word_count",
+    "normalized_content_sha256",
+    "approval_status",
+    "created_at",
+    "updated_at"
+  ],
+  "required_audit_extension": true
+}
