@@ -1,0 +1,30 @@
+name: Reviewed Boundary Guarded Staging Execution Validation
+on:
+  pull_request:
+    paths: ['content/migration/**', 'scripts/content_pipeline/**', 'tests/content_pipeline/**', '.github/workflows/reviewed-boundary-guarded-staging-execution-validation.yml', 'package.json']
+  workflow_dispatch:
+jobs:
+  postgresql-15-fixture:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env: { POSTGRES_PASSWORD: postgres, POSTGRES_DB: vereda_fixture }
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 10s --health-timeout 5s --health-retries 5
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/vereda_fixture
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm install --no-save pg@8
+      - run: npm run content:staging:segments:reviewed-boundary:staging-execution:build
+      - run: npm run content:staging:segments:reviewed-boundary:staging-execution:validate
+      - run: npm run test:run -- tests/content_pipeline/reviewed_boundary_staging_execution.test.mjs
+      - run: npm run content:staging:segments:reviewed-boundary:staging-execution:db:test
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: reviewed-boundary-staging-execution-diagnostics, path: tmp/, if-no-files-found: ignore }

@@ -131,7 +131,13 @@
     "content:staging:segments:reviewed-boundary:runtime-integrity:validate": "node scripts/content_pipeline/validate_reviewed_boundary_runtime_integrity.mjs",
     "content:staging:segments:reviewed-boundary:runtime-integrity:collect": "node scripts/content_pipeline/collect_reviewed_boundary_runtime_integrity.mjs",
     "content:staging:segments:reviewed-boundary:runtime-integrity:evidence:validate": "node scripts/content_pipeline/validate_reviewed_boundary_runtime_integrity_evidence.mjs",
-    "content:staging:segments:reviewed-boundary:runtime-integrity:db:test": "node scripts/content_pipeline/test_reviewed_boundary_runtime_integrity_postgres.mjs"
+    "content:staging:segments:reviewed-boundary:runtime-integrity:db:test": "node scripts/content_pipeline/test_reviewed_boundary_runtime_integrity_postgres.mjs",
+    "content:staging:segments:reviewed-boundary:staging-execution:build": "node scripts/content_pipeline/build_reviewed_boundary_staging_execution.mjs",
+    "content:staging:segments:reviewed-boundary:staging-execution:validate": "node scripts/content_pipeline/validate_reviewed_boundary_staging_execution.mjs",
+    "content:staging:segments:reviewed-boundary:staging-execution:execute": "node scripts/content_pipeline/execute_reviewed_boundary_staging_application.mjs",
+    "content:staging:segments:reviewed-boundary:staging-execution:reconcile": "node scripts/content_pipeline/reconcile_reviewed_boundary_staging_application.mjs",
+    "content:staging:segments:reviewed-boundary:staging-execution:evidence:validate": "node scripts/content_pipeline/validate_reviewed_boundary_staging_execution_evidence.mjs",
+    "content:staging:segments:reviewed-boundary:staging-execution:db:test": "node scripts/content_pipeline/test_reviewed_boundary_staging_execution_postgres.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
