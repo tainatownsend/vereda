@@ -2,6 +2,18 @@
   "schema_version": "pr0056-reviewed-boundary-content-integrity-projection-contract-v1",
   "algorithm": "sha256-canonical-json-v1",
   "serialization": "recursively sort JSON object keys lexicographically, preserve array order, JSON.stringify without whitespace, hash UTF-8 bytes",
+  "content_normalization": {
+    "algorithm": "reviewed-boundary-content-normalization-v1",
+    "implementation": "scripts/content_pipeline/reviewed_boundary_content_normalization.mjs",
+    "line_endings": "CRLF and CR become LF",
+    "unicode": "NFC",
+    "leading_trailing_whitespace": "trimmed per line; outer blank lines removed",
+    "repeated_internal_whitespace": "horizontal tab/vertical tab/form feed/space runs become one space",
+    "blank_lines": "three or more consecutive LF become one blank line (two LF)",
+    "non_breaking_spaces": "U+00A0 becomes ASCII space",
+    "final_newline": "exactly one LF",
+    "encoding": "UTF-8"
+  },
   "identity_fields": [
     "run_id",
     "book_id",
@@ -18,10 +30,14 @@
     "display_title"
   ],
   "content_fields": [
-    "normalized_content_sha256",
+    "recomputed_normalized_content_sha256",
     "word_count",
     "normalized_content_length",
     "content_byte_length"
+  ],
+  "stored_digest_comparison_fields": [
+    "stored_normalized_content_sha256",
+    "stored_digest_matches_recomputed"
   ],
   "status_fields": [
     "previous_approval_status",

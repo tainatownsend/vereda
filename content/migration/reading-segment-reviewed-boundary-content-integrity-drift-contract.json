@@ -6,6 +6,7 @@
     "UNAUTHORIZED_TARGET",
     "IDENTITY_MISSING",
     "INSUFFICIENT_BASELINE",
+    "STORED_CONTENT_DIGEST_MISMATCH",
     "BOUNDARY_DRIFT",
     "CONTENT_DRIFT",
     "METADATA_DRIFT",
@@ -62,6 +63,14 @@
       "permits_rollback": false,
       "blocks_rollback": true
     },
+    "STORED_CONTENT_DIGEST_MISMATCH": {
+      "permits_application": false,
+      "permits_idempotent_no_op": false,
+      "requires_manual_review": true,
+      "blocks_execution": true,
+      "permits_rollback": false,
+      "blocks_rollback": true
+    },
     "METADATA_DRIFT": {
       "permits_application": false,
       "permits_idempotent_no_op": false,
@@ -103,5 +112,5 @@
       "blocks_rollback": true
     }
   },
-  "rule": "BOUNDARY_DRIFT and CONTENT_DRIFT always block status-only application"
+  "rule": "BOUNDARY_DRIFT, CONTENT_DRIFT, and STORED_CONTENT_DIGEST_MISMATCH always block status-only application and rollback"
 }

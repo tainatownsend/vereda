@@ -10,11 +10,13 @@
     "end_locator",
     "display_title",
     "word_count",
-    "normalized_content_sha256",
+    "stored_normalized_content_sha256",
+    "recomputed_normalized_content_sha256",
+    "stored_digest_matches_recomputed",
     "content_byte_length",
     "normalized_content_length",
     "updated_at"
   ],
   "reason": "No authoritative repository artifact contains the actual 74 reading_segments rows or their content; static package records contain identity, segment_order, and status only.",
-  "required_future_evidence": "A local/runtime database snapshot of the actual target rows, written under tmp/, matched against unchanged authoritative source hashes; production and remote connections are prohibited for this package."
+  "required_future_evidence": "A local/runtime database collector must read actual content, recompute its digest with reviewed-boundary-content-normalization-v1, compare it to stored normalized_content_sha256, classify mismatches as STORED_CONTENT_DIGEST_MISMATCH, write output under tmp/, and match unchanged authoritative source hashes. Production and remote connections are prohibited."
 }
