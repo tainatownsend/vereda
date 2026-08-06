@@ -37,3 +37,9 @@ All of `source_snapshot_complete`, `source_snapshot_verified`, `content_integrit
 A real staging collection requires deliberate operator input, an explicitly authorized staging connection, matching identity/schema/package hashes, and independent review of temporary evidence. A later staging application additionally requires a separate authority package to consume approved evidence and enable execution.
 
 **No application data was mutated. No application or rollback occurred. No production connection occurred. This PR does not authorize execution.**
+
+## Canonical runtime-evidence hash
+
+`reviewed-boundary-runtime-evidence-hash-v1` hashes the complete, final semantic evidence document except for `evidence_sha256` itself. Object keys are recursively sorted, array order is preserved, JSON is serialized without whitespace, UTF-8 bytes are hashed with SHA-256, and the lowercase hexadecimal digest is recorded. Nulls are significant and undefined values are forbidden. The evidence contract declares every included field and the sole excluded field; the evidence object is closed-world.
+
+The collector JSON-finalizes database values (notably PostgreSQL timestamp `Date` objects) before hashing and writes the finalized document once. Previously it hashed in-memory `Date` objects as empty canonical objects, while persisted JSON converted those values to ISO strings; the validator therefore correctly recomputed a different digest from the file. The independent validator now reconstructs and canonicalizes the declared projection itself and does not import the producer's finalization or hashing functions.
