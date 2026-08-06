@@ -22,7 +22,10 @@ export const requiredTestIds = [
   ...requiredDetailsKeys.map(key => `missing-details-${key}`), ...requiredPayloadDriftIds,
   'valid-application', 'valid-rollback', 'plain-conflict-target-no-arbiter',
 ]
-const successfulTestIds = new Set(['legacy-row', 'unrelated-package', 'valid-application', 'valid-rollback', ...Array.from({ length: 5 }, (_, index) => `conflict-variant-${index + 1}`)])
+export const conflictVariantIds = Array.from({ length: 5 }, (_, index) => `conflict-variant-${index + 1}`)
+export const requiredRecordedTestIds = [...requiredTestIds, ...conflictVariantIds]
+export const expectedRuntimeTestCount = requiredRecordedTestIds.length + 4
+const successfulTestIds = new Set(['legacy-row', 'unrelated-package', 'valid-application', 'valid-rollback', ...conflictVariantIds])
 export const expectedRuntimeCase = id => {
   if (successfulTestIds.has(id)) return { expected_success: true, expected_sqlstate: null, expected_constraint: null }
   if (id === 'plain-conflict-target-no-arbiter') return { expected_success: false, expected_sqlstate: '42P10', expected_constraint: null }
@@ -51,7 +54,7 @@ export function validateRuntimeEvidence(evidence) {
   const index = evidence?.catalog_schema?.indexes?.migration_audit_events_reviewed_boundary_event_key_uidx ?? ''
   if (!/CREATE UNIQUE INDEX/.test(index) || !index.includes('(event_key)') || !index.includes(eventPackage) || !index.includes('event_version = 1') || !index.includes("event_action = ANY (ARRAY['status-advanced'::text, 'status-rollback'::text])")) fail('partial unique index evidence drift')
   const tests = evidence?.tests ?? []
-  for (const id of requiredTestIds) {
+  for (const id of requiredRecordedTestIds) {
     const expected = expectedRuntimeCase(id)
     const test = tests.find(candidate => candidate.test_id === id)
     if (!test || test.passed !== true || test.state_restored !== true || test.expected_success !== expected.expected_success || test.actual_success !== expected.expected_success || test.expected_sqlstate !== expected.expected_sqlstate || test.actual_sqlstate !== expected.expected_sqlstate || test.expected_constraint !== expected.expected_constraint || test.actual_constraint !== expected.expected_constraint) fail(`missing or incorrectly classified test ${id}`)
@@ -60,7 +63,7 @@ export function validateRuntimeEvidence(evidence) {
   const conflict = evidence?.conflict_target_result
   if (conflict?.predicate_target_accepted !== true || conflict?.first_inserted_rows !== 1 || conflict?.exact_duplicate_inserted_rows !== 0 || conflict?.plain_target_rejected_with_no_arbiter !== true || conflict?.variants?.length !== 5 || conflict.variants.some(value => value !== true)) fail(`conflict target evidence does not prove predicate ${conflictTargetPredicate}`)
   if (evidence?.duplicate_verification?.exact_duplicate_classification !== 'verified-no-op' || evidence?.duplicate_verification?.conflicting_duplicate_classification !== 'AUDIT_CONFLICT') fail('duplicate verification evidence failed')
-  if (evidence?.test_counts?.total <= 0 || evidence.test_counts.passed !== evidence.test_counts.total) fail('test count mismatch')
+  if (evidence?.tests?.length !== requiredRecordedTestIds.length || evidence?.test_counts?.total !== expectedRuntimeTestCount || evidence.test_counts.passed !== expectedRuntimeTestCount) fail('test count mismatch')
   if (evidence?.cleanup_result !== 'passed' || evidence?.persistent_reviewed_boundary_row_count_after_cleanup !== 0) fail('cleanup evidence failed')
   if (evidence?.passed !== true) fail('runtime evidence is not passing')
   if (errors.length) { const error = new Error(errors.join('\n')); error.errors = errors; throw error }

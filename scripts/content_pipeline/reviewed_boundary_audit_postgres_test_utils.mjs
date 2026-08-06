@@ -20,3 +20,20 @@ export const parsePostgresError = (error) => {
 }
 
 export const transactionalSql = (statement) => `begin;\n${statement}\nrollback;`
+
+const payloadIdentityFields = new Set(['event_version', 'decision_id', 'book_id', 'segment_key', 'event_action'])
+
+export const missingIdentityFixture = (canonicalPayload, field) => {
+  const payload = structuredClone(canonicalPayload)
+  // PostgreSQL CHECK accepts TRUE or NULL. Matching JSON nulls make scalar
+  // comparisons UNKNOWN; nested target_identity must also match exactly so the
+  // details check is never FALSE and identity completeness is the sole failure.
+  if (payloadIdentityFields.has(field)) payload[field] = null
+  if (field === 'book_id' || field === 'segment_key') payload.target_identity[field] = null
+  return {
+    structured: { [field]: null },
+    payload,
+    expectedSqlstate: '23514',
+    expectedConstraint: 'migration_audit_events_reviewed_boundary_identity_complete_chk',
+  }
+}

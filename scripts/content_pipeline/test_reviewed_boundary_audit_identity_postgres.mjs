@@ -5,7 +5,7 @@ import { mkdir } from 'node:fs/promises'
 import { dirname } from 'node:path'
 import { canonicalizeJson } from './hash_utils.mjs'
 import { conflictTargetPredicate, eventActions, eventKeyAlgorithm, eventPackage, eventTypes, eventVersion, migrationPath, roleFixturePath, requiredSupabaseRoles, foundationMigrationPath } from './reviewed_boundary_audit_identity_constants.mjs'
-import { parsePostgresError, sqlLiteral, transactionalSql } from './reviewed_boundary_audit_postgres_test_utils.mjs'
+import { missingIdentityFixture, parsePostgresError, sqlLiteral, transactionalSql } from './reviewed_boundary_audit_postgres_test_utils.mjs'
 
 const evidencePath = process.env.REVIEWED_BOUNDARY_AUDIT_DB_EVIDENCE ?? 'tmp/reviewed-boundary-audit-database-validation-evidence.json'
 const env = { ...process.env }
@@ -114,7 +114,10 @@ try {
 
   recordCase({ id: 'legacy-row', statement: `insert into content_staging.migration_audit_events(run_id,event_type,details) values (${sqlLiteral(base.run_id, 'uuid')},'legacy.event','{}'::jsonb);`, expectedSuccess: true })
   recordCase({ id: 'unrelated-package', statement: `insert into content_staging.migration_audit_events(run_id,event_type,details,package_id) values (${sqlLiteral(base.run_id, 'uuid')},'other.event','{}'::jsonb,'other-package');`, expectedSuccess: true })
-  for (const field of ['event_version', 'decision_id', 'book_id', 'segment_key', 'event_action', 'event_key']) recordCase({ id: `missing-${field}`, statement: insertSql(base, { structured: { [field]: null } }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_identity_complete_chk' })
+  for (const field of ['event_version', 'decision_id', 'book_id', 'segment_key', 'event_action', 'event_key']) {
+    const fixture = missingIdentityFixture(details(base), field)
+    recordCase({ id: `missing-${field}`, statement: insertSql(base, fixture), expectedSuccess: false, expectedSqlstate: fixture.expectedSqlstate, expectedConstraint: fixture.expectedConstraint })
+  }
   recordCase({ id: 'unsupported-version', statement: insertSql({ ...base, event_version: 2 }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_version_chk' })
   recordCase({ id: 'unsupported-action', statement: insertSql({ ...base, event_action: 'bad-action', event_type: 'reading-segment-reviewed-boundary.bad-action' }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_action_chk' })
   recordCase({ id: 'application-wrong-event-type', statement: insertSql(base, { structured: { event_type: eventTypes.rollback } }), expectedSuccess: false, expectedSqlstate: check, expectedConstraint: 'migration_audit_events_reviewed_boundary_event_type_chk' })
