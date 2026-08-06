@@ -1,0 +1,34 @@
+{
+  "package_id": "reading-segment-reviewed-boundary-production-readiness-closure",
+  "package_version": "1.0.0",
+  "target_count": 74,
+  "canonical_hashing": {
+    "version": "reviewed-boundary-production-readiness-hash-v1",
+    "rules": [
+      "JSON-finalized semantic values",
+      "recursive lexicographic object-key ordering",
+      "preserved array order",
+      "whitespace-free JSON",
+      "UTF-8",
+      "lowercase SHA-256",
+      "only self-hash excluded",
+      "closed-world fields",
+      "null significant",
+      "undefined forbidden",
+      "validators hash persisted semantic representation"
+    ]
+  },
+  "requirements": [
+    "74 original-status baselines",
+    "immutable identity, boundary and content hashes",
+    "production pre-application evidence",
+    "exact rollback operations",
+    "rollback audit identity and conflict behavior",
+    "rollback transaction and reconciliation contracts",
+    "separate rollback token",
+    "rollback operator and authorizer",
+    "expiry and revocation"
+  ],
+  "application_authority_implies_rollback": false,
+  "production_rollback_execution_authorized": false
+}

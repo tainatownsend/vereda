@@ -1,0 +1,51 @@
+{
+  "package_id": "reading-segment-reviewed-boundary-production-readiness-closure",
+  "package_version": "1.0.0",
+  "target_count": 74,
+  "canonical_hashing": {
+    "version": "reviewed-boundary-production-readiness-hash-v1",
+    "rules": [
+      "JSON-finalized semantic values",
+      "recursive lexicographic object-key ordering",
+      "preserved array order",
+      "whitespace-free JSON",
+      "UTF-8",
+      "lowercase SHA-256",
+      "only self-hash excluded",
+      "closed-world fields",
+      "null significant",
+      "undefined forbidden",
+      "validators hash persisted semantic representation"
+    ]
+  },
+  "fields": [
+    "production_evidence_sha256",
+    "production_authorization_decision_sha256",
+    "production_database_identity_fingerprint",
+    "target_set_sha256",
+    "operation_set_sha256",
+    "pr0057_manifest_sha256",
+    "pr0058_manifest_sha256",
+    "pr0059_manifest_sha256",
+    "pr0060_manifest_sha256",
+    "production_execution_mode",
+    "issue_timestamp",
+    "expiry_timestamp",
+    "unique_execution_identifier",
+    "operator_confirmation",
+    "token_state",
+    "token_sha256"
+  ],
+  "production_only": true,
+  "single_use": true,
+  "max_validity_hours": 4,
+  "generated_by_default": false,
+  "invalidated_by": [
+    "use",
+    "expiry",
+    "drift",
+    "source change",
+    "revocation"
+  ],
+  "contains_credentials": false
+}

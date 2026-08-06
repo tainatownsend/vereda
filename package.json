@@ -137,7 +137,14 @@
     "content:staging:segments:reviewed-boundary:staging-execution:execute": "node scripts/content_pipeline/execute_reviewed_boundary_staging_application.mjs",
     "content:staging:segments:reviewed-boundary:staging-execution:reconcile": "node scripts/content_pipeline/reconcile_reviewed_boundary_staging_application.mjs",
     "content:staging:segments:reviewed-boundary:staging-execution:evidence:validate": "node scripts/content_pipeline/validate_reviewed_boundary_staging_execution_evidence.mjs",
-    "content:staging:segments:reviewed-boundary:staging-execution:db:test": "node scripts/content_pipeline/test_reviewed_boundary_staging_execution_postgres.mjs"
+    "content:staging:segments:reviewed-boundary:staging-execution:db:test": "node scripts/content_pipeline/test_reviewed_boundary_staging_execution_postgres.mjs",
+    "content:staging:segments:reviewed-boundary:production-readiness:build": "node scripts/content_pipeline/build_reviewed_boundary_production_readiness.mjs",
+    "content:staging:segments:reviewed-boundary:production-readiness:validate": "node scripts/content_pipeline/validate_reviewed_boundary_production_readiness.mjs",
+    "content:staging:segments:reviewed-boundary:production-readiness:admit-staging-execution": "node scripts/content_pipeline/admit_reviewed_boundary_staging_execution_evidence.mjs",
+    "content:staging:segments:reviewed-boundary:production-readiness:observe-staging": "node scripts/content_pipeline/evaluate_reviewed_boundary_staging_observation.mjs",
+    "content:staging:segments:reviewed-boundary:production-readiness:attest": "node scripts/content_pipeline/build_reviewed_boundary_production_attestation.mjs",
+    "content:staging:segments:reviewed-boundary:production-readiness:evaluate": "node scripts/content_pipeline/evaluate_reviewed_boundary_production_readiness.mjs",
+    "content:staging:segments:reviewed-boundary:production-readiness:closure": "node scripts/content_pipeline/build_reviewed_boundary_migration_closure.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",

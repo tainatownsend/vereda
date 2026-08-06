@@ -1,0 +1,54 @@
+{
+  "package_id": "reading-segment-reviewed-boundary-production-readiness-closure",
+  "package_version": "1.0.0",
+  "target_count": 74,
+  "canonical_hashing": {
+    "version": "reviewed-boundary-production-readiness-hash-v1",
+    "rules": [
+      "JSON-finalized semantic values",
+      "recursive lexicographic object-key ordering",
+      "preserved array order",
+      "whitespace-free JSON",
+      "UTF-8",
+      "lowercase SHA-256",
+      "only self-hash excluded",
+      "closed-world fields",
+      "null significant",
+      "undefined forbidden",
+      "validators hash persisted semantic representation"
+    ]
+  },
+  "fields": [
+    "migration_package_id",
+    "closure_version",
+    "final_lifecycle_state",
+    "target_count",
+    "staging_outcome",
+    "production_outcome",
+    "rollback_outcome",
+    "final_status_summary",
+    "final_audit_summary",
+    "integrity_summary",
+    "unauthorized_mutation_summary",
+    "source_manifest_hashes",
+    "evidence_hashes",
+    "decision_hashes",
+    "execution_receipt_hashes",
+    "reconciliation_hashes",
+    "attestation_hashes",
+    "cleanup_result",
+    "known_warnings",
+    "unresolved_items",
+    "closure_timestamp",
+    "closure_report_sha256"
+  ],
+  "redacted": true,
+  "forbidden_fields": [
+    "full_content",
+    "credentials",
+    "raw_database_host",
+    "unredacted_project_identifier",
+    "connection_string",
+    "access_token"
+  ]
+}

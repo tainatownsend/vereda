@@ -1,0 +1,53 @@
+{
+  "package_id": "reading-segment-reviewed-boundary-production-readiness-closure",
+  "package_version": "1.0.0",
+  "target_count": 74,
+  "canonical_hashing": {
+    "version": "reviewed-boundary-production-readiness-hash-v1",
+    "rules": [
+      "JSON-finalized semantic values",
+      "recursive lexicographic object-key ordering",
+      "preserved array order",
+      "whitespace-free JSON",
+      "UTF-8",
+      "lowercase SHA-256",
+      "only self-hash excluded",
+      "closed-world fields",
+      "null significant",
+      "undefined forbidden",
+      "validators hash persisted semantic representation"
+    ]
+  },
+  "mode": "staging-review",
+  "required_inputs": [
+    "execution evidence",
+    "independent reconciliation evidence",
+    "token-consumption receipt",
+    "expected hashes",
+    "redacted operator identity",
+    "operator confirmation"
+  ],
+  "required_completion_proof": [
+    "staging-apply mode",
+    "74 targets and intended statuses",
+    "74 first-run updates or independently proven already-completed",
+    "74 application audit events",
+    "zero rollback events",
+    "zero unauthorized rows or columns",
+    "approval_status only",
+    "immutable identity, boundary, content and normalized digests match",
+    "valid evidence self-hash and token receipt",
+    "current PR-0059 and PR-0060 manifests",
+    "complete independent reconciliation",
+    "no partial state, conflict or rollback",
+    "matching staging identity",
+    "production identity not used"
+  ],
+  "reject": [
+    "blocked, production, or fixture mode",
+    "missing, symlink, nonregular, oversized, malformed, duplicate-key or closed-world-invalid input",
+    "stale hash or authority lineage",
+    "partial or inconsistent execution",
+    "secrets, full content, unredacted identity"
+  ]
+}

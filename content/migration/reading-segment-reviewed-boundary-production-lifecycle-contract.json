@@ -1,0 +1,132 @@
+{
+  "package_id": "reading-segment-reviewed-boundary-production-readiness-closure",
+  "package_version": "1.0.0",
+  "target_count": 74,
+  "canonical_hashing": {
+    "version": "reviewed-boundary-production-readiness-hash-v1",
+    "rules": [
+      "JSON-finalized semantic values",
+      "recursive lexicographic object-key ordering",
+      "preserved array order",
+      "whitespace-free JSON",
+      "UTF-8",
+      "lowercase SHA-256",
+      "only self-hash excluded",
+      "closed-world fields",
+      "null significant",
+      "undefined forbidden",
+      "validators hash persisted semantic representation"
+    ]
+  },
+  "states": [
+    "REPOSITORY_PACKAGE_DEFINED",
+    "STAGING_EVIDENCE_REQUIRED",
+    "STAGING_EVIDENCE_ADMITTED",
+    "STAGING_REVIEW_REQUIRED",
+    "STAGING_AUTHORIZED",
+    "STAGING_EXECUTION_STARTED",
+    "STAGING_EXECUTION_COMMITTED",
+    "STAGING_RECONCILIATION_COMPLETE",
+    "STAGING_OBSERVATION_WINDOW_ACTIVE",
+    "STAGING_VALIDATED",
+    "PRODUCTION_EVIDENCE_REQUIRED",
+    "PRODUCTION_REVIEW_REQUIRED",
+    "PRODUCTION_AUTHORIZATION_ELIGIBLE",
+    "PRODUCTION_AUTHORIZED",
+    "PRODUCTION_EXECUTION_STARTED",
+    "PRODUCTION_EXECUTION_COMMITTED",
+    "PRODUCTION_RECONCILIATION_COMPLETE",
+    "MIGRATION_CLOSURE_REVIEW_REQUIRED",
+    "MIGRATION_COMPLETED",
+    "MIGRATION_ROLLED_BACK",
+    "MIGRATION_BLOCKED",
+    "MIGRATION_INCONSISTENT",
+    "MIGRATION_REVOKED"
+  ],
+  "permitted_transitions": [
+    [
+      "REPOSITORY_PACKAGE_DEFINED",
+      "STAGING_EVIDENCE_REQUIRED"
+    ],
+    [
+      "STAGING_EVIDENCE_REQUIRED",
+      "STAGING_EVIDENCE_ADMITTED"
+    ],
+    [
+      "STAGING_EVIDENCE_ADMITTED",
+      "STAGING_REVIEW_REQUIRED"
+    ],
+    [
+      "STAGING_REVIEW_REQUIRED",
+      "STAGING_AUTHORIZED"
+    ],
+    [
+      "STAGING_AUTHORIZED",
+      "STAGING_EXECUTION_STARTED"
+    ],
+    [
+      "STAGING_EXECUTION_STARTED",
+      "STAGING_EXECUTION_COMMITTED"
+    ],
+    [
+      "STAGING_EXECUTION_COMMITTED",
+      "STAGING_RECONCILIATION_COMPLETE"
+    ],
+    [
+      "STAGING_RECONCILIATION_COMPLETE",
+      "STAGING_OBSERVATION_WINDOW_ACTIVE"
+    ],
+    [
+      "STAGING_OBSERVATION_WINDOW_ACTIVE",
+      "STAGING_VALIDATED"
+    ],
+    [
+      "STAGING_VALIDATED",
+      "PRODUCTION_EVIDENCE_REQUIRED"
+    ],
+    [
+      "PRODUCTION_EVIDENCE_REQUIRED",
+      "PRODUCTION_REVIEW_REQUIRED"
+    ],
+    [
+      "PRODUCTION_REVIEW_REQUIRED",
+      "PRODUCTION_AUTHORIZATION_ELIGIBLE"
+    ],
+    [
+      "PRODUCTION_AUTHORIZATION_ELIGIBLE",
+      "PRODUCTION_AUTHORIZED"
+    ],
+    [
+      "PRODUCTION_AUTHORIZED",
+      "PRODUCTION_EXECUTION_STARTED"
+    ],
+    [
+      "PRODUCTION_EXECUTION_STARTED",
+      "PRODUCTION_EXECUTION_COMMITTED"
+    ],
+    [
+      "PRODUCTION_EXECUTION_COMMITTED",
+      "PRODUCTION_RECONCILIATION_COMPLETE"
+    ],
+    [
+      "PRODUCTION_RECONCILIATION_COMPLETE",
+      "MIGRATION_CLOSURE_REVIEW_REQUIRED"
+    ],
+    [
+      "MIGRATION_CLOSURE_REVIEW_REQUIRED",
+      "MIGRATION_COMPLETED"
+    ],
+    [
+      "MIGRATION_CLOSURE_REVIEW_REQUIRED",
+      "MIGRATION_ROLLED_BACK"
+    ]
+  ],
+  "forbidden_transitions": [
+    "skip any required intermediate state",
+    "fixture to real-authority state",
+    "staging authority to production authority",
+    "application authority to rollback authority",
+    "terminal state without independent reconciliation"
+  ],
+  "inconsistent_state": "MIGRATION_INCONSISTENT"
+}
