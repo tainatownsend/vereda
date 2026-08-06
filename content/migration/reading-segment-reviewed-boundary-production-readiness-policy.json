@@ -1,0 +1,26 @@
+{
+  "package_id": "reading-segment-reviewed-boundary-production-readiness-closure",
+  "package_version": "1.0.0",
+  "target_count": 74,
+  "canonical_hashing": {
+    "version": "reviewed-boundary-production-readiness-hash-v1",
+    "rules": [
+      "JSON-finalized semantic values",
+      "recursive lexicographic object-key ordering",
+      "preserved array order",
+      "whitespace-free JSON",
+      "UTF-8",
+      "lowercase SHA-256",
+      "only self-hash excluded",
+      "closed-world fields",
+      "null significant",
+      "undefined forbidden",
+      "validators hash persisted semantic representation"
+    ]
+  },
+  "default_lifecycle_state": "STAGING_EVIDENCE_REQUIRED",
+  "fixture_ci_advances_real_lifecycle": false,
+  "no_database_connection": true,
+  "no_mutation": true,
+  "production_execution_entry_point": "blocked"
+}
