@@ -26,9 +26,15 @@ export default function HomePage() {
 
   const activeBooks = useMemo(
     () =>
-      books.filter(
-        (book) => progress[book.id] && !progress[book.id]?.completed_at,
-      ),
+      books
+        .filter(
+          (book) => progress[book.id] && !progress[book.id]?.completed_at,
+        )
+        .sort((a, b) => {
+          const aTime = new Date(progress[a.id]?.last_read_at || 0).getTime()
+          const bTime = new Date(progress[b.id]?.last_read_at || 0).getTime()
+          return bTime - aTime
+        }),
     [books, progress],
   )
 
