@@ -154,6 +154,7 @@ function HomeWithReading({ activeBooks, progress, navigate }) {
               <SecondaryReadingRow
                 key={book.id}
                 book={book}
+                state={progress[book.id]}
                 navigate={navigate}
               />
             ))}
@@ -195,13 +196,19 @@ function SecondaryAction({ icon: Icon, title, description, onClick }) {
   )
 }
 
-function SecondaryReadingRow({ book, navigate }) {
+function SecondaryReadingRow({ book, state, navigate }) {
+  const position = Number(state?.current_section) || 1
+  const total = Number(book.total_sections) || 0
+  const orientation = total > 0
+    ? `, trecho ${Math.min(position, total)} de ${total}`
+    : `, trecho ${position}`
+
   return (
     <button
       type="button"
       onClick={() => navigate(`/ler/${book.id}`)}
       className="group flex min-h-20 w-full items-center gap-4 py-4 text-left"
-      aria-label={`Retomar ${book.title}`}
+      aria-label={`Retomar ${book.title}${orientation}`}
     >
       <div className="flex h-12 w-10 shrink-0 items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
         <BookOpen size={20} aria-hidden="true" />
