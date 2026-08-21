@@ -6,6 +6,7 @@ import { useAuthStore } from '@/store'
 import { useBooks, useUserData } from '@/hooks'
 import { Button, PageLoader, VeredaLogo } from '@/components/ui'
 import ReadingCard from '@/components/ui/ReadingCard'
+import { getActiveBooksByLastRead } from '@/features/home/readingOrder'
 
 const RETURN_AFTER_DAYS = 14
 
@@ -25,21 +26,12 @@ export default function HomePage() {
   }, [])
 
   const activeBooks = useMemo(
-    () =>
-      books
-        .filter(
-          (book) => progress[book.id] && !progress[book.id]?.completed_at,
-        )
-        .sort((a, b) => {
-          const aTime = new Date(progress[a.id]?.last_read_at || 0).getTime()
-          const bTime = new Date(progress[b.id]?.last_read_at || 0).getTime()
-          return bTime - aTime
-        }),
+    () => getActiveBooksByLastRead(books, progress),
     [books, progress],
   )
 
-  const returning = activeBooks.some((book) =>
-    isReturningAfterPause(progress[book.id]?.last_read_at),
+  const returning = isReturningAfterPause(
+    progress[activeBooks[0]?.id]?.last_read_at,
   )
   const displayName = getDisplayName(profile, user)
 

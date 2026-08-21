@@ -169,6 +169,8 @@ export const useReadingStore = create((set, get) => ({
   },
 
   markSectionRead: async (userId, bookId, sectionId, nextPosition, durationSeconds) => {
+    const lastReadAt = new Date().toISOString()
+
     await supabase.from('reading_sessions').upsert({
       user_id:    userId,
       book_id:    bookId,
@@ -181,7 +183,7 @@ export const useReadingStore = create((set, get) => ({
       .from('user_progress')
       .update({
         current_section: nextPosition,
-        last_read_at:    new Date().toISOString(),
+        last_read_at:    lastReadAt,
       })
       .eq('user_id', userId)
       .eq('book_id', bookId)
@@ -189,7 +191,11 @@ export const useReadingStore = create((set, get) => ({
     set(state => ({
       progress: {
         ...state.progress,
-        [bookId]: { ...state.progress[bookId], current_section: nextPosition }
+        [bookId]: {
+          ...state.progress[bookId],
+          current_section: nextPosition,
+          last_read_at: lastReadAt,
+        }
       }
     }))
 
