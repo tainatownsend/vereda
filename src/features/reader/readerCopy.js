@@ -1,9 +1,9 @@
 export const READER_COPY = Object.freeze({
   dailyGoalNotice:
-    'Seu momento de estudo de hoje está completo. Você pode concluir esta leitura e decidir se deseja continuar.',
+    'Você já dedicou um bom momento a esta leitura hoje. Pode parar por aqui ou continuar, como preferir.',
   missingContinuation: 'Não encontramos a continuação desta leitura.',
   indexDescription:
-    'Escolha uma parte, capítulo ou trecho. Abrir um item não altera seu progresso oficial.',
+    'Escolha uma parte, capítulo ou trecho. Abrir um item não muda o lugar salvo da sua leitura.',
   currentUnitLabel: 'Trecho atual',
   defaultIndexGroup: 'Trechos',
   actions: Object.freeze({
