@@ -5,6 +5,7 @@ import { Button } from '@/components/ui'
 export default function ReadingCard({
   book,
   currentSection,
+  returning = false,
   onContinue,
 }) {
   return (
@@ -13,7 +14,7 @@ export default function ReadingCard({
         <div className="flex items-start justify-between gap-5">
           <div className="min-w-0">
             <p className="text-sm font-semibold text-sage-800 dark:text-sage-300">
-              Continue de onde parou
+              {returning ? 'Retome com tranquilidade' : 'Continue de onde parou'}
             </p>
 
             <h3 className="mt-2 font-display text-[1.85rem] font-medium leading-[1.08] tracking-[-0.025em] text-ink dark:text-night-ink">
@@ -36,6 +37,12 @@ export default function ReadingCard({
               {currentSection}
             </span>
             .
+          </p>
+        )}
+
+        {returning && (
+          <p className="mt-3 text-sm leading-relaxed text-muted dark:text-night-muted">
+            Não é preciso recuperar tempo perdido. Basta continuar daqui.
           </p>
         )}
 
