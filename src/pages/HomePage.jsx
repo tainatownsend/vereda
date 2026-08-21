@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { ArrowRight, BookOpen, Compass, Map } from 'lucide-react'
 
 import { useAuthStore } from '@/store'
-import { useBookCompletionEstimate, useBooks, useUserData } from '@/hooks'
+import { useBooks, useUserData } from '@/hooks'
 import { Button, PageLoader, VeredaLogo } from '@/components/ui'
 import ReadingCard from '@/components/ui/ReadingCard'
 
@@ -94,6 +94,7 @@ function HomeWithReading({ activeBooks, progress, navigate }) {
 
         <PrimaryReading
           book={activeBooks[0]}
+          state={progress[activeBooks[0].id]}
           returning={isReturningAfterPause(progress[activeBooks[0].id]?.last_read_at)}
           navigate={navigate}
         />
@@ -165,18 +166,18 @@ function HomeWithReading({ activeBooks, progress, navigate }) {
   )
 }
 
-function PrimaryReading({ book, returning, navigate }) {
-  const { estimate } = useBookCompletionEstimate(book.id)
+function PrimaryReading({ book, state, returning, navigate }) {
+  const position = Number(state?.current_section) || 1
+  const total = Number(book.total_sections) || 0
+  const currentSection = total > 0
+    ? `trecho ${Math.min(position, total)} de ${total}`
+    : `trecho ${position}`
 
   return (
     <ReadingCard
       book={book}
       returning={returning}
-      currentSection={
-        estimate?.current_section ||
-        estimate?.section_label ||
-        estimate?.current_section_label
-      }
+      currentSection={currentSection}
       onContinue={() => navigate(`/ler/${book.id}`)}
     />
   )
