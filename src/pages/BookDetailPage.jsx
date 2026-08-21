@@ -61,7 +61,7 @@ export default function BookDetailPage() {
       await startBook(
         user.id,
         book.id,
-        paceMode === 'none' ? null : paceMode,
+        paceMode === 'none' ? 'minutes' : paceMode,
         paceMode === 'minutes' ? minutes : null,
         paceMode === 'deadline' ? deadline : null,
       )
