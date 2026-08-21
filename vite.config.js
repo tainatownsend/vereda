@@ -26,7 +26,7 @@ export default defineConfig({
       manifest: {
         name: 'Vereda — Estudo Espírita',
         short_name: 'Vereda',
-        description: 'Leitura diária das obras básicas do Espiritismo',
+        description: 'Estudo tranquilo das obras fundamentais do Espiritismo',
         lang: 'pt-BR',
         start_url: '/',
         display: 'standalone',
