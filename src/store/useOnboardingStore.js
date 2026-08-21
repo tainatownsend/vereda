@@ -1,17 +1,24 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
+
+const INITIAL_STATE = {
+  completed: false,
+  familiarity: '',
+  intention: '',
+  recommendedBookId: null,
+  chosenBookId: null,
+  paceMode: null,
+  paceMinutes: null,
+}
 
 export const useOnboardingStore = create(
   persist(
     (set) => ({
-      completed: false,
-      chosenBookId: null,
-      paceMode: null,      // 'diario' | 'semanal'
-      paceMinutes: null,   // ex: 10, 15, 30
+      ...INITIAL_STATE,
       setChoice: (data) => set(data),
       complete: () => set({ completed: true }),
-      reset: () => set({ completed: false, chosenBookId: null, paceMode: null, paceMinutes: null }),
+      reset: () => set(INITIAL_STATE),
     }),
-    { name: 'vereda-onboarding' }
-  )
-);
+    { name: 'vereda-onboarding' },
+  ),
+)
