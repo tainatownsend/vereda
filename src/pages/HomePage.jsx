@@ -3,12 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { ArrowRight, BookOpen } from 'lucide-react'
 
 import { useAuthStore } from '@/store'
-import {
-  useBookCompletionEstimate,
-  useBooks,
-  useProgress,
-  useUserData,
-} from '@/hooks'
+import { useBookCompletionEstimate, useBooks, useUserData } from '@/hooks'
 import { Button, PageLoader, VeredaLogo } from '@/components/ui'
 import ReadingCard from '@/components/ui/ReadingCard'
 
@@ -55,7 +50,7 @@ export default function HomePage() {
         <VeredaLogo size={46} className="shrink-0" />
       </header>
 
-      <div className="ves-container space-y-11 pb-10 pt-4">
+      <div className="ves-container space-y-10 pb-10 pt-4">
         {activeBooks.length > 0 ? (
           <HomeWithReading
             activeBooks={activeBooks}
@@ -79,7 +74,7 @@ function HomeWithReading({ activeBooks, navigate }) {
             id="continue-reading-heading"
             className="ves-heading mt-1 text-[1.75rem]"
           >
-            Continue sua leitura
+            Continue de onde parou
           </h2>
         </div>
 
@@ -90,13 +85,16 @@ function HomeWithReading({ activeBooks, navigate }) {
       </section>
 
       {activeBooks.length > 1 && (
-        <section aria-labelledby="other-readings-heading">
+        <section
+          className="border-t border-line pt-8 dark:border-night-line"
+          aria-labelledby="other-readings-heading"
+        >
           <div className="mb-3 flex items-end justify-between gap-4">
             <div>
-              <p className="ves-eyebrow">Em andamento</p>
+              <p className="ves-eyebrow">Também em andamento</p>
               <h2
                 id="other-readings-heading"
-                className="ves-heading mt-1 text-[1.75rem]"
+                className="ves-heading mt-1 text-[1.55rem]"
               >
                 Outras leituras
               </h2>
@@ -107,7 +105,7 @@ function HomeWithReading({ activeBooks, navigate }) {
               onClick={() => navigate('/biblioteca')}
               className="min-h-11 rounded-vesSm px-2 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
             >
-              Ver biblioteca
+              Ver obras
             </button>
           </div>
 
@@ -122,57 +120,33 @@ function HomeWithReading({ activeBooks, navigate }) {
           </div>
         </section>
       )}
-
-      <section
-        className="border-t border-line pt-8 dark:border-night-line"
-        aria-labelledby="journey-heading"
-      >
-        <p className="ves-eyebrow">Sua jornada</p>
-
-        <h2
-          id="journey-heading"
-          className="ves-heading mt-1 text-[1.75rem]"
-        >
-          Um passo de cada vez.
-        </h2>
-
-        <p className="mt-3 max-w-md text-base leading-relaxed text-muted dark:text-night-muted">
-          Seu progresso está salvo. Leia com atenção e retome quando estiver
-          pronto.
-        </p>
-      </section>
     </>
   )
 }
 
 function PrimaryReading({ book, navigate }) {
-  const percentage = useProgress(book.id, book.total_sections)
   const { estimate } = useBookCompletionEstimate(book.id)
 
   return (
     <ReadingCard
       book={book}
-      percentage={percentage}
       currentSection={
         estimate?.current_section ||
         estimate?.section_label ||
         estimate?.current_section_label
       }
-      minutesRemaining={Number(estimate?.minutes_remaining) || 0}
       onContinue={() => navigate(`/ler/${book.id}`)}
     />
   )
 }
 
 function SecondaryReadingRow({ book, navigate }) {
-  const percentage = useProgress(book.id, book.total_sections)
-
   return (
     <button
       type="button"
       onClick={() => navigate(`/ler/${book.id}`)}
       className="group flex min-h-20 w-full items-center gap-4 py-4 text-left"
-      aria-label={`Continuar ${book.title}, ${percentage}% concluído`}
+      aria-label={`Retomar ${book.title}`}
     >
       <div className="flex h-12 w-10 shrink-0 items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
         <BookOpen size={20} aria-hidden="true" />
@@ -184,7 +158,7 @@ function SecondaryReadingRow({ book, navigate }) {
         </p>
 
         <p className="mt-1 text-sm text-muted dark:text-night-muted">
-          {percentage}% da obra
+          Retomar esta leitura
         </p>
       </div>
 
@@ -199,7 +173,7 @@ function SecondaryReadingRow({ book, navigate }) {
 
 function EmptyHome({ navigate }) {
   return (
-    <section className="pt-8" aria-labelledby="empty-home-heading">
+    <section className="pt-6" aria-labelledby="empty-home-heading">
       <div
         className="flex h-16 w-16 items-center justify-center rounded-vesLg bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300"
         aria-hidden="true"
@@ -207,27 +181,31 @@ function EmptyHome({ navigate }) {
         <BookOpen size={30} />
       </div>
 
-      <p className="ves-eyebrow mt-8">Sua jornada pode começar hoje</p>
+      <p className="ves-eyebrow mt-8">Seu primeiro passo</p>
 
       <h2
         id="empty-home-heading"
         className="ves-heading mt-2 max-w-md text-[2.25rem] leading-[1.08]"
       >
-        Escolha uma obra e siga no seu ritmo.
+        Você não precisa saber por onde começar.
       </h2>
 
       <p className="mt-5 max-w-md text-lg leading-relaxed text-muted dark:text-night-muted">
-        O Vereda transforma grandes leituras em pequenos passos, com clareza e
-        sem pressa.
+        O Vereda ajuda você a encontrar uma primeira leitura e seguir no seu
+        ritmo, sem pressa.
       </p>
 
       <Button
         onClick={() => navigate('/biblioteca')}
         className="mt-8"
       >
-        Escolher primeira obra
+        Ajude-me a começar
         <ArrowRight size={19} aria-hidden="true" />
       </Button>
+
+      <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted dark:text-night-muted">
+        Você também poderá explorar todas as obras antes de decidir.
+      </p>
     </section>
   )
 }
