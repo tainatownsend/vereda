@@ -112,7 +112,7 @@ export default function AuthPage() {
               </h2>
               <p className="mt-3 text-base leading-relaxed text-muted dark:text-night-muted">
                 {isSignup
-                  ? 'Leva menos de um minuto. Depois, você escolhe a primeira obra.'
+                  ? 'Leva menos de um minuto. Depois, o Vereda ajuda você a encontrar um primeiro caminho.'
                   : 'Sua jornada continua exatamente de onde você parou.'}
               </p>
             </div>
@@ -172,7 +172,7 @@ export default function AuthPage() {
                     className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300"
                     aria-hidden="true"
                   />
-                  Seu progresso ficará salvo para você retomar quando quiser.
+                  O lugar onde você parar ficará salvo para retomar quando quiser.
                 </div>
               )}
 
