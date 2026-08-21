@@ -1,278 +1,148 @@
+import { ArrowRight, BookOpen, Check, Compass, Map } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import { TrendingUp, Clock } from 'lucide-react'
-import { useAuthStore, useReadingStore } from '@/store'
-import { useBooks, useProgress, useBookCompletionEstimate, useReadingMinutesLast7Days } from '@/hooks'
-import { Card } from '@/components/ui'
-import { useState, useEffect } from 'react'
-import { supabase } from '@/lib/supabase'
+
+import { useBooks } from '@/hooks'
+import { useReadingStore } from '@/store'
+import { Card, PageLoader } from '@/components/ui'
 
 export default function EvolutionPage() {
   const navigate = useNavigate()
   const books = useBooks()
   const { progress } = useReadingStore()
-  const { user } = useAuthStore()
 
-  const activeBooks    = books.filter(b => progress[b.id] && !progress[b.id]?.completed_at)
-  const completedBooks = books.filter(b => progress[b.id]?.completed_at)
+  if (!books.length) return <PageLoader label="Preparando sua jornada" />
+
+  const activeBooks = books.filter(
+    (book) => progress[book.id] && !progress[book.id]?.completed_at,
+  )
+  const completedBooks = books.filter((book) => progress[book.id]?.completed_at)
 
   return (
-    <div className="min-h-screen bg-primary-50 dark:bg-slate-900 pb-24">
-
-      <header className="bg-white dark:bg-slate-800 border-b border-primary-100 dark:border-slate-700 px-5 pt-12 pb-4">
-        <div className="flex items-center gap-2">
-          <TrendingUp size={20} className="text-primary-600 dark:text-primary-400" />
-          <h1 className="font-display text-2xl text-forest-900 dark:text-slate-50">Evolução</h1>
-        </div>
-        <p className="text-sm text-slate-400 dark:text-slate-500 mt-1">Sua jornada de estudo</p>
+    <main className="ves-page pb-28">
+      <header className="ves-container pb-7 pt-11">
+        <p className="ves-eyebrow">Sua jornada</p>
+        <h1 className="ves-heading mt-2 text-[2.35rem]">Veja onde você está</h1>
+        <p className="mt-3 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">
+          Aqui não há sequência para manter nem ritmo para provar. Este espaço serve apenas para orientar seu caminho.
+        </p>
       </header>
 
-      <div className="px-4 pt-4 space-y-3">
+      <div className="ves-container space-y-10 pb-10">
+        {activeBooks.length > 0 ? (
+          <section aria-labelledby="current-path-heading">
+            <div className="flex items-center gap-3">
+              <Map size={22} className="text-sage-700 dark:text-sage-300" aria-hidden="true" />
+              <div>
+                <p className="ves-eyebrow">Você está aqui</p>
+                <h2 id="current-path-heading" className="ves-heading mt-1 text-[1.75rem]">Caminhos em andamento</h2>
+              </div>
+            </div>
 
-        <WeeklyChart />
-
-        {user && <BookTotals userId={user.id} books={books} progress={progress} />}
-
-        {activeBooks.length > 0 && (
-          <section>
-            <h2 className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 px-0.5">
-              Em andamento
-            </h2>
-            <div className="space-y-2">
-              {activeBooks.map(book => (
-                <BookEvolutionRow key={book.id} book={book} navigate={navigate} />
+            <div className="mt-5 space-y-4">
+              {activeBooks.map((book) => (
+                <JourneyCard
+                  key={book.id}
+                  book={book}
+                  state={progress[book.id]}
+                  onOpen={() => navigate(`/ler/${book.id}`)}
+                />
               ))}
             </div>
+          </section>
+        ) : (
+          <section className="rounded-vesLg border border-sage-200 bg-sage-50 p-6 dark:border-sage-900 dark:bg-sage-950/35">
+            <Compass size={24} className="text-sage-700 dark:text-sage-300" aria-hidden="true" />
+            <h2 className="ves-heading mt-4 text-[1.7rem]">Seu caminho pode começar quando fizer sentido.</h2>
+            <p className="mt-3 max-w-lg text-base leading-relaxed text-muted dark:text-night-muted">
+              Escolha uma obra ou peça uma primeira orientação. Não existe atraso.
+            </p>
+            <button
+              type="button"
+              onClick={() => navigate('/comecar')}
+              className="mt-5 inline-flex min-h-12 items-center gap-2 rounded-vesSm font-semibold text-sage-800 dark:text-sage-300"
+            >
+              Ajude-me a começar
+              <ArrowRight size={18} aria-hidden="true" />
+            </button>
           </section>
         )}
 
         {completedBooks.length > 0 && (
-          <section>
-            <h2 className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 px-0.5 mt-2">
-              Concluídos
-            </h2>
-            <div className="space-y-2">
-              {completedBooks.map(book => (
-                <Card key={book.id} className="p-3 flex items-center gap-3">
-                  <div className="w-2 h-10 rounded-full shrink-0" style={{ background: book.cover_color }} />
-                  <div className="flex-1">
-                    <p className="font-display text-sm text-forest-900 dark:text-slate-100">{book.title}</p>
-                    <p className="text-[10px] text-primary-500 dark:text-primary-400 font-semibold">✓ Concluído</p>
+          <section
+            className="border-t border-line pt-8 dark:border-night-line"
+            aria-labelledby="traveled-heading"
+          >
+            <p className="ves-eyebrow">Caminhos percorridos</p>
+            <h2 id="traveled-heading" className="ves-heading mt-1 text-[1.75rem]">Obras que você já concluiu</h2>
+
+            <div className="mt-5 space-y-3">
+              {completedBooks.map((book) => (
+                <Card key={book.id} className="flex items-center gap-4 p-5">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-vesSm bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                    <Check size={20} aria-hidden="true" />
                   </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="font-semibold text-ink dark:text-night-ink">{book.title}</p>
+                    <p className="mt-1 text-sm text-muted dark:text-night-muted">Disponível para revisitar quando quiser.</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => navigate(`/ler/${book.id}?revisit=1`)}
+                    className="min-h-11 rounded-vesSm px-2 text-sm font-semibold text-sage-800 dark:text-sage-300"
+                  >
+                    Revisitar
+                  </button>
                 </Card>
               ))}
             </div>
           </section>
         )}
 
-        {activeBooks.length === 0 && completedBooks.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-sm text-slate-400 dark:text-slate-500">
-              Comece a ler para ver sua evolução aqui.
-            </p>
+        <section className="border-t border-line pt-8 dark:border-night-line" aria-labelledby="journey-principle-heading">
+          <div className="flex items-start gap-4">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+              <BookOpen size={20} aria-hidden="true" />
+            </div>
+            <div>
+              <h2 id="journey-principle-heading" className="font-semibold text-ink dark:text-night-ink">Um passo de cada vez</h2>
+              <p className="mt-2 max-w-lg text-sm leading-relaxed text-muted dark:text-night-muted">
+                O Vereda registra onde você parou para que retornar seja simples. Dias sem leitura não diminuem o caminho que você já percorreu.
+              </p>
+            </div>
           </div>
-        )}
-
+        </section>
       </div>
-    </div>
+    </main>
   )
 }
 
-function WeeklyChart() {
-  const { data, loading } = useReadingMinutesLast7Days()
-
-  if (loading) {
-    return <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700" style={{ borderRadius: 16, padding: 16, height: 200 }} />
-  }
-
-  const maxMinutes = Math.max(...data.map(d => Number(d.minutes)), 1)
-  const totalMinutes = data.reduce((sum, d) => sum + Number(d.minutes), 0)
-  const today = new Date().toISOString().split('T')[0]
-
-  const DAYS_PT = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb']
-
-  const formatMin = (mins) => {
-    if (mins < 1) return ''
-    if (mins < 60) return `${Math.round(mins)}m`
-    return `${Math.floor(mins)}h${Math.round((mins % 1) * 60) > 0 ? Math.round((mins % 1) * 60) + 'm' : ''}`
-  }
-
+function JourneyCard({ book, state, onOpen }) {
   return (
-    <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700" style={{
-      borderRadius: 16,
-      padding: 16,
-    }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-        <span className="dark:text-slate-500" style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#94A3B8' }}>
-          Últimos 7 dias
-        </span>
-        <span style={{ fontSize: 12, fontWeight: 700, color: '#7B5EA7' }}>
-          {Math.round(totalMinutes)} min total
-        </span>
-      </div>
-
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-        {data.map((d) => {
-          const minutes   = Number(d.minutes)
-          const widthPct  = minutes > 0 ? Math.max((minutes / maxMinutes) * 100, 8) : 0
-          const isToday   = d.read_date === today
-          const date      = new Date(d.read_date + 'T00:00:00')
-          const dayLabel  = DAYS_PT[date.getDay()]
-
-          return (
-            <div key={d.read_date} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span className={isToday ? '' : 'text-slate-400 dark:text-slate-500'} style={{
-                fontSize: 11,
-                fontWeight: isToday ? 700 : 500,
-                color: isToday ? '#7B5EA7' : undefined,
-                width: 28,
-                textAlign: 'right',
-                flexShrink: 0,
-              }}>
-                {dayLabel}
-              </span>
-              <div className="dark:bg-slate-700" style={{ flex: 1, height: 22, background: '#F4F1FA', borderRadius: 6, overflow: 'hidden' }}>
-                {minutes > 0 && (
-                  <div style={{
-                    height: '100%',
-                    width: `${widthPct}%`,
-                    borderRadius: 6,
-                    background: isToday
-                      ? 'linear-gradient(90deg, #5A3F88, #A98FCC)'
-                      : '#DDD6F3',
-                    display: 'flex',
-                    alignItems: 'center',
-                    paddingLeft: 8,
-                    transition: 'width 0.5s ease',
-                  }}>
-                    <span style={{ fontSize: 10, fontWeight: 600, color: isToday ? 'white' : '#7B5EA7', whiteSpace: 'nowrap' }}>
-                      {formatMin(minutes)}
-                    </span>
-                  </div>
-                )}
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
-
-function BookTotals({ userId, books, progress }) {
-  const [totals, setTotals] = useState({})
-
-  useEffect(() => {
-    const load = async () => {
-      const { data } = await supabase
-        .from('reading_sessions')
-        .select('book_id, duration_s')
-        .eq('user_id', userId)
-        .not('duration_s', 'is', null)
-
-      if (data) {
-        const map = {}
-        data.forEach(r => {
-          map[r.book_id] = (map[r.book_id] || 0) + r.duration_s
-        })
-        setTotals(map)
-      }
-    }
-    load()
-  }, [userId])
-
-  const booksWithProgress = books.filter(b => progress[b.id])
-  if (booksWithProgress.length === 0) return null
-
-  const totalAll = Object.values(totals).reduce((s, v) => s + v, 0)
-
-  const formatTime = (seconds) => {
-    if (!seconds) return '0 min'
-    const mins = Math.round(seconds / 60)
-    if (mins < 60) return `${mins} min`
-    const h = Math.floor(mins / 60)
-    const m = mins % 60
-    return m > 0 ? `${h}h ${m}min` : `${h}h`
-  }
-
-  return (
-    <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700" style={{ borderRadius: 16, padding: 16 }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 14 }}>
-        <Clock size={14} color="#94A3B8" />
-        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#94A3B8' }}>
-          Tempo total de estudo
-        </span>
-        <span style={{ marginLeft: 'auto', fontSize: 13, fontWeight: 700, color: '#7B5EA7' }}>
-          {formatTime(totalAll)}
-        </span>
-      </div>
-
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-        {booksWithProgress.map(book => {
-          const secs = totals[book.id] || 0
-          return (
-            <div key={book.id} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <div style={{ width: 8, height: 8, borderRadius: '50%', background: book.cover_color, flexShrink: 0 }} />
-              <span className="dark:text-slate-300" style={{ fontSize: 12, color: '#475569', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                {book.title}
-              </span>
-              <span style={{ fontSize: 12, fontWeight: 600, color: '#7B5EA7', flexShrink: 0 }}>
-                {formatTime(secs)}
-              </span>
-            </div>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
-
-function BookEvolutionRow({ book, navigate }) {
-  const pct = useProgress(book.id, book.total_sections)
-  const { estimate } = useBookCompletionEstimate(book.id)
-
-  const formatTimeRemaining = (mins) => {
-    if (!mins) return null
-    if (mins < 60) return `${mins} min`
-    const hours = Math.floor(mins / 60)
-    const remainingMins = mins % 60
-    return remainingMins > 0 ? `${hours}h ${remainingMins}min` : `${hours}h`
-  }
-
-  const formatDate = (dateStr) => {
-    if (!dateStr) return null
-    const date = new Date(dateStr + 'T00:00:00')
-    return date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'short' })
-  }
-
-  return (
-    <Card
-      className="p-3.5 cursor-pointer hover:shadow-md transition-shadow"
-      onClick={() => navigate(`/ler/${book.id}`)}
-    >
-      <div className="flex items-center gap-3 mb-2.5">
-        <div className="w-2 h-10 rounded-full shrink-0" style={{ background: book.cover_color }} />
-        <div className="flex-1 min-w-0">
-          <p className="font-display text-sm text-forest-900 dark:text-slate-100 truncate">{book.title}</p>
-          <p className="text-[10px] text-slate-400 dark:text-slate-500">{book.year}</p>
+    <Card as="button" type="button" onClick={onOpen} className="group w-full p-5 text-left transition-shadow hover:shadow-editorial">
+      <div className="flex items-start gap-4">
+        <div
+          className="mt-1 h-12 w-2 shrink-0 rounded-full"
+          style={{ backgroundColor: book.cover_color || '#58745D' }}
+          aria-hidden="true"
+        />
+        <div className="min-w-0 flex-1">
+          <p className="font-display text-[1.45rem] font-medium leading-tight text-ink dark:text-night-ink">{book.title}</p>
+          <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+            Você está na seção {state?.current_section || 1}.
+            {state?.last_read_at ? ` Última leitura em ${formatDate(state.last_read_at)}.` : ''}
+          </p>
+          <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">
+            Continuar daqui
+            <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
+          </span>
         </div>
-        <span style={{ fontSize: 14, fontWeight: 700, color: '#7B5EA7', flexShrink: 0 }}>{pct}%</span>
       </div>
-      <div style={{ height: 6, borderRadius: 100, background: '#EEE9F8', overflow: 'hidden', marginBottom: 8 }}>
-        <div style={{
-          height: '100%',
-          width: `${pct}%`,
-          borderRadius: 100,
-          background: `linear-gradient(90deg, ${book.cover_color}CC, ${book.cover_color})`,
-          transition: 'width 0.7s'
-        }} />
-      </div>
-      {estimate && estimate.words_remaining > 0 && (
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 10, color: '#94A3B8', flexWrap: 'wrap' }}>
-          <span>Falta {formatTimeRemaining(estimate.minutes_remaining)}</span>
-          <span style={{ width: 3, height: 3, borderRadius: '50%', background: '#CBD5E1', flexShrink: 0 }} />
-          <span>Termina {formatDate(estimate.estimated_date)}</span>
-        </div>
-      )}
     </Card>
   )
+}
+
+function formatDate(value) {
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return ''
+  return date.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long' })
 }
