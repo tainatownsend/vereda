@@ -1,9 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import {
-  useNavigate,
-  useParams,
-  useSearchParams,
-} from 'react-router-dom'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import {
   AlignJustify,
   AlignLeft,
@@ -20,10 +16,7 @@ import {
 
 import { useAuthStore, useUIStore } from '@/store'
 import { useBooks, useReadingTime, useScrollProgress } from '@/hooks'
-import {
-  getReaderPrimaryAction,
-  READER_COPY,
-} from '@/features/reader/readerCopy'
+import { getReaderPrimaryAction, READER_COPY } from '@/features/reader/readerCopy'
 import { READER_PHASE } from '@/features/reader/readerMachine'
 import BookIndexPanel from '@/features/reader/BookIndexPanel'
 import { useReadingSession } from '@/features/reader/useReadingSession'
@@ -47,9 +40,11 @@ export default function ReaderPage() {
   const [showIndex, setShowIndex] = useState(false)
   const [textAlign, setTextAlign] = useState('left')
   const settingsRef = useRef(null)
+  const requestedPositionRef = useRef(null)
 
   const bookId = Number(id)
   const revisitMode = searchParams.get('revisit') === '1'
+  const requestedPosition = Number(searchParams.get('section') || 0)
   const book = books.find((item) => item.id === bookId)
   const scrollPct = useScrollProgress()
 
@@ -70,6 +65,20 @@ export default function ReaderPage() {
     isChapterIntro,
     isFinalReadingUnit,
   })
+
+  useEffect(() => {
+    if (
+      session.phase !== READER_PHASE.READING ||
+      !requestedPosition ||
+      requestedPosition < 1 ||
+      requestedPositionRef.current === requestedPosition
+    ) {
+      return
+    }
+
+    requestedPositionRef.current = requestedPosition
+    session.jumpToSection({ sec_position: requestedPosition })
+  }, [requestedPosition, session])
 
   useEffect(() => {
     const handlePointerDown = (event) => {
@@ -105,9 +114,7 @@ export default function ReaderPage() {
       session.currentSection.section_id,
     ].join(':')
 
-    const savedScroll = Number(
-      window.sessionStorage.getItem(storageKey) || 0,
-    )
+    const savedScroll = Number(window.sessionStorage.getItem(storageKey) || 0)
 
     const restoreFrame = window.requestAnimationFrame(() => {
       if (savedScroll > 0) {
@@ -161,7 +168,7 @@ export default function ReaderPage() {
       <ReaderMessage
         eyebrow="Obra concluída"
         title="Você chegou ao fim desta obra."
-        description={`Seu percurso em ${book.title} foi salvo. Você pode retornar quando quiser para reler algum trecho.`}
+        description={`Seu caminho em ${book.title} foi salvo. Você pode voltar a qualquer trecho quando quiser.`}
         actionLabel="Voltar ao início"
         onAction={() => navigate('/home')}
       />
@@ -171,9 +178,9 @@ export default function ReaderPage() {
   if (session.phase === READER_PHASE.DAILY_GOAL_COMPLETE) {
     return (
       <ReaderMessage
-        eyebrow="Momento concluído"
-        title="Muito bom. Você avançou mais um pouco."
-        description={`Seu progresso em ${book.title} está salvo. Você pode encerrar por aqui ou continuar lendo.`}
+        eyebrow="Bom ponto para uma pausa"
+        title="Você pode encerrar por aqui ou seguir lendo."
+        description={`O lugar onde você parou em ${book.title} está salvo. Não há obrigação de continuar agora.`}
         actionLabel="Voltar ao início"
         onAction={() => navigate('/home')}
         secondaryLabel="Continuar lendo"
@@ -191,20 +198,6 @@ export default function ReaderPage() {
       />
     )
   }
-
-  const bookProgressPct = session.lastPosition > 1
-    ? Math.max(
-        0,
-        Math.min(
-          100,
-          Math.round(
-            ((currentSection.sec_position - 1) /
-              (session.lastPosition - 1)) *
-              100,
-          ),
-        ),
-      )
-    : 0
 
   const fontClass =
     FONT_SIZES.find((option) => option.id === fontSize)?.className ||
@@ -225,6 +218,12 @@ export default function ReaderPage() {
     .filter(Boolean)
     .join(' — ')
 
+  const locationLabel =
+    currentSection.section_title ||
+    currentSection.chapter_label ||
+    currentSection.title ||
+    `Trecho ${currentSection.sec_position}`
+
   return (
     <div className="min-h-screen bg-canvas text-ink dark:bg-night dark:text-night-ink">
       <div
@@ -238,53 +237,38 @@ export default function ReaderPage() {
       </div>
 
       <header className="sticky top-1 z-40 border-b border-line bg-canvas/95 backdrop-blur-md dark:border-night-line dark:bg-night/95">
-        <div className="mx-auto flex min-h-[4.75rem] max-w-[72ch] items-center justify-between gap-3 px-4">
-          <button
-            type="button"
-            onClick={() => navigate('/home')}
-            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-vesSm border border-line bg-surface text-sage-800 hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-300 dark:hover:bg-sage-950"
-            aria-label="Sair da leitura e voltar ao início"
-          >
-            <Home size={21} aria-hidden="true" />
-          </button>
-
-          <div className="min-w-0 flex-1 text-center">
-            <p className="truncate text-xs text-muted dark:text-night-muted">
+        <div className="mx-auto max-w-[68ch] px-4 py-3">
+          <div className="min-w-0 text-center">
+            <p className="truncate text-sm font-semibold text-ink dark:text-night-ink">
               {book.title}
             </p>
-            <p className="mt-1 text-xs font-semibold text-sage-800 dark:text-sage-300">
-              {bookProgressPct}% da obra · {readingTime}
+            <p className="mt-1 truncate text-xs text-muted dark:text-night-muted">
+              {locationLabel} · cerca de {readingTime}
             </p>
           </div>
 
-          <div className="flex shrink-0 items-center gap-2">
-            <button
-              type="button"
+          <div className="mt-3 grid grid-cols-3 gap-2">
+            <ReaderUtilityButton
+              icon={Home}
+              label="Início"
+              onClick={() => navigate('/home')}
+            />
+            <ReaderUtilityButton
+              icon={ListTree}
+              label="Índice"
               onClick={() => {
                 setShowSettings(false)
                 setShowIndex(true)
                 session.loadBookIndex()
               }}
-              className="flex h-12 w-12 items-center justify-center rounded-vesSm border border-line bg-surface text-sage-800 hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-300 dark:hover:bg-sage-950"
-              aria-label="Abrir índice da obra"
-            >
-              <ListTree size={21} aria-hidden="true" />
-            </button>
-
+            />
             <div ref={settingsRef} className="relative">
-              <button
-                type="button"
+              <ReaderUtilityButton
+                icon={showSettings ? X : Type}
+                label={showSettings ? 'Fechar' : 'Texto'}
                 onClick={() => setShowSettings((visible) => !visible)}
-                className="flex h-12 w-12 items-center justify-center rounded-vesSm border border-line bg-surface text-sage-800 hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-300 dark:hover:bg-sage-950"
-                aria-label="Configurações de leitura"
-                aria-expanded={showSettings}
-              >
-                {showSettings ? (
-                  <X size={21} aria-hidden="true" />
-                ) : (
-                  <Type size={21} aria-hidden="true" />
-                )}
-              </button>
+                expanded={showSettings}
+              />
 
               {showSettings && (
                 <ReaderSettings
@@ -303,7 +287,7 @@ export default function ReaderPage() {
         <div
           role="status"
           aria-live="polite"
-          className="mx-auto max-w-[72ch] px-5 pt-5"
+          className="mx-auto max-w-[68ch] px-5 pt-5"
         >
           <div className="flex items-start gap-3 rounded-vesMd border border-sage-200 bg-sage-50 px-4 py-4 dark:border-sage-900 dark:bg-sage-950/40">
             <Check
@@ -318,7 +302,7 @@ export default function ReaderPage() {
         </div>
       )}
 
-      <main className="mx-auto max-w-[72ch] overflow-hidden px-5 pb-36 pt-9 sm:px-8 sm:pt-12">
+      <main className="mx-auto max-w-[68ch] overflow-hidden px-5 pb-36 pt-9 sm:px-8 sm:pt-12">
         {isPartIntro ? (
           <PartIntro section={currentSection} />
         ) : isChapterIntro ? (
@@ -332,7 +316,7 @@ export default function ReaderPage() {
             />
 
             <article
-              className={`font-display leading-[1.9] text-ink dark:text-night-ink ${fontClass}`}
+              className={`font-display leading-[1.85] text-ink dark:text-night-ink ${fontClass}`}
             >
               {paragraphs.map((paragraph, index) => (
                 <Paragraph
@@ -362,7 +346,7 @@ export default function ReaderPage() {
       />
 
       <footer className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-canvas/95 px-4 pb-safe pt-3 backdrop-blur-md dark:border-night-line dark:bg-night/95">
-        <div className="mx-auto flex max-w-[72ch] gap-3 pb-3">
+        <div className="mx-auto flex max-w-[68ch] gap-3 pb-3">
           {currentSection.sec_position > 1 && (
             <Button
               variant="secondary"
@@ -395,6 +379,20 @@ export default function ReaderPage() {
   )
 }
 
+function ReaderUtilityButton({ icon: Icon, label, onClick, expanded }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-expanded={expanded}
+      className="flex min-h-12 w-full items-center justify-center gap-2 rounded-vesSm border border-line bg-surface px-2 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-300 dark:hover:bg-sage-950"
+    >
+      <Icon size={18} aria-hidden="true" />
+      <span>{label}</span>
+    </button>
+  )
+}
+
 function Paragraph({ text, align }) {
   if (text.startsWith('[Nota:')) {
     return (
@@ -424,11 +422,7 @@ function Paragraph({ text, align }) {
   )
 }
 
-function SectionHeading({
-  breadcrumb,
-  currentSection,
-  chapterSections,
-}) {
+function SectionHeading({ breadcrumb, currentSection, chapterSections }) {
   return (
     <div className="mb-8 border-b border-line pb-5 dark:border-night-line">
       {breadcrumb && (
@@ -437,14 +431,13 @@ function SectionHeading({
         </p>
       )}
 
-      {(currentSection.section_title ||
-        (!breadcrumb && currentSection.title)) && (
+      {(currentSection.section_title || (!breadcrumb && currentSection.title)) && (
         <h1 className="mt-2 font-display text-[1.55rem] font-medium leading-tight text-ink dark:text-night-ink">
           {currentSection.section_title || currentSection.title}
         </h1>
       )}
 
-      <ChapterProgress
+      <ChapterPosition
         stations={chapterSections}
         currentPosition={currentSection.sec_position}
       />
@@ -452,7 +445,7 @@ function SectionHeading({
   )
 }
 
-function ChapterProgress({ stations, currentPosition }) {
+function ChapterPosition({ stations, currentPosition }) {
   if (!stations || stations.length < 2) return null
 
   const index = stations.findIndex(
@@ -461,34 +454,10 @@ function ChapterProgress({ stations, currentPosition }) {
 
   if (index === -1) return null
 
-  const percentage =
-    stations.length > 1
-      ? Math.round((index / (stations.length - 1)) * 100)
-      : 0
-
   return (
-    <div className="mt-5">
-      <div className="mb-2 flex items-center justify-between gap-4 text-xs text-muted dark:text-night-muted">
-        <span>Progresso neste capítulo</span>
-        <span>
-          {index + 1} de {stations.length}
-        </span>
-      </div>
-
-      <div
-        role="progressbar"
-        aria-label="Progresso neste capítulo"
-        aria-valuemin={1}
-        aria-valuemax={stations.length}
-        aria-valuenow={index + 1}
-        className="h-1.5 overflow-hidden rounded-full bg-sage-100 dark:bg-white/10"
-      >
-        <div
-          className="h-full rounded-full bg-sage-700 dark:bg-sage-300"
-          style={{ width: `${percentage}%` }}
-        />
-      </div>
-    </div>
+    <p className="mt-4 text-xs font-medium text-muted dark:text-night-muted">
+      Trecho {index + 1} de {stations.length} neste capítulo
+    </p>
   )
 }
 
@@ -552,36 +521,36 @@ function PartIntro({ section }) {
   )
 }
 
-function ReaderSettings({
-  fontSize,
-  setFontSize,
-  textAlign,
-  setTextAlign,
-}) {
+function ReaderSettings({ fontSize, setFontSize, textAlign, setTextAlign }) {
+  const selectedFont = FONT_SIZES.find((option) => option.id === fontSize)
+
   return (
     <div className="absolute right-0 top-full z-50 mt-3 w-[19rem] rounded-vesMd border border-line bg-surface p-5 shadow-editorial dark:border-night-line dark:bg-night-surface">
       <p className="text-sm font-semibold text-ink dark:text-night-ink">
         Tamanho do texto
       </p>
 
-      <div className="mt-3 grid grid-cols-4 gap-2">
+      <div className="mt-3 grid grid-cols-2 gap-2">
         {FONT_SIZES.map((option) => (
           <button
             key={option.id}
             type="button"
             onClick={() => setFontSize(option.id)}
             aria-pressed={fontSize === option.id}
-            className={`min-h-12 rounded-vesSm border font-display transition-colors ${
+            className={`min-h-12 rounded-vesSm border px-3 text-sm font-semibold transition-colors ${
               fontSize === option.id
                 ? 'border-sage-800 bg-sage-800 text-white dark:border-sage-300 dark:bg-sage-300 dark:text-sage-950'
                 : 'border-line text-ink hover:border-sage-400 dark:border-night-line dark:text-night-ink'
             }`}
-            aria-label={`Tamanho ${option.label}`}
           >
-            A
+            {option.label}
           </button>
         ))}
       </div>
+
+      <p className="mt-3 text-xs text-muted dark:text-night-muted" role="status" aria-live="polite">
+        Texto: {selectedFont?.label || 'Média'}
+      </p>
 
       <div className="mt-5 border-t border-line pt-5 dark:border-night-line">
         <p className="text-sm font-semibold text-ink dark:text-night-ink">
@@ -607,12 +576,7 @@ function ReaderSettings({
   )
 }
 
-function AlignmentButton({
-  selected,
-  onClick,
-  icon: Icon,
-  label,
-}) {
+function AlignmentButton({ selected, onClick, icon: Icon, label }) {
   return (
     <button
       type="button"
@@ -682,7 +646,7 @@ function ReaderError({ message, onRetry, onBack }) {
 
         <p className="ves-eyebrow mt-8">Não foi possível continuar</p>
         <h1 className="ves-heading mt-3 text-[2.25rem] leading-[1.08]">
-          Seu progresso continua protegido.
+          O lugar onde você parou continua protegido.
         </h1>
         <p role="alert" className="mx-auto mt-5 max-w-lg text-lg leading-relaxed text-muted dark:text-night-muted">
           {message || 'Ocorreu um erro inesperado. Tente novamente.'}
