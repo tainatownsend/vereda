@@ -7,6 +7,7 @@ import {
   CalendarDays,
   Check,
   Clock3,
+  Feather,
 } from 'lucide-react'
 
 import { useAuthStore, useReadingStore } from '@/store'
@@ -31,7 +32,7 @@ export default function BookDetailPage() {
   const { user } = useAuthStore()
   const { startBook, progress } = useReadingStore()
 
-  const [paceMode, setPaceMode] = useState('minutes')
+  const [paceMode, setPaceMode] = useState('none')
   const [minutes, setMinutes] = useState(10)
   const [weeks, setWeeks] = useState(12)
   const [loading, setLoading] = useState(false)
@@ -60,7 +61,7 @@ export default function BookDetailPage() {
       await startBook(
         user.id,
         book.id,
-        paceMode,
+        paceMode === 'none' ? null : paceMode,
         paceMode === 'minutes' ? minutes : null,
         paceMode === 'deadline' ? deadline : null,
       )
@@ -102,69 +103,90 @@ export default function BookDetailPage() {
             </p>
           )}
 
+          <section className="mt-8 rounded-vesLg border border-line bg-surface p-5 dark:border-night-line dark:bg-night-surface" aria-labelledby="context-heading">
+            <div className="flex items-start gap-3">
+              <BookOpen size={21} className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+              <div>
+                <h2 id="context-heading" className="font-semibold text-ink dark:text-night-ink">Como esta leitura funciona no Vereda</h2>
+                <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+                  A obra é apresentada em pequenos trechos para facilitar a continuidade. O texto continua sendo a fonte principal; o Vereda organiza o caminho, sem substituir a leitura.
+                </p>
+              </div>
+            </div>
+          </section>
+
           <section className="mt-10" aria-labelledby="pace-heading">
             <p className="ves-eyebrow">Seu ritmo</p>
             <h2 id="pace-heading" className="ves-heading mt-1 text-[1.8rem]">
-              Como você prefere avançar?
+              Quer combinar algum ritmo?
             </h2>
             <p className="mt-3 text-base leading-relaxed text-muted dark:text-night-muted">
-              Você poderá ajustar essa escolha depois. Não existe ritmo certo.
+              É totalmente opcional. Você pode simplesmente ler quando puder e continuar de onde parou.
             </p>
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            <div className="mt-6 grid gap-3 sm:grid-cols-3">
+              <ChoiceCard
+                selected={paceMode === 'none'}
+                onClick={() => setPaceMode('none')}
+                icon={Feather}
+                title="Sem ritmo fixo"
+                description="Leia quando fizer sentido para você."
+              />
               <ChoiceCard
                 selected={paceMode === 'minutes'}
                 onClick={() => setPaceMode('minutes')}
                 icon={Clock3}
-                title="Poucos minutos por dia"
-                description="Uma rotina leve e previsível."
+                title="Alguns minutos"
+                description="Um lembrete de ritmo, sem obrigação."
               />
               <ChoiceCard
                 selected={paceMode === 'deadline'}
                 onClick={() => setPaceMode('deadline')}
                 icon={CalendarDays}
-                title="Uma data aproximada"
-                description="O Vereda calcula um ritmo possível."
+                title="Uma referência de tempo"
+                description="Uma estimativa aproximada, que pode mudar."
               />
             </div>
 
-            <div className="mt-7 rounded-vesLg border border-line bg-surface p-5 dark:border-night-line dark:bg-night-surface">
-              {paceMode === 'minutes' ? (
-                <>
-                  <h3 className="font-semibold text-ink dark:text-night-ink">
-                    Quantos minutos por dia parecem sustentáveis?
-                  </h3>
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    {MINUTE_OPTIONS.map((option) => (
-                      <PillChoice
-                        key={option}
-                        selected={minutes === option}
-                        onClick={() => setMinutes(option)}
-                      >
-                        {option} min
-                      </PillChoice>
-                    ))}
-                  </div>
-                </>
-              ) : (
-                <>
-                  <h3 className="font-semibold text-ink dark:text-night-ink">
-                    Em quanto tempo gostaria de concluir?
-                  </h3>
-                  <div className="mt-4 flex flex-wrap gap-3">
-                    {WEEK_OPTIONS.map((option) => (
-                      <PillChoice
-                        key={option}
-                        selected={weeks === option}
-                        onClick={() => setWeeks(option)}
-                      >
-                        {formatWeeks(option)}
-                      </PillChoice>
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
+            {paceMode !== 'none' && (
+              <div className="mt-7 rounded-vesLg border border-line bg-surface p-5 dark:border-night-line dark:bg-night-surface">
+                {paceMode === 'minutes' ? (
+                  <>
+                    <h3 className="font-semibold text-ink dark:text-night-ink">
+                      Quanto tempo costuma caber no seu dia?
+                    </h3>
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      {MINUTE_OPTIONS.map((option) => (
+                        <PillChoice
+                          key={option}
+                          selected={minutes === option}
+                          onClick={() => setMinutes(option)}
+                        >
+                          {option} min
+                        </PillChoice>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <h3 className="font-semibold text-ink dark:text-night-ink">
+                      Qual horizonte parece confortável?
+                    </h3>
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      {WEEK_OPTIONS.map((option) => (
+                        <PillChoice
+                          key={option}
+                          selected={weeks === option}
+                          onClick={() => setWeeks(option)}
+                        >
+                          {formatWeeks(option)}
+                        </PillChoice>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
           </section>
 
           <div className="mt-8 rounded-vesLg bg-sage-50 p-5 dark:bg-sage-950/35">
@@ -175,14 +197,13 @@ export default function BookDetailPage() {
                 aria-hidden="true"
               />
               <p className="text-sm leading-relaxed text-muted dark:text-night-muted">
-                Seu progresso será salvo automaticamente. Você poderá pausar e
-                retomar exatamente de onde parou.
+                O Vereda salva automaticamente onde você parou. Uma pausa não apaga seu caminho nem cria atraso.
               </p>
             </div>
           </div>
 
           <Button onClick={start} loading={loading} className="mt-8 w-full sm:w-auto">
-            Começar esta obra
+            Começar esta leitura
             {!loading && <ArrowRight size={19} aria-hidden="true" />}
           </Button>
         </div>
@@ -219,7 +240,7 @@ function ChoiceCard({ selected, onClick, icon: Icon, title, description }) {
       type="button"
       onClick={onClick}
       aria-pressed={selected}
-      className={`min-h-32 rounded-vesMd border p-5 text-left transition-colors ${
+      className={`min-h-36 rounded-vesMd border p-5 text-left transition-colors ${
         selected
           ? 'border-sage-700 bg-sage-50 ring-2 ring-sage-500/20 dark:border-sage-300 dark:bg-sage-950/40'
           : 'border-line bg-surface hover:border-sage-400 dark:border-night-line dark:bg-night-surface'
