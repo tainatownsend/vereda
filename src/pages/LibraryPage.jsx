@@ -1,9 +1,9 @@
-import { ArrowRight, BookOpen, Check } from 'lucide-react'
+import { ArrowRight, BookOpen, Check, Compass } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
-import { useBooks, useProgress } from '@/hooks'
+import { useBooks } from '@/hooks'
 import { useReadingStore } from '@/store'
-import { Badge, Card, PageLoader, ProgressBar } from '@/components/ui'
+import { Badge, Card, PageLoader } from '@/components/ui'
 
 export default function LibraryPage() {
   const navigate = useNavigate()
@@ -18,25 +18,22 @@ export default function LibraryPage() {
   return (
     <main className="ves-page pb-28">
       <header className="ves-container pb-7 pt-11">
-        <p className="ves-eyebrow">Biblioteca essencial</p>
+        <p className="ves-eyebrow">Obras fundamentais</p>
         <h1 className="ves-heading mt-2 text-[2.35rem]">Obras</h1>
         <p className="mt-3 max-w-lg text-base leading-relaxed text-muted dark:text-night-muted">
-          Conheça as cinco obras fundamentais e escolha seu próximo passo com
-          tranquilidade.
+          Continue o que já começou ou conheça outra obra. Você não precisa seguir uma ordem obrigatória.
         </p>
       </header>
 
-      <div className="ves-container space-y-11 pb-10">
+      <div className="ves-container space-y-10 pb-10">
         {started.length > 0 && (
           <section aria-labelledby="started-heading">
-            <div className="mb-4">
-              <p className="ves-eyebrow">Sua jornada</p>
-              <h2 id="started-heading" className="ves-heading mt-1 text-[1.75rem]">
-                Em andamento
-              </h2>
-            </div>
+            <p className="ves-eyebrow">Continue estudando</p>
+            <h2 id="started-heading" className="ves-heading mt-1 text-[1.75rem]">
+              De onde você parou
+            </h2>
 
-            <div className="space-y-4">
+            <div className="mt-5 space-y-4">
               {started.map((book) => (
                 <BookCard
                   key={book.id}
@@ -49,17 +46,16 @@ export default function LibraryPage() {
           </section>
         )}
 
-        <section aria-labelledby="all-books-heading">
-          <div className="mb-4">
-            <p className="ves-eyebrow">
-              {started.length ? 'Continue descobrindo' : 'Por onde começar'}
-            </p>
-            <h2 id="all-books-heading" className="ves-heading mt-1 text-[1.75rem]">
-              {started.length ? 'Outras obras' : 'Escolha sua primeira obra'}
-            </h2>
-          </div>
+        <section
+          className={started.length ? 'border-t border-line pt-8 dark:border-night-line' : ''}
+          aria-labelledby="all-books-heading"
+        >
+          <p className="ves-eyebrow">Conheça as obras</p>
+          <h2 id="all-books-heading" className="ves-heading mt-1 text-[1.75rem]">
+            {started.length ? 'Outros caminhos' : 'Escolha com tranquilidade'}
+          </h2>
 
-          <div className="space-y-4">
+          <div className="mt-5 space-y-4">
             {(started.length ? notStarted : books).map((book) => (
               <BookCard
                 key={book.id}
@@ -71,22 +67,37 @@ export default function LibraryPage() {
           </div>
         </section>
 
-        <aside className="rounded-vesLg border border-sage-200 bg-sage-50 p-6 dark:border-sage-900 dark:bg-sage-950/35">
-          <div className="flex items-start gap-4">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-vesSm bg-white text-sage-800 dark:bg-white/10 dark:text-sage-300">
-              <BookOpen size={21} aria-hidden="true" />
-            </div>
-            <div>
-              <h2 className="font-semibold text-ink dark:text-night-ink">
-                Um caminho, não uma obrigação
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-                A ordem apresentada oferece uma referência para iniciantes.
-                Você pode escolher a obra que fizer mais sentido para seu
-                momento.
-              </p>
-            </div>
-          </div>
+        <section className="grid gap-3 sm:grid-cols-2" aria-label="Ajuda para escolher">
+          <button
+            type="button"
+            onClick={() => navigate('/comecar')}
+            className="min-h-32 rounded-vesLg border border-sage-200 bg-sage-50 p-5 text-left transition-colors hover:border-sage-400 dark:border-sage-900 dark:bg-sage-950/35"
+          >
+            <BookOpen size={22} className="text-sage-700 dark:text-sage-300" aria-hidden="true" />
+            <span className="mt-4 block font-semibold text-ink dark:text-night-ink">Não sei por onde começar</span>
+            <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">
+              Responda duas perguntas rápidas e receba uma primeira direção.
+            </span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => navigate('/descobrir')}
+            className="min-h-32 rounded-vesLg border border-line bg-surface p-5 text-left transition-colors hover:border-sage-400 dark:border-night-line dark:bg-night-surface"
+          >
+            <Compass size={22} className="text-sage-700 dark:text-sage-300" aria-hidden="true" />
+            <span className="mt-4 block font-semibold text-ink dark:text-night-ink">Quero explorar um tema</span>
+            <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">
+              Procure por oração, reencarnação, vida após a morte e outros assuntos.
+            </span>
+          </button>
+        </section>
+
+        <aside className="rounded-vesLg border border-line bg-surface p-6 dark:border-night-line dark:bg-night-surface">
+          <h2 className="font-semibold text-ink dark:text-night-ink">Uma referência, não uma obrigação</h2>
+          <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+            O Vereda pode sugerir uma direção para iniciantes, mas as obras continuam disponíveis para você escolher livremente.
+          </p>
         </aside>
       </div>
     </main>
@@ -94,7 +105,6 @@ export default function LibraryPage() {
 }
 
 function BookCard({ book, progress, navigate }) {
-  const percentage = useProgress(book.id, book.total_sections)
   const completed = Boolean(progress?.completed_at)
   const destination = completed
     ? `/ler/${book.id}?revisit=1`
@@ -108,13 +118,9 @@ function BookCard({ book, progress, navigate }) {
       type="button"
       onClick={() => navigate(destination)}
       className="group w-full overflow-hidden text-left transition-shadow hover:shadow-editorial"
-      aria-label={
-        progress
-          ? `Continuar ${book.title}, ${percentage}% concluído`
-          : `Conhecer ${book.title}`
-      }
+      aria-label={progress ? `Retomar ${book.title}` : `Conhecer ${book.title}`}
     >
-      <div className="flex min-h-44">
+      <div className="flex min-h-40">
         <div
           className="w-2 shrink-0"
           style={{ backgroundColor: book.cover_color || '#58745D' }}
@@ -137,7 +143,7 @@ function BookCard({ book, progress, navigate }) {
               {completed && (
                 <Badge color="success">
                   <Check size={13} aria-hidden="true" />
-                  Concluída
+                  Percorrida
                 </Badge>
               )}
             </div>
@@ -149,31 +155,18 @@ function BookCard({ book, progress, navigate }) {
             )}
           </div>
 
-          {progress && !completed ? (
-            <div className="mt-5">
-              <ProgressBar
-                value={percentage}
-                label={`Progresso em ${book.title}`}
-              />
-              <div className="mt-2 flex items-center justify-between gap-4 text-sm">
-                <span className="text-muted dark:text-night-muted">
-                  Seção {progress.current_section} de {book.total_sections || '?'}
-                </span>
-                <strong className="text-sage-800 dark:text-sage-300">
-                  {percentage}%
-                </strong>
-              </div>
-            </div>
-          ) : (
-            <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">
-              {completed ? 'Revisitar obra' : 'Conhecer esta obra'}
-              <ArrowRight
-                size={17}
-                className="transition-transform group-hover:translate-x-1"
-                aria-hidden="true"
-              />
-            </div>
-          )}
+          <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">
+            {completed
+              ? 'Revisitar esta obra'
+              : progress
+                ? `Retomar na seção ${progress.current_section || 1}`
+                : 'Conhecer esta obra'}
+            <ArrowRight
+              size={17}
+              className="transition-transform group-hover:translate-x-1"
+              aria-hidden="true"
+            />
+          </div>
         </div>
       </div>
     </Card>
