@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowRight, Check, Eye, EyeOff, ShieldCheck } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Check, Eye, EyeOff, ShieldCheck } from 'lucide-react'
 
 import { useAuthStore } from '@/store'
 import { Button, Input, VeredaLogo } from '@/components/ui'
@@ -23,16 +23,28 @@ export default function AuthPage() {
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
+  const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
 
-  const { signInWithEmail, signUpWithEmail, signInWithGoogle } = useAuthStore()
+  const {
+    signInWithEmail,
+    signUpWithEmail,
+    signInWithGoogle,
+    requestPasswordReset,
+  } = useAuthStore()
 
   const isSignup = mode === 'signup'
+  const isForgot = mode === 'forgot'
 
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    if (!email.trim() || !password) {
+    if (!email.trim()) {
+      setError('Informe seu e-mail.')
+      return
+    }
+
+    if (!isForgot && !password) {
       setError('Preencha e-mail e senha.')
       return
     }
@@ -44,9 +56,15 @@ export default function AuthPage() {
 
     setLoading(true)
     setError('')
+    setMessage('')
 
     try {
-      if (isSignup) {
+      if (isForgot) {
+        await requestPasswordReset(email.trim())
+        setMessage(
+          'Se houver uma conta com este e-mail, você receberá um link para criar uma nova senha.',
+        )
+      } else if (isSignup) {
         await signUpWithEmail(email.trim(), password, name.trim())
       } else {
         await signInWithEmail(email.trim(), password)
@@ -65,6 +83,20 @@ export default function AuthPage() {
   const switchMode = () => {
     setMode((current) => (current === 'login' ? 'signup' : 'login'))
     setError('')
+    setMessage('')
+  }
+
+  const openForgotPassword = () => {
+    setMode('forgot')
+    setPassword('')
+    setError('')
+    setMessage('')
+  }
+
+  const returnToLogin = () => {
+    setMode('login')
+    setError('')
+    setMessage('')
   }
 
   return (
@@ -105,15 +137,25 @@ export default function AuthPage() {
 
             <div>
               <p className="ves-eyebrow">
-                {isSignup ? 'Comece sua jornada' : 'Que bom ter você de volta'}
+                {isForgot
+                  ? 'Recupere seu acesso'
+                  : isSignup
+                    ? 'Comece sua jornada'
+                    : 'Que bom ter você de volta'}
               </p>
               <h2 className="ves-heading mt-2 text-[2.15rem]">
-                {isSignup ? 'Crie sua conta' : 'Entre no Vereda'}
+                {isForgot
+                  ? 'Esqueceu sua senha?'
+                  : isSignup
+                    ? 'Crie sua conta'
+                    : 'Entre no Vereda'}
               </h2>
               <p className="mt-3 text-base leading-relaxed text-muted dark:text-night-muted">
-                {isSignup
-                  ? 'Leva menos de um minuto. Depois, o Vereda ajuda você a encontrar um primeiro caminho.'
-                  : 'Sua jornada continua exatamente de onde você parou.'}
+                {isForgot
+                  ? 'Informe seu e-mail. Enviaremos um link para você criar uma nova senha.'
+                  : isSignup
+                    ? 'Leva menos de um minuto. Depois, o Vereda ajuda você a encontrar um primeiro caminho.'
+                    : 'Sua jornada continua exatamente de onde você parou.'}
               </p>
             </div>
 
@@ -140,30 +182,46 @@ export default function AuthPage() {
                 required
               />
 
-              <div className="relative">
-                <Input
-                  label="Senha"
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder={isSignup ? 'Mínimo 6 caracteres' : 'Sua senha'}
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
-                  autoComplete={isSignup ? 'new-password' : 'current-password'}
-                  inputClassName="pr-14"
-                  required
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword((visible) => !visible)}
-                  className="absolute bottom-1 right-1 flex h-12 w-12 items-center justify-center rounded-vesSm text-muted hover:bg-sage-100 hover:text-ink dark:text-night-muted dark:hover:bg-sage-950 dark:hover:text-night-ink"
-                  aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
-                >
-                  {showPassword ? (
-                    <EyeOff size={20} aria-hidden="true" />
-                  ) : (
-                    <Eye size={20} aria-hidden="true" />
+              {!isForgot && (
+                <div>
+                  <div className="relative">
+                    <Input
+                      label="Senha"
+                      type={showPassword ? 'text' : 'password'}
+                      placeholder={isSignup ? 'Mínimo 6 caracteres' : 'Sua senha'}
+                      value={password}
+                      onChange={(event) => setPassword(event.target.value)}
+                      autoComplete={isSignup ? 'new-password' : 'current-password'}
+                      inputClassName="pr-14"
+                      required
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword((visible) => !visible)}
+                      className="absolute bottom-1 right-1 flex h-12 w-12 items-center justify-center rounded-vesSm text-muted hover:bg-sage-100 hover:text-ink dark:text-night-muted dark:hover:bg-sage-950 dark:hover:text-night-ink"
+                      aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
+                    >
+                      {showPassword ? (
+                        <EyeOff size={20} aria-hidden="true" />
+                      ) : (
+                        <Eye size={20} aria-hidden="true" />
+                      )}
+                    </button>
+                  </div>
+
+                  {!isSignup && (
+                    <div className="mt-2 text-right">
+                      <button
+                        type="button"
+                        onClick={openForgotPassword}
+                        className="min-h-11 rounded-vesSm px-2 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+                      >
+                        Esqueci minha senha
+                      </button>
+                    </div>
                   )}
-                </button>
-              </div>
+                </div>
+              )}
 
               {isSignup && (
                 <div className="flex items-start gap-3 rounded-vesSm bg-sage-50 p-4 text-sm leading-relaxed text-muted dark:bg-sage-950/40 dark:text-night-muted">
@@ -185,42 +243,64 @@ export default function AuthPage() {
                 </div>
               )}
 
+              {message && (
+                <div
+                  role="status"
+                  className="rounded-vesSm border border-sage-200 bg-sage-50 px-4 py-3 text-sm font-medium leading-relaxed text-sage-900 dark:border-sage-900 dark:bg-sage-950/40 dark:text-sage-200"
+                >
+                  {message}
+                </div>
+              )}
+
               <Button type="submit" loading={loading} className="w-full">
-                {isSignup ? 'Criar conta' : 'Entrar'}
+                {isForgot ? 'Enviar link de recuperação' : isSignup ? 'Criar conta' : 'Entrar'}
                 {!loading && <ArrowRight size={19} aria-hidden="true" />}
               </Button>
             </form>
 
-            <div className="relative my-7">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-line dark:border-night-line" />
-              </div>
-              <div className="relative flex justify-center">
-                <span className="bg-canvas px-4 text-sm text-muted dark:bg-night dark:text-night-muted">
-                  ou continue com
-                </span>
-              </div>
-            </div>
-
-            <Button
-              variant="secondary"
-              onClick={signInWithGoogle}
-              className="w-full"
-            >
-              <GoogleIcon />
-              Google
-            </Button>
-
-            <p className="mt-8 text-center text-sm text-muted dark:text-night-muted">
-              {isSignup ? 'Já tem uma conta?' : 'Ainda não tem conta?'}{' '}
+            {isForgot ? (
               <button
                 type="button"
-                onClick={switchMode}
-                className="min-h-11 rounded-vesSm px-2 font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+                onClick={returnToLogin}
+                className="mt-6 flex min-h-11 w-full items-center justify-center gap-2 rounded-vesSm px-3 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
               >
-                {isSignup ? 'Entrar' : 'Criar conta'}
+                <ArrowLeft size={18} aria-hidden="true" />
+                Voltar para entrar
               </button>
-            </p>
+            ) : (
+              <>
+                <div className="relative my-7">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-line dark:border-night-line" />
+                  </div>
+                  <div className="relative flex justify-center">
+                    <span className="bg-canvas px-4 text-sm text-muted dark:bg-night dark:text-night-muted">
+                      ou continue com
+                    </span>
+                  </div>
+                </div>
+
+                <Button
+                  variant="secondary"
+                  onClick={signInWithGoogle}
+                  className="w-full"
+                >
+                  <GoogleIcon />
+                  Google
+                </Button>
+
+                <p className="mt-8 text-center text-sm text-muted dark:text-night-muted">
+                  {isSignup ? 'Já tem uma conta?' : 'Ainda não tem conta?'}{' '}
+                  <button
+                    type="button"
+                    onClick={switchMode}
+                    className="min-h-11 rounded-vesSm px-2 font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+                  >
+                    {isSignup ? 'Entrar' : 'Criar conta'}
+                  </button>
+                </p>
+              </>
+            )}
 
             <p className="mt-5 text-center text-xs leading-relaxed text-muted dark:text-night-muted">
               Ao continuar, você concorda em usar o Vereda como ferramenta
