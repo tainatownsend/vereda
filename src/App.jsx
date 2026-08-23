@@ -5,6 +5,7 @@ import { PageLoader } from '@/components/ui'
 import BottomNav from '@/components/ui/BottomNav'
 import ProtectedRoute from '@/components/ProtectedRoute'
 import AuthPage from '@/pages/AuthPage'
+import ResetPasswordPage from '@/pages/ResetPasswordPage'
 import HomePage from '@/pages/HomePage'
 import BookDetailPage from '@/pages/BookDetailPage'
 import ReaderPage from '@/pages/ReaderPage'
@@ -45,6 +46,8 @@ export default function App() {
             path="/"
             element={user ? <Navigate to="/home" replace /> : <AuthPage />}
           />
+
+          <Route path="/redefinir-senha" element={<ResetPasswordPage />} />
 
           <Route path="/home" element={
             <ProtectedRoute><HomePage /></ProtectedRoute>
