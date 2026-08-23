@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { supabase } from '@/lib/supabase'
 import { useOnboardingStore } from '@/store/useOnboardingStore'
+import { getPasswordResetRedirect } from '@/features/auth/passwordRecovery'
 
 // applyOnboardingChoice Function
 async function applyOnboardingChoice(userId) {
@@ -93,7 +94,7 @@ export const useAuthStore = create((set, get) => ({
     return data
   },
 
-signUpWithEmail: async (email, password, name) => {
+  signUpWithEmail: async (email, password, name) => {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -108,6 +109,20 @@ signUpWithEmail: async (email, password, name) => {
       await applyOnboardingChoice(data.user.id)
     }
 
+    return data
+  },
+
+  requestPasswordReset: async (email) => {
+    const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: getPasswordResetRedirect(window.location.origin),
+    })
+    if (error) throw error
+    return data
+  },
+
+  updatePassword: async (password) => {
+    const { data, error } = await supabase.auth.updateUser({ password })
+    if (error) throw error
     return data
   },
 
