@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom'
 
 import { useBooks } from '@/hooks'
 import { supabase } from '@/lib/supabase'
-import { useReadingStore } from '@/store'
 import { Button, Card, Input, PageLoader } from '@/components/ui'
+import { buildSearchExcerpt } from '@/features/discover/searchExcerpt'
 
 const TOPICS = [
   { id: 'vida-apos-morte', label: 'Vida após a morte', query: 'morte', hint: 'Trechos sobre a continuidade da vida e o mundo espiritual.' },
@@ -44,8 +44,8 @@ function cleanSearchTerm(value) {
 export default function DiscoverPage() {
   const navigate = useNavigate()
   const books = useBooks()
-  const { progress } = useReadingStore()
   const [query, setQuery] = useState('')
+  const [activeTerm, setActiveTerm] = useState('')
   const [results, setResults] = useState([])
   const [loading, setLoading] = useState(false)
   const [searched, setSearched] = useState(false)
@@ -63,6 +63,7 @@ export default function DiscoverPage() {
     if (!normalized) return
 
     setQuery(rawValue)
+    setActiveTerm(normalized)
     setLoading(true)
     setError('')
     setSearched(true)
@@ -77,7 +78,7 @@ export default function DiscoverPage() {
 
     const { data, error: searchError } = await supabase
       .from('sections')
-      .select('id, book_id, sec_position, title, chapter_label, chapter_title, section_title, kind')
+      .select('id, book_id, sec_position, title, chapter_label, chapter_title, section_title, kind, content')
       .or(filter)
       .order('book_id')
       .order('sec_position')
@@ -91,15 +92,6 @@ export default function DiscoverPage() {
     }
 
     setLoading(false)
-  }
-
-  const openResult = (section) => {
-    if (progress[section.book_id]) {
-      navigate(`/ler/${section.book_id}?revisit=1&section=${section.sec_position}`)
-      return
-    }
-
-    navigate(`/livro/${section.book_id}`)
   }
 
   return (
@@ -192,16 +184,17 @@ export default function DiscoverPage() {
               <div className="mt-5 space-y-3">
                 {results.map((section) => {
                   const book = booksById[section.book_id]
-                  const started = Boolean(progress[section.book_id])
                   const heading = section.section_title || section.chapter_title || section.title || `Trecho ${section.sec_position}`
+                  const excerpt = buildSearchExcerpt(section.content, activeTerm)
 
                   return (
                     <Card
                       key={section.id}
                       as="button"
                       type="button"
-                      onClick={() => openResult(section)}
+                      onClick={() => navigate(`/trecho/${section.id}`)}
                       className="group block w-full p-5 text-left transition-all hover:-translate-y-0.5 hover:shadow-editorial"
+                      aria-label={`Ler trecho de ${book?.title || 'obra fundamental'}: ${heading}`}
                     >
                       <div className="flex items-start gap-4">
                         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
@@ -212,12 +205,16 @@ export default function DiscoverPage() {
                             {book?.title || 'Obra fundamental'}
                           </p>
                           <h3 className="mt-1 font-display text-lg font-semibold leading-snug text-ink dark:text-night-ink">{heading}</h3>
-                          <p className="mt-2 text-sm text-muted dark:text-night-muted">
-                            {section.chapter_label ? `${section.chapter_label} · ` : ''}
-                            {started ? 'Abrir este trecho na obra' : 'Conhecer a obra onde este trecho aparece'}
+                          {excerpt && (
+                            <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+                              {excerpt}
+                            </p>
+                          )}
+                          <p className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">
+                            Ler este trecho
+                            <ArrowRight size={17} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
                           </p>
                         </div>
-                        <ArrowRight size={18} className="mt-1 shrink-0 text-sage-700 transition-transform group-hover:translate-x-1 dark:text-sage-300" aria-hidden="true" />
                       </div>
                     </Card>
                   )
