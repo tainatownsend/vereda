@@ -38,22 +38,24 @@ export default function HomePage() {
   if (!user || dataLoading) return <PageLoader />
 
   return (
-    <main className="ves-page pb-28">
-      <header className="ves-container flex items-start justify-between gap-5 pb-6 pt-11">
+    <main className="ves-page ves-brand-page pb-28">
+      <header className="ves-container flex items-center justify-between gap-5 pb-7 pt-9">
         <div className="min-w-0">
-          <p className="text-sm font-semibold text-muted dark:text-night-muted">
+          <p className="text-sm font-semibold text-sage-700 dark:text-sage-300">
             {greeting}{displayName ? `, ${displayName}` : ''}.
           </p>
 
-          <h1 className="mt-1 font-display text-[2rem] font-medium leading-[1.08] tracking-[-0.03em] text-ink dark:text-night-ink">
+          <h1 className="mt-1 font-display text-[2.05rem] font-semibold leading-[1.08] tracking-[-0.03em] text-ink dark:text-night-ink">
             {returning ? 'Que bom ter você de volta.' : 'Que bom ter você aqui.'}
           </h1>
         </div>
 
-        <VeredaLogo size={46} className="shrink-0" />
+        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-line/70 bg-surface/65 shadow-sm backdrop-blur-sm dark:border-night-line dark:bg-night-surface/65">
+          <VeredaLogo size={52} />
+        </div>
       </header>
 
-      <div className="ves-container space-y-10 pb-10 pt-4">
+      <div className="ves-container space-y-10 pb-10 pt-2">
         {activeBooks.length > 0 ? (
           <HomeWithReading
             activeBooks={activeBooks}
@@ -92,36 +94,39 @@ function HomeWithReading({ activeBooks, progress, navigate }) {
         />
       </section>
 
-      <section
-        className="border-t border-line pt-8 dark:border-night-line"
-        aria-labelledby="explore-heading"
-      >
-        <p className="ves-eyebrow">Quando quiser explorar</p>
-        <h2 id="explore-heading" className="ves-heading mt-1 text-[1.55rem]">
-          Outros caminhos
-        </h2>
+      <section aria-labelledby="explore-heading">
+        <div className="mb-4 flex items-end justify-between gap-4">
+          <div>
+            <p className="ves-eyebrow">Quando quiser explorar</p>
+            <h2 id="explore-heading" className="ves-heading mt-1 text-[1.55rem]">
+              Outros caminhos
+            </h2>
+          </div>
+          <span className="hidden text-xs font-medium text-muted sm:block dark:text-night-muted">
+            sem mudar sua leitura atual
+          </span>
+        </div>
 
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+        <div className="grid gap-3 sm:grid-cols-2">
           <SecondaryAction
             icon={Compass}
             title="Explorar um tema"
             description="Encontre passagens das obras a partir de uma dúvida."
+            tone="warm"
             onClick={() => navigate('/descobrir')}
           />
           <SecondaryAction
             icon={Map}
             title="Ver minha jornada"
             description="Veja onde você está e quais obras já percorreu."
+            tone="sage"
             onClick={() => navigate('/evolucao')}
           />
         </div>
       </section>
 
       {activeBooks.length > 1 && (
-        <section
-          className="border-t border-line pt-8 dark:border-night-line"
-          aria-labelledby="other-readings-heading"
-        >
+        <section aria-labelledby="other-readings-heading">
           <div className="mb-3 flex items-end justify-between gap-4">
             <div>
               <p className="ves-eyebrow">Também em andamento</p>
@@ -142,7 +147,7 @@ function HomeWithReading({ activeBooks, progress, navigate }) {
             </button>
           </div>
 
-          <div className="divide-y divide-line dark:divide-night-line">
+          <div className="ves-soft-card divide-y divide-line overflow-hidden px-5 dark:divide-night-line">
             {activeBooks.slice(1).map((book) => (
               <SecondaryReadingRow
                 key={book.id}
@@ -175,15 +180,21 @@ function PrimaryReading({ book, state, returning, navigate }) {
   )
 }
 
-function SecondaryAction({ icon: Icon, title, description, onClick }) {
+function SecondaryAction({ icon: Icon, title, description, tone = 'sage', onClick }) {
+  const toneClass = tone === 'warm'
+    ? 'border-clay-100 bg-clay-50/75 hover:border-clay-300 hover:bg-clay-50 dark:border-clay-900/60 dark:bg-clay-950/10'
+    : 'border-sage-200 bg-sage-50/80 hover:border-sage-400 hover:bg-sage-100/70 dark:border-sage-900 dark:bg-sage-950/30'
+
   return (
     <button
       type="button"
       onClick={onClick}
-      className="min-h-28 rounded-vesMd border border-line bg-surface p-5 text-left transition-colors hover:border-sage-400 hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:hover:bg-sage-950/35"
+      className={`min-h-32 rounded-vesLg border p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-editorial ${toneClass}`}
     >
-      <Icon size={21} className="text-sage-700 dark:text-sage-300" aria-hidden="true" />
-      <span className="mt-3 block font-semibold text-ink dark:text-night-ink">{title}</span>
+      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-surface/80 text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
+        <Icon size={20} aria-hidden="true" />
+      </div>
+      <span className="mt-4 block font-display text-lg font-semibold text-ink dark:text-night-ink">{title}</span>
       <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">{description}</span>
     </button>
   )
@@ -218,7 +229,7 @@ function SecondaryReadingRow({ book, state, navigate }) {
 
       <ArrowRight
         size={19}
-        className="shrink-0 text-muted transition-transform group-hover:translate-x-1 dark:text-night-muted"
+        className="shrink-0 text-sage-700 transition-transform group-hover:translate-x-1 dark:text-sage-300"
         aria-hidden="true"
       />
     </button>
@@ -227,42 +238,43 @@ function SecondaryReadingRow({ book, state, navigate }) {
 
 function EmptyHome({ navigate }) {
   return (
-    <section className="pt-6" aria-labelledby="empty-home-heading">
-      <div
-        className="flex h-16 w-16 items-center justify-center rounded-vesLg bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300"
-        aria-hidden="true"
-      >
-        <BookOpen size={30} />
+    <section aria-labelledby="empty-home-heading">
+      <div className="ves-horizon-panel rounded-vesLg border border-line p-6 shadow-editorial sm:p-8 dark:border-night-line">
+        <div className="relative z-10 max-w-md">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/70 bg-white/60 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
+            <VeredaLogo size={52} />
+          </div>
+
+          <p className="ves-eyebrow mt-7">Seu primeiro passo</p>
+
+          <h2
+            id="empty-home-heading"
+            className="ves-heading mt-2 text-[2.2rem] leading-[1.08]"
+          >
+            Você não precisa saber por onde começar.
+          </h2>
+
+          <p className="mt-4 text-base leading-relaxed text-muted dark:text-night-muted">
+            Duas escolhas simples ajudam o Vereda a indicar uma primeira leitura. Você continua livre para explorar todas as obras.
+          </p>
+
+          <Button
+            onClick={() => navigate('/comecar')}
+            className="mt-7 w-full sm:w-auto"
+          >
+            Ajude-me a começar
+            <ArrowRight size={19} aria-hidden="true" />
+          </Button>
+
+          <button
+            type="button"
+            onClick={() => navigate('/biblioteca')}
+            className="mt-3 min-h-11 rounded-vesSm px-2 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+          >
+            Prefiro conhecer as obras primeiro
+          </button>
+        </div>
       </div>
-
-      <p className="ves-eyebrow mt-8">Seu primeiro passo</p>
-
-      <h2
-        id="empty-home-heading"
-        className="ves-heading mt-2 max-w-md text-[2.25rem] leading-[1.08]"
-      >
-        Você não precisa saber por onde começar.
-      </h2>
-
-      <p className="mt-5 max-w-md text-lg leading-relaxed text-muted dark:text-night-muted">
-        Duas escolhas simples ajudam o Vereda a indicar uma primeira leitura. Você continua livre para explorar todas as obras.
-      </p>
-
-      <Button
-        onClick={() => navigate('/comecar')}
-        className="mt-8"
-      >
-        Ajude-me a começar
-        <ArrowRight size={19} aria-hidden="true" />
-      </Button>
-
-      <button
-        type="button"
-        onClick={() => navigate('/biblioteca')}
-        className="mt-4 min-h-11 rounded-vesSm px-2 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
-      >
-        Prefiro conhecer as obras primeiro
-      </button>
     </section>
   )
 }
