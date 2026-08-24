@@ -6,6 +6,14 @@ import { useAuthStore, useReadingStore } from '@/store'
 import { Badge, Card, PageLoader } from '@/components/ui'
 import { getSavedPassageIds } from '@/features/savedPassages/savedPassages'
 
+const BOOK_ACCENT_COLORS = {
+  1: '#5E7664',
+  2: '#AB6D50',
+  3: '#B9A46E',
+  4: '#8FA68F',
+  5: '#C98C6B',
+}
+
 export default function LibraryPage() {
   const navigate = useNavigate()
   const books = useBooks()
@@ -148,8 +156,8 @@ function BookCard({ book, progress, navigate }) {
     >
       <div className="flex min-h-40">
         <div
-          className="w-2.5 shrink-0"
-          style={{ backgroundColor: book.cover_color || '#5E7664' }}
+          className="w-2.5 shrink-0 opacity-80"
+          style={{ backgroundColor: BOOK_ACCENT_COLORS[book.id] || '#5E7664' }}
           aria-hidden="true"
         />
 
