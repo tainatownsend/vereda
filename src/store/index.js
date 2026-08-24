@@ -4,6 +4,12 @@ import { supabase } from '@/lib/supabase'
 import { useOnboardingStore } from '@/store/useOnboardingStore'
 import { getPasswordResetRedirect } from '@/features/auth/passwordRecovery'
 import { getSignupEmailRedirect } from '@/features/auth/signupConfirmation'
+import {
+  addSavedPassageId,
+  getSavedPassageIds,
+  removeSavedPassageId,
+  SAVED_PASSAGE_METADATA_KEY,
+} from '@/features/savedPassages/savedPassages'
 
 // applyOnboardingChoice Function
 async function applyOnboardingChoice(userId) {
@@ -116,6 +122,18 @@ export const useAuthStore = create((set, get) => ({
     return data
   },
 
+  resendSignupConfirmation: async (email) => {
+    const { data, error } = await supabase.auth.resend({
+      type: 'signup',
+      email,
+      options: {
+        emailRedirectTo: getSignupEmailRedirect(window.location.origin),
+      },
+    })
+    if (error) throw error
+    return data
+  },
+
   requestPasswordReset: async (email) => {
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: getPasswordResetRedirect(window.location.origin),
@@ -128,6 +146,34 @@ export const useAuthStore = create((set, get) => ({
     const { data, error } = await supabase.auth.updateUser({ password })
     if (error) throw error
     return data
+  },
+
+  savePassage: async (sectionId) => {
+    const { user } = get()
+    if (!user) throw new Error('Entre na sua conta para salvar este trecho.')
+
+    const nextIds = addSavedPassageId(getSavedPassageIds(user), sectionId)
+    const { data, error } = await supabase.auth.updateUser({
+      data: { [SAVED_PASSAGE_METADATA_KEY]: nextIds },
+    })
+
+    if (error) throw error
+    if (data.user) set({ user: data.user })
+    return nextIds
+  },
+
+  removeSavedPassage: async (sectionId) => {
+    const { user } = get()
+    if (!user) return []
+
+    const nextIds = removeSavedPassageId(getSavedPassageIds(user), sectionId)
+    const { data, error } = await supabase.auth.updateUser({
+      data: { [SAVED_PASSAGE_METADATA_KEY]: nextIds },
+    })
+
+    if (error) throw error
+    if (data.user) set({ user: data.user })
+    return nextIds
   },
 
   signOut: async () => {
@@ -234,8 +280,8 @@ export const useReadingStore = create((set, get) => ({
 export const useUIStore = create(
   persist(
     (set) => ({
-      fontSize: 'md',        // tamanho da fonte de leitura (já existia)
-      appFontScale: 'md',    // escala da fonte do app inteiro (novo)
+      fontSize: 'md',
+      appFontScale: 'md',
       darkMode: false,
       setFontSize: (size) => set({ fontSize: size }),
       setAppFontScale: (scale) => set({ appFontScale: scale }),
