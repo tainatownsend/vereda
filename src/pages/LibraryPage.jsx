@@ -1,14 +1,17 @@
-import { ArrowRight, BookOpen, Check, Compass } from 'lucide-react'
+import { ArrowRight, BookOpen, Bookmark, Check, Compass } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks } from '@/hooks'
-import { useReadingStore } from '@/store'
+import { useAuthStore, useReadingStore } from '@/store'
 import { Badge, Card, PageLoader } from '@/components/ui'
+import { getSavedPassageIds } from '@/features/savedPassages/savedPassages'
 
 export default function LibraryPage() {
   const navigate = useNavigate()
   const books = useBooks()
+  const { user } = useAuthStore()
   const { progress } = useReadingStore()
+  const savedCount = getSavedPassageIds(user).length
 
   if (!books.length) return <PageLoader label="Carregando obras" />
 
@@ -21,11 +24,30 @@ export default function LibraryPage() {
         <p className="ves-eyebrow">Obras fundamentais</p>
         <h1 className="ves-heading mt-2 text-[2.45rem]">Sua biblioteca</h1>
         <p className="mt-3 max-w-lg text-base leading-relaxed text-muted dark:text-night-muted">
-          Continue o que já começou ou conheça outra obra. Você não precisa seguir uma ordem obrigatória.
+          Continue o que já começou, consulte o que salvou ou conheça outra obra. Você não precisa seguir uma ordem obrigatória.
         </p>
       </header>
 
       <div className="ves-container space-y-10 pb-10">
+        <button
+          type="button"
+          onClick={() => navigate('/salvos')}
+          className="ves-warm-panel group flex min-h-28 w-full items-center gap-4 rounded-vesLg border border-line/80 p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-editorial dark:border-night-line"
+        >
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-surface/85 text-clay-700 shadow-sm dark:bg-night-surface dark:text-clay-300">
+            <Bookmark size={21} aria-hidden="true" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="font-display text-lg font-semibold text-ink dark:text-night-ink">Trechos salvos</p>
+            <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
+              {savedCount
+                ? `${savedCount} ${savedCount === 1 ? 'passagem guardada' : 'passagens guardadas'} para consultar depois.`
+                : 'Guarde passagens importantes para voltar a elas depois.'}
+            </p>
+          </div>
+          <ArrowRight size={19} className="shrink-0 text-sage-700 transition-transform group-hover:translate-x-1 dark:text-sage-300" aria-hidden="true" />
+        </button>
+
         {started.length > 0 && (
           <section aria-labelledby="started-heading">
             <p className="ves-eyebrow">Continue estudando</p>
