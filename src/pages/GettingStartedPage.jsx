@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useBooks } from '@/hooks'
 import { useOnboardingStore } from '@/store/useOnboardingStore'
-import { Button, Card, PageLoader } from '@/components/ui'
+import { Button, Card, PageLoader, VeredaLogo } from '@/components/ui'
 
 const FAMILIARITY = [
   { id: 'new', label: 'Estou começando agora', description: 'Quero uma primeira orientação simples.' },
@@ -61,7 +61,7 @@ export default function GettingStartedPage() {
   }
 
   return (
-    <main className="ves-page min-h-screen pb-12">
+    <main className="ves-page ves-brand-page min-h-screen pb-12">
       <div className="ves-container pt-7">
         <button
           type="button"
@@ -73,24 +73,33 @@ export default function GettingStartedPage() {
         </button>
       </div>
 
-      <div className="ves-container max-w-2xl pb-12 pt-7">
-        <div className="flex h-14 w-14 items-center justify-center rounded-vesLg bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
-          <Compass size={26} aria-hidden="true" />
-        </div>
+      <div className="ves-container max-w-2xl pb-12 pt-5">
+        <section className="ves-horizon-panel rounded-vesLg border border-line p-6 shadow-editorial sm:p-8 dark:border-night-line">
+          <div className="relative z-10">
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/70 bg-white/65 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
+                <VeredaLogo size={46} />
+              </div>
+              <span className="rounded-full border border-line/70 bg-surface/70 px-3 py-1 text-xs font-semibold text-muted shadow-sm dark:border-night-line dark:bg-night-surface/70 dark:text-night-muted">
+                passo {step} de 2
+              </span>
+            </div>
 
-        <p className="ves-eyebrow mt-7">Comece com tranquilidade</p>
-        <h1 className="ves-heading mt-2 text-[2.35rem] leading-[1.08]">
-          {step === 1 ? 'Você não precisa conhecer o aplicativo.' : 'O que trouxe você até aqui?'}
-        </h1>
-        <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted dark:text-night-muted">
-          {step === 1
-            ? 'Duas escolhas rápidas ajudam o Vereda a indicar um primeiro caminho. Nada fica bloqueado e você pode mudar de ideia quando quiser.'
-            : 'Escolha a opção que mais se aproxima do que você procura hoje.'}
-        </p>
+            <p className="ves-eyebrow mt-7">Comece com tranquilidade</p>
+            <h1 className="ves-heading mt-2 max-w-xl text-[2.35rem] leading-[1.08]">
+              {step === 1 ? 'Você não precisa conhecer o aplicativo.' : 'O que trouxe você até aqui?'}
+            </h1>
+            <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted dark:text-night-muted">
+              {step === 1
+                ? 'Duas escolhas rápidas ajudam o Vereda a indicar um primeiro caminho. Nada fica bloqueado e você pode mudar de ideia quando quiser.'
+                : 'Escolha a opção que mais se aproxima do que você procura hoje.'}
+            </p>
+          </div>
+        </section>
 
         {step === 1 ? (
           <fieldset className="mt-8 space-y-3">
-            <legend className="mb-4 font-semibold text-ink dark:text-night-ink">
+            <legend className="mb-4 font-display text-lg font-semibold text-ink dark:text-night-ink">
               Você já estudou Espiritismo antes?
             </legend>
             {FAMILIARITY.map((option) => (
@@ -126,12 +135,14 @@ export default function GettingStartedPage() {
             ))}
 
             {selectedIntent?.titleIncludes && recommendation && (
-              <Card className="mt-6 border-sage-200 bg-sage-50 p-5 dark:border-sage-900 dark:bg-sage-950/35">
+              <Card className="mt-6 border-sage-200 bg-sage-50/80 p-5 shadow-sm dark:border-sage-900 dark:bg-sage-950/35">
                 <p className="text-sm font-semibold text-sage-800 dark:text-sage-300">Uma boa primeira direção</p>
                 <div className="mt-3 flex items-start gap-3">
-                  <BookOpen size={22} className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
+                    <BookOpen size={20} aria-hidden="true" />
+                  </div>
                   <div>
-                    <p className="font-semibold text-ink dark:text-night-ink">{recommendation.title}</p>
+                    <p className="font-display text-lg font-semibold text-ink dark:text-night-ink">{recommendation.title}</p>
                     <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
                       Esta indicação só organiza seu primeiro passo. A leitura da obra continua sendo a fonte principal.
                     </p>
@@ -161,17 +172,17 @@ function Choice({ selected, onClick, title, description }) {
       type="button"
       onClick={onClick}
       aria-pressed={selected}
-      className={`flex min-h-20 w-full items-start gap-4 rounded-vesMd border p-5 text-left transition-colors ${
+      className={`flex min-h-20 w-full items-start gap-4 rounded-vesMd border p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 ${
         selected
           ? 'border-sage-700 bg-sage-50 ring-2 ring-sage-500/20 dark:border-sage-300 dark:bg-sage-950/35'
-          : 'border-line bg-surface hover:border-sage-400 dark:border-night-line dark:bg-night-surface'
+          : 'border-line bg-surface/90 hover:border-sage-400 hover:shadow-editorial dark:border-night-line dark:bg-night-surface/90'
       }`}
     >
-      <span className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border ${selected ? 'border-sage-700 bg-sage-700 text-white dark:border-sage-300 dark:bg-sage-300 dark:text-sage-950' : 'border-line dark:border-night-line'}`}>
+      <span className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border ${selected ? 'border-sage-700 bg-sage-700 text-white dark:border-sage-300 dark:bg-sage-300 dark:text-sage-950' : 'border-line bg-canvas dark:border-night-line dark:bg-night'}`}>
         {selected && <Check size={15} aria-hidden="true" />}
       </span>
       <span>
-        <span className="block font-semibold text-ink dark:text-night-ink">{title}</span>
+        <span className="block font-display text-lg font-semibold text-ink dark:text-night-ink">{title}</span>
         <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">{description}</span>
       </span>
     </button>
