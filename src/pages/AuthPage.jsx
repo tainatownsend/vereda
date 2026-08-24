@@ -158,21 +158,21 @@ export default function AuthPage() {
         : 'Entre para continuar sua leitura exatamente de onde parou.'
 
   return (
-    <main className="ves-page ves-brand-page min-h-screen lg:p-5">
-      <div className="mx-auto grid min-h-screen w-full max-w-[1280px] overflow-hidden bg-surface lg:min-h-[calc(100vh-2.5rem)] lg:grid-cols-[1.02fr_0.98fr] lg:rounded-[2.25rem] lg:border lg:border-line lg:shadow-editorial dark:bg-night-surface dark:lg:border-night-line">
-        <section className="ves-warm-panel relative hidden overflow-hidden px-14 py-12 lg:flex lg:flex-col lg:justify-between">
-          <BrandLockup size={72} />
+    <main className="ves-page ves-brand-page min-h-screen lg:p-4">
+      <div className="mx-auto grid min-h-screen w-full max-w-[1280px] overflow-hidden bg-surface lg:min-h-[calc(100vh-2rem)] lg:grid-cols-[1.02fr_0.98fr] lg:rounded-[2.25rem] lg:border lg:border-line lg:shadow-editorial dark:bg-night-surface dark:lg:border-night-line">
+        <section className="ves-warm-panel relative hidden overflow-hidden px-12 py-9 lg:flex lg:flex-col">
+          <BrandLockup size={64} />
 
-          <div className="relative z-10 max-w-[32rem] pb-20">
+          <div className="relative z-10 mt-12 max-w-[32rem] pb-36">
             <p className="ves-eyebrow">Estudo no seu ritmo</p>
-            <h1 className="ves-heading mt-5 text-[3.85rem] leading-[1.03]">
+            <h1 className="ves-heading mt-3 text-[3.15rem] leading-[1.03] xl:text-[3.45rem]">
               Um caminho simples para aprender e refletir.
             </h1>
-            <p className="mt-7 max-w-[30rem] text-lg leading-relaxed text-muted dark:text-night-muted">
+            <p className="mt-5 max-w-[30rem] text-base leading-relaxed text-muted dark:text-night-muted">
               Obras fundamentais do Espiritismo, leitura confortável e orientação para seguir no seu próprio ritmo.
             </p>
 
-            <div className="mt-9 flex flex-wrap gap-3 text-sm font-medium text-ink/80 dark:text-night-ink/80">
+            <div className="mt-6 flex flex-wrap gap-2 text-sm font-medium text-ink/80 dark:text-night-ink/80">
               <BrandPill>Sem pressa</BrandPill>
               <BrandPill>Sem anúncios</BrandPill>
               <BrandPill>Sempre do ponto onde parou</BrandPill>
@@ -182,7 +182,7 @@ export default function AuthPage() {
           <BrandLandscape />
         </section>
 
-        <section className="flex min-h-screen items-center px-4 py-8 min-[360px]:px-5 sm:px-9 lg:min-h-0 lg:px-14 lg:py-12">
+        <section className="flex min-h-screen items-center px-4 py-7 min-[360px]:px-5 sm:px-9 lg:min-h-0 lg:px-12 lg:py-8">
           <div className="mx-auto w-full max-w-[29rem]">
             <div className="mb-8 flex justify-center sm:mb-10 lg:hidden">
               <BrandLockup size={68} centered />
@@ -198,10 +198,10 @@ export default function AuthPage() {
                       ? 'Sua jornada começa aqui'
                       : 'Bem-vindo de volta'}
               </p>
-              <h2 className="ves-heading mt-3 text-[2rem] leading-[1.1] min-[360px]:text-[2.2rem] sm:text-[2.45rem]">
+              <h2 className="ves-heading mt-2 text-[2rem] leading-[1.08] min-[360px]:text-[2.2rem] sm:text-[2.35rem]">
                 {heading}
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-muted dark:text-night-muted">
+              <p className="mt-3 text-base leading-relaxed text-muted dark:text-night-muted">
                 {supportingCopy}
               </p>
 
@@ -217,7 +217,7 @@ export default function AuthPage() {
                 />
               ) : (
                 <>
-                  <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
+                  <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
                     {isSignup && (
                       <Input
                         label="Como gostaria de ser chamado?"
@@ -264,7 +264,7 @@ export default function AuthPage() {
                         </div>
 
                         {!isSignup && (
-                          <div className="mt-2 text-right">
+                          <div className="mt-1 text-right">
                             <button
                               type="button"
                               onClick={openForgotPassword}
@@ -296,14 +296,14 @@ export default function AuthPage() {
                     <button
                       type="button"
                       onClick={returnToLogin}
-                      className="mt-6 flex min-h-11 w-full items-center justify-center gap-2 rounded-vesSm px-3 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+                      className="mt-5 flex min-h-11 w-full items-center justify-center gap-2 rounded-vesSm px-3 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
                     >
                       <ArrowLeft size={18} aria-hidden="true" />
                       Voltar para entrar
                     </button>
                   ) : (
                     <>
-                      <div className="relative my-7">
+                      <div className="relative my-5">
                         <div className="absolute inset-0 flex items-center">
                           <div className="w-full border-t border-line dark:border-night-line" />
                         </div>
@@ -317,7 +317,7 @@ export default function AuthPage() {
                         Continuar com Google
                       </Button>
 
-                      <p className="mt-7 text-center text-sm leading-relaxed text-muted dark:text-night-muted">
+                      <p className="mt-5 text-center text-sm leading-relaxed text-muted dark:text-night-muted">
                         {isSignup ? 'Já tem uma conta?' : 'Primeira vez no Vereda?'}{' '}
                         <button
                           type="button"
@@ -332,7 +332,7 @@ export default function AuthPage() {
                 </>
               )}
 
-              <div className="mt-7 flex items-center justify-center gap-2 text-center text-xs leading-relaxed text-muted dark:text-night-muted">
+              <div className="mt-5 flex items-center justify-center gap-2 text-center text-xs leading-relaxed text-muted dark:text-night-muted">
                 <ShieldCheck size={15} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
                 Gratuito, sem anúncios e sem fins lucrativos.
               </div>
@@ -420,7 +420,7 @@ function BrandLockup({ size, centered = false }) {
 
 function BrandPill({ children }) {
   return (
-    <span className="rounded-full border border-sage-700/15 bg-white/55 px-4 py-2 dark:border-sage-300/20 dark:bg-white/5">
+    <span className="rounded-full border border-sage-700/15 bg-white/55 px-3.5 py-1.5 dark:border-sage-300/20 dark:bg-white/5">
       {children}
     </span>
   )
