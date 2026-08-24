@@ -103,18 +103,27 @@ export default function DiscoverPage() {
   }
 
   return (
-    <main className="ves-page pb-28">
-      <header className="ves-container pb-7 pt-11">
+    <main className="ves-page ves-brand-page pb-28">
+      <header className="ves-container pb-7 pt-10">
         <p className="ves-eyebrow">Descobrir</p>
-        <h1 className="ves-heading mt-2 text-[2.35rem]">O que você quer compreender hoje?</h1>
+        <h1 className="ves-heading mt-2 max-w-lg text-[2.4rem] leading-[1.08]">O que você quer compreender hoje?</h1>
         <p className="mt-3 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">
           Procure por uma dúvida ou escolha um tema. O Vereda leva você aos trechos das obras — sem responder no lugar delas.
         </p>
       </header>
 
       <div className="ves-container space-y-10 pb-10">
-        <section aria-labelledby="search-heading">
-          <h2 id="search-heading" className="sr-only">Pesquisar nas obras</h2>
+        <section aria-labelledby="search-heading" className="ves-warm-panel rounded-vesLg border border-line/80 p-5 shadow-sm sm:p-6 dark:border-night-line">
+          <div className="mb-5 flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-surface/80 text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
+              <Search size={20} aria-hidden="true" />
+            </div>
+            <div>
+              <p className="ves-eyebrow">Pergunte do seu jeito</p>
+              <h2 id="search-heading" className="font-display text-lg font-semibold text-ink dark:text-night-ink">Pesquisar nas obras</h2>
+            </div>
+          </div>
+
           <form
             className="space-y-3"
             onSubmit={(event) => {
@@ -123,13 +132,13 @@ export default function DiscoverPage() {
             }}
           >
             <Input
-              label="Escreva sua dúvida do seu jeito"
+              label="Sua dúvida"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="Ex.: o que acontece depois que morremos?"
               hint="A pesquisa mostra passagens das obras fundamentais, não uma resposta criada pelo aplicativo."
             />
-            <Button type="submit" loading={loading} disabled={!query.trim()}>
+            <Button type="submit" loading={loading} disabled={!query.trim()} className="w-full sm:w-auto">
               <Search size={19} aria-hidden="true" />
               Procurar nas obras
             </Button>
@@ -141,18 +150,24 @@ export default function DiscoverPage() {
           <h2 id="topics-heading" className="ves-heading mt-1 text-[1.75rem]">Escolha um caminho</h2>
 
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
-            {TOPICS.map((topic) => (
+            {TOPICS.map((topic, index) => (
               <button
                 key={topic.id}
                 type="button"
                 onClick={() => runSearch(topic.query)}
-                className="min-h-28 rounded-vesMd border border-line bg-surface p-5 text-left transition-colors hover:border-sage-400 hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:hover:bg-sage-950/35"
+                className={`min-h-32 rounded-vesLg border p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-editorial ${
+                  index % 3 === 1
+                    ? 'border-clay-100 bg-clay-50/70 hover:border-clay-300 dark:border-clay-900/60 dark:bg-clay-950/10'
+                    : 'border-sage-200 bg-sage-50/75 hover:border-sage-400 dark:border-sage-900 dark:bg-sage-950/25'
+                }`}
               >
-                <span className="flex items-center gap-2 font-semibold text-ink dark:text-night-ink">
-                  <Compass size={19} className="text-sage-700 dark:text-sage-300" aria-hidden="true" />
+                <span className="flex items-center gap-2 font-display text-lg font-semibold text-ink dark:text-night-ink">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-surface/80 text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
+                    <Compass size={18} aria-hidden="true" />
+                  </span>
                   {topic.label}
                 </span>
-                <span className="mt-2 block text-sm leading-relaxed text-muted dark:text-night-muted">
+                <span className="mt-3 block text-sm leading-relaxed text-muted dark:text-night-muted">
                   {topic.hint}
                 </span>
               </button>
@@ -186,17 +201,17 @@ export default function DiscoverPage() {
                       as="button"
                       type="button"
                       onClick={() => openResult(section)}
-                      className="group block w-full p-5 text-left transition-shadow hover:shadow-editorial"
+                      className="group block w-full p-5 text-left transition-all hover:-translate-y-0.5 hover:shadow-editorial"
                     >
                       <div className="flex items-start gap-4">
-                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+                        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
                           <BookOpen size={20} aria-hidden="true" />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <p className="text-xs font-semibold uppercase tracking-wide text-muted dark:text-night-muted">
+                          <p className="text-xs font-semibold uppercase tracking-wide text-sage-700 dark:text-sage-300">
                             {book?.title || 'Obra fundamental'}
                           </p>
-                          <h3 className="mt-1 font-semibold leading-snug text-ink dark:text-night-ink">{heading}</h3>
+                          <h3 className="mt-1 font-display text-lg font-semibold leading-snug text-ink dark:text-night-ink">{heading}</h3>
                           <p className="mt-2 text-sm text-muted dark:text-night-muted">
                             {section.chapter_label ? `${section.chapter_label} · ` : ''}
                             {started ? 'Abrir este trecho na obra' : 'Conhecer a obra onde este trecho aparece'}
@@ -209,9 +224,11 @@ export default function DiscoverPage() {
                 })}
               </div>
             ) : (
-              <p className="mt-4 max-w-lg text-base leading-relaxed text-muted dark:text-night-muted">
-                Tente uma palavra mais simples, como “oração”, “morte”, “reencarnação” ou “mediunidade”.
-              </p>
+              <div className="mt-4 rounded-vesMd border border-line bg-surface/75 p-5 dark:border-night-line dark:bg-night-surface/75">
+                <p className="max-w-lg text-base leading-relaxed text-muted dark:text-night-muted">
+                  Tente uma palavra mais simples, como “oração”, “morte”, “reencarnação” ou “mediunidade”.
+                </p>
+              </div>
             )}
           </section>
         )}
