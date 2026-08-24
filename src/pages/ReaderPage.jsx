@@ -4,6 +4,7 @@ import {
   AlignJustify,
   AlignLeft,
   AlertTriangle,
+  Bookmark,
   Check,
   ChevronLeft,
   ChevronRight,
@@ -20,6 +21,7 @@ import { getReaderPrimaryAction, READER_COPY } from '@/features/reader/readerCop
 import { READER_PHASE } from '@/features/reader/readerMachine'
 import BookIndexPanel from '@/features/reader/BookIndexPanel'
 import { useReadingSession } from '@/features/reader/useReadingSession'
+import { isPassageSaved } from '@/features/savedPassages/savedPassages'
 import { Button, PageLoader } from '@/components/ui'
 
 const FONT_SIZES = [
@@ -34,11 +36,13 @@ export default function ReaderPage() {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const books = useBooks()
-  const { user } = useAuthStore()
+  const { user, savePassage, removeSavedPassage } = useAuthStore()
   const { fontSize, setFontSize } = useUIStore()
   const [showSettings, setShowSettings] = useState(false)
   const [showIndex, setShowIndex] = useState(false)
   const [textAlign, setTextAlign] = useState('left')
+  const [savingPassage, setSavingPassage] = useState(false)
+  const [saveStatus, setSaveStatus] = useState('')
   const settingsRef = useRef(null)
   const requestedPositionRef = useRef(null)
 
@@ -149,6 +153,10 @@ export default function ReaderPage() {
     }
   }, [book?.id, session.currentSection, user?.id])
 
+  useEffect(() => {
+    setSaveStatus('')
+  }, [currentSection?.section_id])
+
   if (!book || session.phase === READER_PHASE.LOADING) {
     return <PageLoader label="Preparando sua leitura" />
   }
@@ -223,6 +231,29 @@ export default function ReaderPage() {
     currentSection.chapter_label ||
     currentSection.title ||
     `Trecho ${currentSection.sec_position}`
+
+  const passageSaved = isPassageSaved(user, currentSection.section_id)
+
+  const toggleSavedPassage = async () => {
+    if (savingPassage) return
+
+    setSavingPassage(true)
+    setSaveStatus('')
+
+    try {
+      if (passageSaved) {
+        await removeSavedPassage(currentSection.section_id)
+        setSaveStatus('Trecho removido dos salvos.')
+      } else {
+        await savePassage(currentSection.section_id)
+        setSaveStatus('Trecho salvo para consultar depois.')
+      }
+    } catch {
+      setSaveStatus('Não foi possível alterar este trecho salvo agora.')
+    } finally {
+      setSavingPassage(false)
+    }
+  }
 
   return (
     <div className="min-h-screen bg-canvas text-ink dark:bg-night dark:text-night-ink">
@@ -303,6 +334,31 @@ export default function ReaderPage() {
       )}
 
       <main className="mx-auto max-w-[68ch] overflow-hidden px-5 pb-36 pt-9 sm:px-8 sm:pt-12">
+        {!isPartIntro && !isChapterIntro && (
+          <div className="mb-7">
+            <button
+              type="button"
+              onClick={toggleSavedPassage}
+              disabled={savingPassage}
+              aria-pressed={passageSaved}
+              className={`flex min-h-12 items-center gap-2 rounded-vesSm border px-4 text-sm font-semibold ${
+                passageSaved
+                  ? 'border-sage-700 bg-sage-100 text-sage-900 dark:border-sage-300 dark:bg-sage-950 dark:text-sage-200'
+                  : 'border-line bg-surface text-sage-800 hover:border-sage-400 dark:border-night-line dark:bg-night-surface dark:text-sage-300'
+              }`}
+            >
+              {passageSaved ? <Check size={18} aria-hidden="true" /> : <Bookmark size={18} aria-hidden="true" />}
+              {savingPassage ? 'Salvando…' : passageSaved ? 'Trecho salvo' : 'Salvar este trecho'}
+            </button>
+
+            {saveStatus && (
+              <p role="status" aria-live="polite" className="mt-3 text-sm text-muted dark:text-night-muted">
+                {saveStatus}
+              </p>
+            )}
+          </div>
+        )}
+
         {isPartIntro ? (
           <PartIntro section={currentSection} />
         ) : isChapterIntro ? (
