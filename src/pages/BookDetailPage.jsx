@@ -80,7 +80,7 @@ export default function BookDetailPage() {
           className="flex min-h-12 items-center gap-2 rounded-vesSm px-2 text-sm font-semibold text-sage-800 hover:bg-sage-100 dark:text-sage-300 dark:hover:bg-sage-950"
         >
           <ArrowLeft size={20} aria-hidden="true" />
-          Voltar para Obras
+          Voltar
         </button>
       </div>
 
@@ -89,7 +89,7 @@ export default function BookDetailPage() {
 
         <div>
           <p className="ves-eyebrow">Antes de começar</p>
-          <h1 className="ves-heading mt-2 text-[2.45rem] lg:text-[3rem]">
+          <h1 className="ves-heading mt-2 break-words text-[2.2rem] sm:text-[2.45rem] lg:text-[3rem]">
             {book.title}
           </h1>
           <p className="mt-2 text-sm font-medium text-sage-700 dark:text-sage-300">
@@ -98,7 +98,7 @@ export default function BookDetailPage() {
           </p>
 
           {book.description && (
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted dark:text-night-muted">
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg dark:text-night-muted">
               {book.description}
             </p>
           )}
