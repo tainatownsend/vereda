@@ -217,7 +217,7 @@ export function PageLoader({ label = 'Carregando conteúdo' }) {
   return (
     <div className="ves-page flex items-center justify-center" role="status">
       <div className="flex flex-col items-center gap-4">
-        <VeredaLogo size={48} />
+        <VeredaLogo size={54} />
         <Spinner size={28} label={label} />
       </div>
     </div>
@@ -226,34 +226,13 @@ export function PageLoader({ label = 'Carregando conteúdo' }) {
 
 export function VeredaLogo({ size = 40, className = '' }) {
   return (
-    <div
-      className={`inline-flex items-center justify-center rounded-full bg-sage-800 text-white shadow-sm dark:bg-sage-300 dark:text-sage-950 ${className}`}
-      style={{ width: size, height: size }}
-      aria-label="Vereda"
-      role="img"
-    >
-      <svg
-        width={Math.round(size * 0.52)}
-        height={Math.round(size * 0.52)}
-        viewBox="0 0 24 24"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path
-          d="M6 18c4-1 6-4 6-9 3 2 5 5 6 9"
-          stroke="currentColor"
-          strokeWidth="1.9"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M12 9V5"
-          stroke="currentColor"
-          strokeWidth="1.9"
-          strokeLinecap="round"
-        />
-      </svg>
-    </div>
+    <img
+      src="/vereda-logo-mark.svg"
+      alt="Vereda"
+      width={size}
+      height={size}
+      className={`shrink-0 object-contain ${className}`}
+    />
   )
 }
 
