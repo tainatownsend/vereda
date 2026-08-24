@@ -1,5 +1,14 @@
 import { useState } from 'react'
-import { ArrowLeft, ArrowRight, Check, Eye, EyeOff, Mail, ShieldCheck } from 'lucide-react'
+import {
+  ArrowLeft,
+  ArrowRight,
+  Check,
+  Eye,
+  EyeOff,
+  Mail,
+  RefreshCw,
+  ShieldCheck,
+} from 'lucide-react'
 
 import { useAuthStore } from '@/store'
 import { Button, Input, VeredaLogo } from '@/components/ui'
@@ -9,12 +18,9 @@ const ERROR_MESSAGES = {
   'Invalid login credentials': 'E-mail ou senha incorretos.',
   'Email already registered': 'Este e-mail já está em uso.',
   'User already registered': 'Este e-mail já possui uma conta.',
-  'Password should be at least 6 characters':
-    'A senha precisa ter ao menos 6 caracteres.',
-  'Email not confirmed':
-    'Confirme seu e-mail antes de entrar. Verifique sua caixa de entrada.',
-  'Failed to fetch':
-    'Não foi possível conectar ao Vereda. Verifique sua internet e tente novamente.',
+  'Password should be at least 6 characters': 'A senha precisa ter ao menos 6 caracteres.',
+  'Email not confirmed': 'Confirme seu e-mail antes de entrar. Verifique sua caixa de entrada.',
+  'Failed to fetch': 'Não foi possível conectar ao Vereda. Verifique sua internet e tente novamente.',
 }
 
 export default function AuthPage() {
@@ -26,11 +32,13 @@ export default function AuthPage() {
   const [error, setError] = useState('')
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
+  const [resending, setResending] = useState(false)
 
   const {
     signInWithEmail,
     signUpWithEmail,
     signInWithGoogle,
+    resendSignupConfirmation,
     requestPasswordReset,
   } = useAuthStore()
 
@@ -63,9 +71,7 @@ export default function AuthPage() {
     try {
       if (isForgot) {
         await requestPasswordReset(email.trim())
-        setMessage(
-          'Se houver uma conta com este e-mail, você receberá um link para criar uma nova senha.',
-        )
+        setMessage('Se houver uma conta com este e-mail, você receberá um link para criar uma nova senha.')
       } else if (isSignup) {
         const data = await signUpWithEmail(email.trim(), password, name.trim())
         const outcome = getSignupOutcome(data)
@@ -89,24 +95,50 @@ export default function AuthPage() {
     }
   }
 
-  const switchMode = () => {
-    setMode((current) => (current === 'login' ? 'signup' : 'login'))
+  const clearFeedback = () => {
     setError('')
     setMessage('')
+  }
+
+  const switchMode = () => {
+    setMode((current) => (current === 'login' ? 'signup' : 'login'))
+    clearFeedback()
   }
 
   const openForgotPassword = () => {
     setMode('forgot')
     setPassword('')
-    setError('')
-    setMessage('')
+    clearFeedback()
   }
 
   const returnToLogin = () => {
     setMode('login')
     setPassword('')
+    clearFeedback()
+  }
+
+  const useAnotherEmail = () => {
+    setMode('signup')
+    setEmail('')
+    setPassword('')
+    clearFeedback()
+  }
+
+  const resendConfirmation = async () => {
+    if (!email.trim() || resending) return
+
+    setResending(true)
     setError('')
     setMessage('')
+
+    try {
+      await resendSignupConfirmation(email.trim())
+      setMessage('Enviamos um novo e-mail de confirmação. Confira sua caixa de entrada e a pasta de spam.')
+    } catch {
+      setError('Não foi possível reenviar agora. Aguarde um pouco e tente novamente.')
+    } finally {
+      setResending(false)
+    }
   }
 
   const heading = isConfirm
@@ -141,15 +173,9 @@ export default function AuthPage() {
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3 text-sm font-medium text-ink/80 dark:text-night-ink/80">
-              <span className="rounded-full border border-sage-700/15 bg-white/55 px-4 py-2 dark:border-sage-300/20 dark:bg-white/5">
-                Sem pressa
-              </span>
-              <span className="rounded-full border border-sage-700/15 bg-white/55 px-4 py-2 dark:border-sage-300/20 dark:bg-white/5">
-                Sem anúncios
-              </span>
-              <span className="rounded-full border border-sage-700/15 bg-white/55 px-4 py-2 dark:border-sage-300/20 dark:bg-white/5">
-                Sempre do ponto onde parou
-              </span>
+              <BrandPill>Sem pressa</BrandPill>
+              <BrandPill>Sem anúncios</BrandPill>
+              <BrandPill>Sempre do ponto onde parou</BrandPill>
             </div>
           </div>
 
@@ -163,53 +189,32 @@ export default function AuthPage() {
             </div>
 
             <div className="rounded-vesLg border border-line bg-surface p-5 shadow-editorial min-[360px]:p-6 sm:p-8 lg:border-0 lg:p-0 lg:shadow-none dark:border-night-line dark:bg-night-surface">
-              <div>
-                <p className="ves-eyebrow">
-                  {isConfirm
-                    ? 'Só falta uma etapa'
-                    : isForgot
-                      ? 'Recupere seu acesso'
-                      : isSignup
-                        ? 'Sua jornada começa aqui'
-                        : 'Bem-vindo de volta'}
-                </p>
-                <h2 className="ves-heading mt-3 text-[2rem] leading-[1.1] min-[360px]:text-[2.2rem] sm:text-[2.45rem]">
-                  {heading}
-                </h2>
-                <p className="mt-4 text-base leading-relaxed text-muted dark:text-night-muted">
-                  {supportingCopy}
-                </p>
-              </div>
+              <p className="ves-eyebrow">
+                {isConfirm
+                  ? 'Só falta uma etapa'
+                  : isForgot
+                    ? 'Recupere seu acesso'
+                    : isSignup
+                      ? 'Sua jornada começa aqui'
+                      : 'Bem-vindo de volta'}
+              </p>
+              <h2 className="ves-heading mt-3 text-[2rem] leading-[1.1] min-[360px]:text-[2.2rem] sm:text-[2.45rem]">
+                {heading}
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-muted dark:text-night-muted">
+                {supportingCopy}
+              </p>
 
               {isConfirm ? (
-                <div className="mt-8">
-                  <div
-                    role="status"
-                    aria-live="polite"
-                    className="rounded-vesLg border border-sage-200 bg-sage-50/80 p-5 dark:border-sage-900 dark:bg-sage-950/35"
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sage-700 text-white dark:bg-sage-300 dark:text-sage-950">
-                        <Mail size={20} aria-hidden="true" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-ink dark:text-night-ink">Verifique sua caixa de entrada</p>
-                        <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-                          O link confirma que este e-mail pertence a você. Se a mensagem não aparecer, confira também a pasta de spam.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={returnToLogin}
-                    className="mt-6 flex min-h-12 w-full items-center justify-center gap-2 rounded-vesSm px-3 text-sm font-semibold text-sage-800 underline-offset-4 hover:bg-sage-50 hover:underline dark:text-sage-300 dark:hover:bg-sage-950"
-                  >
-                    <ArrowLeft size={18} aria-hidden="true" />
-                    Voltar para entrar
-                  </button>
-                </div>
+                <ConfirmationPanel
+                  email={email}
+                  message={message}
+                  error={error}
+                  resending={resending}
+                  onResend={resendConfirmation}
+                  onUseAnotherEmail={useAnotherEmail}
+                  onReturnToLogin={returnToLogin}
+                />
               ) : (
                 <>
                   <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
@@ -254,11 +259,7 @@ export default function AuthPage() {
                             className="absolute bottom-1 right-1 flex h-12 w-12 items-center justify-center rounded-vesSm text-muted hover:bg-sage-100 hover:text-ink dark:text-night-muted dark:hover:bg-sage-950 dark:hover:text-night-ink"
                             aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
                           >
-                            {showPassword ? (
-                              <EyeOff size={20} aria-hidden="true" />
-                            ) : (
-                              <Eye size={20} aria-hidden="true" />
-                            )}
+                            {showPassword ? <EyeOff size={20} aria-hidden="true" /> : <Eye size={20} aria-hidden="true" />}
                           </button>
                         </div>
 
@@ -278,35 +279,12 @@ export default function AuthPage() {
 
                     {isSignup && (
                       <div className="flex items-start gap-3 rounded-vesMd bg-sage-50 p-4 text-sm leading-relaxed text-muted dark:bg-sage-950/40 dark:text-night-muted">
-                        <Check
-                          size={18}
-                          className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300"
-                          aria-hidden="true"
-                        />
-                        <span>
-                          O Vereda salva automaticamente onde você parou. Você pode fazer pausas e voltar quando quiser.
-                        </span>
+                        <Check size={18} className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+                        <span>O Vereda salva automaticamente onde você parou. Você pode fazer pausas e voltar quando quiser.</span>
                       </div>
                     )}
 
-                    {error && (
-                      <div
-                        role="alert"
-                        className="rounded-vesSm border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium leading-relaxed text-red-800 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300"
-                      >
-                        {error}
-                      </div>
-                    )}
-
-                    {message && (
-                      <div
-                        role="status"
-                        aria-live="polite"
-                        className="rounded-vesSm border border-sage-200 bg-sage-50 px-4 py-3 text-sm font-medium leading-relaxed text-sage-900 dark:border-sage-900 dark:bg-sage-950/40 dark:text-sage-200"
-                      >
-                        {message}
-                      </div>
-                    )}
+                    <Feedback message={message} error={error} />
 
                     <Button type="submit" loading={loading} className="w-full">
                       {isForgot ? 'Enviar link de recuperação' : isSignup ? 'Criar minha conta' : 'Entrar'}
@@ -330,17 +308,11 @@ export default function AuthPage() {
                           <div className="w-full border-t border-line dark:border-night-line" />
                         </div>
                         <div className="relative flex justify-center">
-                          <span className="bg-surface px-4 text-sm text-muted dark:bg-night-surface dark:text-night-muted">
-                            ou
-                          </span>
+                          <span className="bg-surface px-4 text-sm text-muted dark:bg-night-surface dark:text-night-muted">ou</span>
                         </div>
                       </div>
 
-                      <Button
-                        variant="secondary"
-                        onClick={signInWithGoogle}
-                        className="w-full"
-                      >
+                      <Button variant="secondary" onClick={signInWithGoogle} className="w-full">
                         <GoogleIcon />
                         Continuar com Google
                       </Button>
@@ -372,29 +344,91 @@ export default function AuthPage() {
   )
 }
 
-function BrandLockup({ size, centered = false }) {
+function ConfirmationPanel({ email, message, error, resending, onResend, onUseAnotherEmail, onReturnToLogin }) {
   return (
-    <div className={`relative z-10 flex items-center gap-4 ${centered ? 'flex-col gap-2 text-center' : ''}`}>
-      <VeredaLogo size={size} />
-      <div>
-        <p className="font-display text-[1.8rem] font-semibold tracking-[0.13em] text-ink dark:text-night-ink">
-          VEREDA
-        </p>
-        <p className="mt-0.5 text-xs font-medium tracking-[0.06em] text-muted dark:text-night-muted">
-          seu caminho de aprendizado
-        </p>
+    <div className="mt-8">
+      <div className="rounded-vesLg border border-sage-200 bg-sage-50/80 p-5 dark:border-sage-900 dark:bg-sage-950/35">
+        <div className="flex items-start gap-3">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sage-700 text-white dark:bg-sage-300 dark:text-sage-950">
+            <Mail size={20} aria-hidden="true" />
+          </div>
+          <div>
+            <p className="font-semibold text-ink dark:text-night-ink">Verifique sua caixa de entrada</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+              O link confirma que {email.trim()} pertence a você. Se a mensagem não aparecer, confira também a pasta de spam.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <Feedback message={message} error={error} />
+
+      <div className="mt-5 space-y-2">
+        <Button variant="secondary" onClick={onResend} loading={resending} className="w-full">
+          {!resending && <RefreshCw size={18} aria-hidden="true" />}
+          Reenviar e-mail de confirmação
+        </Button>
+        <button
+          type="button"
+          onClick={onUseAnotherEmail}
+          className="flex min-h-12 w-full items-center justify-center rounded-vesSm px-3 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950"
+        >
+          Usei outro e-mail
+        </button>
+        <button
+          type="button"
+          onClick={onReturnToLogin}
+          className="flex min-h-12 w-full items-center justify-center gap-2 rounded-vesSm px-3 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+        >
+          <ArrowLeft size={18} aria-hidden="true" />
+          Voltar para entrar
+        </button>
       </div>
     </div>
   )
 }
 
+function Feedback({ message, error }) {
+  if (error) {
+    return (
+      <div role="alert" className="mt-5 rounded-vesSm border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium leading-relaxed text-red-800 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300">
+        {error}
+      </div>
+    )
+  }
+
+  if (!message) return null
+
+  return (
+    <div role="status" aria-live="polite" className="mt-5 rounded-vesSm border border-sage-200 bg-sage-50 px-4 py-3 text-sm font-medium leading-relaxed text-sage-900 dark:border-sage-900 dark:bg-sage-950/40 dark:text-sage-200">
+      {message}
+    </div>
+  )
+}
+
+function BrandLockup({ size, centered = false }) {
+  return (
+    <div className={`relative z-10 flex items-center gap-4 ${centered ? 'flex-col gap-2 text-center' : ''}`}>
+      <VeredaLogo size={size} />
+      <div>
+        <p className="font-display text-[1.8rem] font-semibold tracking-[0.13em] text-ink dark:text-night-ink">VEREDA</p>
+        <p className="mt-0.5 text-xs font-medium tracking-[0.06em] text-muted dark:text-night-muted">seu caminho de aprendizado</p>
+      </div>
+    </div>
+  )
+}
+
+function BrandPill({ children }) {
+  return (
+    <span className="rounded-full border border-sage-700/15 bg-white/55 px-4 py-2 dark:border-sage-300/20 dark:bg-white/5">
+      {children}
+    </span>
+  )
+}
+
 function BrandLandscape() {
   return (
-    <svg
-      viewBox="0 0 640 260"
-      className="pointer-events-none absolute inset-x-0 bottom-0 w-full text-sage-700"
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 640 260" className="pointer-events-none absolute inset-x-0 bottom-0 w-full" aria-hidden="true">
       <circle cx="360" cy="92" r="68" fill="#E7B977" opacity="0.3" />
       <path d="M0 134C105 88 180 96 254 136C330 177 396 164 470 120C535 82 585 86 640 105V260H0Z" fill="#CAD7C7" opacity="0.72" />
       <path d="M0 167C82 126 167 128 244 171C318 212 393 203 465 161C532 123 590 123 640 145V260H0Z" fill="#8FA68F" opacity="0.58" />
