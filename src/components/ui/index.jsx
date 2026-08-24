@@ -215,10 +215,17 @@ export function Spinner({ size = 24, className = '', label = 'Carregando' }) {
 
 export function PageLoader({ label = 'Carregando conteúdo' }) {
   return (
-    <div className="ves-page flex items-center justify-center" role="status" aria-live="polite">
-      <div className="flex flex-col items-center gap-4">
-        <VeredaLogo size={54} />
-        <Spinner size={28} label={label} />
+    <div className="ves-page flex min-h-[60vh] items-center justify-center px-6" role="status" aria-live="polite">
+      <div className="flex flex-col items-center gap-5 text-center">
+        <div className="relative flex h-28 w-28 items-center justify-center" aria-hidden="true">
+          <span className="absolute inset-0 rounded-full border border-sage-200/80 dark:border-sage-800/80" />
+          <span className="absolute inset-0 rounded-full border-2 border-transparent border-t-sage-700 border-r-gold-400 motion-safe:animate-spin [animation-duration:2.8s] dark:border-t-sage-300 dark:border-r-gold-600" />
+          <span className="absolute inset-2 rounded-full bg-sage-100/45 motion-safe:animate-pulse [animation-duration:1.8s] dark:bg-sage-950/35" />
+          <div className="relative flex h-24 w-24 items-center justify-center rounded-full bg-surface/90 shadow-editorial dark:bg-night-surface/90">
+            <VeredaLogo size={82} className="motion-safe:animate-pulse [animation-duration:2.2s]" />
+          </div>
+        </div>
+        <p className="text-sm font-medium text-muted dark:text-night-muted">{label}</p>
       </div>
     </div>
   )
