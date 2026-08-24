@@ -109,49 +109,14 @@ export default function ReaderPage() {
   }, [showSettings])
 
   useEffect(() => {
-    if (!user?.id || !book?.id || !session.currentSection) return undefined
+    if (!currentSection?.section_id) return undefined
 
-    const storageKey = [
-      'vereda-reader-scroll',
-      user.id,
-      book.id,
-      session.currentSection.section_id,
-    ].join(':')
-
-    const savedScroll = Number(window.sessionStorage.getItem(storageKey) || 0)
-
-    const restoreFrame = window.requestAnimationFrame(() => {
-      if (savedScroll > 0) {
-        window.scrollTo({ top: savedScroll, behavior: 'auto' })
-      }
+    const frame = window.requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
     })
 
-    let ticking = false
-
-    const saveScroll = () => {
-      if (ticking) return
-      ticking = true
-
-      window.requestAnimationFrame(() => {
-        window.sessionStorage.setItem(
-          storageKey,
-          String(Math.max(0, Math.round(window.scrollY))),
-        )
-        ticking = false
-      })
-    }
-
-    window.addEventListener('scroll', saveScroll, { passive: true })
-
-    return () => {
-      window.cancelAnimationFrame(restoreFrame)
-      window.removeEventListener('scroll', saveScroll)
-      window.sessionStorage.setItem(
-        storageKey,
-        String(Math.max(0, Math.round(window.scrollY))),
-      )
-    }
-  }, [book?.id, session.currentSection, user?.id])
+    return () => window.cancelAnimationFrame(frame)
+  }, [currentSection?.section_id])
 
   useEffect(() => {
     setSaveStatus('')
