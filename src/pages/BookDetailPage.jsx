@@ -6,6 +6,8 @@ import {
   BookOpen,
   CalendarDays,
   Check,
+  ChevronDown,
+  ChevronUp,
   Clock3,
   Feather,
 } from 'lucide-react'
@@ -32,10 +34,12 @@ export default function BookDetailPage() {
   const { user } = useAuthStore()
   const { startBook, progress } = useReadingStore()
 
+  const [showPace, setShowPace] = useState(false)
   const [paceMode, setPaceMode] = useState('none')
   const [minutes, setMinutes] = useState(10)
   const [weeks, setWeeks] = useState(12)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const bookId = Number(id)
   const book = books.find((item) => item.id === bookId)
@@ -56,16 +60,21 @@ export default function BookDetailPage() {
     if (!user || loading) return
 
     setLoading(true)
+    setError('')
 
     try {
-      await startBook(
+      const { error: startError } = await startBook(
         user.id,
         book.id,
         paceMode === 'none' ? 'minutes' : paceMode,
         paceMode === 'minutes' ? minutes : null,
         paceMode === 'deadline' ? deadline : null,
       )
+
+      if (startError) throw startError
       navigate(`/ler/${book.id}`)
+    } catch {
+      setError('Não foi possível começar esta leitura agora. Tente novamente em instantes.')
     } finally {
       setLoading(false)
     }
@@ -109,88 +118,133 @@ export default function BookDetailPage() {
                 <BookOpen size={20} aria-hidden="true" />
               </div>
               <div>
-                <h2 id="context-heading" className="font-display text-lg font-semibold text-ink dark:text-night-ink">Como esta leitura funciona no Vereda</h2>
+                <h2 id="context-heading" className="font-display text-lg font-semibold text-ink dark:text-night-ink">Como esta leitura funciona</h2>
                 <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-                  A obra é apresentada em pequenos trechos para facilitar a continuidade. O texto continua sendo a fonte principal; o Vereda organiza o caminho, sem substituir a leitura.
+                  Você lê a obra em trechos confortáveis. O Vereda salva seu lugar automaticamente para você continuar depois.
                 </p>
               </div>
             </div>
           </section>
 
-          <section className="mt-10" aria-labelledby="pace-heading">
-            <p className="ves-eyebrow">Seu ritmo</p>
-            <h2 id="pace-heading" className="ves-heading mt-1 text-[1.8rem]">
-              Quer combinar algum ritmo?
-            </h2>
-            <p className="mt-3 text-base leading-relaxed text-muted dark:text-night-muted">
-              É totalmente opcional. Você pode simplesmente ler quando puder e continuar de onde parou.
-            </p>
+          {!showPace && (
+            <div className="mt-8">
+              <Button onClick={start} loading={loading} className="w-full sm:w-auto sm:min-w-56">
+                Começar esta leitura
+                {!loading && <ArrowRight size={19} aria-hidden="true" />}
+              </Button>
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              <ChoiceCard
-                selected={paceMode === 'none'}
-                onClick={() => setPaceMode('none')}
-                icon={Feather}
-                title="Sem ritmo fixo"
-                description="Leia quando fizer sentido para você."
-                tone="warm"
-              />
-              <ChoiceCard
-                selected={paceMode === 'minutes'}
-                onClick={() => setPaceMode('minutes')}
-                icon={Clock3}
-                title="Alguns minutos"
-                description="Um lembrete de ritmo, sem obrigação."
-              />
-              <ChoiceCard
-                selected={paceMode === 'deadline'}
-                onClick={() => setPaceMode('deadline')}
-                icon={CalendarDays}
-                title="Uma referência de tempo"
-                description="Uma estimativa aproximada, que pode mudar."
-              />
+              <button
+                type="button"
+                onClick={() => setShowPace(true)}
+                className="mt-3 flex min-h-12 w-full items-center justify-center gap-2 rounded-vesSm px-3 text-sm font-semibold text-sage-800 hover:bg-sage-50 sm:w-auto dark:text-sage-300 dark:hover:bg-sage-950"
+                aria-expanded="false"
+              >
+                <ChevronDown size={18} aria-hidden="true" />
+                Quero combinar um ritmo de estudo
+              </button>
             </div>
+          )}
 
-            {paceMode !== 'none' && (
-              <div className="mt-7 rounded-vesLg border border-line bg-surface/90 p-5 shadow-sm dark:border-night-line dark:bg-night-surface/90">
-                {paceMode === 'minutes' ? (
-                  <>
-                    <h3 className="font-display text-lg font-semibold text-ink dark:text-night-ink">
-                      Quanto tempo costuma caber no seu dia?
-                    </h3>
-                    <div className="mt-4 flex flex-wrap gap-3">
-                      {MINUTE_OPTIONS.map((option) => (
-                        <PillChoice
-                          key={option}
-                          selected={minutes === option}
-                          onClick={() => setMinutes(option)}
-                        >
-                          {option} min
-                        </PillChoice>
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <h3 className="font-display text-lg font-semibold text-ink dark:text-night-ink">
-                      Qual horizonte parece confortável?
-                    </h3>
-                    <div className="mt-4 flex flex-wrap gap-3">
-                      {WEEK_OPTIONS.map((option) => (
-                        <PillChoice
-                          key={option}
-                          selected={weeks === option}
-                          onClick={() => setWeeks(option)}
-                        >
-                          {formatWeeks(option)}
-                        </PillChoice>
-                      ))}
-                    </div>
-                  </>
-                )}
+          {showPace && (
+            <section className="mt-8" aria-labelledby="pace-heading">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="ves-eyebrow">Opcional</p>
+                  <h2 id="pace-heading" className="ves-heading mt-1 text-[1.8rem]">
+                    Como você prefere estudar?
+                  </h2>
+                  <p className="mt-3 text-base leading-relaxed text-muted dark:text-night-muted">
+                    Isso serve apenas como uma referência. Você pode mudar depois.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowPace(false)}
+                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-vesSm text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950"
+                  aria-label="Fechar opções de ritmo"
+                  aria-expanded="true"
+                >
+                  <ChevronUp size={20} aria-hidden="true" />
+                </button>
               </div>
-            )}
-          </section>
+
+              <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                <ChoiceCard
+                  selected={paceMode === 'none'}
+                  onClick={() => setPaceMode('none')}
+                  icon={Feather}
+                  title="Sem ritmo fixo"
+                  description="Leia quando fizer sentido para você."
+                  tone="warm"
+                />
+                <ChoiceCard
+                  selected={paceMode === 'minutes'}
+                  onClick={() => setPaceMode('minutes')}
+                  icon={Clock3}
+                  title="Alguns minutos"
+                  description="Escolha uma referência de minutos."
+                />
+                <ChoiceCard
+                  selected={paceMode === 'deadline'}
+                  onClick={() => setPaceMode('deadline')}
+                  icon={CalendarDays}
+                  title="Uma referência de tempo"
+                  description="Escolha um horizonte aproximado."
+                />
+              </div>
+
+              {paceMode !== 'none' && (
+                <div className="mt-7 rounded-vesLg border border-line bg-surface/90 p-5 shadow-sm dark:border-night-line dark:bg-night-surface/90">
+                  {paceMode === 'minutes' ? (
+                    <>
+                      <h3 className="font-display text-lg font-semibold text-ink dark:text-night-ink">
+                        Quanto tempo costuma caber no seu dia?
+                      </h3>
+                      <div className="mt-4 flex flex-wrap gap-3">
+                        {MINUTE_OPTIONS.map((option) => (
+                          <PillChoice
+                            key={option}
+                            selected={minutes === option}
+                            onClick={() => setMinutes(option)}
+                          >
+                            {option} min
+                          </PillChoice>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <h3 className="font-display text-lg font-semibold text-ink dark:text-night-ink">
+                        Qual horizonte parece confortável?
+                      </h3>
+                      <div className="mt-4 flex flex-wrap gap-3">
+                        {WEEK_OPTIONS.map((option) => (
+                          <PillChoice
+                            key={option}
+                            selected={weeks === option}
+                            onClick={() => setWeeks(option)}
+                          >
+                            {formatWeeks(option)}
+                          </PillChoice>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
+
+              <Button onClick={start} loading={loading} className="mt-7 w-full sm:w-auto sm:min-w-56">
+                Começar esta leitura
+                {!loading && <ArrowRight size={19} aria-hidden="true" />}
+              </Button>
+            </section>
+          )}
+
+          {error && (
+            <p role="alert" className="mt-5 rounded-vesMd border border-red-200 bg-red-50 p-4 text-sm text-red-800 dark:border-red-900 dark:bg-red-950/30 dark:text-red-300">
+              {error}
+            </p>
+          )}
 
           <div className="mt-8 rounded-vesLg border border-sage-200 bg-sage-50/80 p-5 shadow-sm dark:border-sage-900 dark:bg-sage-950/35">
             <div className="flex items-start gap-3">
@@ -200,15 +254,10 @@ export default function BookDetailPage() {
                 aria-hidden="true"
               />
               <p className="text-sm leading-relaxed text-muted dark:text-night-muted">
-                O Vereda salva automaticamente onde você parou. Uma pausa não apaga seu caminho nem cria atraso.
+                Você pode parar quando quiser. O Vereda guarda seu lugar sem criar atraso ou cobrança.
               </p>
             </div>
           </div>
-
-          <Button onClick={start} loading={loading} className="mt-8 w-full sm:w-auto sm:min-w-56">
-            Começar esta leitura
-            {!loading && <ArrowRight size={19} aria-hidden="true" />}
-          </Button>
         </div>
       </div>
     </main>
