@@ -15,11 +15,16 @@ import GettingStartedPage from '@/pages/GettingStartedPage'
 import EvolutionPage from '@/pages/EvolutionPage'
 import SettingsPage from '@/pages/SettingsPage'
 
-const FONT_SCALE_MAP = {
+export const APP_FONT_SCALE_MAP = {
   sm: '15px',
-  md: '17px',
-  lg: '19px',
-  xl: '21px',
+  md: '16px',
+  lg: '17px',
+  xl: '18px',
+}
+
+const THEME_COLORS = {
+  light: '#4F6757',
+  dark: '#182019',
 }
 
 export default function App() {
@@ -30,10 +35,12 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode)
+    const themeMeta = document.querySelector('meta[name="theme-color"]')
+    themeMeta?.setAttribute('content', darkMode ? THEME_COLORS.dark : THEME_COLORS.light)
   }, [darkMode])
 
   useEffect(() => {
-    document.documentElement.style.fontSize = FONT_SCALE_MAP[appFontScale] || FONT_SCALE_MAP.md
+    document.documentElement.style.fontSize = APP_FONT_SCALE_MAP[appFontScale] || APP_FONT_SCALE_MAP.md
   }, [appFontScale])
 
   if (loading) return <PageLoader />
