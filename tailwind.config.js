@@ -77,6 +77,7 @@ export default {
           100: '#F5ECD9',
           400: '#B9A46E',
           600: '#7C7445',
+          700: '#6E6537',
         },
       },
       fontFamily: {
