@@ -1,6 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useAuthStore, useReadingStore } from '@/store'
 
+let booksRequest = null
+const loadedUserData = new Set()
+const userDataRequests = new Map()
+
 // Estima tempo de leitura baseado em palavras
 export function useReadingTime(wordCount) {
   const WPM = 200
@@ -70,28 +74,65 @@ export function useReadingTimer() {
   return { seconds, start, stop, reset }
 }
 
-// Busca e mantém lista de livros atualizada
+// Busca e mantém lista de livros atualizada sem disparar chamadas duplicadas
 export function useBooks() {
   const { books, fetchBooks } = useReadingStore()
+
   useEffect(() => {
-    if (!books.length) fetchBooks()
+    if (books.length || booksRequest) return
+
+    booksRequest = Promise.resolve(fetchBooks())
+      .finally(() => {
+        booksRequest = null
+      })
   }, [books.length, fetchBooks])
+
   return books
 }
 
-// Carrega dados do usuário logado
+// Carrega os dados do usuário uma vez por sessão e reutiliza o estado do Zustand
 export function useUserData() {
-  const { user }    = useAuthStore()
+  const { user } = useAuthStore()
   const { fetchProgress, fetchStreak, progress, streak } = useReadingStore()
-  const [dataLoading, setDataLoading] = useState(true)
+  const userId = user?.id
+  const [dataLoading, setDataLoading] = useState(
+    () => Boolean(userId && !loadedUserData.has(userId)),
+  )
 
   useEffect(() => {
-    if (user) {
-      setDataLoading(true)
-      Promise.all([fetchProgress(user.id), fetchStreak(user.id)])
-        .finally(() => setDataLoading(false))
+    let active = true
+
+    if (!userId) {
+      setDataLoading(false)
+      return () => { active = false }
     }
-  }, [user, fetchProgress, fetchStreak])
+
+    if (loadedUserData.has(userId)) {
+      setDataLoading(false)
+      return () => { active = false }
+    }
+
+    setDataLoading(true)
+
+    let request = userDataRequests.get(userId)
+    if (!request) {
+      request = Promise.all([fetchProgress(userId), fetchStreak(userId)])
+        .then(() => {
+          loadedUserData.add(userId)
+        })
+        .finally(() => {
+          userDataRequests.delete(userId)
+        })
+
+      userDataRequests.set(userId, request)
+    }
+
+    request.finally(() => {
+      if (active) setDataLoading(false)
+    })
+
+    return () => { active = false }
+  }, [userId, fetchProgress, fetchStreak])
 
   return { user, progress, streak, dataLoading }
 }
