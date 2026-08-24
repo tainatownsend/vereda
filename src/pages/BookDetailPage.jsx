@@ -72,8 +72,8 @@ export default function BookDetailPage() {
   }
 
   return (
-    <main className="ves-page min-h-screen pb-12">
-      <div className="ves-container pt-7">
+    <main className="ves-page ves-brand-page min-h-screen pb-12">
+      <div className="ves-container pt-7 lg:max-w-5xl">
         <button
           type="button"
           onClick={() => navigate(-1)}
@@ -84,15 +84,15 @@ export default function BookDetailPage() {
         </button>
       </div>
 
-      <div className="ves-container grid gap-10 pb-8 pt-7 lg:max-w-5xl lg:grid-cols-[18rem_1fr] lg:items-start">
+      <div className="ves-container grid gap-10 pb-8 pt-6 lg:max-w-5xl lg:grid-cols-[18rem_1fr] lg:items-start">
         <BookIdentity book={book} />
 
         <div>
           <p className="ves-eyebrow">Antes de começar</p>
-          <h1 className="ves-heading mt-2 text-[2.4rem] lg:text-[3rem]">
+          <h1 className="ves-heading mt-2 text-[2.45rem] lg:text-[3rem]">
             {book.title}
           </h1>
-          <p className="mt-2 text-sm font-medium text-muted dark:text-night-muted">
+          <p className="mt-2 text-sm font-medium text-sage-700 dark:text-sage-300">
             {book.author}
             {book.year ? ` · ${book.year}` : ''}
           </p>
@@ -103,11 +103,13 @@ export default function BookDetailPage() {
             </p>
           )}
 
-          <section className="mt-8 rounded-vesLg border border-line bg-surface p-5 dark:border-night-line dark:bg-night-surface" aria-labelledby="context-heading">
+          <section className="ves-warm-panel mt-8 rounded-vesLg border border-line/80 p-5 shadow-sm sm:p-6 dark:border-night-line" aria-labelledby="context-heading">
             <div className="flex items-start gap-3">
-              <BookOpen size={21} className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-surface/80 text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
+                <BookOpen size={20} aria-hidden="true" />
+              </div>
               <div>
-                <h2 id="context-heading" className="font-semibold text-ink dark:text-night-ink">Como esta leitura funciona no Vereda</h2>
+                <h2 id="context-heading" className="font-display text-lg font-semibold text-ink dark:text-night-ink">Como esta leitura funciona no Vereda</h2>
                 <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
                   A obra é apresentada em pequenos trechos para facilitar a continuidade. O texto continua sendo a fonte principal; o Vereda organiza o caminho, sem substituir a leitura.
                 </p>
@@ -131,6 +133,7 @@ export default function BookDetailPage() {
                 icon={Feather}
                 title="Sem ritmo fixo"
                 description="Leia quando fizer sentido para você."
+                tone="warm"
               />
               <ChoiceCard
                 selected={paceMode === 'minutes'}
@@ -149,10 +152,10 @@ export default function BookDetailPage() {
             </div>
 
             {paceMode !== 'none' && (
-              <div className="mt-7 rounded-vesLg border border-line bg-surface p-5 dark:border-night-line dark:bg-night-surface">
+              <div className="mt-7 rounded-vesLg border border-line bg-surface/90 p-5 shadow-sm dark:border-night-line dark:bg-night-surface/90">
                 {paceMode === 'minutes' ? (
                   <>
-                    <h3 className="font-semibold text-ink dark:text-night-ink">
+                    <h3 className="font-display text-lg font-semibold text-ink dark:text-night-ink">
                       Quanto tempo costuma caber no seu dia?
                     </h3>
                     <div className="mt-4 flex flex-wrap gap-3">
@@ -169,7 +172,7 @@ export default function BookDetailPage() {
                   </>
                 ) : (
                   <>
-                    <h3 className="font-semibold text-ink dark:text-night-ink">
+                    <h3 className="font-display text-lg font-semibold text-ink dark:text-night-ink">
                       Qual horizonte parece confortável?
                     </h3>
                     <div className="mt-4 flex flex-wrap gap-3">
@@ -189,7 +192,7 @@ export default function BookDetailPage() {
             )}
           </section>
 
-          <div className="mt-8 rounded-vesLg bg-sage-50 p-5 dark:bg-sage-950/35">
+          <div className="mt-8 rounded-vesLg border border-sage-200 bg-sage-50/80 p-5 shadow-sm dark:border-sage-900 dark:bg-sage-950/35">
             <div className="flex items-start gap-3">
               <Check
                 size={20}
@@ -202,7 +205,7 @@ export default function BookDetailPage() {
             </div>
           </div>
 
-          <Button onClick={start} loading={loading} className="mt-8 w-full sm:w-auto">
+          <Button onClick={start} loading={loading} className="mt-8 w-full sm:w-auto sm:min-w-56">
             Começar esta leitura
             {!loading && <ArrowRight size={19} aria-hidden="true" />}
           </Button>
@@ -217,41 +220,45 @@ function BookIdentity({ book }) {
 
   return (
     <aside className="mx-auto w-full max-w-[17rem] lg:sticky lg:top-8">
-      <div className="rounded-vesLg border border-line bg-surface p-5 shadow-editorial dark:border-night-line dark:bg-night-surface">
-        {image ? (
-          <img
-            src={image}
-            alt={`Capa de ${book.title}`}
-            className="mx-auto w-full rounded-vesSm object-cover shadow-lg"
-          />
-        ) : (
-          <div className="flex aspect-[2/3] items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
-            <BookOpen size={48} aria-hidden="true" />
-          </div>
-        )}
+      <div className="ves-horizon-panel rounded-vesLg border border-line p-5 shadow-editorial dark:border-night-line">
+        <div className="relative z-10">
+          {image ? (
+            <img
+              src={image}
+              alt={`Capa de ${book.title}`}
+              className="mx-auto w-full rounded-vesSm object-cover shadow-xl"
+            />
+          ) : (
+            <div className="flex aspect-[2/3] items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+              <BookOpen size={48} aria-hidden="true" />
+            </div>
+          )}
+        </div>
       </div>
     </aside>
   )
 }
 
-function ChoiceCard({ selected, onClick, icon: Icon, title, description }) {
+function ChoiceCard({ selected, onClick, icon: Icon, title, description, tone = 'sage' }) {
+  const unselectedTone = tone === 'warm'
+    ? 'border-clay-100 bg-clay-50/60 hover:border-clay-300 dark:border-clay-900/60 dark:bg-clay-950/10'
+    : 'border-line bg-surface/90 hover:border-sage-400 dark:border-night-line dark:bg-night-surface/90'
+
   return (
     <button
       type="button"
       onClick={onClick}
       aria-pressed={selected}
-      className={`min-h-36 rounded-vesMd border p-5 text-left transition-colors ${
+      className={`min-h-36 rounded-vesMd border p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 ${
         selected
           ? 'border-sage-700 bg-sage-50 ring-2 ring-sage-500/20 dark:border-sage-300 dark:bg-sage-950/40'
-          : 'border-line bg-surface hover:border-sage-400 dark:border-night-line dark:bg-night-surface'
+          : unselectedTone
       }`}
     >
-      <Icon
-        size={22}
-        className={selected ? 'text-sage-800 dark:text-sage-300' : 'text-muted dark:text-night-muted'}
-        aria-hidden="true"
-      />
-      <p className="mt-4 font-semibold text-ink dark:text-night-ink">{title}</p>
+      <div className={`flex h-10 w-10 items-center justify-center rounded-full ${selected ? 'bg-sage-700 text-white dark:bg-sage-300 dark:text-sage-950' : 'bg-surface text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300'}`}>
+        <Icon size={20} aria-hidden="true" />
+      </div>
+      <p className="mt-4 font-display text-lg font-semibold text-ink dark:text-night-ink">{title}</p>
       <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
         {description}
       </p>
