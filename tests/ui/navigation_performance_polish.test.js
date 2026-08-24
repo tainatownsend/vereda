@@ -34,9 +34,11 @@ describe('navigation and visual polish from authenticated smoke review', () => {
     expect(auth).not.toContain('lg:justify-between')
   })
 
-  it('aligns the settings header with its content column', () => {
-    expect(settings).toContain('<header className="ves-container max-w-2xl pb-7 pt-8">')
+  it('aligns the settings header with its content column and primary-tab navigation', () => {
+    expect(settings).toContain('<header className="ves-container max-w-2xl pb-7 pt-10">')
     expect(settings).toContain('<div className="ves-container max-w-2xl space-y-5 pb-10">')
+    expect(settings).not.toContain('ArrowLeft')
+    expect(settings).not.toContain('navigate(-1)')
   })
 
   it('uses Vereda brand accents for book markers instead of legacy cover colors', () => {
