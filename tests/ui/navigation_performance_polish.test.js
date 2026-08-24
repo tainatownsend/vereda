@@ -48,10 +48,10 @@ describe('navigation and visual polish from authenticated smoke review', () => {
 
   it('puts sequence guidance before the library list and numbers each work', () => {
     const guidanceIndex = library.indexOf('Uma sequência sugerida, não uma obrigação')
-    const booksIndex = library.indexOf('Conheça as obras')
+    const booksSectionIndex = library.indexOf('aria-labelledby="all-books-heading"')
 
     expect(guidanceIndex).toBeGreaterThan(-1)
-    expect(booksIndex).toBeGreaterThan(guidanceIndex)
+    expect(booksSectionIndex).toBeGreaterThan(guidanceIndex)
     expect(library).toContain('getBookSequence(book)')
     expect(library).toContain('Sequência sugerida das obras')
     expect(library).toContain('Não sei por onde começar')
