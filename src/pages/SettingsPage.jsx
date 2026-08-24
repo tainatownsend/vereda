@@ -67,7 +67,7 @@ export default function SettingsPage() {
 
   return (
     <main className="ves-page ves-brand-page pb-28">
-      <header className="ves-container pb-7 pt-8">
+      <header className="ves-container max-w-2xl pb-7 pt-8">
         <button
           type="button"
           onClick={() => navigate(-1)}
