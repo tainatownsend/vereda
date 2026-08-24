@@ -29,7 +29,9 @@ export function normalizeSection(section) {
 function throwIfError(error, fallback) {
   if (!error) return
 
-  const wrapped = new Error(error.message || fallback)
+  // Keep provider/database details in the cause for debugging while presenting
+  // only calm, actionable language to the reader.
+  const wrapped = new Error(fallback || 'Não foi possível concluir esta ação agora.')
   wrapped.cause = error
   throw wrapped
 }
@@ -55,12 +57,12 @@ export async function getReaderState({ userId, bookId, readDate }) {
     p_read_date: readDate,
   })
 
-  throwIfError(error, 'Não foi possível carregar o estado da leitura.')
+  throwIfError(error, 'Não foi possível carregar o ponto onde você parou.')
 
   const state = data?.[0]
 
   if (!state) {
-    throw new Error('O progresso desta obra não foi encontrado.')
+    throw new Error('Não encontramos o ponto salvo desta leitura. Tente novamente.')
   }
 
   return state
@@ -90,7 +92,7 @@ export async function getSectionsFromPosition({
     .order('sec_position')
     .limit(limit)
 
-  throwIfError(error, 'Não foi possível carregar a continuação.')
+  throwIfError(error, 'Não foi possível carregar a continuação desta leitura.')
 
   return (data || []).map(normalizeSection)
 }
@@ -119,7 +121,7 @@ export async function getBookLastPosition(bookId) {
     .limit(1)
     .maybeSingle()
 
-  throwIfError(error, 'Não foi possível calcular o progresso da obra.')
+  throwIfError(error, 'Não foi possível preparar a posição desta obra.')
 
   return Number(data?.sec_position || 0)
 }
@@ -159,7 +161,7 @@ export async function getChapterSections({
 
   const { data, error } = await query.order('sec_position')
 
-  throwIfError(error, 'Não foi possível carregar o progresso do capítulo.')
+  throwIfError(error, 'Não foi possível carregar a posição neste capítulo.')
 
   return data || []
 }
@@ -179,12 +181,12 @@ export async function completeSection({
     p_read_date: readDate,
   })
 
-  throwIfError(error, 'Não foi possível salvar seu progresso.')
+  throwIfError(error, 'Não foi possível salvar onde você parou.')
 
   const result = data?.[0]
 
   if (!result) {
-    throw new Error('O banco não retornou o novo estado da leitura.')
+    throw new Error('Não foi possível confirmar o novo ponto da leitura. Tente novamente.')
   }
 
   return result
