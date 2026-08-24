@@ -3,6 +3,7 @@ import { persist } from 'zustand/middleware'
 import { supabase } from '@/lib/supabase'
 import { useOnboardingStore } from '@/store/useOnboardingStore'
 import { getPasswordResetRedirect } from '@/features/auth/passwordRecovery'
+import { getSignupEmailRedirect } from '@/features/auth/signupConfirmation'
 
 // applyOnboardingChoice Function
 async function applyOnboardingChoice(userId) {
@@ -100,13 +101,16 @@ export const useAuthStore = create((set, get) => ({
       password,
       options: {
         data: { full_name: name },
+        emailRedirectTo: getSignupEmailRedirect(window.location.origin),
       },
     })
 
     if (error) throw error
 
-    if (data.user) {
-      await applyOnboardingChoice(data.user.id)
+    // When e-mail confirmation is enabled, signUp returns a user without a
+    // session. Defer authenticated data work until the user confirms and signs in.
+    if (data.session?.user) {
+      await applyOnboardingChoice(data.session.user.id)
     }
 
     return data
