@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowLeft, Bell, Check, LogOut, Moon, Sun, User } from 'lucide-react'
+import { Bell, Check, LogOut, Moon, Sun, User } from 'lucide-react'
 
 import { useAuthStore, useUIStore } from '@/store'
 import { Button, Card, Divider, Input } from '@/components/ui'
@@ -67,17 +67,8 @@ export default function SettingsPage() {
 
   return (
     <main className="ves-page ves-brand-page pb-28">
-      <header className="ves-container max-w-2xl pb-7 pt-8">
-        <button
-          type="button"
-          onClick={() => navigate(-1)}
-          className="flex min-h-12 items-center gap-2 rounded-vesSm px-2 text-sm font-semibold text-sage-800 hover:bg-sage-100 dark:text-sage-300 dark:hover:bg-sage-950"
-        >
-          <ArrowLeft size={20} aria-hidden="true" />
-          Voltar
-        </button>
-
-        <p className="ves-eyebrow mt-7">Seu espaço</p>
+      <header className="ves-container max-w-2xl pb-7 pt-10">
+        <p className="ves-eyebrow">Seu espaço</p>
         <h1 className="ves-heading mt-2 text-[2.35rem]">Ajustes</h1>
         <p className="mt-3 max-w-lg text-base leading-relaxed text-muted dark:text-night-muted">
           Deixe o Vereda confortável para você. As escolhas podem ser alteradas a qualquer momento.
