@@ -50,7 +50,6 @@
 
   html {
     min-width: 320px;
-    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
 
