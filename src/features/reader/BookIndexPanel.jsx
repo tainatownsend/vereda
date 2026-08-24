@@ -15,6 +15,15 @@ import {
 } from '@/features/reader/bookIndex'
 import { READER_COPY } from '@/features/reader/readerCopy'
 
+const FOCUSABLE_SELECTOR = [
+  'button:not([disabled])',
+  '[href]',
+  'input:not([disabled])',
+  'select:not([disabled])',
+  'textarea:not([disabled])',
+  '[tabindex]:not([tabindex="-1"])',
+].join(',')
+
 export default function BookIndexPanel({
   open,
   onClose,
@@ -27,6 +36,8 @@ export default function BookIndexPanel({
   onSelect,
 }) {
   const closeButtonRef = useRef(null)
+  const dialogRef = useRef(null)
+  const previousFocusRef = useRef(null)
   const [expandedChapters, setExpandedChapters] = useState(() => new Set())
 
   const index = useMemo(() => buildBookIndex(sections), [sections])
@@ -34,12 +45,40 @@ export default function BookIndexPanel({
   useEffect(() => {
     if (!open) return undefined
 
+    previousFocusRef.current = document.activeElement
     closeButtonRef.current?.focus()
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape') onClose()
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        onClose()
+        return
+      }
+
+      if (event.key !== 'Tab' || !dialogRef.current) return
+
+      const focusable = Array.from(
+        dialogRef.current.querySelectorAll(FOCUSABLE_SELECTOR),
+      )
+
+      if (!focusable.length) {
+        event.preventDefault()
+        return
+      }
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      const active = document.activeElement
+
+      if (event.shiftKey && (active === first || !dialogRef.current.contains(active))) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && (active === last || !dialogRef.current.contains(active))) {
+        event.preventDefault()
+        first.focus()
+      }
     }
 
     document.addEventListener('keydown', handleKeyDown)
@@ -47,6 +86,7 @@ export default function BookIndexPanel({
     return () => {
       document.body.style.overflow = previousOverflow
       document.removeEventListener('keydown', handleKeyDown)
+      previousFocusRef.current?.focus?.()
     }
   }, [onClose, open])
 
@@ -95,21 +135,23 @@ export default function BookIndexPanel({
       />
 
       <section
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby="book-index-title"
+        aria-describedby="book-index-description"
         className="absolute inset-y-0 right-0 flex w-full max-w-xl flex-col border-l border-line bg-canvas shadow-2xl dark:border-night-line dark:bg-night"
       >
-        <header className="flex items-start justify-between gap-5 border-b border-line px-6 py-6 dark:border-night-line">
+        <header className="flex items-start justify-between gap-5 border-b border-line px-5 py-5 sm:px-6 sm:py-6 dark:border-night-line">
           <div className="min-w-0">
             <p className="ves-eyebrow">Índice da obra</p>
             <h2
               id="book-index-title"
-              className="ves-heading mt-1 truncate text-[1.75rem]"
+              className="ves-heading mt-1 break-words text-[1.55rem] sm:text-[1.75rem]"
             >
               {bookTitle}
             </h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+            <p id="book-index-description" className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
               {READER_COPY.indexDescription}
             </p>
           </div>
@@ -125,11 +167,12 @@ export default function BookIndexPanel({
           </button>
         </header>
 
-        <div className="flex-1 overflow-y-auto px-5 py-5 sm:px-6">
+        <div className="flex-1 overflow-y-auto px-4 py-5 min-[360px]:px-5 sm:px-6">
           {loading ? (
             <div
               className="flex min-h-52 items-center justify-center gap-3 text-muted dark:text-night-muted"
               role="status"
+              aria-live="polite"
             >
               <Loader2 size={21} className="animate-spin" aria-hidden="true" />
               Carregando índice
@@ -191,8 +234,9 @@ export default function BookIndexPanel({
                               </span>
                             </span>
 
-                            <span className="text-xs text-muted dark:text-night-muted">
+                            <span className="shrink-0 text-xs text-muted dark:text-night-muted">
                               {chapter.sections.length}
+                              <span className="sr-only"> trechos</span>
                             </span>
                           </button>
 
