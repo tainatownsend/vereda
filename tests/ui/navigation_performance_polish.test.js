@@ -8,6 +8,7 @@ const auth = readFileSync('src/pages/AuthPage.jsx', 'utf8')
 const library = readFileSync('src/pages/LibraryPage.jsx', 'utf8')
 const hooks = readFileSync('src/hooks/index.js', 'utf8')
 const styles = readFileSync('src/index.css', 'utf8')
+const ui = readFileSync('src/components/ui/index.jsx', 'utf8')
 
 describe('navigation and visual polish from authenticated smoke review', () => {
   it('opens routes and reading sections at the top instead of restoring stale scroll', () => {
@@ -43,5 +44,24 @@ describe('navigation and visual polish from authenticated smoke review', () => {
     expect(library).toContain("2: '#AB6D50'")
     expect(library).toContain("3: '#B9A46E'")
     expect(library).not.toContain('book.cover_color')
+  })
+
+  it('puts sequence guidance before the library list and numbers each work', () => {
+    const guidanceIndex = library.indexOf('Uma sequência sugerida, não uma obrigação')
+    const booksIndex = library.indexOf('Conheça as obras')
+
+    expect(guidanceIndex).toBeGreaterThan(-1)
+    expect(booksIndex).toBeGreaterThan(guidanceIndex)
+    expect(library).toContain('getBookSequence(book)')
+    expect(library).toContain('Sequência sugerida das obras')
+    expect(library).toContain('Não sei por onde começar')
+    expect(library).toContain('Quero explorar um tema')
+  })
+
+  it('uses a larger animated Vereda mark for page loading', () => {
+    expect(ui).toContain('<VeredaLogo size={82}')
+    expect(ui).toContain('motion-safe:animate-spin')
+    expect(ui).toContain('motion-safe:animate-pulse')
+    expect(ui).toContain('min-h-[60vh]')
   })
 })
