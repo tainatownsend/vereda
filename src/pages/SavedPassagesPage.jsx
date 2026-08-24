@@ -12,7 +12,7 @@ export default function SavedPassagesPage() {
   const navigate = useNavigate()
   const books = useBooks()
   const { user, removeSavedPassage } = useAuthStore()
-  const savedIds = getSavedPassageIds(user)
+  const savedIds = useMemo(() => getSavedPassageIds(user), [user])
   const [sections, setSections] = useState([])
   const [loading, setLoading] = useState(true)
   const [status, setStatus] = useState('')
@@ -47,7 +47,7 @@ export default function SavedPassagesPage() {
 
     load()
     return () => { active = false }
-  }, [user])
+  }, [savedIds])
 
   const remove = async (sectionId) => {
     setStatus('')
