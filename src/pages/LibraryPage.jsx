@@ -133,7 +133,7 @@ function BookCard({ book, progress, navigate }) {
 
         <div className="flex min-w-0 flex-1 flex-col justify-between p-5 sm:p-6">
           <div>
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start justify-between gap-3 sm:gap-4">
               <div className="min-w-0">
                 <p className="font-display text-[1.5rem] font-semibold leading-tight text-ink dark:text-night-ink">
                   {book.title}
@@ -145,7 +145,7 @@ function BookCard({ book, progress, navigate }) {
               </div>
 
               {completed && (
-                <Badge color="success">
+                <Badge color="success" className="shrink-0">
                   <Check size={13} aria-hidden="true" />
                   Percorrida
                 </Badge>
@@ -163,7 +163,7 @@ function BookCard({ book, progress, navigate }) {
             {completed
               ? 'Revisitar esta obra'
               : progress
-                ? `Retomar na seção ${progress.current_section || 1}`
+                ? `Retomar no trecho ${progress.current_section || 1}`
                 : 'Conhecer esta obra'}
             <ArrowRight
               size={17}
