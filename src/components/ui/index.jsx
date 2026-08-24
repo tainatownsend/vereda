@@ -184,8 +184,8 @@ export function Badge({
     primary: 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300',
     violet: 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300',
     sage: 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300',
-    amber: 'bg-amber-100 text-amber-700',
-    gold: 'bg-gold-100 text-gold-600',
+    amber: 'bg-amber-100 text-amber-800 dark:bg-amber-950/30 dark:text-amber-300',
+    gold: 'bg-gold-100 text-gold-700 dark:bg-white/10 dark:text-amber-200',
     slate: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200',
     success: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300',
   }
@@ -215,7 +215,7 @@ export function Spinner({ size = 24, className = '', label = 'Carregando' }) {
 
 export function PageLoader({ label = 'Carregando conteúdo' }) {
   return (
-    <div className="ves-page flex items-center justify-center" role="status">
+    <div className="ves-page flex items-center justify-center" role="status" aria-live="polite">
       <div className="flex flex-col items-center gap-4">
         <VeredaLogo size={54} />
         <Spinner size={28} label={label} />
@@ -224,11 +224,11 @@ export function PageLoader({ label = 'Carregando conteúdo' }) {
   )
 }
 
-export function VeredaLogo({ size = 40, className = '' }) {
+export function VeredaLogo({ size = 40, className = '', alt = '' }) {
   return (
     <img
       src="/vereda-logo-mark.svg"
-      alt="Vereda"
+      alt={alt}
       width={size}
       height={size}
       className={`shrink-0 object-contain ${className}`}
