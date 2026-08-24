@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { ArrowLeft, ArrowRight, Check, Eye, EyeOff, ShieldCheck } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Check, Eye, EyeOff, Mail, ShieldCheck } from 'lucide-react'
 
 import { useAuthStore } from '@/store'
 import { Button, Input, VeredaLogo } from '@/components/ui'
+import { getSignupOutcome } from '@/features/auth/signupConfirmation'
 
 const ERROR_MESSAGES = {
   'Invalid login credentials': 'E-mail ou senha incorretos.',
@@ -35,6 +36,7 @@ export default function AuthPage() {
 
   const isSignup = mode === 'signup'
   const isForgot = mode === 'forgot'
+  const isConfirm = mode === 'confirm'
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -65,7 +67,14 @@ export default function AuthPage() {
           'Se houver uma conta com este e-mail, você receberá um link para criar uma nova senha.',
         )
       } else if (isSignup) {
-        await signUpWithEmail(email.trim(), password, name.trim())
+        const data = await signUpWithEmail(email.trim(), password, name.trim())
+        const outcome = getSignupOutcome(data)
+
+        if (outcome.requiresEmailConfirmation) {
+          setPassword('')
+          setMode('confirm')
+          setMessage('Conta criada. Falta apenas confirmar seu e-mail para continuar.')
+        }
       } else {
         await signInWithEmail(email.trim(), password)
       }
@@ -95,30 +104,35 @@ export default function AuthPage() {
 
   const returnToLogin = () => {
     setMode('login')
+    setPassword('')
     setError('')
     setMessage('')
   }
 
-  const heading = isForgot
-    ? 'Vamos recuperar seu acesso.'
-    : isSignup
-      ? 'Comece pelo seu primeiro passo.'
-      : 'Que bom ter você por aqui.'
+  const heading = isConfirm
+    ? 'Agora confirme seu e-mail.'
+    : isForgot
+      ? 'Vamos recuperar seu acesso.'
+      : isSignup
+        ? 'Comece pelo seu primeiro passo.'
+        : 'Que bom ter você por aqui.'
 
-  const supportingCopy = isForgot
-    ? 'Informe seu e-mail e enviaremos um link para você criar uma nova senha.'
-    : isSignup
-      ? 'Crie sua conta em menos de um minuto. Depois, o Vereda ajuda você a escolher por onde começar.'
-      : 'Entre para continuar sua leitura exatamente de onde parou.'
+  const supportingCopy = isConfirm
+    ? `Enviamos uma mensagem para ${email.trim()}. Abra o e-mail e toque no link de confirmação. Depois, volte ao Vereda para entrar.`
+    : isForgot
+      ? 'Informe seu e-mail e enviaremos um link para você criar uma nova senha.'
+      : isSignup
+        ? 'Crie sua conta. Depois, o Vereda ajuda você a escolher por onde começar.'
+        : 'Entre para continuar sua leitura exatamente de onde parou.'
 
   return (
-    <main className="ves-page min-h-screen lg:p-5">
+    <main className="ves-page ves-brand-page min-h-screen lg:p-5">
       <div className="mx-auto grid min-h-screen w-full max-w-[1280px] overflow-hidden bg-surface lg:min-h-[calc(100vh-2.5rem)] lg:grid-cols-[1.02fr_0.98fr] lg:rounded-[2.25rem] lg:border lg:border-line lg:shadow-editorial dark:bg-night-surface dark:lg:border-night-line">
         <section className="ves-warm-panel relative hidden overflow-hidden px-14 py-12 lg:flex lg:flex-col lg:justify-between">
           <BrandLockup size={72} />
 
           <div className="relative z-10 max-w-[32rem] pb-20">
-            <p className="ves-eyebrow">Caminho de Luz</p>
+            <p className="ves-eyebrow">Estudo no seu ritmo</p>
             <h1 className="ves-heading mt-5 text-[3.85rem] leading-[1.03]">
               Um caminho simples para aprender e refletir.
             </h1>
@@ -142,22 +156,24 @@ export default function AuthPage() {
           <BrandLandscape />
         </section>
 
-        <section className="flex min-h-screen items-center px-5 py-8 sm:px-9 lg:min-h-0 lg:px-14 lg:py-12">
+        <section className="flex min-h-screen items-center px-4 py-8 min-[360px]:px-5 sm:px-9 lg:min-h-0 lg:px-14 lg:py-12">
           <div className="mx-auto w-full max-w-[29rem]">
-            <div className="mb-10 flex justify-center lg:hidden">
-              <BrandLockup size={72} centered />
+            <div className="mb-8 flex justify-center sm:mb-10 lg:hidden">
+              <BrandLockup size={68} centered />
             </div>
 
-            <div className="rounded-vesLg border border-line bg-surface p-6 shadow-editorial sm:p-8 lg:border-0 lg:p-0 lg:shadow-none dark:border-night-line dark:bg-night-surface">
+            <div className="rounded-vesLg border border-line bg-surface p-5 shadow-editorial min-[360px]:p-6 sm:p-8 lg:border-0 lg:p-0 lg:shadow-none dark:border-night-line dark:bg-night-surface">
               <div>
                 <p className="ves-eyebrow">
-                  {isForgot
-                    ? 'Recupere seu acesso'
-                    : isSignup
-                      ? 'Sua jornada começa aqui'
-                      : 'Bem-vindo de volta'}
+                  {isConfirm
+                    ? 'Só falta uma etapa'
+                    : isForgot
+                      ? 'Recupere seu acesso'
+                      : isSignup
+                        ? 'Sua jornada começa aqui'
+                        : 'Bem-vindo de volta'}
                 </p>
-                <h2 className="ves-heading mt-3 text-[2.2rem] leading-[1.1] sm:text-[2.45rem]">
+                <h2 className="ves-heading mt-3 text-[2rem] leading-[1.1] min-[360px]:text-[2.2rem] sm:text-[2.45rem]">
                   {heading}
                 </h2>
                 <p className="mt-4 text-base leading-relaxed text-muted dark:text-night-muted">
@@ -165,148 +181,182 @@ export default function AuthPage() {
                 </p>
               </div>
 
-              <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
-                {isSignup && (
-                  <Input
-                    label="Como gostaria de ser chamado?"
-                    placeholder="Seu nome"
-                    value={name}
-                    onChange={(event) => setName(event.target.value)}
-                    autoComplete="name"
-                    required
-                  />
-                )}
-
-                <Input
-                  label="E-mail"
-                  type="email"
-                  placeholder="seu@email.com"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  autoComplete="email"
-                  inputMode="email"
-                  required
-                />
-
-                {!isForgot && (
-                  <div>
-                    <div className="relative">
-                      <Input
-                        label="Senha"
-                        type={showPassword ? 'text' : 'password'}
-                        placeholder={isSignup ? 'Mínimo de 6 caracteres' : 'Sua senha'}
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                        autoComplete={isSignup ? 'new-password' : 'current-password'}
-                        inputClassName="pr-14"
-                        required
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowPassword((visible) => !visible)}
-                        className="absolute bottom-1 right-1 flex h-12 w-12 items-center justify-center rounded-vesSm text-muted hover:bg-sage-100 hover:text-ink dark:text-night-muted dark:hover:bg-sage-950 dark:hover:text-night-ink"
-                        aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
-                      >
-                        {showPassword ? (
-                          <EyeOff size={20} aria-hidden="true" />
-                        ) : (
-                          <Eye size={20} aria-hidden="true" />
-                        )}
-                      </button>
-                    </div>
-
-                    {!isSignup && (
-                      <div className="mt-2 text-right">
-                        <button
-                          type="button"
-                          onClick={openForgotPassword}
-                          className="min-h-11 rounded-vesSm px-2 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
-                        >
-                          Esqueci minha senha
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                )}
-
-                {isSignup && (
-                  <div className="flex items-start gap-3 rounded-vesMd bg-sage-50 p-4 text-sm leading-relaxed text-muted dark:bg-sage-950/40 dark:text-night-muted">
-                    <Check
-                      size={18}
-                      className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300"
-                      aria-hidden="true"
-                    />
-                    <span>
-                      O Vereda salva automaticamente onde você parou. Você pode fazer pausas e voltar quando quiser.
-                    </span>
-                  </div>
-                )}
-
-                {error && (
-                  <div
-                    role="alert"
-                    className="rounded-vesSm border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium leading-relaxed text-red-800 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300"
-                  >
-                    {error}
-                  </div>
-                )}
-
-                {message && (
+              {isConfirm ? (
+                <div className="mt-8">
                   <div
                     role="status"
-                    className="rounded-vesSm border border-sage-200 bg-sage-50 px-4 py-3 text-sm font-medium leading-relaxed text-sage-900 dark:border-sage-900 dark:bg-sage-950/40 dark:text-sage-200"
+                    aria-live="polite"
+                    className="rounded-vesLg border border-sage-200 bg-sage-50/80 p-5 dark:border-sage-900 dark:bg-sage-950/35"
                   >
-                    {message}
+                    <div className="flex items-start gap-3">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sage-700 text-white dark:bg-sage-300 dark:text-sage-950">
+                        <Mail size={20} aria-hidden="true" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-ink dark:text-night-ink">Verifique sua caixa de entrada</p>
+                        <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+                          O link confirma que este e-mail pertence a você. Se a mensagem não aparecer, confira também a pasta de spam.
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                )}
 
-                <Button type="submit" loading={loading} className="w-full">
-                  {isForgot ? 'Enviar link de recuperação' : isSignup ? 'Criar minha conta' : 'Entrar'}
-                  {!loading && <ArrowRight size={19} aria-hidden="true" />}
-                </Button>
-              </form>
-
-              {isForgot ? (
-                <button
-                  type="button"
-                  onClick={returnToLogin}
-                  className="mt-6 flex min-h-11 w-full items-center justify-center gap-2 rounded-vesSm px-3 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
-                >
-                  <ArrowLeft size={18} aria-hidden="true" />
-                  Voltar para entrar
-                </button>
+                  <button
+                    type="button"
+                    onClick={returnToLogin}
+                    className="mt-6 flex min-h-12 w-full items-center justify-center gap-2 rounded-vesSm px-3 text-sm font-semibold text-sage-800 underline-offset-4 hover:bg-sage-50 hover:underline dark:text-sage-300 dark:hover:bg-sage-950"
+                  >
+                    <ArrowLeft size={18} aria-hidden="true" />
+                    Voltar para entrar
+                  </button>
+                </div>
               ) : (
                 <>
-                  <div className="relative my-7">
-                    <div className="absolute inset-0 flex items-center">
-                      <div className="w-full border-t border-line dark:border-night-line" />
-                    </div>
-                    <div className="relative flex justify-center">
-                      <span className="bg-surface px-4 text-sm text-muted dark:bg-night-surface dark:text-night-muted">
-                        ou
-                      </span>
-                    </div>
-                  </div>
+                  <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
+                    {isSignup && (
+                      <Input
+                        label="Como gostaria de ser chamado?"
+                        placeholder="Seu nome"
+                        value={name}
+                        onChange={(event) => setName(event.target.value)}
+                        autoComplete="name"
+                        required
+                      />
+                    )}
 
-                  <Button
-                    variant="secondary"
-                    onClick={signInWithGoogle}
-                    className="w-full"
-                  >
-                    <GoogleIcon />
-                    Continuar com Google
-                  </Button>
+                    <Input
+                      label="E-mail"
+                      type="email"
+                      placeholder="seu@email.com"
+                      value={email}
+                      onChange={(event) => setEmail(event.target.value)}
+                      autoComplete="email"
+                      inputMode="email"
+                      required
+                    />
 
-                  <p className="mt-7 text-center text-sm leading-relaxed text-muted dark:text-night-muted">
-                    {isSignup ? 'Já tem uma conta?' : 'Primeira vez no Vereda?'}{' '}
+                    {!isForgot && (
+                      <div>
+                        <div className="relative">
+                          <Input
+                            label="Senha"
+                            type={showPassword ? 'text' : 'password'}
+                            placeholder={isSignup ? 'Mínimo de 6 caracteres' : 'Sua senha'}
+                            value={password}
+                            onChange={(event) => setPassword(event.target.value)}
+                            autoComplete={isSignup ? 'new-password' : 'current-password'}
+                            inputClassName="pr-14"
+                            required
+                          />
+                          <button
+                            type="button"
+                            onClick={() => setShowPassword((visible) => !visible)}
+                            className="absolute bottom-1 right-1 flex h-12 w-12 items-center justify-center rounded-vesSm text-muted hover:bg-sage-100 hover:text-ink dark:text-night-muted dark:hover:bg-sage-950 dark:hover:text-night-ink"
+                            aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
+                          >
+                            {showPassword ? (
+                              <EyeOff size={20} aria-hidden="true" />
+                            ) : (
+                              <Eye size={20} aria-hidden="true" />
+                            )}
+                          </button>
+                        </div>
+
+                        {!isSignup && (
+                          <div className="mt-2 text-right">
+                            <button
+                              type="button"
+                              onClick={openForgotPassword}
+                              className="min-h-11 rounded-vesSm px-2 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+                            >
+                              Esqueci minha senha
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {isSignup && (
+                      <div className="flex items-start gap-3 rounded-vesMd bg-sage-50 p-4 text-sm leading-relaxed text-muted dark:bg-sage-950/40 dark:text-night-muted">
+                        <Check
+                          size={18}
+                          className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300"
+                          aria-hidden="true"
+                        />
+                        <span>
+                          O Vereda salva automaticamente onde você parou. Você pode fazer pausas e voltar quando quiser.
+                        </span>
+                      </div>
+                    )}
+
+                    {error && (
+                      <div
+                        role="alert"
+                        className="rounded-vesSm border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium leading-relaxed text-red-800 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300"
+                      >
+                        {error}
+                      </div>
+                    )}
+
+                    {message && (
+                      <div
+                        role="status"
+                        aria-live="polite"
+                        className="rounded-vesSm border border-sage-200 bg-sage-50 px-4 py-3 text-sm font-medium leading-relaxed text-sage-900 dark:border-sage-900 dark:bg-sage-950/40 dark:text-sage-200"
+                      >
+                        {message}
+                      </div>
+                    )}
+
+                    <Button type="submit" loading={loading} className="w-full">
+                      {isForgot ? 'Enviar link de recuperação' : isSignup ? 'Criar minha conta' : 'Entrar'}
+                      {!loading && <ArrowRight size={19} aria-hidden="true" />}
+                    </Button>
+                  </form>
+
+                  {isForgot ? (
                     <button
                       type="button"
-                      onClick={switchMode}
-                      className="min-h-11 rounded-vesSm px-2 font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+                      onClick={returnToLogin}
+                      className="mt-6 flex min-h-11 w-full items-center justify-center gap-2 rounded-vesSm px-3 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
                     >
-                      {isSignup ? 'Entrar' : 'Criar conta'}
+                      <ArrowLeft size={18} aria-hidden="true" />
+                      Voltar para entrar
                     </button>
-                  </p>
+                  ) : (
+                    <>
+                      <div className="relative my-7">
+                        <div className="absolute inset-0 flex items-center">
+                          <div className="w-full border-t border-line dark:border-night-line" />
+                        </div>
+                        <div className="relative flex justify-center">
+                          <span className="bg-surface px-4 text-sm text-muted dark:bg-night-surface dark:text-night-muted">
+                            ou
+                          </span>
+                        </div>
+                      </div>
+
+                      <Button
+                        variant="secondary"
+                        onClick={signInWithGoogle}
+                        className="w-full"
+                      >
+                        <GoogleIcon />
+                        Continuar com Google
+                      </Button>
+
+                      <p className="mt-7 text-center text-sm leading-relaxed text-muted dark:text-night-muted">
+                        {isSignup ? 'Já tem uma conta?' : 'Primeira vez no Vereda?'}{' '}
+                        <button
+                          type="button"
+                          onClick={switchMode}
+                          className="min-h-11 rounded-vesSm px-2 font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+                        >
+                          {isSignup ? 'Entrar' : 'Criar conta'}
+                        </button>
+                      </p>
+                    </>
+                  )}
                 </>
               )}
 
