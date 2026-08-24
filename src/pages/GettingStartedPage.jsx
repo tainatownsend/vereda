@@ -13,12 +13,24 @@ const FAMILIARITY = [
 ]
 
 const INTENTIONS = [
-  { id: 'foundation', label: 'Quero conhecer a Doutrina', description: 'Começar pelos fundamentos e pelas perguntas centrais.', titleIncludes: 'Espíritos' },
-  { id: 'meaning', label: 'Quero compreender melhor a vida', description: 'Explorar questões sobre existência, escolhas e vida espiritual.', titleIncludes: 'Espíritos' },
-  { id: 'gospel', label: 'Quero estudar os ensinamentos morais', description: 'Ler a abordagem espírita dos ensinamentos do Evangelho.', titleIncludes: 'Evangelho' },
-  { id: 'mediumship', label: 'Quero entender mediunidade', description: 'Ir à obra dedicada ao estudo da mediunidade.', titleIncludes: 'Médiuns' },
-  { id: 'question', label: 'Tenho uma dúvida específica', description: 'Começar pela busca por temas e passagens das obras.', route: '/descobrir' },
-  { id: 'explore', label: 'Só quero explorar', description: 'Conhecer as obras antes de escolher.', route: '/biblioteca' },
+  {
+    id: 'foundation',
+    label: 'Quero começar do início',
+    description: 'Mostre uma boa primeira obra para conhecer os fundamentos.',
+    titleIncludes: 'Espíritos',
+  },
+  {
+    id: 'question',
+    label: 'Tenho uma dúvida específica',
+    description: 'Quero procurar um assunto e ler o que as obras dizem sobre ele.',
+    route: '/descobrir',
+  },
+  {
+    id: 'explore',
+    label: 'Quero escolher uma obra',
+    description: 'Prefiro conhecer os livros disponíveis antes de decidir.',
+    route: '/biblioteca',
+  },
 ]
 
 export default function GettingStartedPage() {
@@ -87,12 +99,12 @@ export default function GettingStartedPage() {
 
             <p className="ves-eyebrow mt-7">Comece com tranquilidade</p>
             <h1 className="ves-heading mt-2 max-w-xl text-[2.15rem] leading-[1.08] sm:text-[2.35rem]">
-              {step === 1 ? 'Vamos encontrar um primeiro caminho.' : 'O que trouxe você até aqui?'}
+              {step === 1 ? 'Vamos encontrar um primeiro caminho.' : 'O que você quer fazer primeiro?'}
             </h1>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg dark:text-night-muted">
               {step === 1
                 ? 'Duas escolhas rápidas ajudam o Vereda a indicar uma primeira leitura. Nada fica bloqueado e você pode mudar de ideia quando quiser.'
-                : 'Escolha a opção que mais se aproxima do que você procura hoje.'}
+                : 'Escolha a opção que parece mais simples para você agora.'}
             </p>
           </div>
         </section>
@@ -123,7 +135,7 @@ export default function GettingStartedPage() {
           </fieldset>
         ) : (
           <fieldset className="mt-8 space-y-3">
-            <legend className="sr-only">O que você procura no Vereda?</legend>
+            <legend className="sr-only">O que você quer fazer primeiro?</legend>
             {INTENTIONS.map((option) => (
               <Choice
                 key={option.id}
