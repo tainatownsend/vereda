@@ -10,6 +10,8 @@ import HomePage from '@/pages/HomePage'
 import BookDetailPage from '@/pages/BookDetailPage'
 import ReaderPage from '@/pages/ReaderPage'
 import LibraryPage from '@/pages/LibraryPage'
+import SavedPassagesPage from '@/pages/SavedPassagesPage'
+import PassagePage from '@/pages/PassagePage'
 import DiscoverPage from '@/pages/DiscoverPage'
 import GettingStartedPage from '@/pages/GettingStartedPage'
 import EvolutionPage from '@/pages/EvolutionPage'
@@ -57,6 +59,10 @@ export default function App() {
             <ProtectedRoute><DiscoverPage /></ProtectedRoute>
           } />
 
+          <Route path="/trecho/:sectionId" element={
+            <ProtectedRoute><PassagePage /></ProtectedRoute>
+          } />
+
           <Route path="/livro/:id" element={
             <ProtectedRoute><BookDetailPage /></ProtectedRoute>
           } />
@@ -67,6 +73,10 @@ export default function App() {
 
           <Route path="/biblioteca" element={
             <ProtectedRoute><LibraryPage /></ProtectedRoute>
+          } />
+
+          <Route path="/salvos" element={
+            <ProtectedRoute><SavedPassagesPage /></ProtectedRoute>
           } />
 
           <Route path="/evolucao" element={
