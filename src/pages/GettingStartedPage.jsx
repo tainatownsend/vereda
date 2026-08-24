@@ -86,12 +86,12 @@ export default function GettingStartedPage() {
             </div>
 
             <p className="ves-eyebrow mt-7">Comece com tranquilidade</p>
-            <h1 className="ves-heading mt-2 max-w-xl text-[2.35rem] leading-[1.08]">
-              {step === 1 ? 'Você não precisa conhecer o aplicativo.' : 'O que trouxe você até aqui?'}
+            <h1 className="ves-heading mt-2 max-w-xl text-[2.15rem] leading-[1.08] sm:text-[2.35rem]">
+              {step === 1 ? 'Vamos encontrar um primeiro caminho.' : 'O que trouxe você até aqui?'}
             </h1>
-            <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted dark:text-night-muted">
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg dark:text-night-muted">
               {step === 1
-                ? 'Duas escolhas rápidas ajudam o Vereda a indicar um primeiro caminho. Nada fica bloqueado e você pode mudar de ideia quando quiser.'
+                ? 'Duas escolhas rápidas ajudam o Vereda a indicar uma primeira leitura. Nada fica bloqueado e você pode mudar de ideia quando quiser.'
                 : 'Escolha a opção que mais se aproxima do que você procura hoje.'}
             </p>
           </div>
