@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { useEffect, useLayoutEffect } from 'react'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useAuthStore, useUIStore } from '@/store'
 import { PageLoader } from '@/components/ui'
 import BottomNav from '@/components/ui/BottomNav'
@@ -39,6 +39,8 @@ export default function App() {
   return (
     <div className={darkMode ? 'dark' : ''}>
       <BrowserRouter>
+        <ScrollToTop />
+
         <Routes>
           <Route
             path="/"
@@ -94,4 +96,14 @@ export default function App() {
       </BrowserRouter>
     </div>
   )
+}
+
+function ScrollToTop() {
+  const { pathname, search, hash } = useLocation()
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [pathname, search, hash])
+
+  return null
 }
