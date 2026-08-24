@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { ArrowLeft, ArrowRight, BookOpen, Check, Compass } from 'lucide-react'
+import { ArrowLeft, ArrowRight, BookOpen, Check } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks } from '@/hooks'
