@@ -66,7 +66,7 @@ export default function SettingsPage() {
   }
 
   return (
-    <main className="ves-page pb-28">
+    <main className="ves-page ves-brand-page pb-28">
       <header className="ves-container pb-7 pt-8">
         <button
           type="button"
@@ -101,9 +101,9 @@ export default function SettingsPage() {
             <div className="flex h-11 w-11 items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
               <User size={20} aria-hidden="true" />
             </div>
-            <div>
+            <div className="min-w-0">
               <h2 className="font-semibold text-ink dark:text-night-ink">Como chamar você</h2>
-              <p className="mt-1 text-sm text-muted dark:text-night-muted">{user?.email}</p>
+              <p className="mt-1 truncate text-sm text-muted dark:text-night-muted">{user?.email}</p>
             </div>
           </div>
           <Input
@@ -123,11 +123,11 @@ export default function SettingsPage() {
           </div>
 
           <div className="flex min-h-14 items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
+            <div className="flex min-w-0 items-center gap-3">
               {darkMode ? (
-                <Moon size={20} className="text-sage-700 dark:text-sage-300" aria-hidden="true" />
+                <Moon size={20} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
               ) : (
-                <Sun size={20} className="text-amber-500" aria-hidden="true" />
+                <Sun size={20} className="shrink-0 text-amber-500" aria-hidden="true" />
               )}
               <div>
                 <p className="font-medium text-ink dark:text-night-ink">Modo escuro</p>
@@ -137,7 +137,7 @@ export default function SettingsPage() {
             <Toggle
               value={darkMode}
               onChange={updateDarkMode}
-              label="Ativar modo escuro"
+              label={darkMode ? 'Desativar modo escuro' : 'Ativar modo escuro'}
             />
           </div>
 
