@@ -57,6 +57,7 @@
   body {
     min-width: 320px;
     margin: 0;
+    overflow-x: clip;
     font-family: 'Inter', system-ui, sans-serif;
     background: var(--ves-canvas);
     color: var(--ves-ink);
@@ -88,6 +89,11 @@
   ::selection {
     background: #D8E2D5;
     color: #2F372F;
+  }
+
+  .dark ::selection {
+    background: #405348;
+    color: #F7F1E8;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -122,7 +128,7 @@
   }
 
   .ves-container {
-    @apply mx-auto w-full max-w-xl px-6;
+    @apply mx-auto w-full max-w-xl px-5 min-[360px]:px-6;
   }
 
   .ves-eyebrow {
@@ -130,6 +136,7 @@
   }
 
   .ves-heading {
+    overflow-wrap: anywhere;
     @apply font-display font-semibold leading-tight tracking-[-0.025em] text-ink dark:text-night-ink;
   }
 
