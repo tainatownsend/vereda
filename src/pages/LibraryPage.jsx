@@ -32,11 +32,77 @@ export default function LibraryPage() {
         <p className="ves-eyebrow">Obras fundamentais</p>
         <h1 className="ves-heading mt-2 text-[2.45rem]">Sua biblioteca</h1>
         <p className="mt-3 max-w-lg text-base leading-relaxed text-muted dark:text-night-muted">
-          Continue o que já começou, consulte o que salvou ou conheça outra obra. Você não precisa seguir uma ordem obrigatória.
+          Encontre seu próximo passo, retome uma leitura ou consulte uma passagem que você guardou.
         </p>
       </header>
 
       <div className="ves-container space-y-10 pb-10">
+        <aside className="ves-warm-panel rounded-vesLg border border-line/80 p-5 shadow-sm sm:p-6 dark:border-night-line">
+          <p className="ves-eyebrow">Uma rota para se orientar</p>
+          <h2 className="mt-2 font-display text-[1.45rem] font-semibold leading-tight text-ink dark:text-night-ink">
+            Uma sequência sugerida, não uma obrigação
+          </h2>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base dark:text-night-muted">
+            Os números mostram uma ordem de estudo que pode ajudar quem está começando. Você continua livre para entrar por qualquer obra quando quiser.
+          </p>
+
+          <div className="mt-5 flex items-center" aria-label="Sequência sugerida das obras">
+            {books.map((book, index) => {
+              const sequence = getBookSequence(book)
+
+              return (
+                <div
+                  key={book.id}
+                  className={`flex items-center ${index < books.length - 1 ? 'flex-1' : ''}`}
+                >
+                  <span
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-sage-300 bg-surface/85 font-display text-sm font-semibold text-sage-800 shadow-sm dark:border-sage-800 dark:bg-night-surface dark:text-sage-300"
+                    aria-label={`Obra ${sequence}: ${book.title}`}
+                  >
+                    {sequence}
+                  </span>
+                  {index < books.length - 1 && (
+                    <span
+                      className="mx-1 h-px flex-1 bg-gradient-to-r from-sage-300 via-gold-400 to-clay-300 dark:from-sage-700 dark:via-gold-600 dark:to-clay-700"
+                      aria-hidden="true"
+                    />
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        </aside>
+
+        <section className="grid gap-3 sm:grid-cols-2" aria-label="Ajuda para escolher">
+          <button
+            type="button"
+            onClick={() => navigate('/comecar')}
+            className="min-h-36 rounded-vesLg border border-clay-100 bg-clay-50/80 p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:border-clay-300 hover:shadow-editorial dark:border-clay-900/60 dark:bg-clay-950/10"
+          >
+            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-surface/85 text-clay-700 shadow-sm dark:bg-night-surface dark:text-clay-300">
+              <BookOpen size={21} aria-hidden="true" />
+            </div>
+            <span className="mt-4 block font-display text-lg font-semibold text-ink dark:text-night-ink">Não sei por onde começar</span>
+            <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">
+              Responda duas perguntas rápidas e receba uma primeira direção.
+            </span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => navigate('/descobrir')}
+            className="min-h-36 rounded-vesLg border border-sage-200 bg-sage-50/80 p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:border-sage-400 hover:shadow-editorial dark:border-sage-900 dark:bg-sage-950/30"
+          >
+            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-surface/85 text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
+              <Compass size={21} aria-hidden="true" />
+            </div>
+            <span className="mt-4 block font-display text-lg font-semibold text-ink dark:text-night-ink">Quero explorar um tema</span>
+            <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">
+              Procure por oração, reencarnação, vida após a morte e outros assuntos.
+            </span>
+          </button>
+        </section>
+
         <button
           type="button"
           onClick={() => navigate('/salvos')}
@@ -82,7 +148,7 @@ export default function LibraryPage() {
         >
           <p className="ves-eyebrow">Conheça as obras</p>
           <h2 id="all-books-heading" className="ves-heading mt-1 text-[1.75rem]">
-            {started.length ? 'Outros caminhos' : 'Escolha com tranquilidade'}
+            {started.length ? 'Outros caminhos' : 'Siga a sequência ou escolha livremente'}
           </h2>
 
           <div className="mt-5 space-y-4">
@@ -96,43 +162,6 @@ export default function LibraryPage() {
             ))}
           </div>
         </section>
-
-        <section className="grid gap-3 sm:grid-cols-2" aria-label="Ajuda para escolher">
-          <button
-            type="button"
-            onClick={() => navigate('/comecar')}
-            className="min-h-36 rounded-vesLg border border-clay-100 bg-clay-50/80 p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:border-clay-300 hover:shadow-editorial dark:border-clay-900/60 dark:bg-clay-950/10"
-          >
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-surface/85 text-clay-700 shadow-sm dark:bg-night-surface dark:text-clay-300">
-              <BookOpen size={21} aria-hidden="true" />
-            </div>
-            <span className="mt-4 block font-display text-lg font-semibold text-ink dark:text-night-ink">Não sei por onde começar</span>
-            <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">
-              Responda duas perguntas rápidas e receba uma primeira direção.
-            </span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => navigate('/descobrir')}
-            className="min-h-36 rounded-vesLg border border-sage-200 bg-sage-50/80 p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:border-sage-400 hover:shadow-editorial dark:border-sage-900 dark:bg-sage-950/30"
-          >
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-surface/85 text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
-              <Compass size={21} aria-hidden="true" />
-            </div>
-            <span className="mt-4 block font-display text-lg font-semibold text-ink dark:text-night-ink">Quero explorar um tema</span>
-            <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">
-              Procure por oração, reencarnação, vida após a morte e outros assuntos.
-            </span>
-          </button>
-        </section>
-
-        <aside className="ves-warm-panel rounded-vesLg border border-line/80 p-6 shadow-sm dark:border-night-line">
-          <h2 className="font-display text-lg font-semibold text-ink dark:text-night-ink">Uma referência, não uma obrigação</h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-            O Vereda pode sugerir uma direção para iniciantes, mas as obras continuam disponíveis para você escolher livremente.
-          </p>
-        </aside>
       </div>
     </main>
   )
@@ -140,6 +169,7 @@ export default function LibraryPage() {
 
 function BookCard({ book, progress, navigate }) {
   const completed = Boolean(progress?.completed_at)
+  const sequence = getBookSequence(book)
   const destination = completed
     ? `/ler/${book.id}?revisit=1`
     : progress
@@ -152,26 +182,34 @@ function BookCard({ book, progress, navigate }) {
       type="button"
       onClick={() => navigate(destination)}
       className="group w-full overflow-hidden text-left transition-all hover:-translate-y-0.5 hover:shadow-editorial"
-      aria-label={progress ? `Retomar ${book.title}` : `Conhecer ${book.title}`}
+      aria-label={`${progress ? `Retomar ${book.title}` : `Conhecer ${book.title}`}. Obra ${sequence} da sequência sugerida.`}
     >
       <div className="flex min-h-40">
         <div
           className="w-2.5 shrink-0 opacity-80"
-          style={{ backgroundColor: BOOK_ACCENT_COLORS[book.id] || '#5E7664' }}
+          style={{ backgroundColor: BOOK_ACCENT_COLORS[sequence] || '#5E7664' }}
           aria-hidden="true"
         />
 
         <div className="flex min-w-0 flex-1 flex-col justify-between p-5 sm:p-6">
           <div>
             <div className="flex items-start justify-between gap-3 sm:gap-4">
-              <div className="min-w-0">
-                <p className="font-display text-[1.5rem] font-semibold leading-tight text-ink dark:text-night-ink">
-                  {book.title}
-                </p>
-                <p className="mt-1 text-sm text-muted dark:text-night-muted">
-                  {book.author}
-                  {book.year ? ` · ${book.year}` : ''}
-                </p>
+              <div className="flex min-w-0 items-start gap-3">
+                <span
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-sage-200 bg-sage-50 font-display text-sm font-semibold text-sage-800 dark:border-sage-800 dark:bg-sage-950/60 dark:text-sage-300"
+                  aria-hidden="true"
+                >
+                  {sequence}
+                </span>
+                <div className="min-w-0">
+                  <p className="font-display text-[1.5rem] font-semibold leading-tight text-ink dark:text-night-ink">
+                    {book.title}
+                  </p>
+                  <p className="mt-1 text-sm text-muted dark:text-night-muted">
+                    {book.author}
+                    {book.year ? ` · ${book.year}` : ''}
+                  </p>
+                </div>
               </div>
 
               {completed && (
@@ -205,4 +243,12 @@ function BookCard({ book, progress, navigate }) {
       </div>
     </Card>
   )
+}
+
+function getBookSequence(book) {
+  const displayOrder = Number(book.display_order)
+  if (Number.isFinite(displayOrder) && displayOrder > 0) return displayOrder
+
+  const bookId = Number(book.id)
+  return Number.isFinite(bookId) && bookId > 0 ? bookId : '•'
 }
