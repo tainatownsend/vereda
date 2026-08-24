@@ -107,6 +107,20 @@
     @apply min-h-screen bg-canvas text-ink dark:bg-night dark:text-night-ink;
   }
 
+  .ves-brand-page {
+    background:
+      radial-gradient(circle at 92% 2%, rgba(231, 185, 119, 0.15), transparent 23rem),
+      radial-gradient(circle at 0% 48%, rgba(109, 139, 116, 0.07), transparent 26rem),
+      var(--ves-canvas);
+  }
+
+  .dark .ves-brand-page {
+    background:
+      radial-gradient(circle at 92% 2%, rgba(231, 185, 119, 0.08), transparent 23rem),
+      radial-gradient(circle at 0% 48%, rgba(175, 194, 173, 0.05), transparent 26rem),
+      var(--ves-canvas);
+  }
+
   .ves-container {
     @apply mx-auto w-full max-w-xl px-6;
   }
@@ -129,6 +143,47 @@
     background:
       radial-gradient(circle at 75% 8%, rgba(231, 185, 119, 0.12), transparent 28%),
       linear-gradient(145deg, #202A22 0%, #253129 65%, #2B342D 100%);
+  }
+
+  .ves-horizon-panel {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+      radial-gradient(circle at 84% 13%, rgba(231, 185, 119, 0.45) 0 2.4rem, transparent 2.45rem),
+      radial-gradient(ellipse at 94% 108%, rgba(79, 103, 87, 0.22) 0 36%, transparent 36.5%),
+      radial-gradient(ellipse at 62% 112%, rgba(175, 194, 173, 0.34) 0 42%, transparent 42.5%),
+      linear-gradient(145deg, #FFF9F1 0%, #F4EADC 65%, #EBDDCB 100%);
+  }
+
+  .ves-horizon-panel::after {
+    content: '';
+    position: absolute;
+    right: 9%;
+    bottom: -2.5rem;
+    width: 6.5rem;
+    height: 10rem;
+    border-left: 3px solid rgba(255, 252, 247, 0.88);
+    border-radius: 58% 0 0 0;
+    transform: rotate(17deg);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .dark .ves-horizon-panel {
+    background:
+      radial-gradient(circle at 84% 13%, rgba(231, 185, 119, 0.18) 0 2.4rem, transparent 2.45rem),
+      radial-gradient(ellipse at 94% 108%, rgba(175, 194, 173, 0.11) 0 36%, transparent 36.5%),
+      radial-gradient(ellipse at 62% 112%, rgba(79, 103, 87, 0.2) 0 42%, transparent 42.5%),
+      linear-gradient(145deg, #202A22 0%, #263129 65%, #2C352E 100%);
+  }
+
+  .ves-soft-card {
+    @apply rounded-vesMd border border-line/80 bg-surface/90 shadow-sm backdrop-blur-sm dark:border-night-line dark:bg-night-surface/90;
+  }
+
+  .ves-nav-shell {
+    box-shadow: 0 -10px 38px rgba(74, 73, 59, 0.07);
   }
 }
 
