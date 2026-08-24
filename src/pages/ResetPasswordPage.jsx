@@ -33,11 +33,14 @@ export default function ResetPasswordPage() {
       setSaved(true)
     } catch (caughtError) {
       const message = caughtError?.message || ''
-      setError(
-        /session|expired|invalid/i.test(message)
-          ? 'Este link é inválido ou expirou. Solicite um novo link na tela de entrada.'
-          : message || 'Não foi possível atualizar sua senha. Tente novamente.',
-      )
+
+      if (/session|expired|invalid/i.test(message)) {
+        setError('Este link é inválido ou expirou. Solicite um novo link na tela de entrada.')
+      } else if (/fetch|network|connection/i.test(message)) {
+        setError('Não foi possível conectar ao Vereda. Verifique sua internet e tente novamente.')
+      } else {
+        setError('Não foi possível atualizar sua senha agora. Solicite um novo link ou tente novamente.')
+      }
     } finally {
       setLoading(false)
     }
@@ -45,9 +48,9 @@ export default function ResetPasswordPage() {
 
   if (saved) {
     return (
-      <main className="ves-page ves-brand-page flex min-h-screen items-center px-6 py-10">
+      <main className="ves-page ves-brand-page flex min-h-screen items-center px-4 py-10 min-[360px]:px-6">
         <section className="mx-auto w-full max-w-md">
-          <div className="ves-horizon-panel rounded-vesLg border border-line p-7 text-center shadow-editorial dark:border-night-line">
+          <div className="ves-horizon-panel rounded-vesLg border border-line p-6 text-center shadow-editorial min-[360px]:p-7 dark:border-night-line">
             <div className="relative z-10">
               <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-white/70 bg-white/65 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
                 <VeredaLogo size={62} />
@@ -71,21 +74,21 @@ export default function ResetPasswordPage() {
   }
 
   return (
-    <main className="ves-page ves-brand-page flex min-h-screen items-center px-6 py-10">
+    <main className="ves-page ves-brand-page flex min-h-screen items-center px-4 py-10 min-[360px]:px-6">
       <section className="mx-auto w-full max-w-md">
         <div className="mb-7 flex items-center gap-4">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full border border-line/70 bg-surface/70 shadow-sm dark:border-night-line dark:bg-night-surface/70">
+          <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-line/70 bg-surface/70 shadow-sm dark:border-night-line dark:bg-night-surface/70">
             <VeredaLogo size={50} />
           </div>
-          <div>
+          <div className="min-w-0">
             <p className="font-display text-xl font-semibold tracking-[0.08em] text-ink dark:text-night-ink">VEREDA</p>
             <p className="mt-1 text-sm text-muted dark:text-night-muted">seu caminho de aprendizado</p>
           </div>
         </div>
 
-        <div className="rounded-vesLg border border-line bg-surface/88 p-6 shadow-editorial backdrop-blur-sm sm:p-7 dark:border-night-line dark:bg-night-surface/88">
+        <div className="rounded-vesLg border border-line bg-surface/88 p-5 shadow-editorial backdrop-blur-sm min-[360px]:p-6 sm:p-7 dark:border-night-line dark:bg-night-surface/88">
           <p className="ves-eyebrow">Recupere seu acesso</p>
-          <h1 className="ves-heading mt-2 text-[2.15rem]">Crie uma nova senha</h1>
+          <h1 className="ves-heading mt-2 text-[2rem] min-[360px]:text-[2.15rem]">Crie uma nova senha</h1>
           <p className="mt-3 leading-relaxed text-muted dark:text-night-muted">
             Escolha uma senha com pelo menos 6 caracteres.
           </p>
