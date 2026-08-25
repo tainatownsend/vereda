@@ -4,6 +4,7 @@ import { useAuthStore, useUIStore } from '@/store'
 import { PageLoader } from '@/components/ui'
 import BottomNav from '@/components/ui/BottomNav'
 import ProtectedRoute from '@/components/ProtectedRoute'
+import LandingPage from '@/pages/LandingPage'
 import AuthPage from '@/pages/AuthPage'
 import ResetPasswordPage from '@/pages/ResetPasswordPage'
 import HomePage from '@/pages/HomePage'
@@ -42,11 +43,9 @@ export default function App() {
         <ScrollToTop />
 
         <Routes>
-          <Route
-            path="/"
-            element={user ? <Navigate to="/home" replace /> : <AuthPage />}
-          />
-
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/entrar" element={user ? <Navigate to="/home" replace /> : <AuthPage />} />
+          <Route path="/criar-conta" element={user ? <Navigate to="/home" replace /> : <AuthPage initialMode="signup" />} />
           <Route path="/redefinir-senha" element={<ResetPasswordPage />} />
 
           <Route path="/home" element={
@@ -92,10 +91,18 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
 
-        {user && <BottomNav />}
+        <AppBottomNav user={user} />
       </BrowserRouter>
     </div>
   )
+}
+
+function AppBottomNav({ user }) {
+  const { pathname } = useLocation()
+  const publicPaths = new Set(['/', '/entrar', '/criar-conta', '/redefinir-senha'])
+
+  if (!user || publicPaths.has(pathname)) return null
+  return <BottomNav />
 }
 
 function ScrollToTop() {
