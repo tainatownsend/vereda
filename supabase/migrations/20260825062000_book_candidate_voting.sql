@@ -86,6 +86,7 @@ begin
 end;
 $$;
 
+drop trigger if exists set_book_candidate_normalized_title on public.book_candidates;
 create trigger set_book_candidate_normalized_title
 before insert or update of title, author on public.book_candidates
 for each row execute function public.set_book_candidate_normalized_title();
@@ -154,7 +155,7 @@ begin
     bc.status,
     bc.created_at,
     count(bcv.user_id)::bigint as vote_count,
-    bool_or(bcv.user_id = auth.uid()) as user_has_voted
+    coalesce(bool_or(bcv.user_id = auth.uid()), false) as user_has_voted
   from public.book_candidates bc
   left join public.book_candidate_votes bcv
     on bcv.candidate_id = bc.id
@@ -244,6 +245,43 @@ begin
 end;
 $$;
 
+create or replace function public.set_book_candidate_vote(
+  p_candidate_id bigint,
+  p_vote boolean
+)
+returns void
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_user_id uuid := auth.uid();
+begin
+  if v_user_id is null then
+    raise exception 'Authentication required';
+  end if;
+
+  if not exists (
+    select 1
+    from public.book_candidates bc
+    where bc.id = p_candidate_id
+      and bc.status in ('candidate', 'under_review', 'planned')
+  ) then
+    raise exception 'Candidate not available for voting';
+  end if;
+
+  if p_vote then
+    insert into public.book_candidate_votes (candidate_id, user_id)
+    values (p_candidate_id, v_user_id)
+    on conflict (candidate_id, user_id) do nothing;
+  else
+    delete from public.book_candidate_votes
+    where candidate_id = p_candidate_id
+      and user_id = v_user_id;
+  end if;
+end;
+$$;
+
 revoke all on function public.get_book_candidates() from public;
 revoke all on function public.get_book_candidates() from anon;
 grant execute on function public.get_book_candidates() to authenticated;
@@ -251,5 +289,9 @@ grant execute on function public.get_book_candidates() to authenticated;
 revoke all on function public.submit_book_candidate(text, text) from public;
 revoke all on function public.submit_book_candidate(text, text) from anon;
 grant execute on function public.submit_book_candidate(text, text) to authenticated;
+
+revoke all on function public.set_book_candidate_vote(bigint, boolean) from public;
+revoke all on function public.set_book_candidate_vote(bigint, boolean) from anon;
+grant execute on function public.set_book_candidate_vote(bigint, boolean) to authenticated;
 
 commit;
