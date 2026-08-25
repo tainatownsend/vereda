@@ -4,11 +4,13 @@
   "source_migration": "supabase/migrations/20260803033000_content_staging_foundation.sql",
   "migrations_scanned": [
     "supabase/migrations/20260802224500_reading_data_foundation.sql",
-    "supabase/migrations/20260803033000_content_staging_foundation.sql"
+    "supabase/migrations/20260803033000_content_staging_foundation.sql",
+    "supabase/migrations/20260825062000_book_candidate_voting.sql"
   ],
   "migrations_relevant": [
     "supabase/migrations/20260802224500_reading_data_foundation.sql",
-    "supabase/migrations/20260803033000_content_staging_foundation.sql"
+    "supabase/migrations/20260803033000_content_staging_foundation.sql",
+    "supabase/migrations/20260825062000_book_candidate_voting.sql"
   ],
   "columns": [
     {
