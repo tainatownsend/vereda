@@ -1,4 +1,4 @@
-import { ArrowRight, BookOpen, Bookmark, Check, Compass, Search, ShieldCheck } from 'lucide-react'
+import { ArrowRight, BookOpen, BookPlus, Bookmark, Check, Compass, Search, ShieldCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { VeredaLogo } from '@/components/ui'
@@ -171,11 +171,21 @@ export default function LandingPage() {
 
       <section className="ves-warm-panel border-y border-line/70 py-16 sm:py-20 dark:border-night-line" aria-labelledby="community-heading">
         <div className="ves-container max-w-3xl text-center">
-          <p className="ves-eyebrow">Uma biblioteca que pode crescer</p>
-          <h2 id="community-heading" className="ves-heading mt-2 text-[2.25rem] sm:text-[2.75rem]">Também queremos ouvir o que você gostaria de estudar.</h2>
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-surface/80 text-sage-800 shadow-sm dark:bg-night-surface/80 dark:text-sage-300">
+            <BookPlus size={24} aria-hidden="true" />
+          </div>
+          <p className="ves-eyebrow mt-5">Uma biblioteca que pode crescer</p>
+          <h2 id="community-heading" className="ves-heading mt-2 text-[2.25rem] sm:text-[2.75rem]">Diga o que você gostaria de estudar depois.</h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted dark:text-night-muted">
-            O próximo passo da comunidade é permitir sugestões e votos em obras futuras. Os votos ajudam a mostrar interesse, mas cada obra ainda precisa passar por revisão de fonte, direitos e preparação editorial antes de entrar na biblioteca.
+            Pessoas com conta podem sugerir uma obra ou votar em pedidos que já existem. Os votos ajudam a mostrar interesse, mas não garantem inclusão: cada título ainda passa por revisão de fonte, direitos e preparação editorial.
           </p>
+          <Link
+            to={user ? '/sugerir-obra' : '/criar-conta'}
+            className="mt-7 inline-flex min-h-14 items-center justify-center gap-2 rounded-vesMd border border-sage-300 bg-surface/85 px-6 py-3 text-base font-semibold text-sage-900 shadow-sm hover:bg-sage-50 dark:border-sage-800 dark:bg-night-surface/85 dark:text-sage-200 dark:hover:bg-sage-950"
+          >
+            <BookPlus size={19} aria-hidden="true" />
+            {user ? 'Sugerir ou votar em uma obra' : 'Criar conta para sugerir uma obra'}
+          </Link>
         </div>
       </section>
 
