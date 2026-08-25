@@ -10,7 +10,7 @@ export default function ProtectedRoute({ children }) {
   if (loading) return <PageLoader />
 
   if (!user) {
-    return <Navigate to="/" state={{ from: location }} replace />
+    return <Navigate to="/entrar" state={{ from: location }} replace />
   }
 
   if (needsFirstTimeOnboarding(user) && location.pathname !== '/comecar') {
