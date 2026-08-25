@@ -94,12 +94,8 @@ for each row execute function public.set_book_candidate_normalized_title();
 alter table public.book_candidates enable row level security;
 alter table public.book_candidate_votes enable row level security;
 
-create policy "authenticated users can read book candidates"
-on public.book_candidates
-for select
-to authenticated
-using (true);
-
+-- Candidate rows contain submitter ids. Keep direct SELECT closed and expose
+-- only safe display fields through get_book_candidates().
 create policy "authenticated users can submit book candidates"
 on public.book_candidates
 for insert
