@@ -1,4 +1,4 @@
-import { ArrowRight, BookOpen, Bookmark, Check, Compass } from 'lucide-react'
+import { ArrowRight, BookOpen, Bookmark, Check } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks } from '@/hooks'
@@ -28,25 +28,18 @@ export default function LibraryPage() {
 
   return (
     <main className="ves-page ves-brand-page pb-28">
-      <header className="ves-container pb-7 pt-10">
+      <header className="ves-container pb-6 pt-10">
         <p className="ves-eyebrow">Obras fundamentais</p>
         <h1 className="ves-heading mt-2 text-[2.45rem]">Sua biblioteca</h1>
-        <p className="mt-3 max-w-lg text-base leading-relaxed text-muted dark:text-night-muted">
-          Encontre seu próximo passo, retome uma leitura ou consulte uma passagem que você guardou.
+        <p className="mt-3 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">
+          Os números indicam uma sequência sugerida de estudo. Você pode começar por qualquer obra.
         </p>
-      </header>
 
-      <div className="ves-container space-y-10 pb-10">
-        <aside className="ves-warm-panel rounded-vesLg border border-line/80 p-5 shadow-sm sm:p-6 dark:border-night-line">
-          <p className="ves-eyebrow">Uma rota para se orientar</p>
-          <h2 className="mt-2 font-display text-[1.45rem] font-semibold leading-tight text-ink dark:text-night-ink">
-            Uma sequência sugerida, não uma obrigação
-          </h2>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base dark:text-night-muted">
-            Os números mostram uma ordem de estudo que pode ajudar quem está começando. Você continua livre para entrar por qualquer obra quando quiser.
-          </p>
-
-          <div className="mt-5 flex items-center" aria-label="Sequência sugerida das obras">
+        <div className="mt-5 flex max-w-xl items-center gap-2" aria-label="Ordem sugerida das cinco obras">
+          <span className="shrink-0 text-xs font-bold uppercase tracking-[0.14em] text-sage-700 dark:text-sage-300">
+            Ordem sugerida
+          </span>
+          <div className="flex min-w-0 flex-1 items-center" aria-hidden="true">
             {books.map((book, index) => {
               const sequence = getBookSequence(book)
 
@@ -55,72 +48,42 @@ export default function LibraryPage() {
                   key={book.id}
                   className={`flex items-center ${index < books.length - 1 ? 'flex-1' : ''}`}
                 >
-                  <span
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-sage-300 bg-surface/85 font-display text-sm font-semibold text-sage-800 shadow-sm dark:border-sage-800 dark:bg-night-surface dark:text-sage-300"
-                    aria-label={`Obra ${sequence}: ${book.title}`}
-                  >
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-sage-300 bg-surface/80 font-display text-xs font-semibold text-sage-800 dark:border-sage-800 dark:bg-night-surface dark:text-sage-300">
                     {sequence}
                   </span>
                   {index < books.length - 1 && (
-                    <span
-                      className="mx-1 h-px flex-1 bg-gradient-to-r from-sage-300 via-gold-400 to-clay-300 dark:from-sage-700 dark:via-gold-600 dark:to-clay-700"
-                      aria-hidden="true"
-                    />
+                    <span className="mx-1 h-px flex-1 bg-line dark:bg-night-line" />
                   )}
                 </div>
               )
             })}
           </div>
-        </aside>
+        </div>
+      </header>
 
-        <section className="grid gap-3 sm:grid-cols-2" aria-label="Ajuda para escolher">
+      <div className="ves-container space-y-8 pb-10">
+        <nav
+          className="flex flex-wrap gap-x-5 gap-y-2 border-y border-line/70 py-3 text-sm dark:border-night-line"
+          aria-label="Atalhos da biblioteca"
+        >
           <button
             type="button"
             onClick={() => navigate('/comecar')}
-            className="min-h-36 rounded-vesLg border border-clay-100 bg-clay-50/80 p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:border-clay-300 hover:shadow-editorial dark:border-clay-900/60 dark:bg-clay-950/10"
+            className="inline-flex min-h-10 items-center gap-2 font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
           >
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-surface/85 text-clay-700 shadow-sm dark:bg-night-surface dark:text-clay-300">
-              <BookOpen size={21} aria-hidden="true" />
-            </div>
-            <span className="mt-4 block font-display text-lg font-semibold text-ink dark:text-night-ink">Não sei por onde começar</span>
-            <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">
-              Responda duas perguntas rápidas e receba uma primeira direção.
-            </span>
+            <BookOpen size={17} aria-hidden="true" />
+            Preciso de ajuda para escolher
           </button>
 
           <button
             type="button"
-            onClick={() => navigate('/descobrir')}
-            className="min-h-36 rounded-vesLg border border-sage-200 bg-sage-50/80 p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:border-sage-400 hover:shadow-editorial dark:border-sage-900 dark:bg-sage-950/30"
+            onClick={() => navigate('/salvos')}
+            className="inline-flex min-h-10 items-center gap-2 font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
           >
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-surface/85 text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
-              <Compass size={21} aria-hidden="true" />
-            </div>
-            <span className="mt-4 block font-display text-lg font-semibold text-ink dark:text-night-ink">Quero explorar um tema</span>
-            <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">
-              Procure por oração, reencarnação, vida após a morte e outros assuntos.
-            </span>
+            <Bookmark size={17} aria-hidden="true" />
+            Trechos salvos{savedCount ? ` (${savedCount})` : ''}
           </button>
-        </section>
-
-        <button
-          type="button"
-          onClick={() => navigate('/salvos')}
-          className="ves-warm-panel group flex min-h-28 w-full items-center gap-4 rounded-vesLg border border-line/80 p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-editorial dark:border-night-line"
-        >
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-surface/85 text-clay-700 shadow-sm dark:bg-night-surface dark:text-clay-300">
-            <Bookmark size={21} aria-hidden="true" />
-          </div>
-          <div className="min-w-0 flex-1">
-            <p className="font-display text-lg font-semibold text-ink dark:text-night-ink">Trechos salvos</p>
-            <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
-              {savedCount
-                ? `${savedCount} ${savedCount === 1 ? 'passagem guardada' : 'passagens guardadas'} para consultar depois.`
-                : 'Guarde passagens importantes para voltar a elas depois.'}
-            </p>
-          </div>
-          <ArrowRight size={19} className="shrink-0 text-sage-700 transition-transform group-hover:translate-x-1 dark:text-sage-300" aria-hidden="true" />
-        </button>
+        </nav>
 
         {started.length > 0 && (
           <section aria-labelledby="started-heading">
@@ -146,10 +109,15 @@ export default function LibraryPage() {
           className={started.length ? 'border-t border-line/70 pt-8 dark:border-night-line' : ''}
           aria-labelledby="all-books-heading"
         >
-          <p className="ves-eyebrow">Conheça as obras</p>
+          <p className="ves-eyebrow">{started.length ? 'Continue explorando' : 'As cinco obras'}</p>
           <h2 id="all-books-heading" className="ves-heading mt-1 text-[1.75rem]">
-            {started.length ? 'Outros caminhos' : 'Siga a sequência ou escolha livremente'}
+            {started.length ? 'Outras obras' : 'Escolha sua primeira obra'}
           </h2>
+          {!started.length && (
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted dark:text-night-muted">
+              Toque em uma obra para conhecer sua proposta antes de começar a leitura.
+            </p>
+          )}
 
           <div className="mt-5 space-y-4">
             {(started.length ? notStarted : books).map((book) => (
