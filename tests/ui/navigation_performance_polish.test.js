@@ -67,6 +67,18 @@ describe('navigation and visual polish from authenticated smoke review', () => {
     expect(library).not.toContain('min-h-28')
   })
 
+  it('keeps reader controls compact so the text remains the visual focus', () => {
+    expect(reader).toContain('aria-label="Ferramentas de leitura"')
+    expect(reader).toContain("canSavePassage ? 'grid-cols-4' : 'grid-cols-3'")
+    expect(reader).toContain('min-h-10')
+    expect(reader).toContain('pb-24 pt-6')
+    expect(reader).toContain('variant="ghost"')
+    expect(reader).toContain('size="sm"')
+    expect(reader).not.toContain('mt-3 grid grid-cols-3 gap-2')
+    expect(reader).not.toContain('Salvar este trecho')
+    expect(reader).not.toContain('pb-36 pt-9')
+  })
+
   it('uses a larger animated Vereda mark for page loading', () => {
     expect(ui).toContain('<VeredaLogo size={82}')
     expect(ui).toContain('motion-safe:animate-spin')
