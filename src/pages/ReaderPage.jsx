@@ -198,6 +198,8 @@ export default function ReaderPage() {
     `Trecho ${currentSection.sec_position}`
 
   const passageSaved = isPassageSaved(user, currentSection.section_id)
+  const canSavePassage = !isPartIntro && !isChapterIntro
+  const saveFailed = saveStatus.startsWith('Não foi')
 
   const toggleSavedPassage = async () => {
     if (savingPassage) return
@@ -232,46 +234,61 @@ export default function ReaderPage() {
         />
       </div>
 
-      <header className="sticky top-1 z-40 border-b border-line bg-canvas/95 backdrop-blur-md dark:border-night-line dark:bg-night/95">
-        <div className="mx-auto max-w-[68ch] px-4 py-3">
-          <div className="min-w-0 text-center">
-            <p className="truncate text-sm font-semibold text-ink dark:text-night-ink">
-              {book.title}
-            </p>
-            <p className="mt-1 truncate text-xs text-muted dark:text-night-muted">
-              {locationLabel} · cerca de {readingTime}
-            </p>
-          </div>
+      <header className="sticky top-1 z-40 border-b border-line/80 bg-canvas/95 backdrop-blur-md dark:border-night-line dark:bg-night/95">
+        <div className="mx-auto max-w-[74ch] px-3 py-2 sm:px-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+            <div className="min-w-0 flex-1 text-center sm:text-left">
+              <p className="truncate text-[13px] font-semibold leading-tight text-ink dark:text-night-ink">
+                {book.title}
+              </p>
+              <p className="mt-0.5 truncate text-[11px] leading-tight text-muted dark:text-night-muted">
+                {locationLabel} · cerca de {readingTime}
+              </p>
+            </div>
 
-          <div className="mt-3 grid grid-cols-3 gap-2">
-            <ReaderUtilityButton
-              icon={Home}
-              label="Início"
-              onClick={() => navigate('/home')}
-            />
-            <ReaderUtilityButton
-              icon={ListTree}
-              label="Índice"
-              onClick={() => {
-                setShowSettings(false)
-                setShowIndex(true)
-                session.loadBookIndex()
-              }}
-            />
-            <div ref={settingsRef} className="relative">
+            <div
+              className={`grid gap-1.5 ${canSavePassage ? 'grid-cols-4' : 'grid-cols-3'} sm:flex sm:shrink-0`}
+              aria-label="Ferramentas de leitura"
+            >
               <ReaderUtilityButton
-                icon={showSettings ? X : Type}
-                label={showSettings ? 'Fechar' : 'Texto'}
-                onClick={() => setShowSettings((visible) => !visible)}
-                expanded={showSettings}
+                icon={Home}
+                label="Início"
+                onClick={() => navigate('/home')}
               />
+              <ReaderUtilityButton
+                icon={ListTree}
+                label="Índice"
+                onClick={() => {
+                  setShowSettings(false)
+                  setShowIndex(true)
+                  session.loadBookIndex()
+                }}
+              />
+              <div ref={settingsRef} className="relative">
+                <ReaderUtilityButton
+                  icon={showSettings ? X : Type}
+                  label={showSettings ? 'Fechar' : 'Texto'}
+                  onClick={() => setShowSettings((visible) => !visible)}
+                  expanded={showSettings}
+                />
 
-              {showSettings && (
-                <ReaderSettings
-                  fontSize={fontSize}
-                  setFontSize={setFontSize}
-                  textAlign={textAlign}
-                  setTextAlign={setTextAlign}
+                {showSettings && (
+                  <ReaderSettings
+                    fontSize={fontSize}
+                    setFontSize={setFontSize}
+                    textAlign={textAlign}
+                    setTextAlign={setTextAlign}
+                  />
+                )}
+              </div>
+
+              {canSavePassage && (
+                <ReaderUtilityButton
+                  icon={passageSaved ? Check : Bookmark}
+                  label={savingPassage ? 'Salvando' : passageSaved ? 'Salvo' : 'Salvar'}
+                  onClick={toggleSavedPassage}
+                  pressed={passageSaved}
+                  disabled={savingPassage}
                 />
               )}
             </div>
@@ -279,15 +296,27 @@ export default function ReaderPage() {
         </div>
       </header>
 
+      {saveStatus && (
+        <p
+          role="status"
+          aria-live="polite"
+          className={saveFailed
+            ? 'mx-auto max-w-[68ch] px-5 pt-2 text-xs font-medium text-red-700 dark:text-red-300'
+            : 'sr-only'}
+        >
+          {saveStatus}
+        </p>
+      )}
+
       {session.goalNoticeVisible && (
         <div
           role="status"
           aria-live="polite"
-          className="mx-auto max-w-[68ch] px-5 pt-5"
+          className="mx-auto max-w-[68ch] px-5 pt-4"
         >
-          <div className="flex items-start gap-3 rounded-vesMd border border-sage-200 bg-sage-50 px-4 py-4 dark:border-sage-900 dark:bg-sage-950/40">
+          <div className="flex items-start gap-3 rounded-vesMd border border-sage-200 bg-sage-50 px-4 py-3 dark:border-sage-900 dark:bg-sage-950/40">
             <Check
-              size={19}
+              size={18}
               className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300"
               aria-hidden="true"
             />
@@ -298,32 +327,7 @@ export default function ReaderPage() {
         </div>
       )}
 
-      <main className="mx-auto max-w-[68ch] overflow-hidden px-5 pb-36 pt-9 sm:px-8 sm:pt-12">
-        {!isPartIntro && !isChapterIntro && (
-          <div className="mb-7">
-            <button
-              type="button"
-              onClick={toggleSavedPassage}
-              disabled={savingPassage}
-              aria-pressed={passageSaved}
-              className={`flex min-h-12 items-center gap-2 rounded-vesSm border px-4 text-sm font-semibold ${
-                passageSaved
-                  ? 'border-sage-700 bg-sage-100 text-sage-900 dark:border-sage-300 dark:bg-sage-950 dark:text-sage-200'
-                  : 'border-line bg-surface text-sage-800 hover:border-sage-400 dark:border-night-line dark:bg-night-surface dark:text-sage-300'
-              }`}
-            >
-              {passageSaved ? <Check size={18} aria-hidden="true" /> : <Bookmark size={18} aria-hidden="true" />}
-              {savingPassage ? 'Salvando…' : passageSaved ? 'Trecho salvo' : 'Salvar este trecho'}
-            </button>
-
-            {saveStatus && (
-              <p role="status" aria-live="polite" className="mt-3 text-sm text-muted dark:text-night-muted">
-                {saveStatus}
-              </p>
-            )}
-          </div>
-        )}
-
+      <main className="mx-auto max-w-[68ch] overflow-hidden px-5 pb-24 pt-6 sm:px-8 sm:pt-8">
         {isPartIntro ? (
           <PartIntro section={currentSection} />
         ) : isChapterIntro ? (
@@ -366,32 +370,34 @@ export default function ReaderPage() {
         }}
       />
 
-      <footer className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-canvas/95 px-4 pb-safe pt-3 backdrop-blur-md dark:border-night-line dark:bg-night/95">
-        <div className="mx-auto flex max-w-[68ch] gap-3 pb-3">
+      <footer className="fixed inset-x-0 bottom-0 z-40 border-t border-line/80 bg-canvas/95 px-3 py-2 pb-safe backdrop-blur-md dark:border-night-line dark:bg-night/95">
+        <div className="mx-auto flex max-w-[68ch] items-center justify-center gap-2">
           {currentSection.sec_position > 1 && (
             <Button
-              variant="secondary"
+              variant="ghost"
+              size="sm"
               onClick={session.goToPrevious}
-              className="min-w-0 flex-1"
+              className="min-w-0 flex-1 sm:flex-none"
               aria-label={READER_COPY.actions.previous.ariaLabel}
             >
-              <ChevronLeft size={20} aria-hidden="true" />
+              <ChevronLeft size={18} aria-hidden="true" />
               {READER_COPY.actions.previous.label}
             </Button>
           )}
 
           <Button
+            size="sm"
             onClick={session.completeCurrentSection}
             loading={session.saving}
-            className="min-w-0 flex-1"
+            className="min-w-0 flex-1 sm:min-w-36 sm:flex-none"
             aria-label={primaryAction.ariaLabel}
           >
             {primaryAction.label}
             {!session.saving &&
               (primaryAction.icon === 'complete' ? (
-                <Check size={20} aria-hidden="true" />
+                <Check size={18} aria-hidden="true" />
               ) : (
-                <ChevronRight size={20} aria-hidden="true" />
+                <ChevronRight size={18} aria-hidden="true" />
               ))}
           </Button>
         </div>
@@ -400,15 +406,28 @@ export default function ReaderPage() {
   )
 }
 
-function ReaderUtilityButton({ icon: Icon, label, onClick, expanded }) {
+function ReaderUtilityButton({
+  icon: Icon,
+  label,
+  onClick,
+  expanded,
+  pressed,
+  disabled = false,
+}) {
   return (
     <button
       type="button"
       onClick={onClick}
+      disabled={disabled}
       aria-expanded={expanded}
-      className="flex min-h-12 w-full items-center justify-center gap-2 rounded-vesSm border border-line bg-surface px-2 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-300 dark:hover:bg-sage-950"
+      aria-pressed={pressed}
+      className={`flex min-h-10 w-full items-center justify-center gap-1.5 rounded-vesSm px-2 text-[11px] font-semibold transition-colors sm:w-auto sm:text-xs ${
+        pressed
+          ? 'bg-sage-100 text-sage-900 dark:bg-sage-950 dark:text-sage-200'
+          : 'text-sage-800 hover:bg-sage-100 dark:text-sage-300 dark:hover:bg-sage-950'
+      } disabled:cursor-wait disabled:opacity-60`}
     >
-      <Icon size={18} aria-hidden="true" />
+      <Icon size={16} aria-hidden="true" />
       <span>{label}</span>
     </button>
   )
@@ -445,7 +464,7 @@ function Paragraph({ text, align }) {
 
 function SectionHeading({ breadcrumb, currentSection, chapterSections }) {
   return (
-    <div className="mb-8 border-b border-line pb-5 dark:border-night-line">
+    <div className="mb-6 border-b border-line pb-4 dark:border-night-line">
       {breadcrumb && (
         <p className="text-xs leading-relaxed text-muted dark:text-night-muted">
           {breadcrumb}
@@ -476,7 +495,7 @@ function ChapterPosition({ stations, currentPosition }) {
   if (index === -1) return null
 
   return (
-    <p className="mt-4 text-xs font-medium text-muted dark:text-night-muted">
+    <p className="mt-3 text-xs font-medium text-muted dark:text-night-muted">
       Trecho {index + 1} de {stations.length} neste capítulo
     </p>
   )
@@ -496,7 +515,7 @@ function ChapterIntro({ section }) {
     .join(' · ')
 
   return (
-    <section className="py-6 sm:py-12">
+    <section className="py-4 sm:py-8">
       {overline && <p className="ves-eyebrow">{overline}</p>}
 
       <h1 className="ves-heading mt-3 text-[2.45rem] leading-[1.08]">
@@ -504,7 +523,7 @@ function ChapterIntro({ section }) {
       </h1>
 
       {topics.length > 0 && (
-        <div className="mt-10">
+        <div className="mt-8">
           <p className="text-sm font-semibold text-muted dark:text-night-muted">
             Neste capítulo
           </p>
@@ -546,7 +565,7 @@ function ReaderSettings({ fontSize, setFontSize, textAlign, setTextAlign }) {
   const selectedFont = FONT_SIZES.find((option) => option.id === fontSize)
 
   return (
-    <div className="absolute right-0 top-full z-50 mt-3 w-[19rem] rounded-vesMd border border-line bg-surface p-5 shadow-editorial dark:border-night-line dark:bg-night-surface">
+    <div className="absolute right-0 top-full z-50 mt-2 w-[19rem] rounded-vesMd border border-line bg-surface p-5 shadow-editorial dark:border-night-line dark:bg-night-surface">
       <p className="text-sm font-semibold text-ink dark:text-night-ink">
         Tamanho do texto
       </p>
