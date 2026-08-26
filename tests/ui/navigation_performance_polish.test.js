@@ -7,6 +7,7 @@ const settings = readFileSync('src/pages/SettingsPage.jsx', 'utf8')
 const auth = readFileSync('src/pages/AuthPage.jsx', 'utf8')
 const library = readFileSync('src/pages/LibraryPage.jsx', 'utf8')
 const hooks = readFileSync('src/hooks/index.js', 'utf8')
+const store = readFileSync('src/store/index.js', 'utf8')
 const styles = readFileSync('src/index.css', 'utf8')
 const ui = readFileSync('src/components/ui/index.jsx', 'utf8')
 
@@ -20,11 +21,15 @@ describe('navigation and visual polish from authenticated smoke review', () => {
     expect(styles).not.toContain('scroll-behavior: smooth;')
   })
 
-  it('reuses reading data between route mounts and deduplicates book loading', () => {
+  it('reuses reading data and avoids duplicate auth/profile loading', () => {
     expect(hooks).toContain('const loadedUserData = new Set()')
     expect(hooks).toContain('const userDataRequests = new Map()')
     expect(hooks).toContain('let booksRequest = null')
     expect(hooks).toContain('loadedUserData.has(userId)')
+    expect(store).toContain('let authInitPromise = null')
+    expect(store).toContain('const profileRequests = new Map()')
+    expect(store).toContain("set({ user: session.user, loading: false })")
+    expect(store).toContain('void get().fetchProfile(session.user.id)')
   })
 
   it('keeps the desktop login composition compact enough for common laptop heights', () => {
@@ -48,16 +53,18 @@ describe('navigation and visual polish from authenticated smoke review', () => {
     expect(library).not.toContain('book.cover_color')
   })
 
-  it('puts sequence guidance before the library list and numbers each work', () => {
-    const guidanceIndex = library.indexOf('Uma sequência sugerida, não uma obrigação')
+  it('makes the Library self-explanatory without duplicating Home discovery actions', () => {
+    const guidanceIndex = library.indexOf('Ordem sugerida')
     const booksSectionIndex = library.indexOf('aria-labelledby="all-books-heading"')
 
     expect(guidanceIndex).toBeGreaterThan(-1)
     expect(booksSectionIndex).toBeGreaterThan(guidanceIndex)
     expect(library).toContain('getBookSequence(book)')
-    expect(library).toContain('Sequência sugerida das obras')
-    expect(library).toContain('Não sei por onde começar')
-    expect(library).toContain('Quero explorar um tema')
+    expect(library).toContain('Preciso de ajuda para escolher')
+    expect(library).toContain('Trechos salvos')
+    expect(library).not.toContain('Quero explorar um tema')
+    expect(library).not.toContain('ves-warm-panel')
+    expect(library).not.toContain('min-h-28')
   })
 
   it('uses a larger animated Vereda mark for page loading', () => {
