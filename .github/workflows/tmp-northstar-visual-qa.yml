@@ -1,0 +1,79 @@
+name: Temporary North Star Visual QA
+
+on:
+  push:
+    branches:
+      - feat/vereda-north-star-ui-v3
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    env:
+      VITE_SUPABASE_URL: https://example.supabase.co
+      VITE_SUPABASE_ANON_KEY: test-anon-key
+      VITE_NORTHSTAR_QA: 'true'
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/vereda-north-star-ui-v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build QA bundle
+        run: npm run build
+
+      - name: Install browser for visual QA
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start preview server
+        run: |
+          nohup npm run preview -- --host 127.0.0.1 --port 4173 > /tmp/vereda-preview.log 2>&1 &
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/__northstar-qa > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/vereda-preview.log
+          exit 1
+
+      - name: Capture canonical screens
+        run: |
+          mkdir -p visual-qa
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright'
+
+          const browser = await chromium.launch({ headless: true })
+          const page = await browser.newPage({ viewport: { width: 1920, height: 1300 }, deviceScaleFactor: 1 })
+          await page.goto('http://127.0.0.1:4173/__northstar-qa', { waitUntil: 'networkidle' })
+          await page.screenshot({ path: 'visual-qa/northstar-showcase.png', fullPage: true })
+
+          for (const screen of ['home', 'library', 'reflection', 'reader', 'community']) {
+            await page.setViewportSize({ width: 438, height: 900 })
+            await page.goto(`http://127.0.0.1:4173/__northstar-qa?screen=${screen}`, { waitUntil: 'networkidle' })
+            await page.screenshot({ path: `visual-qa/${screen}.png`, fullPage: true })
+          }
+
+          await browser.close()
+          NODE
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: northstar-visual-qa
+          path: visual-qa/*.png
+          if-no-files-found: error
+          retention-days: 3
