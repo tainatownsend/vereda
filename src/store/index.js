@@ -2,6 +2,22 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { supabase } from '@/lib/supabase'
 import { useOnboardingStore } from '@/store/useOnboardingStore'
+import { getPasswordResetRedirect } from '@/features/auth/passwordRecovery'
+import { getSignupEmailRedirect } from '@/features/auth/signupConfirmation'
+import {
+  ONBOARDING_METADATA_KEY,
+  onboardingMetadata,
+} from '@/features/auth/firstTimeOnboarding'
+import {
+  addSavedPassageId,
+  getSavedPassageIds,
+  removeSavedPassageId,
+  SAVED_PASSAGE_METADATA_KEY,
+} from '@/features/savedPassages/savedPassages'
+
+let authInitPromise = null
+let authSubscription = null
+const profileRequests = new Map()
 
 // applyOnboardingChoice Function
 async function applyOnboardingChoice(userId) {
@@ -42,30 +58,57 @@ export const useAuthStore = create((set, get) => ({
   loading: true,
 
   init: async () => {
-    const { data: { session } } = await supabase.auth.getSession()
-    if (session?.user) {
-      set({ user: session.user })
-      await get().fetchProfile(session.user.id)
-    }
-    set({ loading: false })
+    if (authInitPromise) return authInitPromise
 
-    supabase.auth.onAuthStateChange(async (_event, session) => {
+    authInitPromise = (async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+
       if (session?.user) {
-        set({ user: session.user })
-        await get().fetchProfile(session.user.id)
+        set({ user: session.user, loading: false })
+        void get().fetchProfile(session.user.id)
       } else {
-        set({ user: null, profile: null })
+        set({ loading: false })
       }
-    })
+
+      if (!authSubscription) {
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, nextSession) => {
+          if (nextSession?.user) {
+            set({ user: nextSession.user })
+            void get().fetchProfile(nextSession.user.id)
+          } else {
+            set({ user: null, profile: null })
+          }
+        })
+
+        authSubscription = subscription
+      }
+    })()
+
+    return authInitPromise
   },
 
   fetchProfile: async (userId) => {
-    const { data } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', userId)
-      .single()
-    if (data) set({ profile: data })
+    if (get().profile?.id === userId) return get().profile
+
+    let request = profileRequests.get(userId)
+    if (!request) {
+      request = (async () => {
+        const { data } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', userId)
+          .single()
+
+        if (data) set({ profile: data })
+        return data
+      })().finally(() => {
+        profileRequests.delete(userId)
+      })
+
+      profileRequests.set(userId, request)
+    }
+
+    return request
   },
 
   updateProfile: async (updates) => {
@@ -93,22 +136,96 @@ export const useAuthStore = create((set, get) => ({
     return data
   },
 
-signUpWithEmail: async (email, password, name) => {
+  signUpWithEmail: async (email, password, name) => {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        data: { full_name: name },
+        data: {
+          full_name: name,
+          [ONBOARDING_METADATA_KEY]: false,
+        },
+        emailRedirectTo: getSignupEmailRedirect(window.location.origin),
       },
     })
 
     if (error) throw error
 
-    if (data.user) {
-      await applyOnboardingChoice(data.user.id)
+    // When e-mail confirmation is enabled, signUp returns a user without a
+    // session. Defer authenticated data work until the user confirms and signs in.
+    if (data.session?.user) {
+      await applyOnboardingChoice(data.session.user.id)
     }
 
     return data
+  },
+
+  resendSignupConfirmation: async (email) => {
+    const { data, error } = await supabase.auth.resend({
+      type: 'signup',
+      email,
+      options: {
+        emailRedirectTo: getSignupEmailRedirect(window.location.origin),
+      },
+    })
+    if (error) throw error
+    return data
+  },
+
+  completeFirstTimeOnboarding: async () => {
+    const { user } = get()
+    if (!user) return null
+
+    const { data, error } = await supabase.auth.updateUser({
+      data: onboardingMetadata(true),
+    })
+
+    if (error) throw error
+    if (data.user) set({ user: data.user })
+    useOnboardingStore.getState().complete()
+    return data.user || null
+  },
+
+  requestPasswordReset: async (email) => {
+    const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: getPasswordResetRedirect(window.location.origin),
+    })
+    if (error) throw error
+    return data
+  },
+
+  updatePassword: async (password) => {
+    const { data, error } = await supabase.auth.updateUser({ password })
+    if (error) throw error
+    return data
+  },
+
+  savePassage: async (sectionId) => {
+    const { user } = get()
+    if (!user) throw new Error('Entre na sua conta para salvar este trecho.')
+
+    const nextIds = addSavedPassageId(getSavedPassageIds(user), sectionId)
+    const { data, error } = await supabase.auth.updateUser({
+      data: { [SAVED_PASSAGE_METADATA_KEY]: nextIds },
+    })
+
+    if (error) throw error
+    if (data.user) set({ user: data.user })
+    return nextIds
+  },
+
+  removeSavedPassage: async (sectionId) => {
+    const { user } = get()
+    if (!user) return []
+
+    const nextIds = removeSavedPassageId(getSavedPassageIds(user), sectionId)
+    const { data, error } = await supabase.auth.updateUser({
+      data: { [SAVED_PASSAGE_METADATA_KEY]: nextIds },
+    })
+
+    if (error) throw error
+    if (data.user) set({ user: data.user })
+    return nextIds
   },
 
   signOut: async () => {
@@ -169,6 +286,8 @@ export const useReadingStore = create((set, get) => ({
   },
 
   markSectionRead: async (userId, bookId, sectionId, nextPosition, durationSeconds) => {
+    const lastReadAt = new Date().toISOString()
+
     await supabase.from('reading_sessions').upsert({
       user_id:    userId,
       book_id:    bookId,
@@ -181,7 +300,7 @@ export const useReadingStore = create((set, get) => ({
       .from('user_progress')
       .update({
         current_section: nextPosition,
-        last_read_at:    new Date().toISOString(),
+        last_read_at:    lastReadAt,
       })
       .eq('user_id', userId)
       .eq('book_id', bookId)
@@ -189,7 +308,11 @@ export const useReadingStore = create((set, get) => ({
     set(state => ({
       progress: {
         ...state.progress,
-        [bookId]: { ...state.progress[bookId], current_section: nextPosition }
+        [bookId]: {
+          ...state.progress[bookId],
+          current_section: nextPosition,
+          last_read_at: lastReadAt,
+        }
       }
     }))
 
@@ -209,8 +332,8 @@ export const useReadingStore = create((set, get) => ({
 export const useUIStore = create(
   persist(
     (set) => ({
-      fontSize: 'md',        // tamanho da fonte de leitura (já existia)
-      appFontScale: 'md',    // escala da fonte do app inteiro (novo)
+      fontSize: 'md',
+      appFontScale: 'md',
       darkMode: false,
       setFontSize: (size) => set({ fontSize: size }),
       setAppFontScale: (scale) => set({ appFontScale: scale }),

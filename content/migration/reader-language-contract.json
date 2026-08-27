@@ -23,7 +23,7 @@
     "chapter_intro_action": "Começar capítulo",
     "book_final_action": "Concluir obra",
     "missing_next_message": "Não encontramos a continuação desta leitura.",
-    "daily_goal_message": "Seu momento de estudo de hoje está completo. Você pode concluir esta leitura e decidir se deseja continuar."
+    "daily_goal_message": "Você já dedicou um bom momento a esta leitura hoje. Pode parar por aqui ou continuar, como preferir."
   },
   "forbidden_navigation_copy": [
     "Próxima seção",
@@ -38,7 +38,8 @@
   },
   "implementation_scope": {
     "pr_0014": "Terminology contract and staging-model distinction.",
-    "pr_0015": "Implemented Reader navigation actions, index terminology, accessibility labels, goal messaging, and loading errors."
+    "pr_0015": "Implemented Reader navigation actions, index terminology, accessibility labels, goal messaging, and loading errors.",
+    "ux_2026": "Reframed daily reading guidance as an optional stopping point without productivity or completion pressure."
   },
   "implemented_files": [
     "src/pages/ReaderPage.jsx",

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Vereda</title>
+  <desc id="desc">Um caminho entre colinas iluminadas pelo nascer do sol, acompanhado por um ramo.</desc>
+  <defs>
+    <clipPath id="landscape-circle">
+      <circle cx="118" cy="126" r="84"/>
+    </clipPath>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF8EE"/>
+      <stop offset="1" stop-color="#F2E3D3"/>
+    </linearGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFDF8"/>
+      <stop offset="1" stop-color="#EEDBC8"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="118" cy="126" r="88" fill="#F8F4EE" stroke="#7C7445" stroke-width="4"/>
+
+  <g clip-path="url(#landscape-circle)">
+    <rect x="24" y="34" width="188" height="184" fill="url(#sky)"/>
+    <circle cx="113" cy="96" r="32" fill="#E7B977" opacity="0.72"/>
+
+    <path d="M16 151C48 129 71 128 101 148C121 161 143 164 178 144C195 134 211 130 229 132V221H16Z" fill="#A9B69A"/>
+    <path d="M6 177C39 151 70 147 102 167C124 181 145 186 175 163C198 145 220 143 238 150V226H6Z" fill="#6D8B74"/>
+    <path d="M2 204C35 180 61 175 90 187C117 198 137 205 161 190C190 172 217 170 247 183V232H2Z" fill="#4F6757"/>
+
+    <path d="M117 222C110 202 107 190 111 177C116 160 136 157 143 144C149 133 144 122 133 116C148 119 162 127 164 140C166 153 155 162 145 170C135 178 128 188 130 204C131 211 134 218 138 225Z" fill="url(#path)"/>
+    <path d="M118 221C116 205 116 191 122 180C128 168 140 160 148 151" fill="none" stroke="#D8BFA9" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+  </g>
+
+  <path d="M172 79C190 70 204 54 208 35" fill="none" stroke="#4F6757" stroke-width="4" stroke-linecap="round"/>
+  <path d="M195 57C201 45 213 43 222 47C216 58 207 63 195 57Z" fill="#6D8B74"/>
+  <path d="M185 68C187 55 178 49 168 49C168 61 174 68 185 68Z" fill="#91A187"/>
+  <path d="M204 43C205 32 213 25 222 24C223 35 217 42 204 43Z" fill="#8D9E72"/>
+  <path d="M178 81C181 72 175 65 166 63C163 73 168 80 178 81Z" fill="#B3A66D"/>
+</svg>

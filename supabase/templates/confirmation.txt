@@ -1,0 +1,12 @@
+VEREDA — seu caminho de aprendizado
+
+Confirme seu e-mail para começar.
+
+Seu cadastro no Vereda está quase pronto. Confirme este endereço para proteger sua conta e seguir para uma introdução curta antes da primeira leitura.
+
+Confirmar meu e-mail:
+{{ .ConfirmationURL }}
+
+Se você não criou uma conta no Vereda, pode ignorar esta mensagem.
+
+Vereda é um projeto gratuito, sem anúncios e orientado à leitura das obras-fonte.

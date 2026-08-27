@@ -184,8 +184,8 @@ export function Badge({
     primary: 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300',
     violet: 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300',
     sage: 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300',
-    amber: 'bg-amber-100 text-amber-700',
-    gold: 'bg-gold-100 text-gold-600',
+    amber: 'bg-amber-100 text-amber-800 dark:bg-amber-950/30 dark:text-amber-300',
+    gold: 'bg-gold-100 text-gold-700 dark:bg-white/10 dark:text-amber-200',
     slate: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200',
     success: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300',
   }
@@ -215,45 +215,31 @@ export function Spinner({ size = 24, className = '', label = 'Carregando' }) {
 
 export function PageLoader({ label = 'Carregando conteúdo' }) {
   return (
-    <div className="ves-page flex items-center justify-center" role="status">
-      <div className="flex flex-col items-center gap-4">
-        <VeredaLogo size={48} />
-        <Spinner size={28} label={label} />
+    <div className="ves-page flex min-h-[60vh] items-center justify-center px-6" role="status" aria-live="polite">
+      <div className="flex flex-col items-center gap-5 text-center">
+        <div className="relative flex h-28 w-28 items-center justify-center" aria-hidden="true">
+          <span className="absolute inset-0 rounded-full border border-sage-200/80 dark:border-sage-800/80" />
+          <span className="absolute inset-0 rounded-full border-2 border-transparent border-t-sage-700 border-r-gold-400 motion-safe:animate-spin [animation-duration:2.8s] dark:border-t-sage-300 dark:border-r-gold-600" />
+          <span className="absolute inset-2 rounded-full bg-sage-100/45 motion-safe:animate-pulse [animation-duration:1.8s] dark:bg-sage-950/35" />
+          <div className="relative flex h-24 w-24 items-center justify-center rounded-full bg-surface/90 shadow-editorial dark:bg-night-surface/90">
+            <VeredaLogo size={82} className="motion-safe:animate-pulse [animation-duration:2.2s]" />
+          </div>
+        </div>
+        <p className="text-sm font-medium text-muted dark:text-night-muted">{label}</p>
       </div>
     </div>
   )
 }
 
-export function VeredaLogo({ size = 40, className = '' }) {
+export function VeredaLogo({ size = 40, className = '', alt = '' }) {
   return (
-    <div
-      className={`inline-flex items-center justify-center rounded-full bg-sage-800 text-white shadow-sm dark:bg-sage-300 dark:text-sage-950 ${className}`}
-      style={{ width: size, height: size }}
-      aria-label="Vereda"
-      role="img"
-    >
-      <svg
-        width={Math.round(size * 0.52)}
-        height={Math.round(size * 0.52)}
-        viewBox="0 0 24 24"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path
-          d="M6 18c4-1 6-4 6-9 3 2 5 5 6 9"
-          stroke="currentColor"
-          strokeWidth="1.9"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M12 9V5"
-          stroke="currentColor"
-          strokeWidth="1.9"
-          strokeLinecap="round"
-        />
-      </svg>
-    </div>
+    <img
+      src="/vereda-logo-mark.svg"
+      alt={alt}
+      width={size}
+      height={size}
+      className={`shrink-0 object-contain ${className}`}
+    />
   )
 }
 

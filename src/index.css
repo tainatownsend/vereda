@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,19 +7,21 @@
 :root {
   color-scheme: light;
 
-  --ves-canvas: #FAFBF8;
-  --ves-surface: #FFFFFF;
-  --ves-surface-soft: #F3F7F1;
-  --ves-ink: #203028;
-  --ves-muted: #627069;
-  --ves-line: #DDE4DC;
-  --ves-focus: #718F74;
+  --ves-canvas: #F8F4EE;
+  --ves-surface: #FFFCF7;
+  --ves-surface-soft: #EFE6DA;
+  --ves-ink: #2F372F;
+  --ves-muted: #697169;
+  --ves-line: #DDD1C3;
+  --ves-focus: #6D8B74;
+  --ves-accent: #C98C6B;
+  --ves-sun: #E7B977;
 
-  --ves-radius-sm: 12px;
-  --ves-radius-md: 20px;
-  --ves-radius-lg: 28px;
+  --ves-radius-sm: 14px;
+  --ves-radius-md: 22px;
+  --ves-radius-lg: 30px;
 
-  --ves-shadow-editorial: 0 16px 50px rgba(41, 61, 47, 0.08);
+  --ves-shadow-editorial: 0 18px 55px rgba(67, 76, 61, 0.11);
   --ves-motion-fast: 100ms;
   --ves-motion-standard: 150ms;
   --ves-motion-slow: 200ms;
@@ -29,13 +31,15 @@
 .dark {
   color-scheme: dark;
 
-  --ves-canvas: #111713;
-  --ves-surface: #18201B;
-  --ves-surface-soft: #17221B;
-  --ves-ink: #F2F5F0;
-  --ves-muted: #A8B4AA;
-  --ves-line: #2C3730;
-  --ves-focus: #B3C9B1;
+  --ves-canvas: #182019;
+  --ves-surface: #202A22;
+  --ves-surface-soft: #253129;
+  --ves-ink: #F7F1E8;
+  --ves-muted: #B5BBAF;
+  --ves-line: #38453B;
+  --ves-focus: #AFC2AD;
+  --ves-accent: #E0A183;
+  --ves-sun: #E7B977;
 }
 
 @layer base {
@@ -46,14 +50,14 @@
 
   html {
     min-width: 320px;
-    scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
     min-width: 320px;
     margin: 0;
-    font-family: 'DM Sans', system-ui, sans-serif;
+    overflow-x: clip;
+    font-family: 'Inter', system-ui, sans-serif;
     background: var(--ves-canvas);
     color: var(--ves-ink);
     -webkit-font-smoothing: antialiased;
@@ -82,8 +86,13 @@
   }
 
   ::selection {
-    background: #D1DFCE;
-    color: #203028;
+    background: #D8E2D5;
+    color: #2F372F;
+  }
+
+  .dark ::selection {
+    background: #405348;
+    color: #F7F1E8;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -99,12 +108,28 @@
 }
 
 @layer components {
-  .ves-page {
+  .ves-page,
+  .northstar-page {
     @apply min-h-screen bg-canvas text-ink dark:bg-night dark:text-night-ink;
   }
 
-  .ves-container {
-    @apply mx-auto w-full max-w-xl px-6;
+  .ves-brand-page {
+    background:
+      radial-gradient(circle at 92% 2%, rgba(231, 185, 119, 0.15), transparent 23rem),
+      radial-gradient(circle at 0% 48%, rgba(109, 139, 116, 0.07), transparent 26rem),
+      var(--ves-canvas);
+  }
+
+  .dark .ves-brand-page {
+    background:
+      radial-gradient(circle at 92% 2%, rgba(231, 185, 119, 0.08), transparent 23rem),
+      radial-gradient(circle at 0% 48%, rgba(175, 194, 173, 0.05), transparent 26rem),
+      var(--ves-canvas);
+  }
+
+  .ves-container,
+  .northstar-container {
+    @apply mx-auto w-full max-w-xl px-5 min-[360px]:px-6;
   }
 
   .ves-eyebrow {
@@ -112,17 +137,120 @@
   }
 
   .ves-heading {
-    @apply font-display font-medium leading-tight tracking-[-0.025em] text-ink dark:text-night-ink;
+    overflow-wrap: anywhere;
+    @apply font-display font-semibold leading-tight tracking-[-0.025em] text-ink dark:text-night-ink;
+  }
+
+  .northstar-section-title {
+    @apply text-sm font-semibold text-ink dark:text-night-ink;
+  }
+
+  .northstar-text-action {
+    @apply min-h-10 rounded-lg px-2 text-xs font-medium text-sage-700 hover:bg-surface-soft dark:text-sage-300 dark:hover:bg-night-surface;
+  }
+
+  .northstar-icon-button {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink/80 hover:bg-surface-soft dark:text-night-muted dark:hover:bg-night-surface;
+  }
+
+  .northstar-reader-control {
+    @apply flex h-11 min-w-11 items-center justify-center rounded-full px-2 font-display text-lg font-semibold text-ink hover:bg-surface-soft dark:text-night-ink dark:hover:bg-night-surface;
+  }
+
+  .northstar-home-quote {
+    position: relative;
+    isolation: isolate;
+    min-height: 9.5rem;
+    background:
+      radial-gradient(circle at 87% 20%, rgba(231, 185, 119, 0.42) 0 1.15rem, transparent 1.2rem),
+      radial-gradient(ellipse at 88% 112%, rgba(92, 118, 91, 0.23) 0 38%, transparent 38.5%),
+      radial-gradient(ellipse at 63% 116%, rgba(170, 190, 161, 0.34) 0 42%, transparent 42.5%),
+      linear-gradient(145deg, #FFFDF8 0%, #F5EDE2 66%, #E9DECE 100%);
+  }
+
+  .northstar-home-quote::after {
+    content: '';
+    position: absolute;
+    right: 7%;
+    bottom: -2.8rem;
+    width: 5rem;
+    height: 7rem;
+    border-left: 2px solid rgba(255, 253, 248, 0.9);
+    border-radius: 62% 0 0 0;
+    transform: rotate(16deg);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .dark .northstar-home-quote {
+    background:
+      radial-gradient(circle at 87% 20%, rgba(231, 185, 119, 0.18) 0 1.15rem, transparent 1.2rem),
+      radial-gradient(ellipse at 88% 112%, rgba(175, 194, 173, 0.12) 0 38%, transparent 38.5%),
+      radial-gradient(ellipse at 63% 116%, rgba(79, 103, 87, 0.2) 0 42%, transparent 42.5%),
+      linear-gradient(145deg, #202A22 0%, #263129 68%, #2C352E 100%);
+  }
+
+  .ves-warm-panel {
+    background:
+      radial-gradient(circle at 75% 8%, rgba(231, 185, 119, 0.2), transparent 28%),
+      linear-gradient(145deg, #FFF9F1 0%, #F3E9DD 58%, #E7DDCD 100%);
+  }
+
+  .dark .ves-warm-panel {
+    background:
+      radial-gradient(circle at 75% 8%, rgba(231, 185, 119, 0.12), transparent 28%),
+      linear-gradient(145deg, #202A22 0%, #253129 65%, #2B342D 100%);
+  }
+
+  .ves-horizon-panel {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+      radial-gradient(circle at 84% 13%, rgba(231, 185, 119, 0.45) 0 2.4rem, transparent 2.45rem),
+      radial-gradient(ellipse at 94% 108%, rgba(79, 103, 87, 0.22) 0 36%, transparent 36.5%),
+      radial-gradient(ellipse at 62% 112%, rgba(175, 194, 173, 0.34) 0 42%, transparent 42.5%),
+      linear-gradient(145deg, #FFF9F1 0%, #F4EADC 65%, #EBDDCB 100%);
+  }
+
+  .ves-horizon-panel::after {
+    content: '';
+    position: absolute;
+    right: 9%;
+    bottom: -2.5rem;
+    width: 6.5rem;
+    height: 10rem;
+    border-left: 3px solid rgba(255, 252, 247, 0.88);
+    border-radius: 58% 0 0 0;
+    transform: rotate(17deg);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .dark .ves-horizon-panel {
+    background:
+      radial-gradient(circle at 84% 13%, rgba(231, 185, 119, 0.18) 0 2.4rem, transparent 2.45rem),
+      radial-gradient(ellipse at 94% 108%, rgba(175, 194, 173, 0.11) 0 36%, transparent 36.5%),
+      radial-gradient(ellipse at 62% 112%, rgba(79, 103, 87, 0.2) 0 42%, transparent 42.5%),
+      linear-gradient(145deg, #202A22 0%, #263129 65%, #2C352E 100%);
+  }
+
+  .ves-soft-card {
+    @apply rounded-vesMd border border-line/80 bg-surface/90 shadow-sm backdrop-blur-sm dark:border-night-line dark:bg-night-surface/90;
+  }
+
+  .ves-nav-shell {
+    box-shadow: 0 -10px 38px rgba(74, 73, 59, 0.07);
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: 'Newsreader', Georgia, serif;
+    font-family: 'Lora', Georgia, serif;
   }
 
   .font-body {
-    font-family: 'DM Sans', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 
   .pb-safe {
@@ -145,7 +273,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #A9B8AA;
+    background: #A8B39F;
     border-radius: 999px;
   }
 }
