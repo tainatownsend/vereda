@@ -1,4 +1,4 @@
-import { ArrowRight, BookOpen, Bookmark, Check, Compass } from 'lucide-react'
+import { ArrowRight, BookOpen, BookPlus, Bookmark, Check, Compass } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks } from '@/hooks'
@@ -103,24 +103,43 @@ export default function LibraryPage() {
           </button>
         </section>
 
-        <button
-          type="button"
-          onClick={() => navigate('/salvos')}
-          className="ves-warm-panel group flex min-h-28 w-full items-center gap-4 rounded-vesLg border border-line/80 p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-editorial dark:border-night-line"
-        >
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-surface/85 text-clay-700 shadow-sm dark:bg-night-surface dark:text-clay-300">
-            <Bookmark size={21} aria-hidden="true" />
-          </div>
-          <div className="min-w-0 flex-1">
-            <p className="font-display text-lg font-semibold text-ink dark:text-night-ink">Trechos salvos</p>
-            <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
-              {savedCount
-                ? `${savedCount} ${savedCount === 1 ? 'passagem guardada' : 'passagens guardadas'} para consultar depois.`
-                : 'Guarde passagens importantes para voltar a elas depois.'}
-            </p>
-          </div>
-          <ArrowRight size={19} className="shrink-0 text-sage-700 transition-transform group-hover:translate-x-1 dark:text-sage-300" aria-hidden="true" />
-        </button>
+        <section className="grid gap-3 sm:grid-cols-2" aria-label="Sua biblioteca e comunidade">
+          <button
+            type="button"
+            onClick={() => navigate('/salvos')}
+            className="ves-warm-panel group flex min-h-28 w-full items-center gap-4 rounded-vesLg border border-line/80 p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-editorial dark:border-night-line"
+          >
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-surface/85 text-clay-700 shadow-sm dark:bg-night-surface dark:text-clay-300">
+              <Bookmark size={21} aria-hidden="true" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="font-display text-lg font-semibold text-ink dark:text-night-ink">Trechos salvos</p>
+              <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
+                {savedCount
+                  ? `${savedCount} ${savedCount === 1 ? 'passagem guardada' : 'passagens guardadas'} para consultar depois.`
+                  : 'Guarde passagens importantes para voltar a elas depois.'}
+              </p>
+            </div>
+            <ArrowRight size={19} className="shrink-0 text-sage-700 transition-transform group-hover:translate-x-1 dark:text-sage-300" aria-hidden="true" />
+          </button>
+
+          <button
+            type="button"
+            onClick={() => navigate('/sugerir-obra')}
+            className="group flex min-h-28 w-full items-center gap-4 rounded-vesLg border border-sage-200 bg-sage-50/75 p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:border-sage-400 hover:shadow-editorial dark:border-sage-900 dark:bg-sage-950/25"
+          >
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-surface/85 text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
+              <BookPlus size={21} aria-hidden="true" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="font-display text-lg font-semibold text-ink dark:text-night-ink">Sugerir uma obra</p>
+              <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
+                Peça um novo livro ou vote em sugestões que outras pessoas já fizeram.
+              </p>
+            </div>
+            <ArrowRight size={19} className="shrink-0 text-sage-700 transition-transform group-hover:translate-x-1 dark:text-sage-300" aria-hidden="true" />
+          </button>
+        </section>
 
         {started.length > 0 && (
           <section aria-labelledby="started-heading">
