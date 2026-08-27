@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Bookmark, BookOpen, Compass, MoreHorizontal } from 'lucide-react'
+import { Bookmark, MoreHorizontal } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks, useProgress } from '@/hooks'
@@ -168,6 +168,3 @@ function getBookSequence(book) {
   const bookId = Number(book.id)
   return Number.isFinite(bookId) && bookId > 0 ? bookId : '•'
 }
-
-void BookOpen
-void Compass
