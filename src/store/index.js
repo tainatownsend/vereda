@@ -15,6 +15,10 @@ import {
   SAVED_PASSAGE_METADATA_KEY,
 } from '@/features/savedPassages/savedPassages'
 
+let authInitPromise = null
+let authSubscription = null
+const profileRequests = new Map()
+
 // applyOnboardingChoice Function
 async function applyOnboardingChoice(userId) {
   const { chosenBookId, paceMode, paceMinutes } = useOnboardingStore.getState()
@@ -54,30 +58,57 @@ export const useAuthStore = create((set, get) => ({
   loading: true,
 
   init: async () => {
-    const { data: { session } } = await supabase.auth.getSession()
-    if (session?.user) {
-      set({ user: session.user })
-      await get().fetchProfile(session.user.id)
-    }
-    set({ loading: false })
+    if (authInitPromise) return authInitPromise
 
-    supabase.auth.onAuthStateChange(async (_event, session) => {
+    authInitPromise = (async () => {
+      const { data: { session } } = await supabase.auth.getSession()
+
       if (session?.user) {
-        set({ user: session.user })
-        await get().fetchProfile(session.user.id)
+        set({ user: session.user, loading: false })
+        void get().fetchProfile(session.user.id)
       } else {
-        set({ user: null, profile: null })
+        set({ loading: false })
       }
-    })
+
+      if (!authSubscription) {
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, nextSession) => {
+          if (nextSession?.user) {
+            set({ user: nextSession.user })
+            void get().fetchProfile(nextSession.user.id)
+          } else {
+            set({ user: null, profile: null })
+          }
+        })
+
+        authSubscription = subscription
+      }
+    })()
+
+    return authInitPromise
   },
 
   fetchProfile: async (userId) => {
-    const { data } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', userId)
-      .single()
-    if (data) set({ profile: data })
+    if (get().profile?.id === userId) return get().profile
+
+    let request = profileRequests.get(userId)
+    if (!request) {
+      request = (async () => {
+        const { data } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', userId)
+          .single()
+
+        if (data) set({ profile: data })
+        return data
+      })().finally(() => {
+        profileRequests.delete(userId)
+      })
+
+      profileRequests.set(userId, request)
+    }
+
+    return request
   },
 
   updateProfile: async (updates) => {
