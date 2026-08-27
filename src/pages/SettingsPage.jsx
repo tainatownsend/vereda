@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import {
   Bell,
   BookOpen,
+  BookPlus,
   Check,
   HelpCircle,
   LockKeyhole,
@@ -337,6 +338,18 @@ export default function SettingsPage() {
             <span>
               <span className="block font-medium text-ink dark:text-night-ink">Refazer a introdução</span>
               <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">Reveja como o Vereda organiza o estudo e escolha novamente um primeiro caminho.</span>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => navigate('/sugerir-obra')}
+            className="mt-3 flex min-h-14 w-full items-center gap-3 rounded-vesMd border border-line bg-canvas/45 p-4 text-left transition-colors hover:border-sage-400 hover:bg-sage-50 dark:border-night-line dark:bg-night/35 dark:hover:border-sage-800 dark:hover:bg-sage-950/30"
+          >
+            <BookPlus size={20} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+            <span>
+              <span className="block font-medium text-ink dark:text-night-ink">Sugerir uma obra</span>
+              <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">Veja os pedidos da comunidade, vote em um livro ou sugira um título que ainda não está na lista.</span>
             </span>
           </button>
 
