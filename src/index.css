@@ -6,19 +6,16 @@
 
 :root {
   color-scheme: light;
-
-  --ves-canvas: #FAFBF8;
-  --ves-surface: #FFFFFF;
-  --ves-surface-soft: #F3F7F1;
-  --ves-ink: #203028;
-  --ves-muted: #627069;
-  --ves-line: #DDE4DC;
-  --ves-focus: #718F74;
-
+  --ves-canvas: #f8f5ee;
+  --ves-surface: #fffdf8;
+  --ves-surface-soft: #f2eee5;
+  --ves-ink: #243126;
+  --ves-muted: #6e756c;
+  --ves-line: #e5dfd5;
+  --ves-focus: #71805f;
   --ves-radius-sm: 12px;
   --ves-radius-md: 20px;
   --ves-radius-lg: 28px;
-
   --ves-shadow-editorial: 0 16px 50px rgba(41, 61, 47, 0.08);
   --ves-motion-fast: 100ms;
   --ves-motion-standard: 150ms;
@@ -28,14 +25,13 @@
 
 .dark {
   color-scheme: dark;
-
   --ves-canvas: #111713;
-  --ves-surface: #18201B;
-  --ves-surface-soft: #17221B;
-  --ves-ink: #F2F5F0;
-  --ves-muted: #A8B4AA;
-  --ves-line: #2C3730;
-  --ves-focus: #B3C9B1;
+  --ves-surface: #18201b;
+  --ves-surface-soft: #17221b;
+  --ves-ink: #f2f5f0;
+  --ves-muted: #a8b4aa;
+  --ves-line: #2c3730;
+  --ves-focus: #b3c9b1;
 }
 
 @layer base {
@@ -82,7 +78,7 @@
   }
 
   ::selection {
-    background: #D1DFCE;
+    background: #d7dfcb;
     color: #203028;
   }
 
@@ -99,12 +95,15 @@
 }
 
 @layer components {
-  .ves-page {
-    @apply min-h-screen bg-canvas text-ink dark:bg-night dark:text-night-ink;
+  .ves-page,
+  .northstar-page {
+    @apply min-h-screen text-ink dark:bg-night dark:text-night-ink;
+    background: #f8f5ee;
   }
 
-  .ves-container {
-    @apply mx-auto w-full max-w-xl px-6;
+  .ves-container,
+  .northstar-container {
+    @apply mx-auto w-full max-w-xl px-5;
   }
 
   .ves-eyebrow {
@@ -113,6 +112,18 @@
 
   .ves-heading {
     @apply font-display font-medium leading-tight tracking-[-0.025em] text-ink dark:text-night-ink;
+  }
+
+  .northstar-section-title {
+    @apply text-sm font-semibold text-[#2d382f] dark:text-night-ink;
+  }
+
+  .northstar-text-action {
+    @apply min-h-10 rounded-lg px-2 text-xs font-medium text-[#5d6f50] hover:bg-[#eeeade] dark:text-sage-300 dark:hover:bg-sage-950;
+  }
+
+  .northstar-icon-button {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[#4f594f] hover:bg-[#eeeade] dark:text-night-muted dark:hover:bg-night-surface;
   }
 }
 
@@ -145,7 +156,7 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #A9B8AA;
+    background: #a9b8aa;
     border-radius: 999px;
   }
 }
