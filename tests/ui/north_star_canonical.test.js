@@ -33,6 +33,8 @@ describe('Vereda North Star canonical screens', () => {
     expect(library).toContain('showMenu &&')
     expect(library).toContain('Sequência sugerida das obras')
     expect(library).toContain('Trechos salvos')
+    expect(library).toContain('Sugerir uma obra')
+    expect(library).toContain("navigate('/sugerir-obra')")
     expect(library).not.toContain('Ainda não iniciada')
   })
 
