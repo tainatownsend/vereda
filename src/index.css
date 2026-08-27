@@ -125,6 +125,10 @@
   .northstar-icon-button {
     @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[#4f594f] hover:bg-[#eeeade] dark:text-night-muted dark:hover:bg-night-surface;
   }
+
+  .northstar-reader-control {
+    @apply flex h-11 min-w-11 items-center justify-center rounded-full px-2 font-display text-lg font-medium text-[#263228] hover:bg-[#eeeade] dark:text-night-ink dark:hover:bg-night-surface;
+  }
 }
 
 @layer utilities {
