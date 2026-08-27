@@ -6,9 +6,9 @@
     "authorized_target_count": 74
   },
   "hashes": {
-    "pr0053_manifest": "88bf5a9b29186f22616e9fb92845c4fb644c065117a89073b8a1c8802139c45b",
+    "pr0053_manifest": "f04dacce275ff732f48b19672e46ae6dc74dc72805fbcfeca05d00defb9d6337",
     "pr0053_evidence": "cb13d993138626bdf6a7bd14ca3ce1e7654ccff89f23367c936ad2541015f841",
-    "pr0054_manifest": "00fb54a0d1b3998c1815ed255e5cbab5825d468c51e0f94b4a6f609a45573398",
+    "pr0054_manifest": "9100c2909012c20751564d3b9f0507fdcba30b384400813a396d777daa330671",
     "pr0054_schema": "ef5878f5913dac6a5070a9261ee5aa587be8fb32e021fbd244097fc7afba69b9",
     "pre_existing_audit_migration": "d7c8554b04641955659ab64c910315c3176d3feb10d7a535e8581d2114ef76a3",
     "proposed_migration": "a2d7444e7b68f08a84aa6245819cba5ecfefd4ffab242034e0987e5e8def04b4"

@@ -7,7 +7,7 @@
   "source_hashes": {
     "application_plan": "184eee3e709042c01e0a778bbe8a1e1784dd858f08da27d760b7b930c88c6d9a",
     "application_evidence": "cb13d993138626bdf6a7bd14ca3ce1e7654ccff89f23367c936ad2541015f841",
-    "execution_authority_manifest": "00fb54a0d1b3998c1815ed255e5cbab5825d468c51e0f94b4a6f609a45573398",
+    "execution_authority_manifest": "9100c2909012c20751564d3b9f0507fdcba30b384400813a396d777daa330671",
     "status_only_contract": "607a69c4905ed3d35bc42866d09558a9410d53f1b4966c4e91e599d942593d90",
     "audit_identity_contract": "71dfc58f08c05fc9544fccd915fbccbb1a40e8df8acf1927b0ba693fbb45b02f",
     "audit_payload_contract": "25f542e425250c5126e52c9686fc2897b7d872602c3e76cdfcefe52ffeecdee4",
@@ -17,14 +17,14 @@
     "integrity_drift": "eebd5e8ffe52815efdf1533d1945d03c4fdafe2686912bbc693d3215b8fb2e4c",
     "rollback_baseline": "75456035fd311375092432dffd200e3773bd7863cf0b608559801dc5b834f861",
     "audit_compatibility": "540d8a2c1ff3a480038e16a60ebd682862152dbb25f040cfbb72e2a1ccadb771",
-    "integrity_manifest": "d34a48381221c2528628d2763cf1912312b5e9c1dcc3d11f88d73400f6d7ef56",
+    "integrity_manifest": "a7ca9818f11e70d24da9062338094b696e569e6d827a9d12a7ff91bf53432866",
     "reading_segments_schema": "d7c8554b04641955659ab64c910315c3176d3feb10d7a535e8581d2114ef76a3",
     "audit_schema_extension": "a2d7444e7b68f08a84aa6245819cba5ecfefd4ffab242034e0987e5e8def04b4"
   },
   "artifact_hashes": {
     "policy_sha256": "e8ca1ab20db547be3ddef4609e96133a1d346375ff40066bd37a32371244df30",
     "stateMachine_sha256": "ef6b973cf64fbcea376a72365ad24b4be76fb36441492cfebd8326224f68eef8",
-    "applicationOperations_sha256": "e11d9b300dfc20e17e749b391eaa7ce97f7440ca990c6bd9b398c8ada4fe5c92",
+    "applicationOperations_sha256": "827a5fcf4e299313a3cf8b7fb01aeb94dcd91b891780ced51682bef7427a4587",
     "rollbackOperations_sha256": "e4563eb795575b29a5003c76eab265987b43cc4662a9c37eb65d3204445c7cc1",
     "preflight_sha256": "97f9040a6f5e5a77581514d817472030c15f0af6c89af5ce1d4b6b6fb1ed8b34",
     "transaction_sha256": "041f0e9040c51bbbc0542e820a251352999571801b79c563a9b4c580d98f198d",
@@ -35,6 +35,6 @@
     "runtimeEvidence_sha256": "a516111c8c25f91f3c9ee9f5dc8a033ce9358c9696be9ac296d9493c4672b583",
     "gate_sha256": "142b31b57e2bb0bf2bf741bf945ab151b33a40494f946e09f9960f979f3ba6e6",
     "missingAuthority_sha256": "27487e6a25a0889c3b42def42ad9cd316d9908dfe1c5e51c8865948a12e1cc32",
-    "readiness_sha256": "1cd910f2658a5a00f53ae839dc7be8dc087b1e6bdcfc0bed57ceeb581ba7657e"
+    "readiness_sha256": "9a753764b5048fc3f6172bd971acf5edd4dcfaa28e5635ef73ddfb37b737a5b5"
   }
 }
