@@ -7,10 +7,11 @@ const settings = readFileSync('src/pages/SettingsPage.jsx', 'utf8')
 const auth = readFileSync('src/pages/AuthPage.jsx', 'utf8')
 const library = readFileSync('src/pages/LibraryPage.jsx', 'utf8')
 const hooks = readFileSync('src/hooks/index.js', 'utf8')
+const store = readFileSync('src/store/index.js', 'utf8')
 const styles = readFileSync('src/index.css', 'utf8')
 const ui = readFileSync('src/components/ui/index.jsx', 'utf8')
 
-describe('navigation and visual polish from authenticated smoke review', () => {
+describe('navigation and performance polish across the current product stack', () => {
   it('opens routes and reading sections at the top instead of restoring stale scroll', () => {
     expect(app).toContain('function ScrollToTop()')
     expect(app).toContain('useLayoutEffect')
@@ -20,17 +21,24 @@ describe('navigation and visual polish from authenticated smoke review', () => {
     expect(styles).not.toContain('scroll-behavior: smooth;')
   })
 
-  it('reuses reading data between route mounts and deduplicates book loading', () => {
+  it('reuses reading data and avoids duplicate auth/profile loading', () => {
     expect(hooks).toContain('const loadedUserData = new Set()')
     expect(hooks).toContain('const userDataRequests = new Map()')
     expect(hooks).toContain('let booksRequest = null')
     expect(hooks).toContain('loadedUserData.has(userId)')
+    expect(store).toContain('let authInitPromise = null')
+    expect(store).toContain('let authSubscription = null')
+    expect(store).toContain('const profileRequests = new Map()')
+    expect(store).toContain("set({ user: session.user, loading: false })")
+    expect(store).toContain('void get().fetchProfile(session.user.id)')
+    expect(store).toContain('profileRequests.get(userId)')
   })
 
-  it('keeps the desktop login composition compact enough for common laptop heights', () => {
+  it('keeps the desktop login composition compact and the welcome copy simple', () => {
     expect(auth).toContain('mt-12 max-w-[32rem] pb-36')
     expect(auth).toContain('text-[3.15rem]')
     expect(auth).toContain('lg:py-8')
+    expect(auth).toContain('Que bom ter você por aqui.')
     expect(auth).not.toContain('lg:justify-between')
   })
 
@@ -41,23 +49,31 @@ describe('navigation and visual polish from authenticated smoke review', () => {
     expect(settings).not.toContain('navigate(-1)')
   })
 
-  it('uses Vereda brand accents for book markers instead of legacy cover colors', () => {
+  it('uses North Star book accents without legacy cover colors', () => {
     expect(library).toContain('BOOK_ACCENT_COLORS')
     expect(library).toContain("2: '#AB6D50'")
     expect(library).toContain("3: '#B9A46E'")
     expect(library).not.toContain('book.cover_color')
   })
 
-  it('puts sequence guidance before the library list and numbers each work', () => {
-    const guidanceIndex = library.indexOf('Uma sequência sugerida, não uma obrigação')
-    const booksSectionIndex = library.indexOf('aria-labelledby="all-books-heading"')
-
-    expect(guidanceIndex).toBeGreaterThan(-1)
-    expect(booksSectionIndex).toBeGreaterThan(guidanceIndex)
-    expect(library).toContain('getBookSequence(book)')
+  it('keeps secondary Library guidance in overflow while preserving discovery and saved paths', () => {
+    expect(library).toContain('showMenu &&')
     expect(library).toContain('Sequência sugerida das obras')
     expect(library).toContain('Não sei por onde começar')
     expect(library).toContain('Quero explorar um tema')
+    expect(library).toContain('Trechos salvos')
+    expect(library).toContain('Sugerir uma obra')
+    expect(library).toContain('aria-labelledby="all-books-heading"')
+  })
+
+  it('keeps reader chrome focused while preserving text controls and passage saving', () => {
+    expect(reader).toContain('Opções de leitura')
+    expect(reader).toContain('Índice da obra')
+    expect(reader).toContain('Preferências de texto')
+    expect(reader).toContain('northstar-reader-control')
+    expect(reader).toContain('A−')
+    expect(reader).toContain('A+')
+    expect(reader).toContain('Salvar este trecho')
   })
 
   it('uses a larger animated Vereda mark for page loading', () => {
