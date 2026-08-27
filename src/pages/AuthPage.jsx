@@ -196,7 +196,7 @@ export default function AuthPage() {
                     ? 'Recupere seu acesso'
                     : isSignup
                       ? 'Sua jornada começa aqui'
-                      : 'Bem-vindo de volta'}
+                      : 'Entrar no Vereda'}
               </p>
               <h2 className="ves-heading mt-2 text-[2rem] leading-[1.08] min-[360px]:text-[2.2rem] sm:text-[2.35rem]">
                 {heading}
