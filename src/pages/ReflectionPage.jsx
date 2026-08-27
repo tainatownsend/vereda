@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { ArrowLeft, Bookmark, MoreHorizontal, Quote } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
-import heroImage from '@/assets/hero.png'
+import northStarLandscape from '@/assets/northstar-landscape.svg'
 import { EditorialCard } from '@/components/northstar/NorthStarUI'
 
 const SAVED_REFLECTIONS = [
@@ -28,7 +28,7 @@ export default function ReflectionPage() {
         </header>
 
         <div className="mt-4 overflow-hidden rounded-[18px] border border-line bg-sage-100 dark:border-night-line">
-          <img src={heroImage} alt="Caminho sereno em meio à natureza" className="h-52 w-full object-cover" />
+          <img src={northStarLandscape} alt="Caminho sereno em meio à natureza" className="h-52 w-full object-cover" />
         </div>
 
         <EditorialCard className="mt-3 p-5">
