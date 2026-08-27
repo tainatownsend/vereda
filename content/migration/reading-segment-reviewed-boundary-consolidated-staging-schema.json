@@ -191,7 +191,8 @@
   "updated_at_behavior": "default now() applies on INSERT only; no trigger or repository convention was found that updates content_staging.reading_segments.updated_at during UPDATE, so PR-0053 classifies updated_at as explicitly preserved by omission from the authorized update column set",
   "migrations_scanned": [
     "supabase/migrations/20260802224500_reading_data_foundation.sql",
-    "supabase/migrations/20260803033000_content_staging_foundation.sql"
+    "supabase/migrations/20260803033000_content_staging_foundation.sql",
+    "supabase/migrations/20260825062000_book_candidate_voting.sql"
   ],
   "migrations_matching": [
     "supabase/migrations/20260803033000_content_staging_foundation.sql"
