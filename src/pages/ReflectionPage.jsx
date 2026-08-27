@@ -1,20 +1,18 @@
 import { useState } from 'react'
-import { ArrowLeft, Bookmark, Heart, MoreHorizontal, Quote } from 'lucide-react'
+import { ArrowLeft, Bookmark, MoreHorizontal, Quote } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import heroImage from '@/assets/hero.png'
 import { EditorialCard } from '@/components/northstar/NorthStarUI'
 
 const SAVED_REFLECTIONS = [
-  'A caridade começa onde termina o julgamento.',
-  'Estudar com calma também é uma forma de constância.',
+  { text: 'Fé é ter coragem de avançar mesmo sem ver todo o caminho.', date: '18/05/2024' },
+  { text: 'A caridade começa onde termina o julgamento.', date: '12/05/2024' },
 ]
 
 export default function ReflectionPage() {
   const navigate = useNavigate()
   const [note, setNote] = useState('')
-  const [saved, setSaved] = useState(false)
-  const [liked, setLiked] = useState(false)
 
   return (
     <main className="northstar-page pb-28">
@@ -38,19 +36,10 @@ export default function ReflectionPage() {
             <Quote size={20} className="mt-1 shrink-0 text-sage-700" />
             <div>
               <p className="font-display text-[1.22rem] leading-[1.55] text-ink dark:text-night-ink">
-                “Reconhece-se o verdadeiro espírita pela sua transformação moral e pelos esforços que emprega para domar suas inclinações más.”
+                “Ninguém está bastante adiantado na vida para não aprender, nem tão simples e ignorante que não possa ensinar alguma coisa.”
               </p>
-              <p className="mt-3 text-xs text-muted dark:text-night-muted">O Evangelho segundo o Espiritismo</p>
+              <p className="mt-3 text-xs text-muted dark:text-night-muted">Emmanuel</p>
             </div>
-          </div>
-
-          <div className="mt-5 flex justify-end gap-2 border-t border-line pt-3 dark:border-night-line">
-            <button type="button" onClick={() => setLiked((value) => !value)} className={`northstar-icon-button ${liked ? 'text-sage-800 dark:text-sage-300' : ''}`} aria-label="Curtir reflexão">
-              <Heart size={19} fill={liked ? 'currentColor' : 'none'} />
-            </button>
-            <button type="button" onClick={() => setSaved((value) => !value)} className={`northstar-icon-button ${saved ? 'text-sage-800 dark:text-sage-300' : ''}`} aria-label="Salvar reflexão">
-              <Bookmark size={19} fill={saved ? 'currentColor' : 'none'} />
-            </button>
           </div>
         </EditorialCard>
 
@@ -62,18 +51,18 @@ export default function ReflectionPage() {
             placeholder="Escreva sua reflexão..."
             className="mt-3 min-h-24 w-full resize-none rounded-[15px] border border-line bg-surface px-4 py-3 text-sm leading-relaxed text-ink placeholder:text-muted/70 focus:border-sage-500 dark:border-night-line dark:bg-night-surface dark:text-night-ink"
           />
-          <p className="mt-2 text-[11px] leading-relaxed text-muted dark:text-night-muted">
-            Nesta primeira rodada o campo é local à tela; a persistência entra junto da camada de Reflexões.
-          </p>
         </section>
 
         <section className="mt-6">
           <h2 className="northstar-section-title">Reflexões salvas</h2>
           <div className="mt-3 space-y-2">
             {SAVED_REFLECTIONS.map((reflection) => (
-              <EditorialCard key={reflection} className="flex items-center gap-3 p-4">
+              <EditorialCard key={reflection.text} className="flex items-center gap-3 p-4">
                 <Quote size={18} className="shrink-0 text-sage-700" />
-                <p className="flex-1 text-sm leading-relaxed text-ink dark:text-night-ink">{reflection}</p>
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm leading-relaxed text-ink dark:text-night-ink">{reflection.text}</p>
+                  <p className="mt-1 text-[10px] text-muted dark:text-night-muted">{reflection.date}</p>
+                </div>
                 <Bookmark size={17} className="shrink-0 text-sage-700" />
               </EditorialCard>
             ))}
