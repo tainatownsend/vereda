@@ -108,7 +108,8 @@
 }
 
 @layer components {
-  .ves-page {
+  .ves-page,
+  .northstar-page {
     @apply min-h-screen bg-canvas text-ink dark:bg-night dark:text-night-ink;
   }
 
@@ -126,7 +127,8 @@
       var(--ves-canvas);
   }
 
-  .ves-container {
+  .ves-container,
+  .northstar-container {
     @apply mx-auto w-full max-w-xl px-5 min-[360px]:px-6;
   }
 
@@ -137,6 +139,55 @@
   .ves-heading {
     overflow-wrap: anywhere;
     @apply font-display font-semibold leading-tight tracking-[-0.025em] text-ink dark:text-night-ink;
+  }
+
+  .northstar-section-title {
+    @apply text-sm font-semibold text-ink dark:text-night-ink;
+  }
+
+  .northstar-text-action {
+    @apply min-h-10 rounded-lg px-2 text-xs font-medium text-sage-700 hover:bg-surface-soft dark:text-sage-300 dark:hover:bg-night-surface;
+  }
+
+  .northstar-icon-button {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink/80 hover:bg-surface-soft dark:text-night-muted dark:hover:bg-night-surface;
+  }
+
+  .northstar-reader-control {
+    @apply flex h-11 min-w-11 items-center justify-center rounded-full px-2 font-display text-lg font-semibold text-ink hover:bg-surface-soft dark:text-night-ink dark:hover:bg-night-surface;
+  }
+
+  .northstar-home-quote {
+    position: relative;
+    isolation: isolate;
+    min-height: 9.5rem;
+    background:
+      radial-gradient(circle at 87% 20%, rgba(231, 185, 119, 0.42) 0 1.15rem, transparent 1.2rem),
+      radial-gradient(ellipse at 88% 112%, rgba(92, 118, 91, 0.23) 0 38%, transparent 38.5%),
+      radial-gradient(ellipse at 63% 116%, rgba(170, 190, 161, 0.34) 0 42%, transparent 42.5%),
+      linear-gradient(145deg, #FFFDF8 0%, #F5EDE2 66%, #E9DECE 100%);
+  }
+
+  .northstar-home-quote::after {
+    content: '';
+    position: absolute;
+    right: 7%;
+    bottom: -2.8rem;
+    width: 5rem;
+    height: 7rem;
+    border-left: 2px solid rgba(255, 253, 248, 0.9);
+    border-radius: 62% 0 0 0;
+    transform: rotate(16deg);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .dark .northstar-home-quote {
+    background:
+      radial-gradient(circle at 87% 20%, rgba(231, 185, 119, 0.18) 0 1.15rem, transparent 1.2rem),
+      radial-gradient(ellipse at 88% 112%, rgba(175, 194, 173, 0.12) 0 38%, transparent 38.5%),
+      radial-gradient(ellipse at 63% 116%, rgba(79, 103, 87, 0.2) 0 42%, transparent 42.5%),
+      linear-gradient(145deg, #202A22 0%, #263129 68%, #2C352E 100%);
   }
 
   .ves-warm-panel {

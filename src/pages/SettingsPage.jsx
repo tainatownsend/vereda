@@ -1,6 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Bell, Check, LogOut, Moon, Sun, User } from 'lucide-react'
+import {
+  Bell,
+  BookOpen,
+  BookPlus,
+  Check,
+  HelpCircle,
+  LockKeyhole,
+  LogOut,
+  MailCheck,
+  Moon,
+  RotateCcw,
+  ShieldCheck,
+  Sun,
+  User,
+} from 'lucide-react'
 
 import { useAuthStore, useUIStore } from '@/store'
 import { Button, Card, Divider, Input } from '@/components/ui'
@@ -15,7 +29,13 @@ const FONT_OPTIONS = [
 
 export default function SettingsPage() {
   const navigate = useNavigate()
-  const { user, profile, updateProfile, signOut } = useAuthStore()
+  const {
+    user,
+    profile,
+    updateProfile,
+    requestPasswordReset,
+    signOut,
+  } = useAuthStore()
   const {
     permission,
     subscribed,
@@ -34,15 +54,48 @@ export default function SettingsPage() {
 
   const [name, setName] = useState(profile?.name || '')
   const [notifyTime, setNotifyTime] = useState(profile?.notify_time || '08:00')
-  const [saving, setSaving] = useState(false)
+  const [savingName, setSavingName] = useState(false)
+  const [savingReminder, setSavingReminder] = useState(false)
+  const [sendingPasswordLink, setSendingPasswordLink] = useState(false)
   const [status, setStatus] = useState('')
 
-  const save = async () => {
-    setSaving(true)
+  useEffect(() => {
+    setName(profile?.name || '')
+  }, [profile?.name])
+
+  useEffect(() => {
+    setNotifyTime(profile?.notify_time || '08:00')
+  }, [profile?.notify_time])
+
+  const saveName = async () => {
+    setSavingName(true)
     setStatus('')
-    await updateProfile({ name, notify_time: notifyTime })
-    setSaving(false)
-    setStatus('Alterações salvas.')
+    await updateProfile({ name: name.trim() })
+    setSavingName(false)
+    setStatus('Seu nome foi atualizado.')
+  }
+
+  const saveReminderTime = async () => {
+    setSavingReminder(true)
+    setStatus('')
+    await updateProfile({ notify_time: notifyTime })
+    setSavingReminder(false)
+    setStatus('Horário do lembrete atualizado.')
+  }
+
+  const sendPasswordLink = async () => {
+    if (!user?.email || sendingPasswordLink) return
+
+    setSendingPasswordLink(true)
+    setStatus('')
+    try {
+      await requestPasswordReset(user.email)
+      setStatus('Enviamos um link para você criar uma nova senha.')
+    } catch {
+      setStatus('Não foi possível enviar o link agora. Tente novamente em alguns instantes.')
+    } finally {
+      setSendingPasswordLink(false)
+    }
   }
 
   const handleSignOut = async () => {
@@ -65,13 +118,15 @@ export default function SettingsPage() {
     setStatus(darkMode ? 'Modo claro ativado.' : 'Modo escuro ativado.')
   }
 
+  const emailConfirmed = Boolean(user?.email_confirmed_at || user?.confirmed_at)
+
   return (
     <main className="ves-page ves-brand-page pb-28">
       <header className="ves-container max-w-2xl pb-7 pt-10">
         <p className="ves-eyebrow">Seu espaço</p>
         <h1 className="ves-heading mt-2 text-[2.35rem]">Ajustes</h1>
         <p className="mt-3 max-w-lg text-base leading-relaxed text-muted dark:text-night-muted">
-          Deixe o Vereda confortável para você. As escolhas podem ser alteradas a qualquer momento.
+          Conta, conforto de leitura e lembretes em um só lugar. Cada mudança fica perto daquilo que ela altera.
         </p>
       </header>
 
@@ -87,32 +142,74 @@ export default function SettingsPage() {
           </div>
         )}
 
-        <Card className="p-5">
-          <div className="mb-5 flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
-              <User size={20} aria-hidden="true" />
-            </div>
-            <div className="min-w-0">
-              <h2 className="font-semibold text-ink dark:text-night-ink">Como chamar você</h2>
-              <p className="mt-1 truncate text-sm text-muted dark:text-night-muted">{user?.email}</p>
+        <SettingsSection
+          eyebrow="Sua conta"
+          title="Como você entra e como o Vereda chama você"
+          icon={User}
+        >
+          <div className="rounded-vesMd border border-line bg-canvas/45 p-4 dark:border-night-line dark:bg-night/35">
+            <div className="flex items-start gap-3">
+              <MailCheck size={20} className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+              <div className="min-w-0 flex-1">
+                <p className="break-all font-medium text-ink dark:text-night-ink">{user?.email}</p>
+                <p className="mt-1 text-sm text-muted dark:text-night-muted">
+                  {emailConfirmed ? 'E-mail confirmado' : 'Confirmação de e-mail pendente'}
+                </p>
+              </div>
+              <span className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold ${emailConfirmed ? 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300' : 'bg-amber-100 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300'}`}>
+                {emailConfirmed ? 'Confirmado' : 'Pendente'}
+              </span>
             </div>
           </div>
-          <Input
-            label="Nome"
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            placeholder="Seu nome"
-          />
-        </Card>
 
-        <Card className="space-y-5 p-5">
-          <div>
-            <h2 className="font-semibold text-ink dark:text-night-ink">Conforto visual</h2>
-            <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
-              Ajuste contraste e tamanho do texto sem precisar entrar na leitura.
-            </p>
+          <div className="mt-5">
+            <Input
+              label="Como chamar você"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+              placeholder="Seu nome"
+            />
+            <Button
+              onClick={saveName}
+              loading={savingName}
+              disabled={!name.trim() || name.trim() === (profile?.name || '')}
+              variant="secondary"
+              size="sm"
+              className="mt-3"
+            >
+              Salvar nome
+            </Button>
           </div>
 
+          <Divider className="my-5" />
+
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-start gap-3">
+              <LockKeyhole size={20} className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+              <div>
+                <p className="font-medium text-ink dark:text-night-ink">Senha e acesso</p>
+                <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
+                  Envie um link seguro para o seu e-mail se quiser criar uma nova senha.
+                </p>
+              </div>
+            </div>
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={sendPasswordLink}
+              loading={sendingPasswordLink}
+              className="shrink-0"
+            >
+              Enviar link
+            </Button>
+          </div>
+        </SettingsSection>
+
+        <SettingsSection
+          eyebrow="Leitura e conforto"
+          title="Deixe o texto agradável para você"
+          icon={BookOpen}
+        >
           <div className="flex min-h-14 items-center justify-between gap-4">
             <div className="flex min-w-0 items-center gap-3">
               {darkMode ? (
@@ -132,42 +229,40 @@ export default function SettingsPage() {
             />
           </div>
 
-          <Divider />
+          <Divider className="my-5" />
 
           <FontChoice
-            title="Tamanho dos textos do aplicativo"
-            description="Afeta menus, botões e textos em geral."
+            title="Textos do aplicativo"
+            description="Afeta menus, botões e orientações."
             value={appFontScale}
             onChange={updateAppFont}
           />
 
-          <Divider />
+          <Divider className="my-5" />
 
           <FontChoice
-            title="Tamanho do texto de leitura"
-            description="Afeta apenas o texto das obras."
+            title="Texto das obras"
+            description="Afeta apenas os trechos de leitura."
             value={fontSize}
             onChange={updateReaderFont}
           />
-        </Card>
+        </SettingsSection>
 
-        <Card className="p-5">
-          <div className="mb-4 flex items-start gap-3">
-            <Bell size={20} className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
-            <div>
-              <h2 className="font-semibold text-ink dark:text-night-ink">Lembrete gentil</h2>
-              <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
-                Opcional. Serve apenas para lembrar que sua leitura está disponível — não para cobrar frequência.
-              </p>
-            </div>
-          </div>
+        <SettingsSection
+          eyebrow="Lembretes"
+          title="Um toque gentil, somente se você quiser"
+          icon={Bell}
+        >
+          <p className="text-sm leading-relaxed text-muted dark:text-night-muted">
+            O lembrete existe para dizer que sua leitura continua disponível — não para cobrar frequência.
+          </p>
 
           {permission === 'denied' ? (
-            <p className="rounded-vesSm bg-amber-50 p-3 text-sm leading-relaxed text-amber-800 dark:bg-amber-950/30 dark:text-amber-300">
+            <p className="mt-4 rounded-vesSm bg-amber-50 p-3 text-sm leading-relaxed text-amber-800 dark:bg-amber-950/30 dark:text-amber-300">
               As notificações estão bloqueadas no navegador. Você pode continuar usando o Vereda normalmente sem elas.
             </p>
           ) : subscribed ? (
-            <div className="space-y-4">
+            <div className="mt-5 space-y-4">
               <label className="block text-sm font-semibold text-ink dark:text-night-ink">
                 Horário preferido
                 <input
@@ -177,17 +272,28 @@ export default function SettingsPage() {
                   className="mt-2 min-h-12 w-full rounded-vesSm border border-line bg-surface px-4 text-base text-ink outline-none focus:border-sage-700 focus:ring-2 focus:ring-sage-500/25 dark:border-night-line dark:bg-night-surface dark:text-night-ink"
                 />
               </label>
-              <Button
-                variant="secondary"
-                size="sm"
-                onClick={async () => {
-                  await unsubscribe()
-                  setStatus('Lembretes desativados.')
-                }}
-                loading={pushLoading}
-              >
-                Desativar lembrete
-              </Button>
+              <div className="flex flex-col gap-2 sm:flex-row">
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  onClick={saveReminderTime}
+                  loading={savingReminder}
+                  disabled={notifyTime === (profile?.notify_time || '08:00')}
+                >
+                  Salvar horário
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={async () => {
+                    await unsubscribe()
+                    setStatus('Lembretes desativados.')
+                  }}
+                  loading={pushLoading}
+                >
+                  Desativar lembrete
+                </Button>
+              </div>
             </div>
           ) : (
             <Button
@@ -197,31 +303,94 @@ export default function SettingsPage() {
                 setStatus('Pedido de lembrete atualizado.')
               }}
               loading={pushLoading}
+              className="mt-5"
             >
               <Bell size={18} aria-hidden="true" />
               Ativar lembrete gentil
             </Button>
           )}
-        </Card>
+        </SettingsSection>
 
-        <Button onClick={save} loading={saving} className="w-full">
-          Salvar ajustes
-        </Button>
-
-        <button
-          type="button"
-          onClick={handleSignOut}
-          className="flex min-h-12 w-full items-center justify-center gap-2 rounded-vesSm text-sm font-semibold text-red-700 hover:bg-red-50 dark:text-red-300 dark:hover:bg-red-950/30"
+        <SettingsSection
+          eyebrow="Privacidade e dados"
+          title="O que fica ligado à sua conta"
+          icon={ShieldCheck}
         >
-          <LogOut size={18} aria-hidden="true" />
-          Sair da conta
-        </button>
+          <p className="text-sm leading-relaxed text-muted dark:text-night-muted">
+            O Vereda usa sua conta para manter seu progresso de leitura, preferências e trechos salvos disponíveis quando você volta. Essas informações servem para a experiência do próprio aplicativo.
+          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted dark:text-night-muted">
+            Antes de adicionarmos recursos como exportação ou exclusão de conta, eles aparecerão aqui com uma explicação clara do que acontece com os seus dados.
+          </p>
+        </SettingsSection>
 
-        <p className="pb-4 text-center text-xs leading-relaxed text-muted dark:text-night-muted">
-          Vereda é gratuito, sem anúncios e sem fins lucrativos.
-        </p>
+        <SettingsSection
+          eyebrow="Ajuda e sobre"
+          title="Volte à orientação quando precisar"
+          icon={HelpCircle}
+        >
+          <button
+            type="button"
+            onClick={() => navigate('/comecar?replay=1')}
+            className="flex min-h-14 w-full items-center gap-3 rounded-vesMd border border-line bg-canvas/45 p-4 text-left transition-colors hover:border-sage-400 hover:bg-sage-50 dark:border-night-line dark:bg-night/35 dark:hover:border-sage-800 dark:hover:bg-sage-950/30"
+          >
+            <RotateCcw size={20} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+            <span>
+              <span className="block font-medium text-ink dark:text-night-ink">Refazer a introdução</span>
+              <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">Reveja como o Vereda organiza o estudo e escolha novamente um primeiro caminho.</span>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => navigate('/sugerir-obra')}
+            className="mt-3 flex min-h-14 w-full items-center gap-3 rounded-vesMd border border-line bg-canvas/45 p-4 text-left transition-colors hover:border-sage-400 hover:bg-sage-50 dark:border-night-line dark:bg-night/35 dark:hover:border-sage-800 dark:hover:bg-sage-950/30"
+          >
+            <BookPlus size={20} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+            <span>
+              <span className="block font-medium text-ink dark:text-night-ink">Sugerir uma obra</span>
+              <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">Veja os pedidos da comunidade, vote em um livro ou sugira um título que ainda não está na lista.</span>
+            </span>
+          </button>
+
+          <div className="mt-4 rounded-vesMd bg-clay-50/65 p-4 dark:bg-clay-950/10">
+            <p className="font-medium text-ink dark:text-night-ink">Sobre o Vereda</p>
+            <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
+              Um projeto gratuito, sem anúncios e sem fins lucrativos, criado para facilitar uma leitura calma e orientada das obras fundamentais do Espiritismo.
+            </p>
+          </div>
+        </SettingsSection>
+
+        <section aria-labelledby="session-heading" className="pt-2">
+          <h2 id="session-heading" className="sr-only">Sessão</h2>
+          <button
+            type="button"
+            onClick={handleSignOut}
+            className="flex min-h-12 w-full items-center justify-center gap-2 rounded-vesSm border border-red-100 bg-surface px-4 text-sm font-semibold text-red-700 hover:bg-red-50 dark:border-red-950 dark:bg-night-surface dark:text-red-300 dark:hover:bg-red-950/30"
+          >
+            <LogOut size={18} aria-hidden="true" />
+            Sair da conta
+          </button>
+        </section>
       </div>
     </main>
+  )
+}
+
+function SettingsSection({ eyebrow, title, icon: Icon, children }) {
+  return (
+    <Card className="p-5 sm:p-6">
+      <div className="mb-5 flex items-start gap-3">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+          <Icon size={20} aria-hidden="true" />
+        </div>
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-sage-700 dark:text-sage-300">{eyebrow}</p>
+          <h2 className="mt-1 font-display text-xl font-semibold leading-tight text-ink dark:text-night-ink">{title}</h2>
+        </div>
+      </div>
+      {children}
+    </Card>
   )
 }
 

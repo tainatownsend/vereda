@@ -23,8 +23,8 @@ const ERROR_MESSAGES = {
   'Failed to fetch': 'Não foi possível conectar ao Vereda. Verifique sua internet e tente novamente.',
 }
 
-export default function AuthPage() {
-  const [mode, setMode] = useState('login')
+export default function AuthPage({ initialMode = 'login' }) {
+  const [mode, setMode] = useState(initialMode)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -150,11 +150,11 @@ export default function AuthPage() {
         : 'Que bom ter você por aqui.'
 
   const supportingCopy = isConfirm
-    ? `Enviamos uma mensagem para ${email.trim()}. Abra o e-mail e toque no link de confirmação. Depois, volte ao Vereda para entrar.`
+    ? `Enviamos uma mensagem para ${email.trim()}. Abra o e-mail e toque no link de confirmação. Depois, o Vereda abre uma breve introdução para orientar seu primeiro passo.`
     : isForgot
       ? 'Informe seu e-mail e enviaremos um link para você criar uma nova senha.'
       : isSignup
-        ? 'Crie sua conta. Depois, o Vereda ajuda você a escolher por onde começar.'
+        ? 'Crie sua conta. Depois de confirmar o e-mail, o Vereda apresenta como funciona e ajuda você a escolher por onde começar.'
         : 'Entre para continuar sua leitura exatamente de onde parou.'
 
   return (
