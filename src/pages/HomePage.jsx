@@ -3,13 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import {
   Bell,
   BookOpen,
-  Compass,
   FileText,
   Headphones,
   Leaf,
-  MessageCircle,
   Quote,
-  Sparkles,
 } from 'lucide-react'
 
 import { useAuthStore } from '@/store'
@@ -22,11 +19,9 @@ import {
   ProgressLine,
 } from '@/components/northstar/NorthStarUI'
 
-const RETURN_AFTER_DAYS = 14
-
 export default function HomePage() {
   const navigate = useNavigate()
-  const { user, profile } = useAuthStore()
+  const { user } = useAuthStore()
   const books = useBooks()
   const { progress, dataLoading } = useUserData()
 
@@ -38,8 +33,6 @@ export default function HomePage() {
   if (!user || dataLoading) return <PageLoader />
 
   const primaryBook = activeBooks[0]
-  const displayName = getDisplayName(profile, user)
-  const returning = isReturningAfterPause(progress[primaryBook?.id]?.last_read_at)
 
   return (
     <main className="northstar-page pb-28">
@@ -50,8 +43,7 @@ export default function HomePage() {
               VEREDA
             </p>
             <p className="mt-2 max-w-[20rem] text-[14px] leading-relaxed text-ink/80 dark:text-night-muted">
-              {returning ? 'Que bom ter você de volta. ' : displayName ? `Bem-vindo, ${displayName}. ` : 'Bem-vindo. '}
-              Sua jornada de estudo continua no seu ritmo.
+              Bem-vindo à sua jornada de estudo que transforma.
             </p>
           </div>
 
@@ -60,12 +52,12 @@ export default function HomePage() {
           </button>
         </header>
 
-        <EditorialCard className="mt-7 overflow-hidden p-5">
-          <div className="flex items-start gap-3">
+        <EditorialCard className="northstar-home-quote mt-7 overflow-hidden p-5">
+          <div className="relative z-10 flex items-start gap-3">
             <Quote size={18} className="mt-1 shrink-0 text-sage-700" strokeWidth={1.7} />
-            <div>
+            <div className="max-w-[16rem]">
               <p className="font-display text-[1.08rem] leading-[1.55] text-ink dark:text-night-ink">
-                “Fora da caridade não há salvação.”
+                “A maior caridade que podemos fazer pela Doutrina Espírita é a sua divulgação.”
               </p>
               <p className="mt-3 text-xs text-muted dark:text-night-muted">Allan Kardec</p>
             </div>
@@ -78,22 +70,6 @@ export default function HomePage() {
         ) : (
           <EmptyHome navigate={navigate} />
         )}
-
-        <section className="mt-6 pb-3">
-          <button
-            type="button"
-            onClick={() => navigate('/comunidade')}
-            className="flex w-full items-center gap-3 rounded-[16px] border border-line bg-surface-soft/60 px-4 py-4 text-left dark:border-night-line dark:bg-night-surface"
-          >
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
-              <MessageCircle size={19} />
-            </span>
-            <span className="flex-1">
-              <span className="block text-sm font-semibold text-ink dark:text-night-ink">Comunidade Vereda</span>
-              <span className="mt-0.5 block text-xs text-muted dark:text-night-muted">Veja o North Star desta área; as funções sociais ficam para a última fase.</span>
-            </span>
-          </button>
-        </section>
       </div>
     </main>
   )
@@ -116,7 +92,7 @@ function HomeWithReading({ book, progress, navigate }) {
             <div className="min-w-0 flex-1 py-1">
               <p className="font-display text-[1.05rem] font-semibold leading-tight text-ink dark:text-night-ink">{book.title}</p>
               <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted dark:text-night-muted">
-                {progress?.current_section ? `Retomar no trecho ${progress.current_section}.` : 'Continue exatamente de onde você parou.'}
+                {getReadingPosition(progress)}
               </p>
               <div className="mt-4 flex items-center gap-3">
                 <ProgressLine value={percentage} className="flex-1" />
@@ -133,7 +109,7 @@ function HomeWithReading({ book, progress, navigate }) {
           <QuickAction icon={BookOpen} label="Livros" onClick={() => navigate('/biblioteca')} />
           <QuickAction icon={Leaf} label="Reflexões" onClick={() => navigate('/reflexoes')} />
           <QuickAction icon={FileText} label="Resumos" disabled />
-          <QuickAction icon={Headphones} label="Áudios" disabled />
+          <QuickAction icon={Headphones} label="Audiobooks" disabled />
         </div>
       </section>
 
@@ -143,11 +119,8 @@ function HomeWithReading({ book, progress, navigate }) {
           <div className="flex items-center gap-3">
             <BookCover book={book} size="sm" />
             <div className="min-w-0 flex-1">
-              <div className="flex items-center gap-2 text-sage-700 dark:text-sage-300">
-                <Sparkles size={14} />
-                <span className="text-[10px] font-semibold uppercase tracking-[0.08em]">Estudo sistematizado</span>
-              </div>
-              <p className="mt-2 truncate text-sm font-semibold text-ink dark:text-night-ink">{book.title}</p>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-sage-700 dark:text-sage-300">Estudo Sistematizado</p>
+              <p className="mt-2 text-sm font-semibold leading-tight text-ink dark:text-night-ink">{book.title}</p>
               <p className="mt-1 text-xs text-muted dark:text-night-muted">Progresso geral</p>
               <div className="mt-3 flex items-center gap-3">
                 <ProgressLine value={percentage} className="flex-1" />
@@ -156,15 +129,6 @@ function HomeWithReading({ book, progress, navigate }) {
             </div>
           </div>
         </EditorialCard>
-      </section>
-
-      <section className="mt-4 grid grid-cols-2 gap-2" aria-label="Explorar outros caminhos">
-        <button type="button" onClick={() => navigate('/descobrir')} className="flex min-h-12 items-center justify-center gap-2 rounded-[14px] border border-line bg-surface text-xs font-semibold text-sage-800 dark:border-night-line dark:bg-night-surface dark:text-sage-300">
-          <Compass size={16} /> Explorar um tema
-        </button>
-        <button type="button" onClick={() => navigate('/favoritos')} className="flex min-h-12 items-center justify-center gap-2 rounded-[14px] border border-line bg-surface text-xs font-semibold text-sage-800 dark:border-night-line dark:bg-night-surface dark:text-sage-300">
-          <Quote size={16} /> Revisitar salvos
-        </button>
       </section>
     </>
   )
@@ -194,23 +158,17 @@ function QuickAction({ icon: Icon, label, onClick, disabled = false }) {
       type="button"
       onClick={onClick}
       disabled={disabled}
-      className="flex min-h-[74px] flex-col items-center justify-center gap-2 rounded-[14px] border border-line bg-surface px-2 text-sage-700 disabled:opacity-45 dark:border-night-line dark:bg-night-surface dark:text-sage-300"
+      title={disabled ? 'Em breve' : undefined}
+      className="flex min-h-[74px] flex-col items-center justify-center gap-2 rounded-[14px] border border-line bg-surface px-1 text-sage-700 dark:border-night-line dark:bg-night-surface dark:text-sage-300"
     >
       <Icon size={20} strokeWidth={1.7} />
-      <span className="text-[10px] font-semibold text-ink/80 dark:text-night-muted">{label}</span>
+      <span className="max-w-full text-[9.5px] font-semibold text-ink/80 dark:text-night-muted">{label}</span>
     </button>
   )
 }
 
-function isReturningAfterPause(lastReadAt) {
-  if (!lastReadAt) return false
-  const last = new Date(lastReadAt).getTime()
-  if (!Number.isFinite(last)) return false
-  return Date.now() - last >= RETURN_AFTER_DAYS * 24 * 60 * 60 * 1000
-}
-
-function getDisplayName(profile, user) {
-  const candidates = [user?.user_metadata?.full_name, user?.user_metadata?.name, profile?.name]
-  const validName = candidates.find((value) => typeof value === 'string' && value.trim() && !value.includes('@'))
-  return validName?.trim().split(/\s+/)[0] || ''
+function getReadingPosition(progress) {
+  const section = Number(progress?.current_section)
+  if (!Number.isFinite(section) || section < 1) return 'Continue exatamente de onde você parou.'
+  return `Trecho ${section} · continue de onde você parou.`
 }
