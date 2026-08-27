@@ -94,7 +94,6 @@ export default function LibraryPage() {
                 <BookRow
                   key={book.id}
                   book={book}
-                  progress={progress[book.id]}
                   onOpen={() => navigate(progress[book.id] ? `/ler/${book.id}` : `/livro/${book.id}`)}
                 />
               ))}
@@ -141,7 +140,7 @@ function TabButton({ active, children, onClick }) {
   )
 }
 
-function BookRow({ book, progress, onOpen }) {
+function BookRow({ book, onOpen }) {
   const percentage = useProgress(book.id, book.total_sections)
   const sequence = getBookSequence(book)
 
