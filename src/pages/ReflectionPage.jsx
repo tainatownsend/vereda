@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import { ArrowLeft, Bookmark, MoreHorizontal, Quote } from 'lucide-react'
+import { ArrowLeft, Bookmark, Heart, MoreHorizontal, Quote, Share2 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import northStarLandscape from '@/assets/northstar-landscape.svg'
 import { EditorialCard } from '@/components/northstar/NorthStarUI'
+
+const REFLECTION_TEXT = 'Ninguém está bastante adiantado na vida para não aprender, nem tão simples e ignorante que não possa ensinar alguma coisa.'
 
 const SAVED_REFLECTIONS = [
   { text: 'Fé é ter coragem de avançar mesmo sem ver todo o caminho.', date: '18/05/2024' },
@@ -13,9 +15,24 @@ const SAVED_REFLECTIONS = [
 export default function ReflectionPage() {
   const navigate = useNavigate()
   const [note, setNote] = useState('')
+  const [liked, setLiked] = useState(false)
+  const [saved, setSaved] = useState(false)
+
+  const shareReflection = async () => {
+    const text = `“${REFLECTION_TEXT}” — Emmanuel`
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: 'Reflexão do dia · Vereda', text })
+      } else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(text)
+      }
+    } catch {
+      // Sharing is user-cancelable; keep the reading flow uninterrupted.
+    }
+  }
 
   return (
-    <main className="northstar-page pb-28">
+    <main className="northstar-page pb-40">
       <div className="northstar-container pt-8">
         <header className="flex items-center justify-between gap-3">
           <button type="button" className="northstar-icon-button -ml-2" onClick={() => navigate(-1)} aria-label="Voltar">
@@ -36,7 +53,7 @@ export default function ReflectionPage() {
             <Quote size={20} className="mt-1 shrink-0 text-sage-700" />
             <div>
               <p className="font-display text-[1.22rem] leading-[1.55] text-ink dark:text-night-ink">
-                “Ninguém está bastante adiantado na vida para não aprender, nem tão simples e ignorante que não possa ensinar alguma coisa.”
+                “{REFLECTION_TEXT}”
               </p>
               <p className="mt-3 text-xs text-muted dark:text-night-muted">Emmanuel</p>
             </div>
@@ -69,6 +86,32 @@ export default function ReflectionPage() {
           </div>
         </section>
       </div>
+
+      <footer className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/96 pb-safe backdrop-blur-xl dark:border-night-line dark:bg-night/96">
+        <div className="mx-auto flex h-[4.4rem] max-w-xl items-center justify-around px-8">
+          <button type="button" onClick={shareReflection} className="northstar-reader-control" aria-label="Compartilhar reflexão">
+            <Share2 size={20} />
+          </button>
+          <button
+            type="button"
+            onClick={() => setLiked((value) => !value)}
+            className="northstar-reader-control"
+            aria-label={liked ? 'Remover curtida da reflexão' : 'Curtir reflexão'}
+            aria-pressed={liked}
+          >
+            <Heart size={21} fill={liked ? 'currentColor' : 'none'} />
+          </button>
+          <button
+            type="button"
+            onClick={() => setSaved((value) => !value)}
+            className="northstar-reader-control"
+            aria-label={saved ? 'Remover reflexão dos salvos' : 'Salvar reflexão'}
+            aria-pressed={saved}
+          >
+            <Bookmark size={21} fill={saved ? 'currentColor' : 'none'} />
+          </button>
+        </div>
+      </footer>
     </main>
   )
 }
