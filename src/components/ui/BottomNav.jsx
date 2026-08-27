@@ -1,10 +1,10 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { Bookmark, BookOpen, Home, Leaf, UserRound } from 'lucide-react'
+import { Bookmark, BookOpen, Home, UserRound, UsersRound } from 'lucide-react'
 
 const tabs = [
   { path: '/home', label: 'Início', Icon: Home },
   { path: '/biblioteca', label: 'Estudos', Icon: BookOpen },
-  { path: '/reflexoes', label: 'Reflexões', Icon: Leaf },
+  { path: '/comunidade', label: 'Comunidade', Icon: UsersRound },
   { path: '/favoritos', label: 'Favoritos', Icon: Bookmark },
   { path: '/configuracoes', label: 'Perfil', Icon: UserRound },
 ]
@@ -16,7 +16,8 @@ export default function BottomNav() {
   if (
     pathname.startsWith('/ler/') ||
     pathname.startsWith('/livro/') ||
-    pathname === '/comecar'
+    pathname === '/comecar' ||
+    pathname === '/reflexoes'
   ) {
     return null
   }
