@@ -5,8 +5,13 @@ import { EditorialCard } from '@/components/northstar/NorthStarUI'
 
 const GROUPS = [
   { name: 'Estudo Sistematizado', subtitle: 'O Evangelho segundo o Espiritismo', members: 32 },
-  { name: 'Grupo da Caridade', subtitle: 'Estudo e prática', members: 713 },
-  { name: 'Família Espírita', subtitle: 'Trocas e acolhimento', members: 186 },
+  { name: 'Grupo da Caridade', members: 713 },
+  { name: 'Família Espírita', members: 186 },
+]
+
+const EXPLORE_GROUPS = [
+  { name: 'Jovens Espíritas', members: 341 },
+  { name: 'Estudo dos Médiuns', members: 256 },
 ]
 
 export default function CommunityPage() {
@@ -22,12 +27,14 @@ export default function CommunityPage() {
           </button>
         </header>
 
-        <div className="mt-6 grid grid-cols-3 border-b border-line dark:border-night-line">
+        <div className="mt-6 grid grid-cols-3 border-b border-line dark:border-night-line" role="tablist" aria-label="Áreas da comunidade">
           {['grupos', 'discussoes', 'amigos'].map((item) => (
             <button
               key={item}
               type="button"
               onClick={() => setTab(item)}
+              role="tab"
+              aria-selected={tab === item}
               className={`relative min-h-12 px-2 text-xs font-medium capitalize ${tab === item ? 'text-sage-800 dark:text-sage-300' : 'text-muted dark:text-night-muted'}`}
             >
               {item === 'discussoes' ? 'Discussões' : item}
@@ -48,21 +55,14 @@ export default function CommunityPage() {
             <section className="mt-6">
               <h2 className="northstar-section-title">Explorar grupos</h2>
               <div className="mt-3 space-y-2">
-                <GroupCard group={{ name: 'Jovens Espíritas', subtitle: 'Estudo e convivência', members: 341 }} />
-                <GroupCard group={{ name: 'Estudo dos Médiuns', subtitle: 'Leitura guiada', members: 256 }} />
+                {EXPLORE_GROUPS.map((group) => <GroupCard key={group.name} group={group} />)}
               </div>
             </section>
-
-            <EditorialCard className="mt-6 p-4 text-center">
-              <p className="text-xs leading-relaxed text-muted dark:text-night-muted">
-                Esta tela define o North Star visual. Criação de grupos, discussões e conexões serão ativadas apenas na fase de Comunidade.
-              </p>
-            </EditorialCard>
 
             <button
               type="button"
               disabled
-              className="fixed bottom-24 right-5 flex h-12 w-12 items-center justify-center rounded-full bg-sage-700 text-white opacity-45 shadow-[0_10px_24px_rgba(66,82,54,0.25)]"
+              className="fixed bottom-24 right-5 flex h-12 w-12 items-center justify-center rounded-full bg-sage-700 text-white shadow-[0_10px_24px_rgba(66,82,54,0.25)]"
               aria-label="Criar grupo — em breve"
             >
               <Plus size={23} />
@@ -71,10 +71,7 @@ export default function CommunityPage() {
         ) : (
           <EditorialCard className="mt-5 p-6 text-center">
             <Users size={24} className="mx-auto text-sage-700" />
-            <p className="mt-3 font-display text-xl font-semibold text-ink dark:text-night-ink">Estrutura preparada</p>
-            <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-              Discussões e conexões entram na última fase, junto com moderação, privacidade e segurança social.
-            </p>
+            <p className="mt-3 font-display text-xl font-semibold text-ink dark:text-night-ink">Em breve</p>
           </EditorialCard>
         )}
       </div>
@@ -90,7 +87,7 @@ function GroupCard({ group }) {
       </div>
       <div className="min-w-0 flex-1">
         <p className="text-sm font-semibold text-ink dark:text-night-ink">{group.name}</p>
-        <p className="mt-0.5 truncate text-xs text-muted dark:text-night-muted">{group.subtitle}</p>
+        {group.subtitle && <p className="mt-0.5 truncate text-xs text-muted dark:text-night-muted">{group.subtitle}</p>}
         <p className="mt-1 text-[10px] text-muted dark:text-night-muted">{group.members} membros</p>
       </div>
       <span className="text-xl text-muted">›</span>
