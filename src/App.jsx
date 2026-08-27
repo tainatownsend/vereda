@@ -11,6 +11,7 @@ import HomePage from '@/pages/HomePage'
 import BookDetailPage from '@/pages/BookDetailPage'
 import ReaderPage from '@/pages/ReaderPage'
 import LibraryPage from '@/pages/LibraryPage'
+import BookRequestsPage from '@/pages/BookRequestsPage'
 import SavedPassagesPage from '@/pages/SavedPassagesPage'
 import PassagePage from '@/pages/PassagePage'
 import DiscoverPage from '@/pages/DiscoverPage'
@@ -58,6 +59,7 @@ export default function App() {
           <Route path="/livro/:id" element={<ProtectedRoute><BookDetailPage /></ProtectedRoute>} />
           <Route path="/ler/:id" element={<ProtectedRoute><ReaderPage /></ProtectedRoute>} />
           <Route path="/biblioteca" element={<ProtectedRoute><LibraryPage /></ProtectedRoute>} />
+          <Route path="/sugerir-obra" element={<ProtectedRoute><BookRequestsPage /></ProtectedRoute>} />
           <Route path="/reflexoes" element={<ProtectedRoute><ReflectionPage /></ProtectedRoute>} />
           <Route path="/favoritos" element={<ProtectedRoute><FavoritesPage /></ProtectedRoute>} />
           <Route path="/comunidade" element={<ProtectedRoute><CommunityPage /></ProtectedRoute>} />
