@@ -20,13 +20,18 @@ import FavoritesPage from '@/pages/FavoritesPage'
 import CommunityPage from '@/pages/CommunityPage'
 import EvolutionPage from '@/pages/EvolutionPage'
 import SettingsPage from '@/pages/SettingsPage'
+import NorthStarVisualQaPage from '@/pages/NorthStarVisualQaPage'
 import { getAppFontSize, getThemeColor } from '@/features/ui/displayPreferences'
+
+const visualQaEnabled = import.meta.env.VITE_NORTHSTAR_QA === 'true'
 
 export default function App() {
   const { init, loading, user } = useAuthStore()
   const { darkMode, appFontScale } = useUIStore()
 
-  useEffect(() => { init() }, [init])
+  useEffect(() => {
+    if (!visualQaEnabled) init()
+  }, [init])
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode)
@@ -38,7 +43,7 @@ export default function App() {
     document.documentElement.style.fontSize = getAppFontSize(appFontScale)
   }, [appFontScale])
 
-  if (loading) return <PageLoader />
+  if (!visualQaEnabled && loading) return <PageLoader />
 
   return (
     <div className={darkMode ? 'dark' : ''}>
@@ -46,6 +51,8 @@ export default function App() {
         <ScrollToTop />
 
         <Routes>
+          {visualQaEnabled && <Route path="/__northstar-qa" element={<NorthStarVisualQaPage />} />}
+
           <Route path="/" element={<LandingPage />} />
           <Route path="/entrar" element={user ? <Navigate to="/home" replace /> : <AuthPage />} />
           <Route path="/criar-conta" element={user ? <Navigate to="/home" replace /> : <AuthPage initialMode="signup" />} />
@@ -68,7 +75,7 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
 
-        <AppBottomNav user={user} />
+        {!visualQaEnabled && <AppBottomNav user={user} />}
       </BrowserRouter>
     </div>
   )
