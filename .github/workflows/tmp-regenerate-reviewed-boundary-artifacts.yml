@@ -54,3 +54,5 @@ jobs:
           fi
           git commit -m "chore(content): refresh reviewed-boundary artifact hashes"
           git push origin HEAD:feat/book-request-voting
+
+# Retriggered after the North Star branch isolated the pre-existing artifact drift.
