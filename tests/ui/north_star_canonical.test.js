@@ -1,0 +1,81 @@
+import { readFileSync } from 'node:fs'
+import { describe, expect, it } from 'vitest'
+
+const home = readFileSync('src/pages/HomePage.jsx', 'utf8')
+const library = readFileSync('src/pages/LibraryPage.jsx', 'utf8')
+const reader = readFileSync('src/pages/ReaderPage.jsx', 'utf8')
+const reflection = readFileSync('src/pages/ReflectionPage.jsx', 'utf8')
+const community = readFileSync('src/pages/CommunityPage.jsx', 'utf8')
+const bottomNav = readFileSync('src/components/ui/BottomNav.jsx', 'utf8')
+
+describe('Vereda North Star canonical screens', () => {
+  it('keeps Home aligned to the approved canonical composition', () => {
+    expect(home).toContain('Bem-vindo à sua jornada de estudo que transforma.')
+    expect(home).toContain('A maior caridade que podemos fazer pela Doutrina Espírita é a sua divulgação.')
+    expect(home).toContain('Continuar estudando')
+    expect(home).toContain('De onde você quer começar?')
+    expect(home).toContain('Livros')
+    expect(home).toContain('Reflexões')
+    expect(home).toContain('Resumos')
+    expect(home).toContain('Audiobooks')
+    expect(home).toContain('Plano de estudo')
+    expect(home).toContain('Estudo Sistematizado')
+    expect(home).not.toContain('Comunidade Vereda')
+    expect(home).not.toContain('Revisitar salvos')
+  })
+
+  it('keeps Biblioteca visually focused on tabs and the five-work list', () => {
+    expect(library).toContain('Biblioteca')
+    expect(library).toContain('Básicas')
+    expect(library).toContain('Complementares')
+    expect(library).toContain('aria-labelledby="all-books-heading"')
+    expect(library).toContain('BOOK_ACCENT_COLORS')
+    expect(library).toContain('showMenu &&')
+    expect(library).toContain('Sequência sugerida das obras')
+    expect(library).toContain('Trechos salvos')
+    expect(library).not.toContain('Ainda não iniciada')
+  })
+
+  it('keeps Reader editorial chrome and reading controls intact', () => {
+    expect(reader).toContain('MoreHorizontal')
+    expect(reader).toContain('currentSection.chapter_label')
+    expect(reader).toContain("className=\"northstar-reader-control\"")
+    expect(reader).toContain('A−')
+    expect(reader).toContain('A+')
+    expect(reader).toContain('Salvar este trecho')
+    expect(reader).toContain('BookIndexPanel')
+  })
+
+  it('keeps Reflexões content aligned to the approved screen', () => {
+    expect(reflection).toContain('Reflexão do dia')
+    expect(reflection).toContain('Ninguém está bastante adiantado na vida para não aprender, nem tão simples e ignorante que não possa ensinar alguma coisa.')
+    expect(reflection).toContain('Emmanuel')
+    expect(reflection).toContain('Minha reflexão')
+    expect(reflection).toContain('Escreva sua reflexão...')
+    expect(reflection).toContain('Reflexões salvas')
+    expect(reflection).toContain('Fé é ter coragem de avançar mesmo sem ver todo o caminho.')
+    expect(reflection).toContain('18/05/2024')
+    expect(reflection).not.toContain('Nesta primeira rodada o campo é local à tela')
+  })
+
+  it('keeps Comunidade as the clean canonical future shell', () => {
+    expect(community).toContain('Comunidade')
+    expect(community).toContain('Discussões')
+    expect(community).toContain('Meus grupos')
+    expect(community).toContain('Estudo Sistematizado')
+    expect(community).toContain('Grupo da Caridade')
+    expect(community).toContain('Família Espírita')
+    expect(community).toContain('Jovens Espíritas')
+    expect(community).toContain('Estudo dos Médiuns')
+    expect(community).not.toContain('North Star visual')
+    expect(community).not.toContain('funções sociais')
+  })
+
+  it('keeps the canonical five-item primary navigation', () => {
+    expect(bottomNav).toContain("label: 'Início'")
+    expect(bottomNav).toContain("label: 'Estudos'")
+    expect(bottomNav).toContain("label: 'Reflexões'")
+    expect(bottomNav).toContain("label: 'Favoritos'")
+    expect(bottomNav).toContain("label: 'Perfil'")
+  })
+})
