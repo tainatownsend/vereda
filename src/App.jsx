@@ -4,16 +4,21 @@ import { useAuthStore, useUIStore } from '@/store'
 import { PageLoader } from '@/components/ui'
 import BottomNav from '@/components/ui/BottomNav'
 import ProtectedRoute from '@/components/ProtectedRoute'
+import LandingPage from '@/pages/LandingPage'
 import AuthPage from '@/pages/AuthPage'
 import ResetPasswordPage from '@/pages/ResetPasswordPage'
 import HomePage from '@/pages/HomePage'
 import BookDetailPage from '@/pages/BookDetailPage'
 import ReaderPage from '@/pages/ReaderPage'
 import LibraryPage from '@/pages/LibraryPage'
+import BookRequestsPage from '@/pages/BookRequestsPage'
 import SavedPassagesPage from '@/pages/SavedPassagesPage'
 import PassagePage from '@/pages/PassagePage'
 import DiscoverPage from '@/pages/DiscoverPage'
 import GettingStartedPage from '@/pages/GettingStartedPage'
+import ReflectionPage from '@/pages/ReflectionPage'
+import FavoritesPage from '@/pages/FavoritesPage'
+import CommunityPage from '@/pages/CommunityPage'
 import EvolutionPage from '@/pages/EvolutionPage'
 import SettingsPage from '@/pages/SettingsPage'
 import { getAppFontSize, getThemeColor } from '@/features/ui/displayPreferences'
@@ -42,60 +47,41 @@ export default function App() {
         <ScrollToTop />
 
         <Routes>
-          <Route
-            path="/"
-            element={user ? <Navigate to="/home" replace /> : <AuthPage />}
-          />
-
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/entrar" element={user ? <Navigate to="/home" replace /> : <AuthPage />} />
+          <Route path="/criar-conta" element={user ? <Navigate to="/home" replace /> : <AuthPage initialMode="signup" />} />
           <Route path="/redefinir-senha" element={<ResetPasswordPage />} />
 
-          <Route path="/home" element={
-            <ProtectedRoute><HomePage /></ProtectedRoute>
-          } />
-
-          <Route path="/comecar" element={
-            <ProtectedRoute><GettingStartedPage /></ProtectedRoute>
-          } />
-
-          <Route path="/descobrir" element={
-            <ProtectedRoute><DiscoverPage /></ProtectedRoute>
-          } />
-
-          <Route path="/trecho/:sectionId" element={
-            <ProtectedRoute><PassagePage /></ProtectedRoute>
-          } />
-
-          <Route path="/livro/:id" element={
-            <ProtectedRoute><BookDetailPage /></ProtectedRoute>
-          } />
-
-          <Route path="/ler/:id" element={
-            <ProtectedRoute><ReaderPage /></ProtectedRoute>
-          } />
-
-          <Route path="/biblioteca" element={
-            <ProtectedRoute><LibraryPage /></ProtectedRoute>
-          } />
-
-          <Route path="/salvos" element={
-            <ProtectedRoute><SavedPassagesPage /></ProtectedRoute>
-          } />
-
-          <Route path="/evolucao" element={
-            <ProtectedRoute><EvolutionPage /></ProtectedRoute>
-          } />
-
-          <Route path="/configuracoes" element={
-            <ProtectedRoute><SettingsPage /></ProtectedRoute>
-          } />
+          <Route path="/home" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
+          <Route path="/comecar" element={<ProtectedRoute><GettingStartedPage /></ProtectedRoute>} />
+          <Route path="/descobrir" element={<ProtectedRoute><DiscoverPage /></ProtectedRoute>} />
+          <Route path="/trecho/:sectionId" element={<ProtectedRoute><PassagePage /></ProtectedRoute>} />
+          <Route path="/livro/:id" element={<ProtectedRoute><BookDetailPage /></ProtectedRoute>} />
+          <Route path="/ler/:id" element={<ProtectedRoute><ReaderPage /></ProtectedRoute>} />
+          <Route path="/biblioteca" element={<ProtectedRoute><LibraryPage /></ProtectedRoute>} />
+          <Route path="/sugerir-obra" element={<ProtectedRoute><BookRequestsPage /></ProtectedRoute>} />
+          <Route path="/reflexoes" element={<ProtectedRoute><ReflectionPage /></ProtectedRoute>} />
+          <Route path="/favoritos" element={<ProtectedRoute><FavoritesPage /></ProtectedRoute>} />
+          <Route path="/comunidade" element={<ProtectedRoute><CommunityPage /></ProtectedRoute>} />
+          <Route path="/salvos" element={<ProtectedRoute><SavedPassagesPage /></ProtectedRoute>} />
+          <Route path="/evolucao" element={<ProtectedRoute><EvolutionPage /></ProtectedRoute>} />
+          <Route path="/configuracoes" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
 
-        {user && <BottomNav />}
+        <AppBottomNav user={user} />
       </BrowserRouter>
     </div>
   )
+}
+
+function AppBottomNav({ user }) {
+  const { pathname } = useLocation()
+  const publicPaths = new Set(['/', '/entrar', '/criar-conta', '/redefinir-senha'])
+
+  if (!user || publicPaths.has(pathname)) return null
+  return <BottomNav />
 }
 
 function ScrollToTop() {

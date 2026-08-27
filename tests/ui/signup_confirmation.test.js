@@ -4,11 +4,15 @@ import {
   getSignupEmailRedirect,
   getSignupOutcome,
 } from '@/features/auth/signupConfirmation'
+import {
+  needsFirstTimeOnboarding,
+  onboardingMetadata,
+} from '@/features/auth/firstTimeOnboarding'
 
 describe('signup confirmation contract', () => {
-  it('builds confirmation redirect on the current app origin', () => {
+  it('sends confirmed signups into the guided first-time flow on the current origin', () => {
     expect(getSignupEmailRedirect('https://vereda.example.com/preview')).toBe(
-      'https://vereda.example.com/',
+      'https://vereda.example.com/comecar?novo=1',
     )
   })
 
@@ -33,5 +37,12 @@ describe('signup confirmation contract', () => {
       session: null,
       requiresEmailConfirmation: false,
     })
+  })
+
+  it('only forces onboarding for accounts explicitly marked incomplete', () => {
+    expect(needsFirstTimeOnboarding({ user_metadata: { vereda_onboarding_complete: false } })).toBe(true)
+    expect(needsFirstTimeOnboarding({ user_metadata: { vereda_onboarding_complete: true } })).toBe(false)
+    expect(needsFirstTimeOnboarding({ user_metadata: {} })).toBe(false)
+    expect(onboardingMetadata(true)).toEqual({ vereda_onboarding_complete: true })
   })
 })

@@ -5,6 +5,10 @@ import { useOnboardingStore } from '@/store/useOnboardingStore'
 import { getPasswordResetRedirect } from '@/features/auth/passwordRecovery'
 import { getSignupEmailRedirect } from '@/features/auth/signupConfirmation'
 import {
+  ONBOARDING_METADATA_KEY,
+  onboardingMetadata,
+} from '@/features/auth/firstTimeOnboarding'
+import {
   addSavedPassageId,
   getSavedPassageIds,
   removeSavedPassageId,
@@ -137,7 +141,10 @@ export const useAuthStore = create((set, get) => ({
       email,
       password,
       options: {
-        data: { full_name: name },
+        data: {
+          full_name: name,
+          [ONBOARDING_METADATA_KEY]: false,
+        },
         emailRedirectTo: getSignupEmailRedirect(window.location.origin),
       },
     })
@@ -163,6 +170,20 @@ export const useAuthStore = create((set, get) => ({
     })
     if (error) throw error
     return data
+  },
+
+  completeFirstTimeOnboarding: async () => {
+    const { user } = get()
+    if (!user) return null
+
+    const { data, error } = await supabase.auth.updateUser({
+      data: onboardingMetadata(true),
+    })
+
+    if (error) throw error
+    if (data.user) set({ user: data.user })
+    useOnboardingStore.getState().complete()
+    return data.user || null
   },
 
   requestPasswordReset: async (email) => {

@@ -1,5 +1,5 @@
 export function getSignupEmailRedirect(origin) {
-  return new URL('/', origin).toString()
+  return new URL('/comecar?novo=1', origin).toString()
 }
 
 export function getSignupOutcome(data) {
