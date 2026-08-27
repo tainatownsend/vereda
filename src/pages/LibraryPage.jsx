@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BookOpen, Bookmark, Compass, MoreHorizontal } from 'lucide-react'
+import { BookOpen, BookPlus, Bookmark, Compass, MoreHorizontal } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks, useProgress } from '@/hooks'
@@ -76,6 +76,7 @@ export default function LibraryPage() {
                   label={savedCount ? `Trechos salvos · ${savedCount}` : 'Trechos salvos'}
                   onClick={() => navigate('/salvos')}
                 />
+                <MenuAction icon={BookPlus} label="Sugerir uma obra" onClick={() => navigate('/sugerir-obra')} />
               </div>
             </div>
           )}
