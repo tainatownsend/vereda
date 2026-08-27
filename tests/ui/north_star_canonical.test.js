@@ -39,14 +39,14 @@ describe('Vereda North Star canonical screens', () => {
   it('keeps Reader editorial chrome and reading controls intact', () => {
     expect(reader).toContain('MoreHorizontal')
     expect(reader).toContain('currentSection.chapter_label')
-    expect(reader).toContain("className=\"northstar-reader-control\"")
+    expect(reader).toContain('className="northstar-reader-control"')
     expect(reader).toContain('A−')
     expect(reader).toContain('A+')
     expect(reader).toContain('Salvar este trecho')
     expect(reader).toContain('BookIndexPanel')
   })
 
-  it('keeps Reflexões content aligned to the approved screen', () => {
+  it('keeps Reflexões content and dedicated actions aligned to the approved screen', () => {
     expect(reflection).toContain('Reflexão do dia')
     expect(reflection).toContain('Ninguém está bastante adiantado na vida para não aprender, nem tão simples e ignorante que não possa ensinar alguma coisa.')
     expect(reflection).toContain('Emmanuel')
@@ -55,6 +55,9 @@ describe('Vereda North Star canonical screens', () => {
     expect(reflection).toContain('Reflexões salvas')
     expect(reflection).toContain('Fé é ter coragem de avançar mesmo sem ver todo o caminho.')
     expect(reflection).toContain('18/05/2024')
+    expect(reflection).toContain('Compartilhar reflexão')
+    expect(reflection).toContain('Curtir reflexão')
+    expect(reflection).toContain('Salvar reflexão')
     expect(reflection).not.toContain('Nesta primeira rodada o campo é local à tela')
   })
 
@@ -74,8 +77,10 @@ describe('Vereda North Star canonical screens', () => {
   it('keeps the canonical five-item primary navigation', () => {
     expect(bottomNav).toContain("label: 'Início'")
     expect(bottomNav).toContain("label: 'Estudos'")
-    expect(bottomNav).toContain("label: 'Reflexões'")
+    expect(bottomNav).toContain("label: 'Comunidade'")
     expect(bottomNav).toContain("label: 'Favoritos'")
     expect(bottomNav).toContain("label: 'Perfil'")
+    expect(bottomNav).not.toContain("label: 'Reflexões'")
+    expect(bottomNav).toContain("pathname === '/reflexoes'")
   })
 })
