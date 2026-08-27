@@ -108,7 +108,8 @@
 }
 
 @layer components {
-  .ves-page {
+  .ves-page,
+  .northstar-page {
     @apply min-h-screen bg-canvas text-ink dark:bg-night dark:text-night-ink;
   }
 
@@ -126,7 +127,8 @@
       var(--ves-canvas);
   }
 
-  .ves-container {
+  .ves-container,
+  .northstar-container {
     @apply mx-auto w-full max-w-xl px-5 min-[360px]:px-6;
   }
 
@@ -137,6 +139,22 @@
   .ves-heading {
     overflow-wrap: anywhere;
     @apply font-display font-semibold leading-tight tracking-[-0.025em] text-ink dark:text-night-ink;
+  }
+
+  .northstar-section-title {
+    @apply text-sm font-semibold text-ink dark:text-night-ink;
+  }
+
+  .northstar-text-action {
+    @apply min-h-10 rounded-lg px-2 text-xs font-medium text-sage-700 hover:bg-surface-soft dark:text-sage-300 dark:hover:bg-night-surface;
+  }
+
+  .northstar-icon-button {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-ink/80 hover:bg-surface-soft dark:text-night-muted dark:hover:bg-night-surface;
+  }
+
+  .northstar-reader-control {
+    @apply flex h-11 min-w-11 items-center justify-center rounded-full px-2 font-display text-lg font-semibold text-ink hover:bg-surface-soft dark:text-night-ink dark:hover:bg-night-surface;
   }
 
   .ves-warm-panel {
