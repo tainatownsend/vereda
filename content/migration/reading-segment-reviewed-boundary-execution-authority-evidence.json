@@ -32,12 +32,16 @@
     "migrations_scanned": [
       "supabase/migrations/20260802224500_reading_data_foundation.sql",
       "supabase/migrations/20260803033000_content_staging_foundation.sql",
-      "supabase/migrations/20260825062000_book_candidate_voting.sql"
+      "supabase/migrations/20260825062000_book_candidate_voting.sql",
+      "supabase/migrations/20260828052000_book_candidate_backend_hardening.sql",
+      "supabase/migrations/20260828053500_book_candidate_submit_rpc_fix.sql",
+      "supabase/migrations/20260828060000_public_database_security_hardening.sql"
     ],
     "migrations_relevant": [
       "supabase/migrations/20260802224500_reading_data_foundation.sql",
       "supabase/migrations/20260803033000_content_staging_foundation.sql",
-      "supabase/migrations/20260825062000_book_candidate_voting.sql"
+      "supabase/migrations/20260825062000_book_candidate_voting.sql",
+      "supabase/migrations/20260828053500_book_candidate_submit_rpc_fix.sql"
     ],
     "columns": [
       {
@@ -126,7 +130,7 @@
   },
   "historical_hashes": {
     "pr0053_plan": "184eee3e709042c01e0a778bbe8a1e1784dd858f08da27d760b7b930c88c6d9a",
-    "pr0053_manifest": "f04dacce275ff732f48b19672e46ae6dc74dc72805fbcfeca05d00defb9d6337",
+    "pr0053_manifest": "1e7166cc054e34fe55208d2941e53d1d168b97a9469cc0754f03ccd4f37d64c3",
     "audit_migration": "d7c8554b04641955659ab64c910315c3176d3feb10d7a535e8581d2114ef76a3"
   }
 }
