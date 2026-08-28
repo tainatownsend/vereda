@@ -8,7 +8,9 @@ if (!url) throw new Error('VEREDA_SMOKE_URL is required')
 
 const viewports = [
   { width: 320, height: 568, name: '320x568' },
+  { width: 360, height: 800, name: '360x800' },
   { width: 390, height: 844, name: '390x844' },
+  { width: 430, height: 932, name: '430x932' },
 ]
 
 const browser = await chromium.launch({ headless: true })
