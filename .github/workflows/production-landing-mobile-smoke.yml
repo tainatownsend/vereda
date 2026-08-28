@@ -1,9 +1,6 @@
 name: Production Landing Mobile Smoke
 
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/production-landing-mobile-smoke.yml'
   push:
     branches: [main]
     paths:
@@ -48,14 +45,32 @@ jobs:
 
           const browser = await chromium.launch({ headless: true })
 
+          async function waitForProductionLanding(page, viewportName) {
+            let lastError
+
+            for (let attempt = 1; attempt <= 8; attempt += 1) {
+              try {
+                await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45_000 })
+                await page.getByRole('heading', { level: 1 }).waitFor({ state: 'visible', timeout: 10_000 })
+                console.log(`${viewportName}: production landing ready on attempt ${attempt}`)
+                return
+              } catch (error) {
+                lastError = error
+                console.log(`${viewportName}: production not ready yet (attempt ${attempt}/8)`)
+                if (attempt < 8) await new Promise((resolve) => setTimeout(resolve, 15_000))
+              }
+            }
+
+            throw lastError
+          }
+
           try {
             for (const viewport of viewports) {
               const page = await browser.newPage({ viewport })
               const pageErrors = []
               page.on('pageerror', (error) => pageErrors.push(error.message))
 
-              await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45_000 })
-              await page.getByRole('heading', { level: 1 }).waitFor({ state: 'visible', timeout: 15_000 })
+              await waitForProductionLanding(page, viewport.name)
 
               const title = await page.title()
               if (!title.includes('Vereda')) throw new Error(`${viewport.name}: missing Vereda document title`)
