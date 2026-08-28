@@ -34,7 +34,7 @@
   }
 }
 
-@media (max-width: 389px) {
+@media (max-width: 399px) {
   .min-h-screen.overflow-x-hidden > header .ves-container > a > div {
     display: none;
   }
