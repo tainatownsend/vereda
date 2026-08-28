@@ -30,7 +30,7 @@ describe('public landing release boundaries', () => {
     expect(mobile).toContain('@media (max-width: 419px)')
     expect(mobile).toContain('white-space: nowrap')
     expect(mobile).toContain('font-size: 0.75rem')
-    expect(mobile).toContain('@media (max-width: 389px)')
+    expect(mobile).toContain('@media (max-width: 399px)')
     expect(mobile).toContain('> header .ves-container > a > div')
   })
 })
