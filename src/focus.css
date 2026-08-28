@@ -1,9 +1,10 @@
 /*
  * Keyboard focus is a release-level accessibility boundary.
- * Keep this rule unlayered and loaded after Tailwind so component/base layers
- * cannot accidentally zero the visible ring in the compiled production CSS.
+ * Tailwind components may intentionally use focus-visible:outline-none when
+ * they supply their own ring. Vereda still requires a visible fallback ring,
+ * so this release boundary cannot be removed by component utilities.
  */
 :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
-  outline: 3px solid var(--ves-focus);
-  outline-offset: 3px;
+  outline: 3px solid var(--ves-focus) !important;
+  outline-offset: 3px !important;
 }
