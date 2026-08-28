@@ -21,6 +21,10 @@ const hardeningMigrationSource = readFileSync(
   'supabase/migrations/20260828052000_book_candidate_backend_hardening.sql',
   'utf8',
 )
+const submitRpcFixMigrationSource = readFileSync(
+  'supabase/migrations/20260828053500_book_candidate_submit_rpc_fix.sql',
+  'utf8',
+)
 
 describe('community book request matching', () => {
   it('normalizes accents, punctuation and a leading article', () => {
@@ -84,5 +88,14 @@ describe('community book request product contract', () => {
     expect(hardeningMigrationSource).toContain('submitted_by = (select auth.uid())')
     expect(hardeningMigrationSource).toContain('user_id = (select auth.uid())')
     expect(hardeningMigrationSource).not.toContain('user_id = auth.uid()')
+  })
+
+  it('uses an unambiguous primary-key conflict target when the submit RPC creates the first vote', () => {
+    expect(submitRpcFixMigrationSource).toContain(
+      'on conflict on constraint book_candidate_votes_pkey do nothing',
+    )
+    expect(submitRpcFixMigrationSource).not.toContain(
+      'on conflict (candidate_id, user_id) do nothing',
+    )
   })
 })
