@@ -109,17 +109,25 @@ jobs:
                 tag: active.tagName,
                 text: active.textContent?.trim() ?? '',
                 aria: active.getAttribute('aria-label') ?? '',
+                href: active instanceof HTMLAnchorElement ? active.getAttribute('href') : null,
+                focusVisible: active.matches(':focus-visible'),
+                outline: style.outline,
                 outlineStyle: style.outlineStyle,
                 outlineWidth: style.outlineWidth,
+                outlineColor: style.outlineColor,
+                boxShadow: style.boxShadow,
               }
             })
+
+            console.log(JSON.stringify({ viewport: viewport.name, metrics, ctaBox, focus }))
+            await page.screenshot({ path: `visual-qa/landing-${viewport.name}.png`, fullPage: true })
+
             assert.ok(focus, `${viewport.name}: keyboard focus did not reach an element`)
             assert.equal(focus.tag === 'A' || focus.tag === 'BUTTON', true, `${viewport.name}: first keyboard focus is not interactive`)
+            assert.equal(focus.focusVisible, true, `${viewport.name}: keyboard-focused control does not match :focus-visible`)
             assert.notEqual(focus.outlineStyle, 'none', `${viewport.name}: focused control has no visible outline style`)
             assert.notEqual(focus.outlineWidth, '0px', `${viewport.name}: focused control has zero-width outline`)
 
-            await page.screenshot({ path: `visual-qa/landing-${viewport.name}.png`, fullPage: true })
-            console.log(JSON.stringify({ viewport: viewport.name, metrics, ctaBox, focus }))
             await page.close()
           }
 
@@ -127,9 +135,10 @@ jobs:
           NODE
 
       - name: Upload mobile QA screenshots
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: landing-mobile-release-qa
           path: visual-qa/*.png
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 3
