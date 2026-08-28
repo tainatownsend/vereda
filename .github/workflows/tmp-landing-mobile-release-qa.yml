@@ -5,6 +5,9 @@ on:
     branches:
       - fix/landing-mobile-release-gates
     paths:
+      - 'src/main.jsx'
+      - 'src/focus.css'
+      - 'src/landing-mobile.css'
       - '.github/workflows/tmp-landing-mobile-release-qa.yml'
 
 permissions:
