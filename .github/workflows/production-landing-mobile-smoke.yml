@@ -6,7 +6,10 @@ on:
     paths:
       - 'src/pages/LandingPage.jsx'
       - 'src/App.jsx'
+      - 'src/main.jsx'
       - 'src/index.css'
+      - 'src/focus.css'
+      - 'src/landing-mobile.css'
       - 'index.html'
       - '.github/workflows/production-landing-mobile-smoke.yml'
   workflow_dispatch:
@@ -130,20 +133,26 @@ jobs:
                 throw new Error(`${viewport.name}: horizontal overflow detected ${JSON.stringify(overflow)}`)
               }
 
-              const primaryCtas = page.getByRole('link', { name: 'Criar minha conta' })
+              const primaryCtas = page.locator('a[href="/criar-conta"]')
               const ctaCount = await primaryCtas.count()
               let ctaAboveFold = false
               for (let index = 0; index < ctaCount; index += 1) {
                 const box = await primaryCtas.nth(index).boundingBox()
-                if (box && box.y >= 0 && box.y + box.height <= viewport.height) {
+                if (
+                  box &&
+                  box.y >= 0 &&
+                  box.y + box.height <= viewport.height &&
+                  box.x >= 0 &&
+                  box.x + box.width <= viewport.width
+                ) {
                   ctaAboveFold = true
                   break
                 }
               }
-              if (!ctaAboveFold) throw new Error(`${viewport.name}: no primary CTA fully visible above the fold`)
+              if (!ctaAboveFold) throw new Error(`${viewport.name}: no signup CTA fully visible above the fold`)
 
               let visibleFocus = false
-              for (let index = 0; index < 5; index += 1) {
+              for (let index = 0; index < 6; index += 1) {
                 await page.keyboard.press('Tab')
                 visibleFocus = await page.evaluate(() => {
                   const active = document.activeElement
