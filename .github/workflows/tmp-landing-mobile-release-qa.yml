@@ -14,6 +14,9 @@ jobs:
   mobile-release-qa:
     runs-on: ubuntu-latest
     timeout-minutes: 12
+    env:
+      VITE_SUPABASE_URL: https://example.supabase.co
+      VITE_SUPABASE_ANON_KEY: vereda-local-release-qa-key
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
