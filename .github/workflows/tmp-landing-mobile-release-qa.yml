@@ -1,0 +1,135 @@
+name: Temporary Landing Mobile Release QA
+
+on:
+  push:
+    branches:
+      - qa/landing-mobile-release
+
+permissions:
+  contents: read
+
+jobs:
+  mobile-acceptance:
+    runs-on: ubuntu-latest
+    env:
+      VITE_SUPABASE_URL: https://example.supabase.co
+      VITE_SUPABASE_ANON_KEY: test-anon-key
+    steps:
+      - name: Checkout QA branch
+        uses: actions/checkout@v4
+        with:
+          ref: qa/landing-mobile-release
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run landing contract test
+        run: npx vitest run tests/ui/landing_page.test.js
+
+      - name: Build production bundle
+        run: npm run build
+
+      - name: Install Chromium
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start production preview
+        run: |
+          nohup npm run preview -- --host 127.0.0.1 --port 4173 > /tmp/vereda-preview.log 2>&1 &
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/vereda-preview.log
+          exit 1
+
+      - name: Validate mobile landing acceptance
+        run: |
+          mkdir -p visual-qa
+          node --input-type=module <<'NODE'
+          import { chromium } from 'playwright'
+          import assert from 'node:assert/strict'
+
+          const browser = await chromium.launch({ headless: true })
+          const viewports = [
+            { width: 320, height: 667, name: '320x667' },
+            { width: 390, height: 844, name: '390x844' },
+          ]
+
+          for (const viewport of viewports) {
+            const page = await browser.newPage({
+              viewport: { width: viewport.width, height: viewport.height },
+              deviceScaleFactor: 1,
+            })
+
+            await page.goto('http://127.0.0.1:4173/', { waitUntil: 'networkidle' })
+
+            const metrics = await page.evaluate(() => ({
+              innerWidth: window.innerWidth,
+              scrollWidth: document.documentElement.scrollWidth,
+              h1Count: document.querySelectorAll('h1').length,
+              h2Count: document.querySelectorAll('h2').length,
+              navLabel: document.querySelector('nav')?.getAttribute('aria-label') ?? '',
+              unnamedLinks: [...document.querySelectorAll('a')].filter((link) => {
+                const aria = link.getAttribute('aria-label')?.trim()
+                const text = link.textContent?.trim()
+                return !aria && !text
+              }).length,
+            }))
+
+            assert.equal(metrics.scrollWidth <= metrics.innerWidth, true, `${viewport.name}: horizontal overflow detected (${metrics.scrollWidth} > ${metrics.innerWidth})`)
+            assert.equal(metrics.h1Count, 1, `${viewport.name}: expected exactly one h1`)
+            assert.equal(metrics.h2Count > 0, true, `${viewport.name}: expected section h2 headings`)
+            assert.equal(metrics.navLabel.length > 0, true, `${viewport.name}: navigation must have an accessible label`)
+            assert.equal(metrics.unnamedLinks, 0, `${viewport.name}: all links must have accessible text or aria-label`)
+
+            const hero = page.locator('section').first()
+            const heroPrimary = hero.getByRole('link', { name: /Criar minha conta|Abrir o Vereda/ }).first()
+            await heroPrimary.waitFor({ state: 'visible' })
+            const ctaBox = await heroPrimary.boundingBox()
+            assert.ok(ctaBox, `${viewport.name}: hero CTA has no bounding box`)
+            assert.equal(ctaBox.x >= 0 && ctaBox.x + ctaBox.width <= viewport.width, true, `${viewport.name}: hero CTA is clipped horizontally`)
+            assert.equal(ctaBox.y >= 0 && ctaBox.y + ctaBox.height <= viewport.height, true, `${viewport.name}: hero CTA is not visible in the initial viewport`)
+
+            await page.keyboard.press('Tab')
+            const focus = await page.evaluate(() => {
+              const active = document.activeElement
+              if (!(active instanceof HTMLElement)) return null
+              const style = getComputedStyle(active)
+              return {
+                tag: active.tagName,
+                text: active.textContent?.trim() ?? '',
+                aria: active.getAttribute('aria-label') ?? '',
+                outlineStyle: style.outlineStyle,
+                outlineWidth: style.outlineWidth,
+              }
+            })
+            assert.ok(focus, `${viewport.name}: keyboard focus did not reach an element`)
+            assert.equal(focus.tag === 'A' || focus.tag === 'BUTTON', true, `${viewport.name}: first keyboard focus is not interactive`)
+            assert.notEqual(focus.outlineStyle, 'none', `${viewport.name}: focused control has no visible outline style`)
+            assert.notEqual(focus.outlineWidth, '0px', `${viewport.name}: focused control has zero-width outline`)
+
+            await page.screenshot({ path: `visual-qa/landing-${viewport.name}.png`, fullPage: true })
+            console.log(JSON.stringify({ viewport: viewport.name, metrics, ctaBox, focus }))
+            await page.close()
+          }
+
+          await browser.close()
+          NODE
+
+      - name: Upload mobile QA screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: landing-mobile-release-qa
+          path: visual-qa/*.png
+          if-no-files-found: error
+          retention-days: 3
