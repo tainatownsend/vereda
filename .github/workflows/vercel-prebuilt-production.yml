@@ -1,4 +1,4 @@
-name: Vercel prebuilt production
+name: Vercel production deploy
 
 on:
   push:
@@ -16,10 +16,12 @@ concurrency:
 env:
   VERCEL_ORG_ID: team_w8ODivM4xyoFLqiv6YG7ECxy
   VERCEL_PROJECT_ID: prj_ASYYDkhvgMzjQF4M5Z0VG8rVKom5
+  VEREDA_PRODUCTION_URL: https://vereda-navy.vercel.app
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,10 +30,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
 
       - name: Verify Vercel authentication
         run: npx --yes vercel whoami --token="${{ secrets.VERCEL_TOKEN }}"
@@ -41,11 +39,8 @@ jobs:
           mkdir -p .vercel
           printf '{"orgId":"%s","projectId":"%s"}\n' "$VERCEL_ORG_ID" "$VERCEL_PROJECT_ID" > .vercel/project.json
 
-      - name: Pull production environment
-        run: npx --yes vercel pull --yes --environment=production --token="${{ secrets.VERCEL_TOKEN }}"
+      - name: Deploy source with Vercel production environment
+        run: npx --yes vercel deploy --prod --yes --token="${{ secrets.VERCEL_TOKEN }}"
 
-      - name: Build prebuilt production output
-        run: npx --yes vercel build --prod --token="${{ secrets.VERCEL_TOKEN }}"
-
-      - name: Deploy prebuilt output to production
-        run: npx --yes vercel deploy --prebuilt --prod --token="${{ secrets.VERCEL_TOKEN }}"
+      - name: Verify canonical production deployment
+        run: npx --yes vercel inspect "$VEREDA_PRODUCTION_URL" --wait --timeout 5m --token="${{ secrets.VERCEL_TOKEN }}"
