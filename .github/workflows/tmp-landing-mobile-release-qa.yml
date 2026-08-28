@@ -14,27 +14,49 @@ jobs:
   mobile-release-qa:
     runs-on: ubuntu-latest
     timeout-minutes: 12
-    env:
-      VEREDA_PREVIEW_URL: https://vereda-3shvssd7e-ttownsend.vercel.app/
     steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: npm
 
-      - name: Install Playwright
+      - name: Install app dependencies
+        run: npm ci
+
+      - name: Build production bundle
+        run: npm run build
+
+      - name: Install Chromium for release QA
         run: |
           npm install --no-save playwright@1.55.0
           npx playwright install --with-deps chromium
 
-      - name: Validate preview mobile release gates
+      - name: Start built app
+        shell: bash
+        run: |
+          npx vite preview --host 127.0.0.1 --port 4173 > /tmp/vereda-preview.log 2>&1 &
+          echo $! > /tmp/vereda-preview.pid
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/vereda-preview.log
+          exit 1
+
+      - name: Validate compiled mobile release gates
         shell: bash
         run: |
           node --input-type=module <<'EOF'
           import { chromium } from 'playwright'
 
           const browser = await chromium.launch({ headless: true })
-          const url = process.env.VEREDA_PREVIEW_URL
+          const url = 'http://127.0.0.1:4173/'
           const viewports = [
             { width: 320, height: 568, name: '320x568' },
             { width: 390, height: 844, name: '390x844' },
