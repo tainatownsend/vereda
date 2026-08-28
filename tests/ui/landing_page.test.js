@@ -15,6 +15,16 @@ describe('public landing page contract', () => {
     expect(auth).toContain("export default function AuthPage({ initialMode = 'login' })")
   })
 
+  it('does not block the public landing behind auth initialization', () => {
+    const appStart = app.indexOf('export default function App()')
+    const appReturn = app.indexOf('return (', appStart)
+    const appBeforeRender = app.slice(appStart, appReturn)
+
+    expect(appBeforeRender).not.toContain('if (loading)')
+    expect(app).toContain('function PublicAuthRoute({ loading, user, children })')
+    expect(app).toContain('if (loading) return <PageLoader />')
+  })
+
   it('explains the product before signup with clear public sections', () => {
     for (const copy of [
       'Como funciona',
