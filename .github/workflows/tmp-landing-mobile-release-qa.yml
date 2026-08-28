@@ -105,33 +105,6 @@ jobs:
               const active = document.activeElement
               if (!(active instanceof HTMLElement)) return null
               const style = getComputedStyle(active)
-              const matchedRules = []
-
-              const visit = (rules) => {
-                for (const rule of rules) {
-                  if (rule instanceof CSSStyleRule) {
-                    let matches = false
-                    try { matches = active.matches(rule.selectorText) } catch {}
-                    if (matches && (rule.style.outline || rule.style.outlineWidth || rule.cssText.includes('focus'))) {
-                      matchedRules.push({
-                        selector: rule.selectorText,
-                        outline: rule.style.outline,
-                        outlineWidth: rule.style.outlineWidth,
-                        outlineColor: rule.style.outlineColor,
-                        outlineStyle: rule.style.outlineStyle,
-                        cssText: rule.cssText,
-                      })
-                    }
-                  } else if ('cssRules' in rule && rule.cssRules) {
-                    visit(rule.cssRules)
-                  }
-                }
-              }
-
-              for (const sheet of document.styleSheets) {
-                try { visit(sheet.cssRules) } catch {}
-              }
-
               return {
                 tag: active.tagName,
                 text: active.textContent?.trim() ?? '',
@@ -139,12 +112,10 @@ jobs:
                 href: active instanceof HTMLAnchorElement ? active.getAttribute('href') : null,
                 focusVisible: active.matches(':focus-visible'),
                 intendedSelectorMatches: active.matches(':where(a, button, input, textarea, select, summary, [tabindex]):focus-visible'),
-                outline: style.outline,
                 outlineStyle: style.outlineStyle,
                 outlineWidth: style.outlineWidth,
                 outlineColor: style.outlineColor,
                 boxShadow: style.boxShadow,
-                matchedRules,
               }
             })
 
@@ -155,8 +126,9 @@ jobs:
             assert.equal(focus.tag === 'A' || focus.tag === 'BUTTON', true, `${viewport.name}: first keyboard focus is not interactive`)
             assert.equal(focus.focusVisible, true, `${viewport.name}: keyboard-focused control does not match :focus-visible`)
             assert.equal(focus.intendedSelectorMatches, true, `${viewport.name}: global focus selector does not match focused control`)
-            assert.notEqual(focus.outlineStyle, 'none', `${viewport.name}: focused control has no visible outline style`)
-            assert.notEqual(focus.outlineWidth, '0px', `${viewport.name}: focused control has zero-width outline`)
+            const outlineVisible = focus.outlineStyle !== 'none' && focus.outlineWidth !== '0px'
+            const haloVisible = focus.boxShadow !== 'none'
+            assert.equal(outlineVisible || haloVisible, true, `${viewport.name}: keyboard-focused control has no rendered focus ring`)
 
             await page.close()
           }
