@@ -18,8 +18,10 @@ describe('public landing release boundaries', () => {
 
   it('keeps a production-visible focus ring outside Tailwind layers', () => {
     expect(focus).toContain(':focus-visible')
-    expect(focus).toContain('outline: 3px solid var(--ves-focus)')
-    expect(focus).toContain('outline-offset: 3px')
+    expect(focus).toContain('outline-style: solid !important')
+    expect(focus).toContain('outline-width: 3px !important')
+    expect(focus).toContain('outline-color: var(--ves-focus) !important')
+    expect(focus).toContain('outline-offset: 3px !important')
     expect(focus).not.toContain('@layer')
   })
 
