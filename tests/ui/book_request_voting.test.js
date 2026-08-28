@@ -17,6 +17,14 @@ const migrationSource = readFileSync(
   'supabase/migrations/20260825062000_book_candidate_voting.sql',
   'utf8',
 )
+const hardeningMigrationSource = readFileSync(
+  'supabase/migrations/20260828052000_book_candidate_backend_hardening.sql',
+  'utf8',
+)
+const submitRpcFixMigrationSource = readFileSync(
+  'supabase/migrations/20260828053500_book_candidate_submit_rpc_fix.sql',
+  'utf8',
+)
 
 describe('community book request matching', () => {
   it('normalizes accents, punctuation and a leading article', () => {
@@ -49,7 +57,7 @@ describe('community book request matching', () => {
 
 describe('community book request product contract', () => {
   it('routes the authenticated request screen and surfaces it from Library and Settings', () => {
-    expect(appSource).toContain("path=\"/sugerir-obra\"")
+    expect(appSource).toContain('path="/sugerir-obra"')
     expect(appSource).toContain('BookRequestsPage')
     expect(librarySource).toContain("navigate('/sugerir-obra')")
     expect(settingsSource).toContain("navigate('/sugerir-obra')")
@@ -73,5 +81,21 @@ describe('community book request product contract', () => {
     expect(migrationSource).toContain('create or replace function public.set_book_candidate_vote(')
     expect(migrationSource).toContain('coalesce(bool_or(bcv.user_id = auth.uid()), false)')
     expect(migrationSource).not.toContain('authenticated users can read book candidates')
+  })
+
+  it('keeps RLS checks efficient and indexes the candidate submitter foreign key', () => {
+    expect(hardeningMigrationSource).toContain('idx_book_candidates_submitted_by')
+    expect(hardeningMigrationSource).toContain('submitted_by = (select auth.uid())')
+    expect(hardeningMigrationSource).toContain('user_id = (select auth.uid())')
+    expect(hardeningMigrationSource).not.toContain('user_id = auth.uid()')
+  })
+
+  it('uses an unambiguous primary-key conflict target when the submit RPC creates the first vote', () => {
+    expect(submitRpcFixMigrationSource).toContain(
+      'on conflict on constraint book_candidate_votes_pkey do nothing',
+    )
+    expect(submitRpcFixMigrationSource).not.toContain(
+      'on conflict (candidate_id, user_id) do nothing',
+    )
   })
 })
