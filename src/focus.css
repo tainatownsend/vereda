@@ -1,7 +1,7 @@
 /*
  * Keyboard focus is a release-level accessibility boundary.
- * Declare each outline component separately so CSS optimization or component
- * utilities cannot partially reset the focus indicator.
+ * Some component/reset rules zero the browser outline in the optimized bundle,
+ * so Vereda also renders a non-removable focus halo with the brand focus color.
  */
 a:focus-visible,
 button:focus-visible,
@@ -14,4 +14,5 @@ summary:focus-visible,
   outline-width: 3px !important;
   outline-color: var(--ves-focus) !important;
   outline-offset: 3px !important;
+  box-shadow: 0 0 0 3px var(--ves-focus) !important;
 }
