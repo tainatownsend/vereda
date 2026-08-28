@@ -1,0 +1,60 @@
+name: Temporary Landing Mobile Release QA
+
+on:
+  push:
+    branches:
+      - fix/landing-mobile-release-gates
+    paths:
+      - 'src/main.jsx'
+      - 'src/focus.css'
+      - 'src/landing-mobile.css'
+      - 'scripts/landing-mobile-smoke.mjs'
+      - '.github/workflows/tmp-landing-mobile-release-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  mobile-release-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      VITE_SUPABASE_URL: https://example.supabase.co
+      VITE_SUPABASE_ANON_KEY: vereda-local-release-qa-key
+      VEREDA_SMOKE_URL: http://127.0.0.1:4173/
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install app dependencies
+        run: npm ci
+
+      - name: Build production bundle
+        run: npm run build
+
+      - name: Install Chromium for release QA
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Start built app
+        shell: bash
+        run: |
+          npx vite preview --host 127.0.0.1 --port 4173 > /tmp/vereda-preview.log 2>&1 &
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/vereda-preview.log
+          exit 1
+
+      - name: Validate compiled mobile release gates
+        run: node scripts/landing-mobile-smoke.mjs

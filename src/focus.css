@@ -1,0 +1,25 @@
+/*
+ * Keyboard focus is a release-level accessibility boundary.
+ * Some component/reset rules zero the browser outline in the optimized bundle,
+ * so Vereda also renders a non-removable focus halo with the brand focus color.
+ *
+ * The app applies a shared transition duration to interactive controls. Because
+ * transition-property defaults to `all`, Chromium can otherwise interpolate a
+ * newly focused outline from 0px and briefly render no visible focus indicator.
+ * Focus feedback must be immediate, so transitions are disabled only while the
+ * element matches :focus-visible.
+ */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  transition: none !important;
+  outline-style: solid !important;
+  outline-width: 3px !important;
+  outline-color: var(--ves-focus) !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 3px var(--ves-focus) !important;
+}
