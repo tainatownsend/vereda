@@ -39,8 +39,6 @@ export default function App() {
     document.documentElement.style.fontSize = getAppFontSize(appFontScale)
   }, [appFontScale])
 
-  if (loading) return <PageLoader />
-
   return (
     <div className={darkMode ? 'dark' : ''}>
       <BrowserRouter>
@@ -48,8 +46,22 @@ export default function App() {
 
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/entrar" element={user ? <Navigate to="/home" replace /> : <AuthPage />} />
-          <Route path="/criar-conta" element={user ? <Navigate to="/home" replace /> : <AuthPage initialMode="signup" />} />
+          <Route
+            path="/entrar"
+            element={(
+              <PublicAuthRoute loading={loading} user={user}>
+                <AuthPage />
+              </PublicAuthRoute>
+            )}
+          />
+          <Route
+            path="/criar-conta"
+            element={(
+              <PublicAuthRoute loading={loading} user={user}>
+                <AuthPage initialMode="signup" />
+              </PublicAuthRoute>
+            )}
+          />
           <Route path="/redefinir-senha" element={<ResetPasswordPage />} />
 
           <Route path="/home" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
@@ -74,6 +86,12 @@ export default function App() {
       </BrowserRouter>
     </div>
   )
+}
+
+function PublicAuthRoute({ loading, user, children }) {
+  if (loading) return <PageLoader />
+  if (user) return <Navigate to="/home" replace />
+  return children
 }
 
 function AppBottomNav({ user }) {
