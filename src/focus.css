@@ -1,9 +1,11 @@
 /*
  * Keyboard focus is a release-level accessibility boundary.
  * Keep this rule unlayered and loaded after Tailwind so component/base layers
- * cannot accidentally zero the visible ring in the compiled production CSS.
+ * cannot accidentally suppress the visible ring in production builds.
  */
 :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
-  outline: 3px solid var(--ves-focus);
+  outline-width: 3px !important;
+  outline-style: solid !important;
+  outline-color: #6d8b74 !important;
   outline-offset: 3px;
 }
