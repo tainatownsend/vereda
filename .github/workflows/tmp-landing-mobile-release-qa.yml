@@ -1,0 +1,126 @@
+name: Temporary Landing Mobile Release QA
+
+on:
+  push:
+    branches:
+      - fix/landing-mobile-release-gates
+    paths:
+      - '.github/workflows/tmp-landing-mobile-release-qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  mobile-release-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      VEREDA_PREVIEW_URL: https://vereda-3shvssd7e-ttownsend.vercel.app/
+    steps:
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Validate preview mobile release gates
+        shell: bash
+        run: |
+          node --input-type=module <<'EOF'
+          import { chromium } from 'playwright'
+
+          const browser = await chromium.launch({ headless: true })
+          const url = process.env.VEREDA_PREVIEW_URL
+          const viewports = [
+            { width: 320, height: 568, name: '320x568' },
+            { width: 390, height: 844, name: '390x844' },
+          ]
+
+          try {
+            for (const viewport of viewports) {
+              const page = await browser.newPage({ viewport })
+              const pageErrors = []
+              page.on('pageerror', (error) => pageErrors.push(error.message))
+
+              await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45_000 })
+              await page.getByRole('heading', { level: 1 }).waitFor({ state: 'visible', timeout: 15_000 })
+
+              const result = await page.evaluate(() => {
+                const width = window.innerWidth
+                const offenders = [...document.body.querySelectorAll('*')]
+                  .filter((element) => {
+                    const style = getComputedStyle(element)
+                    if (style.display === 'none' || style.visibility === 'hidden') return false
+                    const rect = element.getBoundingClientRect()
+                    return rect.width > 1 && (rect.left < -1 || rect.right > width + 1)
+                  })
+                  .slice(0, 8)
+                  .map((element) => ({
+                    tag: element.tagName,
+                    text: (element.textContent || '').trim().slice(0, 60),
+                    left: element.getBoundingClientRect().left,
+                    right: element.getBoundingClientRect().right,
+                  }))
+
+                return {
+                  htmlScrollWidth: document.documentElement.scrollWidth,
+                  bodyScrollWidth: document.body.scrollWidth,
+                  offenders,
+                  h1: document.querySelectorAll('h1').length,
+                  h2: document.querySelectorAll('h2').length,
+                  login: Boolean(document.querySelector('a[href="/entrar"]')),
+                  signup: Boolean(document.querySelector('a[href="/criar-conta"]')),
+                }
+              })
+
+              if (result.htmlScrollWidth > viewport.width + 1 || result.bodyScrollWidth > viewport.width + 1 || result.offenders.length) {
+                throw new Error(`${viewport.name}: horizontal overflow ${JSON.stringify(result)}`)
+              }
+              if (result.h1 !== 1 || result.h2 < 1 || !result.login || !result.signup) {
+                throw new Error(`${viewport.name}: semantic/routing gate failed ${JSON.stringify(result)}`)
+              }
+
+              const signupLinks = page.locator('a[href="/criar-conta"]')
+              let signupAboveFold = false
+              for (let index = 0; index < await signupLinks.count(); index += 1) {
+                const box = await signupLinks.nth(index).boundingBox()
+                if (box && box.y >= 0 && box.y + box.height <= viewport.height && box.x >= 0 && box.x + box.width <= viewport.width) {
+                  signupAboveFold = true
+                  break
+                }
+              }
+              if (!signupAboveFold) throw new Error(`${viewport.name}: signup CTA is not fully visible above the fold`)
+
+              let focusGate = null
+              for (let index = 0; index < 6; index += 1) {
+                await page.keyboard.press('Tab')
+                focusGate = await page.evaluate(() => {
+                  const active = document.activeElement
+                  if (!active || active === document.body) return null
+                  const style = getComputedStyle(active)
+                  return {
+                    tag: active.tagName,
+                    href: active.getAttribute('href'),
+                    outlineStyle: style.outlineStyle,
+                    outlineWidth: style.outlineWidth,
+                    outlineColor: style.outlineColor,
+                  }
+                })
+                if (focusGate && focusGate.outlineStyle !== 'none' && parseFloat(focusGate.outlineWidth || '0') >= 2) break
+              }
+              if (!focusGate || focusGate.outlineStyle === 'none' || parseFloat(focusGate.outlineWidth || '0') < 2) {
+                throw new Error(`${viewport.name}: visible focus gate failed ${JSON.stringify(focusGate)}`)
+              }
+
+              if (pageErrors.length) throw new Error(`${viewport.name}: page errors: ${pageErrors.join(' | ')}`)
+              console.log(`${viewport.name}: PASS`)
+              await page.close()
+            }
+          } finally {
+            await browser.close()
+          }
+          EOF
