@@ -43,7 +43,7 @@ export default function HomePage() {
               VEREDA
             </p>
             <p className="mt-2 max-w-[20rem] text-[14px] leading-relaxed text-ink/80 dark:text-night-muted">
-              Bem-vindo à sua jornada de estudo que transforma.
+              Um passo por dia. Uma jornada para toda a vida.
             </p>
           </div>
 
