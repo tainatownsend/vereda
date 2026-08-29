@@ -47,37 +47,15 @@ export default function LibraryPage() {
           </button>
 
           {showMenu && (
-            <div className="absolute right-0 top-12 z-30 w-[min(21rem,calc(100vw-3rem))] rounded-[16px] border border-line bg-surface p-4 shadow-editorial dark:border-night-line dark:bg-night-surface">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Sequência sugerida das obras</p>
-              <h2 className="mt-1 font-display text-[1rem] font-semibold text-ink dark:text-night-ink">Uma sequência sugerida, não uma obrigação</h2>
-
-              <div className="mt-3 flex items-center gap-1" aria-label="Sequência sugerida das obras">
-                {books.map((book, index) => {
-                  const sequence = getBookSequence(book)
-                  return (
-                    <div key={book.id} className={`flex items-center ${index < books.length - 1 ? 'flex-1' : ''}`}>
-                      <span
-                        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-line bg-canvas font-display text-[11px] font-semibold text-sage-800 dark:border-night-line dark:bg-night dark:text-sage-300"
-                        aria-label={`Obra ${sequence}: ${book.title}`}
-                      >
-                        {sequence}
-                      </span>
-                      {index < books.length - 1 && <span className="mx-1 h-px flex-1 bg-line dark:bg-night-line" aria-hidden="true" />}
-                    </div>
-                  )
-                })}
-              </div>
-
-              <div className="mt-4 space-y-1 border-t border-line pt-3 dark:border-night-line">
-                <MenuAction icon={BookOpen} label="Não sei por onde começar" onClick={() => navigate('/comecar')} />
-                <MenuAction icon={Compass} label="Quero explorar um tema" onClick={() => navigate('/descobrir')} />
-                <MenuAction
-                  icon={Bookmark}
-                  label={savedCount ? `Trechos salvos · ${savedCount}` : 'Trechos salvos'}
-                  onClick={() => navigate('/salvos')}
-                />
-                <MenuAction icon={BookPlus} label="Sugerir uma obra" onClick={() => navigate('/sugerir-obra')} />
-              </div>
+            <div className="absolute right-0 top-12 z-30 w-[min(21rem,calc(100vw-3rem))] rounded-[16px] border border-line bg-surface p-3 shadow-editorial dark:border-night-line dark:bg-night-surface">
+              <MenuAction icon={BookOpen} label="Não sei por onde começar" onClick={() => navigate('/comecar')} />
+              <MenuAction icon={Compass} label="Quero explorar um tema" onClick={() => navigate('/descobrir')} />
+              <MenuAction
+                icon={Bookmark}
+                label={savedCount ? `Trechos salvos · ${savedCount}` : 'Trechos salvos'}
+                onClick={() => navigate('/salvos')}
+              />
+              <MenuAction icon={BookPlus} label="Sugerir uma obra" onClick={() => navigate('/sugerir-obra')} />
             </div>
           )}
         </header>
@@ -88,18 +66,21 @@ export default function LibraryPage() {
         </div>
 
         {tab === 'basicas' ? (
-          <section className="mt-4" aria-labelledby="all-books-heading">
-            <h2 id="all-books-heading" className="sr-only">Obras básicas</h2>
-            <div className="space-y-2">
-              {books.map((book) => (
-                <BookRow
-                  key={book.id}
-                  book={book}
-                  onOpen={() => navigate(progress[book.id] ? `/ler/${book.id}` : `/livro/${book.id}`)}
-                />
-              ))}
-            </div>
-          </section>
+          <>
+            <SuggestedReadingPath books={books} />
+            <section className="mt-4" aria-labelledby="all-books-heading">
+              <h2 id="all-books-heading" className="sr-only">Obras básicas</h2>
+              <div className="space-y-2">
+                {books.map((book) => (
+                  <BookRow
+                    key={book.id}
+                    book={book}
+                    onOpen={() => navigate(progress[book.id] ? `/ler/${book.id}` : `/livro/${book.id}`)}
+                  />
+                ))}
+              </div>
+            </section>
+          </>
         ) : (
           <EditorialCard className="mt-5 p-6 text-center">
             <p className="font-display text-xl font-semibold text-ink dark:text-night-ink">Biblioteca complementar</p>
@@ -110,6 +91,54 @@ export default function LibraryPage() {
         )}
       </div>
     </main>
+  )
+}
+
+function SuggestedReadingPath({ books }) {
+  return (
+    <section
+      className="mt-5 overflow-hidden rounded-[18px] border border-line bg-surface-soft/70 p-4 dark:border-night-line dark:bg-night-surface"
+      aria-labelledby="suggested-reading-path-heading"
+      data-testid="suggested-reading-path"
+    >
+      <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">
+        Caminho sugerido
+      </p>
+      <h2 id="suggested-reading-path-heading" className="mt-1 font-display text-[1.08rem] font-semibold text-ink dark:text-night-ink">
+        Uma jornada pelas obras básicas
+      </h2>
+      <p className="mt-1.5 text-xs leading-relaxed text-muted dark:text-night-muted">
+        Siga esta ordem se ela ajudar — ou escolha a obra que fizer sentido para você agora.
+      </p>
+
+      <ol className="relative mt-4 space-y-2.5" aria-label="Sequência sugerida das obras">
+        <span
+          className="absolute bottom-5 left-[17px] top-5 w-px bg-line dark:bg-night-line"
+          aria-hidden="true"
+        />
+        {books.map((book) => {
+          const sequence = getBookSequence(book)
+          const accent = BOOK_ACCENT_COLORS[sequence] || '#5E7664'
+
+          return (
+            <li key={book.id} className="relative flex min-h-11 items-center gap-3">
+              <span
+                className="relative z-10 flex h-11 w-9 shrink-0 items-center justify-center border border-white/70 text-[11px] font-bold text-white shadow-sm"
+                style={{ backgroundColor: accent, borderRadius: '4px 8px 8px 4px' }}
+                aria-hidden="true"
+              >
+                <span className="absolute bottom-1.5 left-1 top-1.5 w-px bg-white/45" />
+                {sequence}
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="font-display text-sm font-semibold leading-snug text-ink dark:text-night-ink">{book.title}</p>
+                <p className="mt-0.5 text-[11px] text-muted dark:text-night-muted">Passo {sequence} da sequência sugerida</p>
+              </div>
+            </li>
+          )
+        })}
+      </ol>
+    </section>
   )
 }
 
