@@ -10,7 +10,8 @@ const bottomNav = readFileSync('src/components/ui/BottomNav.jsx', 'utf8')
 
 describe('Vereda North Star canonical screens', () => {
   it('keeps Home aligned to the approved canonical composition', () => {
-    expect(home).toContain('Bem-vindo à sua jornada de estudo que transforma.')
+    expect(home).toContain('Um passo por dia. Uma jornada para toda a vida.')
+    expect(home).not.toContain('Bem-vindo à sua jornada de estudo que transforma.')
     expect(home).toContain('A maior caridade que podemos fazer pela Doutrina Espírita é a sua divulgação.')
     expect(home).toContain('Continuar estudando')
     expect(home).toContain('De onde você quer começar?')
@@ -24,14 +25,20 @@ describe('Vereda North Star canonical screens', () => {
     expect(home).not.toContain('Revisitar salvos')
   })
 
-  it('keeps Biblioteca visually focused on tabs and the five-work list', () => {
+  it('keeps Biblioteca focused while showing the approved reading-path treatment', () => {
     expect(library).toContain('Biblioteca')
     expect(library).toContain('Básicas')
     expect(library).toContain('Complementares')
     expect(library).toContain('aria-labelledby="all-books-heading"')
     expect(library).toContain('BOOK_ACCENT_COLORS')
     expect(library).toContain('showMenu &&')
+    expect(library).toContain('data-testid="suggested-reading-path"')
+    expect(library).toContain('Caminho sugerido')
+    expect(library).toContain('Uma jornada pelas obras básicas')
+    expect(library).toContain('Siga esta ordem se ela ajudar — ou escolha a obra que fizer sentido para você agora.')
     expect(library).toContain('Sequência sugerida das obras')
+    expect(library).toContain('Passo {sequence} da sequência sugerida')
+    expect(library).not.toContain('Uma sequência sugerida, não uma obrigação')
     expect(library).toContain('Trechos salvos')
     expect(library).toContain('Sugerir uma obra')
     expect(library).toContain("navigate('/sugerir-obra')")
