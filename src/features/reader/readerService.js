@@ -11,6 +11,8 @@ import { supabase } from '@/lib/supabase'
 export const SECTION_COLUMNS =
   'id, sec_position, title, content, word_count, kind, part_title, chapter_label, chapter_title, section_title'
 
+const SECTION_PAGE_SIZE = 20
+
 export function getLocalDate(date = new Date()) {
   const year = date.getFullYear()
   const month = String(date.getMonth() + 1).padStart(2, '0')
@@ -27,7 +29,7 @@ export function normalizeSection(section) {
     section_id: section.section_id ?? section.id,
     sec_position: section.sec_position,
     title: normalizeStructuralRomanNumerals(cleanReaderStructuralTitle(section.title)),
-    content: cleanReaderContent(section.content),
+    content: cleanReaderContent(section.content, kind),
     word_count: section.word_count,
     kind,
     raw_part_title: rawPartTitle,
@@ -52,6 +54,50 @@ function throwIfError(error, fallback) {
   const wrapped = new Error(fallback || 'Não foi possível concluir esta ação agora.')
   wrapped.cause = error
   throw wrapped
+}
+
+async function getDisplayableSectionWindow({
+  bookId,
+  position,
+  limit,
+  direction = 'forward',
+  inclusive = false,
+  errorMessage,
+}) {
+  const collected = []
+  let cursor = Number(position)
+  let firstPage = true
+
+  while (collected.length < limit) {
+    let query = supabase
+      .from('sections')
+      .select(SECTION_COLUMNS)
+      .eq('book_id', bookId)
+
+    if (direction === 'backward') {
+      query = query.lt('sec_position', cursor).order('sec_position', { ascending: false })
+    } else {
+      query = firstPage && inclusive
+        ? query.gte('sec_position', cursor)
+        : query.gt('sec_position', cursor)
+      query = query.order('sec_position')
+    }
+
+    const { data, error } = await query.limit(SECTION_PAGE_SIZE)
+    throwIfError(error, errorMessage)
+
+    if (!data?.length) break
+
+    collected.push(...normalizeDisplayableSections(data))
+
+    const nextCursor = Number(data[data.length - 1]?.sec_position)
+    if (!Number.isFinite(nextCursor) || nextCursor === cursor || data.length < SECTION_PAGE_SIZE) break
+
+    cursor = nextCursor
+    firstPage = false
+  }
+
+  return collected.slice(0, limit)
 }
 
 export async function getBookIndexSections(bookId) {
@@ -94,7 +140,20 @@ export async function getReaderSections({ userId, bookId }) {
 
   throwIfError(error, READER_COPY.errors.loadReading)
 
-  return normalizeDisplayableSections(data)
+  const initial = normalizeDisplayableSections(data)
+  if (!data?.length || data.length < 15 || initial.length >= 15) return initial
+
+  const lastRawPosition = Number(data[data.length - 1]?.sec_position)
+  if (!Number.isFinite(lastRawPosition)) return initial
+
+  const continuation = await getDisplayableSectionWindow({
+    bookId,
+    position: lastRawPosition,
+    limit: 15 - initial.length,
+    errorMessage: READER_COPY.errors.loadContinuation,
+  })
+
+  return [...initial, ...continuation].slice(0, 15)
 }
 
 export async function getSectionsFromPosition({
@@ -102,32 +161,24 @@ export async function getSectionsFromPosition({
   position,
   limit = 15,
 }) {
-  const queryLimit = Math.max(limit * 2, 20)
-  const { data, error } = await supabase
-    .from('sections')
-    .select(SECTION_COLUMNS)
-    .eq('book_id', bookId)
-    .gte('sec_position', position)
-    .order('sec_position')
-    .limit(queryLimit)
-
-  throwIfError(error, 'Não foi possível carregar a continuação desta leitura.')
-
-  return normalizeDisplayableSections(data, limit)
+  return getDisplayableSectionWindow({
+    bookId,
+    position,
+    limit,
+    inclusive: true,
+    errorMessage: READER_COPY.errors.loadContinuation,
+  })
 }
 
 export async function getNextSection({ bookId, position }) {
-  const { data, error } = await supabase
-    .from('sections')
-    .select(SECTION_COLUMNS)
-    .eq('book_id', bookId)
-    .gt('sec_position', position)
-    .order('sec_position')
-    .limit(8)
+  const sections = await getDisplayableSectionWindow({
+    bookId,
+    position,
+    limit: 1,
+    errorMessage: READER_COPY.errors.loadContinuation,
+  })
 
-  throwIfError(error, READER_COPY.errors.loadContinuation)
-
-  return normalizeDisplayableSections(data, 1)[0] || null
+  return sections[0] || null
 }
 
 export async function getBookLastPosition(bookId) {
@@ -145,17 +196,15 @@ export async function getBookLastPosition(bookId) {
 }
 
 export async function getPreviousSection({ bookId, position }) {
-  const { data, error } = await supabase
-    .from('sections')
-    .select(SECTION_COLUMNS)
-    .eq('book_id', bookId)
-    .lt('sec_position', position)
-    .order('sec_position', { ascending: false })
-    .limit(8)
+  const sections = await getDisplayableSectionWindow({
+    bookId,
+    position,
+    limit: 1,
+    direction: 'backward',
+    errorMessage: READER_COPY.errors.loadPrevious,
+  })
 
-  throwIfError(error, READER_COPY.errors.loadPrevious)
-
-  return normalizeDisplayableSections(data, 1)[0] || null
+  return sections[0] || null
 }
 
 export async function getChapterSections({
