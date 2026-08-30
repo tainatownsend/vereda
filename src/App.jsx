@@ -21,6 +21,10 @@ import FavoritesPage from '@/pages/FavoritesPage'
 import CommunityPage from '@/pages/CommunityPage'
 import EvolutionPage from '@/pages/EvolutionPage'
 import SettingsPage from '@/pages/SettingsPage'
+import SummariesPage from '@/pages/SummariesPage'
+import SummaryDetailPage from '@/pages/SummaryDetailPage'
+import AudiobooksPage from '@/pages/AudiobooksPage'
+import AudiobookPlayerPage from '@/pages/AudiobookPlayerPage'
 import { getAppFontSize, getThemeColor } from '@/features/ui/displayPreferences'
 
 export default function App() {
@@ -73,6 +77,10 @@ export default function App() {
           <Route path="/biblioteca" element={<ProtectedRoute><LibraryPage /></ProtectedRoute>} />
           <Route path="/sugerir-obra" element={<ProtectedRoute><BookRequestsPage /></ProtectedRoute>} />
           <Route path="/reflexoes" element={<ProtectedRoute><ReflectionPage /></ProtectedRoute>} />
+          <Route path="/resumos" element={<ProtectedRoute><SummariesPage /></ProtectedRoute>} />
+          <Route path="/resumos/:id" element={<ProtectedRoute><SummaryDetailPage /></ProtectedRoute>} />
+          <Route path="/audiobooks" element={<ProtectedRoute><AudiobooksPage /></ProtectedRoute>} />
+          <Route path="/audiobooks/:id" element={<ProtectedRoute><AudiobookPlayerPage /></ProtectedRoute>} />
           <Route path="/favoritos" element={<ProtectedRoute><FavoritesPage /></ProtectedRoute>} />
           <Route path="/comunidade" element={<ProtectedRoute><CommunityPage /></ProtectedRoute>} />
           <Route path="/salvos" element={<ProtectedRoute><SavedPassagesPage /></ProtectedRoute>} />
