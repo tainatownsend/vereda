@@ -1,5 +1,31 @@
 const CHAPTER_LABEL = /Cap[ií]tulo\s+([IVXLCDM]+)\b/giu
 
+const TITLE_CORRECTIONS = new Map([
+  [
+    'ideia cristã e do espiritismo',
+    'Sócrates e Platão, precursores da ideia cristã e do Espiritismo',
+  ],
+])
+
+export function cleanReaderStructuralTitle(value) {
+  const cleaned = String(value || '')
+    .replace(/^\s*[•·]\s*/, '')
+    .trim()
+
+  if (!cleaned) return value || null
+
+  return TITLE_CORRECTIONS.get(cleaned.toLocaleLowerCase('pt-BR')) || cleaned
+}
+
+export function cleanReaderContent(value) {
+  if (typeof value !== 'string') return value
+
+  return value.replace(
+    /^\[Nota:\s*Nota\s+de\s+Allan\s+Kardec\s*:/i,
+    '[Nota: Allan Kardec:',
+  )
+}
+
 export function extractChapterTopics(content) {
   const text = String(content || '').trim()
   if (!text) return []
