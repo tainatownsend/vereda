@@ -29,9 +29,12 @@ describe('settings hub contract', () => {
     expect(settings).toContain('requestPasswordReset')
   })
 
-  it('allows the learner to replay the introductory journey', () => {
+  it('allows the learner to replay the useful first-action orientation without duplicating book requests', () => {
     expect(settings).toContain("navigate('/comecar?replay=1')")
-    expect(settings).toContain('Refazer a introdução')
+    expect(settings).toContain('Refazer orientação')
+    expect(settings).not.toContain('Refazer a introdução')
+    expect(settings).not.toContain('Sugerir uma obra')
+    expect(settings).not.toContain("navigate('/sugerir-obra')")
   })
 
   it('keeps sign-out visually and semantically separate from preference controls', () => {
