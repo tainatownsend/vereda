@@ -58,15 +58,23 @@ describe('founder mobile P0 safeguards', () => {
     expect(settings).not.toContain('>Ajustes</h1>')
   })
 
-  it('renders the five works as one connected optional journey with progress', () => {
-    expect(library).toContain('Caminho sugerido · opcional')
+  it('renders the five works as one connected journey with progress and no redundant step labels', () => {
     expect(library).toContain('Uma jornada pelas obras básicas')
+    expect(library).toContain('A ordem abaixo é apenas uma sugestão, não uma obrigação.')
     expect(library).toContain('Caminho sugerido pelas obras básicas')
-    expect(library).toContain('Etapa {sequence} de {totalBooks}')
     expect(library).toContain('Seu progresso')
     expect(library).toContain('bottom-[-0.9rem]')
     expect(library).toContain('Sugerir uma obra complementar')
-    expect(library).not.toContain('Ordem sugerida · {sequence} de {totalBooks}')
+    expect(library).not.toContain('Caminho sugerido · opcional')
+    expect(library).not.toContain('Etapa {sequence} de {totalBooks}')
+  })
+
+  it('closes the Library overflow menu outside the menu and with Escape', () => {
+    expect(library).toContain("document.addEventListener('pointerdown', handlePointerDown)")
+    expect(library).toContain("document.addEventListener('keydown', handleKeyDown)")
+    expect(library).toContain("event.key !== 'Escape'")
+    expect(library).toContain('menuRef.current?.contains(event.target)')
+    expect(library).toContain('menuButtonRef.current?.contains(event.target)')
   })
 
   it('uses a softer dusk palette instead of near-black dark surfaces', () => {
