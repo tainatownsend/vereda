@@ -93,10 +93,7 @@ function HomeWithReading({ book, progress, navigate }) {
 
   return (
     <section className="mt-6" aria-labelledby="continue-heading">
-      <div className="mb-3 flex items-center justify-between gap-4">
-        <h2 id="continue-heading" className="northstar-section-title">Continuar estudando</h2>
-        <button type="button" onClick={() => navigate('/biblioteca')} className="northstar-text-action">Ver biblioteca</button>
-      </div>
+      <h2 id="continue-heading" className="northstar-section-title mb-3">Continuar estudando</h2>
 
       <EditorialCard as="button" type="button" onClick={() => navigate(`/ler/${book.id}`)} className="w-full p-4 text-left">
         <div className="flex gap-4">
