@@ -50,13 +50,15 @@ describe('public landing page contract', () => {
     expect(landing).not.toContain('function FeatureCard({ icon: Icon')
   })
 
-  it('presents the five foundational works as one connected optional journey', () => {
+  it('uses the dedicated Landing infographic instead of the in-app connected progress path', () => {
     expect(landing).toContain('Uma jornada pelas obras básicas.')
     expect(landing).toContain('A ordem é apenas uma sugestão, não uma obrigação.')
-    expect(landing).toContain('Caminho sugerido pelas cinco obras fundamentais')
-    expect(landing).toContain('JourneyStep')
-    expect(landing).toContain('bottom-[-0.9rem]')
-    expect(landing).not.toContain('Cinco obras fundamentais, com uma sequência opcional.')
+    expect(landing).toContain('Sequência visual das cinco obras fundamentais')
+    expect(landing).toContain('LandingJourneyCard')
+    expect(landing).toContain("String(sequence).padStart(2, '0')")
+    expect(landing).toContain('grid-cols-[4.5rem_minmax(0,1fr)_3.25rem]')
+    expect(landing).not.toContain('bottom-[-0.9rem]')
+    expect(landing).not.toContain('JourneyStep')
   })
 
   it('uses compact icon-left value cards for easier mobile scanning', () => {

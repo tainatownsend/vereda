@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import {
   Bell,
   BookOpen,
-  BookPlus,
   Check,
   HelpCircle,
   LockKeyhole,
@@ -142,11 +141,7 @@ export default function SettingsPage() {
           </div>
         )}
 
-        <SettingsSection
-          eyebrow="Sua conta"
-          title="Como você entra e como o Vereda chama você"
-          icon={User}
-        >
+        <SettingsSection eyebrow="Sua conta" title="Como você entra e como o Vereda chama você" icon={User}>
           <div className="rounded-vesMd border border-line bg-canvas/45 p-4 dark:border-night-line dark:bg-night/35">
             <div className="flex items-start gap-3">
               <MailCheck size={20} className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
@@ -193,23 +188,13 @@ export default function SettingsPage() {
                 </p>
               </div>
             </div>
-            <Button
-              variant="secondary"
-              size="sm"
-              onClick={sendPasswordLink}
-              loading={sendingPasswordLink}
-              className="shrink-0"
-            >
+            <Button variant="secondary" size="sm" onClick={sendPasswordLink} loading={sendingPasswordLink} className="shrink-0">
               Enviar link
             </Button>
           </div>
         </SettingsSection>
 
-        <SettingsSection
-          eyebrow="Leitura e conforto"
-          title="Deixe o texto agradável para você"
-          icon={BookOpen}
-        >
+        <SettingsSection eyebrow="Leitura e conforto" title="Deixe o texto agradável para você" icon={BookOpen}>
           <div className="flex min-h-14 items-center justify-between gap-4">
             <div className="flex min-w-0 items-center gap-3">
               {darkMode ? (
@@ -248,11 +233,7 @@ export default function SettingsPage() {
           />
         </SettingsSection>
 
-        <SettingsSection
-          eyebrow="Lembretes"
-          title="Um toque gentil, somente se você quiser"
-          icon={Bell}
-        >
+        <SettingsSection eyebrow="Lembretes" title="Um toque gentil, somente se você quiser" icon={Bell}>
           <p className="text-sm leading-relaxed text-muted dark:text-night-muted">
             O lembrete existe para dizer que sua leitura continua disponível — não para cobrar frequência.
           </p>
@@ -311,11 +292,7 @@ export default function SettingsPage() {
           )}
         </SettingsSection>
 
-        <SettingsSection
-          eyebrow="Privacidade e dados"
-          title="O que fica ligado à sua conta"
-          icon={ShieldCheck}
-        >
+        <SettingsSection eyebrow="Privacidade e dados" title="O que fica ligado à sua conta" icon={ShieldCheck}>
           <p className="text-sm leading-relaxed text-muted dark:text-night-muted">
             O Vereda usa sua conta para manter seu progresso de leitura, preferências e trechos salvos disponíveis quando você volta. Essas informações servem para a experiência do próprio aplicativo.
           </p>
@@ -324,11 +301,7 @@ export default function SettingsPage() {
           </p>
         </SettingsSection>
 
-        <SettingsSection
-          eyebrow="Ajuda e sobre"
-          title="Volte à orientação quando precisar"
-          icon={HelpCircle}
-        >
+        <SettingsSection eyebrow="Ajuda e sobre" title="Volte à orientação quando precisar" icon={HelpCircle}>
           <button
             type="button"
             onClick={() => navigate('/comecar?replay=1')}
@@ -336,20 +309,8 @@ export default function SettingsPage() {
           >
             <RotateCcw size={20} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
             <span>
-              <span className="block font-medium text-ink dark:text-night-ink">Refazer a introdução</span>
-              <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">Reveja como o Vereda organiza o estudo e escolha novamente um primeiro caminho.</span>
-            </span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => navigate('/sugerir-obra')}
-            className="mt-3 flex min-h-14 w-full items-center gap-3 rounded-vesMd border border-line bg-canvas/45 p-4 text-left transition-colors hover:border-sage-400 hover:bg-sage-50 dark:border-night-line dark:bg-night/35 dark:hover:border-sage-800 dark:hover:bg-sage-950/30"
-          >
-            <BookPlus size={20} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
-            <span>
-              <span className="block font-medium text-ink dark:text-night-ink">Sugerir uma obra</span>
-              <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">Veja os pedidos da comunidade, vote em um livro ou sugira um título que ainda não está na lista.</span>
+              <span className="block font-medium text-ink dark:text-night-ink">Refazer orientação</span>
+              <span className="mt-1 block text-sm leading-relaxed text-muted dark:text-night-muted">Escolha novamente entre começar pelos fundamentos, procurar uma dúvida ou escolher uma obra.</span>
             </span>
           </button>
 

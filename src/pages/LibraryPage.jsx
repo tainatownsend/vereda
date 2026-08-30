@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import { BookOpen, BookPlus, Bookmark } from 'lucide-react'
+import { BookPlus } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks, useProgress } from '@/hooks'
-import { useAuthStore, useReadingStore } from '@/store'
+import { useReadingStore } from '@/store'
 import { PageLoader } from '@/components/ui'
-import { getSavedPassageIds } from '@/features/savedPassages/savedPassages'
 import {
   BookCover,
   EditorialCard,
@@ -23,10 +22,8 @@ const BOOK_ACCENT_COLORS = {
 export default function LibraryPage() {
   const navigate = useNavigate()
   const books = useBooks()
-  const { user } = useAuthStore()
   const { progress } = useReadingStore()
   const [tab, setTab] = useState('basicas')
-  const savedCount = getSavedPassageIds(user).length
 
   if (!books.length) return <PageLoader label="Carregando obras" />
 
@@ -42,31 +39,10 @@ export default function LibraryPage() {
           <TabButton active={tab === 'complementares'} onClick={() => setTab('complementares')}>Complementares</TabButton>
         </div>
 
-        <section className="mt-4 grid gap-2 sm:grid-cols-2" aria-label="Atalhos de estudo">
-          <StudyShortcut
-            icon={BookOpen}
-            label="Não sei por onde começar"
-            onClick={() => navigate('/comecar')}
-          />
-          <StudyShortcut
-            icon={Bookmark}
-            label={savedCount ? `Trechos salvos · ${savedCount}` : 'Trechos salvos'}
-            onClick={() => navigate('/salvos')}
-          />
-        </section>
-
         {tab === 'basicas' ? (
           <section className="mt-5" aria-labelledby="all-books-heading">
-            <div className="rounded-vesMd border border-sage-200 bg-sage-50/70 p-4 dark:border-night-line dark:bg-night-surface/85">
-              <h2 id="all-books-heading" className="font-display text-xl font-semibold text-ink dark:text-night-ink">
-                Uma jornada pelas obras básicas
-              </h2>
-              <p className="mt-2 text-sm leading-relaxed text-ink/75 dark:text-night-muted">
-                A ordem abaixo é apenas uma sugestão, não uma obrigação. Comece por qualquer obra e retome sempre de onde parou.
-              </p>
-            </div>
-
-            <ol className="mt-5 space-y-3" aria-label="Caminho sugerido pelas obras básicas">
+            <h2 id="all-books-heading" className="sr-only">Obras básicas</h2>
+            <ol className="space-y-3" aria-label="Caminho pelas obras básicas">
               {books.map((book, index) => (
                 <BookJourneyRow
                   key={book.id}
@@ -79,8 +55,7 @@ export default function LibraryPage() {
           </section>
         ) : (
           <EditorialCard className="mt-5 p-6 text-center">
-            <p className="font-display text-xl font-semibold text-ink dark:text-night-ink">Biblioteca complementar</p>
-            <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-muted dark:text-night-muted">
+            <p className="mx-auto max-w-sm text-sm leading-relaxed text-muted dark:text-night-muted">
               Outras obras poderão ampliar esta biblioteca depois da consolidação do núcleo fundamental.
             </p>
             <button
@@ -88,28 +63,13 @@ export default function LibraryPage() {
               onClick={() => navigate('/sugerir-obra')}
               className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-vesSm border border-sage-300 bg-surface px-4 text-sm font-semibold text-sage-800 shadow-sm hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-200"
             >
-              <BookPlus size={18} />
+              <BookPlus size={18} aria-hidden="true" />
               Sugerir uma obra complementar
             </button>
           </EditorialCard>
         )}
       </div>
     </main>
-  )
-}
-
-function StudyShortcut({ icon: Icon, label, onClick }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="flex min-h-14 w-full items-center gap-3 rounded-vesSm border border-line bg-surface px-4 py-3 text-left text-sm font-semibold text-ink shadow-sm transition-colors hover:bg-surface-soft dark:border-night-line dark:bg-night-surface dark:text-night-ink dark:hover:bg-night"
-    >
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sage-50 text-sage-800 dark:bg-night dark:text-sage-300">
-        <Icon size={18} aria-hidden="true" />
-      </span>
-      <span>{label}</span>
-    </button>
   )
 }
 
