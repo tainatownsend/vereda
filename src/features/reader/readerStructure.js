@@ -61,6 +61,24 @@ export function isPartOverview(section) {
   return /\bparte\b/i.test(structuralTitle) && extractChapterOverview(section.content).length > 1
 }
 
+export function classifyReaderKind(section) {
+  const kind = section?.kind || 'content'
+
+  if (kind === 'chapter_intro' && shouldSkipChapterIntro(section)) {
+    return 'chapter_intro_skip'
+  }
+
+  if (isPartOverview({ ...section, kind })) {
+    return 'part_intro'
+  }
+
+  return kind
+}
+
+export function isReaderDisplayable(section) {
+  return section?.kind !== 'chapter_intro_skip'
+}
+
 function cleanTopic(value) {
   return String(value || '')
     .replace(/^[-–—•]\s*/, '')
