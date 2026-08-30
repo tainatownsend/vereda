@@ -103,7 +103,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20" aria-labelledby="how-heading">
+      <section id="como-funciona" className="scroll-mt-6 py-16 sm:py-20" aria-labelledby="how-heading">
         <div className="ves-container">
           <p className="ves-eyebrow">Como funciona</p>
           <h2 id="how-heading" className="ves-heading mt-2 max-w-2xl text-[2.25rem] sm:text-[2.75rem]">Menos aplicativo para aprender. Mais espaço para estudar.</h2>
@@ -116,7 +116,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="border-y border-line/70 bg-surface/55 py-16 sm:py-20 dark:border-night-line dark:bg-night-surface/35" aria-labelledby="library-heading">
+      <section id="biblioteca" className="scroll-mt-6 border-y border-line/70 bg-surface/55 py-16 sm:py-20 dark:border-night-line dark:bg-night-surface/35" aria-labelledby="library-heading">
         <div className="ves-container grid gap-9 lg:grid-cols-[0.78fr_1.22fr] lg:items-start lg:gap-14">
           <div>
             <p className="ves-eyebrow">Biblioteca atual</p>
@@ -168,7 +168,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20" aria-labelledby="faq-heading">
+      <section id="perguntas-frequentes" className="scroll-mt-6 py-16 sm:py-20" aria-labelledby="faq-heading">
         <div className="ves-container max-w-3xl">
           <p className="ves-eyebrow">Perguntas frequentes</p>
           <h2 id="faq-heading" className="ves-heading mt-2 text-[2.25rem] sm:text-[2.75rem]">Antes de começar</h2>
@@ -205,8 +205,42 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <footer className="border-t border-line/70 py-8 text-center text-sm text-muted dark:border-night-line dark:text-night-muted">
-        <div className="ves-container">Vereda · gratuito, sem anúncios e sem fins lucrativos.</div>
+      <footer className="border-t border-line/70 bg-surface/45 py-10 dark:border-night-line dark:bg-night-surface/30">
+        <div className="ves-container">
+          <div className="grid gap-8 sm:grid-cols-[1.4fr_0.8fr_0.8fr] sm:items-start">
+            <div className="max-w-sm">
+              <Link to="/" className="inline-flex items-center gap-3" aria-label="Vereda — início">
+                <VeredaLogo size={44} />
+                <div>
+                  <p className="font-display text-lg font-semibold tracking-[0.12em] text-ink dark:text-night-ink">VEREDA</p>
+                  <p className="text-[11px] font-medium text-muted dark:text-night-muted">Seu caminho de estudo espírita</p>
+                </div>
+              </Link>
+              <p className="mt-4 font-display text-lg leading-relaxed text-ink/90 dark:text-night-ink">Estudo que ilumina. Caminho que transforma.</p>
+            </div>
+
+            <nav aria-label="Links da apresentação">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-ink/70 dark:text-night-muted">Conheça</p>
+              <div className="mt-3 flex flex-col items-start gap-3 text-sm font-medium text-muted dark:text-night-muted">
+                <a href="#como-funciona" className="hover:text-sage-800 dark:hover:text-sage-300">Como funciona</a>
+                <a href="#biblioteca" className="hover:text-sage-800 dark:hover:text-sage-300">Biblioteca</a>
+                <a href="#perguntas-frequentes" className="hover:text-sage-800 dark:hover:text-sage-300">Perguntas frequentes</a>
+              </div>
+            </nav>
+
+            <nav aria-label="Acesso ao Vereda">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-ink/70 dark:text-night-muted">Acesso</p>
+              <div className="mt-3 flex flex-col items-start gap-3 text-sm font-medium text-muted dark:text-night-muted">
+                <Link to={primaryHref} className="hover:text-sage-800 dark:hover:text-sage-300">{primaryLabel}</Link>
+                {!user && <Link to="/entrar" className="hover:text-sage-800 dark:hover:text-sage-300">Entrar</Link>}
+              </div>
+            </nav>
+          </div>
+
+          <div className="mt-9 border-t border-line/70 pt-5 text-xs leading-relaxed text-muted dark:border-night-line dark:text-night-muted">
+            Vereda · gratuito, sem anúncios e sem fins lucrativos.
+          </div>
+        </div>
       </footer>
     </main>
   )
