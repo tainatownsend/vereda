@@ -6,6 +6,7 @@ const library = readFileSync('src/pages/LibraryPage.jsx', 'utf8')
 const reader = readFileSync('src/pages/ReaderPage.jsx', 'utf8')
 const reflection = readFileSync('src/pages/ReflectionPage.jsx', 'utf8')
 const favorites = readFileSync('src/pages/FavoritesPage.jsx', 'utf8')
+const discover = readFileSync('src/pages/DiscoverPage.jsx', 'utf8')
 const community = readFileSync('src/pages/CommunityPage.jsx', 'utf8')
 const bottomNav = readFileSync('src/components/ui/BottomNav.jsx', 'utf8')
 
@@ -23,24 +24,27 @@ describe('Vereda North Star canonical screens', () => {
     expect(home).not.toContain('Plano de estudo')
     expect(home).not.toContain('Estudo Sistematizado')
     expect(home).not.toContain('Comunidade Vereda')
+    expect(home).not.toContain('Ver biblioteca')
   })
 
-  it('keeps Biblioteca focused on one connected five-work journey with progress', () => {
+  it('keeps Biblioteca focused on one connected five-work journey with visible study actions', () => {
     expect(library).toContain('Biblioteca')
     expect(library).toContain('Básicas')
     expect(library).toContain('Complementares')
     expect(library).toContain('aria-labelledby="all-books-heading"')
     expect(library).toContain('BOOK_ACCENT_COLORS')
-    expect(library).toContain('showMenu &&')
     expect(library).toContain('Uma jornada pelas obras básicas')
     expect(library).toContain('Caminho sugerido pelas obras básicas')
     expect(library).toContain('Seu progresso')
-    expect(library).not.toContain('Caminho sugerido · opcional')
-    expect(library).not.toContain('Etapa {sequence} de {totalBooks}')
+    expect(library).toContain('Atalhos de estudo')
+    expect(library).toContain('Não sei por onde começar')
     expect(library).toContain('Trechos salvos')
-    expect(library).toContain('Sugerir uma obra')
     expect(library).toContain('Sugerir uma obra complementar')
     expect(library).toContain("navigate('/sugerir-obra')")
+    expect(library).not.toContain('MoreHorizontal')
+    expect(library).not.toContain('showMenu')
+    expect(library).not.toContain('Caminho sugerido · opcional')
+    expect(library).not.toContain('Etapa {sequence} de {totalBooks}')
   })
 
   it('keeps Reader hierarchy explicit while making navigation controls quieter', () => {
@@ -82,23 +86,28 @@ describe('Vereda North Star canonical screens', () => {
     expect(favorites).not.toContain('SummaryCard')
   })
 
-  it('keeps Comunidade as the clean canonical future shell for now', () => {
+  it('treats Discover as a primary destination with search and topic modes', () => {
+    expect(discover).toContain('O que você quer compreender hoje?')
+    expect(discover).toContain('Pesquisar')
+    expect(discover).toContain('Explorar temas')
+    expect(discover).toContain('trechos encontrados')
+    expect(discover).not.toContain('Voltar para Estudos')
+  })
+
+  it('keeps Comunidade code available as future private-groups discovery without exposing it as primary navigation', () => {
     expect(community).toContain('Comunidade')
     expect(community).toContain('Discussões')
     expect(community).toContain('Meus grupos')
-    expect(community).toContain('Estudo Sistematizado')
-    expect(community).toContain('Grupo da Caridade')
-    expect(community).toContain('Família Espírita')
-    expect(community).toContain('Jovens Espíritas')
-    expect(community).toContain('Estudo dos Médiuns')
+    expect(bottomNav).not.toContain("label: 'Comunidade'")
   })
 
-  it('keeps the canonical five-item primary navigation until groups discovery is decided', () => {
+  it('uses the five primary destinations that are functional in this release', () => {
     expect(bottomNav).toContain("label: 'Início'")
     expect(bottomNav).toContain("label: 'Estudos'")
-    expect(bottomNav).toContain("label: 'Comunidade'")
+    expect(bottomNav).toContain("label: 'Descobrir'")
     expect(bottomNav).toContain("label: 'Favoritos'")
     expect(bottomNav).toContain("label: 'Perfil'")
+    expect(bottomNav).not.toContain("label: 'Comunidade'")
     expect(bottomNav).not.toContain("label: 'Reflexões'")
   })
 })
