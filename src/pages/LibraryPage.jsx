@@ -39,7 +39,7 @@ export default function LibraryPage() {
           <button
             type="button"
             className="northstar-icon-button"
-            aria-label="Mais opções"
+            aria-label="Opções da biblioteca"
             aria-expanded={showMenu}
             onClick={() => setShowMenu((visible) => !visible)}
           >
@@ -47,28 +47,8 @@ export default function LibraryPage() {
           </button>
 
           {showMenu && (
-            <div className="absolute right-0 top-12 z-30 w-[min(21rem,calc(100vw-3rem))] rounded-[16px] border border-line bg-surface p-4 shadow-editorial dark:border-night-line dark:bg-night-surface">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Sequência sugerida das obras</p>
-              <h2 className="mt-1 font-display text-[1rem] font-semibold text-ink dark:text-night-ink">Uma sequência sugerida, não uma obrigação</h2>
-
-              <div className="mt-3 flex items-center gap-1" aria-label="Sequência sugerida das obras">
-                {books.map((book, index) => {
-                  const sequence = getBookSequence(book)
-                  return (
-                    <div key={book.id} className={`flex items-center ${index < books.length - 1 ? 'flex-1' : ''}`}>
-                      <span
-                        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-line bg-canvas font-display text-[11px] font-semibold text-sage-800 dark:border-night-line dark:bg-night dark:text-sage-300"
-                        aria-label={`Obra ${sequence}: ${book.title}`}
-                      >
-                        {sequence}
-                      </span>
-                      {index < books.length - 1 && <span className="mx-1 h-px flex-1 bg-line dark:bg-night-line" aria-hidden="true" />}
-                    </div>
-                  )
-                })}
-              </div>
-
-              <div className="mt-4 space-y-1 border-t border-line pt-3 dark:border-night-line">
+            <div className="absolute right-0 top-12 z-30 w-[min(21rem,calc(100vw-3rem))] rounded-[16px] border border-line bg-surface p-3 shadow-editorial dark:border-night-line dark:bg-night-surface">
+              <div className="space-y-1">
                 <MenuAction icon={BookOpen} label="Não sei por onde começar" onClick={() => navigate('/comecar')} />
                 <MenuAction icon={Compass} label="Quero explorar um tema" onClick={() => navigate('/descobrir')} />
                 <MenuAction
@@ -90,11 +70,20 @@ export default function LibraryPage() {
         {tab === 'basicas' ? (
           <section className="mt-4" aria-labelledby="all-books-heading">
             <h2 id="all-books-heading" className="sr-only">Obras básicas</h2>
+
+            <div className="mb-4 rounded-vesMd border border-sage-200 bg-sage-50/70 p-4 dark:border-sage-900 dark:bg-sage-950/25">
+              <p className="text-xs font-semibold uppercase tracking-[0.08em] text-sage-700 dark:text-sage-300">Ordem sugerida · opcional</p>
+              <p className="mt-1 text-sm leading-relaxed text-ink/80 dark:text-night-muted">
+                Se quiser uma referência, siga os números mostrados em cada obra. Você pode começar por qualquer livro.
+              </p>
+            </div>
+
             <div className="space-y-2">
               {books.map((book) => (
                 <BookRow
                   key={book.id}
                   book={book}
+                  totalBooks={books.length}
                   onOpen={() => navigate(progress[book.id] ? `/ler/${book.id}` : `/livro/${book.id}`)}
                 />
               ))}
@@ -141,7 +130,7 @@ function TabButton({ active, children, onClick }) {
   )
 }
 
-function BookRow({ book, onOpen }) {
+function BookRow({ book, totalBooks, onOpen }) {
   const percentage = useProgress(book.id, book.total_sections)
   const sequence = getBookSequence(book)
 
@@ -150,7 +139,10 @@ function BookRow({ book, onOpen }) {
       <div className="flex items-center gap-4">
         <BookCover book={book} size="sm" color={BOOK_ACCENT_COLORS[sequence] || '#5E7664'} />
         <div className="min-w-0 flex-1">
-          <p className="font-display text-[1.03rem] font-semibold leading-tight text-ink dark:text-night-ink">{book.title}</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-sage-700 dark:text-sage-300">
+            Ordem sugerida · {sequence} de {totalBooks}
+          </p>
+          <p className="mt-1 font-display text-[1.03rem] font-semibold leading-tight text-ink dark:text-night-ink">{book.title}</p>
           <p className="mt-1 text-xs text-muted dark:text-night-muted">{book.author || 'Allan Kardec'}</p>
           <div className="mt-4 flex items-center gap-3">
             <ProgressLine value={percentage} className="flex-1" />
