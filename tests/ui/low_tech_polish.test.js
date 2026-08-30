@@ -29,7 +29,8 @@ describe('low-tech usability polish', () => {
   })
 
   it('opens discovery results as passages without forcing a book start', () => {
-    expect(discover).toContain("navigate(`/trecho/${section.id}`)")
+    expect(discover).toContain("onOpen={(sectionId) => navigate(`/trecho/${sectionId}`)}")
+    expect(discover).toContain('onClick={() => onOpen(section.id)}')
     expect(discover).toContain('Ler este trecho')
     expect(discover).toContain('content')
     expect(passage).toContain('Ler um resultado de busca não muda sua leitura atual')
