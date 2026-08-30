@@ -48,13 +48,15 @@ describe('Vereda North Star canonical screens', () => {
     expect(reader).toContain("[currentSection.part_title, currentSection.chapter_label]")
     expect(reader).toContain('Nesta parte')
     expect(reader).toContain('extractChapterOverview')
-    expect(reader).toContain('variant="ghost" size="sm"')
-    expect(reader).toContain("variant={isChapterIntro || isPartIntro ? 'secondary' : undefined}")
+    expect(reader).toContain('grid-cols-[2.75rem_1fr_2.75rem]')
+    expect(reader).toContain('justify-self-start disabled:opacity-25')
+    expect(reader).toContain('justify-self-end disabled:opacity-35')
     expect(reader).toContain('className="northstar-reader-control"')
     expect(reader).toContain('A−')
     expect(reader).toContain('A+')
     expect(reader).toContain('Salvar este trecho')
     expect(reader).toContain('BookIndexPanel')
+    expect(reader).not.toContain('> Anterior')
   })
 
   it('makes personal reflection saving explicit and removes ambiguous actions', () => {
