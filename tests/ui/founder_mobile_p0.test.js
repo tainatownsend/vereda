@@ -12,6 +12,8 @@ const readerService = readFileSync('src/features/reader/readerService.js', 'utf8
 const readingSession = readFileSync('src/features/reader/useReadingSession.js', 'utf8')
 const savedPassages = readFileSync('src/pages/SavedPassagesPage.jsx', 'utf8')
 const passage = readFileSync('src/pages/PassagePage.jsx', 'utf8')
+const styles = readFileSync('src/index.css', 'utf8')
+const tailwind = readFileSync('tailwind.config.js', 'utf8')
 
 describe('founder mobile P0 safeguards', () => {
   it('keeps Home focused by leaving reminders inside Perfil', () => {
@@ -56,11 +58,24 @@ describe('founder mobile P0 safeguards', () => {
     expect(settings).not.toContain('>Ajustes</h1>')
   })
 
-  it('keeps the suggested order beside the books instead of hiding it in the overflow menu', () => {
-    expect(library).toContain('Ordem sugerida · opcional')
-    expect(library).toContain('Ordem sugerida · {sequence} de {totalBooks}')
-    expect(library).not.toContain('Sequência sugerida das obras')
-    expect(library).toContain('aria-label="Opções da biblioteca"')
+  it('renders the five works as one connected optional journey with progress', () => {
+    expect(library).toContain('Caminho sugerido · opcional')
+    expect(library).toContain('Uma jornada pelas obras básicas')
+    expect(library).toContain('Caminho sugerido pelas obras básicas')
+    expect(library).toContain('Etapa {sequence} de {totalBooks}')
+    expect(library).toContain('Seu progresso')
+    expect(library).toContain('bottom-[-0.9rem]')
+    expect(library).toContain('Sugerir uma obra complementar')
+    expect(library).not.toContain('Ordem sugerida · {sequence} de {totalBooks}')
+  })
+
+  it('uses a softer dusk palette instead of near-black dark surfaces', () => {
+    expect(styles).toContain('--ves-canvas: #2C352F')
+    expect(styles).toContain('--ves-surface: #354039')
+    expect(styles).toContain('--ves-surface-soft: #3D4941')
+    expect(tailwind).toContain("DEFAULT: '#2C352F'")
+    expect(tailwind).toContain("surface: '#354039'")
+    expect(tailwind).not.toContain("DEFAULT: '#182019'")
   })
 
   it('uppercases structural Roman numerals without uppercasing ordinary words', () => {
