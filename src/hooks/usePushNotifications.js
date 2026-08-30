@@ -4,6 +4,20 @@ import { supabase } from '@/lib/supabase'
 
 const VAPID_PUBLIC_KEY = import.meta.env.VITE_VAPID_PUBLIC_KEY
 
+function notificationsSupported() {
+  return (
+    typeof window !== 'undefined' &&
+    typeof navigator !== 'undefined' &&
+    'Notification' in window &&
+    'serviceWorker' in navigator &&
+    'PushManager' in window
+  )
+}
+
+function getInitialPermission() {
+  return notificationsSupported() ? window.Notification.permission : 'denied'
+}
+
 // Converte a chave VAPID de base64 para Uint8Array (necessário para o browser)
 function urlBase64ToUint8Array(base64String) {
   const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
@@ -12,15 +26,13 @@ function urlBase64ToUint8Array(base64String) {
   return Uint8Array.from([...rawData].map((char) => char.charCodeAt(0)))
 }
 
-// ⚠️ HOOK NUNCA pode ser async — retorna objeto, não Promise
 export function usePushNotifications(userId) {
-  const [permission, setPermission] = useState(Notification.permission)
+  const [permission, setPermission] = useState(getInitialPermission)
   const [subscribed, setSubscribed] = useState(false)
   const [loading, setLoading] = useState(false)
 
-  // Verifica se já tem subscription ativa ao montar
   useEffect(() => {
-    if (!userId || !('serviceWorker' in navigator)) return
+    if (!userId || !notificationsSupported()) return undefined
 
     let cancelled = false
 
@@ -42,29 +54,25 @@ export function usePushNotifications(userId) {
   }, [userId])
 
   const requestPermission = async () => {
-    if (!userId) return false
+    if (!userId || !notificationsSupported() || !VAPID_PUBLIC_KEY) return false
     setLoading(true)
 
     try {
-      // Pede permissão ao usuário
-      const result = await Notification.requestPermission()
+      const result = await window.Notification.requestPermission()
       setPermission(result)
 
       if (result !== 'granted') {
-        setLoading(false)
         return false
       }
 
-      // Registra service worker e cria subscription
       const reg = await navigator.serviceWorker.ready
       const subscription = await reg.pushManager.subscribe({
         userVisibleOnly: true,
         applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY),
       })
 
-      // Salva a subscription no Supabase
       const sub = subscription.toJSON()
-      await supabase.from('push_subscriptions').upsert(
+      const { error } = await supabase.from('push_subscriptions').upsert(
         {
           user_id: userId,
           endpoint: sub.endpoint,
@@ -75,19 +83,20 @@ export function usePushNotifications(userId) {
         { onConflict: 'user_id' }
       )
 
-      setSubscribed(true)
-      setLoading(false)
-      return true
+      if (error) throw error
 
+      setSubscribed(true)
+      return true
     } catch (err) {
       console.error('Push subscription error:', err)
-      setLoading(false)
       return false
+    } finally {
+      setLoading(false)
     }
   }
 
   const unsubscribe = async () => {
-    if (!userId) return
+    if (!userId || !notificationsSupported()) return false
     setLoading(true)
 
     try {
@@ -101,11 +110,13 @@ export function usePushNotifications(userId) {
           .eq('user_id', userId)
       }
       setSubscribed(false)
+      return true
     } catch (err) {
       console.error('Unsubscribe error:', err)
+      return false
+    } finally {
+      setLoading(false)
     }
-
-    setLoading(false)
   }
 
   return { permission, subscribed, loading, requestPermission, unsubscribe }
