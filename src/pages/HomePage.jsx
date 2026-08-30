@@ -47,7 +47,12 @@ export default function HomePage() {
             </p>
           </div>
 
-          <button type="button" className="northstar-icon-button" aria-label="Notificações">
+          <button
+            type="button"
+            className="northstar-icon-button"
+            aria-label="Abrir lembretes e notificações"
+            onClick={() => navigate('/configuracoes')}
+          >
             <Bell size={20} strokeWidth={1.7} />
           </button>
         </header>
