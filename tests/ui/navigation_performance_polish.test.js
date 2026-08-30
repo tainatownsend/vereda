@@ -42,9 +42,10 @@ describe('navigation and performance polish across the current product stack', (
     expect(auth).not.toContain('lg:justify-between')
   })
 
-  it('aligns the settings header with its content column and primary-tab navigation', () => {
+  it('aligns the profile header with its content column and primary-tab navigation', () => {
     expect(settings).toContain('<header className="ves-container max-w-2xl pb-7 pt-10">')
     expect(settings).toContain('<div className="ves-container max-w-2xl space-y-5 pb-10">')
+    expect(settings).toContain('>Perfil</h1>')
     expect(settings).not.toContain('ArrowLeft')
     expect(settings).not.toContain('navigate(-1)')
   })
@@ -56,9 +57,11 @@ describe('navigation and performance polish across the current product stack', (
     expect(library).not.toContain('book.cover_color')
   })
 
-  it('keeps secondary Library guidance in overflow while preserving discovery and saved paths', () => {
+  it('keeps secondary Library actions in overflow while linking suggested order directly to books', () => {
     expect(library).toContain('showMenu &&')
-    expect(library).toContain('Sequência sugerida das obras')
+    expect(library).toContain('Ordem sugerida · opcional')
+    expect(library).toContain('Ordem sugerida · {sequence} de {totalBooks}')
+    expect(library).not.toContain('Sequência sugerida das obras')
     expect(library).toContain('Não sei por onde começar')
     expect(library).toContain('Quero explorar um tema')
     expect(library).toContain('Trechos salvos')
