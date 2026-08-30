@@ -62,6 +62,8 @@ export default function HomePage() {
           </div>
         </EditorialCard>
 
+        <QuickActions navigate={navigate} />
+
         {primaryBook ? (
           <HomeWithReading book={primaryBook} progress={progress[primaryBook.id]} navigate={navigate} />
         ) : (
@@ -72,44 +74,46 @@ export default function HomePage() {
   )
 }
 
+function QuickActions({ navigate }) {
+  return (
+    <section className="mt-6" aria-labelledby="start-heading">
+      <h2 id="start-heading" className="northstar-section-title">O que você quer fazer agora?</h2>
+      <div className="mt-3 grid grid-cols-4 gap-2">
+        <QuickAction icon={BookOpen} label="Livros" onClick={() => navigate('/biblioteca')} />
+        <QuickAction icon={Leaf} label="Reflexões" onClick={() => navigate('/reflexoes')} />
+        <QuickAction icon={FileText} label="Resumos" disabled />
+        <QuickAction icon={Headphones} label="Audiobooks" disabled />
+      </div>
+    </section>
+  )
+}
+
 function HomeWithReading({ book, progress, navigate }) {
   const percentage = useProgress(book.id, book.total_sections)
 
   return (
-    <>
-      <section className="mt-6" aria-labelledby="continue-heading">
-        <div className="mb-3 flex items-center justify-between gap-4">
-          <h2 id="continue-heading" className="northstar-section-title">Continuar estudando</h2>
-          <button type="button" onClick={() => navigate('/biblioteca')} className="northstar-text-action">Ver biblioteca</button>
-        </div>
+    <section className="mt-6" aria-labelledby="continue-heading">
+      <div className="mb-3 flex items-center justify-between gap-4">
+        <h2 id="continue-heading" className="northstar-section-title">Continuar estudando</h2>
+        <button type="button" onClick={() => navigate('/biblioteca')} className="northstar-text-action">Ver biblioteca</button>
+      </div>
 
-        <EditorialCard as="button" type="button" onClick={() => navigate(`/ler/${book.id}`)} className="w-full p-4 text-left">
-          <div className="flex gap-4">
-            <BookCover book={book} size="sm" />
-            <div className="min-w-0 flex-1 py-1">
-              <p className="font-display text-[1.05rem] font-semibold leading-tight text-ink dark:text-night-ink">{book.title}</p>
-              <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted dark:text-night-muted">
-                {getReadingPosition(progress)}
-              </p>
-              <div className="mt-4 flex items-center gap-3">
-                <ProgressLine value={percentage} className="flex-1" />
-                <span className="text-[11px] font-semibold text-sage-700 dark:text-sage-300">{percentage}%</span>
-              </div>
+      <EditorialCard as="button" type="button" onClick={() => navigate(`/ler/${book.id}`)} className="w-full p-4 text-left">
+        <div className="flex gap-4">
+          <BookCover book={book} size="sm" />
+          <div className="min-w-0 flex-1 py-1">
+            <p className="font-display text-[1.05rem] font-semibold leading-tight text-ink dark:text-night-ink">{book.title}</p>
+            <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted dark:text-night-muted">
+              {getReadingPosition(progress)}
+            </p>
+            <div className="mt-4 flex items-center gap-3">
+              <ProgressLine value={percentage} className="flex-1" />
+              <span className="text-[11px] font-semibold text-sage-700 dark:text-sage-300">{percentage}%</span>
             </div>
           </div>
-        </EditorialCard>
-      </section>
-
-      <section className="mt-6" aria-labelledby="start-heading">
-        <h2 id="start-heading" className="northstar-section-title">O que você quer fazer agora?</h2>
-        <div className="mt-3 grid grid-cols-4 gap-2">
-          <QuickAction icon={BookOpen} label="Livros" onClick={() => navigate('/biblioteca')} />
-          <QuickAction icon={Leaf} label="Reflexões" onClick={() => navigate('/reflexoes')} />
-          <QuickAction icon={FileText} label="Resumos" disabled />
-          <QuickAction icon={Headphones} label="Audiobooks" disabled />
         </div>
-      </section>
-    </>
+      </EditorialCard>
+    </section>
   )
 }
 
