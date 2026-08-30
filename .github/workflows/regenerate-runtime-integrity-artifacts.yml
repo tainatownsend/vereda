@@ -1,0 +1,44 @@
+name: Regenerate reviewed-boundary runtime-integrity artifacts
+
+on:
+  push:
+    branches:
+      - ux/book-request-reference-url
+    paths:
+      - .github/workflows/regenerate-runtime-integrity-artifacts.yml
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate:
+    if: ${{ !contains(github.event.head_commit.message, '[skip runtime-regeneration]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout feature branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Rebuild deterministic runtime-integrity artifacts
+        run: npm run content:staging:segments:reviewed-boundary:runtime-integrity:build
+
+      - name: Verify generated diff
+        run: git diff --check
+
+      - name: Commit regenerated artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/migration docs/content-pipeline supabase/audits
+          if git diff --cached --quiet; then
+            echo "No generated runtime artifacts changed."
+            exit 0
+          fi
+          git commit -m "chore(content): refresh runtime-integrity artifacts [skip runtime-regeneration]"
+          git push origin HEAD:ux/book-request-reference-url
