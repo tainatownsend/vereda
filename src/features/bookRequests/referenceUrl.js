@@ -1,5 +1,7 @@
 export const MAX_BOOK_REFERENCE_URL_LENGTH = 2048
 
+const TOO_LONG_ERROR = 'Use um link de referência com até 2.048 caracteres.'
+
 export function normalizeBookReferenceUrl(value) {
   const trimmed = String(value || '').trim()
 
@@ -8,10 +10,7 @@ export function normalizeBookReferenceUrl(value) {
   }
 
   if (trimmed.length > MAX_BOOK_REFERENCE_URL_LENGTH) {
-    return {
-      value: null,
-      error: 'Use um link de referência com até 2.048 caracteres.',
-    }
+    return { value: null, error: TOO_LONG_ERROR }
   }
 
   let parsed
@@ -38,8 +37,13 @@ export function normalizeBookReferenceUrl(value) {
     }
   }
 
+  const canonicalUrl = parsed.toString()
+  if (canonicalUrl.length > MAX_BOOK_REFERENCE_URL_LENGTH) {
+    return { value: null, error: TOO_LONG_ERROR }
+  }
+
   return {
-    value: parsed.toString(),
+    value: canonicalUrl,
     error: '',
   }
 }
