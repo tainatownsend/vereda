@@ -117,7 +117,9 @@ describe('community book request product contract', () => {
 
   it('stores only bounded HTTPS reference metadata and keeps the RPC backwards compatible', () => {
     expect(referenceUrlMigrationSource).toContain('add column if not exists reference_url text')
-    expect(referenceUrlMigrationSource).toContain("reference_url ~* '^https://[^[:space:]]+$'")
+    expect(referenceUrlMigrationSource).toContain(
+      "reference_url ~* '^https://[a-z0-9][^[:space:]/@]*(/[^[:space:]]*)?$'",
+    )
     expect(referenceUrlMigrationSource).toContain('length(reference_url) <= 2048')
     expect(referenceUrlMigrationSource).toContain('p_reference_url text default null')
     expect(referenceUrlMigrationSource).toContain('bc.reference_url')
