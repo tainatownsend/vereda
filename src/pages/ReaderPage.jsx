@@ -244,27 +244,11 @@ export default function ReaderPage() {
           </>
         )}
 
-        <div className="mt-10 border-t border-line pt-5 dark:border-night-line">
-          {saveStatus && <p role="status" aria-live="polite" className="mb-4 text-sm text-muted dark:text-night-muted">{saveStatus}</p>}
-          <div className="flex flex-wrap items-center justify-end gap-2">
-            {currentSection.sec_position > 1 && (
-              <Button variant="ghost" size="sm" onClick={session.goToPrevious} className="min-h-10 px-3 text-sm">
-                <ChevronLeft size={17} /> Anterior
-              </Button>
-            )}
-            <Button
-              variant={isChapterIntro || isPartIntro ? 'secondary' : undefined}
-              size="sm"
-              onClick={session.completeCurrentSection}
-              loading={session.saving}
-              className="min-h-10 px-4 text-sm"
-              aria-label={primaryAction.ariaLabel}
-            >
-              {primaryAction.label}
-              {!session.saving && (primaryAction.icon === 'complete' ? <Check size={17} /> : <ChevronRight size={17} />)}
-            </Button>
-          </div>
-        </div>
+        {saveStatus && (
+          <p role="status" aria-live="polite" className="mt-8 text-sm text-muted dark:text-night-muted">
+            {saveStatus}
+          </p>
+        )}
       </main>
 
       <BookIndexPanel
@@ -283,18 +267,46 @@ export default function ReaderPage() {
       />
 
       <footer className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/96 pb-safe backdrop-blur-xl dark:border-night-line dark:bg-night/96">
-        <div className="mx-auto flex h-[4.4rem] max-w-[44rem] items-center justify-center gap-10 px-5">
-          <button type="button" onClick={() => stepFont(fontSize, setFontSize, -1)} className="northstar-reader-control" aria-label="Diminuir tamanho do texto">A−</button>
-          <button type="button" onClick={() => stepFont(fontSize, setFontSize, 1)} className="northstar-reader-control" aria-label="Aumentar tamanho do texto">A+</button>
+        <div className="mx-auto grid h-[4.4rem] max-w-[44rem] grid-cols-[2.75rem_1fr_2.75rem] items-center px-4 sm:px-6">
           <button
             type="button"
-            onClick={toggleSavedPassage}
-            disabled={savingPassage || isChapterIntro || isPartIntro}
-            aria-pressed={passageSaved}
-            className="northstar-reader-control disabled:opacity-35"
-            aria-label={passageSaved ? 'Remover este trecho dos salvos' : 'Salvar este trecho'}
+            onClick={session.goToPrevious}
+            disabled={currentSection.sec_position <= 1}
+            className="northstar-reader-control justify-self-start disabled:opacity-25"
+            aria-label={READER_COPY.actions.previous.ariaLabel}
           >
-            <Bookmark size={21} fill={passageSaved ? 'currentColor' : 'none'} />
+            <ChevronLeft size={23} />
+          </button>
+
+          <div className="flex items-center justify-center gap-8">
+            <button type="button" onClick={() => stepFont(fontSize, setFontSize, -1)} className="northstar-reader-control" aria-label="Diminuir tamanho do texto">A−</button>
+            <button type="button" onClick={() => stepFont(fontSize, setFontSize, 1)} className="northstar-reader-control" aria-label="Aumentar tamanho do texto">A+</button>
+            <button
+              type="button"
+              onClick={toggleSavedPassage}
+              disabled={savingPassage || isChapterIntro || isPartIntro}
+              aria-pressed={passageSaved}
+              className="northstar-reader-control disabled:opacity-35"
+              aria-label={passageSaved ? 'Remover este trecho dos salvos' : 'Salvar este trecho'}
+            >
+              <Bookmark size={21} fill={passageSaved ? 'currentColor' : 'none'} />
+            </button>
+          </div>
+
+          <button
+            type="button"
+            onClick={session.completeCurrentSection}
+            disabled={session.saving}
+            className="northstar-reader-control justify-self-end disabled:opacity-35"
+            aria-label={primaryAction.ariaLabel}
+          >
+            {session.saving ? (
+              <RefreshCw size={19} className="animate-spin" />
+            ) : primaryAction.icon === 'complete' ? (
+              <Check size={22} />
+            ) : (
+              <ChevronRight size={23} />
+            )}
           </button>
         </div>
       </footer>
