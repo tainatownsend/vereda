@@ -20,7 +20,7 @@ import {
 
 export default function HomePage() {
   const navigate = useNavigate()
-  const { user } = useAuthStore()
+  const { user, profile } = useAuthStore()
   const books = useBooks()
   const { progress, dataLoading } = useUserData()
 
@@ -32,6 +32,7 @@ export default function HomePage() {
   if (!user || dataLoading) return <PageLoader />
 
   const primaryBook = activeBooks[0]
+  const greeting = getGreeting(profile?.name)
 
   return (
     <main className="northstar-page pb-28">
@@ -40,8 +41,11 @@ export default function HomePage() {
           <p className="font-display text-[1.92rem] font-semibold tracking-[0.06em] text-[#30452f] dark:text-night-ink">
             VEREDA
           </p>
-          <p className="mt-2 max-w-[20rem] text-[14px] leading-relaxed text-ink/80 dark:text-night-muted">
-            Bem-vindo à sua jornada de estudo que transforma.
+          <p className="mt-3 font-display text-[1.2rem] font-semibold text-ink dark:text-night-ink">
+            {greeting}
+          </p>
+          <p className="mt-1 max-w-[20rem] text-[14px] leading-relaxed text-ink/75 dark:text-night-muted">
+            Continue seu caminho de estudo espírita.
           </p>
         </header>
 
@@ -76,7 +80,7 @@ function HomeWithReading({ book, progress, navigate }) {
       <section className="mt-6" aria-labelledby="continue-heading">
         <div className="mb-3 flex items-center justify-between gap-4">
           <h2 id="continue-heading" className="northstar-section-title">Continuar estudando</h2>
-          <button type="button" onClick={() => navigate('/biblioteca')} className="northstar-text-action">Ver tudo</button>
+          <button type="button" onClick={() => navigate('/biblioteca')} className="northstar-text-action">Ver biblioteca</button>
         </div>
 
         <EditorialCard as="button" type="button" onClick={() => navigate(`/ler/${book.id}`)} className="w-full p-4 text-left">
@@ -97,31 +101,13 @@ function HomeWithReading({ book, progress, navigate }) {
       </section>
 
       <section className="mt-6" aria-labelledby="start-heading">
-        <h2 id="start-heading" className="northstar-section-title">De onde você quer começar?</h2>
+        <h2 id="start-heading" className="northstar-section-title">O que você quer fazer agora?</h2>
         <div className="mt-3 grid grid-cols-4 gap-2">
           <QuickAction icon={BookOpen} label="Livros" onClick={() => navigate('/biblioteca')} />
           <QuickAction icon={Leaf} label="Reflexões" onClick={() => navigate('/reflexoes')} />
           <QuickAction icon={FileText} label="Resumos" disabled />
           <QuickAction icon={Headphones} label="Audiobooks" disabled />
         </div>
-      </section>
-
-      <section className="mt-6" aria-labelledby="plan-heading">
-        <h2 id="plan-heading" className="northstar-section-title">Plano de estudo</h2>
-        <EditorialCard as="button" type="button" onClick={() => navigate('/evolucao')} className="mt-3 w-full p-4 text-left">
-          <div className="flex items-center gap-3">
-            <BookCover book={book} size="sm" />
-            <div className="min-w-0 flex-1">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-sage-700 dark:text-sage-300">Estudo Sistematizado</p>
-              <p className="mt-2 text-sm font-semibold leading-tight text-ink dark:text-night-ink">{book.title}</p>
-              <p className="mt-1 text-xs text-muted dark:text-night-muted">Progresso geral</p>
-              <div className="mt-3 flex items-center gap-3">
-                <ProgressLine value={percentage} className="flex-1" />
-                <span className="text-[11px] font-semibold text-sage-700 dark:text-sage-300">{percentage}%</span>
-              </div>
-            </div>
-          </div>
-        </EditorialCard>
       </section>
     </>
   )
@@ -164,4 +150,18 @@ function getReadingPosition(progress) {
   const section = Number(progress?.current_section)
   if (!Number.isFinite(section) || section < 1) return 'Continue exatamente de onde você parou.'
   return `Trecho ${section} · continue de onde você parou.`
+}
+
+function getGreeting(name) {
+  const hour = new Date().getHours()
+  const period = hour < 12 ? 'Bom dia' : hour < 18 ? 'Boa tarde' : 'Boa noite'
+  const firstName = formatFirstName(name)
+  return firstName ? `${period}, ${firstName}!` : `${period}!`
+}
+
+function formatFirstName(name) {
+  const first = String(name || '').trim().split(/\s+/)[0]
+  if (!first) return ''
+  const normalized = first.toLocaleLowerCase('pt-BR')
+  return normalized.charAt(0).toLocaleUpperCase('pt-BR') + normalized.slice(1)
 }
