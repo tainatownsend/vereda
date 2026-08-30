@@ -51,20 +51,24 @@ export default function EvolutionPage() {
           </section>
         ) : (
           <section className="ves-horizon-panel rounded-vesLg border border-line p-6 shadow-sm dark:border-night-line">
-            <div className="relative z-10 max-w-lg">
-              <Compass size={24} className="text-sage-700 dark:text-sage-300" aria-hidden="true" />
-              <h2 className="ves-heading mt-4 text-[1.7rem]">Seu caminho pode começar quando fizer sentido.</h2>
-              <p className="mt-3 text-base leading-relaxed text-muted dark:text-night-muted">
-                Escolha uma obra ou peça uma primeira orientação. Não existe atraso.
-              </p>
-              <button
-                type="button"
-                onClick={() => navigate('/comecar')}
-                className="mt-5 inline-flex min-h-12 items-center gap-2 rounded-vesSm px-2 font-semibold text-sage-800 hover:bg-white/40 dark:text-sage-300 dark:hover:bg-white/5"
-              >
-                Ajude-me a começar
-                <ArrowRight size={18} aria-hidden="true" />
-              </button>
+            <div className="relative z-10 flex max-w-lg items-start gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-vesSm bg-surface/80 text-sage-700 shadow-sm dark:bg-night-surface dark:text-sage-300">
+                <Compass size={22} aria-hidden="true" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <h2 className="ves-heading text-[1.7rem]">Seu caminho pode começar quando fizer sentido.</h2>
+                <p className="mt-3 text-base leading-relaxed text-muted dark:text-night-muted">
+                  Escolha uma obra ou peça uma primeira orientação. Não existe atraso.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => navigate('/comecar')}
+                  className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-vesSm px-2 font-semibold text-sage-800 hover:bg-white/40 dark:text-sage-300 dark:hover:bg-white/5"
+                >
+                  Ajude-me a começar
+                  <ArrowRight size={18} aria-hidden="true" />
+                </button>
+              </div>
             </div>
           </section>
         )}
@@ -87,15 +91,15 @@ export default function EvolutionPage() {
                     <div className="min-w-0 flex-1">
                       <p className="font-semibold text-ink dark:text-night-ink">{book.title}</p>
                       <p className="mt-1 text-sm text-muted dark:text-night-muted">Disponível para revisitar quando quiser.</p>
+                      <button
+                        type="button"
+                        onClick={() => navigate(`/ler/${book.id}?revisit=1`)}
+                        className="mt-3 inline-flex min-h-11 items-center rounded-vesSm px-2 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+                      >
+                        Revisitar esta obra
+                      </button>
                     </div>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => navigate(`/ler/${book.id}?revisit=1`)}
-                    className="mt-4 inline-flex min-h-11 items-center rounded-vesSm px-2 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline sm:ml-[3.75rem] dark:text-sage-300"
-                  >
-                    Revisitar esta obra
-                  </button>
                 </Card>
               ))}
             </div>
