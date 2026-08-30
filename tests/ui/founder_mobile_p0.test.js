@@ -5,6 +5,9 @@ import { normalizeStructuralRomanNumerals } from '../../src/features/content/str
 const home = readFileSync('src/pages/HomePage.jsx', 'utf8')
 const push = readFileSync('src/hooks/usePushNotifications.js', 'utf8')
 const discover = readFileSync('src/pages/DiscoverPage.jsx', 'utf8')
+const landing = readFileSync('src/pages/LandingPage.jsx', 'utf8')
+const library = readFileSync('src/pages/LibraryPage.jsx', 'utf8')
+const settings = readFileSync('src/pages/SettingsPage.jsx', 'utf8')
 const readerService = readFileSync('src/features/reader/readerService.js', 'utf8')
 const readingSession = readFileSync('src/features/reader/useReadingSession.js', 'utf8')
 const savedPassages = readFileSync('src/pages/SavedPassagesPage.jsx', 'utf8')
@@ -34,6 +37,29 @@ describe('founder mobile P0 safeguards', () => {
     expect(discover).toContain('Voltar para Estudos')
     expect(discover).toContain('bg-canvas')
     expect(discover).toContain('dark:bg-night')
+  })
+
+  it('separates search from topic exploration and makes search completion explicit', () => {
+    expect(discover).toContain('aria-label="Como descobrir trechos"')
+    expect(discover).toContain('Pesquisar')
+    expect(discover).toContain('Explorar temas')
+    expect(discover).toContain("resultsRef.current?.scrollIntoView")
+    expect(discover).toContain('trechos encontrados')
+    expect(discover).toContain('Procurando trechos nas obras…')
+  })
+
+  it('uses the simplest signup and profile language', () => {
+    expect(landing).toContain("const primaryLabel = user ? 'Abrir o Vereda' : 'Criar conta'")
+    expect(landing).not.toContain("'Criar minha conta'")
+    expect(settings).toContain('>Perfil</h1>')
+    expect(settings).not.toContain('>Ajustes</h1>')
+  })
+
+  it('keeps the suggested order beside the books instead of hiding it in the overflow menu', () => {
+    expect(library).toContain('Ordem sugerida · opcional')
+    expect(library).toContain('Ordem sugerida · {sequence} de {totalBooks}')
+    expect(library).not.toContain('Sequência sugerida das obras')
+    expect(library).toContain('aria-label="Opções da biblioteca"')
   })
 
   it('uppercases structural Roman numerals without uppercasing ordinary words', () => {
