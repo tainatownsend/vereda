@@ -54,8 +54,10 @@ export default function GettingStartedPage() {
     ) || books[0] || null
   }, [books, selectedIntent])
 
+  const foundationWaiting = selectedIntent?.id === 'foundation' && !recommendation
+
   const finish = async () => {
-    if (!selectedIntent || finishing) return
+    if (!selectedIntent || finishing || foundationWaiting) return
 
     setFinishing(true)
     setError('')
@@ -85,7 +87,7 @@ export default function GettingStartedPage() {
   }
 
   const ctaLabel = selectedIntent?.id === 'foundation'
-    ? 'Começar pelos fundamentos'
+    ? foundationWaiting ? 'Preparando sugestão…' : 'Começar pelos fundamentos'
     : selectedIntent?.id === 'question'
       ? 'Procurar minha dúvida'
       : selectedIntent?.id === 'explore'
@@ -157,12 +159,12 @@ export default function GettingStartedPage() {
 
         <Button
           onClick={finish}
-          disabled={!selectedIntent}
+          disabled={!selectedIntent || foundationWaiting}
           loading={finishing}
           className="mt-6 w-full sm:w-auto"
         >
           {ctaLabel}
-          {!finishing && <ArrowRight size={19} aria-hidden="true" />}
+          {!finishing && !foundationWaiting && <ArrowRight size={19} aria-hidden="true" />}
         </Button>
       </div>
     </main>
