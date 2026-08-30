@@ -60,11 +60,13 @@ function throwIfError(error, fallback) {
 }
 
 function needsIndexContent(section) {
-  if (section.kind === 'chapter_intro') return true
+  if (section.kind === 'chapter_intro' || section.kind === 'part_intro') return true
   if (section.kind !== 'content') return false
 
   const ownTitle = [section.title, section.section_title].filter(Boolean).join(' ')
   return /\bparte\b/i.test(ownTitle) || (
+    Boolean(section.part_title) &&
+    !section.title &&
     !section.chapter_label &&
     !section.chapter_title &&
     !section.section_title
