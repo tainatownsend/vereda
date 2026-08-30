@@ -69,9 +69,14 @@ export default function CommunityPage() {
             </button>
           </>
         ) : (
-          <EditorialCard className="mt-5 p-6 text-center">
-            <Users size={24} className="mx-auto text-sage-700" />
-            <p className="mt-3 font-display text-xl font-semibold text-ink dark:text-night-ink">Em breve</p>
+          <EditorialCard className="mt-5 flex items-start gap-4 p-5 text-left">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[13px] bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+              <Users size={21} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="font-display text-xl font-semibold text-ink dark:text-night-ink">Em breve</p>
+              <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">Esta área ainda não faz parte da experiência ativa do Vereda.</p>
+            </div>
           </EditorialCard>
         )}
       </div>
