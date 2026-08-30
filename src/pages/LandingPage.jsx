@@ -1,15 +1,15 @@
-import { ArrowRight, BookOpen, BookPlus, Bookmark, Check, Compass, Search, ShieldCheck } from 'lucide-react'
+import { ArrowRight, BookPlus, Check, Compass, Search, ShieldCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { VeredaLogo } from '@/components/ui'
 import { useAuthStore } from '@/store'
 
 const WORKS = [
-  'O Livro dos Espíritos',
-  'O Livro dos Médiuns',
-  'O Evangelho Segundo o Espiritismo',
-  'O Céu e o Inferno',
-  'A Gênese',
+  { title: 'O Livro dos Espíritos', accent: '#5E7664' },
+  { title: 'O Livro dos Médiuns', accent: '#AB6D50' },
+  { title: 'O Evangelho Segundo o Espiritismo', accent: '#B9A46E' },
+  { title: 'O Céu e o Inferno', accent: '#8FA68F' },
+  { title: 'A Gênese', accent: '#C98C6B' },
 ]
 
 const FAQ = [
@@ -44,7 +44,7 @@ export default function LandingPage() {
             <VeredaLogo size={48} />
             <div>
               <p className="font-display text-xl font-semibold tracking-[0.12em] text-ink dark:text-night-ink">VEREDA</p>
-              <p className="text-[11px] font-medium text-muted dark:text-night-muted">seu caminho de aprendizado</p>
+              <p className="text-[11px] font-medium text-muted dark:text-night-muted">Seu caminho de estudo espírita</p>
             </div>
           </Link>
         </div>
@@ -108,30 +108,27 @@ export default function LandingPage() {
           <p className="ves-eyebrow">Como funciona</p>
           <h2 id="how-heading" className="ves-heading mt-2 max-w-2xl text-[2.25rem] sm:text-[2.75rem]">Menos aplicativo para aprender. Mais espaço para estudar.</h2>
 
-          <div className="mt-9 grid gap-4 md:grid-cols-3">
-            <FeatureCard icon={Compass} number="1" title="Escolha um caminho">Comece pelos fundamentos, por uma pergunta ou por uma obra específica.</FeatureCard>
-            <FeatureCard icon={BookOpen} number="2" title="Leia em trechos">O texto é apresentado em partes confortáveis, com fonte ajustável e modo escuro.</FeatureCard>
-            <FeatureCard icon={Bookmark} number="3" title="Volte quando quiser">Seu ponto de leitura e passagens salvas ficam disponíveis para continuar depois.</FeatureCard>
+          <div className="mt-9 grid gap-3 md:grid-cols-3">
+            <FeatureCard number="1" title="Escolha um caminho">Comece pelos fundamentos, por uma pergunta ou por uma obra específica.</FeatureCard>
+            <FeatureCard number="2" title="Leia em trechos">O texto é apresentado em partes confortáveis, com fonte ajustável e modo escuro.</FeatureCard>
+            <FeatureCard number="3" title="Volte quando quiser">Seu ponto de leitura e passagens salvas ficam disponíveis para continuar depois.</FeatureCard>
           </div>
         </div>
       </section>
 
       <section className="border-y border-line/70 bg-surface/55 py-16 sm:py-20 dark:border-night-line dark:bg-night-surface/35" aria-labelledby="library-heading">
-        <div className="ves-container grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+        <div className="ves-container grid gap-9 lg:grid-cols-[0.78fr_1.22fr] lg:items-start lg:gap-14">
           <div>
             <p className="ves-eyebrow">Biblioteca atual</p>
-            <h2 id="library-heading" className="ves-heading mt-2 text-[2.25rem] sm:text-[2.75rem]">Cinco obras fundamentais, com uma sequência opcional.</h2>
+            <h2 id="library-heading" className="ves-heading mt-2 text-[2.25rem] sm:text-[2.75rem]">Uma jornada pelas obras básicas.</h2>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">
-              Os números ajudam quem quer uma referência de percurso. Eles não bloqueiam nenhuma escolha e não transformam estudo em competição.
+              A ordem é apenas uma sugestão, não uma obrigação. Comece pela obra que fizer sentido para você e retome sempre de onde parou.
             </p>
           </div>
 
-          <ol className="space-y-3">
+          <ol className="space-y-3" aria-label="Caminho sugerido pelas cinco obras fundamentais">
             {WORKS.map((work, index) => (
-              <li key={work} className="flex min-h-16 items-center gap-4 rounded-vesMd border border-line bg-canvas/75 px-4 py-3 shadow-sm dark:border-night-line dark:bg-night/50">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-sage-300 bg-sage-50 font-display font-semibold text-sage-800 dark:border-sage-800 dark:bg-sage-950 dark:text-sage-300">{index + 1}</span>
-                <span className="font-display text-lg font-semibold">{work}</span>
-              </li>
+              <JourneyStep key={work.title} work={work} sequence={index + 1} isLast={index === WORKS.length - 1} />
             ))}
           </ol>
         </div>
@@ -142,7 +139,7 @@ export default function LandingPage() {
           <p className="ves-eyebrow">Por que o Vereda</p>
           <h2 id="why-heading" className="ves-heading mt-2 max-w-2xl text-[2.25rem] sm:text-[2.75rem]">Orientação sem substituir as obras.</h2>
 
-          <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             <ValueCard icon={Search} title="Busca nas fontes">Pesquise uma dúvida e abra passagens diretamente nas obras.</ValueCard>
             <ValueCard icon={Check} title="Sem cobrança">Nada de metas obrigatórias, culpa por pausas ou linguagem de produtividade.</ValueCard>
             <ValueCard icon={ShieldCheck} title="Conta com propósito">A conta existe para preservar leitura, preferências e trechos salvos.</ValueCard>
@@ -215,25 +212,51 @@ export default function LandingPage() {
   )
 }
 
-function FeatureCard({ icon: Icon, number, title, children }) {
+function FeatureCard({ number, title, children }) {
   return (
-    <article className="rounded-vesLg border border-line bg-surface p-6 shadow-sm dark:border-night-line dark:bg-night-surface">
-      <div className="flex items-center justify-between gap-4">
-        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300"><Icon size={20} aria-hidden="true" /></div>
-        <span className="font-display text-2xl font-semibold text-gold-700 dark:text-gold-400">{number}</span>
+    <article className="flex items-start gap-4 rounded-vesLg border border-line bg-surface p-5 shadow-sm dark:border-night-line dark:bg-night-surface sm:p-6">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-sage-300 bg-sage-50 font-display text-xl font-semibold text-sage-800 dark:border-sage-700 dark:bg-night dark:text-sage-300">
+        {number}
+      </span>
+      <div className="min-w-0 pt-0.5">
+        <h3 className="font-display text-xl font-semibold">{title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base dark:text-night-muted">{children}</p>
       </div>
-      <h3 className="mt-5 font-display text-xl font-semibold">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted sm:text-base dark:text-night-muted">{children}</p>
     </article>
+  )
+}
+
+function JourneyStep({ work, sequence, isLast }) {
+  return (
+    <li className="relative grid grid-cols-[3rem_minmax(0,1fr)] gap-3">
+      <div className="relative flex justify-center" aria-hidden="true">
+        {!isLast && (
+          <span className="absolute left-1/2 top-10 bottom-[-0.9rem] w-[2px] -translate-x-1/2 rounded-full bg-line dark:bg-night-line" />
+        )}
+        <span
+          className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 bg-canvas font-display text-base font-semibold shadow-sm dark:bg-night-surface"
+          style={{ borderColor: work.accent, color: work.accent }}
+        >
+          {sequence}
+        </span>
+      </div>
+      <div className="flex min-h-16 items-center rounded-vesMd border border-line bg-canvas/75 px-4 py-3 shadow-sm dark:border-night-line dark:bg-night/50">
+        <span className="font-display text-lg font-semibold leading-snug">{work.title}</span>
+      </div>
+    </li>
   )
 }
 
 function ValueCard({ icon: Icon, title, children }) {
   return (
-    <article className="rounded-vesLg border border-line bg-surface/80 p-5 dark:border-night-line dark:bg-night-surface/80">
-      <Icon size={21} className="text-sage-700 dark:text-sage-300" aria-hidden="true" />
-      <h3 className="mt-4 font-display text-lg font-semibold">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">{children}</p>
+    <article className="flex items-start gap-4 rounded-vesLg border border-line bg-surface/80 p-5 dark:border-night-line dark:bg-night-surface/80">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sage-50 text-sage-700 dark:bg-night dark:text-sage-300">
+        <Icon size={20} aria-hidden="true" />
+      </span>
+      <div className="min-w-0 pt-0.5">
+        <h3 className="font-display text-lg font-semibold">{title}</h3>
+        <p className="mt-1.5 text-sm leading-relaxed text-muted dark:text-night-muted">{children}</p>
+      </div>
     </article>
   )
 }
