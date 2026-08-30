@@ -156,6 +156,14 @@ describe('reader structural UI contract', () => {
     expect(service).toContain('? rawPartTitle')
   })
 
+  it('uses the same structural parsers for classification and rendering', () => {
+    expect(reader).toContain("extractChapterOverview,")
+    expect(reader).toContain("extractChapterTopics,")
+    expect(reader).toContain('const topics = extractChapterTopics(section.content)')
+    expect(reader).toContain('const chapterOverview = extractChapterOverview(section.content)')
+    expect(reader).not.toContain('function extractChapterOverview(content)')
+  })
+
   it('still supports useful chapter and part overview surfaces', () => {
     expect(reader).toContain('<PartIntro section={currentSection} />')
     expect(reader).toContain('<ChapterIntro section={currentSection} />')
