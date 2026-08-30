@@ -44,6 +44,18 @@ describe('reader structural presentation', () => {
     expect(classifyReaderKind(section)).toBe('chapter_intro')
   })
 
+  it('normalizes inline numbered chapter topics to the same line-based format used by the Reader', () => {
+    const inline = '1. Primeiro tema 2. Segundo tema 3. Terceiro tema'
+    const cleaned = cleanReaderContent(inline, 'chapter_intro')
+
+    expect(cleaned).toBe('1. Primeiro tema\n2. Segundo tema\n3. Terceiro tema')
+    expect(extractChapterTopics(cleaned)).toEqual([
+      'Primeiro tema',
+      'Segundo tema',
+      'Terceiro tema',
+    ])
+  })
+
   it('recovers a Part overview even when the database row is incorrectly classified as content', () => {
     const section = {
       kind: 'content',
@@ -77,11 +89,12 @@ describe('reader structural presentation', () => {
 })
 
 describe('reader structural UI contract', () => {
-  it('filters skippable chapter covers from normal next/previous navigation and the index', () => {
-    expect(service).toContain('classifyReaderKind')
-    expect(service).toContain('isReaderDisplayable')
-    expect(service).toContain('normalizeDisplayableSections')
-    expect(service).toContain(".limit(8)")
+  it('traverses skippable chapter covers without relying on a fixed one-page navigation window', () => {
+    expect(service).toContain('getDisplayableSectionWindow')
+    expect(service).toContain('while (collected.length < limit)')
+    expect(service).toContain('const SECTION_PAGE_SIZE = 20')
+    expect(service).toContain('collected.push(...normalizeDisplayableSections(data))')
+    expect(service).toContain('direction: \'backward\'')
     expect(service).toContain("'id, sec_position, title, kind, part_title, chapter_label, chapter_title, section_title, content'")
   })
 
