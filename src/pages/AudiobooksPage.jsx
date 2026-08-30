@@ -1,8 +1,7 @@
 import { ArrowRight, Headphones, Volume2 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
-import { useBooks } from '@/hooks'
-import { useReadingStore } from '@/store'
+import { useBooks, useUserData } from '@/hooks'
 import { PageLoader } from '@/components/ui'
 import { BookCover, EditorialCard } from '@/components/northstar/NorthStarUI'
 import { getAudioPosition } from '@/features/audio/audioPosition'
@@ -19,16 +18,21 @@ const ACCENTS = {
 export default function AudiobooksPage() {
   const navigate = useNavigate()
   const books = useBooks()
-  const progress = useReadingStore((state) => state.progress)
+  const { progress, dataLoading } = useUserData()
   const supported = speechNarrationSupported()
 
-  if (!books.length) return <PageLoader label="Carregando audiobooks" />
+  if (!books.length || dataLoading) return <PageLoader label="Carregando audiobooks" />
 
   return (
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-9">
         <header>
-          <p className="ves-eyebrow">Ouvir as obras</p>
+          <div className="flex items-center gap-2">
+            <p className="ves-eyebrow">Ouvir as obras</p>
+            <span className="rounded-full border border-sage-200 bg-sage-50 px-2 py-1 text-[9px] font-bold uppercase tracking-[0.12em] text-sage-800 dark:border-sage-900 dark:bg-sage-950 dark:text-sage-300">
+              Beta · voz do dispositivo
+            </span>
+          </div>
           <h1 className="mt-2 font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Audiobooks</h1>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-muted dark:text-night-muted">
             Ouça os próprios trechos das obras com a voz disponível no seu dispositivo. Nesta primeira versão, ouvir não altera seu ponto salvo de leitura.
