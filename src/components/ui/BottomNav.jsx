@@ -16,6 +16,7 @@ export default function BottomNav() {
   if (
     pathname.startsWith('/ler/') ||
     pathname.startsWith('/livro/') ||
+    pathname.startsWith('/audiobooks/') ||
     pathname === '/comecar' ||
     pathname === '/reflexoes'
   ) {
