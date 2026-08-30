@@ -1,8 +1,13 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
+import { normalizeStructuralRomanNumerals } from '../../src/features/content/structuralLabels.js'
 
 const home = readFileSync('src/pages/HomePage.jsx', 'utf8')
 const push = readFileSync('src/hooks/usePushNotifications.js', 'utf8')
+const discover = readFileSync('src/pages/DiscoverPage.jsx', 'utf8')
+const readerService = readFileSync('src/features/reader/readerService.js', 'utf8')
+const savedPassages = readFileSync('src/pages/SavedPassagesPage.jsx', 'utf8')
+const passage = readFileSync('src/pages/PassagePage.jsx', 'utf8')
 
 describe('founder mobile P0 safeguards', () => {
   it('keeps the Home bell as a real action instead of a dead affordance', () => {
@@ -21,5 +26,28 @@ describe('founder mobile P0 safeguards', () => {
   it('fails closed when push prerequisites are unavailable', () => {
     expect(push).toContain("return notificationsSupported() ? window.Notification.permission : 'denied'")
     expect(push).toContain('!notificationsSupported() || !VAPID_PUBLIC_KEY')
+  })
+
+  it('gives Discovery an explicit route back and an explicit light/dark page surface', () => {
+    expect(discover).toContain("onClick={() => navigate('/biblioteca')}")
+    expect(discover).toContain('Voltar para Estudos')
+    expect(discover).toContain('bg-canvas')
+    expect(discover).toContain('dark:bg-night')
+  })
+
+  it('uppercases structural Roman numerals without uppercasing ordinary words', () => {
+    expect(normalizeStructuralRomanNumerals('ii')).toBe('II')
+    expect(normalizeStructuralRomanNumerals('Ii')).toBe('II')
+    expect(normalizeStructuralRomanNumerals('Capítulo iv')).toBe('Capítulo IV')
+    expect(normalizeStructuralRomanNumerals('iii — Introdução')).toBe('III — Introdução')
+    expect(normalizeStructuralRomanNumerals('civil')).toBe('civil')
+  })
+
+  it('uses the shared Roman-numeral normalizer across reading surfaces', () => {
+    expect(readerService).toContain('normalizeStructuralRomanNumerals(section.section_title)')
+    expect(readerService).toContain('normalizeStructuralRomanNumerals(section.chapter_label)')
+    expect(savedPassages).toContain('normalizeStructuralRomanNumerals(')
+    expect(passage).toContain('normalizeStructuralRomanNumerals(')
+    expect(discover).toContain('normalizeStructuralRomanNumerals(')
   })
 })
