@@ -81,8 +81,8 @@ function QuickActions({ navigate }) {
       <div className="mt-3 grid grid-cols-4 gap-2">
         <QuickAction icon={BookOpen} label="Livros" onClick={() => navigate('/biblioteca')} />
         <QuickAction icon={Leaf} label="Reflexões" onClick={() => navigate('/reflexoes')} />
-        <QuickAction icon={FileText} label="Resumos" disabled />
-        <QuickAction icon={Headphones} label="Audiobooks" disabled />
+        <QuickAction icon={FileText} label="Resumos" onClick={() => navigate('/resumos')} />
+        <QuickAction icon={Headphones} label="Audiobooks" onClick={() => navigate('/audiobooks')} />
       </div>
     </section>
   )
@@ -132,13 +132,11 @@ function EmptyHome({ navigate }) {
   )
 }
 
-function QuickAction({ icon: Icon, label, onClick, disabled = false }) {
+function QuickAction({ icon: Icon, label, onClick }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      disabled={disabled}
-      title={disabled ? 'Em breve' : undefined}
       className="flex min-h-[74px] flex-col items-center justify-center gap-2 rounded-[14px] border border-line bg-surface px-1 text-sage-700 dark:border-night-line dark:bg-night-surface dark:text-sage-300"
     >
       <Icon size={20} strokeWidth={1.7} />
