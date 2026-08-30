@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { ArrowLeft, ArrowRight, BookOpen, Compass, Search } from 'lucide-react'
+import { ArrowRight, BookOpen, Compass, Search } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks } from '@/hooks'
@@ -114,15 +114,7 @@ export default function DiscoverPage() {
   return (
     <main className="ves-page ves-brand-page bg-canvas pb-28 text-ink dark:bg-night dark:text-night-ink">
       <header className="ves-container pb-6 pt-7 sm:pt-10">
-        <button
-          type="button"
-          onClick={() => navigate('/biblioteca')}
-          className="-ml-2 flex min-h-11 items-center gap-2 rounded-vesSm px-2 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950"
-        >
-          <ArrowLeft size={19} aria-hidden="true" />
-          Voltar para Estudos
-        </button>
-        <p className="ves-eyebrow mt-5">Descobrir</p>
+        <p className="ves-eyebrow">Descobrir</p>
         <h1 className="ves-heading mt-2 max-w-lg text-[2.4rem] leading-[1.08]">O que você quer compreender hoje?</h1>
         <p className="mt-3 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">
           Pesquise uma dúvida ou explore um tema. Cada caminho leva você diretamente a trechos das obras.
