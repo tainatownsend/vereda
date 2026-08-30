@@ -176,7 +176,7 @@ describe('reader structural UI contract', () => {
   it('uses the same horizontal hierarchy for topic and complementary-library cards', () => {
     expect(discover).toContain('className="flex items-start gap-4"')
     expect(discover).toContain('className="min-w-0 flex-1"')
-    expect(library).toContain('Biblioteca complementar')
+    expect(library).toContain('Obras complementares')
     expect(library).toContain('className="flex items-start gap-4"')
     expect(library).not.toContain('mt-5 p-6 text-center')
   })
