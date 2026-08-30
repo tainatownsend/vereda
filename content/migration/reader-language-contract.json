@@ -20,7 +20,7 @@
     "unit_noun_when_required": "trecho",
     "primary_navigation_action": "Continuar",
     "previous_navigation_action": "Voltar",
-    "chapter_intro_action": "Começar capítulo",
+    "chapter_intro_action": "Continuar",
     "book_final_action": "Concluir obra",
     "missing_next_message": "Não encontramos a continuação desta leitura.",
     "daily_goal_message": "Você já dedicou um bom momento a esta leitura hoje. Pode parar por aqui ou continuar, como preferir."
@@ -29,7 +29,8 @@
     "Próxima seção",
     "Seção anterior",
     "Voltar para a seção anterior",
-    "terminar esta seção"
+    "terminar esta seção",
+    "Começar capítulo"
   ],
   "accessibility": {
     "previous_button_label": "Voltar na leitura",
@@ -39,7 +40,8 @@
   "implementation_scope": {
     "pr_0014": "Terminology contract and staging-model distinction.",
     "pr_0015": "Implemented Reader navigation actions, index terminology, accessibility labels, goal messaging, and loading errors.",
-    "ux_2026": "Reframed daily reading guidance as an optional stopping point without productivity or completion pressure."
+    "ux_2026": "Reframed daily reading guidance as an optional stopping point without productivity or completion pressure.",
+    "founder_qa_2026_08": "Keeps Parte and Capítulo structurally distinct while using the quieter Continuar action for chapter transitions."
   },
   "implemented_files": [
     "src/pages/ReaderPage.jsx",

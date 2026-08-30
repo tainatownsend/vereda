@@ -39,7 +39,7 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-canvas text-ink dark:bg-night dark:text-night-ink">
       <header className="border-b border-line/70 bg-canvas/90 backdrop-blur dark:border-night-line dark:bg-night/90">
-        <div className="ves-container flex min-h-20 items-center justify-between gap-4">
+        <div className="ves-container flex min-h-20 items-center justify-center sm:justify-start">
           <Link to="/" className="flex items-center gap-3" aria-label="Vereda — início">
             <VeredaLogo size={48} />
             <div>
@@ -47,24 +47,6 @@ export default function LandingPage() {
               <p className="text-[11px] font-medium text-muted dark:text-night-muted">seu caminho de aprendizado</p>
             </div>
           </Link>
-
-          <nav className="flex items-center gap-2" aria-label="Acesso">
-            {!user && (
-              <Link
-                to="/entrar"
-                className="flex min-h-11 items-center rounded-vesSm px-3 text-sm font-semibold text-sage-800 hover:bg-sage-100 dark:text-sage-300 dark:hover:bg-sage-950"
-              >
-                Entrar
-              </Link>
-            )}
-            <Link
-              to={primaryHref}
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-vesSm bg-sage-800 px-4 text-sm font-semibold text-white shadow-sm hover:bg-sage-900 dark:bg-sage-300 dark:text-sage-950"
-            >
-              {primaryLabel}
-              <ArrowRight size={17} aria-hidden="true" />
-            </Link>
-          </nav>
         </div>
       </header>
 
@@ -97,7 +79,7 @@ export default function LandingPage() {
               )}
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-2 text-sm font-medium text-ink/80 dark:text-night-ink/80">
+            <div className="mt-8 flex flex-wrap justify-center gap-2 text-center text-sm font-medium text-ink/80 dark:text-night-ink/80 lg:justify-start lg:text-left">
               {['Gratuito', 'Sem anúncios', 'Sem sequência obrigatória', 'Sempre do ponto onde parou'].map((item) => (
                 <span key={item} className="rounded-full border border-line/70 bg-surface/70 px-3 py-2 dark:border-night-line dark:bg-night-surface/70">
                   {item}
@@ -106,12 +88,12 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="ves-horizon-panel relative min-h-[390px] overflow-hidden rounded-[2.25rem] border border-line p-8 shadow-editorial dark:border-night-line sm:min-h-[450px]">
-            <div className="relative z-10 flex h-full flex-col justify-between">
-              <div className="flex h-24 w-24 items-center justify-center rounded-full border border-white/70 bg-white/65 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
-                <VeredaLogo size={80} />
+          <div className="ves-horizon-panel relative overflow-hidden rounded-[2.25rem] border border-line p-6 shadow-editorial dark:border-night-line sm:p-8">
+            <div className="relative z-10 flex flex-col gap-6">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/70 bg-white/65 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10 sm:h-24 sm:w-24">
+                <VeredaLogo size={72} />
               </div>
-              <div className="mt-20 max-w-md rounded-vesLg border border-white/60 bg-surface/75 p-6 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-night-surface/75">
+              <div className="max-w-md rounded-vesLg border border-white/60 bg-surface/75 p-6 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-night-surface/75">
                 <p className="ves-eyebrow">Seu próximo passo</p>
                 <p className="mt-2 font-display text-2xl font-semibold leading-tight">Você não precisa saber por onde começar.</p>
                 <p className="mt-3 text-sm leading-relaxed text-muted dark:text-night-muted">O Vereda pode sugerir uma primeira direção, mas você continua livre para explorar todas as obras.</p>
