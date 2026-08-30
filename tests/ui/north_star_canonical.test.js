@@ -8,6 +8,7 @@ const reflection = readFileSync('src/pages/ReflectionPage.jsx', 'utf8')
 const favorites = readFileSync('src/pages/FavoritesPage.jsx', 'utf8')
 const discover = readFileSync('src/pages/DiscoverPage.jsx', 'utf8')
 const community = readFileSync('src/pages/CommunityPage.jsx', 'utf8')
+const settings = readFileSync('src/pages/SettingsPage.jsx', 'utf8')
 const bottomNav = readFileSync('src/components/ui/BottomNav.jsx', 'utf8')
 
 describe('Vereda North Star canonical screens', () => {
@@ -27,24 +28,28 @@ describe('Vereda North Star canonical screens', () => {
     expect(home).not.toContain('Ver biblioteca')
   })
 
-  it('keeps Biblioteca focused on one connected five-work journey with visible study actions', () => {
+  it('keeps Biblioteca focused on its two collections and the five-work progress journey', () => {
     expect(library).toContain('Biblioteca')
     expect(library).toContain('Básicas')
     expect(library).toContain('Complementares')
     expect(library).toContain('aria-labelledby="all-books-heading"')
     expect(library).toContain('BOOK_ACCENT_COLORS')
-    expect(library).toContain('Uma jornada pelas obras básicas')
-    expect(library).toContain('Caminho sugerido pelas obras básicas')
+    expect(library).toContain('Caminho pelas obras básicas')
     expect(library).toContain('Seu progresso')
-    expect(library).toContain('Atalhos de estudo')
-    expect(library).toContain('Não sei por onde começar')
-    expect(library).toContain('Trechos salvos')
     expect(library).toContain('Sugerir uma obra complementar')
     expect(library).toContain("navigate('/sugerir-obra')")
-    expect(library).not.toContain('MoreHorizontal')
-    expect(library).not.toContain('showMenu')
-    expect(library).not.toContain('Caminho sugerido · opcional')
-    expect(library).not.toContain('Etapa {sequence} de {totalBooks}')
+    expect(library).not.toContain('Atalhos de estudo')
+    expect(library).not.toContain('Não sei por onde começar')
+    expect(library).not.toContain('Trechos salvos')
+    expect(library).not.toContain('Uma jornada pelas obras básicas')
+    expect(library).not.toContain('Biblioteca complementar')
+  })
+
+  it('keeps book suggestions in Complementares instead of duplicating them in Perfil', () => {
+    expect(library).toContain('Sugerir uma obra complementar')
+    expect(settings).not.toContain('Sugerir uma obra')
+    expect(settings).not.toContain("navigate('/sugerir-obra')")
+    expect(settings).toContain('Refazer orientação')
   })
 
   it('keeps Reader hierarchy explicit while making navigation controls quieter', () => {
