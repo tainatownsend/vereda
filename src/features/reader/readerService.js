@@ -27,11 +27,14 @@ export function normalizeSection(section) {
   const rawPartTitle = section.raw_part_title ?? section.part_title
   const rawChapterLabel = section.raw_chapter_label ?? section.chapter_label
   const kind = classifyReaderKind(section)
+  const presentationTitle = kind === 'part_intro' && !section.title
+    ? rawPartTitle
+    : section.title
 
   return {
     section_id: section.section_id ?? section.id,
     sec_position: section.sec_position,
-    title: normalizeStructuralRomanNumerals(cleanReaderStructuralTitle(section.title)),
+    title: normalizeStructuralRomanNumerals(cleanReaderStructuralTitle(presentationTitle)),
     content: cleanReaderContent(section.content, kind),
     word_count: section.word_count,
     kind,
