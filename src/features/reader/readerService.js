@@ -1,5 +1,9 @@
 import { normalizeStructuralRomanNumerals } from '@/features/content/structuralLabels'
 import { READER_COPY } from '@/features/reader/readerCopy'
+import {
+  classifyReaderKind,
+  isReaderDisplayable,
+} from '@/features/reader/readerStructure'
 import { supabase } from '@/lib/supabase'
 
 export const SECTION_COLUMNS =
@@ -15,6 +19,7 @@ export function getLocalDate(date = new Date()) {
 export function normalizeSection(section) {
   const rawPartTitle = section.raw_part_title ?? section.part_title
   const rawChapterLabel = section.raw_chapter_label ?? section.chapter_label
+  const kind = classifyReaderKind(section)
 
   return {
     section_id: section.section_id ?? section.id,
@@ -22,7 +27,7 @@ export function normalizeSection(section) {
     title: normalizeStructuralRomanNumerals(section.title),
     content: section.content,
     word_count: section.word_count,
-    kind: section.kind || 'content',
+    kind,
     raw_part_title: rawPartTitle,
     raw_chapter_label: rawChapterLabel,
     part_title: normalizeStructuralRomanNumerals(rawPartTitle),
@@ -30,6 +35,11 @@ export function normalizeSection(section) {
     chapter_title: normalizeStructuralRomanNumerals(section.chapter_title),
     section_title: normalizeStructuralRomanNumerals(section.section_title),
   }
+}
+
+function normalizeDisplayableSections(data, limit) {
+  const sections = (data || []).map(normalizeSection).filter(isReaderDisplayable)
+  return limit ? sections.slice(0, limit) : sections
 }
 
 function throwIfError(error, fallback) {
@@ -46,14 +56,14 @@ export async function getBookIndexSections(bookId) {
   const { data, error } = await supabase
     .from('sections')
     .select(
-      'id, sec_position, title, kind, part_title, chapter_label, chapter_title, section_title',
+      'id, sec_position, title, kind, part_title, chapter_label, chapter_title, section_title, content',
     )
     .eq('book_id', bookId)
     .order('sec_position')
 
   throwIfError(error, 'Não foi possível carregar o índice da obra.')
 
-  return (data || []).map(normalizeSection)
+  return normalizeDisplayableSections(data)
 }
 
 export async function getReaderState({ userId, bookId, readDate }) {
@@ -82,7 +92,7 @@ export async function getReaderSections({ userId, bookId }) {
 
   throwIfError(error, READER_COPY.errors.loadReading)
 
-  return (data || []).map(normalizeSection)
+  return normalizeDisplayableSections(data)
 }
 
 export async function getSectionsFromPosition({
@@ -90,17 +100,18 @@ export async function getSectionsFromPosition({
   position,
   limit = 15,
 }) {
+  const queryLimit = Math.max(limit * 2, 20)
   const { data, error } = await supabase
     .from('sections')
     .select(SECTION_COLUMNS)
     .eq('book_id', bookId)
     .gte('sec_position', position)
     .order('sec_position')
-    .limit(limit)
+    .limit(queryLimit)
 
   throwIfError(error, 'Não foi possível carregar a continuação desta leitura.')
 
-  return (data || []).map(normalizeSection)
+  return normalizeDisplayableSections(data, limit)
 }
 
 export async function getNextSection({ bookId, position }) {
@@ -110,12 +121,11 @@ export async function getNextSection({ bookId, position }) {
     .eq('book_id', bookId)
     .gt('sec_position', position)
     .order('sec_position')
-    .limit(1)
-    .maybeSingle()
+    .limit(8)
 
   throwIfError(error, READER_COPY.errors.loadContinuation)
 
-  return data ? normalizeSection(data) : null
+  return normalizeDisplayableSections(data, 1)[0] || null
 }
 
 export async function getBookLastPosition(bookId) {
@@ -139,12 +149,11 @@ export async function getPreviousSection({ bookId, position }) {
     .eq('book_id', bookId)
     .lt('sec_position', position)
     .order('sec_position', { ascending: false })
-    .limit(1)
-    .maybeSingle()
+    .limit(8)
 
   throwIfError(error, READER_COPY.errors.loadPrevious)
 
-  return data ? normalizeSection(data) : null
+  return normalizeDisplayableSections(data, 1)[0] || null
 }
 
 export async function getChapterSections({
