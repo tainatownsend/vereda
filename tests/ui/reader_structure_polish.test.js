@@ -11,6 +11,7 @@ import {
 } from '@/features/reader/readerStructure'
 
 const service = readFileSync('src/features/reader/readerService.js', 'utf8')
+const session = readFileSync('src/features/reader/useReadingSession.js', 'utf8')
 const reader = readFileSync('src/pages/ReaderPage.jsx', 'utf8')
 const bookDetail = readFileSync('src/pages/BookDetailPage.jsx', 'utf8')
 const discover = readFileSync('src/pages/DiscoverPage.jsx', 'utf8')
@@ -162,6 +163,14 @@ describe('reader structural UI contract', () => {
     expect(reader).toContain('const topics = extractChapterTopics(section.content)')
     expect(reader).toContain('const chapterOverview = extractChapterOverview(section.content)')
     expect(reader).not.toContain('function extractChapterOverview(content)')
+  })
+
+  it('derives previous-button availability from real displayable navigation', () => {
+    expect(session).toContain('const [hasPreviousSection, setHasPreviousSection] = useState(false)')
+    expect(session).toContain('const canGoPrevious = currentIndex > 0 || hasPreviousSection')
+    expect(session).toContain('getPreviousSection({')
+    expect(reader).toContain('disabled={!session.canGoPrevious}')
+    expect(reader).not.toContain('disabled={currentSection.sec_position <= 1}')
   })
 
   it('still supports useful chapter and part overview surfaces', () => {
