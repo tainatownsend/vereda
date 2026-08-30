@@ -59,9 +59,10 @@ describe('navigation and performance polish across the current product stack', (
 
   it('keeps secondary Library actions in overflow while making the study journey explicit', () => {
     expect(library).toContain('showMenu &&')
-    expect(library).toContain('Caminho sugerido · opcional')
+    expect(library).toContain('Uma jornada pelas obras básicas')
     expect(library).toContain('Caminho sugerido pelas obras básicas')
-    expect(library).toContain('Etapa {sequence} de {totalBooks}')
+    expect(library).not.toContain('Caminho sugerido · opcional')
+    expect(library).not.toContain('Etapa {sequence} de {totalBooks}')
     expect(library).toContain('Não sei por onde começar')
     expect(library).toContain('Quero explorar um tema')
     expect(library).toContain('Trechos salvos')
