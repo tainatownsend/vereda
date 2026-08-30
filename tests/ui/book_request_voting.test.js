@@ -56,11 +56,13 @@ describe('community book request matching', () => {
 })
 
 describe('community book request product contract', () => {
-  it('routes the authenticated request screen and surfaces it from Library and Settings', () => {
+  it('routes the authenticated request screen and gives it one natural in-app entry point', () => {
     expect(appSource).toContain('path="/sugerir-obra"')
     expect(appSource).toContain('BookRequestsPage')
     expect(librarySource).toContain("navigate('/sugerir-obra')")
-    expect(settingsSource).toContain("navigate('/sugerir-obra')")
+    expect(librarySource).toContain('Sugerir uma obra complementar')
+    expect(settingsSource).not.toContain("navigate('/sugerir-obra')")
+    expect(settingsSource).not.toContain('Sugerir uma obra')
   })
 
   it('asks for a vote when an existing candidate is found', () => {
