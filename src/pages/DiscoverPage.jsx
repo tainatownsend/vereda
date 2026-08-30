@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react'
-import { ArrowRight, BookOpen, Compass, Search } from 'lucide-react'
+import { ArrowLeft, ArrowRight, BookOpen, Compass, Search } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks } from '@/hooks'
 import { supabase } from '@/lib/supabase'
 import { Button, Card, Input, PageLoader } from '@/components/ui'
+import { normalizeStructuralRomanNumerals } from '@/features/content/structuralLabels'
 import { buildSearchExcerpt } from '@/features/discover/searchExcerpt'
 
 const TOPICS = [
@@ -95,9 +96,17 @@ export default function DiscoverPage() {
   }
 
   return (
-    <main className="ves-page ves-brand-page pb-28">
-      <header className="ves-container pb-7 pt-10">
-        <p className="ves-eyebrow">Descobrir</p>
+    <main className="ves-page ves-brand-page bg-canvas pb-28 text-ink dark:bg-night dark:text-night-ink">
+      <header className="ves-container pb-7 pt-7 sm:pt-10">
+        <button
+          type="button"
+          onClick={() => navigate('/biblioteca')}
+          className="-ml-2 flex min-h-11 items-center gap-2 rounded-vesSm px-2 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950"
+        >
+          <ArrowLeft size={19} aria-hidden="true" />
+          Voltar para Estudos
+        </button>
+        <p className="ves-eyebrow mt-5">Descobrir</p>
         <h1 className="ves-heading mt-2 max-w-lg text-[2.4rem] leading-[1.08]">O que você quer compreender hoje?</h1>
         <p className="mt-3 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">
           Procure por uma dúvida ou escolha um tema. O Vereda leva você aos trechos das obras — sem responder no lugar delas.
@@ -184,7 +193,9 @@ export default function DiscoverPage() {
               <div className="mt-5 space-y-3">
                 {results.map((section) => {
                   const book = booksById[section.book_id]
-                  const heading = section.section_title || section.chapter_title || section.title || `Trecho ${section.sec_position}`
+                  const heading = normalizeStructuralRomanNumerals(
+                    section.section_title || section.chapter_title || section.title || `Trecho ${section.sec_position}`,
+                  )
                   const excerpt = buildSearchExcerpt(section.content, activeTerm)
 
                   return (
