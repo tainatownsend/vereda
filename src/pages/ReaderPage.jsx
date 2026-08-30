@@ -67,7 +67,6 @@ export default function ReaderPage() {
     Boolean(currentSection?.sec_position) &&
     Number(currentSection.sec_position) === Number(session.lastPosition)
   const primaryAction = getReaderPrimaryAction({ isChapterIntro, isFinalReadingUnit })
-  const previousIsKnownUnavailable = session.currentIndex === 0 && currentSection?.sec_position <= 1
 
   useEffect(() => {
     if (
@@ -276,7 +275,7 @@ export default function ReaderPage() {
           <button
             type="button"
             onClick={session.goToPrevious}
-            disabled={previousIsKnownUnavailable}
+            disabled={!session.canGoPrevious}
             className="northstar-reader-control justify-self-start disabled:opacity-25"
             aria-label={READER_COPY.actions.previous.ariaLabel}
           >
