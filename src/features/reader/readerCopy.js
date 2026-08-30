@@ -18,8 +18,8 @@ export const READER_COPY = Object.freeze({
       icon: 'continue',
     }),
     chapterIntro: Object.freeze({
-      label: 'Começar capítulo',
-      ariaLabel: 'Começar este capítulo',
+      label: 'Continuar',
+      ariaLabel: 'Continuar para o conteúdo do capítulo',
       icon: 'continue',
     }),
     final: Object.freeze({
