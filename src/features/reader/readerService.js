@@ -11,7 +11,10 @@ import { supabase } from '@/lib/supabase'
 export const SECTION_COLUMNS =
   'id, sec_position, title, content, word_count, kind, part_title, chapter_label, chapter_title, section_title'
 
+const INDEX_METADATA_COLUMNS =
+  'id, sec_position, title, kind, part_title, chapter_label, chapter_title, section_title'
 const SECTION_PAGE_SIZE = 20
+const INDEX_CONTENT_BATCH_SIZE = 100
 
 export function getLocalDate(date = new Date()) {
   const year = date.getFullYear()
@@ -54,6 +57,18 @@ function throwIfError(error, fallback) {
   const wrapped = new Error(fallback || 'Não foi possível concluir esta ação agora.')
   wrapped.cause = error
   throw wrapped
+}
+
+function needsIndexContent(section) {
+  if (section.kind === 'chapter_intro') return true
+  if (section.kind !== 'content') return false
+
+  const ownTitle = [section.title, section.section_title].filter(Boolean).join(' ')
+  return /\bparte\b/i.test(ownTitle) || (
+    !section.chapter_label &&
+    !section.chapter_title &&
+    !section.section_title
+  )
 }
 
 async function getDisplayableSectionWindow({
@@ -101,17 +116,40 @@ async function getDisplayableSectionWindow({
 }
 
 export async function getBookIndexSections(bookId) {
-  const { data, error } = await supabase
+  const { data: metadata, error } = await supabase
     .from('sections')
-    .select(
-      'id, sec_position, title, kind, part_title, chapter_label, chapter_title, section_title, content',
-    )
+    .select(INDEX_METADATA_COLUMNS)
     .eq('book_id', bookId)
     .order('sec_position')
 
   throwIfError(error, 'Não foi possível carregar o índice da obra.')
 
-  return normalizeDisplayableSections(data)
+  const candidateIds = (metadata || [])
+    .filter(needsIndexContent)
+    .map((section) => section.id)
+  const contentById = new Map()
+
+  for (let offset = 0; offset < candidateIds.length; offset += INDEX_CONTENT_BATCH_SIZE) {
+    const ids = candidateIds.slice(offset, offset + INDEX_CONTENT_BATCH_SIZE)
+    const { data: candidates, error: contentError } = await supabase
+      .from('sections')
+      .select('id, content')
+      .in('id', ids)
+
+    throwIfError(contentError, 'Não foi possível completar o índice da obra.')
+
+    for (const candidate of candidates || []) {
+      contentById.set(candidate.id, candidate.content)
+    }
+  }
+
+  const hydrated = (metadata || []).map((section) => (
+    contentById.has(section.id)
+      ? { ...section, content: contentById.get(section.id) }
+      : section
+  ))
+
+  return normalizeDisplayableSections(hydrated)
 }
 
 export async function getReaderState({ userId, bookId, readDate }) {
