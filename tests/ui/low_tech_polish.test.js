@@ -6,15 +6,16 @@ const bookDetail = readFileSync('src/pages/BookDetailPage.jsx', 'utf8')
 const discover = readFileSync('src/pages/DiscoverPage.jsx', 'utf8')
 const passage = readFileSync('src/pages/PassagePage.jsx', 'utf8')
 const reader = readFileSync('src/pages/ReaderPage.jsx', 'utf8')
-const library = readFileSync('src/pages/LibraryPage.jsx', 'utf8')
+const favorites = readFileSync('src/pages/FavoritesPage.jsx', 'utf8')
 const auth = readFileSync('src/pages/AuthPage.jsx', 'utf8')
 const routes = readFileSync('src/App.jsx', 'utf8')
 
 describe('low-tech usability polish', () => {
-  it('keeps the second onboarding choice to three human options', () => {
-    expect(onboarding).toContain('Quero começar do início')
+  it('keeps onboarding to three concrete human choices', () => {
+    expect(onboarding).toContain('Quero começar pelos fundamentos')
     expect(onboarding).toContain('Tenho uma dúvida específica')
     expect(onboarding).toContain('Quero escolher uma obra')
+    expect(onboarding).not.toContain('Você já estudou Espiritismo antes?')
     expect(onboarding).not.toContain('Quero compreender melhor a vida')
     expect(onboarding).not.toContain('Quero entender mediunidade')
   })
@@ -37,11 +38,12 @@ describe('low-tech usability polish', () => {
     expect(routes).toContain('path="/trecho/:sectionId"')
   })
 
-  it('provides a visible saved-passage path from reading to library', () => {
+  it('provides one clear saved-passage path from reading through Favorites', () => {
     expect(reader).toContain('Salvar este trecho')
     expect(reader).toContain('Trecho salvo para consultar depois.')
-    expect(library).toContain('Trechos salvos')
-    expect(library).toContain("navigate('/salvos')")
+    expect(favorites).toContain('Trechos das obras')
+    expect(favorites).toContain("navigate('/salvos')")
+    expect(routes).toContain('path="/favoritos"')
     expect(routes).toContain('path="/salvos"')
   })
 
