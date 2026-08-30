@@ -1,3 +1,4 @@
+import { normalizeStructuralRomanNumerals } from '@/features/content/structuralLabels'
 import { READER_COPY } from '@/features/reader/readerCopy'
 import { supabase } from '@/lib/supabase'
 
@@ -15,14 +16,14 @@ export function normalizeSection(section) {
   return {
     section_id: section.section_id ?? section.id,
     sec_position: section.sec_position,
-    title: section.title,
+    title: normalizeStructuralRomanNumerals(section.title),
     content: section.content,
     word_count: section.word_count,
     kind: section.kind || 'content',
-    part_title: section.part_title,
-    chapter_label: section.chapter_label,
-    chapter_title: section.chapter_title,
-    section_title: section.section_title,
+    part_title: normalizeStructuralRomanNumerals(section.part_title),
+    chapter_label: normalizeStructuralRomanNumerals(section.chapter_label),
+    chapter_title: normalizeStructuralRomanNumerals(section.chapter_title),
+    section_title: normalizeStructuralRomanNumerals(section.section_title),
   }
 }
 
@@ -163,7 +164,10 @@ export async function getChapterSections({
 
   throwIfError(error, 'Não foi possível carregar a posição neste capítulo.')
 
-  return data || []
+  return (data || []).map((section) => ({
+    ...section,
+    section_title: normalizeStructuralRomanNumerals(section.section_title),
+  }))
 }
 
 export async function completeSection({
