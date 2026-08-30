@@ -60,7 +60,7 @@ export default function LibraryPage() {
                 <BookPlus size={20} aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
-                <h2 className="font-display text-lg font-semibold text-ink dark:text-night-ink">Biblioteca complementar</h2>
+                <h2 className="font-display text-lg font-semibold text-ink dark:text-night-ink">Obras complementares</h2>
                 <p className="mt-1.5 max-w-md text-sm leading-relaxed text-muted dark:text-night-muted">
                   Outras obras poderão ampliar esta biblioteca depois da consolidação do núcleo fundamental.
                 </p>
