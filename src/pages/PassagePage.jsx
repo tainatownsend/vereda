@@ -6,6 +6,7 @@ import { useBooks } from '@/hooks'
 import { supabase } from '@/lib/supabase'
 import { useAuthStore, useReadingStore } from '@/store'
 import { Button, PageLoader } from '@/components/ui'
+import { normalizeStructuralRomanNumerals } from '@/features/content/structuralLabels'
 import { isPassageSaved } from '@/features/savedPassages/savedPassages'
 
 export default function PassagePage() {
@@ -107,7 +108,13 @@ export default function PassagePage() {
     )
   }
 
-  const heading = section.section_title || section.chapter_title || section.title || `Trecho ${section.sec_position}`
+  const heading = normalizeStructuralRomanNumerals(
+    section.section_title || section.chapter_title || section.title || `Trecho ${section.sec_position}`,
+  )
+  const contextLabel = [section.chapter_label, section.chapter_title]
+    .filter(Boolean)
+    .map(normalizeStructuralRomanNumerals)
+    .join(' · ')
   const readingStarted = Boolean(progress[book.id])
 
   return (
@@ -143,9 +150,11 @@ export default function PassagePage() {
       <div className="mx-auto max-w-[68ch] px-5 pb-12 pt-9 sm:px-8 sm:pt-12">
         <p className="ves-eyebrow">{book.title}</p>
         <h1 className="ves-heading mt-2 text-[2rem] leading-[1.12] sm:text-[2.3rem]">{heading}</h1>
-        <p className="mt-3 text-sm leading-relaxed text-muted dark:text-night-muted">
-          {[section.chapter_label, section.chapter_title].filter(Boolean).join(' · ')}
-        </p>
+        {contextLabel && (
+          <p className="mt-3 text-sm leading-relaxed text-muted dark:text-night-muted">
+            {contextLabel}
+          </p>
+        )}
 
         {status && (
           <p role="status" aria-live="polite" className="mt-5 rounded-vesMd border border-sage-200 bg-sage-50 p-4 text-sm text-sage-900 dark:border-sage-900 dark:bg-sage-950/35 dark:text-sage-200">
