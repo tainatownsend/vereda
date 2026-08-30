@@ -14,9 +14,10 @@ const savedPassages = readFileSync('src/pages/SavedPassagesPage.jsx', 'utf8')
 const passage = readFileSync('src/pages/PassagePage.jsx', 'utf8')
 
 describe('founder mobile P0 safeguards', () => {
-  it('keeps the Home bell as a real action instead of a dead affordance', () => {
-    expect(home).toContain('aria-label="Abrir lembretes e notificações"')
-    expect(home).toContain("onClick={() => navigate('/configuracoes')}")
+  it('keeps Home focused by leaving reminders inside Perfil', () => {
+    expect(home).not.toContain('Bell')
+    expect(home).not.toContain('Abrir lembretes e notificações')
+    expect(home).not.toContain("navigate('/configuracoes')")
   })
 
   it('does not read Notification.permission unless notifications are supported', () => {
