@@ -44,22 +44,25 @@ describe('reader structural presentation', () => {
     expect(classifyReaderKind(section)).toBe('chapter_intro')
   })
 
-  it('normalizes inline numbered chapter topics to the same line-based format used by the Reader', () => {
+  it('normalizes inline numbered and bullet chapter topics to line-based rendering', () => {
     const inline = '1. Primeiro tema 2. Segundo tema 3. Terceiro tema'
-    const cleaned = cleanReaderContent(inline, 'chapter_intro')
+    const bullet = 'Primeiro tema • Segundo tema • Terceiro tema'
 
-    expect(cleaned).toBe('1. Primeiro tema\n2. Segundo tema\n3. Terceiro tema')
-    expect(extractChapterTopics(cleaned)).toEqual([
-      'Primeiro tema',
-      'Segundo tema',
-      'Terceiro tema',
-    ])
+    expect(cleanReaderContent(inline, 'chapter_intro')).toBe(
+      '1. Primeiro tema\n2. Segundo tema\n3. Terceiro tema',
+    )
+    expect(cleanReaderContent(bullet, 'chapter_intro')).toBe(
+      'Primeiro tema\nSegundo tema\nTerceiro tema',
+    )
   })
 
-  it('recovers a Part overview even when the database row is incorrectly classified as content', () => {
+  it('recovers a pure Part overview even when the database row is incorrectly classified as content', () => {
     const section = {
       kind: 'content',
       part_title: 'Primeira Parte — Doutrina',
+      chapter_label: null,
+      chapter_title: null,
+      section_title: null,
       content: 'Capítulo I O porvir e o nada Capítulo II Temor da morte Capítulo III O céu Capítulo IV O inferno',
     }
 
@@ -70,6 +73,19 @@ describe('reader structural presentation', () => {
       { label: 'Capítulo III', title: 'O céu' },
       { label: 'Capítulo IV', title: 'O inferno' },
     ])
+  })
+
+  it('does not turn ordinary prose into a Part overview merely because it inherits a part title', () => {
+    const section = {
+      kind: 'content',
+      part_title: 'Primeira Parte — Doutrina',
+      chapter_label: 'CAPÍTULO VII',
+      chapter_title: 'As penas futuras',
+      section_title: 'Comentário',
+      content: 'Este trecho compara o Capítulo I com o Capítulo II e mantém o desenvolvimento em prosa.',
+    }
+
+    expect(classifyReaderKind(section)).toBe('content')
   })
 
   it('cleans known structural-title artifacts only in the presentation layer', () => {
@@ -95,7 +111,14 @@ describe('reader structural UI contract', () => {
     expect(service).toContain('const SECTION_PAGE_SIZE = 20')
     expect(service).toContain('collected.push(...normalizeDisplayableSections(data))')
     expect(service).toContain('direction: \'backward\'')
-    expect(service).toContain("'id, sec_position, title, kind, part_title, chapter_label, chapter_title, section_title, content'")
+  })
+
+  it('keeps the index metadata-first and fetches bodies only for structural candidates', () => {
+    expect(service).toContain('INDEX_METADATA_COLUMNS')
+    expect(service).toContain('needsIndexContent')
+    expect(service).toContain(".select('id, content')")
+    expect(service).toContain(".in('id', ids)")
+    expect(service).not.toContain("'id, sec_position, title, kind, part_title, chapter_label, chapter_title, section_title, content',\n    )\n    .eq('book_id', bookId)")
   })
 
   it('still supports useful chapter and part overview surfaces', () => {
