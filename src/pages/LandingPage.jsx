@@ -1,4 +1,4 @@
-import { ArrowRight, BookPlus, Check, Compass, Search, ShieldCheck } from 'lucide-react'
+import { ArrowRight, BookOpen, BookPlus, Check, Compass, Search, ShieldCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { VeredaLogo } from '@/components/ui'
@@ -126,9 +126,9 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <ol className="space-y-3" aria-label="Caminho sugerido pelas cinco obras fundamentais">
+          <ol className="space-y-3" aria-label="Sequência visual das cinco obras fundamentais">
             {WORKS.map((work, index) => (
-              <JourneyStep key={work.title} work={work} sequence={index + 1} isLast={index === WORKS.length - 1} />
+              <LandingJourneyCard key={work.title} work={work} sequence={index + 1} />
             ))}
           </ol>
         </div>
@@ -193,7 +193,7 @@ export default function LandingPage() {
               <VeredaLogo size={54} />
             </div>
             <h2 className="ves-heading mx-auto mt-5 max-w-xl text-[2.1rem]">Seu primeiro passo pode ser simples.</h2>
-            <p className="mx-auto mt-3 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">Crie sua conta, confirme seu e-mail e o Vereda apresenta o caminho antes de pedir que você escolha uma leitura.</p>
+            <p className="mx-auto mt-3 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">Crie sua conta, confirme seu e-mail e escolha como quer começar: pelos fundamentos, por uma dúvida ou por uma obra.</p>
             <Link
               to={primaryHref}
               className="mt-7 inline-flex min-h-14 items-center justify-center gap-2 rounded-vesMd bg-sage-800 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-sage-900 dark:bg-sage-300 dark:text-sage-950"
@@ -226,22 +226,29 @@ function FeatureCard({ number, title, children }) {
   )
 }
 
-function JourneyStep({ work, sequence, isLast }) {
+function LandingJourneyCard({ work, sequence }) {
+  const number = String(sequence).padStart(2, '0')
+
   return (
-    <li className="relative grid grid-cols-[3rem_minmax(0,1fr)] gap-3">
-      <div className="relative flex justify-center" aria-hidden="true">
-        {!isLast && (
-          <span className="absolute left-1/2 top-10 bottom-[-0.9rem] w-[2px] -translate-x-1/2 rounded-full bg-line dark:bg-night-line" />
-        )}
-        <span
-          className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 bg-canvas font-display text-base font-semibold shadow-sm dark:bg-night-surface"
-          style={{ borderColor: work.accent, color: work.accent }}
+    <li
+      className="overflow-hidden rounded-vesLg border bg-surface shadow-sm dark:bg-night-surface"
+      style={{ borderColor: `${work.accent}55` }}
+    >
+      <div className="grid min-h-[5.75rem] grid-cols-[4.5rem_minmax(0,1fr)_3.25rem] items-stretch">
+        <div
+          className="flex items-center justify-center border-r"
+          style={{ backgroundColor: `${work.accent}18`, borderColor: `${work.accent}55` }}
+          aria-hidden="true"
         >
-          {sequence}
-        </span>
-      </div>
-      <div className="flex min-h-16 items-center rounded-vesMd border border-line bg-canvas/75 px-4 py-3 shadow-sm dark:border-night-line dark:bg-night/50">
-        <span className="font-display text-lg font-semibold leading-snug">{work.title}</span>
+          <span className="font-display text-2xl font-semibold" style={{ color: work.accent }}>{number}</span>
+        </div>
+        <div className="flex min-w-0 flex-col justify-center px-4 py-3.5">
+          <p className="font-display text-lg font-semibold leading-snug text-ink dark:text-night-ink">{work.title}</p>
+          <p className="mt-1 text-xs text-muted dark:text-night-muted">Allan Kardec</p>
+        </div>
+        <div className="flex items-center justify-center" style={{ backgroundColor: `${work.accent}10` }} aria-hidden="true">
+          <BookOpen size={20} style={{ color: work.accent }} />
+        </div>
       </div>
     </li>
   )
@@ -250,12 +257,12 @@ function JourneyStep({ work, sequence, isLast }) {
 function ValueCard({ icon: Icon, title, children }) {
   return (
     <article className="flex items-start gap-4 rounded-vesLg border border-line bg-surface/80 p-5 dark:border-night-line dark:bg-night-surface/80">
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sage-50 text-sage-700 dark:bg-night dark:text-sage-300">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
         <Icon size={20} aria-hidden="true" />
       </span>
-      <div className="min-w-0 pt-0.5">
+      <div className="min-w-0">
         <h3 className="font-display text-lg font-semibold">{title}</h3>
-        <p className="mt-1.5 text-sm leading-relaxed text-muted dark:text-night-muted">{children}</p>
+        <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">{children}</p>
       </div>
     </article>
   )
