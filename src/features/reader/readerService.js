@@ -2,6 +2,8 @@ import { normalizeStructuralRomanNumerals } from '@/features/content/structuralL
 import { READER_COPY } from '@/features/reader/readerCopy'
 import {
   classifyReaderKind,
+  cleanReaderContent,
+  cleanReaderStructuralTitle,
   isReaderDisplayable,
 } from '@/features/reader/readerStructure'
 import { supabase } from '@/lib/supabase'
@@ -24,16 +26,16 @@ export function normalizeSection(section) {
   return {
     section_id: section.section_id ?? section.id,
     sec_position: section.sec_position,
-    title: normalizeStructuralRomanNumerals(section.title),
-    content: section.content,
+    title: normalizeStructuralRomanNumerals(cleanReaderStructuralTitle(section.title)),
+    content: cleanReaderContent(section.content),
     word_count: section.word_count,
     kind,
     raw_part_title: rawPartTitle,
     raw_chapter_label: rawChapterLabel,
-    part_title: normalizeStructuralRomanNumerals(rawPartTitle),
+    part_title: normalizeStructuralRomanNumerals(cleanReaderStructuralTitle(rawPartTitle)),
     chapter_label: normalizeStructuralRomanNumerals(rawChapterLabel),
-    chapter_title: normalizeStructuralRomanNumerals(section.chapter_title),
-    section_title: normalizeStructuralRomanNumerals(section.section_title),
+    chapter_title: normalizeStructuralRomanNumerals(cleanReaderStructuralTitle(section.chapter_title)),
+    section_title: normalizeStructuralRomanNumerals(cleanReaderStructuralTitle(section.section_title)),
   }
 }
 
@@ -180,7 +182,7 @@ export async function getChapterSections({
 
   return (data || []).map((section) => ({
     ...section,
-    section_title: normalizeStructuralRomanNumerals(section.section_title),
+    section_title: normalizeStructuralRomanNumerals(cleanReaderStructuralTitle(section.section_title)),
   }))
 }
 
