@@ -1,14 +1,16 @@
-import { Bookmark, BookOpen, Quote } from 'lucide-react'
+import { Bookmark, Quote } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useAuthStore } from '@/store'
 import { getSavedPassageIds } from '@/features/savedPassages/savedPassages'
+import { getSavedReflections } from '@/features/reflections/localReflections'
 import { EditorialCard } from '@/components/northstar/NorthStarUI'
 
 export default function FavoritesPage() {
   const navigate = useNavigate()
   const { user } = useAuthStore()
   const savedPassages = getSavedPassageIds(user)
+  const savedReflections = getSavedReflections(user?.id)
 
   return (
     <main className="northstar-page pb-28">
@@ -17,55 +19,46 @@ export default function FavoritesPage() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Sua coleção</p>
           <h1 className="mt-1 font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Favoritos</h1>
           <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-            Reúna trechos e reflexões que você deseja revisitar.
+            Volte ao que você decidiu guardar para consultar depois.
           </p>
         </header>
 
-        <div className="mt-6 grid grid-cols-2 gap-3">
-          <SummaryCard icon={Quote} label="Reflexões" value="2 salvas" onClick={() => navigate('/reflexoes')} />
-          <SummaryCard
-            icon={BookOpen}
-            label="Trechos"
-            value={savedPassages.length ? `${savedPassages.length} salvos` : 'Nenhum ainda'}
+        <section className="mt-7 space-y-3" aria-label="Coleções salvas">
+          <CollectionCard
+            icon={Bookmark}
+            title="Trechos das obras"
+            count={savedPassages.length}
+            description={savedPassages.length ? 'Releia as passagens que você marcou durante seus estudos.' : 'Quando você salvar um trecho durante a leitura, ele aparecerá aqui.'}
             onClick={() => navigate('/salvos')}
           />
-        </div>
-
-        <section className="mt-7">
-          <h2 className="northstar-section-title">Para revisitar</h2>
-          <div className="mt-3 space-y-2">
-            <EditorialCard as="button" type="button" onClick={() => navigate('/salvos')} className="flex w-full items-start gap-3 p-4 text-left">
-              <Bookmark size={18} className="mt-0.5 shrink-0 text-sage-700" fill="currentColor" />
-              <div className="flex-1">
-                <p className="text-sm font-semibold text-ink dark:text-night-ink">Trechos salvos das obras</p>
-                <p className="mt-1 text-xs leading-relaxed text-muted dark:text-night-muted">
-                  Continue usando a coleção de passagens que já existe no Vereda.
-                </p>
-              </div>
-            </EditorialCard>
-
-            <EditorialCard as="button" type="button" onClick={() => navigate('/reflexoes')} className="flex w-full items-start gap-3 p-4 text-left">
-              <Quote size={18} className="mt-0.5 shrink-0 text-sage-700" />
-              <div className="flex-1">
-                <p className="text-sm font-semibold text-ink dark:text-night-ink">Reflexões</p>
-                <p className="mt-1 text-xs leading-relaxed text-muted dark:text-night-muted">
-                  Releia a reflexão do dia e seus registros pessoais.
-                </p>
-              </div>
-            </EditorialCard>
-          </div>
+          <CollectionCard
+            icon={Quote}
+            title="Minhas reflexões"
+            count={savedReflections.length}
+            description={savedReflections.length ? 'Releia as reflexões pessoais que você escolheu guardar.' : 'Suas reflexões salvas aparecerão aqui.'}
+            onClick={() => navigate('/reflexoes')}
+          />
         </section>
       </div>
     </main>
   )
 }
 
-function SummaryCard({ icon: Icon, label, value, onClick }) {
+function CollectionCard({ icon: Icon, title, count, description, onClick }) {
   return (
-    <EditorialCard as="button" type="button" onClick={onClick} className="p-4 text-left">
-      <Icon size={20} className="text-sage-700" />
-      <p className="mt-4 text-sm font-semibold text-ink dark:text-night-ink">{label}</p>
-      <p className="mt-1 text-xs text-muted dark:text-night-muted">{value}</p>
+    <EditorialCard as="button" type="button" onClick={onClick} className="flex w-full items-start gap-4 p-5 text-left">
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[13px] bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+        <Icon size={20} />
+      </div>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-start justify-between gap-3">
+          <p className="text-sm font-semibold text-ink dark:text-night-ink">{title}</p>
+          <span className="shrink-0 rounded-full bg-surface-soft px-2.5 py-1 text-[11px] font-semibold text-muted dark:bg-night dark:text-night-muted">
+            {count}
+          </span>
+        </div>
+        <p className="mt-1.5 text-xs leading-relaxed text-muted dark:text-night-muted">{description}</p>
+      </div>
     </EditorialCard>
   )
 }
