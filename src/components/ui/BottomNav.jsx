@@ -1,10 +1,10 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { Bookmark, BookOpen, Home, UserRound, UsersRound } from 'lucide-react'
+import { Bookmark, BookOpen, Compass, Home, UserRound } from 'lucide-react'
 
 const tabs = [
   { path: '/home', label: 'Início', Icon: Home },
   { path: '/biblioteca', label: 'Estudos', Icon: BookOpen },
-  { path: '/comunidade', label: 'Comunidade', Icon: UsersRound },
+  { path: '/descobrir', label: 'Descobrir', Icon: Compass },
   { path: '/favoritos', label: 'Favoritos', Icon: Bookmark },
   { path: '/configuracoes', label: 'Perfil', Icon: UserRound },
 ]

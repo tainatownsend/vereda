@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
-import { BookOpen, BookPlus, Bookmark, Compass, MoreHorizontal } from 'lucide-react'
+import { useState } from 'react'
+import { BookOpen, BookPlus, Bookmark } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks, useProgress } from '@/hooks'
@@ -26,77 +26,34 @@ export default function LibraryPage() {
   const { user } = useAuthStore()
   const { progress } = useReadingStore()
   const [tab, setTab] = useState('basicas')
-  const [showMenu, setShowMenu] = useState(false)
-  const menuButtonRef = useRef(null)
-  const menuRef = useRef(null)
   const savedCount = getSavedPassageIds(user).length
-
-  useEffect(() => {
-    if (!showMenu) return undefined
-
-    const handlePointerDown = (event) => {
-      if (menuRef.current?.contains(event.target) || menuButtonRef.current?.contains(event.target)) return
-      setShowMenu(false)
-    }
-
-    const handleKeyDown = (event) => {
-      if (event.key !== 'Escape') return
-      setShowMenu(false)
-      menuButtonRef.current?.focus()
-    }
-
-    document.addEventListener('pointerdown', handlePointerDown)
-    document.addEventListener('keydown', handleKeyDown)
-
-    return () => {
-      document.removeEventListener('pointerdown', handlePointerDown)
-      document.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [showMenu])
 
   if (!books.length) return <PageLoader label="Carregando obras" />
 
   return (
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-9">
-        <header className="relative flex items-center justify-between gap-4">
+        <header>
           <h1 className="font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Biblioteca</h1>
-          <button
-            ref={menuButtonRef}
-            type="button"
-            className="northstar-icon-button"
-            aria-label="Opções da biblioteca"
-            aria-expanded={showMenu}
-            aria-haspopup="menu"
-            onClick={() => setShowMenu((visible) => !visible)}
-          >
-            <MoreHorizontal size={21} />
-          </button>
-
-          {showMenu && (
-            <div
-              ref={menuRef}
-              role="menu"
-              className="absolute right-0 top-12 z-30 w-[min(21rem,calc(100vw-3rem))] rounded-[16px] border border-line bg-surface p-3 shadow-editorial dark:border-night-line dark:bg-night-surface"
-            >
-              <div className="space-y-1">
-                <MenuAction icon={BookOpen} label="Não sei por onde começar" onClick={() => navigate('/comecar')} />
-                <MenuAction icon={Compass} label="Quero explorar um tema" onClick={() => navigate('/descobrir')} />
-                <MenuAction
-                  icon={Bookmark}
-                  label={savedCount ? `Trechos salvos · ${savedCount}` : 'Trechos salvos'}
-                  onClick={() => navigate('/salvos')}
-                />
-                <MenuAction icon={BookPlus} label="Sugerir uma obra" onClick={() => navigate('/sugerir-obra')} />
-              </div>
-            </div>
-          )}
         </header>
 
         <div className="mt-6 grid grid-cols-2 border-b border-line dark:border-night-line" role="tablist" aria-label="Tipos de obra">
           <TabButton active={tab === 'basicas'} onClick={() => setTab('basicas')}>Básicas</TabButton>
           <TabButton active={tab === 'complementares'} onClick={() => setTab('complementares')}>Complementares</TabButton>
         </div>
+
+        <section className="mt-4 grid gap-2 sm:grid-cols-2" aria-label="Atalhos de estudo">
+          <StudyShortcut
+            icon={BookOpen}
+            label="Não sei por onde começar"
+            onClick={() => navigate('/comecar')}
+          />
+          <StudyShortcut
+            icon={Bookmark}
+            label={savedCount ? `Trechos salvos · ${savedCount}` : 'Trechos salvos'}
+            onClick={() => navigate('/salvos')}
+          />
+        </section>
 
         {tab === 'basicas' ? (
           <section className="mt-5" aria-labelledby="all-books-heading">
@@ -141,15 +98,16 @@ export default function LibraryPage() {
   )
 }
 
-function MenuAction({ icon: Icon, label, onClick }) {
+function StudyShortcut({ icon: Icon, label, onClick }) {
   return (
     <button
       type="button"
-      role="menuitem"
       onClick={onClick}
-      className="flex min-h-11 w-full items-center gap-3 rounded-[11px] px-2 text-left text-xs font-semibold text-ink hover:bg-surface-soft dark:text-night-ink dark:hover:bg-night"
+      className="flex min-h-14 w-full items-center gap-3 rounded-vesSm border border-line bg-surface px-4 py-3 text-left text-sm font-semibold text-ink shadow-sm transition-colors hover:bg-surface-soft dark:border-night-line dark:bg-night-surface dark:text-night-ink dark:hover:bg-night"
     >
-      <Icon size={17} className="shrink-0 text-sage-700 dark:text-sage-300" />
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sage-50 text-sage-800 dark:bg-night dark:text-sage-300">
+        <Icon size={18} aria-hidden="true" />
+      </span>
       <span>{label}</span>
     </button>
   )

@@ -35,9 +35,10 @@ describe('founder mobile P0 safeguards', () => {
     expect(push).toContain('!notificationsSupported() || !VAPID_PUBLIC_KEY')
   })
 
-  it('gives Discovery an explicit route back and an explicit light/dark page surface', () => {
-    expect(discover).toContain("onClick={() => navigate('/biblioteca')}")
-    expect(discover).toContain('Voltar para Estudos')
+  it('treats Discovery as a primary destination with an explicit light/dark page surface', () => {
+    expect(discover).toContain('>Descobrir</p>')
+    expect(discover).toContain('O que você quer compreender hoje?')
+    expect(discover).not.toContain('Voltar para Estudos')
     expect(discover).toContain('bg-canvas')
     expect(discover).toContain('dark:bg-night')
   })
@@ -69,12 +70,12 @@ describe('founder mobile P0 safeguards', () => {
     expect(library).not.toContain('Etapa {sequence} de {totalBooks}')
   })
 
-  it('closes the Library overflow menu outside the menu and with Escape', () => {
-    expect(library).toContain("document.addEventListener('pointerdown', handlePointerDown)")
-    expect(library).toContain("document.addEventListener('keydown', handleKeyDown)")
-    expect(library).toContain("event.key !== 'Escape'")
-    expect(library).toContain('menuRef.current?.contains(event.target)')
-    expect(library).toContain('menuButtonRef.current?.contains(event.target)')
+  it('keeps important Library actions visible instead of hiding them in overflow', () => {
+    expect(library).toContain('aria-label="Atalhos de estudo"')
+    expect(library).toContain('Não sei por onde começar')
+    expect(library).toContain('Trechos salvos')
+    expect(library).not.toContain('MoreHorizontal')
+    expect(library).not.toContain('showMenu')
   })
 
   it('uses a softer dusk palette instead of near-black dark surfaces', () => {
