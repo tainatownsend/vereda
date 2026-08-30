@@ -57,15 +57,16 @@ describe('navigation and performance polish across the current product stack', (
     expect(library).not.toContain('book.cover_color')
   })
 
-  it('keeps secondary Library actions in overflow while linking suggested order directly to books', () => {
+  it('keeps secondary Library actions in overflow while making the study journey explicit', () => {
     expect(library).toContain('showMenu &&')
-    expect(library).toContain('Ordem sugerida · opcional')
-    expect(library).toContain('Ordem sugerida · {sequence} de {totalBooks}')
-    expect(library).not.toContain('Sequência sugerida das obras')
+    expect(library).toContain('Caminho sugerido · opcional')
+    expect(library).toContain('Caminho sugerido pelas obras básicas')
+    expect(library).toContain('Etapa {sequence} de {totalBooks}')
     expect(library).toContain('Não sei por onde começar')
     expect(library).toContain('Quero explorar um tema')
     expect(library).toContain('Trechos salvos')
     expect(library).toContain('Sugerir uma obra')
+    expect(library).toContain('Sugerir uma obra complementar')
     expect(library).toContain('aria-labelledby="all-books-heading"')
   })
 
