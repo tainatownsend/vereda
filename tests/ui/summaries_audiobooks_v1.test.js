@@ -32,6 +32,12 @@ describe('Resumos and Audiobooks v1', () => {
     expect(summaryDetail).toContain('prevalece sempre o texto integral da obra')
   })
 
+  it('labels device narration honestly and loads progress before choosing an audio starting point', () => {
+    expect(audiobooks).toContain('Beta · voz do dispositivo')
+    expect(audiobooks).toContain('const { progress, dataLoading } = useUserData()')
+    expect(audiobooks).toContain('if (!books.length || dataLoading)')
+  })
+
   it('keeps audiobook listening independent from reading progress in v1', () => {
     expect(audiobooks).toContain('ouvir não altera seu ponto salvo de leitura')
     expect(player).toContain('Ponto de áudio independente da sua leitura')
