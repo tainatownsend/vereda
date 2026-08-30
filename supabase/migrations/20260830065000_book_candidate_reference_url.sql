@@ -14,7 +14,7 @@ alter table public.book_candidates
     reference_url is null
     or (
       length(reference_url) <= 2048
-      and reference_url ~* '^https://[^[:space:]]+$'
+      and reference_url ~* '^https://[a-z0-9][^[:space:]/@]*(/[^[:space:]]*)?$'
     )
   );
 
@@ -130,7 +130,7 @@ begin
 
   if v_reference_url is not null and (
     length(v_reference_url) > 2048
-    or v_reference_url !~* '^https://[^[:space:]]+$'
+    or v_reference_url !~* '^https://[a-z0-9][^[:space:]/@]*(/[^[:space:]]*)?$'
   ) then
     raise exception 'Candidate reference URL must be a valid HTTPS URL';
   end if;
