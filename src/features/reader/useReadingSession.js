@@ -187,7 +187,10 @@ export function useReadingSession({
   }, [goalNoticeVisible])
 
   useEffect(() => {
-    if (!currentSection?.chapter_label || !bookId) {
+    const rawChapterLabel = currentSection?.raw_chapter_label ?? currentSection?.chapter_label
+    const rawPartTitle = currentSection?.raw_part_title ?? currentSection?.part_title
+
+    if (!rawChapterLabel || !bookId) {
       setChapterSections([])
       return undefined
     }
@@ -196,8 +199,8 @@ export function useReadingSession({
 
     getChapterSections({
       bookId,
-      chapterLabel: currentSection.chapter_label,
-      partTitle: currentSection.part_title,
+      chapterLabel: rawChapterLabel,
+      partTitle: rawPartTitle,
     })
       .then((data) => {
         if (active) setChapterSections(data)
@@ -211,6 +214,8 @@ export function useReadingSession({
     }
   }, [
     bookId,
+    currentSection?.raw_chapter_label,
+    currentSection?.raw_part_title,
     currentSection?.chapter_label,
     currentSection?.part_title,
   ])

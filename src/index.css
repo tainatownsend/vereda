@@ -31,15 +31,16 @@
 .dark {
   color-scheme: dark;
 
-  --ves-canvas: #182019;
-  --ves-surface: #202A22;
-  --ves-surface-soft: #253129;
-  --ves-ink: #F7F1E8;
-  --ves-muted: #B5BBAF;
-  --ves-line: #38453B;
-  --ves-focus: #AFC2AD;
-  --ves-accent: #E0A183;
-  --ves-sun: #E7B977;
+  /* Soft dusk: dark enough for low-light reading without turning the app black. */
+  --ves-canvas: #2C352F;
+  --ves-surface: #354039;
+  --ves-surface-soft: #3D4941;
+  --ves-ink: #F3EEE6;
+  --ves-muted: #C8CCC4;
+  --ves-line: #566258;
+  --ves-focus: #B7C8B4;
+  --ves-accent: #E3AD90;
+  --ves-sun: #EBC58F;
 }
 
 @layer base {
@@ -91,8 +92,8 @@
   }
 
   .dark ::selection {
-    background: #405348;
-    color: #F7F1E8;
+    background: #637268;
+    color: #FFF9F1;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -122,8 +123,8 @@
 
   .dark .ves-brand-page {
     background:
-      radial-gradient(circle at 92% 2%, rgba(231, 185, 119, 0.08), transparent 23rem),
-      radial-gradient(circle at 0% 48%, rgba(175, 194, 173, 0.05), transparent 26rem),
+      radial-gradient(circle at 92% 2%, rgba(235, 197, 143, 0.12), transparent 23rem),
+      radial-gradient(circle at 0% 48%, rgba(183, 200, 180, 0.09), transparent 26rem),
       var(--ves-canvas);
   }
 
@@ -146,7 +147,7 @@
   }
 
   .northstar-text-action {
-    @apply min-h-10 rounded-lg px-2 text-xs font-medium text-sage-700 hover:bg-surface-soft dark:text-sage-300 dark:hover:bg-night-surface;
+    @apply min-h-10 rounded-lg px-2 text-xs font-medium text-sage-700 hover:bg-surface-soft dark:text-sage-200 dark:hover:bg-night-surface;
   }
 
   .northstar-icon-button {
@@ -184,10 +185,10 @@
 
   .dark .northstar-home-quote {
     background:
-      radial-gradient(circle at 87% 20%, rgba(231, 185, 119, 0.18) 0 1.15rem, transparent 1.2rem),
-      radial-gradient(ellipse at 88% 112%, rgba(175, 194, 173, 0.12) 0 38%, transparent 38.5%),
-      radial-gradient(ellipse at 63% 116%, rgba(79, 103, 87, 0.2) 0 42%, transparent 42.5%),
-      linear-gradient(145deg, #202A22 0%, #263129 68%, #2C352E 100%);
+      radial-gradient(circle at 87% 20%, rgba(235, 197, 143, 0.24) 0 1.15rem, transparent 1.2rem),
+      radial-gradient(ellipse at 88% 112%, rgba(183, 200, 180, 0.18) 0 38%, transparent 38.5%),
+      radial-gradient(ellipse at 63% 116%, rgba(109, 139, 116, 0.22) 0 42%, transparent 42.5%),
+      linear-gradient(145deg, #354039 0%, #3C473F 68%, #454E46 100%);
   }
 
   .ves-warm-panel {
@@ -198,8 +199,8 @@
 
   .dark .ves-warm-panel {
     background:
-      radial-gradient(circle at 75% 8%, rgba(231, 185, 119, 0.12), transparent 28%),
-      linear-gradient(145deg, #202A22 0%, #253129 65%, #2B342D 100%);
+      radial-gradient(circle at 75% 8%, rgba(235, 197, 143, 0.18), transparent 28%),
+      linear-gradient(145deg, #354039 0%, #3D4840 65%, #474F47 100%);
   }
 
   .ves-horizon-panel {
@@ -229,10 +230,10 @@
 
   .dark .ves-horizon-panel {
     background:
-      radial-gradient(circle at 84% 13%, rgba(231, 185, 119, 0.18) 0 2.4rem, transparent 2.45rem),
-      radial-gradient(ellipse at 94% 108%, rgba(175, 194, 173, 0.11) 0 36%, transparent 36.5%),
-      radial-gradient(ellipse at 62% 112%, rgba(79, 103, 87, 0.2) 0 42%, transparent 42.5%),
-      linear-gradient(145deg, #202A22 0%, #263129 65%, #2C352E 100%);
+      radial-gradient(circle at 84% 13%, rgba(235, 197, 143, 0.24) 0 2.4rem, transparent 2.45rem),
+      radial-gradient(ellipse at 94% 108%, rgba(183, 200, 180, 0.16) 0 36%, transparent 36.5%),
+      radial-gradient(ellipse at 62% 112%, rgba(109, 139, 116, 0.2) 0 42%, transparent 42.5%),
+      linear-gradient(145deg, #354039 0%, #3E4941 65%, #485149 100%);
   }
 
   .ves-soft-card {
@@ -241,6 +242,10 @@
 
   .ves-nav-shell {
     box-shadow: 0 -10px 38px rgba(74, 73, 59, 0.07);
+  }
+
+  .dark .ves-nav-shell {
+    box-shadow: 0 -10px 38px rgba(18, 24, 20, 0.14);
   }
 }
 

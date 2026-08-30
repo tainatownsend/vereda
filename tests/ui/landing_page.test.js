@@ -40,7 +40,8 @@ describe('public landing page contract', () => {
   it('provides direct create-account and sign-in calls to action', () => {
     expect(landing).toContain("const primaryHref = user ? '/home' : '/criar-conta'")
     expect(landing).toContain("to=\"/entrar\"")
-    expect(landing).toContain('Criar minha conta')
+    expect(landing).toContain("const primaryLabel = user ? 'Abrir o Vereda' : 'Criar conta'")
+    expect(landing).not.toContain('Criar minha conta')
     expect(landing).toContain('Já tenho uma conta')
   })
 

@@ -124,7 +124,7 @@ export default function SettingsPage() {
     <main className="ves-page ves-brand-page pb-28">
       <header className="ves-container max-w-2xl pb-7 pt-10">
         <p className="ves-eyebrow">Seu espaço</p>
-        <h1 className="ves-heading mt-2 text-[2.35rem]">Ajustes</h1>
+        <h1 className="ves-heading mt-2 text-[2.35rem]">Perfil</h1>
         <p className="mt-3 max-w-lg text-base leading-relaxed text-muted dark:text-night-muted">
           Conta, conforto de leitura e lembretes em um só lugar. Cada mudança fica perto daquilo que ela altera.
         </p>

@@ -1,7 +1,6 @@
 import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
-  Bell,
   BookOpen,
   FileText,
   Headphones,
@@ -37,19 +36,13 @@ export default function HomePage() {
   return (
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-9">
-        <header className="flex items-start justify-between gap-4">
-          <div>
-            <p className="font-display text-[1.92rem] font-semibold tracking-[0.06em] text-[#30452f] dark:text-night-ink">
-              VEREDA
-            </p>
-            <p className="mt-2 max-w-[20rem] text-[14px] leading-relaxed text-ink/80 dark:text-night-muted">
-              Bem-vindo à sua jornada de estudo que transforma.
-            </p>
-          </div>
-
-          <button type="button" className="northstar-icon-button" aria-label="Notificações">
-            <Bell size={20} strokeWidth={1.7} />
-          </button>
+        <header>
+          <p className="font-display text-[1.92rem] font-semibold tracking-[0.06em] text-[#30452f] dark:text-night-ink">
+            VEREDA
+          </p>
+          <p className="mt-2 max-w-[20rem] text-[14px] leading-relaxed text-ink/80 dark:text-night-muted">
+            Bem-vindo à sua jornada de estudo que transforma.
+          </p>
         </header>
 
         <EditorialCard className="northstar-home-quote mt-7 overflow-hidden p-5">

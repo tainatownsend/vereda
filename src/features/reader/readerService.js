@@ -1,3 +1,4 @@
+import { normalizeStructuralRomanNumerals } from '@/features/content/structuralLabels'
 import { READER_COPY } from '@/features/reader/readerCopy'
 import { supabase } from '@/lib/supabase'
 
@@ -12,17 +13,22 @@ export function getLocalDate(date = new Date()) {
 }
 
 export function normalizeSection(section) {
+  const rawPartTitle = section.raw_part_title ?? section.part_title
+  const rawChapterLabel = section.raw_chapter_label ?? section.chapter_label
+
   return {
     section_id: section.section_id ?? section.id,
     sec_position: section.sec_position,
-    title: section.title,
+    title: normalizeStructuralRomanNumerals(section.title),
     content: section.content,
     word_count: section.word_count,
     kind: section.kind || 'content',
-    part_title: section.part_title,
-    chapter_label: section.chapter_label,
-    chapter_title: section.chapter_title,
-    section_title: section.section_title,
+    raw_part_title: rawPartTitle,
+    raw_chapter_label: rawChapterLabel,
+    part_title: normalizeStructuralRomanNumerals(rawPartTitle),
+    chapter_label: normalizeStructuralRomanNumerals(rawChapterLabel),
+    chapter_title: normalizeStructuralRomanNumerals(section.chapter_title),
+    section_title: normalizeStructuralRomanNumerals(section.section_title),
   }
 }
 
@@ -163,7 +169,10 @@ export async function getChapterSections({
 
   throwIfError(error, 'Não foi possível carregar a posição neste capítulo.')
 
-  return data || []
+  return (data || []).map((section) => ({
+    ...section,
+    section_title: normalizeStructuralRomanNumerals(section.section_title),
+  }))
 }
 
 export async function completeSection({

@@ -24,16 +24,21 @@ describe('Vereda North Star canonical screens', () => {
     expect(home).not.toContain('Revisitar salvos')
   })
 
-  it('keeps Biblioteca visually focused on tabs and the five-work list', () => {
+  it('keeps Biblioteca focused on one connected five-work journey with progress', () => {
     expect(library).toContain('Biblioteca')
     expect(library).toContain('Básicas')
     expect(library).toContain('Complementares')
     expect(library).toContain('aria-labelledby="all-books-heading"')
     expect(library).toContain('BOOK_ACCENT_COLORS')
     expect(library).toContain('showMenu &&')
-    expect(library).toContain('Sequência sugerida das obras')
+    expect(library).toContain('Uma jornada pelas obras básicas')
+    expect(library).toContain('Caminho sugerido pelas obras básicas')
+    expect(library).toContain('Seu progresso')
+    expect(library).not.toContain('Caminho sugerido · opcional')
+    expect(library).not.toContain('Etapa {sequence} de {totalBooks}')
     expect(library).toContain('Trechos salvos')
     expect(library).toContain('Sugerir uma obra')
+    expect(library).toContain('Sugerir uma obra complementar')
     expect(library).toContain("navigate('/sugerir-obra')")
     expect(library).not.toContain('Ainda não iniciada')
   })

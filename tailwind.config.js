@@ -26,11 +26,11 @@ export default {
           950: '#2C211D',
         },
         night: {
-          DEFAULT: '#182019',
-          surface: '#202A22',
-          ink: '#F7F1E8',
-          muted: '#B5BBAF',
-          line: '#38453B',
+          DEFAULT: '#2C352F',
+          surface: '#354039',
+          ink: '#F3EEE6',
+          muted: '#C8CCC4',
+          line: '#566258',
         },
         sage: {
           50: '#F2F5F0',

@@ -6,6 +6,7 @@ import { useBooks } from '@/hooks'
 import { supabase } from '@/lib/supabase'
 import { useAuthStore } from '@/store'
 import { Button, Card, PageLoader } from '@/components/ui'
+import { normalizeStructuralRomanNumerals } from '@/features/content/structuralLabels'
 import { getSavedPassageIds } from '@/features/savedPassages/savedPassages'
 
 export default function SavedPassagesPage() {
@@ -91,7 +92,9 @@ export default function SavedPassagesPage() {
           <div className="space-y-4">
             {sections.map((section) => {
               const book = booksById[section.book_id]
-              const heading = section.section_title || section.chapter_title || section.title || `Trecho ${section.sec_position}`
+              const heading = normalizeStructuralRomanNumerals(
+                section.section_title || section.chapter_title || section.title || `Trecho ${section.sec_position}`,
+              )
               const excerpt = String(section.content || '').replace(/\s+/g, ' ').trim().slice(0, 180)
 
               return (
