@@ -34,7 +34,7 @@ const FAQ = [
 export default function LandingPage() {
   const user = useAuthStore((state) => state.user)
   const primaryHref = user ? '/home' : '/criar-conta'
-  const primaryLabel = user ? 'Abrir o Vereda' : 'Criar minha conta'
+  const primaryLabel = user ? 'Abrir o Vereda' : 'Criar conta'
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-canvas text-ink dark:bg-night dark:text-night-ink">
