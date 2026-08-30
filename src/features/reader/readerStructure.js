@@ -17,13 +17,19 @@ export function cleanReaderStructuralTitle(value) {
   return TITLE_CORRECTIONS.get(cleaned.toLocaleLowerCase('pt-BR')) || cleaned
 }
 
-export function cleanReaderContent(value) {
+export function cleanReaderContent(value, kind) {
   if (typeof value !== 'string') return value
 
-  return value.replace(
+  let cleaned = value.replace(
     /^\[Nota:\s*Nota\s+de\s+Allan\s+Kardec\s*:/i,
     '[Nota: Allan Kardec:',
   )
+
+  if (kind === 'chapter_intro') {
+    cleaned = cleaned.replace(/\s+(?=\d{1,2}[.)]\s+)/g, '\n')
+  }
+
+  return cleaned
 }
 
 export function extractChapterTopics(content) {
