@@ -18,6 +18,10 @@ import { useAuthStore, useUIStore } from '@/store'
 import { useBooks } from '@/hooks'
 import { getReaderPrimaryAction, READER_COPY } from '@/features/reader/readerCopy'
 import { READER_PHASE } from '@/features/reader/readerMachine'
+import {
+  extractChapterOverview,
+  extractChapterTopics,
+} from '@/features/reader/readerStructure'
 import BookIndexPanel from '@/features/reader/BookIndexPanel'
 import { useReadingSession } from '@/features/reader/useReadingSession'
 import { isPassageSaved } from '@/features/savedPassages/savedPassages'
@@ -385,7 +389,7 @@ function SectionHeading({ currentSection }) {
 }
 
 function ChapterIntro({ section }) {
-  const topics = (section.content || '').split('\n').map((topic) => topic.replace(/^•\s*/, '').trim()).filter(Boolean)
+  const topics = extractChapterTopics(section.content)
   const overline = [section.part_title?.split('—')[0]?.trim(), section.chapter_label].filter(Boolean).join(' · ')
 
   return (
@@ -407,7 +411,7 @@ function ChapterIntro({ section }) {
 }
 
 function PartIntro({ section }) {
-  const [label, title] = (section.title || '').split('—').map((value) => value?.trim())
+  const [label, title] = (section.title || section.part_title || '').split('—').map((value) => value?.trim())
   const chapterOverview = extractChapterOverview(section.content)
 
   return (
@@ -419,8 +423,9 @@ function PartIntro({ section }) {
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-muted dark:text-night-muted">Nesta parte</p>
           <ol className="mt-3 space-y-2.5">
             {chapterOverview.map((chapter) => (
-              <li key={chapter} className="rounded-[13px] border border-line/80 bg-surface px-4 py-3 font-display text-base leading-snug text-ink dark:border-night-line dark:bg-night-surface dark:text-night-ink">
-                {chapter}
+              <li key={`${chapter.label}-${chapter.title}`} className="rounded-[13px] border border-line/80 bg-surface px-4 py-3 font-display text-base leading-snug text-ink dark:border-night-line dark:bg-night-surface dark:text-night-ink">
+                <span className="font-semibold">{chapter.label}</span>
+                <span className="ml-2">{chapter.title}</span>
               </li>
             ))}
           </ol>
@@ -428,16 +433,6 @@ function PartIntro({ section }) {
       )}
     </section>
   )
-}
-
-function extractChapterOverview(content) {
-  const text = String(content || '').trim()
-  if (!text) return []
-
-  return text
-    .split(/(?=Capítulo\s+[IVXLCDM]+\b)/i)
-    .map((item) => item.trim())
-    .filter((item) => /^Capítulo\s+[IVXLCDM]+\b/i.test(item))
 }
 
 function ReaderMessage({ eyebrow, title, description, actionLabel, onAction, secondaryLabel, onSecondary }) {
