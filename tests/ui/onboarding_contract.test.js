@@ -23,11 +23,14 @@ describe('guided first-step contract', () => {
     expect(source).toContain('Você pode mudar de ideia e explorar outro caminho a qualquer momento.')
   })
 
-  it('makes the foundation recommendation useful and clearly optional', () => {
+  it('makes the foundation recommendation useful, optional and safe while books are loading', () => {
     expect(source).toContain('Nossa sugestão para começar')
     expect(source).toContain('É a porta de entrada mais direta para os fundamentos.')
     expect(source).toContain('nenhuma outra obra fica bloqueada')
     expect(source).toContain('ele não responde no lugar das obras')
+    expect(source).toContain("const foundationWaiting = selectedIntent?.id === 'foundation' && !recommendation")
+    expect(source).toContain('disabled={!selectedIntent || foundationWaiting}')
+    expect(source).toContain('Preparando sugestão…')
   })
 
   it('uses normal page flow instead of a trapped inner-scroll onboarding container', () => {
