@@ -36,6 +36,7 @@ export function useReadingSession({
   const [error, setError] = useState(null)
   const [goalNoticeVisible, setGoalNoticeVisible] = useState(false)
   const [elapsedSeconds, setElapsedSeconds] = useState(0)
+  const [hasPreviousSection, setHasPreviousSection] = useState(false)
 
   const readDateRef = useRef(getLocalDate())
   const sectionStartedAtRef = useRef(Date.now())
@@ -49,6 +50,7 @@ export function useReadingSession({
   }, [bookId, userId])
 
   const currentSection = sections[currentIndex] || null
+  const canGoPrevious = currentIndex > 0 || hasPreviousSection
 
   const restartSectionTimer = useCallback(() => {
     sectionStartedAtRef.current = Date.now()
@@ -60,6 +62,7 @@ export function useReadingSession({
 
     setPhase(READER_PHASE.LOADING)
     setError(null)
+    setHasPreviousSection(false)
     readDateRef.current = getLocalDate()
     goalAcknowledgedRef.current = false
     goalReachedRef.current = false
@@ -137,6 +140,45 @@ export function useReadingSession({
       String(currentSection.sec_position),
     )
   }, [currentSection?.sec_position, positionStorageKey])
+
+  useEffect(() => {
+    if (
+      phase !== READER_PHASE.READING ||
+      !bookId ||
+      !currentSection?.sec_position
+    ) {
+      setHasPreviousSection(false)
+      return undefined
+    }
+
+    if (currentIndex > 0) {
+      setHasPreviousSection(true)
+      return undefined
+    }
+
+    let active = true
+    setHasPreviousSection(false)
+
+    getPreviousSection({
+      bookId,
+      position: currentSection.sec_position,
+    })
+      .then((previous) => {
+        if (active) setHasPreviousSection(Boolean(previous))
+      })
+      .catch(() => {
+        if (active) setHasPreviousSection(false)
+      })
+
+    return () => {
+      active = false
+    }
+  }, [
+    bookId,
+    currentIndex,
+    currentSection?.sec_position,
+    phase,
+  ])
 
   useEffect(() => {
     if (phase !== READER_PHASE.READING) return undefined
@@ -432,7 +474,7 @@ export function useReadingSession({
   }, [bookId, readerState?.current_section, restartSectionTimer, sections])
 
   const goToPrevious = useCallback(async () => {
-    if (!bookId || !currentSection) return
+    if (!bookId || !currentSection || !canGoPrevious) return
 
     try {
       if (currentIndex > 0) {
@@ -457,7 +499,13 @@ export function useReadingSession({
       setError(previousError)
       setPhase(READER_PHASE.ERROR)
     }
-  }, [bookId, currentIndex, currentSection, restartSectionTimer])
+  }, [
+    bookId,
+    canGoPrevious,
+    currentIndex,
+    currentSection,
+    restartSectionTimer,
+  ])
 
   const dismissError = useCallback(() => {
     setError(null)
@@ -476,6 +524,7 @@ export function useReadingSession({
     sections,
     currentIndex,
     currentSection,
+    canGoPrevious,
     chapterSections,
     bookIndexSections,
     indexLoading,
