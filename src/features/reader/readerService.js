@@ -13,6 +13,9 @@ export function getLocalDate(date = new Date()) {
 }
 
 export function normalizeSection(section) {
+  const rawPartTitle = section.raw_part_title ?? section.part_title
+  const rawChapterLabel = section.raw_chapter_label ?? section.chapter_label
+
   return {
     section_id: section.section_id ?? section.id,
     sec_position: section.sec_position,
@@ -20,8 +23,10 @@ export function normalizeSection(section) {
     content: section.content,
     word_count: section.word_count,
     kind: section.kind || 'content',
-    part_title: normalizeStructuralRomanNumerals(section.part_title),
-    chapter_label: normalizeStructuralRomanNumerals(section.chapter_label),
+    raw_part_title: rawPartTitle,
+    raw_chapter_label: rawChapterLabel,
+    part_title: normalizeStructuralRomanNumerals(rawPartTitle),
+    chapter_label: normalizeStructuralRomanNumerals(rawChapterLabel),
     chapter_title: normalizeStructuralRomanNumerals(section.chapter_title),
     section_title: normalizeStructuralRomanNumerals(section.section_title),
   }
