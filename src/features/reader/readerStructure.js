@@ -85,9 +85,17 @@ export function shouldSkipChapterIntro(section) {
   return section?.kind === 'chapter_intro' && !isUsefulChapterOverview(section)
 }
 
+export function isUsefulPartOverview(section) {
+  return section?.kind === 'part_intro' && extractChapterOverview(section.content).length > 1
+}
+
+export function shouldSkipPartIntro(section) {
+  return section?.kind === 'part_intro' && !isUsefulPartOverview(section)
+}
+
 export function isPartOverview(section) {
   if (!section) return false
-  if (section.kind === 'part_intro') return true
+  if (section.kind === 'part_intro') return isUsefulPartOverview(section)
   if (section.kind !== 'content') return false
 
   const chapterOverview = extractChapterOverview(section.content)
@@ -96,11 +104,14 @@ export function isPartOverview(section) {
     .join(' ')
   const titleSignalsPart = /\bparte\b/i.test(ownStructuralTitle)
   const contentLooksLikePureOverview =
+    Boolean(section.part_title) &&
+    !section.title &&
     !section.chapter_label &&
     !section.chapter_title &&
     !section.section_title &&
     CHAPTER_AT_START.test(String(section.content || '')) &&
-    chapterOverview.length >= 3
+    chapterOverview.length >= 3 &&
+    isCompactChapterDirectory(section.content, chapterOverview.length)
 
   return chapterOverview.length > 1 && (titleSignalsPart || contentLooksLikePureOverview)
 }
@@ -112,6 +123,10 @@ export function classifyReaderKind(section) {
     return 'chapter_intro_skip'
   }
 
+  if (kind === 'part_intro' && shouldSkipPartIntro(section)) {
+    return 'part_intro_skip'
+  }
+
   if (isPartOverview({ ...section, kind })) {
     return 'part_intro'
   }
@@ -120,7 +135,12 @@ export function classifyReaderKind(section) {
 }
 
 export function isReaderDisplayable(section) {
-  return section?.kind !== 'chapter_intro_skip'
+  return !['chapter_intro_skip', 'part_intro_skip'].includes(section?.kind)
+}
+
+function isCompactChapterDirectory(content, chapterCount) {
+  const words = String(content || '').trim().split(/\s+/).filter(Boolean).length
+  return words <= Math.max(30, chapterCount * 16)
 }
 
 function cleanTopic(value) {
