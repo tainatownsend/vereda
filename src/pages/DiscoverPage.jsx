@@ -203,20 +203,24 @@ export default function DiscoverPage() {
                   key={topic.id}
                   type="button"
                   onClick={() => runSearch(topic.label)}
-                  className={`min-h-32 rounded-vesLg border p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-editorial ${
+                  className={`min-h-28 rounded-vesLg border p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-editorial ${
                     index % 3 === 1
                       ? 'border-clay-100 bg-clay-50/70 hover:border-clay-300 dark:border-clay-900/60 dark:bg-clay-950/10'
                       : 'border-sage-200 bg-sage-50/75 hover:border-sage-400 dark:border-sage-900 dark:bg-sage-950/25'
                   }`}
                 >
-                  <span className="flex items-center gap-2 font-display text-lg font-semibold text-ink dark:text-night-ink">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-surface/80 text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
+                  <span className="flex items-start gap-4">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface/80 text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
                       <Compass size={18} aria-hidden="true" />
                     </span>
-                    {topic.label}
-                  </span>
-                  <span className="mt-3 block text-sm leading-relaxed text-muted dark:text-night-muted">
-                    {topic.hint}
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-display text-lg font-semibold text-ink dark:text-night-ink">
+                        {topic.label}
+                      </span>
+                      <span className="mt-1.5 block text-sm leading-relaxed text-muted dark:text-night-muted">
+                        {topic.hint}
+                      </span>
+                    </span>
                   </span>
                 </button>
               ))}

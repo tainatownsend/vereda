@@ -1,0 +1,151 @@
+const CHAPTER_LABEL = /Cap[ií]tulo\s+([IVXLCDM]+)\b/giu
+const CHAPTER_AT_START = /^\s*Cap[ií]tulo\s+[IVXLCDM]+\b/iu
+
+const TITLE_CORRECTIONS = new Map([
+  [
+    'ideia cristã e do espiritismo',
+    'Sócrates e Platão, precursores da ideia cristã e do Espiritismo',
+  ],
+])
+
+export function cleanReaderStructuralTitle(value) {
+  const cleaned = String(value || '')
+    .replace(/^\s*[•·]\s*/, '')
+    .trim()
+
+  if (!cleaned) return value || null
+
+  return TITLE_CORRECTIONS.get(cleaned.toLocaleLowerCase('pt-BR')) || cleaned
+}
+
+export function cleanReaderContent(value, kind) {
+  if (typeof value !== 'string') return value
+
+  let cleaned = value.replace(
+    /^\[Nota:\s*Nota\s+de\s+Allan\s+Kardec\s*:/i,
+    '[Nota: Allan Kardec:',
+  )
+
+  if (kind === 'chapter_intro') {
+    cleaned = cleaned
+      .replace(/\s*•\s*/g, '\n')
+      .replace(/\s+(?=\d{1,2}[.)]\s+)/g, '\n')
+  }
+
+  return cleaned
+}
+
+export function extractChapterTopics(content) {
+  const text = String(content || '').trim()
+  if (!text) return []
+
+  const bulletItems = text
+    .split(/\n|•/)
+    .map(cleanTopic)
+    .filter(Boolean)
+
+  if (bulletItems.length > 1) return bulletItems
+
+  const numberedItems = []
+  const numberedPattern = /(?:^|\s)(\d{1,2})[.)]\s+(.+?)(?=(?:\s+\d{1,2}[.)]\s+)|$)/g
+  let match
+
+  while ((match = numberedPattern.exec(text)) !== null) {
+    const topic = cleanTopic(match[2])
+    if (topic) numberedItems.push(topic)
+  }
+
+  return numberedItems.length > 1 ? numberedItems : bulletItems
+}
+
+export function extractChapterOverview(content) {
+  const text = String(content || '').replace(/\s+/g, ' ').trim()
+  if (!text) return []
+
+  const matches = [...text.matchAll(CHAPTER_LABEL)]
+  if (!matches.length) return []
+
+  return matches.map((match, index) => {
+    const start = match.index + match[0].length
+    const end = matches[index + 1]?.index ?? text.length
+    const title = text.slice(start, end).trim().replace(/^[—–\-:]+\s*/, '')
+
+    return {
+      label: `Capítulo ${String(match[1]).toUpperCase()}`,
+      title,
+    }
+  }).filter((chapter) => chapter.title)
+}
+
+export function isUsefulChapterOverview(section) {
+  return section?.kind === 'chapter_intro' && extractChapterTopics(section.content).length > 1
+}
+
+export function shouldSkipChapterIntro(section) {
+  return section?.kind === 'chapter_intro' && !isUsefulChapterOverview(section)
+}
+
+export function isUsefulPartOverview(section) {
+  return section?.kind === 'part_intro' && extractChapterOverview(section.content).length > 1
+}
+
+export function shouldSkipPartIntro(section) {
+  return section?.kind === 'part_intro' && !isUsefulPartOverview(section)
+}
+
+export function isPartOverview(section) {
+  if (!section) return false
+  if (section.kind === 'part_intro') return isUsefulPartOverview(section)
+  if (section.kind !== 'content') return false
+
+  const chapterOverview = extractChapterOverview(section.content)
+  const ownStructuralTitle = [section.title, section.section_title]
+    .filter(Boolean)
+    .join(' ')
+  const titleSignalsPart = /\bparte\b/i.test(ownStructuralTitle)
+  const contentLooksLikePureOverview =
+    Boolean(section.part_title) &&
+    !section.title &&
+    !section.chapter_label &&
+    !section.chapter_title &&
+    !section.section_title &&
+    CHAPTER_AT_START.test(String(section.content || '')) &&
+    chapterOverview.length >= 3 &&
+    isCompactChapterDirectory(section.content, chapterOverview.length)
+
+  return chapterOverview.length > 1 && (titleSignalsPart || contentLooksLikePureOverview)
+}
+
+export function classifyReaderKind(section) {
+  const kind = section?.kind || 'content'
+
+  if (kind === 'chapter_intro' && shouldSkipChapterIntro(section)) {
+    return 'chapter_intro_skip'
+  }
+
+  if (kind === 'part_intro' && shouldSkipPartIntro(section)) {
+    return 'part_intro_skip'
+  }
+
+  if (isPartOverview({ ...section, kind })) {
+    return 'part_intro'
+  }
+
+  return kind
+}
+
+export function isReaderDisplayable(section) {
+  return !['chapter_intro_skip', 'part_intro_skip'].includes(section?.kind)
+}
+
+function isCompactChapterDirectory(content, chapterCount) {
+  const words = String(content || '').trim().split(/\s+/).filter(Boolean).length
+  return words <= Math.max(30, chapterCount * 16)
+}
+
+function cleanTopic(value) {
+  return String(value || '')
+    .replace(/^[-–—•]\s*/, '')
+    .replace(/^\d+[.)]\s*/, '')
+    .trim()
+}

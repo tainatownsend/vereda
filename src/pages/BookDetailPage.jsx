@@ -168,7 +168,7 @@ export default function BookDetailPage() {
                 </button>
               </div>
 
-              <div className="mt-6 grid gap-3 sm:grid-cols-3">
+              <div className="mt-6 grid gap-3 lg:grid-cols-3">
                 <ChoiceCard
                   selected={paceMode === 'none'}
                   onClick={() => setPaceMode('none')}
@@ -254,7 +254,8 @@ export default function BookDetailPage() {
                 aria-hidden="true"
               />
               <p className="text-sm leading-relaxed text-muted dark:text-night-muted">
-                Você pode parar quando quiser. O Vereda guarda seu lugar sem criar atraso ou cobrança.
+                <span className="block">Você pode parar quando quiser.</span>
+                <span className="mt-1 block">O Vereda guarda seu lugar sem criar atraso ou cobrança.</span>
               </p>
             </div>
           </div>
@@ -298,19 +299,21 @@ function ChoiceCard({ selected, onClick, icon: Icon, title, description, tone = 
       type="button"
       onClick={onClick}
       aria-pressed={selected}
-      className={`min-h-36 rounded-vesMd border p-5 text-left shadow-sm transition-all hover:-translate-y-0.5 ${
+      className={`flex min-h-24 items-start gap-4 rounded-vesMd border p-4 text-left shadow-sm transition-all hover:-translate-y-0.5 ${
         selected
           ? 'border-sage-700 bg-sage-50 ring-2 ring-sage-500/20 dark:border-sage-300 dark:bg-sage-950/40'
           : unselectedTone
       }`}
     >
-      <div className={`flex h-10 w-10 items-center justify-center rounded-full ${selected ? 'bg-sage-700 text-white dark:bg-sage-300 dark:text-sage-950' : 'bg-surface text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300'}`}>
+      <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full ${selected ? 'bg-sage-700 text-white dark:bg-sage-300 dark:text-sage-950' : 'bg-surface text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300'}`}>
         <Icon size={20} aria-hidden="true" />
       </div>
-      <p className="mt-4 font-display text-lg font-semibold text-ink dark:text-night-ink">{title}</p>
-      <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
-        {description}
-      </p>
+      <div className="min-w-0 flex-1 pt-0.5">
+        <p className="font-display text-lg font-semibold leading-snug text-ink dark:text-night-ink">{title}</p>
+        <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
+          {description}
+        </p>
+      </div>
     </button>
   )
 }

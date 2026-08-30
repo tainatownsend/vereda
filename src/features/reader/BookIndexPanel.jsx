@@ -151,7 +151,7 @@ export default function BookIndexPanel({
             >
               {bookTitle}
             </h2>
-            <p id="book-index-description" className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+            <p id="book-index-description" className="mt-2 whitespace-pre-line text-sm leading-relaxed text-muted dark:text-night-muted">
               {READER_COPY.indexDescription}
             </p>
           </div>

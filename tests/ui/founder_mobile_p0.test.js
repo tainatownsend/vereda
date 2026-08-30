@@ -95,7 +95,7 @@ describe('founder mobile P0 safeguards', () => {
   })
 
   it('uses the shared Roman-numeral normalizer across reading surfaces', () => {
-    expect(readerService).toContain('normalizeStructuralRomanNumerals(section.section_title)')
+    expect(readerService).toContain('normalizeStructuralRomanNumerals(cleanReaderStructuralTitle(section.section_title))')
     expect(readerService).toContain('normalizeStructuralRomanNumerals(rawChapterLabel)')
     expect(savedPassages).toContain('normalizeStructuralRomanNumerals(')
     expect(passage).toContain('normalizeStructuralRomanNumerals(')
