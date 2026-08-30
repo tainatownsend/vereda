@@ -1,4 +1,5 @@
 const CHAPTER_LABEL = /Cap[ií]tulo\s+([IVXLCDM]+)\b/giu
+const CHAPTER_AT_START = /^\s*Cap[ií]tulo\s+[IVXLCDM]+\b/iu
 
 const TITLE_CORRECTIONS = new Map([
   [
@@ -26,7 +27,9 @@ export function cleanReaderContent(value, kind) {
   )
 
   if (kind === 'chapter_intro') {
-    cleaned = cleaned.replace(/\s+(?=\d{1,2}[.)]\s+)/g, '\n')
+    cleaned = cleaned
+      .replace(/\s*•\s*/g, '\n')
+      .replace(/\s+(?=\d{1,2}[.)]\s+)/g, '\n')
   }
 
   return cleaned
@@ -85,12 +88,21 @@ export function shouldSkipChapterIntro(section) {
 export function isPartOverview(section) {
   if (!section) return false
   if (section.kind === 'part_intro') return true
+  if (section.kind !== 'content') return false
 
-  const structuralTitle = [section.title, section.part_title, section.section_title]
+  const chapterOverview = extractChapterOverview(section.content)
+  const ownStructuralTitle = [section.title, section.section_title]
     .filter(Boolean)
     .join(' ')
+  const titleSignalsPart = /\bparte\b/i.test(ownStructuralTitle)
+  const contentLooksLikePureOverview =
+    !section.chapter_label &&
+    !section.chapter_title &&
+    !section.section_title &&
+    CHAPTER_AT_START.test(String(section.content || '')) &&
+    chapterOverview.length >= 3
 
-  return /\bparte\b/i.test(structuralTitle) && extractChapterOverview(section.content).length > 1
+  return chapterOverview.length > 1 && (titleSignalsPart || contentLooksLikePureOverview)
 }
 
 export function classifyReaderKind(section) {
