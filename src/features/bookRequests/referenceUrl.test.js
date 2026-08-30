@@ -26,8 +26,12 @@ describe('book request reference URLs', () => {
     expect(normalizeBookReferenceUrl('not a url').error).toContain('https://')
   })
 
-  it('rejects links beyond the storage boundary', () => {
+  it('rejects links beyond the storage boundary before or after URL canonicalization', () => {
     const tooLong = `https://example.com/${'a'.repeat(MAX_BOOK_REFERENCE_URL_LENGTH)}`
     expect(normalizeBookReferenceUrl(tooLong).error).toContain('2.048')
+
+    const expandsAfterCanonicalization = `https://example.com/${'á'.repeat(680)}`
+    expect(expandsAfterCanonicalization.length).toBeLessThan(MAX_BOOK_REFERENCE_URL_LENGTH)
+    expect(normalizeBookReferenceUrl(expandsAfterCanonicalization).error).toContain('2.048')
   })
 })
