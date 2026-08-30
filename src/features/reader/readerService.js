@@ -1,9 +1,20 @@
 import { normalizeStructuralRomanNumerals } from '@/features/content/structuralLabels'
 import { READER_COPY } from '@/features/reader/readerCopy'
+import {
+  classifyReaderKind,
+  cleanReaderContent,
+  cleanReaderStructuralTitle,
+  isReaderDisplayable,
+} from '@/features/reader/readerStructure'
 import { supabase } from '@/lib/supabase'
 
 export const SECTION_COLUMNS =
   'id, sec_position, title, content, word_count, kind, part_title, chapter_label, chapter_title, section_title'
+
+const INDEX_METADATA_COLUMNS =
+  'id, sec_position, title, kind, part_title, chapter_label, chapter_title, section_title'
+const SECTION_PAGE_SIZE = 20
+const INDEX_CONTENT_BATCH_SIZE = 100
 
 export function getLocalDate(date = new Date()) {
   const year = date.getFullYear()
@@ -15,21 +26,30 @@ export function getLocalDate(date = new Date()) {
 export function normalizeSection(section) {
   const rawPartTitle = section.raw_part_title ?? section.part_title
   const rawChapterLabel = section.raw_chapter_label ?? section.chapter_label
+  const kind = classifyReaderKind(section)
+  const presentationTitle = kind === 'part_intro' && !section.title
+    ? rawPartTitle
+    : section.title
 
   return {
     section_id: section.section_id ?? section.id,
     sec_position: section.sec_position,
-    title: normalizeStructuralRomanNumerals(section.title),
-    content: section.content,
+    title: normalizeStructuralRomanNumerals(cleanReaderStructuralTitle(presentationTitle)),
+    content: cleanReaderContent(section.content, kind),
     word_count: section.word_count,
-    kind: section.kind || 'content',
+    kind,
     raw_part_title: rawPartTitle,
     raw_chapter_label: rawChapterLabel,
-    part_title: normalizeStructuralRomanNumerals(rawPartTitle),
+    part_title: normalizeStructuralRomanNumerals(cleanReaderStructuralTitle(rawPartTitle)),
     chapter_label: normalizeStructuralRomanNumerals(rawChapterLabel),
-    chapter_title: normalizeStructuralRomanNumerals(section.chapter_title),
-    section_title: normalizeStructuralRomanNumerals(section.section_title),
+    chapter_title: normalizeStructuralRomanNumerals(cleanReaderStructuralTitle(section.chapter_title)),
+    section_title: normalizeStructuralRomanNumerals(cleanReaderStructuralTitle(section.section_title)),
   }
+}
+
+function normalizeDisplayableSections(data, limit) {
+  const sections = (data || []).map(normalizeSection).filter(isReaderDisplayable)
+  return limit ? sections.slice(0, limit) : sections
 }
 
 function throwIfError(error, fallback) {
@@ -42,18 +62,99 @@ function throwIfError(error, fallback) {
   throw wrapped
 }
 
+function needsIndexContent(section) {
+  if (section.kind === 'chapter_intro' || section.kind === 'part_intro') return true
+  if (section.kind !== 'content') return false
+
+  const ownTitle = [section.title, section.section_title].filter(Boolean).join(' ')
+  return /\bparte\b/i.test(ownTitle) || (
+    Boolean(section.part_title) &&
+    !section.title &&
+    !section.chapter_label &&
+    !section.chapter_title &&
+    !section.section_title
+  )
+}
+
+async function getDisplayableSectionWindow({
+  bookId,
+  position,
+  limit,
+  direction = 'forward',
+  inclusive = false,
+  errorMessage,
+}) {
+  const collected = []
+  let cursor = Number(position)
+  let firstPage = true
+
+  while (collected.length < limit) {
+    let query = supabase
+      .from('sections')
+      .select(SECTION_COLUMNS)
+      .eq('book_id', bookId)
+
+    if (direction === 'backward') {
+      query = query.lt('sec_position', cursor).order('sec_position', { ascending: false })
+    } else {
+      query = firstPage && inclusive
+        ? query.gte('sec_position', cursor)
+        : query.gt('sec_position', cursor)
+      query = query.order('sec_position')
+    }
+
+    const { data, error } = await query.limit(SECTION_PAGE_SIZE)
+    throwIfError(error, errorMessage)
+
+    if (!data?.length) break
+
+    collected.push(...normalizeDisplayableSections(data))
+
+    const nextCursor = Number(data[data.length - 1]?.sec_position)
+    if (!Number.isFinite(nextCursor) || nextCursor === cursor || data.length < SECTION_PAGE_SIZE) break
+
+    cursor = nextCursor
+    firstPage = false
+  }
+
+  return collected.slice(0, limit)
+}
+
 export async function getBookIndexSections(bookId) {
-  const { data, error } = await supabase
+  const { data: metadata, error } = await supabase
     .from('sections')
-    .select(
-      'id, sec_position, title, kind, part_title, chapter_label, chapter_title, section_title',
-    )
+    .select(INDEX_METADATA_COLUMNS)
     .eq('book_id', bookId)
     .order('sec_position')
 
   throwIfError(error, 'Não foi possível carregar o índice da obra.')
 
-  return (data || []).map(normalizeSection)
+  const candidateIds = (metadata || [])
+    .filter(needsIndexContent)
+    .map((section) => section.id)
+  const contentById = new Map()
+
+  for (let offset = 0; offset < candidateIds.length; offset += INDEX_CONTENT_BATCH_SIZE) {
+    const ids = candidateIds.slice(offset, offset + INDEX_CONTENT_BATCH_SIZE)
+    const { data: candidates, error: contentError } = await supabase
+      .from('sections')
+      .select('id, content')
+      .in('id', ids)
+
+    throwIfError(contentError, 'Não foi possível completar o índice da obra.')
+
+    for (const candidate of candidates || []) {
+      contentById.set(candidate.id, candidate.content)
+    }
+  }
+
+  const hydrated = (metadata || []).map((section) => (
+    contentById.has(section.id)
+      ? { ...section, content: contentById.get(section.id) }
+      : section
+  ))
+
+  return normalizeDisplayableSections(hydrated)
 }
 
 export async function getReaderState({ userId, bookId, readDate }) {
@@ -82,7 +183,20 @@ export async function getReaderSections({ userId, bookId }) {
 
   throwIfError(error, READER_COPY.errors.loadReading)
 
-  return (data || []).map(normalizeSection)
+  const initial = normalizeDisplayableSections(data)
+  if (!data?.length || data.length < 15 || initial.length >= 15) return initial
+
+  const lastRawPosition = Number(data[data.length - 1]?.sec_position)
+  if (!Number.isFinite(lastRawPosition)) return initial
+
+  const continuation = await getDisplayableSectionWindow({
+    bookId,
+    position: lastRawPosition,
+    limit: 15 - initial.length,
+    errorMessage: READER_COPY.errors.loadContinuation,
+  })
+
+  return [...initial, ...continuation].slice(0, 15)
 }
 
 export async function getSectionsFromPosition({
@@ -90,32 +204,24 @@ export async function getSectionsFromPosition({
   position,
   limit = 15,
 }) {
-  const { data, error } = await supabase
-    .from('sections')
-    .select(SECTION_COLUMNS)
-    .eq('book_id', bookId)
-    .gte('sec_position', position)
-    .order('sec_position')
-    .limit(limit)
-
-  throwIfError(error, 'Não foi possível carregar a continuação desta leitura.')
-
-  return (data || []).map(normalizeSection)
+  return getDisplayableSectionWindow({
+    bookId,
+    position,
+    limit,
+    inclusive: true,
+    errorMessage: READER_COPY.errors.loadContinuation,
+  })
 }
 
 export async function getNextSection({ bookId, position }) {
-  const { data, error } = await supabase
-    .from('sections')
-    .select(SECTION_COLUMNS)
-    .eq('book_id', bookId)
-    .gt('sec_position', position)
-    .order('sec_position')
-    .limit(1)
-    .maybeSingle()
+  const sections = await getDisplayableSectionWindow({
+    bookId,
+    position,
+    limit: 1,
+    errorMessage: READER_COPY.errors.loadContinuation,
+  })
 
-  throwIfError(error, READER_COPY.errors.loadContinuation)
-
-  return data ? normalizeSection(data) : null
+  return sections[0] || null
 }
 
 export async function getBookLastPosition(bookId) {
@@ -133,18 +239,15 @@ export async function getBookLastPosition(bookId) {
 }
 
 export async function getPreviousSection({ bookId, position }) {
-  const { data, error } = await supabase
-    .from('sections')
-    .select(SECTION_COLUMNS)
-    .eq('book_id', bookId)
-    .lt('sec_position', position)
-    .order('sec_position', { ascending: false })
-    .limit(1)
-    .maybeSingle()
+  const sections = await getDisplayableSectionWindow({
+    bookId,
+    position,
+    limit: 1,
+    direction: 'backward',
+    errorMessage: READER_COPY.errors.loadPrevious,
+  })
 
-  throwIfError(error, READER_COPY.errors.loadPrevious)
-
-  return data ? normalizeSection(data) : null
+  return sections[0] || null
 }
 
 export async function getChapterSections({
@@ -171,7 +274,7 @@ export async function getChapterSections({
 
   return (data || []).map((section) => ({
     ...section,
-    section_title: normalizeStructuralRomanNumerals(section.section_title),
+    section_title: normalizeStructuralRomanNumerals(cleanReaderStructuralTitle(section.section_title)),
   }))
 }
 

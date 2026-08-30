@@ -3,7 +3,7 @@ export const READER_COPY = Object.freeze({
     'Você já dedicou um bom momento a esta leitura hoje. Pode parar por aqui ou continuar, como preferir.',
   missingContinuation: 'Não encontramos a continuação desta leitura.',
   indexDescription:
-    'Escolha uma parte, capítulo ou trecho. Abrir um item não muda o lugar salvo da sua leitura.',
+    'Escolha uma parte, capítulo ou trecho.\nAbrir um item não muda o lugar salvo da sua leitura.',
   currentUnitLabel: 'Trecho atual',
   defaultIndexGroup: 'Trechos',
   actions: Object.freeze({

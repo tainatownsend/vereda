@@ -54,18 +54,25 @@ export default function LibraryPage() {
             </ol>
           </section>
         ) : (
-          <EditorialCard className="mt-5 p-6 text-center">
-            <p className="mx-auto max-w-sm text-sm leading-relaxed text-muted dark:text-night-muted">
-              Outras obras poderão ampliar esta biblioteca depois da consolidação do núcleo fundamental.
-            </p>
-            <button
-              type="button"
-              onClick={() => navigate('/sugerir-obra')}
-              className="mt-5 inline-flex min-h-11 items-center justify-center gap-2 rounded-vesSm border border-sage-300 bg-surface px-4 text-sm font-semibold text-sage-800 shadow-sm hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-200"
-            >
-              <BookPlus size={18} aria-hidden="true" />
-              Sugerir uma obra complementar
-            </button>
+          <EditorialCard className="mt-5 p-5">
+            <div className="flex items-start gap-4">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+                <BookPlus size={20} aria-hidden="true" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <h2 className="font-display text-lg font-semibold text-ink dark:text-night-ink">Obras complementares</h2>
+                <p className="mt-1.5 max-w-md text-sm leading-relaxed text-muted dark:text-night-muted">
+                  Outras obras poderão ampliar esta biblioteca depois da consolidação do núcleo fundamental.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => navigate('/sugerir-obra')}
+                  className="mt-4 inline-flex min-h-11 items-center justify-center rounded-vesSm border border-sage-300 bg-surface px-4 text-sm font-semibold text-sage-800 shadow-sm hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-200"
+                >
+                  Sugerir uma obra complementar
+                </button>
+              </div>
+            </div>
           </EditorialCard>
         )}
       </div>
