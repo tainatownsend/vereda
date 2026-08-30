@@ -244,17 +244,24 @@ export default function ReaderPage() {
           </>
         )}
 
-        <div className="mt-12 border-t border-line pt-6 dark:border-night-line">
+        <div className="mt-10 border-t border-line pt-5 dark:border-night-line">
           {saveStatus && <p role="status" aria-live="polite" className="mb-4 text-sm text-muted dark:text-night-muted">{saveStatus}</p>}
-          <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="flex flex-wrap items-center justify-end gap-2">
             {currentSection.sec_position > 1 && (
-              <Button variant="secondary" onClick={session.goToPrevious} className="sm:w-auto">
-                <ChevronLeft size={19} /> Anterior
+              <Button variant="ghost" size="sm" onClick={session.goToPrevious} className="min-h-10 px-3 text-sm">
+                <ChevronLeft size={17} /> Anterior
               </Button>
             )}
-            <Button onClick={session.completeCurrentSection} loading={session.saving} className="flex-1 sm:w-auto" aria-label={primaryAction.ariaLabel}>
+            <Button
+              variant={isChapterIntro || isPartIntro ? 'secondary' : undefined}
+              size="sm"
+              onClick={session.completeCurrentSection}
+              loading={session.saving}
+              className="min-h-10 px-4 text-sm"
+              aria-label={primaryAction.ariaLabel}
+            >
               {primaryAction.label}
-              {!session.saving && (primaryAction.icon === 'complete' ? <Check size={19} /> : <ChevronRight size={19} />)}
+              {!session.saving && (primaryAction.icon === 'complete' ? <Check size={17} /> : <ChevronRight size={17} />)}
             </Button>
           </div>
         </div>
@@ -350,12 +357,12 @@ function Paragraph({ text }) {
 }
 
 function SectionHeading({ currentSection }) {
-  const chapterLabel = currentSection.chapter_label
+  const hierarchy = [currentSection.part_title, currentSection.chapter_label].filter(Boolean).join(' · ')
   const heading = currentSection.section_title || currentSection.chapter_title || currentSection.title
 
   return (
     <div className="mb-9">
-      {chapterLabel && <p className="text-sm font-medium text-ink/80 dark:text-night-muted">{chapterLabel}</p>}
+      {hierarchy && <p className="text-sm font-medium text-ink/80 dark:text-night-muted">{hierarchy}</p>}
       {heading && (
         <h1 className="mt-2 max-w-xl font-display text-[2.2rem] font-semibold leading-[1.12] tracking-[-0.025em] text-ink dark:text-night-ink">
           {heading}
@@ -370,13 +377,13 @@ function ChapterIntro({ section }) {
   const overline = [section.part_title?.split('—')[0]?.trim(), section.chapter_label].filter(Boolean).join(' · ')
 
   return (
-    <section className="py-6 sm:py-12">
+    <section className="py-3 sm:py-7">
       {overline && <p className="text-sm font-medium text-ink/80 dark:text-night-muted">{overline}</p>}
       <h1 className="mt-2 font-display text-[2.3rem] font-semibold leading-[1.12] text-ink dark:text-night-ink">{section.chapter_title || section.title}</h1>
       {topics.length > 0 && (
-        <ol className="mt-9 space-y-4">
+        <ol className="mt-7 space-y-3">
           {topics.map((topic, index) => (
-            <li key={`${topic}-${index}`} className="flex gap-4">
+            <li key={`${topic}-${index}`} className="flex gap-3">
               <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sage-100 text-xs font-semibold text-sage-800 dark:bg-sage-950 dark:text-sage-300">{index + 1}</span>
               <p className="pt-0.5 text-base leading-relaxed text-muted dark:text-night-muted">{topic}</p>
             </li>
@@ -389,12 +396,36 @@ function ChapterIntro({ section }) {
 
 function PartIntro({ section }) {
   const [label, title] = (section.title || '').split('—').map((value) => value?.trim())
+  const chapterOverview = extractChapterOverview(section.content)
+
   return (
-    <section className="flex min-h-[50vh] flex-col items-center justify-center py-14 text-center">
-      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">{label}</p>
-      <h1 className="mt-4 max-w-xl font-display text-[2.7rem] font-semibold leading-[1.08] text-ink dark:text-night-ink">{title || label}</h1>
+    <section className="py-4 sm:py-8">
+      {label && <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">{label}</p>}
+      <h1 className="mt-3 max-w-xl font-display text-[2.45rem] font-semibold leading-[1.08] text-ink dark:text-night-ink">{title || label}</h1>
+      {chapterOverview.length > 0 && (
+        <div className="mt-8 border-t border-line pt-5 dark:border-night-line">
+          <p className="text-xs font-semibold uppercase tracking-[0.1em] text-muted dark:text-night-muted">Nesta parte</p>
+          <ol className="mt-3 space-y-2.5">
+            {chapterOverview.map((chapter) => (
+              <li key={chapter} className="rounded-[13px] border border-line/80 bg-surface px-4 py-3 font-display text-base leading-snug text-ink dark:border-night-line dark:bg-night-surface dark:text-night-ink">
+                {chapter}
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
     </section>
   )
+}
+
+function extractChapterOverview(content) {
+  const text = String(content || '').trim()
+  if (!text) return []
+
+  return text
+    .split(/(?=Capítulo\s+[IVXLCDM]+\b)/i)
+    .map((item) => item.trim())
+    .filter((item) => /^Capítulo\s+[IVXLCDM]+\b/i.test(item))
 }
 
 function ReaderMessage({ eyebrow, title, description, actionLabel, onAction, secondaryLabel, onSecondary }) {
