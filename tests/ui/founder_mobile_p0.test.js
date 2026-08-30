@@ -59,23 +59,22 @@ describe('founder mobile P0 safeguards', () => {
     expect(settings).not.toContain('>Ajustes</h1>')
   })
 
-  it('renders the five works as one connected journey with progress and no redundant step labels', () => {
-    expect(library).toContain('Uma jornada pelas obras básicas')
-    expect(library).toContain('A ordem abaixo é apenas uma sugestão, não uma obrigação.')
-    expect(library).toContain('Caminho sugerido pelas obras básicas')
+  it('keeps the in-app Library journey visual but removes redundant explanatory blocks', () => {
+    expect(library).toContain('Caminho pelas obras básicas')
     expect(library).toContain('Seu progresso')
     expect(library).toContain('bottom-[-0.9rem]')
     expect(library).toContain('Sugerir uma obra complementar')
-    expect(library).not.toContain('Caminho sugerido · opcional')
-    expect(library).not.toContain('Etapa {sequence} de {totalBooks}')
+    expect(library).not.toContain('Uma jornada pelas obras básicas')
+    expect(library).not.toContain('A ordem abaixo é apenas uma sugestão')
+    expect(library).not.toContain('Atalhos de estudo')
+    expect(library).not.toContain('Trechos salvos')
   })
 
-  it('keeps important Library actions visible instead of hiding them in overflow', () => {
-    expect(library).toContain('aria-label="Atalhos de estudo"')
-    expect(library).toContain('Não sei por onde começar')
-    expect(library).toContain('Trechos salvos')
-    expect(library).not.toContain('MoreHorizontal')
-    expect(library).not.toContain('showMenu')
+  it('keeps the public Landing journey visually distinct from the Library progress path', () => {
+    expect(landing).toContain('LandingJourneyCard')
+    expect(landing).toContain('Sequência visual das cinco obras fundamentais')
+    expect(landing).toContain("String(sequence).padStart(2, '0')")
+    expect(landing).not.toContain('bottom-[-0.9rem]')
   })
 
   it('uses a softer dusk palette instead of near-black dark surfaces', () => {
