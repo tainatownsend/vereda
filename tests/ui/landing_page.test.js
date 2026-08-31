@@ -37,9 +37,11 @@ describe('public landing page contract', () => {
     }
   })
 
-  it('uses the canonical Spiritist-study framing in the public header', () => {
+  it('uses one canonical Spiritist-study message across Landing and Auth', () => {
     expect(landing).toContain('Seu caminho de estudo espírita')
+    expect(auth).toContain('Seu caminho de estudo espírita')
     expect(landing).not.toContain('seu caminho de aprendizado')
+    expect(auth).not.toContain('seu caminho de aprendizado')
   })
 
   it('uses compact numbered steps instead of redundant feature icons', () => {
@@ -76,6 +78,17 @@ describe('public landing page contract', () => {
     expect(landing).toContain("const primaryLabel = user ? 'Abrir o Vereda' : 'Criar conta'")
     expect(landing).not.toContain('Criar minha conta')
     expect(landing).toContain('Já tenho uma conta')
+  })
+
+  it('ends with a branded footer that provides useful real navigation', () => {
+    expect(landing).toContain('Estudo que ilumina. Caminho que transforma.')
+    expect(landing).toContain('id="como-funciona"')
+    expect(landing).toContain('id="biblioteca"')
+    expect(landing).toContain('id="perguntas-frequentes"')
+    expect(landing).toContain('href="#como-funciona"')
+    expect(landing).toContain('href="#biblioteca"')
+    expect(landing).toContain('href="#perguntas-frequentes"')
+    expect(landing).toContain('Vereda · gratuito, sem anúncios e sem fins lucrativos.')
   })
 
   it('keeps the public page mobile-safe and independent of book fetching', () => {
