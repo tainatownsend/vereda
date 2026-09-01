@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, BookPlus, Check, Heart, Search, X } from 'lucide-react'
+import { ArrowLeft, BookPlus, Check, ExternalLink, Heart, Search, X } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { Button, Card, Input, PageLoader } from '@/components/ui'
@@ -9,12 +9,17 @@ import {
   normalizeCandidateTitle,
   voteLabel,
 } from '@/features/bookRequests/bookCandidates'
+import {
+  getBookReferenceHostname,
+  normalizeBookReferenceUrl,
+} from '@/features/bookRequests/referenceUrl'
 
 export default function BookRequestsPage() {
   const navigate = useNavigate()
   const [candidates, setCandidates] = useState([])
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
+  const [referenceUrl, setReferenceUrl] = useState('')
   const [loading, setLoading] = useState(true)
   const [submitting, setSubmitting] = useState(false)
   const [votingId, setVotingId] = useState(null)
@@ -44,10 +49,14 @@ export default function BookRequestsPage() {
     () => findCandidateMatch(candidates, title),
     [candidates, title],
   )
+  const referenceUrlValidation = useMemo(
+    () => normalizeBookReferenceUrl(referenceUrl),
+    [referenceUrl],
+  )
 
   const submitCandidate = async (event) => {
     event.preventDefault()
-    if (normalizedTitle.length < 2 || submitting) return
+    if (normalizedTitle.length < 2 || submitting || referenceUrlValidation.error) return
 
     setSubmitting(true)
     setError('')
@@ -56,6 +65,7 @@ export default function BookRequestsPage() {
     const { data, error: submitError } = await supabase.rpc('submit_book_candidate', {
       p_title: title.trim(),
       p_author: author.trim() || null,
+      p_reference_url: referenceUrlValidation.value,
     })
 
     if (submitError) {
@@ -71,6 +81,7 @@ export default function BookRequestsPage() {
       setStatus('Sugestão adicionada. Seu voto já foi contado.')
       setTitle('')
       setAuthor('')
+      setReferenceUrl('')
     } else {
       setStatus('Esta obra já estava entre as sugestões. Você pode votar nela abaixo.')
     }
@@ -199,7 +210,7 @@ export default function BookRequestsPage() {
                   </div>
                 </div>
 
-                <div className="mt-4">
+                <div className="mt-4 space-y-4">
                   <Input
                     label="Autor (opcional)"
                     value={author}
@@ -207,9 +218,25 @@ export default function BookRequestsPage() {
                     placeholder="Nome do autor"
                     autoComplete="off"
                   />
+                  <Input
+                    type="url"
+                    inputMode="url"
+                    label="Link de referência (opcional)"
+                    value={referenceUrl}
+                    onChange={(event) => setReferenceUrl(event.target.value)}
+                    placeholder="https://editora.com/livro"
+                    autoComplete="url"
+                    error={referenceUrlValidation.error}
+                    hint="Pode ser a página da editora, livraria ou catálogo. O link precisa usar https://."
+                  />
                 </div>
 
-                <Button type="submit" loading={submitting} className="mt-4 w-full sm:w-auto">
+                <Button
+                  type="submit"
+                  loading={submitting}
+                  disabled={Boolean(referenceUrlValidation.error)}
+                  className="mt-4 w-full sm:w-auto"
+                >
                   <BookPlus size={18} aria-hidden="true" />
                   Sugerir esta obra e votar
                 </Button>
@@ -265,6 +292,7 @@ function CandidateMatchCard({ match, votingId, onVote }) {
       </p>
       <p className="mt-2 font-display text-lg font-semibold text-ink dark:text-night-ink">{candidate.title}</p>
       {candidate.author && <p className="mt-1 text-sm text-muted dark:text-night-muted">{candidate.author}</p>}
+      <ReferenceLink url={candidate.reference_url} />
       <p className="mt-2 text-sm text-muted dark:text-night-muted">Ela já tem {voteLabel(candidate.vote_count)}.</p>
 
       {candidate.user_has_voted ? (
@@ -295,6 +323,7 @@ function CandidateCard({ candidate, voting, onVote }) {
         <div className="min-w-0">
           <p className="font-display text-xl font-semibold leading-tight text-ink dark:text-night-ink">{candidate.title}</p>
           {candidate.author && <p className="mt-1 text-sm text-muted dark:text-night-muted">{candidate.author}</p>}
+          <ReferenceLink url={candidate.reference_url} />
           <p className="mt-2 text-sm font-semibold text-sage-700 dark:text-sage-300">{voteLabel(candidate.vote_count)}</p>
         </div>
 
@@ -311,5 +340,22 @@ function CandidateCard({ candidate, voting, onVote }) {
         )}
       </div>
     </Card>
+  )
+}
+
+function ReferenceLink({ url }) {
+  const hostname = getBookReferenceHostname(url)
+  if (!url || !hostname) return null
+
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      className="mt-2 inline-flex min-h-9 items-center gap-1.5 rounded-vesSm text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+    >
+      <ExternalLink size={15} aria-hidden="true" />
+      Ver referência · {hostname}
+    </a>
   )
 }
