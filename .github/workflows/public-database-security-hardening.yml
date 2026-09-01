@@ -1,0 +1,43 @@
+name: Public Database Security Hardening Runtime Contract
+
+on:
+  pull_request:
+    paths:
+      - 'supabase/migrations/20260828060000_public_database_security_hardening.sql'
+      - 'tests/security/public_database_security_hardening.integration.sql'
+      - '.github/workflows/public-database-security-hardening.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  postgres-runtime-contract:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: vereda_security_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd="pg_isready -U postgres -d vereda_security_test"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    env:
+      PGHOST: 127.0.0.1
+      PGPORT: 5432
+      PGDATABASE: vereda_security_test
+      PGUSER: postgres
+      PGPASSWORD: postgres
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate hardening migration against disposable Postgres
+        run: psql -v ON_ERROR_STOP=1 -f tests/security/public_database_security_hardening.integration.sql
