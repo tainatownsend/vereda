@@ -5,7 +5,6 @@ import {
   Check,
   Eye,
   EyeOff,
-  Mail,
   RefreshCw,
   ShieldCheck,
 } from 'lucide-react'
@@ -16,12 +15,14 @@ import { getSignupOutcome } from '@/features/auth/signupConfirmation'
 
 const ERROR_MESSAGES = {
   'Invalid login credentials': 'E-mail ou senha incorretos.',
-  'Email already registered': 'Este e-mail já está em uso.',
-  'User already registered': 'Este e-mail já possui uma conta.',
+  'Email already registered': 'Este e-mail já possui uma conta. Entre para continuar.',
+  'User already registered': 'Este e-mail já possui uma conta. Entre para continuar.',
   'Password should be at least 6 characters': 'A senha precisa ter ao menos 6 caracteres.',
-  'Email not confirmed': 'Confirme seu e-mail antes de entrar. Verifique sua caixa de entrada.',
+  'Email not confirmed': 'Este e-mail ainda precisa ser confirmado. Verifique sua caixa de entrada.',
   'Failed to fetch': 'Não foi possível conectar ao Vereda. Verifique sua internet e tente novamente.',
 }
+
+const EXISTING_ACCOUNT_ERRORS = new Set(['Email already registered', 'User already registered'])
 
 export default function AuthPage({ initialMode = 'login' }) {
   const [mode, setMode] = useState(initialMode)
@@ -79,12 +80,18 @@ export default function AuthPage({ initialMode = 'login' }) {
         if (outcome.requiresEmailConfirmation) {
           setPassword('')
           setMode('confirm')
-          setMessage('Conta criada. Falta apenas confirmar seu e-mail para continuar.')
         }
       } else {
         await signInWithEmail(email.trim(), password)
       }
     } catch (caughtError) {
+      if (isSignup && EXISTING_ACCOUNT_ERRORS.has(caughtError?.message)) {
+        setPassword('')
+        setMode('login')
+        setMessage('Este e-mail já possui uma conta. Entre com sua senha para continuar.')
+        return
+      }
+
       setError(
         ERROR_MESSAGES[caughtError?.message] ||
           caughtError?.message ||
@@ -133,7 +140,7 @@ export default function AuthPage({ initialMode = 'login' }) {
 
     try {
       await resendSignupConfirmation(email.trim())
-      setMessage('Enviamos um novo e-mail de confirmação. Confira sua caixa de entrada e a pasta de spam.')
+      setMessage('Se houver uma confirmação pendente, um novo e-mail será enviado. Confira também a pasta de spam.')
     } catch {
       setError('Não foi possível reenviar agora. Aguarde um pouco e tente novamente.')
     } finally {
@@ -142,7 +149,7 @@ export default function AuthPage({ initialMode = 'login' }) {
   }
 
   const heading = isConfirm
-    ? 'Agora confirme seu e-mail.'
+    ? 'Confira seu e-mail.'
     : isForgot
       ? 'Vamos recuperar seu acesso.'
       : isSignup
@@ -150,7 +157,7 @@ export default function AuthPage({ initialMode = 'login' }) {
         : 'Que bom ter você por aqui.'
 
   const supportingCopy = isConfirm
-    ? `Enviamos uma mensagem para ${email.trim()}. Abra o e-mail e toque no link de confirmação. Depois, o Vereda abre uma breve introdução para orientar seu primeiro passo.`
+    ? `Confira a caixa de entrada de ${email.trim()}. Se este endereço ainda precisar de confirmação, você receberá um link para continuar.`
     : isForgot
       ? 'Informe seu e-mail e enviaremos um link para você criar uma nova senha.'
       : isSignup
@@ -191,7 +198,7 @@ export default function AuthPage({ initialMode = 'login' }) {
             <div className="rounded-vesLg border border-line bg-surface p-5 shadow-editorial min-[360px]:p-6 sm:p-8 lg:border-0 lg:p-0 lg:shadow-none dark:border-night-line dark:bg-night-surface">
               <p className="ves-eyebrow">
                 {isConfirm
-                  ? 'Só falta uma etapa'
+                  ? 'Próximo passo'
                   : isForgot
                     ? 'Recupere seu acesso'
                     : isSignup
@@ -207,13 +214,13 @@ export default function AuthPage({ initialMode = 'login' }) {
 
               {isConfirm ? (
                 <ConfirmationPanel
-                  email={email}
                   message={message}
                   error={error}
                   resending={resending}
                   onResend={resendConfirmation}
                   onUseAnotherEmail={useAnotherEmail}
                   onReturnToLogin={returnToLogin}
+                  onForgotPassword={openForgotPassword}
                 />
               ) : (
                 <>
@@ -344,26 +351,27 @@ export default function AuthPage({ initialMode = 'login' }) {
   )
 }
 
-function ConfirmationPanel({ email, message, error, resending, onResend, onUseAnotherEmail, onReturnToLogin }) {
+function ConfirmationPanel({ message, error, resending, onResend, onUseAnotherEmail, onReturnToLogin, onForgotPassword }) {
   return (
-    <div className="mt-8">
-      <div className="rounded-vesLg border border-sage-200 bg-sage-50/80 p-5 dark:border-sage-900 dark:bg-sage-950/35">
-        <div className="flex items-start gap-3">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sage-700 text-white dark:bg-sage-300 dark:text-sage-950">
-            <Mail size={20} aria-hidden="true" />
-          </div>
-          <div>
-            <p className="font-semibold text-ink dark:text-night-ink">Verifique sua caixa de entrada</p>
-            <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-              O link confirma que {email.trim()} pertence a você. Se a mensagem não aparecer, confira também a pasta de spam.
-            </p>
-          </div>
-        </div>
-      </div>
+    <div className="mt-7">
+      <p className="text-sm leading-relaxed text-muted dark:text-night-muted">
+        Já usou este e-mail no Vereda? Entre com sua senha. Se não lembrar, recupere seu acesso.
+      </p>
 
       <Feedback message={message} error={error} />
 
       <div className="mt-5 space-y-2">
+        <Button onClick={onReturnToLogin} className="w-full">
+          Entrar com este e-mail
+          <ArrowRight size={18} aria-hidden="true" />
+        </Button>
+        <button
+          type="button"
+          onClick={onForgotPassword}
+          className="flex min-h-12 w-full items-center justify-center rounded-vesSm px-3 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+        >
+          Esqueci minha senha
+        </button>
         <Button variant="secondary" onClick={onResend} loading={resending} className="w-full">
           {!resending && <RefreshCw size={18} aria-hidden="true" />}
           Reenviar e-mail de confirmação
@@ -373,15 +381,7 @@ function ConfirmationPanel({ email, message, error, resending, onResend, onUseAn
           onClick={onUseAnotherEmail}
           className="flex min-h-12 w-full items-center justify-center rounded-vesSm px-3 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950"
         >
-          Usei outro e-mail
-        </button>
-        <button
-          type="button"
-          onClick={onReturnToLogin}
-          className="flex min-h-12 w-full items-center justify-center gap-2 rounded-vesSm px-3 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
-        >
-          <ArrowLeft size={18} aria-hidden="true" />
-          Voltar para entrar
+          Usar outro e-mail
         </button>
       </div>
     </div>
