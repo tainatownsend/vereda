@@ -49,7 +49,8 @@ describe('low-tech usability polish', () => {
 
   it('lets people recover from a missing confirmation email', () => {
     expect(auth).toContain('Reenviar e-mail de confirmação')
-    expect(auth).toContain('Usei outro e-mail')
+    expect(auth).toContain('Usar outro e-mail')
+    expect(auth).toContain('Entrar com este e-mail')
     expect(auth).toContain('resendSignupConfirmation')
   })
 })
