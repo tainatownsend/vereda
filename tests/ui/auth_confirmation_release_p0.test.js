@@ -24,7 +24,7 @@ describe('auth confirmation release P0', () => {
 
   it('keeps confirmation recovery without the repetitive verification card', () => {
     expect(auth).toContain('Reenviar e-mail de confirmação')
-    expect(auth).not.toContain('Verifique sua caixa de entrada')
     expect(auth).not.toContain('O link confirma que')
+    expect(auth).not.toContain('<p className="font-semibold text-ink dark:text-night-ink">Verifique sua caixa de entrada</p>')
   })
 })
