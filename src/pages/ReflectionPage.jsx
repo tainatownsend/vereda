@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { ArrowLeft, Bookmark, Quote, Share2 } from 'lucide-react'
+import { useEffect, useMemo, useState } from 'react'
+import { ArrowLeft, Bookmark, Cloud, CloudOff, Quote, Share2 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import northStarLandscape from '@/assets/northstar-landscape.svg'
@@ -7,21 +7,45 @@ import { useAuthStore } from '@/store'
 import { Button } from '@/components/ui'
 import { EditorialCard } from '@/components/northstar/NorthStarUI'
 import {
-  formatReflectionDate,
-  getSavedReflections,
-  getTodayReflection,
-  saveTodayReflection,
-} from '@/features/reflections/localReflections'
+  formatJournalDate,
+  getLocalDateKey,
+  listStudyJournalEntries,
+  saveDailyReflection,
+} from '@/features/studyJournal/studyJournal'
 
 const REFLECTION_TEXT = 'Ninguém está bastante adiantado na vida para não aprender, nem tão simples e ignorante que não possa ensinar alguma coisa.'
 
 export default function ReflectionPage() {
   const navigate = useNavigate()
   const { user } = useAuthStore()
-  const initialReflection = getTodayReflection(user?.id)
-  const [note, setNote] = useState(initialReflection?.text || '')
-  const [savedReflections, setSavedReflections] = useState(() => getSavedReflections(user?.id))
-  const [saveStatus, setSaveStatus] = useState(initialReflection ? 'Sua reflexão de hoje está salva neste dispositivo.' : '')
+  const [note, setNote] = useState('')
+  const [entries, setEntries] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [saving, setSaving] = useState(false)
+  const [saveStatus, setSaveStatus] = useState('')
+  const todayKey = getLocalDateKey()
+
+  useEffect(() => {
+    let active = true
+
+    const load = async () => {
+      setLoading(true)
+      const journal = await listStudyJournalEntries(user?.id)
+      if (!active) return
+      setEntries(journal)
+      const today = journal.find((entry) => entry.entryKey === `reflection:${todayKey}`)
+      setNote(today?.text || '')
+      setLoading(false)
+    }
+
+    load()
+    return () => { active = false }
+  }, [todayKey, user?.id])
+
+  const savedReflections = useMemo(
+    () => entries.filter((entry) => entry.entryType === 'reflection'),
+    [entries],
+  )
 
   const shareReflection = async () => {
     const text = `“${REFLECTION_TEXT}” — Emmanuel`
@@ -36,15 +60,22 @@ export default function ReflectionPage() {
     }
   }
 
-  const saveReflection = () => {
-    const saved = saveTodayReflection(user?.id, note)
+  const saveReflection = async () => {
+    if (!note.trim() || saving) return
+    setSaving(true)
+    setSaveStatus('')
+
+    const saved = await saveDailyReflection(user?.id, note)
     if (!saved) {
       setSaveStatus('Escreva algo antes de salvar sua reflexão.')
+      setSaving(false)
       return
     }
 
-    setSavedReflections(getSavedReflections(user?.id))
-    setSaveStatus('Reflexão salva neste dispositivo.')
+    const journal = await listStudyJournalEntries(user?.id)
+    setEntries(journal)
+    setSaveStatus(saved.synced ? 'Reflexão salva na sua conta.' : 'Reflexão salva neste dispositivo. A sincronização será retomada quando estiver disponível.')
+    setSaving(false)
   }
 
   return (
@@ -85,7 +116,13 @@ export default function ReflectionPage() {
         </EditorialCard>
 
         <section className="mt-6" aria-labelledby="my-reflection-heading">
-          <h2 id="my-reflection-heading" className="northstar-section-title">Minha reflexão</h2>
+          <div className="flex items-center justify-between gap-3">
+            <h2 id="my-reflection-heading" className="northstar-section-title">Minha reflexão</h2>
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-muted dark:text-night-muted">
+              {user ? <Cloud size={14} /> : <CloudOff size={14} />}
+              {user ? 'Vinculada à sua conta' : 'Somente neste dispositivo'}
+            </span>
+          </div>
           <textarea
             value={note}
             onChange={(event) => {
@@ -93,41 +130,47 @@ export default function ReflectionPage() {
               setSaveStatus('')
             }}
             placeholder="Escreva sua reflexão..."
-            className="mt-3 min-h-28 w-full resize-none rounded-[15px] border border-line bg-surface px-4 py-3 text-sm leading-relaxed text-ink placeholder:text-muted/70 focus:border-sage-500 dark:border-night-line dark:bg-night-surface dark:text-night-ink"
+            className="mt-3 min-h-32 w-full resize-none rounded-[15px] border border-line bg-surface px-4 py-3 text-sm leading-relaxed text-ink placeholder:text-muted/70 focus:border-sage-500 dark:border-night-line dark:bg-night-surface dark:text-night-ink"
           />
           <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <Button size="sm" onClick={saveReflection} disabled={!note.trim()}>
+            <Button size="sm" onClick={saveReflection} disabled={!note.trim()} loading={saving}>
               <Bookmark size={17} />
               Salvar minha reflexão
             </Button>
             {saveStatus && (
-              <p role="status" aria-live="polite" className="text-xs leading-relaxed text-muted dark:text-night-muted">
+              <p role="status" aria-live="polite" className="text-xs leading-relaxed text-muted dark:text-night-muted sm:max-w-sm sm:text-right">
                 {saveStatus}
               </p>
             )}
           </div>
-          <p className="mt-2 text-[11px] leading-relaxed text-muted dark:text-night-muted">
-            Nesta versão, suas reflexões ficam salvas somente neste dispositivo.
-          </p>
         </section>
 
-        <section className="mt-7" aria-labelledby="saved-reflections-heading">
-          <h2 id="saved-reflections-heading" className="northstar-section-title">Minhas reflexões salvas</h2>
-          {savedReflections.length ? (
+        <section className="mt-8" aria-labelledby="saved-reflections-heading">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Sua jornada</p>
+              <h2 id="saved-reflections-heading" className="northstar-section-title mt-1">Minhas reflexões</h2>
+            </div>
+            <span className="text-xs text-muted dark:text-night-muted">{savedReflections.length}</span>
+          </div>
+
+          {loading ? (
+            <EditorialCard className="mt-3 p-5"><p className="text-sm text-muted dark:text-night-muted">Carregando suas reflexões...</p></EditorialCard>
+          ) : savedReflections.length ? (
             <div className="mt-3 space-y-2">
               {savedReflections.map((reflection) => (
-                <EditorialCard key={`${reflection.dateKey}-${reflection.savedAt}`} className="flex items-start gap-3 p-4">
+                <EditorialCard key={reflection.entryKey} className="flex items-start gap-3 p-4">
                   <Quote size={18} className="mt-0.5 shrink-0 text-sage-700" />
                   <div className="min-w-0 flex-1">
                     <p className="text-sm leading-relaxed text-ink dark:text-night-ink">{reflection.text}</p>
-                    <p className="mt-1 text-[10px] text-muted dark:text-night-muted">{formatReflectionDate(reflection.dateKey)}</p>
+                    <p className="mt-1 text-[10px] text-muted dark:text-night-muted">{formatJournalDate(reflection.entryDate)}</p>
                   </div>
                 </EditorialCard>
               ))}
             </div>
           ) : (
             <EditorialCard className="mt-3 p-5">
-              <p className="text-sm text-muted dark:text-night-muted">Quando você salvar uma reflexão pessoal, ela aparecerá aqui.</p>
+              <p className="text-sm text-muted dark:text-night-muted">Quando você salvar uma reflexão pessoal, ela aparecerá aqui e fará parte do seu histórico de estudo.</p>
             </EditorialCard>
           )}
         </section>
