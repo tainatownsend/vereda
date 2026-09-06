@@ -9,6 +9,7 @@ import {
   Home,
   ListTree,
   MoreHorizontal,
+  NotebookPen,
   RefreshCw,
   Type,
   X,
@@ -25,6 +26,7 @@ import {
 import BookIndexPanel from '@/features/reader/BookIndexPanel'
 import { useReadingSession } from '@/features/reader/useReadingSession'
 import { isPassageSaved } from '@/features/savedPassages/savedPassages'
+import { getSectionNote, saveSectionNote } from '@/features/studyJournal/studyJournal'
 import { Button, PageLoader } from '@/components/ui'
 
 const FONT_SIZES = [
@@ -44,6 +46,10 @@ export default function ReaderPage() {
   const [showMenu, setShowMenu] = useState(false)
   const [showIndex, setShowIndex] = useState(false)
   const [showTextSettings, setShowTextSettings] = useState(false)
+  const [showNote, setShowNote] = useState(false)
+  const [noteText, setNoteText] = useState('')
+  const [noteStatus, setNoteStatus] = useState('')
+  const [savingNote, setSavingNote] = useState(false)
   const [savingPassage, setSavingPassage] = useState(false)
   const [saveStatus, setSaveStatus] = useState('')
   const menuRef = useRef(null)
@@ -91,6 +97,7 @@ export default function ReaderPage() {
       if (event.key === 'Escape') {
         setShowMenu(false)
         setShowTextSettings(false)
+        setShowNote(false)
       }
     }
 
@@ -112,6 +119,8 @@ export default function ReaderPage() {
 
   useEffect(() => {
     setSaveStatus('')
+    setShowNote(false)
+    setNoteStatus('')
   }, [currentSection?.section_id])
 
   if (!book || session.phase === READER_PHASE.LOADING) {
@@ -181,6 +190,36 @@ export default function ReaderPage() {
     }
   }
 
+  const openStudyNote = async () => {
+    if (isChapterIntro || isPartIntro) return
+    setShowMenu(false)
+    setShowTextSettings(false)
+    setNoteStatus('')
+    const existing = await getSectionNote(user?.id, currentSection.section_id)
+    setNoteText(existing?.text || '')
+    setShowNote(true)
+  }
+
+  const persistStudyNote = async () => {
+    if (!noteText.trim() || savingNote) return
+    setSavingNote(true)
+    setNoteStatus('')
+
+    const saved = await saveSectionNote(user?.id, {
+      bookId: book.id,
+      sectionId: currentSection.section_id,
+      sourceTitle: getNoteSourceTitle(book, currentSection),
+      text: noteText,
+    })
+
+    if (!saved) {
+      setNoteStatus('Escreva algo antes de salvar sua nota.')
+    } else {
+      setNoteStatus(saved.synced ? 'Nota salva na sua conta.' : 'Nota salva neste dispositivo. A sincronização será retomada quando estiver disponível.')
+    }
+    setSavingNote(false)
+  }
+
   return (
     <div className="min-h-screen bg-canvas text-ink dark:bg-night dark:text-night-ink">
       <header className="sticky top-0 z-40 border-b border-line/70 bg-canvas/96 backdrop-blur-xl dark:border-night-line dark:bg-night/96">
@@ -208,12 +247,13 @@ export default function ReaderPage() {
             </button>
 
             {showMenu && (
-              <div className="absolute right-0 top-full mt-2 w-56 rounded-[16px] border border-line bg-surface p-2 shadow-editorial dark:border-night-line dark:bg-night-surface">
+              <div className="absolute right-0 top-full mt-2 w-60 rounded-[16px] border border-line bg-surface p-2 shadow-editorial dark:border-night-line dark:bg-night-surface">
                 <MenuButton icon={ListTree} label="Índice da obra" onClick={() => {
                   setShowMenu(false)
                   setShowIndex(true)
                   session.loadBookIndex()
                 }} />
+                {!isChapterIntro && !isPartIntro && <MenuButton icon={NotebookPen} label="Minha nota neste trecho" onClick={openStudyNote} />}
                 <MenuButton icon={Type} label="Preferências de texto" onClick={() => setShowTextSettings((visible) => !visible)} />
                 <MenuButton icon={Home} label="Voltar ao início" onClick={() => navigate('/home')} />
                 {showTextSettings && <ReaderSettings fontSize={fontSize} setFontSize={setFontSize} />}
@@ -270,6 +310,20 @@ export default function ReaderPage() {
         }}
       />
 
+      <StudyNotePanel
+        open={showNote}
+        onClose={() => setShowNote(false)}
+        title={getNoteSourceTitle(book, currentSection)}
+        value={noteText}
+        onChange={(value) => {
+          setNoteText(value)
+          setNoteStatus('')
+        }}
+        onSave={persistStudyNote}
+        saving={savingNote}
+        status={noteStatus}
+      />
+
       <footer className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/96 pb-safe backdrop-blur-xl dark:border-night-line dark:bg-night/96">
         <div className="mx-auto grid h-[4.4rem] max-w-[44rem] grid-cols-[2.75rem_1fr_2.75rem] items-center px-4 sm:px-6">
           <button
@@ -324,6 +378,50 @@ function MenuButton({ icon: Icon, label, onClick }) {
       <Icon size={18} className="text-sage-700 dark:text-sage-300" />
       {label}
     </button>
+  )
+}
+
+function StudyNotePanel({ open, onClose, title, value, onChange, onSave, saving, status }) {
+  if (!open) return null
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/25 px-3 sm:items-center sm:px-6" role="dialog" aria-modal="true" aria-labelledby="study-note-title">
+      <div className="w-full max-w-xl rounded-t-[24px] border border-line bg-surface p-5 shadow-editorial dark:border-night-line dark:bg-night-surface sm:rounded-[22px] sm:p-6">
+        <div className="flex items-start gap-4">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[13px] bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+            <NotebookPen size={20} aria-hidden="true" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Nota de estudo</p>
+            <h2 id="study-note-title" className="mt-1 font-display text-xl font-semibold text-ink dark:text-night-ink">{title}</h2>
+          </div>
+          <button type="button" onClick={onClose} className="northstar-icon-button -mr-2 -mt-1" aria-label="Fechar nota">
+            <X size={20} />
+          </button>
+        </div>
+
+        <p className="mt-4 text-sm leading-relaxed text-muted dark:text-night-muted">
+          Registre uma ideia, dúvida ou conexão. Esta nota fica ligada a este trecho para você reencontrá-la depois.
+        </p>
+        <textarea
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          autoFocus
+          placeholder="O que você quer guardar deste trecho?"
+          className="mt-4 min-h-36 w-full resize-none rounded-[15px] border border-line bg-canvas px-4 py-3 text-sm leading-relaxed text-ink placeholder:text-muted/70 focus:border-sage-500 dark:border-night-line dark:bg-night dark:text-night-ink"
+        />
+
+        {status && <p role="status" aria-live="polite" className="mt-3 text-xs leading-relaxed text-muted dark:text-night-muted">{status}</p>}
+
+        <div className="mt-5 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+          <Button variant="secondary" onClick={onClose}>Fechar</Button>
+          <Button onClick={onSave} disabled={!value.trim()} loading={saving}>
+            <NotebookPen size={17} />
+            Salvar nota
+          </Button>
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -467,4 +565,10 @@ function ReaderError({ message, onRetry, onBack }) {
       </div>
     </main>
   )
+}
+
+function getNoteSourceTitle(book, section) {
+  const hierarchy = [section?.part_title, section?.chapter_label].filter(Boolean).join(' · ')
+  const heading = section?.section_title || section?.chapter_title || section?.title
+  return [book?.title, hierarchy, heading].filter(Boolean).join(' · ')
 }
