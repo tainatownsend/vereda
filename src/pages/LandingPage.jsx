@@ -38,7 +38,7 @@ export default function LandingPage() {
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-canvas text-ink dark:bg-night dark:text-night-ink">
-      <header className="sticky top-0 z-50 border-b border-line/70 bg-canvas/92 backdrop-blur-xl dark:border-night-line dark:bg-night/92">
+      <header className="sticky top-0 z-50 border-b border-line/70 bg-canvas/90 backdrop-blur-xl dark:border-night-line dark:bg-night/90">
         <div className="mx-auto flex min-h-20 w-full max-w-[1180px] items-center justify-between gap-5 px-5 sm:px-7 lg:px-10">
           <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="Vereda — início">
             <VeredaLogo size={46} />
