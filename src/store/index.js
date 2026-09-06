@@ -14,6 +14,7 @@ import {
   removeSavedPassageId,
   SAVED_PASSAGE_METADATA_KEY,
 } from '@/features/savedPassages/savedPassages'
+import { getLocalDate } from '@/features/reader/readerService'
 import { STUDY_PLAN_METADATA_KEY } from '@/features/studyPlan/studyPlan'
 
 let authInitPromise = null
@@ -294,37 +295,37 @@ export const useReadingStore = create((set, get) => ({
   },
 
   markSectionRead: async (userId, bookId, sectionId, nextPosition, durationSeconds) => {
+    const readDate = getLocalDate()
+    const { data, error } = await supabase.rpc('complete_reading_section', {
+      p_user_id: userId,
+      p_book_id: bookId,
+      p_section_id: sectionId,
+      p_duration_s: durationSeconds || 0,
+      p_read_date: readDate,
+    })
+
+    if (error) throw error
+
+    const result = data?.[0]
+    const resolvedNextPosition = Number(result?.next_position || nextPosition)
     const lastReadAt = new Date().toISOString()
-
-    await supabase.from('reading_sessions').upsert({
-      user_id: userId,
-      book_id: bookId,
-      section_id: sectionId,
-      read_at: new Date().toISOString().split('T')[0],
-      duration_s: durationSeconds || null,
-    }, { onConflict: 'user_id,section_id' })
-
-    await supabase
-      .from('user_progress')
-      .update({
-        current_section: nextPosition,
-        last_read_at: lastReadAt,
-      })
-      .eq('user_id', userId)
-      .eq('book_id', bookId)
 
     set(state => ({
       progress: {
         ...state.progress,
         [bookId]: {
           ...state.progress[bookId],
-          current_section: nextPosition,
+          current_section: resolvedNextPosition,
           last_read_at: lastReadAt,
+          completed_at: result?.book_completed
+            ? (state.progress[bookId]?.completed_at || lastReadAt)
+            : state.progress[bookId]?.completed_at,
         }
       }
     }))
 
     await get().fetchStreak(userId)
+    return result || null
   },
 
   getTodaySections: async (userId, bookId) => {
