@@ -35,7 +35,7 @@ export default function FavoritesPage() {
       <div className="northstar-container pt-9">
         <header>
           <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Seu estudo</p>
-          <h1 className="mt-1 font-display text-[2rem] font-semibold text-ink dark:text-night-ink">O que você guardou</h1>
+          <h1 className="mt-1 font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Favoritos</h1>
           <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
             Trechos, notas e reflexões ficam reunidos aqui para você revisitar quando fizer sentido.
           </p>
