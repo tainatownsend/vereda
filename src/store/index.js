@@ -14,18 +14,18 @@ import {
   removeSavedPassageId,
   SAVED_PASSAGE_METADATA_KEY,
 } from '@/features/savedPassages/savedPassages'
+import { getLocalDate } from '@/features/reader/readerService'
+import { STUDY_PLAN_METADATA_KEY } from '@/features/studyPlan/studyPlan'
 
 let authInitPromise = null
 let authSubscription = null
 const profileRequests = new Map()
 
-// applyOnboardingChoice Function
 async function applyOnboardingChoice(userId) {
   const { chosenBookId, paceMode, paceMinutes } = useOnboardingStore.getState()
 
   if (!chosenBookId) return
 
-  // Aguarda o trigger criar user_progress
   for (let i = 0; i < 10; i++) {
     const { data } = await supabase
       .from('user_progress')
@@ -51,9 +51,8 @@ async function applyOnboardingChoice(userId) {
   useOnboardingStore.getState().reset()
 }
 
-// ─── Auth ────────────────────────────────────────────────────
 export const useAuthStore = create((set, get) => ({
-  user:    null,
+  user: null,
   profile: null,
   loading: true,
 
@@ -123,6 +122,19 @@ export const useAuthStore = create((set, get) => ({
     if (data) set({ profile: data })
   },
 
+  updateStudyPlan: async (plan) => {
+    const { user } = get()
+    if (!user) throw new Error('Entre na sua conta para salvar seu ritmo de estudo.')
+
+    const { data, error } = await supabase.auth.updateUser({
+      data: { [STUDY_PLAN_METADATA_KEY]: plan },
+    })
+
+    if (error) throw error
+    if (data.user) set({ user: data.user })
+    return data.user || null
+  },
+
   signInWithGoogle: async () => {
     await supabase.auth.signInWithOAuth({
       provider: 'google',
@@ -151,8 +163,6 @@ export const useAuthStore = create((set, get) => ({
 
     if (error) throw error
 
-    // When e-mail confirmation is enabled, signUp returns a user without a
-    // session. Defer authenticated data work until the user confirms and signs in.
     if (data.session?.user) {
       await applyOnboardingChoice(data.session.user.id)
     }
@@ -234,11 +244,10 @@ export const useAuthStore = create((set, get) => ({
   },
 }))
 
-// ─── Leitura ─────────────────────────────────────────────────
 export const useReadingStore = create((set, get) => ({
-  books:    [],
+  books: [],
   progress: {},
-  streak:   0,
+  streak: 0,
 
   fetchBooks: async () => {
     const { data } = await supabase
@@ -270,11 +279,11 @@ export const useReadingStore = create((set, get) => ({
     const { data, error } = await supabase
       .from('user_progress')
       .upsert({
-        user_id:         userId,
-        book_id:         bookId,
-        pace_mode:       paceMode,
-        pace_minutes:    paceMinutes  || null,
-        pace_deadline:   paceDeadline || null,
+        user_id: userId,
+        book_id: bookId,
+        pace_mode: paceMode,
+        pace_minutes: paceMinutes || null,
+        pace_deadline: paceDeadline || null,
         current_section: 1,
       }, { onConflict: 'user_id,book_id' })
       .select()
@@ -286,37 +295,37 @@ export const useReadingStore = create((set, get) => ({
   },
 
   markSectionRead: async (userId, bookId, sectionId, nextPosition, durationSeconds) => {
+    const readDate = getLocalDate()
+    const { data, error } = await supabase.rpc('complete_reading_section', {
+      p_user_id: userId,
+      p_book_id: bookId,
+      p_section_id: sectionId,
+      p_duration_s: durationSeconds || 0,
+      p_read_date: readDate,
+    })
+
+    if (error) throw error
+
+    const result = data?.[0]
+    const resolvedNextPosition = Number(result?.next_position || nextPosition)
     const lastReadAt = new Date().toISOString()
-
-    await supabase.from('reading_sessions').upsert({
-      user_id:    userId,
-      book_id:    bookId,
-      section_id: sectionId,
-      read_at:    new Date().toISOString().split('T')[0],
-      duration_s: durationSeconds || null,
-    }, { onConflict: 'user_id,section_id' })
-
-    await supabase
-      .from('user_progress')
-      .update({
-        current_section: nextPosition,
-        last_read_at:    lastReadAt,
-      })
-      .eq('user_id', userId)
-      .eq('book_id', bookId)
 
     set(state => ({
       progress: {
         ...state.progress,
         [bookId]: {
           ...state.progress[bookId],
-          current_section: nextPosition,
+          current_section: resolvedNextPosition,
           last_read_at: lastReadAt,
+          completed_at: result?.book_completed
+            ? (state.progress[bookId]?.completed_at || lastReadAt)
+            : state.progress[bookId]?.completed_at,
         }
       }
     }))
 
     await get().fetchStreak(userId)
+    return result || null
   },
 
   getTodaySections: async (userId, bookId) => {
@@ -328,7 +337,6 @@ export const useReadingStore = create((set, get) => ({
   },
 }))
 
-// ─── UI (persiste no localStorage) ───────────────────────────
 export const useUIStore = create(
   persist(
     (set) => ({
@@ -337,7 +345,7 @@ export const useUIStore = create(
       darkMode: false,
       setFontSize: (size) => set({ fontSize: size }),
       setAppFontScale: (scale) => set({ appFontScale: scale }),
-      toggleDark:  ()     => set(state => ({ darkMode: !state.darkMode })),
+      toggleDark: () => set(state => ({ darkMode: !state.darkMode })),
     }),
     { name: 'vereda-ui' }
   )

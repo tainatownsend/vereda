@@ -12,17 +12,17 @@ const settings = readFileSync('src/pages/SettingsPage.jsx', 'utf8')
 const bottomNav = readFileSync('src/components/ui/BottomNav.jsx', 'utf8')
 
 describe('Vereda North Star canonical screens', () => {
-  it('keeps Home focused on a personalized next action without duplicating progress', () => {
-    expect(home).toContain('Continue seu caminho de estudo espírita.')
+  it('keeps Home focused on a personalized next study action without duplicating destinations', () => {
+    expect(home).toContain('Seu próximo passo fica claro aqui. Você continua no seu ritmo.')
     expect(home).toContain('getGreeting(profile?.name)')
     expect(home).toContain('A maior caridade que podemos fazer pela Doutrina Espírita é a sua divulgação.')
-    expect(home).toContain('Continuar estudando')
-    expect(home).toContain('O que você quer fazer agora?')
+    expect(home).toContain('Continue seu estudo')
+    expect(home).toContain('Outros caminhos')
+    expect(home).toContain('Definir meu ritmo de estudo')
     expect(home).toContain('Livros')
     expect(home).toContain('Reflexões')
     expect(home).not.toContain('Resumos')
     expect(home).not.toContain('Audiobooks')
-    expect(home).not.toContain('Plano de estudo')
     expect(home).not.toContain('Estudo Sistematizado')
     expect(home).not.toContain('Comunidade Vereda')
     expect(home).not.toContain('Ver biblioteca')
