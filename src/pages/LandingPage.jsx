@@ -38,30 +38,47 @@ export default function LandingPage() {
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-canvas text-ink dark:bg-night dark:text-night-ink">
-      <header className="border-b border-line/70 bg-canvas/90 backdrop-blur dark:border-night-line dark:bg-night/90">
-        <div className="ves-container flex min-h-20 items-center justify-center sm:justify-start">
-          <Link to="/" className="flex items-center gap-3" aria-label="Vereda — início">
-            <VeredaLogo size={48} />
-            <div>
+      <header className="sticky top-0 z-50 border-b border-line/70 bg-canvas/92 backdrop-blur-xl dark:border-night-line dark:bg-night/92">
+        <div className="mx-auto flex min-h-20 w-full max-w-[1180px] items-center justify-between gap-5 px-5 sm:px-7 lg:px-10">
+          <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="Vereda — início">
+            <VeredaLogo size={46} />
+            <div className="min-w-0">
               <p className="font-display text-xl font-semibold tracking-[0.12em] text-ink dark:text-night-ink">VEREDA</p>
-              <p className="text-[11px] font-medium text-muted dark:text-night-muted">Seu caminho de estudo espírita</p>
+              <p className="hidden text-[11px] font-medium text-muted dark:text-night-muted sm:block">Seu caminho de estudo espírita</p>
             </div>
           </Link>
+
+          <nav className="hidden items-center gap-7 text-sm font-medium text-muted dark:text-night-muted lg:flex" aria-label="Navegação da apresentação">
+            <a href="#como-funciona" className="hover:text-sage-800 dark:hover:text-sage-300">Como funciona</a>
+            <a href="#biblioteca" className="hover:text-sage-800 dark:hover:text-sage-300">Biblioteca</a>
+            <a href="#perguntas-frequentes" className="hover:text-sage-800 dark:hover:text-sage-300">Perguntas frequentes</a>
+          </nav>
+
+          <div className="flex shrink-0 items-center gap-2">
+            {!user && (
+              <Link to="/entrar" className="hidden min-h-11 items-center justify-center rounded-vesSm px-4 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950 sm:inline-flex">
+                Entrar
+              </Link>
+            )}
+            <Link to={primaryHref} className="inline-flex min-h-11 items-center justify-center rounded-vesSm bg-sage-800 px-4 text-sm font-semibold text-white shadow-sm hover:bg-sage-900 dark:bg-sage-300 dark:text-sage-950">
+              {user ? 'Abrir' : 'Começar'}
+            </Link>
+          </div>
         </div>
       </header>
 
-      <section className="ves-brand-page relative border-b border-line/70 py-14 sm:py-20 lg:py-24 dark:border-night-line">
-        <div className="ves-container grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
-          <div>
+      <section className="ves-brand-page relative border-b border-line/70 dark:border-night-line">
+        <div className="mx-auto grid w-full max-w-[1180px] items-center gap-10 px-5 py-14 sm:px-7 sm:py-18 lg:min-h-[650px] lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)] lg:gap-14 lg:px-10 lg:py-16 xl:gap-20">
+          <div className="max-w-[650px]">
             <p className="ves-eyebrow">Estudo no seu ritmo</p>
-            <h1 className="ves-heading mt-4 max-w-3xl text-[2.65rem] leading-[1.02] sm:text-[3.6rem] lg:text-[4.35rem]">
+            <h1 className="ves-heading mt-4 text-[2.65rem] leading-[1.03] sm:text-[3.6rem] lg:text-[4rem] xl:text-[4.35rem]">
               Um caminho simples para ler, estudar e refletir.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl dark:text-night-muted">
+            <p className="mt-6 max-w-[610px] text-lg leading-relaxed text-muted sm:text-xl dark:text-night-muted">
               Leia as obras fundamentais do Espiritismo em trechos confortáveis, encontre passagens por tema e volte sempre do ponto onde parou.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Link
                 to={primaryHref}
                 className="inline-flex min-h-14 items-center justify-center gap-2 rounded-vesMd bg-sage-800 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-sage-900 dark:bg-sage-300 dark:text-sage-950"
@@ -79,7 +96,7 @@ export default function LandingPage() {
               )}
             </div>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-2 text-center text-sm font-medium text-ink/80 dark:text-night-ink/80 lg:justify-start lg:text-left">
+            <div className="mt-8 flex flex-wrap gap-2 text-sm font-medium text-ink/80 dark:text-night-ink/80">
               {['Gratuito', 'Sem anúncios', 'Sem sequência obrigatória', 'Sempre do ponto onde parou'].map((item) => (
                 <span key={item} className="rounded-full border border-line/70 bg-surface/70 px-3 py-2 dark:border-night-line dark:bg-night-surface/70">
                   {item}
@@ -88,14 +105,14 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="ves-horizon-panel relative overflow-hidden rounded-[2.25rem] border border-line p-6 shadow-editorial dark:border-night-line sm:p-8">
-            <div className="relative z-10 flex flex-col gap-6">
+          <div className="ves-horizon-panel relative min-h-[390px] overflow-hidden rounded-[2.25rem] border border-line p-6 shadow-editorial dark:border-night-line sm:min-h-[430px] sm:p-8 lg:min-h-[500px]">
+            <div className="relative z-10 flex h-full flex-col justify-between gap-8">
               <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/70 bg-white/65 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10 sm:h-24 sm:w-24">
                 <VeredaLogo size={72} />
               </div>
-              <div className="max-w-md rounded-vesLg border border-white/60 bg-surface/75 p-6 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-night-surface/75">
+              <div className="max-w-md rounded-vesLg border border-white/60 bg-surface/82 p-6 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-night-surface/82 sm:p-7">
                 <p className="ves-eyebrow">Seu próximo passo</p>
-                <p className="mt-2 font-display text-2xl font-semibold leading-tight">Você não precisa saber por onde começar.</p>
+                <p className="mt-2 font-display text-2xl font-semibold leading-tight sm:text-[1.75rem]">Você não precisa saber por onde começar.</p>
                 <p className="mt-3 text-sm leading-relaxed text-muted dark:text-night-muted">O Vereda pode sugerir uma primeira direção, mas você continua livre para explorar todas as obras.</p>
               </div>
             </div>
@@ -103,12 +120,14 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="como-funciona" className="scroll-mt-6 py-16 sm:py-20" aria-labelledby="how-heading">
-        <div className="ves-container">
-          <p className="ves-eyebrow">Como funciona</p>
-          <h2 id="how-heading" className="ves-heading mt-2 max-w-2xl text-[2.25rem] sm:text-[2.75rem]">Menos aplicativo para aprender. Mais espaço para estudar.</h2>
+      <section id="como-funciona" className="scroll-mt-24 py-16 sm:py-20" aria-labelledby="how-heading">
+        <div className="mx-auto w-full max-w-[1180px] px-5 sm:px-7 lg:px-10">
+          <div className="max-w-3xl">
+            <p className="ves-eyebrow">Como funciona</p>
+            <h2 id="how-heading" className="ves-heading mt-2 text-[2.25rem] sm:text-[2.75rem]">Menos aplicativo para aprender. Mais espaço para estudar.</h2>
+          </div>
 
-          <div className="mt-9 grid gap-3 md:grid-cols-3">
+          <div className="mt-9 grid gap-4 lg:grid-cols-3">
             <FeatureCard number="1" title="Escolha um caminho">Comece pelos fundamentos, por uma pergunta ou por uma obra específica.</FeatureCard>
             <FeatureCard number="2" title="Leia em trechos">O texto é apresentado em partes confortáveis, com fonte ajustável e modo escuro.</FeatureCard>
             <FeatureCard number="3" title="Volte quando quiser">Seu ponto de leitura e passagens salvas ficam disponíveis para continuar depois.</FeatureCard>
@@ -116,12 +135,12 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="biblioteca" className="scroll-mt-6 border-y border-line/70 bg-surface/55 py-16 sm:py-20 dark:border-night-line dark:bg-night-surface/35" aria-labelledby="library-heading">
-        <div className="ves-container grid gap-9 lg:grid-cols-[0.78fr_1.22fr] lg:items-start lg:gap-14">
-          <div>
+      <section id="biblioteca" className="scroll-mt-24 border-y border-line/70 bg-surface/55 py-16 sm:py-20 dark:border-night-line dark:bg-night-surface/35" aria-labelledby="library-heading">
+        <div className="mx-auto grid w-full max-w-[1180px] gap-10 px-5 sm:px-7 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:gap-16 lg:px-10">
+          <div className="max-w-md lg:sticky lg:top-28">
             <p className="ves-eyebrow">Biblioteca atual</p>
             <h2 id="library-heading" className="ves-heading mt-2 text-[2.25rem] sm:text-[2.75rem]">Uma jornada pelas obras básicas.</h2>
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">
+            <p className="mt-4 text-base leading-relaxed text-muted dark:text-night-muted">
               A ordem é apenas uma sugestão, não uma obrigação. Comece pela obra que fizer sentido para você e retome sempre de onde parou.
             </p>
           </div>
@@ -135,11 +154,11 @@ export default function LandingPage() {
       </section>
 
       <section className="py-16 sm:py-20" aria-labelledby="why-heading">
-        <div className="ves-container">
+        <div className="mx-auto w-full max-w-[1180px] px-5 sm:px-7 lg:px-10">
           <p className="ves-eyebrow">Por que o Vereda</p>
           <h2 id="why-heading" className="ves-heading mt-2 max-w-2xl text-[2.25rem] sm:text-[2.75rem]">Orientação sem substituir as obras.</h2>
 
-          <div className="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             <ValueCard icon={Search} title="Busca nas fontes">Pesquise uma dúvida e abra passagens diretamente nas obras.</ValueCard>
             <ValueCard icon={Check} title="Sem cobrança">Nada de metas obrigatórias, culpa por pausas ou linguagem de produtividade.</ValueCard>
             <ValueCard icon={ShieldCheck} title="Conta com propósito">A conta existe para preservar leitura, preferências e trechos salvos.</ValueCard>
@@ -149,7 +168,7 @@ export default function LandingPage() {
       </section>
 
       <section className="ves-warm-panel border-y border-line/70 py-16 sm:py-20 dark:border-night-line" aria-labelledby="community-heading">
-        <div className="ves-container max-w-3xl text-center">
+        <div className="mx-auto max-w-3xl px-5 text-center sm:px-7">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-surface/80 text-sage-800 shadow-sm dark:bg-night-surface/80 dark:text-sage-300">
             <BookPlus size={24} aria-hidden="true" />
           </div>
@@ -168,8 +187,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="perguntas-frequentes" className="scroll-mt-6 py-16 sm:py-20" aria-labelledby="faq-heading">
-        <div className="ves-container max-w-3xl">
+      <section id="perguntas-frequentes" className="scroll-mt-24 py-16 sm:py-20" aria-labelledby="faq-heading">
+        <div className="mx-auto max-w-3xl px-5 sm:px-7">
           <p className="ves-eyebrow">Perguntas frequentes</p>
           <h2 id="faq-heading" className="ves-heading mt-2 text-[2.25rem] sm:text-[2.75rem]">Antes de começar</h2>
 
@@ -187,8 +206,8 @@ export default function LandingPage() {
       </section>
 
       <section className="pb-20 pt-4">
-        <div className="ves-container">
-          <div className="ves-horizon-panel rounded-[2rem] border border-line p-7 text-center shadow-editorial dark:border-night-line sm:p-10">
+        <div className="mx-auto w-full max-w-[1180px] px-5 sm:px-7 lg:px-10">
+          <div className="ves-horizon-panel rounded-[2rem] border border-line p-7 text-center shadow-editorial dark:border-night-line sm:p-10 lg:px-14 lg:py-12">
             <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-surface/80 shadow-sm dark:bg-night-surface/80">
               <VeredaLogo size={54} />
             </div>
@@ -206,8 +225,8 @@ export default function LandingPage() {
       </section>
 
       <footer className="border-t border-line/70 bg-surface/45 py-10 dark:border-night-line dark:bg-night-surface/30">
-        <div className="ves-container">
-          <div className="grid gap-8 sm:grid-cols-[1.4fr_0.8fr_0.8fr] sm:items-start">
+        <div className="mx-auto w-full max-w-[1180px] px-5 sm:px-7 lg:px-10">
+          <div className="grid gap-8 md:grid-cols-[1.5fr_0.75fr_0.75fr] md:items-start">
             <div className="max-w-sm">
               <Link to="/" className="inline-flex items-center gap-3" aria-label="Vereda — início">
                 <VeredaLogo size={44} />
@@ -248,7 +267,7 @@ export default function LandingPage() {
 
 function FeatureCard({ number, title, children }) {
   return (
-    <article className="flex items-start gap-4 rounded-vesLg border border-line bg-surface p-5 shadow-sm dark:border-night-line dark:bg-night-surface sm:p-6">
+    <article className="flex h-full items-start gap-4 rounded-vesLg border border-line bg-surface p-5 shadow-sm dark:border-night-line dark:bg-night-surface sm:p-6">
       <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-sage-300 bg-sage-50 font-display text-xl font-semibold text-sage-800 dark:border-sage-700 dark:bg-night dark:text-sage-300">
         {number}
       </span>
@@ -290,7 +309,7 @@ function LandingJourneyCard({ work, sequence }) {
 
 function ValueCard({ icon: Icon, title, children }) {
   return (
-    <article className="flex items-start gap-4 rounded-vesLg border border-line bg-surface/80 p-5 dark:border-night-line dark:bg-night-surface/80">
+    <article className="flex h-full items-start gap-4 rounded-vesLg border border-line bg-surface/80 p-5 dark:border-night-line dark:bg-night-surface/80">
       <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
         <Icon size={20} aria-hidden="true" />
       </span>
