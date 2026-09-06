@@ -106,7 +106,7 @@ export default function StudyPlanPage() {
             <div className="flex items-start gap-3">
               <Leaf size={20} className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
               <p className="text-sm leading-relaxed text-sage-900 dark:text-sage-200">
-                Uma semana mais cheia não apaga seu caminho. O Vereda nunca transforma frequência em punição, ranking ou sequência perdida.
+                Uma semana mais cheia não apaga seu caminho. O Vereda nunca transforma frequência em punição, ranking ou cobrança.
               </p>
             </div>
           </div>
