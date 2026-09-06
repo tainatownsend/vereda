@@ -54,6 +54,7 @@ export default function ReaderPage() {
   const [saveStatus, setSaveStatus] = useState('')
   const menuRef = useRef(null)
   const requestedPositionRef = useRef(null)
+  const currentSectionIdRef = useRef(null)
 
   const bookId = Number(id)
   const revisitMode = searchParams.get('revisit') === '1'
@@ -73,6 +74,10 @@ export default function ReaderPage() {
     Boolean(currentSection?.sec_position) &&
     Number(currentSection.sec_position) === Number(session.lastPosition)
   const primaryAction = getReaderPrimaryAction({ isChapterIntro, isFinalReadingUnit })
+
+  useEffect(() => {
+    currentSectionIdRef.current = currentSection?.section_id || null
+  }, [currentSection?.section_id])
 
   useEffect(() => {
     if (
@@ -192,32 +197,52 @@ export default function ReaderPage() {
 
   const openStudyNote = async () => {
     if (isChapterIntro || isPartIntro) return
+    const sectionId = currentSection.section_id
     setShowMenu(false)
     setShowTextSettings(false)
     setNoteStatus('')
-    const existing = await getSectionNote(user?.id, currentSection.section_id)
+
+    const existing = await getSectionNote(user?.id, sectionId)
+    if (currentSectionIdRef.current !== sectionId) return
+
     setNoteText(existing?.text || '')
     setShowNote(true)
   }
 
   const persistStudyNote = async () => {
     if (!noteText.trim() || savingNote) return
+    const sectionId = currentSection.section_id
+    const sourceTitle = getNoteSourceTitle(book, currentSection)
+    const text = noteText
     setSavingNote(true)
     setNoteStatus('')
 
-    const saved = await saveSectionNote(user?.id, {
-      bookId: book.id,
-      sectionId: currentSection.section_id,
-      sourceTitle: getNoteSourceTitle(book, currentSection),
-      text: noteText,
-    })
+    try {
+      const saved = await saveSectionNote(user?.id, {
+        bookId: book.id,
+        sectionId,
+        sourceTitle,
+        text,
+      })
 
-    if (!saved) {
-      setNoteStatus('Escreva algo antes de salvar sua nota.')
-    } else {
-      setNoteStatus(saved.synced ? 'Nota salva na sua conta.' : 'Nota salva neste dispositivo. A sincronização será retomada quando estiver disponível.')
+      if (currentSectionIdRef.current !== sectionId) return
+
+      if (!saved) {
+        setNoteStatus('Escreva algo antes de salvar sua nota.')
+      } else if (saved.synced) {
+        setNoteStatus('Nota salva na sua conta.')
+      } else if (saved.localSaved === false) {
+        setNoteStatus('Não foi possível salvar esta nota agora. Copie o texto antes de fechar e tente novamente.')
+      } else {
+        setNoteStatus('Nota salva neste dispositivo. A sincronização será retomada quando estiver disponível.')
+      }
+    } catch {
+      if (currentSectionIdRef.current === sectionId) {
+        setNoteStatus('Não foi possível salvar esta nota agora. Tente novamente em instantes.')
+      }
+    } finally {
+      setSavingNote(false)
     }
-    setSavingNote(false)
   }
 
   return (
