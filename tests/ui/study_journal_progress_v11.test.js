@@ -32,15 +32,15 @@ describe('Vereda 1.1 personal study journal', () => {
     expect(favorites).toContain('Trechos, notas e reflexões')
   })
 
-  it('shows learning context instead of streak or ranking language', () => {
+  it('shows learning context with explicitly gentle language', () => {
     expect(evolution).toContain('Seu estudo em contexto')
     expect(evolution).toContain('Últimas 4 semanas')
     expect(evolution).toContain('dias de estudo')
     expect(evolution).toContain('tempo dedicado')
     expect(evolution).toContain('notas de estudo')
     expect(evolution).toContain('reflexões guardadas')
+    expect(evolution).toContain('Sem ranking e sem sequência para manter')
     expect(evolution).not.toContain('streak')
-    expect(evolution).not.toContain('ranking')
     expect(progress).toContain(".from('reading_sessions')")
   })
 
