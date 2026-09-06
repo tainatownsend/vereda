@@ -24,7 +24,7 @@ describe('Vereda 1.1 personal study journal', () => {
     expect(reader).toContain('Esta nota fica ligada a este trecho')
     expect(reader).toContain('saveSectionNote')
     expect(reader).toContain('getSectionNote')
-    expect(reader).toContain('Voltar ao trecho') === false
+    expect(reader).not.toContain('Voltar ao trecho')
   })
 
   it('makes saved study material include notes without adding a new primary destination', () => {
