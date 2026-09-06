@@ -65,17 +65,28 @@ export default function ReflectionPage() {
     setSaving(true)
     setSaveStatus('')
 
-    const saved = await saveDailyReflection(user?.id, note)
-    if (!saved) {
-      setSaveStatus('Escreva algo antes de salvar sua reflexão.')
-      setSaving(false)
-      return
-    }
+    try {
+      const saved = await saveDailyReflection(user?.id, note)
+      if (!saved) {
+        setSaveStatus('Escreva algo antes de salvar sua reflexão.')
+        return
+      }
 
-    const journal = await listStudyJournalEntries(user?.id)
-    setEntries(journal)
-    setSaveStatus(saved.synced ? 'Reflexão salva na sua conta.' : 'Reflexão salva neste dispositivo. A sincronização será retomada quando estiver disponível.')
-    setSaving(false)
+      const journal = await listStudyJournalEntries(user?.id)
+      setEntries(journal)
+
+      if (saved.synced) {
+        setSaveStatus('Reflexão salva na sua conta.')
+      } else if (saved.localSaved === false) {
+        setSaveStatus('Não foi possível salvar esta reflexão agora. Copie o texto antes de sair e tente novamente.')
+      } else {
+        setSaveStatus('Reflexão salva neste dispositivo. A sincronização será retomada quando estiver disponível.')
+      }
+    } catch {
+      setSaveStatus('Não foi possível salvar esta reflexão agora. Tente novamente em instantes.')
+    } finally {
+      setSaving(false)
+    }
   }
 
   return (
