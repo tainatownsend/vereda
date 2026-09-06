@@ -63,9 +63,9 @@ describe('public landing page contract', () => {
     expect(landing).not.toContain('JourneyStep')
   })
 
-  it('uses compact icon-left value cards for easier mobile scanning', () => {
+  it('uses compact icon-left value cards with stable responsive height', () => {
     expect(landing).toContain('function ValueCard({ icon: Icon, title, children })')
-    expect(landing).toContain('flex items-start gap-4 rounded-vesLg')
+    expect(landing).toContain('flex h-full items-start gap-4 rounded-vesLg')
     expect(landing).toContain('Busca nas fontes')
     expect(landing).toContain('Sem cobrança')
     expect(landing).toContain('Conta com propósito')
