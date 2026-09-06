@@ -15,10 +15,10 @@ describe('Vereda 1.1 continuity foundation', () => {
     expect(home).toContain('getWeeklyProgressLabel')
   })
 
-  it('lets the user choose a gentle rhythm without streak language', () => {
+  it('lets the user choose a gentle rhythm without streak pressure', () => {
     expect(planPage).toContain('Quanto estudo cabe na sua rotina?')
     expect(planPage).toContain('Uma semana mais cheia não apaga seu caminho')
-    expect(planPage).not.toContain('sequência perdida')
+    expect(planPage).toContain('nunca transforma frequência em punição, ranking ou cobrança')
     expect(studyPlan).toContain('1 vez por semana')
     expect(studyPlan).toContain('3 vezes por semana')
     expect(studyPlan).toContain('Prefiro não definir')
