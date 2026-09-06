@@ -16,6 +16,7 @@ import SavedPassagesPage from '@/pages/SavedPassagesPage'
 import PassagePage from '@/pages/PassagePage'
 import DiscoverPage from '@/pages/DiscoverPage'
 import GettingStartedPage from '@/pages/GettingStartedPage'
+import StudyPlanPage from '@/pages/StudyPlanPage'
 import ReflectionPage from '@/pages/ReflectionPage'
 import FavoritesPage from '@/pages/FavoritesPage'
 import CommunityPage from '@/pages/CommunityPage'
@@ -66,6 +67,7 @@ export default function App() {
 
           <Route path="/home" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
           <Route path="/comecar" element={<ProtectedRoute><GettingStartedPage /></ProtectedRoute>} />
+          <Route path="/plano-de-estudo" element={<ProtectedRoute><StudyPlanPage /></ProtectedRoute>} />
           <Route path="/descobrir" element={<ProtectedRoute><DiscoverPage /></ProtectedRoute>} />
           <Route path="/trecho/:sectionId" element={<ProtectedRoute><PassagePage /></ProtectedRoute>} />
           <Route path="/livro/:id" element={<ProtectedRoute><BookDetailPage /></ProtectedRoute>} />
