@@ -7,10 +7,10 @@ const favorites = readFileSync('src/pages/FavoritesPage.jsx', 'utf8')
 const evolution = readFileSync('src/pages/EvolutionPage.jsx', 'utf8')
 const journal = readFileSync('src/features/studyJournal/studyJournal.js', 'utf8')
 const progress = readFileSync('src/features/studyProgress/studyProgress.js', 'utf8')
-const migration = readFileSync('supabase/migrations/20260906062000_study_journal_foundation.sql', 'utf8')
+const stagedSchema = readFileSync('supabase/staging/study_journal_foundation.pending.sql', 'utf8')
 
 describe('Vereda 1.1 personal study journal', () => {
-  it('syncs reflections and study notes through a private journal with local resilience', () => {
+  it('supports account sync with local resilience while the schema is staged', () => {
     expect(journal).toContain(".from('study_journal_entries')")
     expect(journal).toContain("entryType: 'reflection'")
     expect(journal).toContain("entryType: 'note'")
@@ -44,10 +44,11 @@ describe('Vereda 1.1 personal study journal', () => {
     expect(progress).toContain(".from('reading_sessions')")
   })
 
-  it('protects journal rows with owner-only RLS', () => {
-    expect(migration).toContain('alter table public.study_journal_entries enable row level security')
-    expect(migration).toContain('auth.uid() = user_id')
-    expect(migration).toContain("entry_type in ('reflection', 'note')")
-    expect(migration).toContain('unique (user_id, entry_key)')
+  it('stages an owner-only RLS schema without changing the guarded migration manifest', () => {
+    expect(stagedSchema).toContain('PENDING APPLICATION')
+    expect(stagedSchema).toContain('alter table public.study_journal_entries enable row level security')
+    expect(stagedSchema).toContain('auth.uid() = user_id')
+    expect(stagedSchema).toContain("entry_type in ('reflection', 'note')")
+    expect(stagedSchema).toContain('unique (user_id, entry_key)')
   })
 })
