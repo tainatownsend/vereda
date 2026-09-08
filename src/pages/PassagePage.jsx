@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { ArrowLeft, ArrowRight, Bookmark, Check } from 'lucide-react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 
 import { useBooks } from '@/hooks'
 import { supabase } from '@/lib/supabase'
@@ -11,6 +11,7 @@ import { isPassageSaved } from '@/features/savedPassages/savedPassages'
 
 export default function PassagePage() {
   const { sectionId } = useParams()
+  const [searchParams] = useSearchParams()
   const navigate = useNavigate()
   const books = useBooks()
   const { user, savePassage, removeSavedPassage } = useAuthStore()
@@ -24,6 +25,7 @@ export default function PassagePage() {
   const numericSectionId = Number(sectionId)
   const book = books.find((item) => item.id === section?.book_id)
   const saved = isPassageSaved(user, numericSectionId)
+  const returnContext = getReturnContext(searchParams.get('from'))
 
   const paragraphs = useMemo(
     () => String(section?.content || '')
@@ -97,11 +99,11 @@ export default function PassagePage() {
           <p className="ves-eyebrow">Trecho das obras</p>
           <h1 className="ves-heading mt-3 text-[2.2rem]">Não conseguimos abrir este trecho.</h1>
           <p role="alert" className="mt-4 text-base leading-relaxed text-muted dark:text-night-muted">
-            {error || 'Tente voltar à busca e escolher outro resultado.'}
+            {error || 'Tente voltar e escolher outro trecho.'}
           </p>
-          <Button className="mt-7" onClick={() => navigate('/descobrir')}>
+          <Button className="mt-7" onClick={() => navigate(returnContext.path)}>
             <ArrowLeft size={19} aria-hidden="true" />
-            Voltar a Descobrir
+            {returnContext.buttonLabel}
           </Button>
         </div>
       </main>
@@ -123,11 +125,11 @@ export default function PassagePage() {
         <div className="mx-auto flex max-w-[68ch] items-center justify-between gap-3 px-4 py-3">
           <button
             type="button"
-            onClick={() => navigate('/descobrir')}
+            onClick={() => navigate(returnContext.path)}
             className="flex min-h-12 items-center gap-2 rounded-vesSm px-2 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950"
           >
             <ArrowLeft size={19} aria-hidden="true" />
-            Descobrir
+            {returnContext.shortLabel}
           </button>
 
           <button
@@ -175,7 +177,7 @@ export default function PassagePage() {
             Este trecho faz parte de {book.title}.
           </p>
           <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-            Ler um resultado de busca não muda sua leitura atual. Você decide se quer começar ou continuar esta obra.
+            Ler um trecho avulso não muda sua leitura atual. Você decide se quer começar ou continuar esta obra.
           </p>
           <Button
             className="mt-5 w-full sm:w-auto"
@@ -188,4 +190,28 @@ export default function PassagePage() {
       </div>
     </main>
   )
+}
+
+function getReturnContext(source) {
+  if (source === 'notas') {
+    return {
+      path: '/notas',
+      shortLabel: 'Notas',
+      buttonLabel: 'Voltar às notas',
+    }
+  }
+
+  if (source === 'salvos') {
+    return {
+      path: '/salvos',
+      shortLabel: 'Salvos',
+      buttonLabel: 'Voltar aos salvos',
+    }
+  }
+
+  return {
+    path: '/descobrir',
+    shortLabel: 'Descobrir',
+    buttonLabel: 'Voltar a Descobrir',
+  }
 }
