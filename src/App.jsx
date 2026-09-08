@@ -22,6 +22,9 @@ import ReflectionPage from '@/pages/ReflectionPage'
 import FavoritesPage from '@/pages/FavoritesPage'
 import EvolutionPage from '@/pages/EvolutionPage'
 import SettingsPage from '@/pages/SettingsPage'
+import GuidedStudyPage from '@/pages/GuidedStudyPage'
+import GuidedStudyPathPage from '@/pages/GuidedStudyPathPage'
+import GuidedStudySessionPage from '@/pages/GuidedStudySessionPage'
 import { getAppFontSize, getThemeColor } from '@/features/ui/displayPreferences'
 
 export default function App() {
@@ -68,6 +71,9 @@ export default function App() {
           <Route path="/home" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
           <Route path="/comecar" element={<ProtectedRoute><GettingStartedPage /></ProtectedRoute>} />
           <Route path="/plano-de-estudo" element={<ProtectedRoute><StudyPlanPage /></ProtectedRoute>} />
+          <Route path="/estudo-guiado" element={<ProtectedRoute><GuidedStudyPage /></ProtectedRoute>} />
+          <Route path="/estudo-guiado/:pathKey" element={<ProtectedRoute><GuidedStudyPathPage /></ProtectedRoute>} />
+          <Route path="/estudo-guiado/:pathKey/:sessionId" element={<ProtectedRoute><GuidedStudySessionPage /></ProtectedRoute>} />
           <Route path="/descobrir" element={<ProtectedRoute><DiscoverPage /></ProtectedRoute>} />
           <Route path="/trecho/:sectionId" element={<ProtectedRoute><PassagePage /></ProtectedRoute>} />
           <Route path="/livro/:id" element={<ProtectedRoute><BookDetailPage /></ProtectedRoute>} />
