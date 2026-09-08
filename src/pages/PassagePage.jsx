@@ -25,7 +25,7 @@ export default function PassagePage() {
   const numericSectionId = Number(sectionId)
   const book = books.find((item) => item.id === section?.book_id)
   const saved = isPassageSaved(user, numericSectionId)
-  const returnContext = getReturnContext(searchParams.get('from'))
+  const returnContext = getReturnContext(searchParams)
 
   const paragraphs = useMemo(
     () => String(section?.content || '')
@@ -192,7 +192,21 @@ export default function PassagePage() {
   )
 }
 
-function getReturnContext(source) {
+function getReturnContext(searchParams) {
+  const source = searchParams.get('from')
+
+  if (source === 'estudo-guiado') {
+    const path = safeSlug(searchParams.get('path'))
+    const session = safeSlug(searchParams.get('session'))
+    if (path && session) {
+      return {
+        path: `/estudo-guiado/${path}/${session}`,
+        shortLabel: 'Estudo guiado',
+        buttonLabel: 'Voltar ao encontro',
+      }
+    }
+  }
+
   if (source === 'notas') {
     return {
       path: '/notas',
@@ -214,4 +228,9 @@ function getReturnContext(source) {
     shortLabel: 'Descobrir',
     buttonLabel: 'Voltar a Descobrir',
   }
+}
+
+function safeSlug(value) {
+  const text = String(value || '')
+  return /^[a-z0-9-]+$/.test(text) ? text : ''
 }
