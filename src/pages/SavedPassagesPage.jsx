@@ -130,7 +130,7 @@ export default function SavedPassagesPage() {
                   )}
 
                   <div className="mt-5 flex flex-col gap-2 sm:flex-row">
-                    <Button onClick={() => navigate(`/trecho/${section.id}`)} className="sm:flex-1">
+                    <Button onClick={() => navigate(`/trecho/${section.id}?from=salvos`)} className="sm:flex-1">
                       Ler este trecho
                       <ArrowRight size={18} aria-hidden="true" />
                     </Button>
