@@ -1,66 +1,98 @@
 // supabase/functions/send-push-notifications/index.ts
 import { serve } from 'https://deno.land/std@0.177.0/http/server.ts'
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
-
-// Biblioteca de web-push para Deno
 import webpush from 'https://esm.sh/web-push@3.6.7'
+
+function json(body: unknown, status = 200) {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { 'content-type': 'application/json; charset=utf-8' },
+  })
+}
+
+async function getContinuationLabel(supabase: ReturnType<typeof createClient>, userId: string) {
+  const { data: progress, error: progressError } = await supabase
+    .from('user_progress')
+    .select('book_id, current_section, last_read_at, completed_at')
+    .eq('user_id', userId)
+    .is('completed_at', null)
+    .order('last_read_at', { ascending: false, nullsFirst: false })
+    .limit(1)
+    .maybeSingle()
+
+  if (progressError || !progress?.book_id) return null
+
+  const { data: book, error: bookError } = await supabase
+    .from('books')
+    .select('title')
+    .eq('id', progress.book_id)
+    .maybeSingle()
+
+  if (bookError || !book?.title) return null
+
+  return {
+    bookTitle: book.title,
+    section: Number(progress.current_section) || 1,
+  }
+}
 
 serve(async (_req) => {
   try {
-    const supabase = createClient(
-      Deno.env.get('SUPABASE_URL')!,
-      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
-    )
+    const supabaseUrl = Deno.env.get('SUPABASE_URL')
+    const serviceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')
+    const vapidEmail = Deno.env.get('VAPID_EMAIL')
+    const vapidPublicKey = Deno.env.get('VAPID_PUBLIC_KEY')
+    const vapidPrivateKey = Deno.env.get('VAPID_PRIVATE_KEY')
 
-    // Configura as chaves VAPID
-    webpush.setVapidDetails(
-      Deno.env.get('VAPID_EMAIL')!,
-      Deno.env.get('VAPID_PUBLIC_KEY')!,
-      Deno.env.get('VAPID_PRIVATE_KEY')!
-    )
+    if (!supabaseUrl || !serviceRoleKey || !vapidEmail || !vapidPublicKey || !vapidPrivateKey) {
+      return json({ error: 'Push notification configuration is incomplete.' }, 500)
+    }
+
+    const supabase = createClient(supabaseUrl, serviceRoleKey)
+
+    webpush.setVapidDetails(vapidEmail, vapidPublicKey, vapidPrivateKey)
 
     const now = new Date()
     const currentHour = now.getHours().toString().padStart(2, '0')
     const currentMinute = now.getMinutes().toString().padStart(2, '0')
     const currentTime = `${currentHour}:${currentMinute}`
 
-    // Busca usuários com lembrete no horário atual
-    // que não leram hoje ainda
-    const { data: profiles } = await supabase
+    const { data: profiles, error: profilesError } = await supabase
       .from('profiles')
       .select('id, name, notify_time')
       .not('notify_time', 'is', null)
       .like('notify_time', `${currentTime}%`)
 
-    if (!profiles || profiles.length === 0) {
-      return new Response(JSON.stringify({ sent: 0 }), { status: 200 })
-    }
+    if (profilesError) return json({ error: 'Could not load reminder recipients.' }, 500)
+    if (!profiles?.length) return json({ sent: 0 })
 
+    const today = now.toISOString().split('T')[0]
     let sent = 0
 
     for (const profile of profiles) {
-      // Verifica se já leu hoje
-      const today = new Date().toISOString().split('T')[0]
-      const { data: sessions } = await supabase
+      const { data: sessions, error: sessionError } = await supabase
         .from('reading_sessions')
         .select('id')
         .eq('user_id', profile.id)
         .eq('read_at', today)
         .limit(1)
 
-      // Se já leu hoje, não manda notificação
-      if (sessions && sessions.length > 0) continue
+      if (sessionError || sessions?.length) continue
 
-      // Busca subscription do usuário
-      const { data: sub } = await supabase
+      const { data: sub, error: subscriptionError } = await supabase
         .from('push_subscriptions')
         .select('endpoint, p256dh, auth')
         .eq('user_id', profile.id)
-        .single()
+        .maybeSingle()
 
-      if (!sub) continue
+      if (subscriptionError || !sub) continue
 
-      const firstName = profile.name?.split(' ')[0] || 'Amigo'
+      const firstName = profile.name?.split(' ')[0]?.trim() || ''
+      const continuation = await getContinuationLabel(supabase, profile.id)
+      const prefix = firstName ? `${firstName}, ` : ''
+      const body = continuation
+        ? `${prefix}seu próximo trecho em ${continuation.bookTitle} continua aqui quando você quiser retomar.`
+        : `${prefix}seu caminho de estudo continua disponível quando você quiser voltar.`
 
       try {
         await webpush.sendNotification(
@@ -69,15 +101,16 @@ serve(async (_req) => {
             keys: { p256dh: sub.p256dh, auth: sub.auth },
           },
           JSON.stringify({
-            title: 'Vereda 📖',
-            body: `${firstName}, sua leitura de hoje está esperando. Que tal 10 minutos agora?`,
+            title: 'Vereda',
+            body,
             url: '/home',
+            kind: 'study-continuation',
           })
         )
-        sent++
+        sent += 1
       } catch (err) {
-        // Se o endpoint está inválido (usuário desinstalou o app), remove
-        if (err.statusCode === 410) {
+        const statusCode = Number((err as { statusCode?: number })?.statusCode)
+        if (statusCode === 404 || statusCode === 410) {
           await supabase
             .from('push_subscriptions')
             .delete()
@@ -86,9 +119,9 @@ serve(async (_req) => {
       }
     }
 
-    return new Response(JSON.stringify({ sent }), { status: 200 })
-
+    return json({ sent })
   } catch (err) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 })
+    const message = err instanceof Error ? err.message : 'Unexpected push notification error.'
+    return json({ error: message }, 500)
   }
 })

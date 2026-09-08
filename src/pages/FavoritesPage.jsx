@@ -1,25 +1,43 @@
-import { Bookmark, Quote } from 'lucide-react'
+import { useEffect, useMemo, useState } from 'react'
+import { Bookmark, NotebookPen, Quote } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useAuthStore } from '@/store'
 import { getSavedPassageIds } from '@/features/savedPassages/savedPassages'
-import { getSavedReflections } from '@/features/reflections/localReflections'
+import { listStudyJournalEntries } from '@/features/studyJournal/studyJournal'
 import { EditorialCard } from '@/components/northstar/NorthStarUI'
 
 export default function FavoritesPage() {
   const navigate = useNavigate()
   const { user } = useAuthStore()
   const savedPassages = getSavedPassageIds(user)
-  const savedReflections = getSavedReflections(user?.id)
+  const [journalEntries, setJournalEntries] = useState([])
+
+  useEffect(() => {
+    let active = true
+    listStudyJournalEntries(user?.id).then((entries) => {
+      if (active) setJournalEntries(entries)
+    })
+    return () => { active = false }
+  }, [user?.id])
+
+  const reflections = useMemo(
+    () => journalEntries.filter((entry) => entry.entryType === 'reflection'),
+    [journalEntries],
+  )
+  const notes = useMemo(
+    () => journalEntries.filter((entry) => entry.entryType === 'note'),
+    [journalEntries],
+  )
 
   return (
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-9">
         <header>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Sua coleção</p>
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Seu estudo</p>
           <h1 className="mt-1 font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Favoritos</h1>
           <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-            Volte ao que você decidiu guardar para consultar depois.
+            Trechos, notas e reflexões ficam reunidos aqui para você revisitar quando fizer sentido.
           </p>
         </header>
 
@@ -32,10 +50,17 @@ export default function FavoritesPage() {
             onClick={() => navigate('/salvos')}
           />
           <CollectionCard
+            icon={NotebookPen}
+            title="Notas de estudo"
+            count={notes.length}
+            description={notes.length ? 'Volte às ideias e dúvidas que você escreveu durante a leitura.' : 'Quando você fizer uma anotação em um trecho, ela aparecerá aqui.'}
+            onClick={() => navigate('/evolucao')}
+          />
+          <CollectionCard
             icon={Quote}
             title="Minhas reflexões"
-            count={savedReflections.length}
-            description={savedReflections.length ? 'Releia as reflexões pessoais que você escolheu guardar.' : 'Suas reflexões salvas aparecerão aqui.'}
+            count={reflections.length}
+            description={reflections.length ? 'Releia as reflexões pessoais que você escolheu guardar.' : 'Suas reflexões salvas aparecerão aqui.'}
             onClick={() => navigate('/reflexoes')}
           />
         </section>

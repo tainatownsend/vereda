@@ -1,14 +1,27 @@
-import { ArrowRight, BookOpen, Check, Compass, Map } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { ArrowRight, BookOpen, CalendarDays, Check, Clock3, Compass, Map, NotebookPen, Quote } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks } from '@/hooks'
-import { useReadingStore } from '@/store'
+import { useAuthStore, useReadingStore } from '@/store'
 import { Card, PageLoader } from '@/components/ui'
+import { formatJournalDate } from '@/features/studyJournal/studyJournal'
+import { formatStudyMinutes, getStudyProgressSummary } from '@/features/studyProgress/studyProgress'
 
 export default function EvolutionPage() {
   const navigate = useNavigate()
   const books = useBooks()
+  const { user } = useAuthStore()
   const { progress } = useReadingStore()
+  const [summary, setSummary] = useState(null)
+
+  useEffect(() => {
+    let active = true
+    getStudyProgressSummary(user?.id).then((result) => {
+      if (active) setSummary(result)
+    })
+    return () => { active = false }
+  }, [user?.id])
 
   if (!books.length) return <PageLoader label="Preparando sua jornada" />
 
@@ -21,13 +34,34 @@ export default function EvolutionPage() {
     <main className="ves-page ves-brand-page pb-28">
       <header className="ves-container pb-7 pt-11">
         <p className="ves-eyebrow">Sua jornada</p>
-        <h1 className="ves-heading mt-2 text-[2.35rem]">Veja onde você está</h1>
+        <h1 className="ves-heading mt-2 text-[2.35rem]">Veja como seu estudo está se formando</h1>
         <p className="mt-3 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">
-          Aqui não há sequência para manter nem ritmo para provar. Este espaço serve apenas para orientar seu caminho.
+          Sem ranking e sem sequência para manter. Aqui você encontra contexto para perceber o que já estudou, o que guardou e de onde pode continuar.
         </p>
       </header>
 
       <div className="ves-container space-y-10 pb-10">
+        <section aria-labelledby="study-summary-heading">
+          <div className="flex items-center gap-3">
+            <CalendarDays size={22} className="text-sage-700 dark:text-sage-300" aria-hidden="true" />
+            <div>
+              <p className="ves-eyebrow">Últimas 4 semanas</p>
+              <h2 id="study-summary-heading" className="ves-heading mt-1 text-[1.75rem]">Seu estudo em contexto</h2>
+            </div>
+          </div>
+
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <SummaryCard icon={CalendarDays} value={summary?.studyDays ?? '—'} label="dias de estudo" />
+            <SummaryCard icon={Clock3} value={summary ? formatStudyMinutes(summary.minutes) : '—'} label="tempo dedicado" />
+            <SummaryCard icon={NotebookPen} value={summary?.notes ?? '—'} label="notas de estudo" />
+            <SummaryCard icon={Quote} value={summary?.reflections ?? '—'} label="reflexões guardadas" />
+          </div>
+
+          <p className="mt-3 text-xs leading-relaxed text-muted dark:text-night-muted">
+            Estes números servem apenas para dar perspectiva. Uma semana mais cheia não diminui o que você já construiu.
+          </p>
+        </section>
+
         {activeBooks.length > 0 ? (
           <section aria-labelledby="current-path-heading">
             <div className="flex items-center gap-3">
@@ -73,6 +107,44 @@ export default function EvolutionPage() {
           </section>
         )}
 
+        {summary?.recentJournal?.length > 0 && (
+          <section className="border-t border-line pt-8 dark:border-night-line" aria-labelledby="recent-study-heading">
+            <p className="ves-eyebrow">Ideias que você guardou</p>
+            <h2 id="recent-study-heading" className="ves-heading mt-1 text-[1.75rem]">Para revisitar</h2>
+            <div className="mt-5 space-y-3">
+              {summary.recentJournal.map((entry) => (
+                <Card key={entry.entryKey} className="p-5">
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+                      {entry.entryType === 'note' ? <NotebookPen size={18} aria-hidden="true" /> : <Quote size={18} aria-hidden="true" />}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-sage-700 dark:text-sage-300">
+                          {entry.entryType === 'note' ? 'Nota de estudo' : 'Reflexão'}
+                        </p>
+                        {entry.entryDate && <span className="text-[11px] text-muted dark:text-night-muted">{formatJournalDate(entry.entryDate)}</span>}
+                      </div>
+                      {entry.sourceTitle && <p className="mt-1 text-sm font-semibold text-ink dark:text-night-ink">{entry.sourceTitle}</p>}
+                      <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted dark:text-night-muted">{entry.text}</p>
+                      {entry.bookId && entry.sectionId && (
+                        <button
+                          type="button"
+                          onClick={() => navigate(`/ler/${entry.bookId}?section=${entry.sectionId}`)}
+                          className="mt-3 inline-flex min-h-9 items-center gap-2 text-sm font-semibold text-sage-800 hover:underline dark:text-sage-300"
+                        >
+                          Voltar ao trecho
+                          <ArrowRight size={16} aria-hidden="true" />
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </section>
+        )}
+
         {completedBooks.length > 0 && (
           <section
             className="border-t border-line pt-8 dark:border-night-line"
@@ -114,13 +186,29 @@ export default function EvolutionPage() {
             <div>
               <h2 id="journey-principle-heading" className="font-semibold text-ink dark:text-night-ink">Um passo de cada vez</h2>
               <p className="mt-2 max-w-lg text-sm leading-relaxed text-muted dark:text-night-muted">
-                O Vereda guarda o ponto onde você parou para que voltar seja simples. Uma pausa não apaga o caminho que você já percorreu.
+                O Vereda guarda seu ponto de leitura, suas notas e suas reflexões para que voltar seja simples. Uma pausa não apaga o caminho que você já percorreu.
               </p>
             </div>
           </div>
         </section>
       </div>
     </main>
+  )
+}
+
+function SummaryCard({ icon: Icon, value, label }) {
+  return (
+    <Card className="h-full p-5">
+      <div className="flex items-start gap-3">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+          <Icon size={18} aria-hidden="true" />
+        </div>
+        <div>
+          <p className="font-display text-[1.65rem] font-semibold leading-none text-ink dark:text-night-ink">{value}</p>
+          <p className="mt-1.5 text-xs leading-relaxed text-muted dark:text-night-muted">{label}</p>
+        </div>
+      </div>
+    </Card>
   )
 }
 

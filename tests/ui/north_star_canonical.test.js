@@ -64,27 +64,30 @@ describe('Vereda North Star canonical screens', () => {
     expect(reader).toContain('A−')
     expect(reader).toContain('A+')
     expect(reader).toContain('Salvar este trecho')
+    expect(reader).toContain('Minha nota neste trecho')
     expect(reader).toContain('BookIndexPanel')
     expect(reader).not.toContain('> Anterior')
   })
 
-  it('makes personal reflection saving explicit and removes ambiguous actions', () => {
+  it('makes personal reflection saving explicit and account-aware', () => {
     expect(reflection).toContain('Reflexão do dia')
     expect(reflection).toContain('Ninguém está bastante adiantado na vida para não aprender, nem tão simples e ignorante que não possa ensinar alguma coisa.')
     expect(reflection).toContain('Emmanuel')
     expect(reflection).toContain('Minha reflexão')
     expect(reflection).toContain('Escreva sua reflexão...')
     expect(reflection).toContain('Salvar minha reflexão')
-    expect(reflection).toContain('Minhas reflexões salvas')
-    expect(reflection).toContain('salvas somente neste dispositivo')
+    expect(reflection).toContain('Minhas reflexões')
+    expect(reflection).toContain('Vinculada à sua conta')
     expect(reflection).toContain('Compartilhar reflexão do dia')
+    expect(reflection).not.toContain('salvas somente neste dispositivo')
     expect(reflection).not.toContain('Heart')
     expect(reflection).not.toContain('MoreHorizontal')
   })
 
-  it('keeps Favorites as one collection view instead of duplicate summaries', () => {
+  it('keeps Favorites as one collection view for passages, notes, and reflections', () => {
     expect(favorites).toContain('Favoritos')
     expect(favorites).toContain('Trechos das obras')
+    expect(favorites).toContain('Notas de estudo')
     expect(favorites).toContain('Minhas reflexões')
     expect(favorites).toContain('CollectionCard')
     expect(favorites).not.toContain('Para revisitar')
