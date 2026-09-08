@@ -20,7 +20,6 @@ import GettingStartedPage from '@/pages/GettingStartedPage'
 import StudyPlanPage from '@/pages/StudyPlanPage'
 import ReflectionPage from '@/pages/ReflectionPage'
 import FavoritesPage from '@/pages/FavoritesPage'
-import CommunityPage from '@/pages/CommunityPage'
 import EvolutionPage from '@/pages/EvolutionPage'
 import SettingsPage from '@/pages/SettingsPage'
 import { getAppFontSize, getThemeColor } from '@/features/ui/displayPreferences'
@@ -78,10 +77,10 @@ export default function App() {
           <Route path="/reflexoes" element={<ProtectedRoute><ReflectionPage /></ProtectedRoute>} />
           <Route path="/favoritos" element={<ProtectedRoute><FavoritesPage /></ProtectedRoute>} />
           <Route path="/notas" element={<ProtectedRoute><StudyNotesPage /></ProtectedRoute>} />
-          <Route path="/comunidade" element={<ProtectedRoute><CommunityPage /></ProtectedRoute>} />
           <Route path="/salvos" element={<ProtectedRoute><SavedPassagesPage /></ProtectedRoute>} />
           <Route path="/evolucao" element={<ProtectedRoute><EvolutionPage /></ProtectedRoute>} />
           <Route path="/configuracoes" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
+          <Route path="/comunidade" element={<Navigate to="/descobrir" replace />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
