@@ -65,8 +65,10 @@ describe('UX-17 final low-tech usability pass', () => {
     expect(store).toContain('const { data, error } = await supabase')
     expect(store).toContain("throw new Error('Entre na sua conta para atualizar seu perfil.')")
     expect(store).toContain('if (error) throw error')
-    expect(store).toContain('const { error } = await supabase.auth.signOut()')
-    expect(store.indexOf('const { error } = await supabase.auth.signOut()')).toBeLessThan(store.indexOf("set({ user: null, profile: null })"))
+
+    const signOutBlock = store.slice(store.indexOf('signOut: async () => {'), store.indexOf('}))\n\nexport const useReadingStore'))
+    expect(signOutBlock).toContain('const { error } = await supabase.auth.signOut()')
+    expect(signOutBlock.indexOf('if (error) throw error')).toBeLessThan(signOutBlock.indexOf("set({ user: null, profile: null })"))
   })
 
   it('keeps the privacy explanation aligned with synced journal data', () => {
