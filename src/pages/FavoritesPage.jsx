@@ -61,14 +61,22 @@ export default function FavoritesPage() {
             icon={NotebookPen}
             title="Notas de estudo"
             count={journalLoading ? null : notes.length}
-            description={notes.length ? 'Volte às ideias e dúvidas que você escreveu durante a leitura.' : 'Quando você fizer uma anotação em um trecho, ela aparecerá aqui.'}
+            description={journalLoading
+              ? 'Carregando suas notas de estudo...'
+              : notes.length
+                ? 'Volte às ideias e dúvidas que você escreveu durante a leitura.'
+                : 'Quando você fizer uma anotação em um trecho, ela aparecerá aqui.'}
             onClick={() => navigate('/notas')}
           />
           <CollectionCard
             icon={Quote}
             title="Minhas reflexões"
             count={journalLoading ? null : reflections.length}
-            description={reflections.length ? 'Releia as reflexões pessoais que você escolheu guardar.' : 'Suas reflexões salvas aparecerão aqui.'}
+            description={journalLoading
+              ? 'Carregando suas reflexões...'
+              : reflections.length
+                ? 'Releia as reflexões pessoais que você escolheu guardar.'
+                : 'Suas reflexões salvas aparecerão aqui.'}
             onClick={() => navigate('/reflexoes')}
           />
         </section>
