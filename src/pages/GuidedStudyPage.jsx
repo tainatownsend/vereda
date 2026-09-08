@@ -109,7 +109,7 @@ export default function GuidedStudyPage() {
                   </div>
 
                   {!book && (
-                    <p className="mt-4 text-xs leading-relaxed text-terracotta-700 dark:text-terracotta-300">
+                    <p className="mt-4 text-xs leading-relaxed text-clay-700 dark:text-clay-300">
                       A obra ainda não foi localizada no catálogo desta conta. A jornada continua disponível assim que o conteúdo carregar.
                     </p>
                   )}
