@@ -16,9 +16,11 @@ export function getStudyWindowStart(days = 28, now = new Date()) {
 }
 
 export async function getStudyProgressSummary(userId) {
+  const windowStart = getStudyWindowStart()
   const journal = await listStudyJournalEntries(userId)
-  const reflections = journal.filter((entry) => entry.entryType === 'reflection')
-  const notes = journal.filter((entry) => entry.entryType === 'note')
+  const journalInWindow = journal.filter((entry) => entry.entryDate && String(entry.entryDate) >= windowStart)
+  const reflections = journalInWindow.filter((entry) => entry.entryType === 'reflection')
+  const notes = journalInWindow.filter((entry) => entry.entryType === 'note')
 
   const fallback = {
     studyDays: 0,
@@ -36,7 +38,7 @@ export async function getStudyProgressSummary(userId) {
       .from('reading_sessions')
       .select('read_at, duration_s, section_id')
       .eq('user_id', userId)
-      .gte('read_at', getStudyWindowStart())
+      .gte('read_at', windowStart)
       .order('read_at', { ascending: false })
 
     if (error) throw error
