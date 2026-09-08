@@ -93,4 +93,20 @@ describe('Vereda 1.2 guided study', () => {
       expect(productCopy).not.toContain(term)
     }
   })
+
+  it('uses only palette families and shades available to the North Star guided-study UI', () => {
+    const guidedPages = `${hub}\n${pathPage}\n${sessionPage}`
+    for (const unsupportedToken of [
+      'terracotta-',
+      'gold-50',
+      'gold-200',
+      'gold-300',
+      'gold-500',
+      'gold-800',
+      'gold-900',
+      'gold-950',
+    ]) {
+      expect(guidedPages).not.toContain(unsupportedToken)
+    }
+  })
 })
