@@ -1,9 +1,9 @@
 import { supabase } from '@/lib/supabase'
 
-const SOURCE_COLUMNS = 'id, book_id, position, chapter_label, title, content_text'
+const SOURCE_COLUMNS = 'id, book_id, sec_position, title, content, kind, part_title, chapter_label, chapter_title, section_title'
 
 function usableSection(section) {
-  return Boolean(String(section?.content_text || '').trim().length >= 80)
+  return Boolean(String(section?.content || '').trim().length >= 80)
 }
 
 function uniqueSections(sections) {
@@ -11,7 +11,7 @@ function uniqueSections(sections) {
   for (const section of sections || []) {
     if (section?.id && usableSection(section)) byId.set(section.id, section)
   }
-  return Array.from(byId.values()).sort((a, b) => Number(a.position || 0) - Number(b.position || 0))
+  return Array.from(byId.values()).sort((a, b) => Number(a.sec_position || 0) - Number(b.sec_position || 0))
 }
 
 async function searchColumn(bookId, column, term) {
@@ -20,8 +20,8 @@ async function searchColumn(bookId, column, term) {
     .select(SOURCE_COLUMNS)
     .eq('book_id', bookId)
     .ilike(column, `%${term}%`)
-    .order('position', { ascending: true })
-    .limit(3)
+    .order('sec_position', { ascending: true })
+    .limit(4)
 
   if (error) throw error
   return uniqueSections(data)
@@ -32,7 +32,7 @@ async function searchByTerms(bookId, terms) {
     const clean = String(term || '').trim()
     if (!clean) continue
 
-    for (const column of ['title', 'chapter_label', 'content_text']) {
+    for (const column of ['title', 'section_title', 'chapter_title', 'chapter_label', 'content']) {
       const found = await searchColumn(bookId, column, clean)
       if (found.length) return found.slice(0, 2)
     }
@@ -40,46 +40,21 @@ async function searchByTerms(bookId, terms) {
   return []
 }
 
-async function fallbackByJourneyPosition(bookId, sessionIndex, totalSessions) {
-  const { count, error: countError } = await supabase
-    .from('sections')
-    .select('id', { count: 'exact', head: true })
-    .eq('book_id', bookId)
-
-  if (countError) throw countError
-  if (!count) return []
-
-  const ratio = totalSessions > 1 ? sessionIndex / (totalSessions - 1) : 0
-  const offset = Math.max(0, Math.min(count - 1, Math.floor(ratio * Math.max(0, count - 1))))
-  const start = Math.max(0, offset - 2)
-  const end = Math.min(count - 1, offset + 8)
-
-  const { data, error } = await supabase
-    .from('sections')
-    .select(SOURCE_COLUMNS)
-    .eq('book_id', bookId)
-    .order('position', { ascending: true })
-    .range(start, end)
-
-  if (error) throw error
-  return uniqueSections(data).slice(0, 2)
-}
-
-export async function fetchGuidedSource(bookId, session, sessionIndex, totalSessions) {
+export async function fetchGuidedSource(bookId, session) {
   if (!bookId || !session) return { sections: [], matchedBy: 'none' }
 
   const matched = await searchByTerms(bookId, session.sourceTerms)
-  if (matched.length) return { sections: matched, matchedBy: 'topic' }
-
-  const fallback = await fallbackByJourneyPosition(bookId, sessionIndex, totalSessions)
-  return { sections: fallback, matchedBy: fallback.length ? 'journey' : 'none' }
+  return {
+    sections: matched,
+    matchedBy: matched.length ? 'topic' : 'none',
+  }
 }
 
 export function sourceHeading(section) {
-  return section?.title || section?.chapter_label || `Trecho ${section?.position || ''}`.trim()
+  return section?.section_title || section?.chapter_title || section?.title || section?.chapter_label || `Trecho ${section?.sec_position || ''}`.trim()
 }
 
 export function sourceMeta(section, bookTitle) {
-  const parts = [bookTitle, section?.chapter_label]
+  const parts = [bookTitle, section?.chapter_label, section?.chapter_title]
   return parts.filter(Boolean).join(' · ')
 }
