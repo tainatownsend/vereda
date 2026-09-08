@@ -4,6 +4,7 @@ import {
   BookOpen,
   CalendarDays,
   Clock3,
+  Compass,
   Leaf,
   Quote,
   Settings2,
@@ -112,6 +113,7 @@ export default function HomePage() {
           </EditorialCard>
         )}
 
+        <GuidedStudyHomeCard navigate={navigate} />
         <QuickActions navigate={navigate} />
 
         <EditorialCard className="northstar-home-quote mt-7 overflow-hidden p-5">
@@ -177,6 +179,30 @@ function NextStudyCard({ book, progress, studyPlan, sessionsThisWeek, navigate }
           <div className="flex min-h-11 items-center gap-2 px-4 py-3">
             <CalendarDays size={15} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
             <span className="text-xs font-medium text-muted dark:text-night-muted">{getWeeklyProgressLabel(studyPlan, sessionsThisWeek)}</span>
+          </div>
+        </div>
+      </EditorialCard>
+    </section>
+  )
+}
+
+function GuidedStudyHomeCard({ navigate }) {
+  return (
+    <section className="mt-6" aria-labelledby="guided-study-home-heading">
+      <EditorialCard className="overflow-hidden p-5">
+        <div className="flex items-start gap-4">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[13px] bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+            <Compass size={20} aria-hidden="true" />
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Estudo guiado</p>
+            <h2 id="guided-study-home-heading" className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">Quer estudar com um caminho mais acompanhado?</h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+              Percorra as cinco obras em encontros curtos: primeiro o texto original, depois orientação, conexões e uma reflexão opcional.
+            </p>
+            <button type="button" onClick={() => navigate('/estudo-guiado')} className="northstar-text-action mt-3 min-h-11">
+              Abrir Estudo Guiado
+            </button>
           </div>
         </div>
       </EditorialCard>
