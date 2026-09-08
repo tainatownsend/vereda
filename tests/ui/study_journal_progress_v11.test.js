@@ -7,10 +7,10 @@ const favorites = readFileSync('src/pages/FavoritesPage.jsx', 'utf8')
 const evolution = readFileSync('src/pages/EvolutionPage.jsx', 'utf8')
 const journal = readFileSync('src/features/studyJournal/studyJournal.js', 'utf8')
 const progress = readFileSync('src/features/studyProgress/studyProgress.js', 'utf8')
-const stagedSchema = readFileSync('supabase/staging/study_journal_foundation.pending.sql', 'utf8')
+const appliedSchema = readFileSync('supabase/staging/study_journal_foundation.applied.sql', 'utf8')
 
 describe('Vereda 1.1 personal study journal', () => {
-  it('supports account sync with local resilience while the schema is staged', () => {
+  it('supports account sync with local resilience after the database gate', () => {
     expect(journal).toContain(".from('study_journal_entries')")
     expect(journal).toContain("entryType: 'reflection'")
     expect(journal).toContain("entryType: 'note'")
@@ -44,11 +44,16 @@ describe('Vereda 1.1 personal study journal', () => {
     expect(progress).toContain(".from('reading_sessions')")
   })
 
-  it('stages an owner-only RLS schema without changing the guarded migration manifest', () => {
-    expect(stagedSchema).toContain('PENDING APPLICATION')
-    expect(stagedSchema).toContain('alter table public.study_journal_entries enable row level security')
-    expect(stagedSchema).toContain('auth.uid() = user_id')
-    expect(stagedSchema).toContain("entry_type in ('reflection', 'note')")
-    expect(stagedSchema).toContain('unique (user_id, entry_key)')
+  it('records the applied owner-only RLS schema outside the guarded migration manifest', () => {
+    expect(appliedSchema).toContain('APPLIED TO PRODUCTION')
+    expect(appliedSchema).toContain('20260908042626 study_journal_foundation')
+    expect(appliedSchema).toContain('20260908042732 study_journal_privilege_hardening')
+    expect(appliedSchema).toContain('20260908042944 study_journal_performance_hardening')
+    expect(appliedSchema).toContain('alter table public.study_journal_entries enable row level security')
+    expect(appliedSchema).toContain('(select auth.uid()) = user_id')
+    expect(appliedSchema).toContain("entry_type in ('reflection', 'note')")
+    expect(appliedSchema).toContain('unique (user_id, entry_key)')
+    expect(appliedSchema).toContain('grant select, insert, update, delete on table public.study_journal_entries to authenticated')
+    expect(appliedSchema).not.toContain('PENDING APPLICATION')
   })
 })
