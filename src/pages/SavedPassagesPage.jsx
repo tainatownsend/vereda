@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, ArrowRight, Bookmark, Trash2 } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Bookmark, RefreshCw, Trash2 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks } from '@/hooks'
@@ -16,6 +16,8 @@ export default function SavedPassagesPage() {
   const savedIds = useMemo(() => getSavedPassageIds(user), [user])
   const [sections, setSections] = useState([])
   const [loading, setLoading] = useState(true)
+  const [loadError, setLoadError] = useState('')
+  const [reloadVersion, setReloadVersion] = useState(0)
   const [status, setStatus] = useState('')
 
   const booksById = useMemo(
@@ -27,6 +29,7 @@ export default function SavedPassagesPage() {
     let active = true
 
     const load = async () => {
+      setLoadError('')
       if (!savedIds.length) {
         setSections([])
         setLoading(false)
@@ -34,12 +37,19 @@ export default function SavedPassagesPage() {
       }
 
       setLoading(true)
-      const { data } = await supabase
+      const { data, error } = await supabase
         .from('sections')
         .select('id, book_id, sec_position, title, chapter_label, chapter_title, section_title, content')
         .in('id', savedIds)
 
       if (!active) return
+
+      if (error) {
+        setSections([])
+        setLoadError('Não foi possível abrir seus trechos salvos agora. Sua lista continua guardada; tente novamente em alguns instantes.')
+        setLoading(false)
+        return
+      }
 
       const byId = Object.fromEntries((data || []).map((section) => [section.id, section]))
       setSections(savedIds.map((id) => byId[id]).filter(Boolean))
@@ -48,7 +58,7 @@ export default function SavedPassagesPage() {
 
     load()
     return () => { active = false }
-  }, [savedIds])
+  }, [reloadVersion, savedIds])
 
   const remove = async (sectionId) => {
     setStatus('')
@@ -67,11 +77,11 @@ export default function SavedPassagesPage() {
       <header className="ves-container pb-7 pt-8">
         <button
           type="button"
-          onClick={() => navigate('/biblioteca')}
+          onClick={() => navigate('/favoritos')}
           className="flex min-h-12 items-center gap-2 rounded-vesSm px-2 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950"
         >
           <ArrowLeft size={19} aria-hidden="true" />
-          Voltar para Obras
+          Voltar aos Favoritos
         </button>
 
         <p className="ves-eyebrow mt-7">Para consultar depois</p>
@@ -88,7 +98,15 @@ export default function SavedPassagesPage() {
           </p>
         )}
 
-        {sections.length ? (
+        {loadError ? (
+          <Card className="p-6 text-center">
+            <p role="alert" className="text-sm leading-relaxed text-muted dark:text-night-muted">{loadError}</p>
+            <Button variant="secondary" className="mt-5" onClick={() => setReloadVersion((value) => value + 1)}>
+              <RefreshCw size={18} aria-hidden="true" />
+              Tentar novamente
+            </Button>
+          </Card>
+        ) : sections.length ? (
           <div className="space-y-4">
             {sections.map((section) => {
               const book = booksById[section.book_id]
@@ -112,7 +130,7 @@ export default function SavedPassagesPage() {
                   )}
 
                   <div className="mt-5 flex flex-col gap-2 sm:flex-row">
-                    <Button onClick={() => navigate(`/trecho/${section.id}`)} className="sm:flex-1">
+                    <Button onClick={() => navigate(`/trecho/${section.id}?from=salvos`)} className="sm:flex-1">
                       Ler este trecho
                       <ArrowRight size={18} aria-hidden="true" />
                     </Button>

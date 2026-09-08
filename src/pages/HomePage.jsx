@@ -139,11 +139,11 @@ function NextStudyCard({ book, progress, studyPlan, sessionsThisWeek, navigate }
     <section className="mt-7" aria-labelledby="next-study-heading">
       <div className="mb-3 flex items-end justify-between gap-3">
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-sage-700 dark:text-sage-300">Seu próximo passo</p>
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-sage-700 dark:text-sage-300">Seu próximo passo</p>
           <h2 id="next-study-heading" className="mt-1 font-display text-[1.35rem] font-semibold text-ink dark:text-night-ink">Continue seu estudo</h2>
         </div>
         {studyPlan && (
-          <button type="button" onClick={() => navigate('/plano-de-estudo')} className="text-xs font-semibold text-sage-700 underline-offset-4 hover:underline dark:text-sage-300">
+          <button type="button" onClick={() => navigate('/plano-de-estudo')} className="min-h-11 text-xs font-semibold text-sage-700 underline-offset-4 hover:underline dark:text-sage-300">
             Ajustar ritmo
           </button>
         )}
@@ -163,20 +163,20 @@ function NextStudyCard({ book, progress, studyPlan, sessionsThisWeek, navigate }
               </p>
               <div className="mt-4 flex items-center gap-3">
                 <ProgressLine value={percentage} className="flex-1" />
-                <span className="text-[11px] font-semibold text-sage-700 dark:text-sage-300">{percentage}%</span>
+                <span className="text-xs font-semibold text-sage-700 dark:text-sage-300">{percentage}%</span>
               </div>
             </div>
           </div>
         </button>
 
         <div className="grid grid-cols-2 border-t border-line/80 bg-surface-soft/45 dark:border-night-line dark:bg-night/25">
-          <div className="flex items-center gap-2 border-r border-line/80 px-4 py-3 dark:border-night-line">
+          <div className="flex min-h-11 items-center gap-2 border-r border-line/80 px-4 py-3 dark:border-night-line">
             <Clock3 size={15} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
-            <span className="text-[11px] font-medium text-muted dark:text-night-muted">{getSessionEstimate(studyPlan)}</span>
+            <span className="text-xs font-medium text-muted dark:text-night-muted">{getSessionEstimate(studyPlan)}</span>
           </div>
-          <div className="flex items-center gap-2 px-4 py-3">
+          <div className="flex min-h-11 items-center gap-2 px-4 py-3">
             <CalendarDays size={15} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
-            <span className="text-[11px] font-medium text-muted dark:text-night-muted">{getWeeklyProgressLabel(studyPlan, sessionsThisWeek)}</span>
+            <span className="text-xs font-medium text-muted dark:text-night-muted">{getWeeklyProgressLabel(studyPlan, sessionsThisWeek)}</span>
           </div>
         </div>
       </EditorialCard>
@@ -200,7 +200,7 @@ function EmptyHome({ navigate }) {
   return (
     <section className="mt-7" aria-labelledby="empty-home-heading">
       <EditorialCard className="p-6">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Seu primeiro passo</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Seu primeiro passo</p>
         <h2 id="empty-home-heading" className="mt-2 font-display text-[1.85rem] font-semibold leading-tight text-ink dark:text-night-ink">
           Você não precisa saber por onde começar.
         </h2>
@@ -208,7 +208,7 @@ function EmptyHome({ navigate }) {
           O Vereda pode sugerir uma primeira direção, sem limitar sua liberdade de explorar as obras.
         </p>
         <Button onClick={() => navigate('/comecar')} className="mt-6 w-full">Ajude-me a começar</Button>
-        <button type="button" onClick={() => navigate('/biblioteca')} className="northstar-text-action mt-2 w-full">Prefiro conhecer as obras primeiro</button>
+        <button type="button" onClick={() => navigate('/biblioteca')} className="northstar-text-action mt-2 min-h-11 w-full">Prefiro conhecer as obras primeiro</button>
       </EditorialCard>
     </section>
   )
@@ -219,10 +219,10 @@ function QuickAction({ icon: Icon, label, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className="flex min-h-[74px] flex-col items-center justify-center gap-2 rounded-[14px] border border-line bg-surface px-1 text-sage-700 dark:border-night-line dark:bg-night-surface dark:text-sage-300"
+      className="flex min-h-[78px] flex-col items-center justify-center gap-2 rounded-[14px] border border-line bg-surface px-2 text-sage-700 dark:border-night-line dark:bg-night-surface dark:text-sage-300"
     >
-      <Icon size={20} strokeWidth={1.7} />
-      <span className="max-w-full text-[9.5px] font-semibold text-ink/80 dark:text-night-muted">{label}</span>
+      <Icon size={20} strokeWidth={1.7} aria-hidden="true" />
+      <span className="max-w-full text-xs font-semibold text-ink/85 dark:text-night-muted">{label}</span>
     </button>
   )
 }

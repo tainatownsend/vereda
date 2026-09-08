@@ -112,14 +112,18 @@ export const useAuthStore = create((set, get) => ({
 
   updateProfile: async (updates) => {
     const { user } = get()
-    if (!user) return
-    const { data } = await supabase
+    if (!user) throw new Error('Entre na sua conta para atualizar seu perfil.')
+
+    const { data, error } = await supabase
       .from('profiles')
       .update(updates)
       .eq('id', user.id)
       .select()
       .single()
+
+    if (error) throw error
     if (data) set({ profile: data })
+    return data || null
   },
 
   updateStudyPlan: async (plan) => {
@@ -239,7 +243,8 @@ export const useAuthStore = create((set, get) => ({
   },
 
   signOut: async () => {
-    await supabase.auth.signOut()
+    const { error } = await supabase.auth.signOut()
+    if (error) throw error
     set({ user: null, profile: null })
   },
 }))

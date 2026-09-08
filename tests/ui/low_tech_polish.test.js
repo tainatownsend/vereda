@@ -34,7 +34,7 @@ describe('low-tech usability polish', () => {
     expect(discover).toContain('onClick={() => onOpen(section.id)}')
     expect(discover).toContain('Ler este trecho')
     expect(discover).toContain('content')
-    expect(passage).toContain('Ler um resultado de busca não muda sua leitura atual')
+    expect(passage).toContain('Ler um trecho avulso não muda sua leitura atual')
     expect(routes).toContain('path="/trecho/:sectionId"')
   })
 

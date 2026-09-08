@@ -27,12 +27,13 @@ function urlBase64ToUint8Array(base64String) {
 }
 
 export function usePushNotifications(userId) {
+  const supported = notificationsSupported()
   const [permission, setPermission] = useState(getInitialPermission)
   const [subscribed, setSubscribed] = useState(false)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if (!userId || !notificationsSupported()) return undefined
+    if (!userId || !supported) return undefined
 
     let cancelled = false
 
@@ -51,7 +52,7 @@ export function usePushNotifications(userId) {
     checkSubscription()
 
     return () => { cancelled = true }
-  }, [userId])
+  }, [supported, userId])
 
   const requestPermission = async () => {
     if (!userId || !notificationsSupported() || !VAPID_PUBLIC_KEY) return false
@@ -96,7 +97,7 @@ export function usePushNotifications(userId) {
   }
 
   const unsubscribe = async () => {
-    if (!userId || !notificationsSupported()) return false
+    if (!userId || !supported) return false
     setLoading(true)
 
     try {
@@ -104,10 +105,11 @@ export function usePushNotifications(userId) {
       const subscription = await reg.pushManager.getSubscription()
       if (subscription) {
         await subscription.unsubscribe()
-        await supabase
+        const { error } = await supabase
           .from('push_subscriptions')
           .delete()
           .eq('user_id', userId)
+        if (error) throw error
       }
       setSubscribed(false)
       return true
@@ -119,5 +121,5 @@ export function usePushNotifications(userId) {
     }
   }
 
-  return { permission, subscribed, loading, requestPermission, unsubscribe }
+  return { supported, permission, subscribed, loading, requestPermission, unsubscribe }
 }
