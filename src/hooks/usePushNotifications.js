@@ -55,7 +55,7 @@ export function usePushNotifications(userId) {
   }, [supported, userId])
 
   const requestPermission = async () => {
-    if (!userId || !supported || !VAPID_PUBLIC_KEY) return false
+    if (!userId || !notificationsSupported() || !VAPID_PUBLIC_KEY) return false
     setLoading(true)
 
     try {
