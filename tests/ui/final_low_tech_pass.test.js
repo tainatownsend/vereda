@@ -4,6 +4,8 @@ import { describe, expect, it } from 'vitest'
 const app = readFileSync('src/App.jsx', 'utf8')
 const favorites = readFileSync('src/pages/FavoritesPage.jsx', 'utf8')
 const notes = readFileSync('src/pages/StudyNotesPage.jsx', 'utf8')
+const saved = readFileSync('src/pages/SavedPassagesPage.jsx', 'utf8')
+const passage = readFileSync('src/pages/PassagePage.jsx', 'utf8')
 const home = readFileSync('src/pages/HomePage.jsx', 'utf8')
 const library = readFileSync('src/pages/LibraryPage.jsx', 'utf8')
 const settings = readFileSync('src/pages/SettingsPage.jsx', 'utf8')
@@ -17,7 +19,17 @@ describe('UX-17 final low-tech usability pass', () => {
     expect(favorites).toContain("navigate('/notas')")
     expect(notes).toContain('Notas de estudo')
     expect(notes).toContain('Abrir trecho de origem')
-    expect(notes).toContain("navigate(`/trecho/${note.sectionId}`)")
+    expect(notes).toContain("navigate(`/trecho/${note.sectionId}?from=notas`)")
+  })
+
+  it('returns people to the saved collection they came from after opening a passage', () => {
+    expect(saved).toContain("navigate(`/trecho/${section.id}?from=salvos`)")
+    expect(passage).toContain("searchParams.get('from')")
+    expect(passage).toContain("if (source === 'notas')")
+    expect(passage).toContain("path: '/notas'")
+    expect(passage).toContain("if (source === 'salvos')")
+    expect(passage).toContain("path: '/salvos'")
+    expect(passage).toContain("path: '/descobrir'")
   })
 
   it('does not flash false zero counts while the journal is still loading', () => {
