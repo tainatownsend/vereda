@@ -176,9 +176,9 @@ export default function GuidedStudySessionPage() {
               <p className="mt-3 text-sm text-muted dark:text-night-muted">Localizando o trecho correspondente na obra…</p>
             </EditorialCard>
           ) : sourceError || !sourceAvailable ? (
-            <EditorialCard className="mt-3 border-terracotta-200 bg-terracotta-50 p-5 dark:border-terracotta-900 dark:bg-terracotta-950/20 sm:p-6">
-              <p role="alert" className="text-sm leading-relaxed text-terracotta-800 dark:text-terracotta-200">{sourceError || 'A fonte deste encontro não está disponível agora.'}</p>
-              <button type="button" onClick={() => setSourceAttempt((value) => value + 1)} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-vesSm border border-terracotta-300 px-4 text-sm font-semibold text-terracotta-800 dark:border-terracotta-800 dark:text-terracotta-200">
+            <EditorialCard className="mt-3 border-clay-200 bg-clay-50 p-5 dark:border-clay-900 dark:bg-clay-950/20 sm:p-6">
+              <p role="alert" className="text-sm leading-relaxed text-clay-800 dark:text-clay-200">{sourceError || 'A fonte deste encontro não está disponível agora.'}</p>
+              <button type="button" onClick={() => setSourceAttempt((value) => value + 1)} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-vesSm border border-clay-300 px-4 text-sm font-semibold text-clay-800 dark:border-clay-800 dark:text-clay-200">
                 <RefreshCw size={16} aria-hidden="true" /> Tentar localizar novamente
               </button>
             </EditorialCard>
@@ -196,12 +196,12 @@ export default function GuidedStudySessionPage() {
             <section className="mt-9" aria-labelledby="understand-title">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">3 · Entenda melhor</p>
-                <span className="rounded-full bg-gold-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-gold-800 dark:bg-gold-950/30 dark:text-gold-300">Orientação de estudo · Vereda</span>
+                <span className="rounded-full bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-gold-700 dark:bg-night-surface dark:text-gold-400">Orientação de estudo · Vereda</span>
               </div>
-              <EditorialCard className="mt-3 border-gold-200/80 bg-gold-50/30 p-5 dark:border-gold-900/60 dark:bg-gold-950/10 sm:p-6">
+              <EditorialCard className="mt-3 border-gold-100 bg-amber-50/40 p-5 dark:border-night-line dark:bg-night-surface/60 sm:p-6">
                 <h2 id="understand-title" className="font-display text-xl font-semibold text-ink dark:text-night-ink">Uma lente para a leitura</h2>
                 <p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{session.understand}</p>
-                <p className="mt-4 border-t border-gold-200/70 pt-4 text-xs leading-relaxed text-muted dark:border-gold-900/50 dark:text-night-muted">
+                <p className="mt-4 border-t border-gold-100 pt-4 text-xs leading-relaxed text-muted dark:border-night-line dark:text-night-muted">
                   Esta é uma orientação editorial do Vereda. Ela não faz parte do texto da obra e não substitui a fonte acima.
                 </p>
               </EditorialCard>
@@ -261,7 +261,7 @@ export default function GuidedStudySessionPage() {
                 type="button"
                 onClick={finishSession}
                 disabled={completing || complete}
-                className={`flex min-h-13 w-full items-center justify-center gap-2 rounded-vesMd px-5 text-base font-semibold transition sm:w-auto ${complete ? 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300' : 'bg-sage-700 text-white hover:bg-sage-800 disabled:opacity-60'}`}
+                className={`flex min-h-12 w-full items-center justify-center gap-2 rounded-vesMd px-5 text-base font-semibold transition sm:w-auto ${complete ? 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300' : 'bg-sage-700 text-white hover:bg-sage-800 disabled:opacity-60'}`}
               >
                 {complete ? <Check size={19} aria-hidden="true" /> : <BookOpen size={19} aria-hidden="true" />}
                 {complete ? 'Encontro concluído' : completing ? 'Salvando…' : 'Concluir encontro'}
