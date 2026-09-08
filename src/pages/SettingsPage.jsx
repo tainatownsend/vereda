@@ -36,6 +36,7 @@ export default function SettingsPage() {
     signOut,
   } = useAuthStore()
   const {
+    supported: pushSupported,
     permission,
     subscribed,
     loading: pushLoading,
@@ -56,6 +57,7 @@ export default function SettingsPage() {
   const [savingName, setSavingName] = useState(false)
   const [savingReminder, setSavingReminder] = useState(false)
   const [sendingPasswordLink, setSendingPasswordLink] = useState(false)
+  const [signingOut, setSigningOut] = useState(false)
   const [status, setStatus] = useState('')
 
   useEffect(() => {
@@ -67,19 +69,31 @@ export default function SettingsPage() {
   }, [profile?.notify_time])
 
   const saveName = async () => {
+    if (savingName) return
     setSavingName(true)
     setStatus('')
-    await updateProfile({ name: name.trim() })
-    setSavingName(false)
-    setStatus('Seu nome foi atualizado.')
+    try {
+      await updateProfile({ name: name.trim() })
+      setStatus('Seu nome foi atualizado.')
+    } catch {
+      setStatus('Não foi possível atualizar seu nome agora. Tente novamente em alguns instantes.')
+    } finally {
+      setSavingName(false)
+    }
   }
 
   const saveReminderTime = async () => {
+    if (savingReminder) return
     setSavingReminder(true)
     setStatus('')
-    await updateProfile({ notify_time: notifyTime })
-    setSavingReminder(false)
-    setStatus('Horário do lembrete atualizado.')
+    try {
+      await updateProfile({ notify_time: notifyTime })
+      setStatus('Horário do lembrete atualizado.')
+    } catch {
+      setStatus('Não foi possível atualizar o horário agora. Tente novamente em alguns instantes.')
+    } finally {
+      setSavingReminder(false)
+    }
   }
 
   const sendPasswordLink = async () => {
@@ -98,8 +112,36 @@ export default function SettingsPage() {
   }
 
   const handleSignOut = async () => {
-    await signOut()
-    navigate('/')
+    if (signingOut) return
+    setSigningOut(true)
+    setStatus('')
+    try {
+      await signOut()
+      navigate('/')
+    } catch {
+      setStatus('Não foi possível sair da conta agora. Tente novamente.')
+      setSigningOut(false)
+    }
+  }
+
+  const handleEnableReminder = async () => {
+    setStatus('')
+    const enabled = await requestPermission()
+    setStatus(
+      enabled
+        ? 'Lembrete gentil ativado.'
+        : 'Não foi possível ativar o lembrete. Verifique a permissão de notificações do navegador e tente novamente.',
+    )
+  }
+
+  const handleDisableReminder = async () => {
+    setStatus('')
+    const disabled = await unsubscribe()
+    setStatus(
+      disabled
+        ? 'Lembretes desativados.'
+        : 'Não foi possível desativar o lembrete agora. Tente novamente em alguns instantes.',
+    )
   }
 
   const updateAppFont = (value) => {
@@ -238,7 +280,11 @@ export default function SettingsPage() {
             O lembrete existe para dizer que sua leitura continua disponível — não para cobrar frequência.
           </p>
 
-          {permission === 'denied' ? (
+          {!pushSupported ? (
+            <p className="mt-4 rounded-vesSm bg-surface-soft p-3 text-sm leading-relaxed text-muted dark:bg-night dark:text-night-muted">
+              Este navegador ou dispositivo não oferece lembretes push para o Vereda. Você pode continuar usando todas as outras partes do aplicativo normalmente.
+            </p>
+          ) : permission === 'denied' ? (
             <p className="mt-4 rounded-vesSm bg-amber-50 p-3 text-sm leading-relaxed text-amber-800 dark:bg-amber-950/30 dark:text-amber-300">
               As notificações estão bloqueadas no navegador. Você pode continuar usando o Vereda normalmente sem elas.
             </p>
@@ -266,10 +312,7 @@ export default function SettingsPage() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  onClick={async () => {
-                    await unsubscribe()
-                    setStatus('Lembretes desativados.')
-                  }}
+                  onClick={handleDisableReminder}
                   loading={pushLoading}
                 >
                   Desativar lembrete
@@ -279,10 +322,7 @@ export default function SettingsPage() {
           ) : (
             <Button
               variant="secondary"
-              onClick={async () => {
-                await requestPermission()
-                setStatus('Pedido de lembrete atualizado.')
-              }}
+              onClick={handleEnableReminder}
               loading={pushLoading}
               className="mt-5"
             >
@@ -294,7 +334,7 @@ export default function SettingsPage() {
 
         <SettingsSection eyebrow="Privacidade e dados" title="O que fica ligado à sua conta" icon={ShieldCheck}>
           <p className="text-sm leading-relaxed text-muted dark:text-night-muted">
-            O Vereda usa sua conta para manter seu progresso de leitura, preferências e trechos salvos disponíveis quando você volta. Essas informações servem para a experiência do próprio aplicativo.
+            O Vereda usa sua conta para manter seu progresso de leitura, preferências, trechos salvos, notas de estudo e reflexões disponíveis quando você volta. Essas informações servem para a experiência do próprio aplicativo.
           </p>
           <p className="mt-3 text-sm leading-relaxed text-muted dark:text-night-muted">
             Antes de adicionarmos recursos como exportação ou exclusão de conta, eles aparecerão aqui com uma explicação clara do que acontece com os seus dados.
@@ -324,14 +364,15 @@ export default function SettingsPage() {
 
         <section aria-labelledby="session-heading" className="pt-2">
           <h2 id="session-heading" className="sr-only">Sessão</h2>
-          <button
-            type="button"
+          <Button
+            variant="secondary"
             onClick={handleSignOut}
-            className="flex min-h-12 w-full items-center justify-center gap-2 rounded-vesSm border border-red-100 bg-surface px-4 text-sm font-semibold text-red-700 hover:bg-red-50 dark:border-red-950 dark:bg-night-surface dark:text-red-300 dark:hover:bg-red-950/30"
+            loading={signingOut}
+            className="w-full border-red-100 text-red-700 hover:bg-red-50 dark:border-red-950 dark:text-red-300 dark:hover:bg-red-950/30"
           >
             <LogOut size={18} aria-hidden="true" />
             Sair da conta
-          </button>
+          </Button>
         </section>
       </div>
     </main>
