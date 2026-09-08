@@ -4,6 +4,7 @@
 -- Ledger:
 --   20260908042626 study_journal_foundation
 --   20260908042732 study_journal_privilege_hardening
+--   20260908042944 study_journal_performance_hardening
 --
 -- This operational record remains outside supabase/migrations because the
 -- reviewed-boundary closed-world migration manifest is intentionally frozen.
@@ -27,9 +28,14 @@ create table if not exists public.study_journal_entries (
 
 create index if not exists idx_study_journal_user_updated
   on public.study_journal_entries (user_id, updated_at desc);
-
 create index if not exists idx_study_journal_user_type
   on public.study_journal_entries (user_id, entry_type, entry_date desc);
+create index if not exists idx_study_journal_book_id
+  on public.study_journal_entries (book_id)
+  where book_id is not null;
+create index if not exists idx_study_journal_section_id
+  on public.study_journal_entries (section_id)
+  where section_id is not null;
 
 alter table public.study_journal_entries enable row level security;
 
@@ -37,26 +43,26 @@ drop policy if exists study_journal_select_own on public.study_journal_entries;
 create policy study_journal_select_own
   on public.study_journal_entries
   for select to authenticated
-  using (auth.uid() = user_id);
+  using ((select auth.uid()) = user_id);
 
 drop policy if exists study_journal_insert_own on public.study_journal_entries;
 create policy study_journal_insert_own
   on public.study_journal_entries
   for insert to authenticated
-  with check (auth.uid() = user_id);
+  with check ((select auth.uid()) = user_id);
 
 drop policy if exists study_journal_update_own on public.study_journal_entries;
 create policy study_journal_update_own
   on public.study_journal_entries
   for update to authenticated
-  using (auth.uid() = user_id)
-  with check (auth.uid() = user_id);
+  using ((select auth.uid()) = user_id)
+  with check ((select auth.uid()) = user_id);
 
 drop policy if exists study_journal_delete_own on public.study_journal_entries;
 create policy study_journal_delete_own
   on public.study_journal_entries
   for delete to authenticated
-  using (auth.uid() = user_id);
+  using ((select auth.uid()) = user_id);
 
 -- Supabase default grants are broader than this feature needs. Revoke first so
 -- TRUNCATE/REFERENCES/TRIGGER cannot bypass the intended owner-only boundary.
