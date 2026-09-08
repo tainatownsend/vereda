@@ -80,7 +80,7 @@ export default function StudyNotesPage() {
                       {note.sectionId ? (
                         <button
                           type="button"
-                          onClick={() => navigate(`/trecho/${note.sectionId}`)}
+                          onClick={() => navigate(`/trecho/${note.sectionId}?from=notas`)}
                           className="northstar-text-action inline-flex min-h-11 items-center gap-2"
                         >
                           <BookOpen size={16} aria-hidden="true" />
