@@ -8,6 +8,7 @@ const home = readFileSync('src/pages/HomePage.jsx', 'utf8')
 const library = readFileSync('src/pages/LibraryPage.jsx', 'utf8')
 const settings = readFileSync('src/pages/SettingsPage.jsx', 'utf8')
 const push = readFileSync('src/hooks/usePushNotifications.js', 'utf8')
+const bottomNav = readFileSync('src/components/ui/BottomNav.jsx', 'utf8')
 
 describe('UX-17 final low-tech usability pass', () => {
   it('gives study notes their own direct destination instead of sending users to progress', () => {
@@ -26,11 +27,13 @@ describe('UX-17 final low-tech usability pass', () => {
     expect(favorites).toContain("{count ?? '—'}")
   })
 
-  it('keeps small supporting text legible on Home and Library', () => {
+  it('keeps small supporting text legible on Home, Library, and primary navigation', () => {
     expect(home).not.toContain('text-[9.5px]')
     expect(home).toContain('text-xs font-semibold text-ink/85')
     expect(library).not.toContain('text-[10px] font-medium')
     expect(library).toContain('text-xs font-medium text-muted')
+    expect(bottomNav).not.toContain('text-[0.66rem]')
+    expect(bottomNav).toContain('text-xs font-medium')
   })
 
   it('explains reminder limitations honestly and surfaces failed actions', () => {
@@ -45,5 +48,11 @@ describe('UX-17 final low-tech usability pass', () => {
 
   it('keeps the privacy explanation aligned with synced journal data', () => {
     expect(settings).toContain('trechos salvos, notas de estudo e reflexões')
+  })
+
+  it('keeps deferred Community out of the v1 experience even on an old deep link', () => {
+    expect(app).not.toContain("import CommunityPage from '@/pages/CommunityPage'")
+    expect(app).toContain('path="/comunidade" element={<Navigate to="/descobrir" replace />}')
+    expect(bottomNav).not.toContain("'/comunidade'")
   })
 })
