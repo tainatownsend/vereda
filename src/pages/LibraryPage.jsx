@@ -114,14 +114,14 @@ function BookJourneyRow({ book, isLast, onOpen }) {
         </span>
       </div>
 
-      <EditorialCard as="button" type="button" onClick={onOpen} className="w-full p-3.5 text-left">
+      <EditorialCard as="button" type="button" onClick={onOpen} className="min-h-[7rem] w-full p-3.5 text-left">
         <div className="flex items-center gap-3.5">
           <BookCover book={book} size="sm" color={accent} />
           <div className="min-w-0 flex-1">
             <p className="font-display text-[1.03rem] font-semibold leading-tight text-ink dark:text-night-ink">{book.title}</p>
             <p className="mt-1 text-xs text-muted dark:text-night-muted">{book.author || 'Allan Kardec'}</p>
             <div className="mt-3">
-              <div className="mb-1.5 flex items-center justify-between gap-3 text-[10px] font-medium text-muted dark:text-night-muted">
+              <div className="mb-1.5 flex items-center justify-between gap-3 text-xs font-medium text-muted dark:text-night-muted">
                 <span>Seu progresso</span>
                 <span className="font-semibold text-sage-700 dark:text-sage-300">{percentage}%</span>
               </div>
