@@ -10,6 +10,7 @@ const home = readFileSync('src/pages/HomePage.jsx', 'utf8')
 const library = readFileSync('src/pages/LibraryPage.jsx', 'utf8')
 const settings = readFileSync('src/pages/SettingsPage.jsx', 'utf8')
 const push = readFileSync('src/hooks/usePushNotifications.js', 'utf8')
+const store = readFileSync('src/store/index.js', 'utf8')
 const bottomNav = readFileSync('src/components/ui/BottomNav.jsx', 'utf8')
 
 describe('UX-17 final low-tech usability pass', () => {
@@ -32,11 +33,13 @@ describe('UX-17 final low-tech usability pass', () => {
     expect(passage).toContain("path: '/descobrir'")
   })
 
-  it('does not flash false zero counts while the journal is still loading', () => {
+  it('does not flash false empty journal copy while Favorites is still loading', () => {
     expect(favorites).toContain('journalLoading')
     expect(favorites).toContain("count={journalLoading ? null : notes.length}")
     expect(favorites).toContain("count={journalLoading ? null : reflections.length}")
     expect(favorites).toContain("{count ?? '—'}")
+    expect(favorites).toContain('Carregando suas notas de estudo...')
+    expect(favorites).toContain('Carregando suas reflexões...')
   })
 
   it('keeps small supporting text legible on Home, Library, and primary navigation', () => {
@@ -56,6 +59,14 @@ describe('UX-17 final low-tech usability pass', () => {
     expect(settings).toContain('Não foi possível desativar o lembrete')
     expect(settings).toContain('Não foi possível atualizar seu nome')
     expect(settings).toContain('Não foi possível atualizar o horário')
+  })
+
+  it('propagates profile and sign-out API failures before the UI reports success', () => {
+    expect(store).toContain('const { data, error } = await supabase')
+    expect(store).toContain("throw new Error('Entre na sua conta para atualizar seu perfil.')")
+    expect(store).toContain('if (error) throw error')
+    expect(store).toContain('const { error } = await supabase.auth.signOut()')
+    expect(store.indexOf('const { error } = await supabase.auth.signOut()')).toBeLessThan(store.indexOf("set({ user: null, profile: null })"))
   })
 
   it('keeps the privacy explanation aligned with synced journal data', () => {
