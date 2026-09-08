@@ -14,6 +14,10 @@ import {
   removeSavedPassageId,
   SAVED_PASSAGE_METADATA_KEY,
 } from '@/features/savedPassages/savedPassages'
+import {
+  GUIDED_STUDY_PROGRESS_KEY,
+  withGuidedSessionComplete,
+} from '@/features/guidedStudy/progress'
 import { getLocalDate } from '@/features/reader/readerService'
 import { STUDY_PLAN_METADATA_KEY } from '@/features/studyPlan/studyPlan'
 
@@ -132,6 +136,20 @@ export const useAuthStore = create((set, get) => ({
 
     const { data, error } = await supabase.auth.updateUser({
       data: { [STUDY_PLAN_METADATA_KEY]: plan },
+    })
+
+    if (error) throw error
+    if (data.user) set({ user: data.user })
+    return data.user || null
+  },
+
+  completeGuidedStudySession: async (pathKey, sessionId) => {
+    const { user } = get()
+    if (!user) throw new Error('Entre na sua conta para salvar o progresso deste estudo.')
+
+    const nextProgress = withGuidedSessionComplete(user, pathKey, sessionId)
+    const { data, error } = await supabase.auth.updateUser({
+      data: { [GUIDED_STUDY_PROGRESS_KEY]: nextProgress },
     })
 
     if (error) throw error
