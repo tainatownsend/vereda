@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "reconciled_at": "2026-09-08",
+  "canonical_execution_path": "supabase_management_migration",
+  "policy": {
+    "production_ddl": "Apply production DDL through the Supabase management migration path, capture the application-time production version, and commit an exact operational record before the related frontend is released.",
+    "repository_migrations": "Files under supabase/migrations are historical/reviewed source artifacts and must not be replayed into production solely because their filename version is absent from the production ledger.",
+    "applied_records": "Management-applied SQL that cannot safely enter the guarded migration manifest is recorded under supabase/staging with an .applied.sql suffix.",
+    "replay_rule": "Every entry marked applied is production state. Reapplying an equivalent repository source under a different timestamp is forbidden."
+  },
+  "entries": [
+    {
+      "name": "book_candidate_voting",
+      "production_version": "20260828101520",
+      "repository_source": "supabase/migrations/20260825062000_book_candidate_voting.sql",
+      "source_blob_sha": "e8e834884a71da135b5fbadf0bb75be00c20cc51",
+      "status": "applied",
+      "replay": "forbidden"
+    },
+    {
+      "name": "book_candidate_backend_hardening",
+      "production_version": "20260828101530",
+      "repository_source": "supabase/migrations/20260828052000_book_candidate_backend_hardening.sql",
+      "source_blob_sha": "790e51d084f09d316d33b838c5ad80644c6dc4aa",
+      "status": "applied",
+      "replay": "forbidden"
+    },
+    {
+      "name": "book_candidate_submit_rpc_fix",
+      "production_version": "20260828101542",
+      "repository_source": "supabase/migrations/20260828053500_book_candidate_submit_rpc_fix.sql",
+      "source_blob_sha": "668bc6aaaa5104499029102450f10eafa82e7893",
+      "status": "applied",
+      "replay": "forbidden"
+    },
+    {
+      "name": "public_database_security_hardening",
+      "production_version": "20260828104212",
+      "repository_source": "supabase/migrations/20260828060000_public_database_security_hardening.sql",
+      "source_blob_sha": "6dc9f594ad3dd763ff24028e4e8fb7d6c43d63db",
+      "status": "applied",
+      "replay": "forbidden"
+    },
+    {
+      "name": "study_journal_foundation",
+      "production_version": "20260908042626",
+      "repository_source": "supabase/staging/study_journal_foundation.applied.sql",
+      "source_blob_sha": "f9c8ba66e5dc35e998b87e06e0e9aeee78185ae4",
+      "status": "applied",
+      "replay": "forbidden"
+    },
+    {
+      "name": "study_journal_privilege_hardening",
+      "production_version": "20260908042732",
+      "repository_source": "supabase/staging/study_journal_foundation.applied.sql",
+      "source_blob_sha": "f9c8ba66e5dc35e998b87e06e0e9aeee78185ae4",
+      "status": "applied",
+      "replay": "forbidden"
+    },
+    {
+      "name": "study_journal_performance_hardening",
+      "production_version": "20260908042944",
+      "repository_source": "supabase/staging/study_journal_foundation.applied.sql",
+      "source_blob_sha": "f9c8ba66e5dc35e998b87e06e0e9aeee78185ae4",
+      "status": "applied",
+      "replay": "forbidden"
+    }
+  ]
+}
