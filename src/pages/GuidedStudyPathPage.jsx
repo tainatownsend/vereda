@@ -66,7 +66,7 @@ export default function GuidedStudyPathPage() {
         </EditorialCard>
 
         {!book && books.length > 0 && (
-          <p role="alert" className="mt-5 rounded-vesMd border border-terracotta-200 bg-terracotta-50 p-4 text-sm leading-relaxed text-terracotta-800 dark:border-terracotta-900 dark:bg-terracotta-950/20 dark:text-terracotta-200">
+          <p role="alert" className="mt-5 rounded-vesMd border border-clay-200 bg-clay-50 p-4 text-sm leading-relaxed text-clay-800 dark:border-clay-900 dark:bg-clay-950/20 dark:text-clay-200">
             Não conseguimos relacionar esta jornada ao texto da obra no catálogo atual. O Vereda não mostrará uma fonte aproximada: tente novamente depois para manter o estudo fiel ao texto original.
           </p>
         )}
