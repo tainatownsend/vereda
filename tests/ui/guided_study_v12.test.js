@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
 import { GUIDED_STUDY_PATHS } from '../../src/features/guidedStudy/catalog.js'
+import { GUIDED_INTEGRATION_PROMPTS } from '../../src/features/guidedStudy/integrationPrompts.js'
 import { GUIDED_SOURCE_MAP } from '../../src/features/guidedStudy/sourceMap.js'
 
 const app = readFileSync('src/App.jsx', 'utf8')
@@ -61,6 +62,15 @@ describe('Vereda 1.2 guided study', () => {
     expect(sourceMap).toContain('sec_position` is deliberately NOT used as a canonical item number')
   })
 
+  it('gives every encounter its own integration exercise', () => {
+    const sessionIds = GUIDED_STUDY_PATHS.flatMap((path) => path.sessions.map((session) => session.id))
+    expect(Object.keys(GUIDED_INTEGRATION_PROMPTS).sort()).toEqual([...sessionIds].sort())
+    for (const sessionId of sessionIds) {
+      expect(GUIDED_INTEGRATION_PROMPTS[sessionId].length).toBeGreaterThan(60)
+    }
+    expect(new Set(Object.values(GUIDED_INTEGRATION_PROMPTS)).size).toBe(40)
+  })
+
   it('presents each encounter as a read-comprehend-reflect-integrate path without reproducing the book', () => {
     for (const step of ['1 · Prepare-se', '2 · Leia', '3 · Compreenda', '4 · Reflita', '5 · Integre', '6 · Continue']) {
       expect(sessionPage).toContain(step)
@@ -69,7 +79,8 @@ describe('Vereda 1.2 guided study', () => {
     expect(sessionPage).toContain('o texto integral continua no Reader, sem ser reproduzido aqui')
     expect(sessionPage).toContain('Orientação de estudo · Vereda')
     expect(sessionPage).toContain('Esta orientação é editorial')
-    expect(sessionPage).toContain('Sem voltar à obra, explique em uma ou duas frases')
+    expect(sessionPage).toContain('getGuidedIntegrationPrompt(session.id)')
+    expect(sessionPage).toContain('A ideia não é acertar de primeira')
     expect(sessionPage).not.toContain('section.content')
     expect(sessionPage).not.toContain('Texto original no corpus do Vereda')
     expect(sessionPage).not.toContain('Trecho ${section?.sec_position')
