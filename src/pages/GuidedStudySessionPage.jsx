@@ -36,13 +36,11 @@ export default function GuidedStudySessionPage() {
 
   useEffect(() => {
     let active = true
-
     const load = async () => {
       if (!path || !session || !book) {
         if (books.length) setSourceLoading(false)
         return
       }
-
       setSourceLoading(true)
       setSourceError('')
       try {
@@ -60,7 +58,6 @@ export default function GuidedStudySessionPage() {
         if (active) setSourceLoading(false)
       }
     }
-
     load()
     return () => { active = false }
   }, [path, session, book, books.length, sourceAttempt])
@@ -79,10 +76,7 @@ export default function GuidedStudySessionPage() {
   }, [user?.id, path, session])
 
   const sourceAvailable = sourceSections.length > 0
-
-  const openSource = (section) => {
-    navigate(`/trecho/${section.id}?from=estudo-guiado&path=${encodeURIComponent(path.key)}&session=${encodeURIComponent(session.id)}`)
-  }
+  const openSource = (section) => navigate(`/trecho/${section.id}?from=estudo-guiado&path=${encodeURIComponent(path.key)}&session=${encodeURIComponent(session.id)}`)
 
   const saveReflection = async () => {
     const value = reflection.trim()
@@ -139,39 +133,26 @@ export default function GuidedStudySessionPage() {
   return (
     <main className="northstar-page pb-28">
       <div className="mx-auto w-full max-w-[760px] px-5 pb-12 pt-7 sm:px-8 sm:pt-10">
-        <button
-          type="button"
-          onClick={() => navigate(`/estudo-guiado/${path.key}`)}
-          className="inline-flex min-h-11 items-center gap-2 rounded-vesSm px-1 text-sm font-semibold text-sage-800 dark:text-sage-300"
-        >
+        <button type="button" onClick={() => navigate(`/estudo-guiado/${path.key}`)} className="inline-flex min-h-11 items-center gap-2 rounded-vesSm px-1 text-sm font-semibold text-sage-800 dark:text-sage-300">
           <ArrowLeft size={18} aria-hidden="true" /> {path.title}
         </button>
 
         <header className="mt-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">
-            Encontro {sessionIndex + 1} de {path.sessions.length} · cerca de {session.minutes} min
-          </p>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Encontro {sessionIndex + 1} de {path.sessions.length} · cerca de {session.minutes} min</p>
           <h1 className="mt-2 font-display text-[2.2rem] font-semibold leading-tight text-ink dark:text-night-ink sm:text-[2.55rem]">{session.title}</h1>
-          <p className="mt-3 text-sm leading-relaxed text-muted dark:text-night-muted">
-            Um caminho para ler, compreender, refletir e integrar — sempre a partir da obra.
-          </p>
+          <p className="mt-3 text-sm leading-relaxed text-muted dark:text-night-muted">Um caminho para ler, compreender, refletir e integrar — sempre a partir da obra.</p>
         </header>
 
-        <section className="mt-8" aria-labelledby="prepare-title">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">1 · Prepare-se</p>
+        <StudyStep number="1" label="Prepare-se">
           <EditorialCard className="mt-3 p-5 sm:p-6">
-            <h2 id="prepare-title" className="font-display text-xl font-semibold text-ink dark:text-night-ink">O que observar</h2>
+            <h2 className="font-display text-xl font-semibold text-ink dark:text-night-ink">O que observar</h2>
             <p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{session.beforeReading}</p>
           </EditorialCard>
-        </section>
+        </StudyStep>
 
-        <section className="mt-9" aria-labelledby="source-title">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">2 · Leia</p>
-          <h2 id="source-title" className="mt-1 font-display text-[1.65rem] font-semibold text-ink dark:text-night-ink">Vá à fonte</h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-            O estudo guiado indica a leitura; o texto integral continua no Reader, sem ser reproduzido aqui.
-          </p>
-
+        <StudyStep number="2" label="Leia">
+          <h2 className="mt-1 font-display text-[1.65rem] font-semibold text-ink dark:text-night-ink">Vá à fonte</h2>
+          <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">O estudo guiado indica a leitura; o texto integral continua no Reader, sem ser reproduzido aqui.</p>
           {sourceLoading ? (
             <EditorialCard className="mt-3 p-6 text-center">
               <RefreshCw className="mx-auto animate-spin text-sage-700 dark:text-sage-300" size={21} aria-hidden="true" />
@@ -180,122 +161,55 @@ export default function GuidedStudySessionPage() {
           ) : sourceError || !sourceAvailable ? (
             <EditorialCard className="mt-3 border-clay-200 bg-clay-50 p-5 dark:border-clay-900 dark:bg-clay-950/20 sm:p-6">
               <p role="alert" className="text-sm leading-relaxed text-clay-800 dark:text-clay-200">{sourceError || 'A referência deste encontro não está disponível agora.'}</p>
-              <button type="button" onClick={() => setSourceAttempt((value) => value + 1)} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-vesSm border border-clay-300 px-4 text-sm font-semibold text-clay-800 dark:border-clay-800 dark:text-clay-200">
-                <RefreshCw size={16} aria-hidden="true" /> Tentar novamente
-              </button>
+              <button type="button" onClick={() => setSourceAttempt((value) => value + 1)} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-vesSm border border-clay-300 px-4 text-sm font-semibold text-clay-800 dark:border-clay-800 dark:text-clay-200"><RefreshCw size={16} aria-hidden="true" /> Tentar novamente</button>
             </EditorialCard>
           ) : (
-            <div className="mt-4 space-y-3">
-              {sourceSections.map((section) => (
-                <SourceReference key={section.id} section={section} bookTitle={book.title} onOpen={() => openSource(section)} />
-              ))}
-            </div>
+            <div className="mt-4 space-y-3">{sourceSections.map((section) => <SourceReference key={section.id} section={section} bookTitle={book.title} onOpen={() => openSource(section)} />)}</div>
           )}
-        </section>
+        </StudyStep>
 
         {sourceAvailable && !sourceLoading && (
           <>
-            <section className="mt-9" aria-labelledby="understand-title">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">3 · Compreenda</p>
-                <span className="rounded-full bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-gold-700 dark:bg-night-surface dark:text-gold-400">Orientação de estudo · Vereda</span>
-              </div>
+            <StudyStep number="3" label="Compreenda">
+              <div className="flex justify-end"><span className="rounded-full bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-gold-700 dark:bg-night-surface dark:text-gold-400">Orientação de estudo · Vereda</span></div>
               <EditorialCard className="mt-3 border-gold-100 bg-amber-50/40 p-5 dark:border-night-line dark:bg-night-surface/60 sm:p-6">
-                <h2 id="understand-title" className="font-display text-xl font-semibold text-ink dark:text-night-ink">Depois da leitura, observe</h2>
+                <h2 className="font-display text-xl font-semibold text-ink dark:text-night-ink">Depois da leitura, observe</h2>
                 <p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{session.understand}</p>
-                <p className="mt-4 border-t border-gold-100 pt-4 text-xs leading-relaxed text-muted dark:border-night-line dark:text-night-muted">
-                  Esta orientação é editorial. Ela não faz parte da obra e não substitui a leitura indicada.
-                </p>
+                <p className="mt-4 border-t border-gold-100 pt-4 text-xs leading-relaxed text-muted dark:border-night-line dark:text-night-muted">Esta orientação é editorial. Ela não faz parte da obra e não substitui a leitura indicada.</p>
               </EditorialCard>
-
               <EditorialCard className="mt-3 p-5 sm:p-6">
                 <div className="flex items-start gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300"><Link2 size={18} aria-hidden="true" /></div>
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Conexão entre obras</p>
-                    <h3 className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">{session.connection.work}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">Este tema também pode ser aprofundado em <strong>{session.connection.theme}</strong>.</p>
-                  </div>
+                  <div><p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Conexão entre obras</p><h3 className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">{session.connection.work}</h3><p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">Aprofunde depois em <strong>{session.connection.theme}</strong>.</p></div>
                 </div>
               </EditorialCard>
-            </section>
+            </StudyStep>
 
-            <section className="mt-9" aria-labelledby="reflection-title">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">4 · Reflita</p>
+            <StudyStep number="4" label="Reflita">
               <EditorialCard className="mt-3 p-5 sm:p-6">
-                <div className="flex items-start gap-3">
-                  <NotebookPen className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" />
-                  <div>
-                    <h2 id="reflection-title" className="font-display text-xl font-semibold text-ink dark:text-night-ink">Pare antes de seguir</h2>
-                    <p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{session.reflectionPrompt}</p>
-                  </div>
-                </div>
-                <textarea
-                  value={reflection}
-                  onChange={(event) => setReflection(event.target.value)}
-                  rows={5}
-                  maxLength={6000}
-                  placeholder="Registre o que fez sentido, uma dúvida ou uma ideia que você quer guardar…"
-                  className="mt-5 w-full resize-y rounded-vesMd border border-line bg-white p-4 text-base leading-relaxed text-ink outline-none transition focus:border-sage-500 focus:ring-2 focus:ring-sage-200 dark:border-night-line dark:bg-night dark:text-night-ink dark:focus:border-sage-500 dark:focus:ring-sage-900"
-                />
-                <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-                  <p className="text-xs text-muted dark:text-night-muted">A reflexão é opcional e fica junto do seu diário de estudo.</p>
-                  <button type="button" onClick={saveReflection} disabled={reflectionSaving || !reflection.trim()} className="inline-flex min-h-11 items-center gap-2 rounded-vesSm border border-sage-300 px-4 text-sm font-semibold text-sage-800 disabled:opacity-50 dark:border-sage-800 dark:text-sage-300">
-                    <NotebookPen size={16} aria-hidden="true" /> {reflectionSaving ? 'Guardando…' : 'Guardar reflexão'}
-                  </button>
-                </div>
+                <div className="flex items-start gap-3"><NotebookPen className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" /><div><h2 className="font-display text-xl font-semibold text-ink dark:text-night-ink">Pare antes de seguir</h2><p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{session.reflectionPrompt}</p></div></div>
+                <textarea value={reflection} onChange={(event) => setReflection(event.target.value)} rows={5} maxLength={6000} placeholder="Registre o que fez sentido, uma dúvida ou uma ideia que você quer guardar…" className="mt-5 w-full resize-y rounded-vesMd border border-line bg-white p-4 text-base leading-relaxed text-ink outline-none transition focus:border-sage-500 focus:ring-2 focus:ring-sage-200 dark:border-night-line dark:bg-night dark:text-night-ink dark:focus:border-sage-500 dark:focus:ring-sage-900" />
+                <div className="mt-3 flex flex-wrap items-center justify-between gap-3"><p className="text-xs text-muted dark:text-night-muted">A reflexão é opcional e fica junto do seu diário de estudo.</p><button type="button" onClick={saveReflection} disabled={reflectionSaving || !reflection.trim()} className="inline-flex min-h-11 items-center gap-2 rounded-vesSm border border-sage-300 px-4 text-sm font-semibold text-sage-800 disabled:opacity-50 dark:border-sage-800 dark:text-sage-300"><NotebookPen size={16} aria-hidden="true" /> {reflectionSaving ? 'Guardando…' : 'Guardar reflexão'}</button></div>
                 {reflectionStatus && <p role="status" aria-live="polite" className="mt-3 text-sm text-sage-800 dark:text-sage-300">{reflectionStatus}</p>}
               </EditorialCard>
-            </section>
+            </StudyStep>
 
-            <section className="mt-9" aria-labelledby="integrate-title">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">5 · Integre</p>
+            <StudyStep number="5" label="Integre">
               <EditorialCard className="mt-3 p-5 sm:p-6">
-                <div className="flex items-start gap-3">
-                  <Sparkles className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" />
-                  <div>
-                    <h2 id="integrate-title" className="font-display text-xl font-semibold text-ink dark:text-night-ink">Assente o ensinamento</h2>
-                    <p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{session.integrationPrompt}</p>
-                  </div>
-                </div>
-                <button type="button" onClick={() => openSource(sourceSections[0])} className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">
-                  Conferir novamente na fonte <ArrowRight size={17} aria-hidden="true" />
-                </button>
+                <div className="flex items-start gap-3"><Sparkles className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" /><div><h2 className="font-display text-xl font-semibold text-ink dark:text-night-ink">Assente o ensinamento</h2><p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">Sem voltar à obra, explique em uma ou duas frases a ideia central deste encontro. Depois confira a leitura indicada e ajuste sua explicação se perceber algo novo.</p></div></div>
+                <button type="button" onClick={() => openSource(sourceSections[0])} className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">Conferir novamente na fonte <ArrowRight size={17} aria-hidden="true" /></button>
               </EditorialCard>
+              <div className="mt-4 flex flex-wrap gap-2" aria-label="Ideias deste encontro">{session.concepts.map((concept) => <span key={concept} className="rounded-full bg-sage-100 px-3 py-1.5 text-xs font-medium text-sage-800 dark:bg-sage-950 dark:text-sage-300">{concept}</span>)}</div>
+            </StudyStep>
 
-              <div className="mt-4 flex flex-wrap gap-2" aria-label="Ideias deste encontro">
-                {session.concepts.map((concept) => <span key={concept} className="rounded-full bg-sage-100 px-3 py-1.5 text-xs font-medium text-sage-800 dark:bg-sage-950 dark:text-sage-300">{concept}</span>)}
-              </div>
-            </section>
-
-            <section className="mt-10 border-t border-line pt-7 dark:border-night-line" aria-labelledby="continue-title">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">6 · Continue</p>
-              <h2 id="continue-title" className="mt-1 font-display text-xl font-semibold text-ink dark:text-night-ink">Feche este encontro no seu ritmo</h2>
-              <button
-                type="button"
-                onClick={finishSession}
-                disabled={completing || complete}
-                className={`mt-4 flex min-h-12 w-full items-center justify-center gap-2 rounded-vesMd px-5 text-base font-semibold transition sm:w-auto ${complete ? 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300' : 'bg-sage-700 text-white hover:bg-sage-800 disabled:opacity-60'}`}
-              >
-                {complete ? <Check size={19} aria-hidden="true" /> : <BookOpen size={19} aria-hidden="true" />}
-                {complete ? 'Encontro concluído' : completing ? 'Salvando…' : 'Concluir encontro'}
+            <StudyStep number="6" label="Continue" className="border-t border-line pt-7 dark:border-night-line">
+              <h2 className="mt-1 font-display text-xl font-semibold text-ink dark:text-night-ink">Feche este encontro no seu ritmo</h2>
+              <button type="button" onClick={finishSession} disabled={completing || complete} className={`mt-4 flex min-h-12 w-full items-center justify-center gap-2 rounded-vesMd px-5 text-base font-semibold transition sm:w-auto ${complete ? 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300' : 'bg-sage-700 text-white hover:bg-sage-800 disabled:opacity-60'}`}>
+                {complete ? <Check size={19} aria-hidden="true" /> : <BookOpen size={19} aria-hidden="true" />}{complete ? 'Encontro concluído' : completing ? 'Salvando…' : 'Concluir encontro'}
               </button>
               {completionStatus && <p role="status" aria-live="polite" className="mt-3 text-sm text-sage-800 dark:text-sage-300">{completionStatus}</p>}
-
-              {nextSession ? (
-                <button type="button" onClick={() => navigate(`/estudo-guiado/${path.key}/${nextSession.id}`)} className="mt-6 flex w-full items-center justify-between gap-4 rounded-vesMd border border-line bg-surface p-4 text-left dark:border-night-line dark:bg-night-surface">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Próximo encontro</p>
-                    <p className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">{nextSession.title}</p>
-                  </div>
-                  <ArrowRight className="shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" />
-                </button>
-              ) : (
-                <button type="button" onClick={() => navigate(`/estudo-guiado/${path.key}`)} className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">
-                  Ver jornada completa <ArrowRight size={17} aria-hidden="true" />
-                </button>
-              )}
-            </section>
+              {nextSession ? <button type="button" onClick={() => navigate(`/estudo-guiado/${path.key}/${nextSession.id}`)} className="mt-6 flex w-full items-center justify-between gap-4 rounded-vesMd border border-line bg-surface p-4 text-left dark:border-night-line dark:bg-night-surface"><div><p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Próximo encontro</p><p className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">{nextSession.title}</p></div><ArrowRight className="shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" /></button> : <button type="button" onClick={() => navigate(`/estudo-guiado/${path.key}`)} className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">Ver jornada completa <ArrowRight size={17} aria-hidden="true" /></button>}
+            </StudyStep>
           </>
         )}
       </div>
@@ -303,20 +217,20 @@ export default function GuidedStudySessionPage() {
   )
 }
 
+function StudyStep({ number, label, children, className = '' }) {
+  return <section className={`mt-9 ${className}`.trim()}><p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">{number} · {label}</p>{children}</section>
+}
+
 function SourceReference({ section, bookTitle, onOpen }) {
   return (
     <EditorialCard className="p-5 sm:p-6">
       <div className="flex items-start gap-4">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[13px] bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
-          <BookOpen size={20} aria-hidden="true" />
-        </div>
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[13px] bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300"><BookOpen size={20} aria-hidden="true" /></div>
         <div className="min-w-0 flex-1">
           <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Leitura indicada</p>
           <h3 className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">{sourceHeading(section)}</h3>
           <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">{sourceMeta(section, bookTitle)}</p>
-          <button type="button" onClick={onOpen} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-vesSm bg-sage-700 px-4 text-sm font-semibold text-white hover:bg-sage-800">
-            Abrir esta leitura <ArrowRight size={17} aria-hidden="true" />
-          </button>
+          <button type="button" onClick={onOpen} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-vesSm bg-sage-700 px-4 text-sm font-semibold text-white hover:bg-sage-800">Abrir esta leitura <ArrowRight size={17} aria-hidden="true" /></button>
         </div>
       </div>
     </EditorialCard>
