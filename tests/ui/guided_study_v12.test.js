@@ -72,8 +72,8 @@ describe('Vereda 1.2 guided study', () => {
   })
 
   it('presents each encounter as a read-comprehend-reflect-integrate path without reproducing the book', () => {
-    for (const step of ['1 · Prepare-se', '2 · Leia', '3 · Compreenda', '4 · Reflita', '5 · Integre', '6 · Continue']) {
-      expect(sessionPage).toContain(step)
+    for (const [number, label] of [['1', 'Prepare-se'], ['2', 'Leia'], ['3', 'Compreenda'], ['4', 'Reflita'], ['5', 'Integre'], ['6', 'Continue']]) {
+      expect(sessionPage).toContain(`<StudyStep number="${number}" label="${label}"`)
     }
     expect(sessionPage).toContain('Abrir esta leitura')
     expect(sessionPage).toContain('o texto integral continua no Reader, sem ser reproduzido aqui')
