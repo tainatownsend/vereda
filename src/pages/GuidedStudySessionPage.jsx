@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, ArrowRight, BookOpen, Check, Link2, NotebookPen, RefreshCw } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { ArrowLeft, ArrowRight, BookOpen, Check, Link2, NotebookPen, RefreshCw, Sparkles } from 'lucide-react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { EditorialCard } from '@/components/northstar/NorthStarUI'
@@ -50,12 +50,12 @@ export default function GuidedStudySessionPage() {
         if (!active) return
         setSourceSections(result.sections)
         if (!result.sections.length) {
-          setSourceError('Não localizamos com segurança o trecho correspondente a este encontro. Para manter o estudo fiel à obra, não vamos substituir a fonte por um trecho aproximado.')
+          setSourceError('A referência deste encontro não pôde ser confirmada no corpus. Para manter o estudo fiel à obra, o Vereda não vai indicar uma leitura aproximada.')
         }
       } catch {
         if (!active) return
         setSourceSections([])
-        setSourceError('Não foi possível consultar o texto da obra agora. Tente novamente.')
+        setSourceError('Não foi possível consultar a referência da obra agora. Tente novamente.')
       } finally {
         if (active) setSourceLoading(false)
       }
@@ -79,6 +79,10 @@ export default function GuidedStudySessionPage() {
   }, [user?.id, path, session])
 
   const sourceAvailable = sourceSections.length > 0
+
+  const openSource = (section) => {
+    navigate(`/trecho/${section.id}?from=estudo-guiado&path=${encodeURIComponent(path.key)}&session=${encodeURIComponent(session.id)}`)
+  }
 
   const saveReflection = async () => {
     const value = reflection.trim()
@@ -149,43 +153,41 @@ export default function GuidedStudySessionPage() {
           </p>
           <h1 className="mt-2 font-display text-[2.2rem] font-semibold leading-tight text-ink dark:text-night-ink sm:text-[2.55rem]">{session.title}</h1>
           <p className="mt-3 text-sm leading-relaxed text-muted dark:text-night-muted">
-            {path.title} · a leitura da obra é sempre a referência principal deste encontro.
+            Um caminho para ler, compreender, refletir e integrar — sempre a partir da obra.
           </p>
         </header>
 
-        <section className="mt-8" aria-labelledby="before-reading-title">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">1 · Antes de ler</p>
+        <section className="mt-8" aria-labelledby="prepare-title">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">1 · Prepare-se</p>
           <EditorialCard className="mt-3 p-5 sm:p-6">
-            <h2 id="before-reading-title" className="font-display text-xl font-semibold text-ink dark:text-night-ink">O que observar</h2>
+            <h2 id="prepare-title" className="font-display text-xl font-semibold text-ink dark:text-night-ink">O que observar</h2>
             <p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{session.beforeReading}</p>
           </EditorialCard>
         </section>
 
         <section className="mt-9" aria-labelledby="source-title">
-          <div className="flex items-end justify-between gap-4">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">2 · Na fonte</p>
-              <h2 id="source-title" className="mt-1 font-display text-[1.65rem] font-semibold text-ink dark:text-night-ink">Leia na obra</h2>
-            </div>
-            <span className="rounded-full border border-sage-200 bg-sage-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-sage-800 dark:border-sage-900 dark:bg-sage-950 dark:text-sage-300">Texto da obra</span>
-          </div>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">2 · Leia</p>
+          <h2 id="source-title" className="mt-1 font-display text-[1.65rem] font-semibold text-ink dark:text-night-ink">Vá à fonte</h2>
+          <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+            O estudo guiado indica a leitura; o texto integral continua no Reader, sem ser reproduzido aqui.
+          </p>
 
           {sourceLoading ? (
             <EditorialCard className="mt-3 p-6 text-center">
               <RefreshCw className="mx-auto animate-spin text-sage-700 dark:text-sage-300" size={21} aria-hidden="true" />
-              <p className="mt-3 text-sm text-muted dark:text-night-muted">Localizando o trecho correspondente na obra…</p>
+              <p className="mt-3 text-sm text-muted dark:text-night-muted">Confirmando a referência no corpus…</p>
             </EditorialCard>
           ) : sourceError || !sourceAvailable ? (
             <EditorialCard className="mt-3 border-clay-200 bg-clay-50 p-5 dark:border-clay-900 dark:bg-clay-950/20 sm:p-6">
-              <p role="alert" className="text-sm leading-relaxed text-clay-800 dark:text-clay-200">{sourceError || 'A fonte deste encontro não está disponível agora.'}</p>
+              <p role="alert" className="text-sm leading-relaxed text-clay-800 dark:text-clay-200">{sourceError || 'A referência deste encontro não está disponível agora.'}</p>
               <button type="button" onClick={() => setSourceAttempt((value) => value + 1)} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-vesSm border border-clay-300 px-4 text-sm font-semibold text-clay-800 dark:border-clay-800 dark:text-clay-200">
-                <RefreshCw size={16} aria-hidden="true" /> Tentar localizar novamente
+                <RefreshCw size={16} aria-hidden="true" /> Tentar novamente
               </button>
             </EditorialCard>
           ) : (
-            <div className="mt-3 space-y-4">
+            <div className="mt-4 space-y-3">
               {sourceSections.map((section) => (
-                <SourcePassage key={section.id} section={section} bookTitle={book.title} onOpen={() => navigate(`/trecho/${section.id}?from=estudo-guiado&path=${encodeURIComponent(path.key)}&session=${encodeURIComponent(session.id)}`)} />
+                <SourceReference key={section.id} section={section} bookTitle={book.title} onOpen={() => openSource(section)} />
               ))}
             </div>
           )}
@@ -195,25 +197,23 @@ export default function GuidedStudySessionPage() {
           <>
             <section className="mt-9" aria-labelledby="understand-title">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">3 · Entenda melhor</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">3 · Compreenda</p>
                 <span className="rounded-full bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-gold-700 dark:bg-night-surface dark:text-gold-400">Orientação de estudo · Vereda</span>
               </div>
               <EditorialCard className="mt-3 border-gold-100 bg-amber-50/40 p-5 dark:border-night-line dark:bg-night-surface/60 sm:p-6">
-                <h2 id="understand-title" className="font-display text-xl font-semibold text-ink dark:text-night-ink">Uma lente para a leitura</h2>
+                <h2 id="understand-title" className="font-display text-xl font-semibold text-ink dark:text-night-ink">Depois da leitura, observe</h2>
                 <p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{session.understand}</p>
                 <p className="mt-4 border-t border-gold-100 pt-4 text-xs leading-relaxed text-muted dark:border-night-line dark:text-night-muted">
-                  Esta é uma orientação editorial do Vereda. Ela não faz parte do texto da obra e não substitui a fonte acima.
+                  Esta orientação é editorial. Ela não faz parte da obra e não substitui a leitura indicada.
                 </p>
               </EditorialCard>
-            </section>
 
-            <section className="mt-9" aria-labelledby="connection-title">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">4 · Faça a conexão</p>
               <EditorialCard className="mt-3 p-5 sm:p-6">
                 <div className="flex items-start gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300"><Link2 size={18} aria-hidden="true" /></div>
                   <div>
-                    <h2 id="connection-title" className="font-display text-xl font-semibold text-ink dark:text-night-ink">{session.connection.work}</h2>
+                    <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Conexão entre obras</p>
+                    <h3 className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">{session.connection.work}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">Este tema também pode ser aprofundado em <strong>{session.connection.theme}</strong>.</p>
                   </div>
                 </div>
@@ -221,12 +221,12 @@ export default function GuidedStudySessionPage() {
             </section>
 
             <section className="mt-9" aria-labelledby="reflection-title">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">5 · Reflita</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">4 · Reflita</p>
               <EditorialCard className="mt-3 p-5 sm:p-6">
                 <div className="flex items-start gap-3">
                   <NotebookPen className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" />
                   <div>
-                    <h2 id="reflection-title" className="font-display text-xl font-semibold text-ink dark:text-night-ink">Com suas próprias palavras</h2>
+                    <h2 id="reflection-title" className="font-display text-xl font-semibold text-ink dark:text-night-ink">Pare antes de seguir</h2>
                     <p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{session.reflectionPrompt}</p>
                   </div>
                 </div>
@@ -235,7 +235,7 @@ export default function GuidedStudySessionPage() {
                   onChange={(event) => setReflection(event.target.value)}
                   rows={5}
                   maxLength={6000}
-                  placeholder="Escreva apenas se fizer sentido para você…"
+                  placeholder="Registre o que fez sentido, uma dúvida ou uma ideia que você quer guardar…"
                   className="mt-5 w-full resize-y rounded-vesMd border border-line bg-white p-4 text-base leading-relaxed text-ink outline-none transition focus:border-sage-500 focus:ring-2 focus:ring-sage-200 dark:border-night-line dark:bg-night dark:text-night-ink dark:focus:border-sage-500 dark:focus:ring-sage-900"
                 />
                 <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
@@ -248,20 +248,34 @@ export default function GuidedStudySessionPage() {
               </EditorialCard>
             </section>
 
-            <section className="mt-9" aria-labelledby="concepts-title">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Ideias deste encontro</p>
-              <h2 id="concepts-title" className="sr-only">Conceitos relacionados</h2>
-              <div className="mt-3 flex flex-wrap gap-2">
+            <section className="mt-9" aria-labelledby="integrate-title">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">5 · Integre</p>
+              <EditorialCard className="mt-3 p-5 sm:p-6">
+                <div className="flex items-start gap-3">
+                  <Sparkles className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" />
+                  <div>
+                    <h2 id="integrate-title" className="font-display text-xl font-semibold text-ink dark:text-night-ink">Assente o ensinamento</h2>
+                    <p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{session.integrationPrompt}</p>
+                  </div>
+                </div>
+                <button type="button" onClick={() => openSource(sourceSections[0])} className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">
+                  Conferir novamente na fonte <ArrowRight size={17} aria-hidden="true" />
+                </button>
+              </EditorialCard>
+
+              <div className="mt-4 flex flex-wrap gap-2" aria-label="Ideias deste encontro">
                 {session.concepts.map((concept) => <span key={concept} className="rounded-full bg-sage-100 px-3 py-1.5 text-xs font-medium text-sage-800 dark:bg-sage-950 dark:text-sage-300">{concept}</span>)}
               </div>
             </section>
 
-            <section className="mt-10 border-t border-line pt-7 dark:border-night-line">
+            <section className="mt-10 border-t border-line pt-7 dark:border-night-line" aria-labelledby="continue-title">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">6 · Continue</p>
+              <h2 id="continue-title" className="mt-1 font-display text-xl font-semibold text-ink dark:text-night-ink">Feche este encontro no seu ritmo</h2>
               <button
                 type="button"
                 onClick={finishSession}
                 disabled={completing || complete}
-                className={`flex min-h-12 w-full items-center justify-center gap-2 rounded-vesMd px-5 text-base font-semibold transition sm:w-auto ${complete ? 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300' : 'bg-sage-700 text-white hover:bg-sage-800 disabled:opacity-60'}`}
+                className={`mt-4 flex min-h-12 w-full items-center justify-center gap-2 rounded-vesMd px-5 text-base font-semibold transition sm:w-auto ${complete ? 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300' : 'bg-sage-700 text-white hover:bg-sage-800 disabled:opacity-60'}`}
               >
                 {complete ? <Check size={19} aria-hidden="true" /> : <BookOpen size={19} aria-hidden="true" />}
                 {complete ? 'Encontro concluído' : completing ? 'Salvando…' : 'Concluir encontro'}
@@ -289,23 +303,21 @@ export default function GuidedStudySessionPage() {
   )
 }
 
-function SourcePassage({ section, bookTitle, onOpen }) {
-  const paragraphs = useMemo(() => String(section.content || '').split(/\n\n/).map((item) => item.trim()).filter(Boolean), [section.content])
-
+function SourceReference({ section, bookTitle, onOpen }) {
   return (
-    <EditorialCard className="overflow-hidden">
-      <div className="border-b border-line bg-sage-50/60 px-5 py-4 dark:border-night-line dark:bg-sage-950/20 sm:px-6">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Texto original no corpus do Vereda</p>
-        <h3 className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">{sourceHeading(section)}</h3>
-        <p className="mt-1 text-xs text-muted dark:text-night-muted">{sourceMeta(section, bookTitle)}</p>
-      </div>
-      <article className="px-5 py-6 font-display text-[19px] leading-[1.8] text-ink dark:text-night-ink sm:px-7">
-        {paragraphs.map((paragraph, index) => <p key={`${section.id}-${index}`} className="mb-6 last:mb-0">{paragraph}</p>)}
-      </article>
-      <div className="border-t border-line px-5 py-4 dark:border-night-line sm:px-6">
-        <button type="button" onClick={onOpen} className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">
-          Abrir trecho na obra <ArrowRight size={17} aria-hidden="true" />
-        </button>
+    <EditorialCard className="p-5 sm:p-6">
+      <div className="flex items-start gap-4">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[13px] bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+          <BookOpen size={20} aria-hidden="true" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Leitura indicada</p>
+          <h3 className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">{sourceHeading(section)}</h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">{sourceMeta(section, bookTitle)}</p>
+          <button type="button" onClick={onOpen} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-vesSm bg-sage-700 px-4 text-sm font-semibold text-white hover:bg-sage-800">
+            Abrir esta leitura <ArrowRight size={17} aria-hidden="true" />
+          </button>
+        </div>
       </div>
     </EditorialCard>
   )
