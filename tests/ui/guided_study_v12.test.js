@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 
 import { GUIDED_STUDY_PATHS } from '../../src/features/guidedStudy/catalog.js'
+import { GUIDED_SOURCE_MAP } from '../../src/features/guidedStudy/sourceMap.js'
 
 const app = readFileSync('src/App.jsx', 'utf8')
 const home = readFileSync('src/pages/HomePage.jsx', 'utf8')
@@ -10,6 +11,7 @@ const hub = readFileSync('src/pages/GuidedStudyPage.jsx', 'utf8')
 const pathPage = readFileSync('src/pages/GuidedStudyPathPage.jsx', 'utf8')
 const sessionPage = readFileSync('src/pages/GuidedStudySessionPage.jsx', 'utf8')
 const sourceService = readFileSync('src/features/guidedStudy/sourceService.js', 'utf8')
+const sourceMap = readFileSync('src/features/guidedStudy/sourceMap.js', 'utf8')
 const progress = readFileSync('src/features/guidedStudy/progress.js', 'utf8')
 const journal = readFileSync('src/features/studyJournal/studyJournal.js', 'utf8')
 const passage = readFileSync('src/pages/PassagePage.jsx', 'utf8')
@@ -31,10 +33,8 @@ describe('Vereda 1.2 guided study', () => {
 
     for (const path of GUIDED_STUDY_PATHS) {
       expect(path.sessions).toHaveLength(8)
-      expect(path.aliases.length).toBeGreaterThan(0)
       for (const session of path.sessions) {
         expect(session.minutes).toBeGreaterThanOrEqual(10)
-        expect(session.sourceTerms.length).toBeGreaterThan(0)
         expect(session.beforeReading.length).toBeGreaterThan(30)
         expect(session.understand.length).toBeGreaterThan(30)
         expect(session.reflectionPrompt.length).toBeGreaterThan(20)
@@ -45,16 +45,34 @@ describe('Vereda 1.2 guided study', () => {
     }
   })
 
-  it('keeps source text ahead of editorial guidance and refuses unrelated fallback passages', () => {
-    expect(sessionPage.indexOf('2 · Na fonte')).toBeLessThan(sessionPage.indexOf('3 · Entenda melhor'))
-    expect(sessionPage).toContain('Texto original no corpus do Vereda')
+  it('pins every encounter to explicit Reader sections instead of searching for an approximate passage', () => {
+    const sessionIds = GUIDED_STUDY_PATHS.flatMap((path) => path.sessions.map((session) => session.id))
+    expect(Object.keys(GUIDED_SOURCE_MAP).sort()).toEqual([...sessionIds].sort())
+    for (const sessionId of sessionIds) {
+      expect(GUIDED_SOURCE_MAP[sessionId].length).toBeGreaterThan(0)
+      for (const sectionId of GUIDED_SOURCE_MAP[sessionId]) expect(sectionId).toBeTypeOf('number')
+    }
+
+    expect(sourceService).toContain(".in('id', pinnedIds)")
+    expect(sourceService).toContain("matchedBy: 'pinned'")
+    expect(sourceService).toContain('ordered.length !== pinnedIds.length')
+    expect(sourceService).not.toContain('.ilike(')
+    expect(sourceService).not.toContain("'content'")
+    expect(sourceMap).toContain('sec_position` is deliberately NOT used as a canonical item number')
+  })
+
+  it('presents each encounter as a read-comprehend-reflect-integrate path without reproducing the book', () => {
+    for (const step of ['1 · Prepare-se', '2 · Leia', '3 · Compreenda', '4 · Reflita', '5 · Integre', '6 · Continue']) {
+      expect(sessionPage).toContain(step)
+    }
+    expect(sessionPage).toContain('Abrir esta leitura')
+    expect(sessionPage).toContain('o texto integral continua no Reader, sem ser reproduzido aqui')
     expect(sessionPage).toContain('Orientação de estudo · Vereda')
-    expect(sessionPage).toContain('não faz parte do texto da obra e não substitui a fonte acima')
-    expect(sessionPage).toContain('não vamos substituir a fonte por um trecho aproximado')
-    expect(sourceService).toContain("matchedBy: matched.length ? 'topic' : 'none'")
-    expect(sourceService).not.toContain('fallbackByJourneyPosition')
-    expect(sourceService).not.toContain("matchedBy: 'journey'")
-    expect(sourceService).toContain("'id, book_id, sec_position, title, content")
+    expect(sessionPage).toContain('Esta orientação é editorial')
+    expect(sessionPage).toContain('Sem voltar à obra, explique em uma ou duas frases')
+    expect(sessionPage).not.toContain('section.content')
+    expect(sessionPage).not.toContain('Texto original no corpus do Vereda')
+    expect(sessionPage).not.toContain('Trecho ${section?.sec_position')
   })
 
   it('makes guided study discoverable without replacing normal reading', () => {
@@ -80,7 +98,7 @@ describe('Vereda 1.2 guided study', () => {
   })
 
   it('opens the exact source passage and returns to the same guided encounter', () => {
-    expect(sessionPage).toContain('Abrir trecho na obra')
+    expect(sessionPage).toContain('Abrir esta leitura')
     expect(sessionPage).toContain('?from=estudo-guiado&path=')
     expect(passage).toContain("source === 'estudo-guiado'")
     expect(passage).toContain('Voltar ao encontro')
@@ -89,23 +107,12 @@ describe('Vereda 1.2 guided study', () => {
 
   it('does not introduce competitive or school-like mechanics into guided study', () => {
     const productCopy = `${hub}\n${pathPage}\n${sessionPage}`.toLocaleLowerCase('pt-BR')
-    for (const term of ['ranking', 'pontuação', 'liga', 'quiz', 'perdeu sua sequência']) {
-      expect(productCopy).not.toContain(term)
-    }
+    for (const term of ['ranking', 'pontuação', 'liga', 'quiz', 'perdeu sua sequência']) expect(productCopy).not.toContain(term)
   })
 
   it('uses only palette families and shades available to the North Star guided-study UI', () => {
     const guidedPages = `${hub}\n${pathPage}\n${sessionPage}`
-    for (const unsupportedToken of [
-      'terracotta-',
-      'gold-50',
-      'gold-200',
-      'gold-300',
-      'gold-500',
-      'gold-800',
-      'gold-900',
-      'gold-950',
-    ]) {
+    for (const unsupportedToken of ['terracotta-', 'gold-50', 'gold-200', 'gold-300', 'gold-500', 'gold-800', 'gold-900', 'gold-950']) {
       expect(guidedPages).not.toContain(unsupportedToken)
     }
   })
