@@ -73,6 +73,24 @@ export default async function handler(req, res) {
       order: 'display_order.asc',
     })
 
+    const inspectBook = Number(req.query?.inspectBook || 0)
+    if (inspectBook) {
+      const book = books.find((item) => Number(item.id) === inspectBook)
+      if (!book) return json(res, 404, { ok: false, error: 'book_not_found' })
+      const sections = await restGet(baseUrl, key, 'sections', {
+        select: SELECT,
+        book_id: `eq.${inspectBook}`,
+        kind: 'eq.content',
+        order: 'sec_position.asc',
+      })
+      return json(res, 200, {
+        ok: true,
+        book: { id: book.id, title: book.title },
+        count: sections.length,
+        references: sections.map((section) => readableReference(section, book.title)),
+      })
+    }
+
     const requestedSession = String(req.query?.session || '').trim()
     const paths = []
 
