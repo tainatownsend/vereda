@@ -1,60 +1,43 @@
 import { supabase } from '@/lib/supabase'
+import { getGuidedSourceIds } from '@/features/guidedStudy/sourceMap'
 
-const SOURCE_COLUMNS = 'id, book_id, sec_position, title, content, kind, part_title, chapter_label, chapter_title, section_title'
+const SOURCE_COLUMNS = 'id, book_id, sec_position, title, kind, part_title, chapter_label, chapter_title, section_title'
 
-function usableSection(section) {
-  return Boolean(String(section?.content || '').trim().length >= 80)
+function orderPinnedSections(sections, pinnedIds) {
+  const byId = new Map((sections || []).map((section) => [Number(section.id), section]))
+  return pinnedIds.map((id) => byId.get(Number(id))).filter(Boolean)
 }
 
-function uniqueSections(sections) {
-  const byId = new Map()
-  for (const section of sections || []) {
-    if (section?.id && usableSection(section)) byId.set(section.id, section)
-  }
-  return Array.from(byId.values()).sort((a, b) => Number(a.sec_position || 0) - Number(b.sec_position || 0))
-}
+export async function fetchGuidedSource(bookId, session) {
+  if (!bookId || !session?.id) return { sections: [], matchedBy: 'none' }
 
-async function searchColumn(bookId, column, term) {
+  const pinnedIds = getGuidedSourceIds(session.id)
+  if (!pinnedIds.length) return { sections: [], matchedBy: 'none' }
+
   const { data, error } = await supabase
     .from('sections')
     .select(SOURCE_COLUMNS)
     .eq('book_id', bookId)
-    .ilike(column, `%${term}%`)
-    .order('sec_position', { ascending: true })
-    .limit(4)
+    .in('id', pinnedIds)
 
   if (error) throw error
-  return uniqueSections(data)
-}
 
-async function searchByTerms(bookId, terms) {
-  for (const term of terms || []) {
-    const clean = String(term || '').trim()
-    if (!clean) continue
+  const ordered = orderPinnedSections(data, pinnedIds)
+  // Fail closed if even one curated anchor is absent or belongs to another book.
+  if (ordered.length !== pinnedIds.length) return { sections: [], matchedBy: 'none' }
 
-    for (const column of ['title', 'section_title', 'chapter_title', 'chapter_label', 'content']) {
-      const found = await searchColumn(bookId, column, clean)
-      if (found.length) return found.slice(0, 2)
-    }
-  }
-  return []
-}
-
-export async function fetchGuidedSource(bookId, session) {
-  if (!bookId || !session) return { sections: [], matchedBy: 'none' }
-
-  const matched = await searchByTerms(bookId, session.sourceTerms)
   return {
-    sections: matched,
-    matchedBy: matched.length ? 'topic' : 'none',
+    sections: ordered,
+    matchedBy: 'pinned',
   }
 }
 
 export function sourceHeading(section) {
-  return section?.section_title || section?.chapter_title || section?.title || section?.chapter_label || `Trecho ${section?.sec_position || ''}`.trim()
+  return section?.section_title || section?.chapter_title || section?.title || section?.chapter_label || 'Leitura indicada'
 }
 
 export function sourceMeta(section, bookTitle) {
-  const parts = [bookTitle, section?.chapter_label, section?.chapter_title]
-  return parts.filter(Boolean).join(' · ')
+  const parts = [bookTitle, section?.part_title, section?.chapter_label, section?.chapter_title]
+  const uniqueParts = parts.filter(Boolean).filter((value, index, values) => values.indexOf(value) === index)
+  return uniqueParts.join(' · ')
 }
