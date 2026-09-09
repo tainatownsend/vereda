@@ -7,6 +7,7 @@ import { PageLoader } from '@/components/ui'
 import { useBooks } from '@/hooks'
 import { useAuthStore } from '@/store'
 import { getGuidedPath, getGuidedSession, getNextGuidedSession, matchGuidedPath } from '@/features/guidedStudy/catalog'
+import { getGuidedIntegrationPrompt } from '@/features/guidedStudy/integrationPrompts'
 import { isGuidedSessionComplete } from '@/features/guidedStudy/progress'
 import { fetchGuidedSource, sourceHeading, sourceMeta } from '@/features/guidedStudy/sourceService'
 import { listStudyJournalEntries, saveGuidedReflection } from '@/features/studyJournal/studyJournal'
@@ -196,8 +197,9 @@ export default function GuidedStudySessionPage() {
 
             <StudyStep number="5" label="Integre">
               <EditorialCard className="mt-3 p-5 sm:p-6">
-                <div className="flex items-start gap-3"><Sparkles className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" /><div><h2 className="font-display text-xl font-semibold text-ink dark:text-night-ink">Assente o ensinamento</h2><p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">Sem voltar à obra, explique em uma ou duas frases a ideia central deste encontro. Depois confira a leitura indicada e ajuste sua explicação se perceber algo novo.</p></div></div>
-                <button type="button" onClick={() => openSource(sourceSections[0])} className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">Conferir novamente na fonte <ArrowRight size={17} aria-hidden="true" /></button>
+                <div className="flex items-start gap-3"><Sparkles className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" /><div><h2 className="font-display text-xl font-semibold text-ink dark:text-night-ink">Assente o ensinamento</h2><p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{getGuidedIntegrationPrompt(session.id)}</p></div></div>
+                <p className="mt-4 border-t border-line pt-4 text-xs leading-relaxed text-muted dark:border-night-line dark:text-night-muted">Faça o exercício antes de conferir novamente a fonte. A ideia não é acertar de primeira, mas perceber o que você realmente reteve e o que merece uma segunda leitura.</p>
+                <button type="button" onClick={() => openSource(sourceSections[0])} className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">Conferir novamente na fonte <ArrowRight size={17} aria-hidden="true" /></button>
               </EditorialCard>
               <div className="mt-4 flex flex-wrap gap-2" aria-label="Ideias deste encontro">{session.concepts.map((concept) => <span key={concept} className="rounded-full bg-sage-100 px-3 py-1.5 text-xs font-medium text-sage-800 dark:bg-sage-950 dark:text-sage-300">{concept}</span>)}</div>
             </StudyStep>
