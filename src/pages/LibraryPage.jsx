@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BookPlus } from 'lucide-react'
+import { ArrowRight, BookPlus, Compass } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks, useProgress } from '@/hooks'
@@ -31,50 +31,82 @@ export default function LibraryPage() {
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-9">
         <header>
-          <h1 className="font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Biblioteca</h1>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Seus caminhos</p>
+          <h1 className="mt-1 font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Estudos</h1>
+          <p className="mt-2 max-w-md text-sm leading-relaxed text-muted dark:text-night-muted">
+            Escolha entre estudar com companhia, ler livremente ou explorar outras obras. Você pode alternar quando quiser.
+          </p>
         </header>
 
-        <div className="mt-6 grid grid-cols-2 border-b border-line dark:border-night-line" role="tablist" aria-label="Tipos de obra">
-          <TabButton active={tab === 'basicas'} onClick={() => setTab('basicas')}>Básicas</TabButton>
-          <TabButton active={tab === 'complementares'} onClick={() => setTab('complementares')}>Complementares</TabButton>
-        </div>
-
-        {tab === 'basicas' ? (
-          <section className="mt-5" aria-labelledby="all-books-heading">
-            <h2 id="all-books-heading" className="sr-only">Obras básicas</h2>
-            <ol className="space-y-3" aria-label="Caminho pelas obras básicas">
-              {books.map((book, index) => (
-                <BookJourneyRow
-                  key={book.id}
-                  book={book}
-                  isLast={index === books.length - 1}
-                  onOpen={() => navigate(progress[book.id] ? `/ler/${book.id}` : `/livro/${book.id}`)}
-                />
-              ))}
-            </ol>
-          </section>
-        ) : (
-          <EditorialCard className="mt-5 p-5">
-            <div className="flex items-start gap-4">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
-                <BookPlus size={20} aria-hidden="true" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <h2 className="font-display text-lg font-semibold text-ink dark:text-night-ink">Obras complementares</h2>
-                <p className="mt-1.5 max-w-md text-sm leading-relaxed text-muted dark:text-night-muted">
-                  Outras obras poderão ampliar esta biblioteca depois da consolidação do núcleo fundamental.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => navigate('/sugerir-obra')}
-                  className="mt-4 inline-flex min-h-11 items-center justify-center rounded-vesSm border border-sage-300 bg-surface px-4 text-sm font-semibold text-sage-800 shadow-sm hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-200"
-                >
-                  Sugerir uma obra complementar
-                </button>
-              </div>
+        <EditorialCard className="mt-6 overflow-hidden border-sage-200 bg-sage-50/80 p-5 dark:border-sage-900 dark:bg-sage-950/25 sm:p-6">
+          <div className="flex items-start gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] bg-white text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
+              <Compass size={22} aria-hidden="true" />
             </div>
-          </EditorialCard>
-        )}
+            <div className="min-w-0 flex-1">
+              <p className="text-xs font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Estudo Guiado</p>
+              <h2 className="mt-1 font-display text-xl font-semibold leading-snug text-ink dark:text-night-ink">Um passo de cada vez, com a obra ao seu lado.</h2>
+              <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+                Encontros curtos ajudam você a ler, compreender e refletir sem pressa. É o melhor caminho quando você quer companhia para estudar.
+              </p>
+              <button
+                type="button"
+                onClick={() => navigate('/estudo-guiado')}
+                className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-vesSm bg-sage-700 px-4 text-sm font-semibold text-white hover:bg-sage-800"
+              >
+                Abrir Estudo Guiado <ArrowRight size={17} aria-hidden="true" />
+              </button>
+            </div>
+          </div>
+        </EditorialCard>
+
+        <section className="mt-8" aria-labelledby="free-reading-heading">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-muted dark:text-night-muted">Leitura livre</p>
+            <h2 id="free-reading-heading" className="mt-1 font-display text-[1.45rem] font-semibold text-ink dark:text-night-ink">Escolha uma obra e siga no seu ritmo</h2>
+          </div>
+
+          <div className="mt-4 grid grid-cols-2 border-b border-line dark:border-night-line" role="tablist" aria-label="Tipos de obra">
+            <TabButton active={tab === 'basicas'} onClick={() => setTab('basicas')}>Básicas</TabButton>
+            <TabButton active={tab === 'complementares'} onClick={() => setTab('complementares')}>Complementares</TabButton>
+          </div>
+
+          {tab === 'basicas' ? (
+            <div className="mt-5">
+              <ol className="space-y-3" aria-label="Caminho pelas obras básicas">
+                {books.map((book, index) => (
+                  <BookJourneyRow
+                    key={book.id}
+                    book={book}
+                    isLast={index === books.length - 1}
+                    onOpen={() => navigate(progress[book.id] ? `/ler/${book.id}` : `/livro/${book.id}`)}
+                  />
+                ))}
+              </ol>
+            </div>
+          ) : (
+            <EditorialCard className="mt-5 p-5">
+              <div className="flex items-start gap-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+                  <BookPlus size={20} aria-hidden="true" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-display text-lg font-semibold text-ink dark:text-night-ink">Obras complementares</h3>
+                  <p className="mt-1.5 max-w-md text-sm leading-relaxed text-muted dark:text-night-muted">
+                    Outras obras poderão ampliar esta biblioteca depois da consolidação do núcleo fundamental.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => navigate('/sugerir-obra')}
+                    className="mt-4 inline-flex min-h-11 items-center justify-center rounded-vesSm border border-sage-300 bg-surface px-4 text-sm font-semibold text-sage-800 shadow-sm hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-200"
+                  >
+                    Sugerir uma obra complementar
+                  </button>
+                </div>
+              </div>
+            </EditorialCard>
+          )}
+        </section>
       </div>
     </main>
   )
