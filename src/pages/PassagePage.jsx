@@ -166,27 +166,58 @@ export default function PassagePage() {
 
         <article className="mt-8 font-display text-[20px] leading-[1.85] text-ink dark:text-night-ink">
           {paragraphs.map((paragraph, index) => (
-            <p key={`${section.id}-${index}`} className="mb-7 last:mb-0">
-              {paragraph}
-            </p>
+            <Paragraph key={`${section.id}-${index}`} text={paragraph} />
           ))}
         </article>
 
-        <aside className="ves-warm-panel mt-10 rounded-vesLg border border-line/80 p-5 shadow-sm dark:border-night-line">
-          <p className="font-display text-lg font-semibold text-ink dark:text-night-ink">
-            Este trecho faz parte de {book.title}.
-          </p>
-          <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-            Ler um trecho avulso não muda sua leitura atual. Você decide se quer começar ou continuar esta obra.
-          </p>
-          <Button
-            className="mt-5 w-full sm:w-auto"
-            onClick={() => navigate(readingStarted ? `/ler/${book.id}?revisit=1&section=${section.sec_position}` : `/livro/${book.id}`)}
-          >
-            {readingStarted ? 'Abrir este trecho na minha leitura' : 'Conhecer esta obra'}
-            <ArrowRight size={19} aria-hidden="true" />
-          </Button>
-        </aside>
+        {returnContext.isGuided ? (
+          <aside className="ves-warm-panel mt-10 rounded-vesLg border border-line/80 p-5 shadow-sm dark:border-night-line">
+            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Leitura do estudo guiado</p>
+            <h2 className="mt-2 font-display text-xl font-semibold text-ink dark:text-night-ink">Terminou esta leitura?</h2>
+            <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+              Marque a etapa como lida e volte exatamente ao ponto em que estava no encontro.
+            </p>
+            <Button
+              className="mt-5 w-full sm:w-auto"
+              onClick={() => completeGuidedReadingAndReturn(returnContext, section.id, navigate)}
+            >
+              <Check size={18} aria-hidden="true" />
+              Concluir leitura e voltar ao encontro
+            </Button>
+            <div className="mt-3 flex flex-col gap-1 sm:items-start">
+              <button
+                type="button"
+                onClick={() => navigate(returnContext.path)}
+                className="min-h-10 text-left text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+              >
+                Voltar sem marcar como lida
+              </button>
+              <button
+                type="button"
+                onClick={() => navigate(readingStarted ? `/ler/${book.id}?revisit=1&section=${section.sec_position}` : `/livro/${book.id}`)}
+                className="min-h-10 text-left text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+              >
+                {readingStarted ? 'Abrir este trecho na minha leitura' : 'Conhecer esta obra'}
+              </button>
+            </div>
+          </aside>
+        ) : (
+          <aside className="ves-warm-panel mt-10 rounded-vesLg border border-line/80 p-5 shadow-sm dark:border-night-line">
+            <p className="font-display text-lg font-semibold text-ink dark:text-night-ink">
+              Este trecho faz parte de {book.title}.
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+              Ler um trecho avulso não muda sua leitura atual. Você decide se quer começar ou continuar esta obra.
+            </p>
+            <Button
+              className="mt-5 w-full sm:w-auto"
+              onClick={() => navigate(readingStarted ? `/ler/${book.id}?revisit=1&section=${section.sec_position}` : `/livro/${book.id}`)}
+            >
+              {readingStarted ? 'Abrir este trecho na minha leitura' : 'Conhecer esta obra'}
+              <ArrowRight size={19} aria-hidden="true" />
+            </Button>
+          </aside>
+        )}
       </div>
     </main>
   )
@@ -201,8 +232,11 @@ function getReturnContext(searchParams) {
     if (path && session) {
       return {
         path: `/estudo-guiado/${path}/${session}`,
-        shortLabel: 'Estudo guiado',
+        shortLabel: 'Voltar',
         buttonLabel: 'Voltar ao encontro',
+        isGuided: true,
+        pathKey: path,
+        sessionId: session,
       }
     }
   }
@@ -228,6 +262,43 @@ function getReturnContext(searchParams) {
     shortLabel: 'Descobrir',
     buttonLabel: 'Voltar a Descobrir',
   }
+}
+
+function completeGuidedReadingAndReturn(returnContext, sectionId, navigate) {
+  if (returnContext?.isGuided && returnContext.pathKey && returnContext.sessionId) {
+    const key = `vereda:guided-read:${returnContext.pathKey}:${returnContext.sessionId}`
+    let sections = []
+    try {
+      const stored = JSON.parse(window.sessionStorage.getItem(key) || '[]')
+      if (Array.isArray(stored)) sections = stored.map(Number).filter(Number.isFinite)
+    } catch {
+      sections = []
+    }
+
+    const numericSectionId = Number(sectionId)
+    if (Number.isFinite(numericSectionId) && !sections.includes(numericSectionId)) sections.push(numericSectionId)
+    window.sessionStorage.setItem(key, JSON.stringify(sections))
+    window.sessionStorage.setItem(`vereda:guided-step:${returnContext.pathKey}:${returnContext.sessionId}`, '1')
+  }
+
+  navigate(returnContext.path)
+}
+
+function Paragraph({ text }) {
+  if (text.startsWith('[Nota:')) {
+    return (
+      <p className="mb-7 border-l-2 border-sage-300 pl-4 text-[0.82em] italic leading-relaxed text-muted last:mb-0 dark:border-sage-800 dark:text-night-muted">
+        {text.replace(/^\[Nota:\s*/, 'Nota: ').replace(/\]$/, '')}
+      </p>
+    )
+  }
+
+  const numberedItem = text.match(/^(\d+\.)\s*([\s\S]*)$/)
+  if (numberedItem) {
+    return <p className="mb-7 mt-10 first:mt-0 last:mb-0"><strong>{numberedItem[1]}</strong> {numberedItem[2]}</p>
+  }
+
+  return <p className="mb-7 last:mb-0">{text}</p>
 }
 
 function safeSlug(value) {
