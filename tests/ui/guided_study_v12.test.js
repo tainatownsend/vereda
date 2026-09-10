@@ -16,6 +16,9 @@ const sourceMap = readFileSync('src/features/guidedStudy/sourceMap.js', 'utf8')
 const progress = readFileSync('src/features/guidedStudy/progress.js', 'utf8')
 const journal = readFileSync('src/features/studyJournal/studyJournal.js', 'utf8')
 const passage = readFileSync('src/pages/PassagePage.jsx', 'utf8')
+const reflection = readFileSync('src/pages/ReflectionPage.jsx', 'utf8')
+const reflectionCard = readFileSync('src/features/share/reflectionCard.js', 'utf8')
+const auth = readFileSync('src/pages/AuthPage.jsx', 'utf8')
 
 describe('Vereda 1.2 guided study', () => {
   it('ships a complete eight-session journey for each of the five foundational works', () => {
@@ -72,13 +75,14 @@ describe('Vereda 1.2 guided study', () => {
   })
 
   it('presents each encounter as a read-comprehend-reflect-integrate path without reproducing the book', () => {
-    for (const [number, label] of [['1', 'Prepare-se'], ['2', 'Leia'], ['3', 'Compreenda'], ['4', 'Reflita'], ['5', 'Integre'], ['6', 'Continue']]) {
+    for (const [number, label] of [['1', 'Orientação'], ['2', 'Leitura'], ['3', 'Assimile'], ['4', 'Reflexão'], ['5', 'Integração'], ['6', 'Fechamento']]) {
       expect(sessionPage).toContain(`<StepPanel number="${number}" label="${label}"`)
     }
     expect(sessionPage).toContain('Abrir esta leitura')
-    expect(sessionPage).toContain('Abra a leitura indicada, leia com calma e volte para cá.')
-    expect(sessionPage).toContain('Orientação de estudo · Vereda')
-    expect(sessionPage).toContain('Esta explicação é uma companhia de estudo. Ela não faz parte da obra e não substitui a leitura original.')
+    expect(sessionPage).toContain('Abra a referência, leia com calma e volte para cá.')
+    expect(sessionPage).toContain('Antes de começar, saiba o que observar')
+    expect(sessionPage).toContain('Durante a leitura, observe também')
+    expect(sessionPage).toContain('O que ficou da leitura?')
     expect(sessionPage).toContain('getGuidedIntegrationPrompt(session.id)')
     expect(sessionPage).toContain('Não é uma prova: perceber o que ainda ficou nebuloso também é aprender.')
     expect(sessionPage).not.toContain('section.content')
@@ -90,8 +94,9 @@ describe('Vereda 1.2 guided study', () => {
     expect(app).toContain('path="/estudo-guiado"')
     expect(app).toContain('path="/estudo-guiado/:pathKey"')
     expect(app).toContain('path="/estudo-guiado/:pathKey/:sessionId"')
-    expect(home).toContain('Continuar no Estudo Guiado')
-    expect(home).toContain("navigate('/estudo-guiado')")
+    expect(home).not.toContain('Continuar no Estudo Guiado')
+    expect(home).not.toContain('Outros caminhos')
+    expect(home).toContain('Prefere definir um plano de leitura?')
     expect(bookDetail).toContain('Estudar esta obra com orientação')
     expect(bookDetail).toContain('matchGuidedPath(book)')
     expect(bookDetail).toContain('Começar esta leitura')
@@ -112,8 +117,23 @@ describe('Vereda 1.2 guided study', () => {
     expect(sessionPage).toContain('Abrir esta leitura')
     expect(sessionPage).toContain('?from=estudo-guiado&path=')
     expect(passage).toContain("source === 'estudo-guiado'")
-    expect(passage).toContain('Voltar ao encontro')
+    expect(passage).toContain('Concluir leitura e voltar ao encontro')
+    expect(passage).toContain('vereda:guided-read:')
+    expect(passage).toContain('function Paragraph')
+    expect(sessionPage).toContain('Já concluí a leitura')
+    expect(sessionPage).toContain('readingComplete')
+    expect(sessionPage).toContain('Conclua a leitura para continuar')
     expect(passage).toContain('safeSlug')
+  })
+
+  it('keeps auth, guided steps, reading return and reflection sharing aligned with founder QA', () => {
+    expect(auth).toContain('lg:justify-center')
+    expect(sessionPage).toContain("STEP_LABELS = ['Orientação', 'Leitura', 'Assimile', 'Reflexão', 'Integração', 'Fechamento']")
+    expect(sessionPage).toContain('getNextStepActionLabel')
+    expect(reflectionCard).toContain('VEREDA APP')
+    expect(reflectionCard).toContain('Seu caminho de estudo espírita')
+    expect(reflectionCard).toContain('navigator.clipboard?.write')
+    expect(reflection).toContain('Compartilhar reflexão')
   })
 
   it('does not introduce competitive or school-like mechanics into guided study', () => {
