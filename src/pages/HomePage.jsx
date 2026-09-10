@@ -1,13 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
-  BookOpen,
   CalendarDays,
   Clock3,
-  Compass,
   Leaf,
   Quote,
-  Settings2,
 } from 'lucide-react'
 
 import { useAuthStore } from '@/store'
@@ -96,28 +93,6 @@ export default function HomePage() {
           <EmptyHome navigate={navigate} />
         )}
 
-        {!studyPlan && (
-          <EditorialCard className="mt-4 p-5">
-            <div className="flex items-start gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
-                <Settings2 size={18} aria-hidden="true" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="font-display text-lg font-semibold text-ink dark:text-night-ink">Faça o Vereda caber na sua rotina</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
-                  Diga quanto tempo e quantas sessões por semana parecem realistas. Isso orienta o app, não cria cobrança.
-                </p>
-                <button type="button" onClick={() => navigate('/plano-de-estudo')} className="northstar-text-action mt-3">
-                  Definir meu ritmo de estudo
-                </button>
-              </div>
-            </div>
-          </EditorialCard>
-        )}
-
-        <GuidedStudyHomeCard navigate={navigate} />
-        <QuickActions navigate={navigate} />
-
         <EditorialCard className="northstar-home-quote mt-7 overflow-hidden p-5">
           <div className="relative z-10 flex items-start gap-3">
             <Quote size={18} className="mt-1 shrink-0 text-sage-700" strokeWidth={1.7} />
@@ -141,16 +116,8 @@ function NextStudyCard({ book, progress, studyPlan, sessionsThisWeek, navigate }
 
   return (
     <section className="mt-7" aria-labelledby="next-study-heading">
-      <div className="mb-3 flex items-end justify-between gap-3">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-sage-700 dark:text-sage-300">Seu próximo passo</p>
-          <h2 id="next-study-heading" className="mt-1 font-display text-[1.35rem] font-semibold text-ink dark:text-night-ink">Continue seu estudo</h2>
-        </div>
-        {studyPlan && (
-          <button type="button" onClick={() => navigate('/plano-de-estudo')} className="min-h-11 text-xs font-semibold text-sage-700 underline-offset-4 hover:underline dark:text-sage-300">
-            Ajustar ritmo
-          </button>
-        )}
+      <div className="mb-3">
+        <h2 id="next-study-heading" className="font-display text-[1.35rem] font-semibold text-ink dark:text-night-ink">Continue seu estudo</h2>
       </div>
 
       <EditorialCard className="overflow-hidden p-0">
@@ -173,53 +140,32 @@ function NextStudyCard({ book, progress, studyPlan, sessionsThisWeek, navigate }
           </div>
         </button>
 
-        <div className="grid grid-cols-2 border-t border-line/80 bg-surface-soft/45 dark:border-night-line dark:bg-night/25">
-          <div className="flex min-h-11 items-center gap-2 border-r border-line/80 px-4 py-3 dark:border-night-line">
-            <Clock3 size={15} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
-            <span className="text-xs font-medium text-muted dark:text-night-muted">{getSessionEstimate(studyPlan)}</span>
+        {studyPlan ? (
+          <div className="grid grid-cols-2 border-t border-line/80 bg-surface-soft/45 dark:border-night-line dark:bg-night/25">
+            <div className="flex min-h-11 items-center gap-2 border-r border-line/80 px-4 py-3 dark:border-night-line">
+              <Clock3 size={15} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+              <span className="text-xs font-medium text-muted dark:text-night-muted">{getSessionEstimate(studyPlan)}</span>
+            </div>
+            <div className="flex min-h-11 items-center gap-2 px-4 py-3">
+              <CalendarDays size={15} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+              <span className="text-xs font-medium text-muted dark:text-night-muted">{getWeeklyProgressLabel(studyPlan, sessionsThisWeek)}</span>
+            </div>
           </div>
-          <div className="flex min-h-11 items-center gap-2 px-4 py-3">
-            <CalendarDays size={15} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
-            <span className="text-xs font-medium text-muted dark:text-night-muted">{getWeeklyProgressLabel(studyPlan, sessionsThisWeek)}</span>
-          </div>
-        </div>
+        ) : (
+          <button
+            type="button"
+            onClick={() => navigate('/plano-de-estudo')}
+            className="flex w-full items-center gap-3 border-t border-line/80 bg-surface-soft/45 px-5 py-3.5 text-left transition hover:bg-sage-50 dark:border-night-line dark:bg-night/25 dark:hover:bg-sage-950/30"
+          >
+            <CalendarDays size={17} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+            <span className="min-w-0 flex-1">
+              <span className="block text-xs font-semibold text-ink dark:text-night-ink">Prefere definir um plano de leitura?</span>
+              <span className="mt-0.5 block text-[11px] leading-relaxed text-muted dark:text-night-muted">Escolha um tempo e uma frequência que caibam na sua rotina.</span>
+            </span>
+            <span className="shrink-0 text-xs font-semibold text-sage-700 dark:text-sage-300">Definir</span>
+          </button>
+        )}
       </EditorialCard>
-    </section>
-  )
-}
-
-function GuidedStudyHomeCard({ navigate }) {
-  return (
-    <section className="mt-6" aria-labelledby="guided-study-home-heading">
-      <EditorialCard className="overflow-hidden p-5">
-        <div className="flex items-start gap-4">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[13px] bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
-            <Compass size={20} aria-hidden="true" />
-          </div>
-          <div className="min-w-0 flex-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Um jeito de estudar</p>
-            <h2 id="guided-study-home-heading" className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">Prefere estudar com companhia?</h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-              O Estudo Guiado conduz um passo de cada vez, como alguém sentado ao seu lado. Ele também está sempre disponível na aba Estudos.
-            </p>
-            <button type="button" onClick={() => navigate('/estudo-guiado')} className="northstar-text-action mt-3 min-h-11">
-              Continuar no Estudo Guiado
-            </button>
-          </div>
-        </div>
-      </EditorialCard>
-    </section>
-  )
-}
-
-function QuickActions({ navigate }) {
-  return (
-    <section className="mt-6" aria-labelledby="explore-heading">
-      <h2 id="explore-heading" className="northstar-section-title">Outros caminhos</h2>
-      <div className="mt-3 grid grid-cols-2 gap-2">
-        <QuickAction icon={BookOpen} label="Estudos" onClick={() => navigate('/biblioteca')} />
-        <QuickAction icon={Leaf} label="Reflexões" onClick={() => navigate('/reflexoes')} />
-      </div>
     </section>
   )
 }
@@ -239,19 +185,6 @@ function EmptyHome({ navigate }) {
         <button type="button" onClick={() => navigate('/biblioteca')} className="northstar-text-action mt-2 min-h-11 w-full">Prefiro conhecer os estudos primeiro</button>
       </EditorialCard>
     </section>
-  )
-}
-
-function QuickAction({ icon: Icon, label, onClick }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="flex min-h-[78px] flex-col items-center justify-center gap-2 rounded-[14px] border border-line bg-surface px-2 text-sage-700 dark:border-night-line dark:bg-night-surface dark:text-sage-300"
-    >
-      <Icon size={20} strokeWidth={1.7} aria-hidden="true" />
-      <span className="max-w-full text-xs font-semibold text-ink/85 dark:text-night-muted">{label}</span>
-    </button>
   )
 }
 
