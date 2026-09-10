@@ -173,8 +173,12 @@ export default function GuidedStudySessionPage() {
         title: 'Minha reflexão',
         attribution: `${path.title} · ${session.title}`,
       })
-      if (result === 'downloaded') {
-        setShareStatus('A imagem foi criada para você compartilhar onde preferir.')
+      if (result === 'shared') {
+        setShareStatus('Compartilhamento aberto com a arte da sua reflexão.')
+      } else if (result === 'copied') {
+        setShareStatus('Imagem copiada. Cole diretamente onde quiser compartilhar.')
+      } else if (result === 'downloaded') {
+        setShareStatus('A imagem foi salva porque o navegador não oferece compartilhamento direto.')
       }
     } catch (error) {
       if (error?.name === 'AbortError') return
