@@ -69,17 +69,19 @@ export default function HomePage() {
 
   return (
     <main className="northstar-page pb-28">
-      <div className="northstar-container pt-9">
-        <header>
-          <p className="font-display text-[1.92rem] font-semibold tracking-[0.06em] text-[#30452f] dark:text-night-ink">
+      <div className="northstar-container pt-7 sm:pt-9">
+        <header className="flex items-start justify-between gap-5 border-b border-line/70 pb-5 dark:border-night-line">
+          <p className="shrink-0 font-display text-[1.55rem] font-semibold tracking-[0.08em] text-[#30452f] dark:text-night-ink sm:text-[1.75rem]">
             VEREDA
           </p>
-          <p className="mt-3 font-display text-[1.2rem] font-semibold text-ink dark:text-night-ink">
-            {greeting}
-          </p>
-          <p className="mt-1 max-w-[22rem] text-[14px] leading-relaxed text-ink/75 dark:text-night-muted">
-            Seu próximo passo fica claro aqui. Você continua no seu ritmo.
-          </p>
+          <div className="min-w-0 max-w-[17rem] text-right sm:max-w-sm">
+            <p className="font-display text-[1.08rem] font-semibold leading-tight text-ink dark:text-night-ink sm:text-[1.2rem]">
+              {greeting}
+            </p>
+            <p className="mt-1 text-[13px] leading-relaxed text-ink/70 dark:text-night-muted sm:text-sm">
+              Seu próximo passo, com calma e clareza.
+            </p>
+          </div>
         </header>
 
         {primaryBook ? (
@@ -195,13 +197,13 @@ function GuidedStudyHomeCard({ navigate }) {
             <Compass size={20} aria-hidden="true" />
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Estudo guiado</p>
-            <h2 id="guided-study-home-heading" className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">Quer estudar com um caminho mais acompanhado?</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Um jeito de estudar</p>
+            <h2 id="guided-study-home-heading" className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">Prefere estudar com companhia?</h2>
             <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-              Percorra as cinco obras em encontros curtos: primeiro o texto original, depois orientação, conexões e uma reflexão opcional.
+              O Estudo Guiado conduz um passo de cada vez, como alguém sentado ao seu lado. Ele também está sempre disponível na aba Estudos.
             </p>
             <button type="button" onClick={() => navigate('/estudo-guiado')} className="northstar-text-action mt-3 min-h-11">
-              Abrir Estudo Guiado
+              Continuar no Estudo Guiado
             </button>
           </div>
         </div>
@@ -215,7 +217,7 @@ function QuickActions({ navigate }) {
     <section className="mt-6" aria-labelledby="explore-heading">
       <h2 id="explore-heading" className="northstar-section-title">Outros caminhos</h2>
       <div className="mt-3 grid grid-cols-2 gap-2">
-        <QuickAction icon={BookOpen} label="Livros" onClick={() => navigate('/biblioteca')} />
+        <QuickAction icon={BookOpen} label="Estudos" onClick={() => navigate('/biblioteca')} />
         <QuickAction icon={Leaf} label="Reflexões" onClick={() => navigate('/reflexoes')} />
       </div>
     </section>
@@ -234,7 +236,7 @@ function EmptyHome({ navigate }) {
           O Vereda pode sugerir uma primeira direção, sem limitar sua liberdade de explorar as obras.
         </p>
         <Button onClick={() => navigate('/comecar')} className="mt-6 w-full">Ajude-me a começar</Button>
-        <button type="button" onClick={() => navigate('/biblioteca')} className="northstar-text-action mt-2 min-h-11 w-full">Prefiro conhecer as obras primeiro</button>
+        <button type="button" onClick={() => navigate('/biblioteca')} className="northstar-text-action mt-2 min-h-11 w-full">Prefiro conhecer os estudos primeiro</button>
       </EditorialCard>
     </section>
   )
