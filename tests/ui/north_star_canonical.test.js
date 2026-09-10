@@ -13,13 +13,15 @@ const bottomNav = readFileSync('src/components/ui/BottomNav.jsx', 'utf8')
 
 describe('Vereda North Star canonical screens', () => {
   it('keeps Home focused on a personalized next study action without duplicating destinations', () => {
-    expect(home).toContain('Seu próximo passo fica claro aqui. Você continua no seu ritmo.')
+    expect(home).toContain('Seu próximo passo, com calma e clareza.')
     expect(home).toContain('getGreeting(profile?.name)')
     expect(home).toContain('A maior caridade que podemos fazer pela Doutrina Espírita é a sua divulgação.')
     expect(home).toContain('Continue seu estudo')
+    expect(home).toContain('Prefere estudar com companhia?')
+    expect(home).toContain('Continuar no Estudo Guiado')
     expect(home).toContain('Outros caminhos')
     expect(home).toContain('Definir meu ritmo de estudo')
-    expect(home).toContain('Livros')
+    expect(home).toContain('Estudos')
     expect(home).toContain('Reflexões')
     expect(home).not.toContain('Resumos')
     expect(home).not.toContain('Audiobooks')
@@ -29,10 +31,12 @@ describe('Vereda North Star canonical screens', () => {
   })
 
   it('keeps Biblioteca focused on its two collections and the five-work progress journey', () => {
-    expect(library).toContain('Biblioteca')
+    expect(library).toContain('Estudos')
+    expect(library).toContain('Estudo Guiado')
+    expect(library).toContain('Leitura livre')
     expect(library).toContain('Básicas')
     expect(library).toContain('Complementares')
-    expect(library).toContain('aria-labelledby="all-books-heading"')
+    expect(library).toContain('aria-labelledby="free-reading-heading"')
     expect(library).toContain('BOOK_ACCENT_COLORS')
     expect(library).toContain('Caminho pelas obras básicas')
     expect(library).toContain('Seu progresso')
