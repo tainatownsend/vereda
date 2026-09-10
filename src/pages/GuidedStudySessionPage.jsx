@@ -1,5 +1,17 @@
 import { useEffect, useState } from 'react'
-import { ArrowLeft, ArrowRight, BookOpen, Check, Link2, NotebookPen, RefreshCw, Sparkles } from 'lucide-react'
+import {
+  ArrowLeft,
+  ArrowRight,
+  BookOpen,
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Link2,
+  NotebookPen,
+  RefreshCw,
+  Share2,
+  Sparkles,
+} from 'lucide-react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { EditorialCard } from '@/components/northstar/NorthStarUI'
@@ -10,7 +22,10 @@ import { getGuidedPath, getGuidedSession, getNextGuidedSession, matchGuidedPath 
 import { getGuidedIntegrationPrompt } from '@/features/guidedStudy/integrationPrompts'
 import { isGuidedSessionComplete } from '@/features/guidedStudy/progress'
 import { fetchGuidedSource, sourceHeading, sourceMeta } from '@/features/guidedStudy/sourceService'
+import { shareReflectionAsImage } from '@/features/share/reflectionCard'
 import { listStudyJournalEntries, saveGuidedReflection } from '@/features/studyJournal/studyJournal'
+
+const STEP_LABELS = ['Prepare-se', 'Leia', 'Compreenda', 'Reflita', 'Integre', 'Continue']
 
 export default function GuidedStudySessionPage() {
   const { pathKey, sessionId } = useParams()
@@ -30,10 +45,27 @@ export default function GuidedStudySessionPage() {
   const [reflection, setReflection] = useState('')
   const [reflectionSaving, setReflectionSaving] = useState(false)
   const [reflectionStatus, setReflectionStatus] = useState('')
+  const [reflectionPromptIndex, setReflectionPromptIndex] = useState(0)
+  const [shareStatus, setShareStatus] = useState('')
   const [completing, setCompleting] = useState(false)
   const [completionStatus, setCompletionStatus] = useState('')
+  const [activeStep, setActiveStep] = useState(0)
 
   const complete = Boolean(path && session && isGuidedSessionComplete(user, path.key, session.id))
+  const progressKey = path && session ? `vereda:guided-step:${path.key}:${session.id}` : ''
+
+  useEffect(() => {
+    if (!progressKey) return
+    const stored = Number(window.sessionStorage.getItem(progressKey))
+    setActiveStep(Number.isInteger(stored) && stored >= 0 && stored < STEP_LABELS.length ? stored : 0)
+    setReflectionPromptIndex(0)
+    setShareStatus('')
+  }, [progressKey])
+
+  useEffect(() => {
+    if (!progressKey) return
+    window.sessionStorage.setItem(progressKey, String(activeStep))
+  }, [activeStep, progressKey])
 
   useEffect(() => {
     let active = true
@@ -77,7 +109,16 @@ export default function GuidedStudySessionPage() {
   }, [user?.id, path, session])
 
   const sourceAvailable = sourceSections.length > 0
-  const openSource = (section) => navigate(`/trecho/${section.id}?from=estudo-guiado&path=${encodeURIComponent(path.key)}&session=${encodeURIComponent(session.id)}`)
+  const reflectionPrompts = session ? [
+    session.reflectionPrompt,
+    `Se você explicasse “${session.title}” para alguém querido em poucas palavras, o que diria?`,
+    'Onde essa ideia encontra a sua vida hoje? Pense em uma situação simples e concreta.',
+  ] : []
+
+  const openSource = (section) => {
+    if (progressKey) window.sessionStorage.setItem(progressKey, String(activeStep))
+    navigate(`/trecho/${section.id}?from=estudo-guiado&path=${encodeURIComponent(path.key)}&session=${encodeURIComponent(session.id)}`)
+  }
 
   const saveReflection = async () => {
     const value = reflection.trim()
@@ -101,6 +142,24 @@ export default function GuidedStudySessionPage() {
     }
   }
 
+  const shareReflection = async () => {
+    if (!reflection.trim() || !session) return
+    setShareStatus('')
+    try {
+      const result = await shareReflectionAsImage({
+        text: reflection,
+        title: 'Minha reflexão',
+        attribution: `${path.title} · ${session.title}`,
+      })
+      if (result === 'downloaded') {
+        setShareStatus('A imagem foi criada para você compartilhar onde preferir.')
+      }
+    } catch (error) {
+      if (error?.name === 'AbortError') return
+      setShareStatus('Não foi possível criar a imagem agora. Tente novamente.')
+    }
+  }
+
   const finishSession = async () => {
     if (!path || !session || completing || complete) return
     setCompleting(true)
@@ -108,6 +167,7 @@ export default function GuidedStudySessionPage() {
     try {
       await completeGuidedStudySession(path.key, session.id)
       setCompletionStatus('Encontro concluído. Seu progresso foi salvo na sua conta.')
+      if (progressKey) window.sessionStorage.removeItem(progressKey)
     } catch {
       setCompletionStatus('Não foi possível salvar a conclusão deste encontro. Tente novamente.')
     } finally {
@@ -131,6 +191,8 @@ export default function GuidedStudySessionPage() {
 
   if (!books.length) return <PageLoader label="Preparando seu estudo" />
 
+  const nextStepBlocked = activeStep === 1 && (sourceLoading || !sourceAvailable)
+
   return (
     <main className="northstar-page pb-28">
       <div className="mx-auto w-full max-w-[760px] px-5 pb-12 pt-7 sm:px-8 sm:pt-10">
@@ -138,89 +200,171 @@ export default function GuidedStudySessionPage() {
           <ArrowLeft size={18} aria-hidden="true" /> {path.title}
         </button>
 
-        <header className="mt-5">
+        <header className="mt-4">
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Encontro {sessionIndex + 1} de {path.sessions.length} · cerca de {session.minutes} min</p>
-          <h1 className="mt-2 font-display text-[2.2rem] font-semibold leading-tight text-ink dark:text-night-ink sm:text-[2.55rem]">{session.title}</h1>
-          <p className="mt-3 text-sm leading-relaxed text-muted dark:text-night-muted">Um caminho para ler, compreender, refletir e integrar — sempre a partir da obra.</p>
+          <h1 className="mt-2 font-display text-[2rem] font-semibold leading-tight text-ink dark:text-night-ink sm:text-[2.45rem]">{session.title}</h1>
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted dark:text-night-muted">
+            Vamos juntos. Você só precisa olhar para uma etapa de cada vez.
+          </p>
         </header>
 
-        <StudyStep number="1" label="Prepare-se">
-          <EditorialCard className="mt-3 p-5 sm:p-6">
-            <h2 className="font-display text-xl font-semibold text-ink dark:text-night-ink">O que observar</h2>
-            <p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{session.beforeReading}</p>
-          </EditorialCard>
-        </StudyStep>
+        <StepProgress activeStep={activeStep} />
 
-        <StudyStep number="2" label="Leia">
-          <h2 className="mt-1 font-display text-[1.65rem] font-semibold text-ink dark:text-night-ink">Vá à fonte</h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">O estudo guiado indica a leitura; o texto integral continua no Reader, sem ser reproduzido aqui.</p>
-          {sourceLoading ? (
-            <EditorialCard className="mt-3 p-6 text-center">
-              <RefreshCw className="mx-auto animate-spin text-sage-700 dark:text-sage-300" size={21} aria-hidden="true" />
-              <p className="mt-3 text-sm text-muted dark:text-night-muted">Confirmando a referência no corpus…</p>
-            </EditorialCard>
-          ) : sourceError || !sourceAvailable ? (
-            <EditorialCard className="mt-3 border-clay-200 bg-clay-50 p-5 dark:border-clay-900 dark:bg-clay-950/20 sm:p-6">
-              <p role="alert" className="text-sm leading-relaxed text-clay-800 dark:text-clay-200">{sourceError || 'A referência deste encontro não está disponível agora.'}</p>
-              <button type="button" onClick={() => setSourceAttempt((value) => value + 1)} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-vesSm border border-clay-300 px-4 text-sm font-semibold text-clay-800 dark:border-clay-800 dark:text-clay-200"><RefreshCw size={16} aria-hidden="true" /> Tentar novamente</button>
-            </EditorialCard>
-          ) : (
-            <div className="mt-4 space-y-3">{sourceSections.map((section) => <SourceReference key={section.id} section={section} bookTitle={book.title} onOpen={() => openSource(section)} />)}</div>
+        <div className="mt-7 min-h-[25rem]">
+          {activeStep === 0 && (
+            <StepPanel number="1" label="Prepare-se" title="Antes de abrir a obra, vamos combinar o olhar">
+              <EditorialCard className="mt-4 p-5 sm:p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.08em] text-sage-700 dark:text-sage-300">Estou aqui com você</p>
+                <p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{session.beforeReading}</p>
+                <p className="mt-4 border-t border-line pt-4 text-sm leading-relaxed text-muted dark:border-night-line dark:text-night-muted">
+                  Não tente memorizar. Leia procurando apenas essa ideia. Depois voltamos para conversar sobre o que apareceu no texto.
+                </p>
+              </EditorialCard>
+            </StepPanel>
           )}
-        </StudyStep>
 
-        {sourceAvailable && !sourceLoading && (
-          <>
-            <StudyStep number="3" label="Compreenda">
-              <div className="flex justify-end"><span className="rounded-full bg-amber-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-gold-700 dark:bg-night-surface dark:text-gold-400">Orientação de estudo · Vereda</span></div>
-              <EditorialCard className="mt-3 border-gold-100 bg-amber-50/40 p-5 dark:border-night-line dark:bg-night-surface/60 sm:p-6">
-                <h2 className="font-display text-xl font-semibold text-ink dark:text-night-ink">Depois da leitura, observe</h2>
-                <p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{session.understand}</p>
-                <p className="mt-4 border-t border-gold-100 pt-4 text-xs leading-relaxed text-muted dark:border-night-line dark:text-night-muted">Esta orientação é editorial. Ela não faz parte da obra e não substitui a leitura indicada.</p>
+          {activeStep === 1 && (
+            <StepPanel number="2" label="Leia" title="Agora vamos à fonte">
+              <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">Abra a leitura indicada, leia com calma e volte para cá. Seu lugar neste encontro fica salvo.</p>
+              {sourceLoading ? (
+                <EditorialCard className="mt-4 p-6 text-center">
+                  <RefreshCw className="mx-auto animate-spin text-sage-700 dark:text-sage-300" size={21} aria-hidden="true" />
+                  <p className="mt-3 text-sm text-muted dark:text-night-muted">Confirmando a referência no corpus…</p>
+                </EditorialCard>
+              ) : sourceError || !sourceAvailable ? (
+                <EditorialCard className="mt-4 border-clay-200 bg-clay-50 p-5 dark:border-clay-900 dark:bg-clay-950/20 sm:p-6">
+                  <p role="alert" className="text-sm leading-relaxed text-clay-800 dark:text-clay-200">{sourceError || 'A referência deste encontro não está disponível agora.'}</p>
+                  <button type="button" onClick={() => setSourceAttempt((value) => value + 1)} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-vesSm border border-clay-300 px-4 text-sm font-semibold text-clay-800 dark:border-clay-800 dark:text-clay-200"><RefreshCw size={16} aria-hidden="true" /> Tentar novamente</button>
+                </EditorialCard>
+              ) : (
+                <div className="mt-4 space-y-3">{sourceSections.map((section) => <SourceReference key={section.id} section={section} bookTitle={book.title} onOpen={() => openSource(section)} />)}</div>
+              )}
+            </StepPanel>
+          )}
+
+          {activeStep === 2 && sourceAvailable && (
+            <StepPanel number="3" label="Compreenda" title="Vamos colocar a leitura em palavras mais simples">
+              <EditorialCard className="mt-4 border-gold-100 bg-amber-50/40 p-5 dark:border-night-line dark:bg-night-surface/60 sm:p-6">
+                <div className="mb-3 inline-flex rounded-full bg-white/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-gold-700 dark:bg-night dark:text-gold-400">Orientação de estudo · Vereda</div>
+                <p className="text-base leading-relaxed text-muted dark:text-night-muted">{session.understand}</p>
+                <p className="mt-4 border-t border-gold-100 pt-4 text-xs leading-relaxed text-muted dark:border-night-line dark:text-night-muted">Esta explicação é uma companhia de estudo. Ela não faz parte da obra e não substitui a leitura original.</p>
               </EditorialCard>
               <EditorialCard className="mt-3 p-5 sm:p-6">
                 <div className="flex items-start gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[12px] bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300"><Link2 size={18} aria-hidden="true" /></div>
-                  <div><p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Conexão entre obras</p><h3 className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">{session.connection.work}</h3><p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">Aprofunde depois em <strong>{session.connection.theme}</strong>.</p></div>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Se quiser aprofundar depois</p>
+                    <h3 className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">{session.connection.work}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">Você encontrará uma conexão com <strong>{session.connection.theme}</strong>.</p>
+                  </div>
                 </div>
               </EditorialCard>
-            </StudyStep>
+            </StepPanel>
+          )}
 
-            <StudyStep number="4" label="Reflita">
-              <EditorialCard className="mt-3 p-5 sm:p-6">
-                <div className="flex items-start gap-3"><NotebookPen className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" /><div><h2 className="font-display text-xl font-semibold text-ink dark:text-night-ink">Pare antes de seguir</h2><p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{session.reflectionPrompt}</p></div></div>
-                <textarea value={reflection} onChange={(event) => setReflection(event.target.value)} rows={5} maxLength={6000} placeholder="Registre o que fez sentido, uma dúvida ou uma ideia que você quer guardar…" className="mt-5 w-full resize-y rounded-vesMd border border-line bg-white p-4 text-base leading-relaxed text-ink outline-none transition focus:border-sage-500 focus:ring-2 focus:ring-sage-200 dark:border-night-line dark:bg-night dark:text-night-ink dark:focus:border-sage-500 dark:focus:ring-sage-900" />
-                <div className="mt-3 flex flex-wrap items-center justify-between gap-3"><p className="text-xs text-muted dark:text-night-muted">A reflexão é opcional e fica junto do seu diário de estudo.</p><button type="button" onClick={saveReflection} disabled={reflectionSaving || !reflection.trim()} className="inline-flex min-h-11 items-center gap-2 rounded-vesSm border border-sage-300 px-4 text-sm font-semibold text-sage-800 disabled:opacity-50 dark:border-sage-800 dark:text-sage-300"><NotebookPen size={16} aria-hidden="true" /> {reflectionSaving ? 'Guardando…' : 'Guardar reflexão'}</button></div>
+          {activeStep === 3 && sourceAvailable && (
+            <StepPanel number="4" label="Reflita" title="Agora é a sua vez de conversar com a ideia">
+              <EditorialCard className="mt-4 p-5 sm:p-6">
+                <div className="flex items-start gap-3">
+                  <NotebookPen className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" />
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-3">
+                      <p className="text-xs font-semibold uppercase tracking-[0.08em] text-sage-700 dark:text-sage-300">Pergunta {reflectionPromptIndex + 1} de {reflectionPrompts.length}</p>
+                      <span className="text-xs text-muted dark:text-night-muted">Sem resposta certa</span>
+                    </div>
+                    <p className="mt-3 font-display text-xl leading-relaxed text-ink dark:text-night-ink">{reflectionPrompts[reflectionPromptIndex]}</p>
+                    <div className="mt-4 flex gap-2">
+                      <button type="button" onClick={() => setReflectionPromptIndex((value) => Math.max(0, value - 1))} disabled={reflectionPromptIndex === 0} className="inline-flex min-h-10 items-center gap-1 rounded-vesSm border border-line px-3 text-xs font-semibold text-sage-800 disabled:opacity-35 dark:border-night-line dark:text-sage-300"><ChevronLeft size={15} /> Anterior</button>
+                      <button type="button" onClick={() => setReflectionPromptIndex((value) => Math.min(reflectionPrompts.length - 1, value + 1))} disabled={reflectionPromptIndex === reflectionPrompts.length - 1} className="inline-flex min-h-10 items-center gap-1 rounded-vesSm border border-line px-3 text-xs font-semibold text-sage-800 disabled:opacity-35 dark:border-night-line dark:text-sage-300">Outra pergunta <ChevronRight size={15} /></button>
+                    </div>
+                  </div>
+                </div>
+
+                <textarea value={reflection} onChange={(event) => { setReflection(event.target.value); setShareStatus('') }} rows={5} maxLength={6000} placeholder="Escreva do seu jeito. Pode ser uma frase, uma dúvida ou algo que tocou você…" className="mt-5 w-full resize-y rounded-vesMd border border-line bg-white p-4 text-base leading-relaxed text-ink outline-none transition focus:border-sage-500 focus:ring-2 focus:ring-sage-200 dark:border-night-line dark:bg-night dark:text-night-ink dark:focus:border-sage-500 dark:focus:ring-sage-900" />
+                <p className="mt-2 text-xs leading-relaxed text-muted dark:text-night-muted">Você não precisa responder às três perguntas. Elas estão aqui apenas para ajudar a ideia a assentar.</p>
+                <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+                  <button type="button" onClick={saveReflection} disabled={reflectionSaving || !reflection.trim()} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-vesSm border border-sage-300 px-4 text-sm font-semibold text-sage-800 disabled:opacity-50 dark:border-sage-800 dark:text-sage-300"><NotebookPen size={16} aria-hidden="true" /> {reflectionSaving ? 'Guardando…' : 'Guardar reflexão'}</button>
+                  <button type="button" onClick={shareReflection} disabled={!reflection.trim()} className="inline-flex min-h-11 items-center justify-center gap-2 rounded-vesSm border border-sage-300 px-4 text-sm font-semibold text-sage-800 disabled:opacity-50 dark:border-sage-800 dark:text-sage-300"><Share2 size={16} aria-hidden="true" /> Compartilhar como imagem</button>
+                </div>
                 {reflectionStatus && <p role="status" aria-live="polite" className="mt-3 text-sm text-sage-800 dark:text-sage-300">{reflectionStatus}</p>}
+                {shareStatus && <p role="status" aria-live="polite" className="mt-2 text-sm text-sage-800 dark:text-sage-300">{shareStatus}</p>}
               </EditorialCard>
-            </StudyStep>
+            </StepPanel>
+          )}
 
-            <StudyStep number="5" label="Integre">
-              <EditorialCard className="mt-3 p-5 sm:p-6">
-                <div className="flex items-start gap-3"><Sparkles className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" /><div><h2 className="font-display text-xl font-semibold text-ink dark:text-night-ink">Assente o ensinamento</h2><p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{getGuidedIntegrationPrompt(session.id)}</p></div></div>
-                <p className="mt-4 border-t border-line pt-4 text-xs leading-relaxed text-muted dark:border-night-line dark:text-night-muted">Faça o exercício antes de conferir novamente a fonte. A ideia não é acertar de primeira, mas perceber o que você realmente reteve e o que merece uma segunda leitura.</p>
+          {activeStep === 4 && sourceAvailable && (
+            <StepPanel number="5" label="Integre" title="Vamos ver o que ficou com você">
+              <EditorialCard className="mt-4 p-5 sm:p-6">
+                <div className="flex items-start gap-3"><Sparkles className="mt-0.5 shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" /><div><p className="text-xs font-semibold uppercase tracking-[0.08em] text-sage-700 dark:text-sage-300">Um pequeno exercício</p><p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">{getGuidedIntegrationPrompt(session.id)}</p></div></div>
+                <p className="mt-4 border-t border-line pt-4 text-sm leading-relaxed text-muted dark:border-night-line dark:text-night-muted">Faça do seu jeito e só depois volte à fonte. Não é uma prova: perceber o que ainda ficou nebuloso também é aprender.</p>
                 <button type="button" onClick={() => openSource(sourceSections[0])} className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">Conferir novamente na fonte <ArrowRight size={17} aria-hidden="true" /></button>
               </EditorialCard>
               <div className="mt-4 flex flex-wrap gap-2" aria-label="Ideias deste encontro">{session.concepts.map((concept) => <span key={concept} className="rounded-full bg-sage-100 px-3 py-1.5 text-xs font-medium text-sage-800 dark:bg-sage-950 dark:text-sage-300">{concept}</span>)}</div>
-            </StudyStep>
+            </StepPanel>
+          )}
 
-            <StudyStep number="6" label="Continue" className="border-t border-line pt-7 dark:border-night-line">
-              <h2 className="mt-1 font-display text-xl font-semibold text-ink dark:text-night-ink">Feche este encontro no seu ritmo</h2>
-              <button type="button" onClick={finishSession} disabled={completing || complete} className={`mt-4 flex min-h-12 w-full items-center justify-center gap-2 rounded-vesMd px-5 text-base font-semibold transition sm:w-auto ${complete ? 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300' : 'bg-sage-700 text-white hover:bg-sage-800 disabled:opacity-60'}`}>
-                {complete ? <Check size={19} aria-hidden="true" /> : <BookOpen size={19} aria-hidden="true" />}{complete ? 'Encontro concluído' : completing ? 'Salvando…' : 'Concluir encontro'}
-              </button>
-              {completionStatus && <p role="status" aria-live="polite" className="mt-3 text-sm text-sage-800 dark:text-sage-300">{completionStatus}</p>}
-              {nextSession ? <button type="button" onClick={() => navigate(`/estudo-guiado/${path.key}/${nextSession.id}`)} className="mt-6 flex w-full items-center justify-between gap-4 rounded-vesMd border border-line bg-surface p-4 text-left dark:border-night-line dark:bg-night-surface"><div><p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Próximo encontro</p><p className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">{nextSession.title}</p></div><ArrowRight className="shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" /></button> : <button type="button" onClick={() => navigate(`/estudo-guiado/${path.key}`)} className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">Ver jornada completa <ArrowRight size={17} aria-hidden="true" /></button>}
-            </StudyStep>
-          </>
-        )}
+          {activeStep === 5 && sourceAvailable && (
+            <StepPanel number="6" label="Continue" title="Por hoje, isso já é suficiente">
+              <EditorialCard className="mt-4 p-5 sm:p-6">
+                <p className="text-base leading-relaxed text-muted dark:text-night-muted">Você leu a fonte, ganhou uma lente para compreendê-la e teve espaço para formar a sua própria reflexão. Pode encerrar aqui sem pressa.</p>
+                <button type="button" onClick={finishSession} disabled={completing || complete} className={`mt-5 flex min-h-12 w-full items-center justify-center gap-2 rounded-vesMd px-5 text-base font-semibold transition sm:w-auto ${complete ? 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300' : 'bg-sage-700 text-white hover:bg-sage-800 disabled:opacity-60'}`}>
+                  {complete ? <Check size={19} aria-hidden="true" /> : <BookOpen size={19} aria-hidden="true" />}{complete ? 'Encontro concluído' : completing ? 'Salvando…' : 'Concluir encontro'}
+                </button>
+                {completionStatus && <p role="status" aria-live="polite" className="mt-3 text-sm text-sage-800 dark:text-sage-300">{completionStatus}</p>}
+              </EditorialCard>
+              {nextSession ? <button type="button" onClick={() => navigate(`/estudo-guiado/${path.key}/${nextSession.id}`)} className="mt-5 flex w-full items-center justify-between gap-4 rounded-vesMd border border-line bg-surface p-4 text-left dark:border-night-line dark:bg-night-surface"><div><p className="text-xs font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Quando quiser continuar</p><p className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">{nextSession.title}</p></div><ArrowRight className="shrink-0 text-sage-700 dark:text-sage-300" size={20} aria-hidden="true" /></button> : <button type="button" onClick={() => navigate(`/estudo-guiado/${path.key}`)} className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">Ver jornada completa <ArrowRight size={17} aria-hidden="true" /></button>}
+            </StepPanel>
+          )}
+        </div>
+
+        <nav className="mt-7 flex items-center justify-between gap-3 border-t border-line pt-5 dark:border-night-line" aria-label="Etapas do encontro">
+          <button
+            type="button"
+            onClick={() => setActiveStep((value) => Math.max(0, value - 1))}
+            disabled={activeStep === 0}
+            className="inline-flex min-h-11 items-center gap-2 rounded-vesSm border border-line px-4 text-sm font-semibold text-sage-800 disabled:opacity-30 dark:border-night-line dark:text-sage-300"
+          >
+            <ChevronLeft size={17} aria-hidden="true" /> Voltar
+          </button>
+          {activeStep < STEP_LABELS.length - 1 && (
+            <button
+              type="button"
+              onClick={() => setActiveStep((value) => Math.min(STEP_LABELS.length - 1, value + 1))}
+              disabled={nextStepBlocked}
+              className="inline-flex min-h-11 items-center gap-2 rounded-vesSm bg-sage-700 px-4 text-sm font-semibold text-white disabled:opacity-45"
+            >
+              Próximo passo <ChevronRight size={17} aria-hidden="true" />
+            </button>
+          )}
+        </nav>
       </div>
     </main>
   )
 }
 
-function StudyStep({ number, label, children, className = '' }) {
-  return <section className={`mt-9 ${className}`.trim()}><p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">{number} · {label}</p>{children}</section>
+function StepProgress({ activeStep }) {
+  const percent = ((activeStep + 1) / STEP_LABELS.length) * 100
+  return (
+    <div className="mt-6" aria-label={`Etapa ${activeStep + 1} de ${STEP_LABELS.length}: ${STEP_LABELS[activeStep]}`}>
+      <div className="mb-2 flex items-center justify-between gap-4 text-xs font-semibold">
+        <span className="text-sage-800 dark:text-sage-300">Etapa {activeStep + 1} de {STEP_LABELS.length}</span>
+        <span className="text-muted dark:text-night-muted">{STEP_LABELS[activeStep]}</span>
+      </div>
+      <div className="h-1.5 overflow-hidden rounded-full bg-line/80 dark:bg-night-line">
+        <div className="h-full rounded-full bg-sage-600 transition-[width] duration-300" style={{ width: `${percent}%` }} />
+      </div>
+    </div>
+  )
+}
+
+function StepPanel({ number, label, title, children }) {
+  return (
+    <section aria-labelledby={`guided-step-${number}`}>
+      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">{number} · {label}</p>
+      <h2 id={`guided-step-${number}`} className="mt-2 font-display text-[1.7rem] font-semibold leading-tight text-ink dark:text-night-ink sm:text-[1.95rem]">{title}</h2>
+      {children}
+    </section>
+  )
 }
 
 function SourceReference({ section, bookTitle, onOpen }) {
