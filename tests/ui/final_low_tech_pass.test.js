@@ -44,7 +44,7 @@ describe('UX-17 final low-tech usability pass', () => {
 
   it('keeps small supporting text legible on Home, Library, and primary navigation', () => {
     expect(home).not.toContain('text-[9.5px]')
-    expect(home).toContain('text-xs font-semibold text-ink/85')
+    expect(home).toContain('text-xs font-semibold text-ink dark:text-night-ink')
     expect(library).not.toContain('text-[10px] font-medium')
     expect(library).toContain('text-xs font-medium text-muted')
     expect(bottomNav).not.toContain('text-[0.66rem]')
