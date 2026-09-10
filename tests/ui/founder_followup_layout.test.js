@@ -27,12 +27,12 @@ describe('founder follow-up responsive layout', () => {
 
   it('makes the reading continuation the primary Home action before secondary paths', () => {
     const continuationIndex = home.indexOf("{primaryBook ? (")
-    const actionsIndex = home.indexOf('<QuickActions navigate={navigate} />')
     const quoteIndex = home.indexOf('A maior caridade que podemos fazer')
 
     expect(continuationIndex).toBeGreaterThan(-1)
-    expect(actionsIndex).toBeGreaterThan(continuationIndex)
-    expect(quoteIndex).toBeGreaterThan(actionsIndex)
+    expect(quoteIndex).toBeGreaterThan(continuationIndex)
+    expect(home).not.toContain('<QuickActions navigate={navigate} />')
+    expect(home).not.toContain('Outros caminhos')
   })
 
   it('uses corner arrows for previous and next reading navigation', () => {
