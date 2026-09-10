@@ -304,7 +304,7 @@ export default function GuidedStudySessionPage() {
               <EditorialCard className="mt-4 p-5 sm:p-6">
                 <p className="text-xs font-semibold uppercase tracking-[0.08em] text-sage-700 dark:text-sage-300">Em suas palavras</p>
                 <p className="mt-2 text-base leading-relaxed text-muted dark:text-night-muted">
-                  Antes de seguir, tente explicar para si mesma, em uma ou duas frases, qual foi a ideia central da leitura. Pode ser mentalmente: o objetivo é perceber o que você realmente compreendeu.
+                  Antes de seguir, tente resumir com suas próprias palavras, em uma ou duas frases, qual foi a ideia central da leitura. Pode ser mentalmente: o objetivo é perceber o que você realmente compreendeu.
                 </p>
                 <p className="mt-4 border-t border-line pt-4 text-sm leading-relaxed text-muted dark:border-night-line dark:text-night-muted">
                   Se algo ainda estiver nebuloso, não há problema. Você poderá voltar à fonte durante o exercício de integração.
