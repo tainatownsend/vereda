@@ -35,7 +35,8 @@ describe('navigation and performance polish across the current product stack', (
   })
 
   it('keeps the desktop login composition compact and the welcome copy simple', () => {
-    expect(auth).toContain('mt-12 max-w-[32rem] pb-36')
+    expect(auth).toContain('lg:flex lg:flex-col lg:justify-center')
+    expect(auth).toContain('mt-8 max-w-[32rem] pb-36')
     expect(auth).toContain('text-[3.15rem]')
     expect(auth).toContain('lg:py-8')
     expect(auth).toContain('Que bom ter você por aqui.')
