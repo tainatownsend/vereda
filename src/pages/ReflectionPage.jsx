@@ -53,8 +53,12 @@ export default function ReflectionPage() {
     setShareStatus('')
     try {
       const result = await shareReflectionAsImage({ text, title, attribution })
-      if (result === 'downloaded') {
-        setShareStatus('A imagem foi criada. Você pode compartilhá-la pelo WhatsApp, Instagram ou onde preferir.')
+      if (result === 'shared') {
+        setShareStatus('Compartilhamento aberto com a arte da reflexão.')
+      } else if (result === 'copied') {
+        setShareStatus('Imagem copiada. Cole diretamente na conversa, publicação ou status em que quiser compartilhar.')
+      } else if (result === 'downloaded') {
+        setShareStatus('A imagem foi salva porque o navegador não oferece compartilhamento direto.')
       }
     } catch (error) {
       if (error?.name === 'AbortError') return
@@ -121,7 +125,7 @@ export default function ReflectionPage() {
                   aria-label="Compartilhar reflexão do dia como imagem"
                 >
                   <Share2 size={16} />
-                  Compartilhar imagem
+                  Compartilhar reflexão
                 </button>
               </div>
             </div>
@@ -158,7 +162,7 @@ export default function ReflectionPage() {
               className="inline-flex min-h-10 items-center justify-center gap-2 rounded-vesSm border border-sage-300 px-4 text-sm font-semibold text-sage-800 disabled:opacity-50 dark:border-sage-800 dark:text-sage-300"
             >
               <Image size={17} aria-hidden="true" />
-              Criar imagem para compartilhar
+              Compartilhar minha reflexão
             </button>
           </div>
           {saveStatus && (
