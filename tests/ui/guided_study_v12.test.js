@@ -73,14 +73,14 @@ describe('Vereda 1.2 guided study', () => {
 
   it('presents each encounter as a read-comprehend-reflect-integrate path without reproducing the book', () => {
     for (const [number, label] of [['1', 'Prepare-se'], ['2', 'Leia'], ['3', 'Compreenda'], ['4', 'Reflita'], ['5', 'Integre'], ['6', 'Continue']]) {
-      expect(sessionPage).toContain(`<StudyStep number="${number}" label="${label}"`)
+      expect(sessionPage).toContain(`<StepPanel number="${number}" label="${label}"`)
     }
     expect(sessionPage).toContain('Abrir esta leitura')
-    expect(sessionPage).toContain('o texto integral continua no Reader, sem ser reproduzido aqui')
+    expect(sessionPage).toContain('Abra a leitura indicada, leia com calma e volte para cá.')
     expect(sessionPage).toContain('Orientação de estudo · Vereda')
-    expect(sessionPage).toContain('Esta orientação é editorial')
+    expect(sessionPage).toContain('Esta explicação é uma companhia de estudo. Ela não faz parte da obra e não substitui a leitura original.')
     expect(sessionPage).toContain('getGuidedIntegrationPrompt(session.id)')
-    expect(sessionPage).toContain('A ideia não é acertar de primeira')
+    expect(sessionPage).toContain('Não é uma prova: perceber o que ainda ficou nebuloso também é aprender.')
     expect(sessionPage).not.toContain('section.content')
     expect(sessionPage).not.toContain('Texto original no corpus do Vereda')
     expect(sessionPage).not.toContain('Trecho ${section?.sec_position')
@@ -90,7 +90,7 @@ describe('Vereda 1.2 guided study', () => {
     expect(app).toContain('path="/estudo-guiado"')
     expect(app).toContain('path="/estudo-guiado/:pathKey"')
     expect(app).toContain('path="/estudo-guiado/:pathKey/:sessionId"')
-    expect(home).toContain('Abrir Estudo Guiado')
+    expect(home).toContain('Continuar no Estudo Guiado')
     expect(home).toContain("navigate('/estudo-guiado')")
     expect(bookDetail).toContain('Estudar esta obra com orientação')
     expect(bookDetail).toContain('matchGuidedPath(book)')
@@ -105,7 +105,7 @@ describe('Vereda 1.2 guided study', () => {
     expect(readFileSync('src/store/index.js', 'utf8')).toContain('[GUIDED_STUDY_PROGRESS_KEY]: nextProgress')
     expect(journal).toContain('saveGuidedReflection')
     expect(journal).toContain('reflection:guided:${pathKey}:${sessionId}')
-    expect(sessionPage).toContain('A reflexão é opcional')
+    expect(sessionPage).toContain('Você não precisa responder às três perguntas.')
   })
 
   it('opens the exact source passage and returns to the same guided encounter', () => {
