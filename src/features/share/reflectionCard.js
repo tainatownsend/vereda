@@ -1,18 +1,15 @@
 const CANVAS_WIDTH = 1080
 const CANVAS_HEIGHT = 1920
 
-export async function shareReflectionAsImage({ text, title = 'Reflexão', attribution = '' }) {
+export async function shareReflectionAsImage({ text, attribution = '' }) {
   const value = String(text || '').trim()
   if (!value) throw new Error('empty-reflection')
 
-  const blob = await renderReflectionCard({ text: value, title, attribution })
+  const blob = await renderReflectionCard({ text: value, attribution })
   const file = new File([blob], 'vereda-reflexao.png', { type: 'image/png' })
 
   if (navigator.share && navigator.canShare?.({ files: [file] })) {
-    await navigator.share({
-      title: `${title || 'Reflexão'} · Vereda`,
-      files: [file],
-    })
+    await navigator.share({ files: [file] })
     return 'shared'
   }
 
@@ -42,7 +39,7 @@ async function copyImageToClipboard(blob) {
   }
 }
 
-async function renderReflectionCard({ text, title, attribution }) {
+async function renderReflectionCard({ text, attribution }) {
   const canvas = document.createElement('canvas')
   canvas.width = CANVAS_WIDTH
   canvas.height = CANVAS_HEIGHT
@@ -51,59 +48,41 @@ async function renderReflectionCard({ text, title, attribution }) {
 
   drawLandscape(context)
 
-  context.fillStyle = '#30452F'
-  context.font = '600 30px Arial, sans-serif'
-  context.letterSpacing = '3px'
-  context.fillText(String(title || 'Reflexão').toUpperCase(), 110, 190)
-
-  context.fillStyle = '#283128'
-  context.font = '600 38px Georgia, serif'
-  context.letterSpacing = '4px'
-  context.fillText('VEREDA', 110, 255)
-
   const maxTextWidth = 820
-  const maxTextHeight = 790
-  const startY = 540
-  const font = fitText(context, text, maxTextWidth, maxTextHeight)
+  const availableTextHeight = attribution ? 940 : 1010
+  const font = fitText(context, text, maxTextWidth, availableTextHeight)
   context.font = `500 ${font}px Georgia, serif`
-  context.fillStyle = '#283128'
   context.letterSpacing = '0px'
 
   const lines = wrapText(context, text, maxTextWidth)
   const lineHeight = font * 1.42
-  const totalHeight = lines.length * lineHeight
-  let y = startY + Math.max(0, (maxTextHeight - totalHeight) / 2)
+  const textHeight = Math.max(lineHeight, lines.length * lineHeight)
+  const attributionHeight = attribution ? 84 : 0
+  const panelPadding = text.length < 180 ? 96 : 76
+  const panelHeight = clamp(textHeight + attributionHeight + (panelPadding * 2), 500, 1180)
+  const panelTop = clamp((CANVAS_HEIGHT - panelHeight) * 0.43, 255, 520)
+  const textStart = panelTop + ((panelHeight - textHeight - attributionHeight) / 2)
+  const textX = 130
 
-  context.fillStyle = 'rgba(255, 252, 245, 0.88)'
-  roundRect(context, 75, 430, 930, 970, 42)
+  context.fillStyle = 'rgba(255, 252, 245, 0.91)'
+  roundRect(context, 75, panelTop, 930, panelHeight, 44)
   context.fill()
 
   context.fillStyle = '#283128'
   context.font = `500 ${font}px Georgia, serif`
+  let y = textStart
   lines.forEach((line) => {
-    context.fillText(line, 130, y)
+    context.fillText(line, textX, y)
     y += lineHeight
   })
 
   if (attribution) {
     context.fillStyle = '#667064'
-    context.font = '400 28px Arial, sans-serif'
-    context.fillText(String(attribution), 130, Math.min(1335, y + 45))
+    context.font = '400 27px Arial, sans-serif'
+    context.fillText(String(attribution), textX, y + 30)
   }
 
-  context.fillStyle = 'rgba(255, 252, 245, 0.9)'
-  roundRect(context, 75, 1635, 930, 150, 34)
-  context.fill()
-
-  context.fillStyle = '#30452F'
-  context.font = '600 30px Georgia, serif'
-  context.letterSpacing = '2px'
-  context.fillText('VEREDA APP', 120, 1705)
-
-  context.fillStyle = '#6B7568'
-  context.font = '400 23px Arial, sans-serif'
-  context.letterSpacing = '0px'
-  context.fillText('Seu caminho de estudo espírita', 120, 1750)
+  drawSignature(context)
 
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => {
@@ -111,6 +90,19 @@ async function renderReflectionCard({ text, title, attribution }) {
       else reject(new Error('image-export-failed'))
     }, 'image/png', 0.95)
   })
+}
+
+function drawSignature(context) {
+  const label = 'vereda · seu caminho de estudo espírita'
+  context.fillStyle = 'rgba(255, 252, 245, 0.9)'
+  roundRect(context, 236, 1710, 608, 92, 32)
+  context.fill()
+
+  context.fillStyle = '#30452F'
+  context.font = '600 24px Arial, sans-serif'
+  context.letterSpacing = '0.6px'
+  const width = context.measureText(label).width
+  context.fillText(label, (CANVAS_WIDTH - width) / 2, 1767)
 }
 
 function drawLandscape(context) {
@@ -187,7 +179,9 @@ function roundRect(context, x, y, width, height, radius) {
 }
 
 function fitText(context, text, maxWidth, maxHeight) {
-  for (let font = 64; font >= 34; font -= 2) {
+  const preferredMax = text.length < 120 ? 78 : text.length < 240 ? 68 : 60
+
+  for (let font = preferredMax; font >= 34; font -= 2) {
     context.font = `500 ${font}px Georgia, serif`
     const lines = wrapText(context, text, maxWidth)
     if (lines.length * font * 1.42 <= maxHeight) return font
@@ -217,4 +211,8 @@ function wrapText(context, text, maxWidth) {
   })
 
   return lines
+}
+
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value))
 }
