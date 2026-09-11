@@ -168,11 +168,7 @@ export default function GuidedStudySessionPage() {
     if (!reflection.trim() || !session) return
     setShareStatus('')
     try {
-      const result = await shareReflectionAsImage({
-        text: reflection,
-        title: 'Minha reflexão',
-        attribution: `${path.title} · ${session.title}`,
-      })
+      const result = await shareReflectionAsImage({ text: reflection })
       if (result === 'shared') {
         setShareStatus('Compartilhamento aberto com a arte da sua reflexão.')
       } else if (result === 'copied') {
