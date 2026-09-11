@@ -5,6 +5,7 @@ import {
   Clock3,
   Leaf,
   Quote,
+  Share2,
 } from 'lucide-react'
 
 import { useAuthStore } from '@/store'
@@ -23,6 +24,8 @@ import {
   EditorialCard,
   ProgressLine,
 } from '@/components/northstar/NorthStarUI'
+import { getDailyReflection } from '@/features/reflections/dailyReflections'
+import { shareReflectionAsImage } from '@/features/share/reflectionCard'
 
 export default function HomePage() {
   const navigate = useNavigate()
@@ -30,12 +33,14 @@ export default function HomePage() {
   const books = useBooks()
   const { progress, dataLoading } = useUserData()
   const [sessionsThisWeek, setSessionsThisWeek] = useState(0)
+  const [reflectionShareStatus, setReflectionShareStatus] = useState('')
 
   const activeBooks = useMemo(
     () => getActiveBooksByLastRead(books, progress),
     [books, progress],
   )
   const studyPlan = useMemo(() => getStudyPlan(user), [user])
+  const dailyReflection = useMemo(() => getDailyReflection(), [])
 
   useEffect(() => {
     if (!user?.id) return
@@ -63,6 +68,18 @@ export default function HomePage() {
 
   const primaryBook = activeBooks[0]
   const greeting = getGreeting(profile?.name)
+
+  const shareDailyReflection = async () => {
+    setReflectionShareStatus('')
+    try {
+      const result = await shareReflectionAsImage({ text: dailyReflection.text })
+      if (result === 'shared') setReflectionShareStatus('Compartilhamento aberto.')
+      else if (result === 'copied') setReflectionShareStatus('Imagem copiada. Cole onde quiser compartilhar.')
+      else if (result === 'downloaded') setReflectionShareStatus('Imagem salva porque o navegador não oferece compartilhamento direto.')
+    } catch (error) {
+      if (error?.name !== 'AbortError') setReflectionShareStatus('Não foi possível compartilhar agora.')
+    }
+  }
 
   return (
     <main className="northstar-page pb-28">
@@ -93,18 +110,43 @@ export default function HomePage() {
           <EmptyHome navigate={navigate} />
         )}
 
-        <EditorialCard className="northstar-home-quote mt-7 overflow-hidden p-5">
-          <div className="relative z-10 flex items-start gap-3">
-            <Quote size={18} className="mt-1 shrink-0 text-sage-700" strokeWidth={1.7} />
-            <div className="max-w-[16rem]">
-              <p className="font-display text-[1.08rem] leading-[1.55] text-ink dark:text-night-ink">
-                “A maior caridade que podemos fazer pela Doutrina Espírita é a sua divulgação.”
-              </p>
-              <p className="mt-3 text-xs text-muted dark:text-night-muted">Allan Kardec</p>
+        <section className="mt-7" aria-labelledby="home-reflection-heading">
+          <EditorialCard className="northstar-home-quote overflow-hidden p-5">
+            <div className="relative z-10 flex items-start gap-3">
+              <Quote size={18} className="mt-1 shrink-0 text-sage-700" strokeWidth={1.7} />
+              <div className="min-w-0 flex-1">
+                <p id="home-reflection-heading" className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Para refletir</p>
+                <p className="mt-2 font-display text-[1.08rem] leading-[1.55] text-ink dark:text-night-ink">
+                  “{dailyReflection.text}”
+                </p>
+              </div>
+              <Leaf size={30} className="ml-auto shrink-0 text-sage-500" strokeWidth={1.35} />
             </div>
-            <Leaf size={30} className="ml-auto shrink-0 text-sage-500" strokeWidth={1.35} />
+          </EditorialCard>
+
+          <div className="mt-2 flex items-center justify-between gap-3 px-1">
+            <button
+              type="button"
+              onClick={() => navigate('/reflexoes')}
+              className="min-h-10 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+            >
+              Ver outras reflexões
+            </button>
+            <button
+              type="button"
+              onClick={shareDailyReflection}
+              className="inline-flex min-h-10 items-center gap-2 rounded-full px-3 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950/30"
+            >
+              <Share2 size={16} aria-hidden="true" />
+              Compartilhar
+            </button>
           </div>
-        </EditorialCard>
+          {reflectionShareStatus && (
+            <p role="status" aria-live="polite" className="mt-1 px-1 text-xs leading-relaxed text-muted dark:text-night-muted">
+              {reflectionShareStatus}
+            </p>
+          )}
+        </section>
       </div>
     </main>
   )
