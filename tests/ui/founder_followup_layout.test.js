@@ -27,7 +27,7 @@ describe('founder follow-up responsive layout', () => {
 
   it('makes the reading continuation the primary Home action before secondary paths', () => {
     const continuationIndex = home.indexOf("{primaryBook ? (")
-    const quoteIndex = home.indexOf('A maior caridade que podemos fazer')
+    const quoteIndex = home.indexOf('Para refletir')
 
     expect(continuationIndex).toBeGreaterThan(-1)
     expect(quoteIndex).toBeGreaterThan(continuationIndex)
