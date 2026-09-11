@@ -15,7 +15,9 @@ describe('Vereda North Star canonical screens', () => {
   it('keeps Home focused on a personalized next study action without duplicating destinations', () => {
     expect(home).toContain('Seu próximo passo, com calma e clareza.')
     expect(home).toContain('getGreeting(profile?.name)')
-    expect(home).toContain('A maior caridade que podemos fazer pela Doutrina Espírita é a sua divulgação.')
+    expect(home).toContain('Para refletir')
+    expect(home).toContain('Ver outras reflexões')
+    expect(home).toContain('Compartilhar')
     expect(home).toContain('Continue seu estudo')
     expect(home).toContain('Prefere definir um plano de leitura?')
     expect(home).not.toContain('Prefere estudar com companhia?')
@@ -71,16 +73,16 @@ describe('Vereda North Star canonical screens', () => {
     expect(reader).not.toContain('> Anterior')
   })
 
-  it('makes personal reflection saving explicit and account-aware', () => {
-    expect(reflection).toContain('Reflexão do dia')
-    expect(reflection).toContain('Ninguém está bastante adiantado na vida para não aprender, nem tão simples e ignorante que não possa ensinar alguma coisa.')
-    expect(reflection).toContain('Emmanuel')
+  it('makes reflections discoverable, renewable, shareable, and account-aware', () => {
+    expect(reflection).toContain('Um espaço para parar e pensar')
+    expect(reflection).toContain('Reflexão de hoje')
+    expect(reflection).toContain('Gerar outra reflexão')
+    expect(reflection).toContain('Reflexões anteriores')
     expect(reflection).toContain('Minha reflexão')
     expect(reflection).toContain('Escreva sua reflexão...')
     expect(reflection).toContain('Salvar minha reflexão')
     expect(reflection).toContain('Minhas reflexões')
     expect(reflection).toContain('Vinculada à sua conta')
-    expect(reflection).toContain('Compartilhar reflexão do dia')
     expect(reflection).not.toContain('salvas somente neste dispositivo')
     expect(reflection).not.toContain('Heart')
     expect(reflection).not.toContain('MoreHorizontal')
