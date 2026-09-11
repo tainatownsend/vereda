@@ -148,7 +148,7 @@ export default function ReflectionPage() {
                   className="inline-flex min-h-10 items-center justify-center gap-2 rounded-vesSm px-4 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950/30"
                 >
                   <RefreshCw size={16} aria-hidden="true" />
-                  Outra reflexão
+                  Gerar outra reflexão
                 </button>
               </div>
             </div>
