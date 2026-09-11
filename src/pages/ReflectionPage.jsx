@@ -56,10 +56,10 @@ export default function ReflectionPage() {
     [entries],
   )
 
-  const shareImage = async ({ text, attribution = '' }) => {
+  const shareImage = async ({ text }) => {
     setShareStatus('')
     try {
-      const result = await shareReflectionAsImage({ text, attribution })
+      const result = await shareReflectionAsImage({ text })
       if (result === 'shared') {
         setShareStatus('Compartilhamento aberto com a arte da reflexão.')
       } else if (result === 'copied') {
@@ -247,7 +247,7 @@ export default function ReflectionPage() {
                       <p className="text-[10px] text-muted dark:text-night-muted">{formatJournalDate(reflection.entryDate)}</p>
                       <button
                         type="button"
-                        onClick={() => shareImage({ text: reflection.text, attribution: formatJournalDate(reflection.entryDate) })}
+                        onClick={() => shareImage({ text: reflection.text })}
                         className="inline-flex min-h-9 items-center gap-1.5 rounded-full px-2 text-xs font-semibold text-sage-700 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-night"
                         aria-label="Compartilhar esta reflexão como imagem"
                       >
