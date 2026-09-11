@@ -130,10 +130,12 @@ describe('Vereda 1.2 guided study', () => {
     expect(auth).toContain('lg:justify-center')
     expect(sessionPage).toContain("STEP_LABELS = ['Orientação', 'Leitura', 'Assimile', 'Reflexão', 'Integração', 'Fechamento']")
     expect(sessionPage).toContain('getNextStepActionLabel')
-    expect(reflectionCard).toContain('VEREDA APP')
-    expect(reflectionCard).toContain('Seu caminho de estudo espírita')
+    expect(reflectionCard).toContain('vereda · seu caminho de estudo espírita')
+    expect(reflectionCard).not.toContain('VEREDA APP')
+    expect(reflectionCard).toContain('await navigator.share({ files: [file] })')
     expect(reflectionCard).toContain('navigator.clipboard?.write')
-    expect(reflection).toContain('Compartilhar reflexão')
+    expect(reflection).toContain('Gerar outra reflexão')
+    expect(reflection).toContain('Reflexões anteriores')
   })
 
   it('does not introduce competitive or school-like mechanics into guided study', () => {
