@@ -1,11 +1,13 @@
+import northStarLandscape from '@/assets/northstar-landscape.svg'
+
 const CANVAS_WIDTH = 1080
 const CANVAS_HEIGHT = 1920
 
-export async function shareReflectionAsImage({ text, attribution = '' }) {
+export async function shareReflectionAsImage({ text }) {
   const value = String(text || '').trim()
   if (!value) throw new Error('empty-reflection')
 
-  const blob = await renderReflectionCard({ text: value, attribution })
+  const blob = await renderReflectionCard({ text: value })
   const file = new File([blob], 'vereda-reflexao.png', { type: 'image/png' })
 
   if (navigator.share && navigator.canShare?.({ files: [file] })) {
@@ -39,17 +41,17 @@ async function copyImageToClipboard(blob) {
   }
 }
 
-async function renderReflectionCard({ text, attribution }) {
+async function renderReflectionCard({ text }) {
   const canvas = document.createElement('canvas')
   canvas.width = CANVAS_WIDTH
   canvas.height = CANVAS_HEIGHT
   const context = canvas.getContext('2d')
   if (!context) throw new Error('canvas-unavailable')
 
-  drawLandscape(context)
+  await drawLandscape(context)
 
   const maxTextWidth = 820
-  const availableTextHeight = attribution ? 940 : 1010
+  const availableTextHeight = 1010
   const font = fitText(context, text, maxTextWidth, availableTextHeight)
   context.font = `500 ${font}px Georgia, serif`
   context.letterSpacing = '0px'
@@ -57,11 +59,10 @@ async function renderReflectionCard({ text, attribution }) {
   const lines = wrapText(context, text, maxTextWidth)
   const lineHeight = font * 1.42
   const textHeight = Math.max(lineHeight, lines.length * lineHeight)
-  const attributionHeight = attribution ? 84 : 0
-  const panelPadding = text.length < 180 ? 96 : 76
-  const panelHeight = clamp(textHeight + attributionHeight + (panelPadding * 2), 500, 1180)
-  const panelTop = clamp((CANVAS_HEIGHT - panelHeight) * 0.43, 255, 520)
-  const textStart = panelTop + ((panelHeight - textHeight - attributionHeight) / 2)
+  const panelPadding = text.length < 180 ? 104 : 78
+  const panelHeight = clamp(textHeight + (panelPadding * 2), 470, 1160)
+  const panelTop = clamp((CANVAS_HEIGHT - panelHeight) * 0.39, 230, 500)
+  const textStart = panelTop + ((panelHeight - textHeight) / 2)
   const textX = 130
 
   context.fillStyle = 'rgba(255, 252, 245, 0.91)'
@@ -75,12 +76,6 @@ async function renderReflectionCard({ text, attribution }) {
     context.fillText(line, textX, y)
     y += lineHeight
   })
-
-  if (attribution) {
-    context.fillStyle = '#667064'
-    context.font = '400 27px Arial, sans-serif'
-    context.fillText(String(attribution), textX, y + 30)
-  }
 
   drawSignature(context)
 
@@ -105,66 +100,30 @@ function drawSignature(context) {
   context.fillText(label, (CANVAS_WIDTH - width) / 2, 1767)
 }
 
-function drawLandscape(context) {
-  const gradient = context.createLinearGradient(0, 0, 0, CANVAS_HEIGHT)
-  gradient.addColorStop(0, '#F7F2E8')
-  gradient.addColorStop(0.55, '#F3EFE6')
-  gradient.addColorStop(1, '#E5EBDD')
-  context.fillStyle = gradient
+async function drawLandscape(context) {
+  context.fillStyle = '#F7F2E8'
   context.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
 
-  context.fillStyle = '#E7B977'
-  context.globalAlpha = 0.78
-  context.beginPath()
-  context.arc(875, 250, 112, 0, Math.PI * 2)
-  context.fill()
-  context.globalAlpha = 1
+  const image = await loadImage(northStarLandscape)
+  const landscapeHeight = 690
+  const landscapeTop = CANVAS_HEIGHT - landscapeHeight
+  context.drawImage(image, 0, landscapeTop, CANVAS_WIDTH, landscapeHeight)
 
-  context.fillStyle = '#D8E2D3'
-  context.beginPath()
-  context.moveTo(0, 1410)
-  context.bezierCurveTo(170, 1320, 330, 1345, 475, 1425)
-  context.bezierCurveTo(650, 1525, 820, 1450, 1080, 1320)
-  context.lineTo(1080, 1920)
-  context.lineTo(0, 1920)
-  context.closePath()
-  context.fill()
+  const wash = context.createLinearGradient(0, 0, 0, 920)
+  wash.addColorStop(0, 'rgba(247, 242, 232, 0.98)')
+  wash.addColorStop(0.72, 'rgba(247, 242, 232, 0.9)')
+  wash.addColorStop(1, 'rgba(247, 242, 232, 0.18)')
+  context.fillStyle = wash
+  context.fillRect(0, 0, CANVAS_WIDTH, 1040)
+}
 
-  context.fillStyle = '#AFC2AC'
-  context.beginPath()
-  context.moveTo(0, 1510)
-  context.bezierCurveTo(180, 1425, 355, 1450, 505, 1535)
-  context.bezierCurveTo(690, 1640, 865, 1545, 1080, 1445)
-  context.lineTo(1080, 1920)
-  context.lineTo(0, 1920)
-  context.closePath()
-  context.fill()
-
-  context.fillStyle = '#6F8B72'
-  context.beginPath()
-  context.moveTo(0, 1640)
-  context.bezierCurveTo(190, 1540, 370, 1580, 535, 1665)
-  context.bezierCurveTo(720, 1760, 875, 1665, 1080, 1580)
-  context.lineTo(1080, 1920)
-  context.lineTo(0, 1920)
-  context.closePath()
-  context.fill()
-
-  context.strokeStyle = '#FFF9F1'
-  context.lineWidth = 64
-  context.lineCap = 'round'
-  context.beginPath()
-  context.moveTo(520, 1920)
-  context.bezierCurveTo(520, 1780, 610, 1700, 600, 1600)
-  context.bezierCurveTo(590, 1510, 510, 1470, 540, 1390)
-  context.stroke()
-
-  context.strokeStyle = '#D8BFA9'
-  context.lineWidth = 5
-  context.beginPath()
-  context.moveTo(520, 1920)
-  context.bezierCurveTo(520, 1785, 606, 1700, 596, 1600)
-  context.stroke()
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const image = new Image()
+    image.onload = () => resolve(image)
+    image.onerror = reject
+    image.src = src
+  })
 }
 
 function roundRect(context, x, y, width, height, radius) {
