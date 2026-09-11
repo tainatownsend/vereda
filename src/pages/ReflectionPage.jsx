@@ -223,11 +223,6 @@ export default function ReflectionPage() {
               {saveStatus}
             </p>
           )}
-          {shareStatus && (
-            <p role="status" aria-live="polite" className="mt-2 text-xs leading-relaxed text-sage-800 dark:text-sage-300">
-              {shareStatus}
-            </p>
-          )}
         </section>
 
         <section className="mt-8" aria-labelledby="saved-reflections-heading">
@@ -270,6 +265,12 @@ export default function ReflectionPage() {
           )}
         </section>
       </div>
+
+      {shareStatus && (
+        <div className="fixed inset-x-4 bottom-24 z-50 mx-auto max-w-sm rounded-vesSm border border-sage-200 bg-surface/95 px-4 py-3 text-center text-xs font-medium leading-relaxed text-sage-900 shadow-lg backdrop-blur dark:border-sage-900 dark:bg-night-surface/95 dark:text-sage-200" role="status" aria-live="polite">
+          {shareStatus}
+        </div>
+      )}
     </main>
   )
 }
