@@ -180,6 +180,26 @@ export async function saveDailyReflection(userId, text, date = new Date()) {
   })
 }
 
+export async function saveGuidedReflection(userId, { pathKey, sessionId, bookId, sectionId, sourceTitle, text }) {
+  const value = String(text || '').trim()
+  if (!value || !pathKey || !sessionId) return null
+  const entryKey = `reflection:guided:${pathKey}:${sessionId}`
+  const existing = readLocalEntries(userId).find((entry) => entry.entryKey === entryKey)
+  const now = new Date().toISOString()
+
+  return persistEntry(userId, {
+    entryKey,
+    entryType: 'reflection',
+    text: value,
+    entryDate: getLocalDateKey(),
+    bookId: Number(bookId) || null,
+    sectionId: Number(sectionId) || null,
+    sourceTitle: sourceTitle || 'Reflexão do estudo guiado',
+    createdAt: existing?.createdAt || now,
+    updatedAt: now,
+  })
+}
+
 export async function saveSectionNote(userId, { bookId, sectionId, sourceTitle, text }) {
   const value = String(text || '').trim()
   if (!value || !sectionId) return null

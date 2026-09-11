@@ -9,8 +9,9 @@ describe('v1 scope: future media experiences', () => {
     expect(home).not.toContain('Resumos')
     expect(home).not.toContain('Audiobooks')
     expect(home).not.toContain('Em breve')
-    expect(home).toContain('label="Livros"')
-    expect(home).toContain('label="Reflexões"')
+    expect(home).toContain('Continue seu estudo')
+    expect(home).not.toContain('Outros caminhos')
+    expect(home).not.toContain('Continuar no Estudo Guiado')
   })
 
   it('does not expose summary or audiobook routes in v1', () => {

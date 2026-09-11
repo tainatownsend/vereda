@@ -9,12 +9,14 @@ import {
   ChevronDown,
   ChevronUp,
   Clock3,
+  Compass,
   Feather,
 } from 'lucide-react'
 
 import { useAuthStore, useReadingStore } from '@/store'
 import { useBooks } from '@/hooks'
 import { Button, PageLoader } from '@/components/ui'
+import { matchGuidedPath } from '@/features/guidedStudy/catalog'
 
 const MINUTE_OPTIONS = [5, 10, 15, 20, 30]
 const WEEK_OPTIONS = [4, 8, 12, 24, 52]
@@ -43,6 +45,7 @@ export default function BookDetailPage() {
 
   const bookId = Number(id)
   const book = books.find((item) => item.id === bookId)
+  const guidedPath = matchGuidedPath(book)
 
   useEffect(() => {
     if (progress[bookId]) navigate(`/ler/${id}`, { replace: true })
@@ -125,6 +128,26 @@ export default function BookDetailPage() {
               </div>
             </div>
           </section>
+
+          {guidedPath && (
+            <section className="mt-4 rounded-vesLg border border-sage-200 bg-sage-50/70 p-5 shadow-sm dark:border-sage-900 dark:bg-sage-950/25" aria-labelledby="guided-book-heading">
+              <div className="flex items-start gap-3">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
+                  <Compass size={20} aria-hidden="true" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Estudo guiado</p>
+                  <h2 id="guided-book-heading" className="mt-1 font-display text-lg font-semibold text-ink dark:text-night-ink">Estudar esta obra com orientação</h2>
+                  <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+                    Faça uma jornada de 8 encontros. Em cada um, você começa no texto original e só depois encontra contexto, conexões e uma reflexão opcional.
+                  </p>
+                  <button type="button" onClick={() => navigate(`/estudo-guiado/${guidedPath.key}`)} className="mt-3 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sage-800 dark:text-sage-300">
+                    Ver jornada guiada <ArrowRight size={17} aria-hidden="true" />
+                  </button>
+                </div>
+              </div>
+            </section>
+          )}
 
           {!showPace && (
             <div className="mt-8">

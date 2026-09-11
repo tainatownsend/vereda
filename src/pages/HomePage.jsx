@@ -1,12 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
-  BookOpen,
   CalendarDays,
   Clock3,
   Leaf,
   Quote,
-  Settings2,
+  Share2,
 } from 'lucide-react'
 
 import { useAuthStore } from '@/store'
@@ -25,6 +24,8 @@ import {
   EditorialCard,
   ProgressLine,
 } from '@/components/northstar/NorthStarUI'
+import { getDailyReflection } from '@/features/reflections/dailyReflections'
+import { shareReflectionAsImage } from '@/features/share/reflectionCard'
 
 export default function HomePage() {
   const navigate = useNavigate()
@@ -32,12 +33,14 @@ export default function HomePage() {
   const books = useBooks()
   const { progress, dataLoading } = useUserData()
   const [sessionsThisWeek, setSessionsThisWeek] = useState(0)
+  const [reflectionShareStatus, setReflectionShareStatus] = useState('')
 
   const activeBooks = useMemo(
     () => getActiveBooksByLastRead(books, progress),
     [books, progress],
   )
   const studyPlan = useMemo(() => getStudyPlan(user), [user])
+  const dailyReflection = useMemo(() => getDailyReflection(), [])
 
   useEffect(() => {
     if (!user?.id) return
@@ -66,19 +69,33 @@ export default function HomePage() {
   const primaryBook = activeBooks[0]
   const greeting = getGreeting(profile?.name)
 
+  const shareDailyReflection = async () => {
+    setReflectionShareStatus('')
+    try {
+      const result = await shareReflectionAsImage({ text: dailyReflection.text })
+      if (result === 'shared') setReflectionShareStatus('Compartilhamento aberto.')
+      else if (result === 'copied') setReflectionShareStatus('Imagem copiada. Cole onde quiser compartilhar.')
+      else if (result === 'downloaded') setReflectionShareStatus('Imagem salva porque o navegador não oferece compartilhamento direto.')
+    } catch (error) {
+      if (error?.name !== 'AbortError') setReflectionShareStatus('Não foi possível compartilhar agora.')
+    }
+  }
+
   return (
     <main className="northstar-page pb-28">
-      <div className="northstar-container pt-9">
-        <header>
-          <p className="font-display text-[1.92rem] font-semibold tracking-[0.06em] text-[#30452f] dark:text-night-ink">
+      <div className="northstar-container pt-7 sm:pt-9">
+        <header className="flex items-start justify-between gap-5 border-b border-line/70 pb-5 dark:border-night-line">
+          <p className="shrink-0 font-display text-[1.55rem] font-semibold tracking-[0.08em] text-[#30452f] dark:text-night-ink sm:text-[1.75rem]">
             VEREDA
           </p>
-          <p className="mt-3 font-display text-[1.2rem] font-semibold text-ink dark:text-night-ink">
-            {greeting}
-          </p>
-          <p className="mt-1 max-w-[22rem] text-[14px] leading-relaxed text-ink/75 dark:text-night-muted">
-            Seu próximo passo fica claro aqui. Você continua no seu ritmo.
-          </p>
+          <div className="min-w-0 max-w-[17rem] text-right sm:max-w-sm">
+            <p className="font-display text-[1.08rem] font-semibold leading-tight text-ink dark:text-night-ink sm:text-[1.2rem]">
+              {greeting}
+            </p>
+            <p className="mt-1 text-[13px] leading-relaxed text-ink/70 dark:text-night-muted sm:text-sm">
+              Seu próximo passo, com calma e clareza.
+            </p>
+          </div>
         </header>
 
         {primaryBook ? (
@@ -93,39 +110,43 @@ export default function HomePage() {
           <EmptyHome navigate={navigate} />
         )}
 
-        {!studyPlan && (
-          <EditorialCard className="mt-4 p-5">
-            <div className="flex items-start gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
-                <Settings2 size={18} aria-hidden="true" />
-              </div>
+        <section className="mt-7" aria-labelledby="home-reflection-heading">
+          <EditorialCard className="northstar-home-quote overflow-hidden p-5">
+            <div className="relative z-10 flex items-start gap-3">
+              <Quote size={18} className="mt-1 shrink-0 text-sage-700" strokeWidth={1.7} />
               <div className="min-w-0 flex-1">
-                <p className="font-display text-lg font-semibold text-ink dark:text-night-ink">Faça o Vereda caber na sua rotina</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">
-                  Diga quanto tempo e quantas sessões por semana parecem realistas. Isso orienta o app, não cria cobrança.
+                <p id="home-reflection-heading" className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Para refletir</p>
+                <p className="mt-2 font-display text-[1.08rem] leading-[1.55] text-ink dark:text-night-ink">
+                  “{dailyReflection.text}”
                 </p>
-                <button type="button" onClick={() => navigate('/plano-de-estudo')} className="northstar-text-action mt-3">
-                  Definir meu ritmo de estudo
-                </button>
               </div>
+              <Leaf size={30} className="ml-auto shrink-0 text-sage-500" strokeWidth={1.35} />
             </div>
           </EditorialCard>
-        )}
 
-        <QuickActions navigate={navigate} />
-
-        <EditorialCard className="northstar-home-quote mt-7 overflow-hidden p-5">
-          <div className="relative z-10 flex items-start gap-3">
-            <Quote size={18} className="mt-1 shrink-0 text-sage-700" strokeWidth={1.7} />
-            <div className="max-w-[16rem]">
-              <p className="font-display text-[1.08rem] leading-[1.55] text-ink dark:text-night-ink">
-                “A maior caridade que podemos fazer pela Doutrina Espírita é a sua divulgação.”
-              </p>
-              <p className="mt-3 text-xs text-muted dark:text-night-muted">Allan Kardec</p>
-            </div>
-            <Leaf size={30} className="ml-auto shrink-0 text-sage-500" strokeWidth={1.35} />
+          <div className="mt-2 flex items-center justify-between gap-3 px-1">
+            <button
+              type="button"
+              onClick={() => navigate('/reflexoes')}
+              className="min-h-10 text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
+            >
+              Ver outras reflexões
+            </button>
+            <button
+              type="button"
+              onClick={shareDailyReflection}
+              className="inline-flex min-h-10 items-center gap-2 rounded-full px-3 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950/30"
+            >
+              <Share2 size={16} aria-hidden="true" />
+              Compartilhar
+            </button>
           </div>
-        </EditorialCard>
+          {reflectionShareStatus && (
+            <p role="status" aria-live="polite" className="mt-1 px-1 text-xs leading-relaxed text-muted dark:text-night-muted">
+              {reflectionShareStatus}
+            </p>
+          )}
+        </section>
       </div>
     </main>
   )
@@ -137,16 +158,8 @@ function NextStudyCard({ book, progress, studyPlan, sessionsThisWeek, navigate }
 
   return (
     <section className="mt-7" aria-labelledby="next-study-heading">
-      <div className="mb-3 flex items-end justify-between gap-3">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-sage-700 dark:text-sage-300">Seu próximo passo</p>
-          <h2 id="next-study-heading" className="mt-1 font-display text-[1.35rem] font-semibold text-ink dark:text-night-ink">Continue seu estudo</h2>
-        </div>
-        {studyPlan && (
-          <button type="button" onClick={() => navigate('/plano-de-estudo')} className="min-h-11 text-xs font-semibold text-sage-700 underline-offset-4 hover:underline dark:text-sage-300">
-            Ajustar ritmo
-          </button>
-        )}
+      <div className="mb-3">
+        <h2 id="next-study-heading" className="font-display text-[1.35rem] font-semibold text-ink dark:text-night-ink">Continue seu estudo</h2>
       </div>
 
       <EditorialCard className="overflow-hidden p-0">
@@ -169,29 +182,32 @@ function NextStudyCard({ book, progress, studyPlan, sessionsThisWeek, navigate }
           </div>
         </button>
 
-        <div className="grid grid-cols-2 border-t border-line/80 bg-surface-soft/45 dark:border-night-line dark:bg-night/25">
-          <div className="flex min-h-11 items-center gap-2 border-r border-line/80 px-4 py-3 dark:border-night-line">
-            <Clock3 size={15} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
-            <span className="text-xs font-medium text-muted dark:text-night-muted">{getSessionEstimate(studyPlan)}</span>
+        {studyPlan ? (
+          <div className="grid grid-cols-2 border-t border-line/80 bg-surface-soft/45 dark:border-night-line dark:bg-night/25">
+            <div className="flex min-h-11 items-center gap-2 border-r border-line/80 px-4 py-3 dark:border-night-line">
+              <Clock3 size={15} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+              <span className="text-xs font-medium text-muted dark:text-night-muted">{getSessionEstimate(studyPlan)}</span>
+            </div>
+            <div className="flex min-h-11 items-center gap-2 px-4 py-3">
+              <CalendarDays size={15} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+              <span className="text-xs font-medium text-muted dark:text-night-muted">{getWeeklyProgressLabel(studyPlan, sessionsThisWeek)}</span>
+            </div>
           </div>
-          <div className="flex min-h-11 items-center gap-2 px-4 py-3">
-            <CalendarDays size={15} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
-            <span className="text-xs font-medium text-muted dark:text-night-muted">{getWeeklyProgressLabel(studyPlan, sessionsThisWeek)}</span>
-          </div>
-        </div>
+        ) : (
+          <button
+            type="button"
+            onClick={() => navigate('/plano-de-estudo')}
+            className="flex w-full items-center gap-3 border-t border-line/80 bg-surface-soft/45 px-5 py-3.5 text-left transition hover:bg-sage-50 dark:border-night-line dark:bg-night/25 dark:hover:bg-sage-950/30"
+          >
+            <CalendarDays size={17} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+            <span className="min-w-0 flex-1">
+              <span className="block text-xs font-semibold text-ink dark:text-night-ink">Prefere definir um plano de leitura?</span>
+              <span className="mt-0.5 block text-[11px] leading-relaxed text-muted dark:text-night-muted">Escolha um tempo e uma frequência que caibam na sua rotina.</span>
+            </span>
+            <span className="shrink-0 text-xs font-semibold text-sage-700 dark:text-sage-300">Definir</span>
+          </button>
+        )}
       </EditorialCard>
-    </section>
-  )
-}
-
-function QuickActions({ navigate }) {
-  return (
-    <section className="mt-6" aria-labelledby="explore-heading">
-      <h2 id="explore-heading" className="northstar-section-title">Outros caminhos</h2>
-      <div className="mt-3 grid grid-cols-2 gap-2">
-        <QuickAction icon={BookOpen} label="Livros" onClick={() => navigate('/biblioteca')} />
-        <QuickAction icon={Leaf} label="Reflexões" onClick={() => navigate('/reflexoes')} />
-      </div>
     </section>
   )
 }
@@ -208,22 +224,9 @@ function EmptyHome({ navigate }) {
           O Vereda pode sugerir uma primeira direção, sem limitar sua liberdade de explorar as obras.
         </p>
         <Button onClick={() => navigate('/comecar')} className="mt-6 w-full">Ajude-me a começar</Button>
-        <button type="button" onClick={() => navigate('/biblioteca')} className="northstar-text-action mt-2 min-h-11 w-full">Prefiro conhecer as obras primeiro</button>
+        <button type="button" onClick={() => navigate('/biblioteca')} className="northstar-text-action mt-2 min-h-11 w-full">Prefiro conhecer os estudos primeiro</button>
       </EditorialCard>
     </section>
-  )
-}
-
-function QuickAction({ icon: Icon, label, onClick }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="flex min-h-[78px] flex-col items-center justify-center gap-2 rounded-[14px] border border-line bg-surface px-2 text-sage-700 dark:border-night-line dark:bg-night-surface dark:text-sage-300"
-    >
-      <Icon size={20} strokeWidth={1.7} aria-hidden="true" />
-      <span className="max-w-full text-xs font-semibold text-ink/85 dark:text-night-muted">{label}</span>
-    </button>
   )
 }
 

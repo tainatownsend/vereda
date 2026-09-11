@@ -1,11 +1,17 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, Bookmark, Cloud, CloudOff, Quote, Share2 } from 'lucide-react'
+import { ArrowLeft, Bookmark, Cloud, CloudOff, Image, Quote, RefreshCw, Share2 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import northStarLandscape from '@/assets/northstar-landscape.svg'
 import { useAuthStore } from '@/store'
 import { Button } from '@/components/ui'
 import { EditorialCard } from '@/components/northstar/NorthStarUI'
+import { shareReflectionAsImage } from '@/features/share/reflectionCard'
+import {
+  getDailyReflection,
+  getNextReflection,
+  getPreviousDailyReflections,
+} from '@/features/reflections/dailyReflections'
 import {
   formatJournalDate,
   getLocalDateKey,
@@ -13,7 +19,6 @@ import {
   saveDailyReflection,
 } from '@/features/studyJournal/studyJournal'
 
-const REFLECTION_TEXT = 'Ninguém está bastante adiantado na vida para não aprender, nem tão simples e ignorante que não possa ensinar alguma coisa.'
 
 export default function ReflectionPage() {
   const navigate = useNavigate()
@@ -23,6 +28,10 @@ export default function ReflectionPage() {
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [saveStatus, setSaveStatus] = useState('')
+  const [shareStatus, setShareStatus] = useState('')
+  const dailyReflection = useMemo(() => getDailyReflection(), [])
+  const previousDailyReflections = useMemo(() => getPreviousDailyReflections(7), [])
+  const [featuredReflection, setFeaturedReflection] = useState(dailyReflection)
   const todayKey = getLocalDateKey()
 
   useEffect(() => {
@@ -47,16 +56,20 @@ export default function ReflectionPage() {
     [entries],
   )
 
-  const shareReflection = async () => {
-    const text = `“${REFLECTION_TEXT}” — Emmanuel`
+  const shareImage = async ({ text }) => {
+    setShareStatus('')
     try {
-      if (navigator.share) {
-        await navigator.share({ title: 'Reflexão do dia · Vereda', text })
-      } else if (navigator.clipboard) {
-        await navigator.clipboard.writeText(text)
+      const result = await shareReflectionAsImage({ text })
+      if (result === 'shared') {
+        setShareStatus('Compartilhamento aberto com a arte da reflexão.')
+      } else if (result === 'copied') {
+        setShareStatus('Imagem copiada. Cole diretamente na conversa, publicação ou status em que quiser compartilhar.')
+      } else if (result === 'downloaded') {
+        setShareStatus('A imagem foi salva porque o navegador não oferece compartilhamento direto.')
       }
-    } catch {
-      // Sharing is user-cancelable; keep the reflection flow uninterrupted.
+    } catch (error) {
+      if (error?.name === 'AbortError') return
+      setShareStatus('Não foi possível criar a imagem agora. Tente novamente.')
     }
   }
 
@@ -96,7 +109,10 @@ export default function ReflectionPage() {
           <button type="button" className="northstar-icon-button -ml-2" onClick={() => navigate(-1)} aria-label="Voltar">
             <ArrowLeft size={20} />
           </button>
-          <h1 className="flex-1 font-display text-[1.55rem] font-semibold text-ink dark:text-night-ink">Reflexão do dia</h1>
+          <div className="min-w-0 flex-1">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Reflexões</p>
+            <h1 className="mt-1 font-display text-[1.55rem] font-semibold text-ink dark:text-night-ink">Um espaço para parar e pensar</h1>
+          </div>
         </header>
 
         <div className="mt-4 overflow-hidden rounded-[18px] border border-line bg-sage-100 dark:border-night-line">
@@ -107,24 +123,67 @@ export default function ReflectionPage() {
           <div className="flex gap-3">
             <Quote size={20} className="mt-1 shrink-0 text-sage-700" />
             <div className="min-w-0 flex-1">
-              <p className="font-display text-[1.22rem] leading-[1.55] text-ink dark:text-night-ink">
-                “{REFLECTION_TEXT}”
+              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">
+                {featuredReflection.id === dailyReflection.id ? 'Reflexão de hoje' : 'Outra reflexão'}
               </p>
-              <div className="mt-3 flex items-center justify-between gap-3">
-                <p className="text-xs text-muted dark:text-night-muted">Emmanuel</p>
+              <p className="mt-2 font-display text-[1.22rem] leading-[1.55] text-ink dark:text-night-ink">
+                “{featuredReflection.text}”
+              </p>
+              <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
                 <button
                   type="button"
-                  onClick={shareReflection}
-                  className="inline-flex min-h-9 items-center gap-2 rounded-full px-3 text-xs font-semibold text-sage-700 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-night"
-                  aria-label="Compartilhar reflexão do dia"
+                  onClick={() => shareImage({ text: featuredReflection.text })}
+                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-vesSm border border-sage-300 px-4 text-sm font-semibold text-sage-800 dark:border-sage-800 dark:text-sage-300"
+                  aria-label="Compartilhar esta reflexão"
                 >
                   <Share2 size={16} />
                   Compartilhar
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFeaturedReflection((current) => getNextReflection(current.id))
+                    setShareStatus('')
+                  }}
+                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-vesSm px-4 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950/30"
+                >
+                  <RefreshCw size={16} aria-hidden="true" />
+                  Gerar outra reflexão
                 </button>
               </div>
             </div>
           </div>
         </EditorialCard>
+
+        <section className="mt-7" aria-labelledby="previous-daily-reflections-heading">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Para revisitar</p>
+              <h2 id="previous-daily-reflections-heading" className="northstar-section-title mt-1">Reflexões anteriores</h2>
+            </div>
+            <span className="text-xs text-muted dark:text-night-muted">{previousDailyReflections.length}</span>
+          </div>
+
+          <div className="mt-3 space-y-2">
+            {previousDailyReflections.map((reflection) => (
+              <EditorialCard key={reflection.dateKey} className="p-4">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">{reflection.label}</p>
+                <p className="mt-2 text-sm leading-relaxed text-ink dark:text-night-ink">“{reflection.text}”</p>
+                <div className="mt-2 flex justify-end">
+                  <button
+                    type="button"
+                    onClick={() => shareImage({ text: reflection.text })}
+                    className="inline-flex min-h-9 items-center gap-1.5 rounded-full px-2 text-xs font-semibold text-sage-700 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-night"
+                    aria-label={`Compartilhar reflexão de ${reflection.label}`}
+                  >
+                    <Share2 size={15} aria-hidden="true" />
+                    Compartilhar
+                  </button>
+                </div>
+              </EditorialCard>
+            ))}
+          </div>
+        </section>
 
         <section className="mt-6" aria-labelledby="my-reflection-heading">
           <div className="flex items-center justify-between gap-3">
@@ -139,21 +198,31 @@ export default function ReflectionPage() {
             onChange={(event) => {
               setNote(event.target.value)
               setSaveStatus('')
+              setShareStatus('')
             }}
             placeholder="Escreva sua reflexão..."
             className="mt-3 min-h-32 w-full resize-none rounded-[15px] border border-line bg-surface px-4 py-3 text-sm leading-relaxed text-ink placeholder:text-muted/70 focus:border-sage-500 dark:border-night-line dark:bg-night-surface dark:text-night-ink"
           />
-          <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
             <Button size="sm" onClick={saveReflection} disabled={!note.trim()} loading={saving}>
               <Bookmark size={17} />
               Salvar minha reflexão
             </Button>
-            {saveStatus && (
-              <p role="status" aria-live="polite" className="text-xs leading-relaxed text-muted dark:text-night-muted sm:max-w-sm sm:text-right">
-                {saveStatus}
-              </p>
-            )}
+            <button
+              type="button"
+              onClick={() => shareImage({ text: note })}
+              disabled={!note.trim()}
+              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-vesSm border border-sage-300 px-4 text-sm font-semibold text-sage-800 disabled:opacity-50 dark:border-sage-800 dark:text-sage-300"
+            >
+              <Image size={17} aria-hidden="true" />
+              Compartilhar minha reflexão
+            </button>
           </div>
+          {saveStatus && (
+            <p role="status" aria-live="polite" className="mt-3 text-xs leading-relaxed text-muted dark:text-night-muted">
+              {saveStatus}
+            </p>
+          )}
         </section>
 
         <section className="mt-8" aria-labelledby="saved-reflections-heading">
@@ -174,7 +243,17 @@ export default function ReflectionPage() {
                   <Quote size={18} className="mt-0.5 shrink-0 text-sage-700" />
                   <div className="min-w-0 flex-1">
                     <p className="text-sm leading-relaxed text-ink dark:text-night-ink">{reflection.text}</p>
-                    <p className="mt-1 text-[10px] text-muted dark:text-night-muted">{formatJournalDate(reflection.entryDate)}</p>
+                    <div className="mt-2 flex items-center justify-between gap-3">
+                      <p className="text-[10px] text-muted dark:text-night-muted">{formatJournalDate(reflection.entryDate)}</p>
+                      <button
+                        type="button"
+                        onClick={() => shareImage({ text: reflection.text })}
+                        className="inline-flex min-h-9 items-center gap-1.5 rounded-full px-2 text-xs font-semibold text-sage-700 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-night"
+                        aria-label="Compartilhar esta reflexão como imagem"
+                      >
+                        <Share2 size={15} aria-hidden="true" /> Compartilhar
+                      </button>
+                    </div>
                   </div>
                 </EditorialCard>
               ))}
@@ -186,6 +265,12 @@ export default function ReflectionPage() {
           )}
         </section>
       </div>
+
+      {shareStatus && (
+        <div className="fixed inset-x-4 bottom-24 z-50 mx-auto max-w-sm rounded-vesSm border border-sage-200 bg-surface/95 px-4 py-3 text-center text-xs font-medium leading-relaxed text-sage-900 shadow-lg backdrop-blur dark:border-sage-900 dark:bg-night-surface/95 dark:text-sage-200" role="status" aria-live="polite">
+          {shareStatus}
+        </div>
+      )}
     </main>
   )
 }

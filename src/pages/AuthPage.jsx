@@ -167,10 +167,10 @@ export default function AuthPage({ initialMode = 'login' }) {
   return (
     <main className="ves-page ves-brand-page min-h-screen lg:p-4">
       <div className="mx-auto grid min-h-screen w-full max-w-[1280px] overflow-hidden bg-surface lg:min-h-[calc(100vh-2rem)] lg:grid-cols-[1.02fr_0.98fr] lg:rounded-[2.25rem] lg:border lg:border-line lg:shadow-editorial dark:bg-night-surface dark:lg:border-night-line">
-        <section className="ves-warm-panel relative hidden overflow-hidden px-12 py-9 lg:flex lg:flex-col">
+        <section className="ves-warm-panel relative hidden overflow-hidden px-12 py-9 lg:flex lg:flex-col lg:justify-center">
           <BrandLockup size={64} />
 
-          <div className="relative z-10 mt-12 max-w-[32rem] pb-36">
+          <div className="relative z-10 mt-8 max-w-[32rem] pb-36">
             <p className="ves-eyebrow">Estudo no seu ritmo</p>
             <h1 className="ves-heading mt-3 text-[3.15rem] leading-[1.03] xl:text-[3.45rem]">
               Um caminho simples para aprender e refletir.

@@ -35,7 +35,8 @@ describe('navigation and performance polish across the current product stack', (
   })
 
   it('keeps the desktop login composition compact and the welcome copy simple', () => {
-    expect(auth).toContain('mt-12 max-w-[32rem] pb-36')
+    expect(auth).toContain('lg:flex lg:flex-col lg:justify-center')
+    expect(auth).toContain('mt-8 max-w-[32rem] pb-36')
     expect(auth).toContain('text-[3.15rem]')
     expect(auth).toContain('lg:py-8')
     expect(auth).toContain('Que bom ter você por aqui.')
@@ -61,7 +62,8 @@ describe('navigation and performance polish across the current product stack', (
     expect(library).toContain('Caminho pelas obras básicas')
     expect(library).toContain('Seu progresso')
     expect(library).toContain('Sugerir uma obra complementar')
-    expect(library).toContain('aria-labelledby="all-books-heading"')
+    expect(library).toContain('aria-labelledby="free-reading-heading"')
+    expect(library).toContain('Abrir Estudo Guiado')
     expect(library).not.toContain('Atalhos de estudo')
     expect(library).not.toContain('Não sei por onde começar')
     expect(library).not.toContain('Trechos salvos')

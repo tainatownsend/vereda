@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { ArrowLeft, ArrowRight, BookOpen, Check, Compass, Search } from 'lucide-react'
+import { ArrowLeft, ArrowRight, BookOpen, Check, Compass, Search, Sparkles } from 'lucide-react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 
 import { useBooks } from '@/hooks'
@@ -8,6 +8,13 @@ import { useOnboardingStore } from '@/store/useOnboardingStore'
 import { Button, Card, VeredaLogo } from '@/components/ui'
 
 const INTENTIONS = [
+  {
+    id: 'guided',
+    label: 'Quero estudar com companhia',
+    description: 'Quero que o Vereda me conduza um passo de cada vez, com leitura, explicação e reflexão.',
+    route: '/estudo-guiado',
+    icon: Sparkles,
+  },
   {
     id: 'foundation',
     label: 'Quero começar pelos fundamentos',
@@ -25,7 +32,7 @@ const INTENTIONS = [
   {
     id: 'explore',
     label: 'Quero escolher uma obra',
-    description: 'Prefiro ver a biblioteca e decidir por conta própria.',
+    description: 'Prefiro ver os estudos e decidir por conta própria.',
     route: '/biblioteca',
     icon: Compass,
   },
@@ -37,12 +44,13 @@ export default function GettingStartedPage() {
   const books = useBooks()
   const onboarding = useOnboardingStore()
   const completeFirstTimeOnboarding = useAuthStore((state) => state.completeFirstTimeOnboarding)
+  const isNewAccount = searchParams.get('novo') === '1'
+  const isReplay = searchParams.get('replay') === '1'
+  const [stage, setStage] = useState(isNewAccount && !isReplay ? 'welcome' : 'choice')
   const [intention, setIntention] = useState(onboarding.intention || '')
   const [finishing, setFinishing] = useState(false)
   const [error, setError] = useState('')
 
-  const isNewAccount = searchParams.get('novo') === '1'
-  const isReplay = searchParams.get('replay') === '1'
   const selectedIntent = INTENTIONS.find((item) => item.id === intention)
 
   const recommendation = useMemo(() => {
@@ -86,39 +94,76 @@ export default function GettingStartedPage() {
     }
   }
 
-  const ctaLabel = selectedIntent?.id === 'foundation'
-    ? foundationWaiting ? 'Preparando sugestão…' : 'Começar pelos fundamentos'
-    : selectedIntent?.id === 'question'
-      ? 'Procurar minha dúvida'
-      : selectedIntent?.id === 'explore'
-        ? 'Ver as obras'
-        : 'Escolha uma opção acima'
+  if (stage === 'welcome') {
+    return (
+      <main className="ves-page ves-brand-page min-h-screen pb-12">
+        <div className="ves-container max-w-2xl pb-12 pt-7">
+          <section className="ves-horizon-panel rounded-vesLg border border-line p-6 shadow-editorial sm:p-8 dark:border-night-line">
+            <div className="relative z-10">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/70 bg-white/65 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
+                <VeredaLogo size={46} />
+              </div>
+              <p className="ves-eyebrow mt-6">Bem-vindo ao Vereda</p>
+              <h1 className="ves-heading mt-2 max-w-xl text-[2.15rem] leading-[1.08] sm:text-[2.35rem]">
+                Você não precisa saber tudo para começar.
+              </h1>
+              <p className="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg dark:text-night-muted">
+                O Vereda foi feito para ajudar você a se aproximar das obras com calma. Você escolhe o caminho e pode mudar quando quiser.
+              </p>
+            </div>
+          </section>
+
+          <div className="mt-6 space-y-3" aria-label="O que você pode fazer no Vereda">
+            <WelcomeItem icon={Sparkles} title="Estudar com companhia" description="Encontros curtos conduzem leitura, compreensão e reflexão, um passo por vez." />
+            <WelcomeItem icon={BookOpen} title="Ler livremente" description="Abra as obras, retome de onde parou e siga no seu próprio ritmo." />
+            <WelcomeItem icon={Compass} title="Explorar e refletir" description="Procure assuntos, faça conexões e guarde o que fizer sentido para você." />
+          </div>
+
+          <p className="mt-5 text-sm leading-relaxed text-muted dark:text-night-muted">
+            Nada aqui é uma prova. Não há pressa, pontuação ou obrigação de seguir uma sequência.
+          </p>
+
+          <Button onClick={() => setStage('choice')} className="mt-6 w-full sm:w-auto">
+            Escolher como quero começar <ArrowRight size={19} aria-hidden="true" />
+          </Button>
+        </div>
+      </main>
+    )
+  }
+
+  const ctaLabel = selectedIntent?.id === 'guided'
+    ? 'Começar Estudo Guiado'
+    : selectedIntent?.id === 'foundation'
+      ? foundationWaiting ? 'Preparando sugestão…' : 'Começar pelos fundamentos'
+      : selectedIntent?.id === 'question'
+        ? 'Procurar minha dúvida'
+        : selectedIntent?.id === 'explore'
+          ? 'Ver os estudos'
+          : 'Escolha uma opção acima'
 
   return (
     <main className="ves-page ves-brand-page min-h-screen pb-12">
       <div className="ves-container max-w-2xl pb-12 pt-7">
-        {(!isNewAccount || isReplay) && (
-          <button
-            type="button"
-            onClick={() => navigate('/home')}
-            className="mb-5 flex min-h-11 items-center gap-2 rounded-vesSm px-2 text-sm font-semibold text-sage-800 hover:bg-sage-100 dark:text-sage-300 dark:hover:bg-sage-950"
-          >
-            <ArrowLeft size={20} aria-hidden="true" />
-            Voltar ao início
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={() => (isNewAccount && !isReplay ? setStage('welcome') : navigate('/home'))}
+          className="mb-5 flex min-h-11 items-center gap-2 rounded-vesSm px-2 text-sm font-semibold text-sage-800 hover:bg-sage-100 dark:text-sage-300 dark:hover:bg-sage-950"
+        >
+          <ArrowLeft size={20} aria-hidden="true" />
+          {isNewAccount && !isReplay ? 'Voltar' : 'Voltar ao início'}
+        </button>
 
         <section className="ves-horizon-panel rounded-vesLg border border-line p-6 shadow-editorial sm:p-8 dark:border-night-line">
           <div className="relative z-10">
             <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/70 bg-white/65 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
               <VeredaLogo size={46} />
             </div>
-            <p className="ves-eyebrow mt-6">{isNewAccount ? 'E-mail confirmado · bem-vindo' : 'Sua orientação'}</p>
+            <p className="ves-eyebrow mt-6">Seu primeiro caminho</p>
             <h1 className="ves-heading mt-2 max-w-xl text-[2.15rem] leading-[1.08] sm:text-[2.35rem]">
-              O que você quer fazer primeiro?
+              Como você gostaria de começar hoje?
             </h1>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted sm:text-lg dark:text-night-muted">
-              Escolha o que parece mais útil agora. Você pode mudar de ideia e explorar outro caminho a qualquer momento.
+              Escolha a opção que parece mais confortável agora. Nenhuma escolha prende você a um único jeito de estudar.
             </p>
           </div>
         </section>
@@ -142,13 +187,13 @@ export default function GettingStartedPage() {
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-sage-700 dark:text-sage-300">Nossa sugestão para começar</p>
             <p className="mt-2 font-display text-xl font-semibold text-ink dark:text-night-ink">{recommendation.title}</p>
             <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-              É a porta de entrada mais direta para os fundamentos. A sugestão só organiza seu primeiro passo — nenhuma outra obra fica bloqueada.
+              É uma porta de entrada para os fundamentos. A sugestão só organiza seu primeiro passo — nenhuma outra obra fica bloqueada.
             </p>
           </Card>
         )}
 
         <p className="mt-5 text-sm leading-relaxed text-muted dark:text-night-muted">
-          O Vereda leva você às fontes e ajuda a retomar de onde parou; ele não responde no lugar das obras.
+          O Vereda leva você às fontes e ajuda a compreender o caminho; ele não responde no lugar das obras.
         </p>
 
         {error && (
@@ -168,6 +213,20 @@ export default function GettingStartedPage() {
         </Button>
       </div>
     </main>
+  )
+}
+
+function WelcomeItem({ icon: Icon, title, description }) {
+  return (
+    <div className="flex items-start gap-4 rounded-vesMd border border-line bg-surface/90 p-5 shadow-sm dark:border-night-line dark:bg-night-surface/90">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
+        <Icon size={20} aria-hidden="true" />
+      </span>
+      <div>
+        <p className="font-display text-lg font-semibold text-ink dark:text-night-ink">{title}</p>
+        <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">{description}</p>
+      </div>
+    </div>
   )
 }
 
