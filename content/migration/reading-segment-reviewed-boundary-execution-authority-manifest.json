@@ -10,7 +10,7 @@
   "artifact_hashes": {
     "policy_sha256": "09d12b8b60d7b970b62197afb5d97821d1d2c83cbf3b61412aced133e17a57df",
     "audit_sha256": "8634d5d4ca3e3ba5dd40d553bc8d719793627646d4ba7d48292ea4ce5c8228fb",
-    "schema_sha256": "30e9b1b83fc41e0e591f447e4c745fc2298557640263ffbc24173a2c429c01b8",
+    "schema_sha256": "cc4dc2ed2577e46159c8efe2f3f0613202df57759768bf1dfdf241073317f176",
     "idempotency_sha256": "f2e97c60defef2cf7d5158abfa32c410dadd857487ef777562728a9e8795b424",
     "state_sha256": "43602bf4ef5302fa8e00e1b1897259ff1bfde7e1522de0468dde6ae1d76f00a1",
     "rollback_sha256": "1b9dee7e7bc0db243b8239b4ee6642b7df8f51ce22e879d1b25004b09e490eda",
@@ -21,7 +21,7 @@
     "transaction_sha256": "b9c443bd66bd8b58bec7f5a5c3edce25b64fbc44cabdae2534facc196068e519",
     "failure_sha256": "b26c6316a2e208126fe600f5fc2b5e784f3909811388589c44f33093863d9f6a",
     "missing_sha256": "a3a0ca152f42fd731298beab070f5a6ac8516e1536b46c0fafd04ac525a5b3a1",
-    "evidence_sha256": "0caffdbde37b75814b833f0fd1134c9d78481f793ce9358e70ef6efbba3f5626"
+    "evidence_sha256": "c86ea833b570cc54828038856cf0cdeaf968debf0e7a742190822ad39e1cbb93"
   },
   "safety_assertions": {
     "executable_application_sql_generated": false,
