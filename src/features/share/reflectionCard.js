@@ -3,11 +3,12 @@ import northStarLandscape from '@/assets/northstar-landscape.svg'
 const CANVAS_WIDTH = 1080
 const CANVAS_HEIGHT = 1920
 
-export async function shareReflectionAsImage({ text }) {
+export async function shareReflectionAsImage({ text, author = '' }) {
   const value = String(text || '').trim()
   if (!value) throw new Error('empty-reflection')
 
-  const blob = await renderReflectionCard({ text: value })
+  const attribution = String(author || '').trim()
+  const blob = await renderReflectionCard({ text: value, author: attribution })
   const file = new File([blob], 'vereda-reflexao.png', { type: 'image/png' })
 
   if (navigator.share && navigator.canShare?.({ files: [file] })) {
@@ -41,7 +42,7 @@ async function copyImageToClipboard(blob) {
   }
 }
 
-async function renderReflectionCard({ text }) {
+async function renderReflectionCard({ text, author }) {
   const canvas = document.createElement('canvas')
   canvas.width = CANVAS_WIDTH
   canvas.height = CANVAS_HEIGHT
@@ -59,10 +60,12 @@ async function renderReflectionCard({ text }) {
   const lines = wrapText(context, text, maxTextWidth)
   const lineHeight = font * 1.42
   const textHeight = Math.max(lineHeight, lines.length * lineHeight)
+  const attributionHeight = author ? 64 : 0
+  const contentHeight = textHeight + attributionHeight
   const panelPadding = text.length < 180 ? 104 : 78
-  const panelHeight = clamp(textHeight + (panelPadding * 2), 470, 1160)
+  const panelHeight = clamp(contentHeight + (panelPadding * 2), 470, 1160)
   const panelTop = clamp((CANVAS_HEIGHT - panelHeight) * 0.39, 230, 500)
-  const textStart = panelTop + ((panelHeight - textHeight) / 2)
+  const textStart = panelTop + ((panelHeight - contentHeight) / 2)
   const textX = 130
 
   context.fillStyle = 'rgba(255, 252, 245, 0.91)'
@@ -76,6 +79,13 @@ async function renderReflectionCard({ text }) {
     context.fillText(line, textX, y)
     y += lineHeight
   })
+
+  if (author) {
+    context.fillStyle = '#596359'
+    context.font = '600 30px Arial, sans-serif'
+    context.letterSpacing = '0.3px'
+    context.fillText(`— ${author}`, textX, y + 18)
+  }
 
   drawSignature(context)
 
