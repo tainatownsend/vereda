@@ -1,3 +1,5 @@
+const EDITORIAL_AUTHOR = 'Vereda'
+
 const REFLECTIONS = [
   {
     id: 'small-choices',
@@ -52,14 +54,14 @@ const REFLECTIONS = [
 export function getDailyReflection(date = new Date()) {
   const dateKey = toLocalDateKey(date)
   return {
-    ...REFLECTIONS[dayIndex(date) % REFLECTIONS.length],
+    ...withEditorialAttribution(REFLECTIONS[dayIndex(date) % REFLECTIONS.length]),
     dateKey,
   }
 }
 
 export function getNextReflection(currentId) {
   const currentIndex = Math.max(0, REFLECTIONS.findIndex((item) => item.id === currentId))
-  return REFLECTIONS[(currentIndex + 1) % REFLECTIONS.length]
+  return withEditorialAttribution(REFLECTIONS[(currentIndex + 1) % REFLECTIONS.length])
 }
 
 export function getPreviousDailyReflections(count = 7, fromDate = new Date()) {
@@ -79,6 +81,13 @@ export function formatReflectionDate(date) {
     day: '2-digit',
     month: 'short',
   }).format(date)
+}
+
+function withEditorialAttribution(reflection) {
+  return {
+    ...reflection,
+    author: EDITORIAL_AUTHOR,
+  }
 }
 
 function dayIndex(date) {

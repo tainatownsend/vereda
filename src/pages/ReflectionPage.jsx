@@ -56,10 +56,10 @@ export default function ReflectionPage() {
     [entries],
   )
 
-  const shareImage = async ({ text }) => {
+  const shareImage = async ({ text, author }) => {
     setShareStatus('')
     try {
-      const result = await shareReflectionAsImage({ text })
+      const result = await shareReflectionAsImage({ text, author })
       if (result === 'shared') {
         setShareStatus('Compartilhamento aberto com a arte da reflexão.')
       } else if (result === 'copied') {
@@ -129,10 +129,13 @@ export default function ReflectionPage() {
               <p className="mt-2 font-display text-[1.22rem] leading-[1.55] text-ink dark:text-night-ink">
                 “{featuredReflection.text}”
               </p>
+              <p className="mt-2 text-xs font-semibold text-muted dark:text-night-muted">
+                — {featuredReflection.author}
+              </p>
               <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
                 <button
                   type="button"
-                  onClick={() => shareImage({ text: featuredReflection.text })}
+                  onClick={() => shareImage({ text: featuredReflection.text, author: featuredReflection.author })}
                   className="inline-flex min-h-10 items-center justify-center gap-2 rounded-vesSm border border-sage-300 px-4 text-sm font-semibold text-sage-800 dark:border-sage-800 dark:text-sage-300"
                   aria-label="Compartilhar esta reflexão"
                 >
@@ -169,10 +172,11 @@ export default function ReflectionPage() {
               <EditorialCard key={reflection.dateKey} className="p-4">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">{reflection.label}</p>
                 <p className="mt-2 text-sm leading-relaxed text-ink dark:text-night-ink">“{reflection.text}”</p>
+                <p className="mt-1.5 text-xs font-semibold text-muted dark:text-night-muted">— {reflection.author}</p>
                 <div className="mt-2 flex justify-end">
                   <button
                     type="button"
-                    onClick={() => shareImage({ text: reflection.text })}
+                    onClick={() => shareImage({ text: reflection.text, author: reflection.author })}
                     className="inline-flex min-h-9 items-center gap-1.5 rounded-full px-2 text-xs font-semibold text-sage-700 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-night"
                     aria-label={`Compartilhar reflexão de ${reflection.label}`}
                   >

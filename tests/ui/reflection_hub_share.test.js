@@ -34,7 +34,9 @@ describe('reflection discovery and social sharing', () => {
     const history = getPreviousDailyReflections(7, today)
 
     expect(daily.text.length).toBeGreaterThan(40)
+    expect(daily.author).toBe('Vereda')
     expect(history).toHaveLength(7)
+    expect(history.every((item) => item.author === 'Vereda')).toBe(true)
     expect(new Set(history.map((item) => item.dateKey)).size).toBe(7)
     expect(getNextReflection(daily.id).id).not.toBe(daily.id)
   })
@@ -45,7 +47,15 @@ describe('reflection discovery and social sharing', () => {
     expect(shareCard).not.toContain('VEREDA APP')
     expect(shareCard).not.toContain("fillText('VEREDA'")
     expect(shareCard).toContain('vereda · seu caminho de estudo espírita')
+    expect(shareCard).toContain('— ${author}')
     expect(shareCard).toContain('navigator.clipboard?.write')
+  })
+
+  it('shows editorial authorship across the home, reflection hub, and share image', () => {
+    expect(home).toContain('dailyReflection.author')
+    expect(reflection).toContain('featuredReflection.author')
+    expect(reflection).toContain('reflection.author')
+    expect(shareCard).toContain("author = ''")
   })
 
   it('adapts whitespace and typography to the length of the message', () => {
