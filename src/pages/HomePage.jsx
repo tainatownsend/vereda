@@ -72,7 +72,10 @@ export default function HomePage() {
   const shareDailyReflection = async () => {
     setReflectionShareStatus('')
     try {
-      const result = await shareReflectionAsImage({ text: dailyReflection.text })
+      const result = await shareReflectionAsImage({
+        text: dailyReflection.text,
+        author: dailyReflection.author,
+      })
       if (result === 'shared') setReflectionShareStatus('Compartilhamento aberto.')
       else if (result === 'copied') setReflectionShareStatus('Imagem copiada. Cole onde quiser compartilhar.')
       else if (result === 'downloaded') setReflectionShareStatus('Imagem salva porque o navegador não oferece compartilhamento direto.')
@@ -118,6 +121,9 @@ export default function HomePage() {
                 <p id="home-reflection-heading" className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Para refletir</p>
                 <p className="mt-2 font-display text-[1.08rem] leading-[1.55] text-ink dark:text-night-ink">
                   “{dailyReflection.text}”
+                </p>
+                <p className="mt-2 text-xs font-semibold text-muted dark:text-night-muted">
+                  — {dailyReflection.author}
                 </p>
               </div>
               <Leaf size={30} className="ml-auto shrink-0 text-sage-500" strokeWidth={1.35} />
