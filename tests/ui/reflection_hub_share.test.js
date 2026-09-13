@@ -59,8 +59,18 @@ describe('reflection discovery and social sharing', () => {
   })
 
   it('adapts whitespace and typography to the length of the message', () => {
-    expect(shareCard).toContain("text.length < 120 ? 78 : text.length < 240 ? 68 : 60")
+    expect(shareCard).toContain('text.length < 110 ? 74')
+    expect(shareCard).toContain('text.length < 360 ? 50')
     expect(shareCard).toContain('const panelHeight = clamp(')
-    expect(shareCard).toContain('const panelTop = clamp(')
+    expect(shareCard).toContain('const panelY = clamp(')
+  })
+
+  it('renders the refined editorial share composition', () => {
+    expect(shareCard).toContain('drawQuotePanel')
+    expect(shareCard).toContain('drawQuoteMark')
+    expect(shareCard).toContain('drawBotanicalOrnament')
+    expect(shareCard).toContain('drawBrandLockup')
+    expect(shareCard).toContain('drawMountainLayers')
+    expect(shareCard).toContain('drawSunGlow')
   })
 })
