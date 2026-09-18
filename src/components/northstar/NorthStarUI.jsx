@@ -2,7 +2,7 @@ import { BookOpen } from 'lucide-react'
 
 export function BookCover({ book, size = 'md', color, className = '' }) {
   const dimensions = size === 'sm' ? 'h-20 w-14' : 'h-28 w-20'
-  const fallback = color || '#4F6757'
+  const fallback = color || '#6F8F6F'
 
   return (
     <div
@@ -25,9 +25,9 @@ export function ProgressLine({ value = 0, className = '' }) {
   const safeValue = Math.max(0, Math.min(100, Number(value) || 0))
 
   return (
-    <div className={`h-[4px] overflow-hidden rounded-full bg-[#e6dfd5] dark:bg-night-line ${className}`}>
+    <div className={`h-[4px] overflow-hidden rounded-full bg-[#E8EDE6] dark:bg-night-line ${className}`}>
       <div
-        className="h-full rounded-full bg-[#617553] transition-[width] duration-300 dark:bg-sage-300"
+        className="h-full rounded-full bg-[#6F8F6F] transition-[width] duration-300 dark:bg-sage-300"
         style={{ width: `${safeValue}%` }}
       />
     </div>
@@ -37,7 +37,7 @@ export function ProgressLine({ value = 0, className = '' }) {
 export function EditorialCard({ as: Component = 'div', className = '', children, ...props }) {
   return (
     <Component
-      className={`rounded-[16px] border border-[#e5ddd2] bg-[#fffdf8] shadow-[0_8px_24px_rgba(63,67,55,0.045)] dark:border-night-line dark:bg-night-surface ${className}`}
+      className={`rounded-[18px] border border-[#DCDCC8] bg-white shadow-[0_8px_24px_rgba(31,41,51,0.045)] dark:border-night-line dark:bg-night-surface ${className}`}
       {...props}
     >
       {children}
