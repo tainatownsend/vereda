@@ -5,13 +5,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        canvas: '#F8F4EE',
-        surface: '#FFFCF7',
-        'surface-soft': '#EFE6DA',
-        ink: '#2F372F',
-        muted: '#697169',
-        line: '#DDD1C3',
-        focus: '#6D8B74',
+        canvas: '#F6F7F4',
+        surface: '#FFFFFF',
+        'surface-soft': '#E8EDE6',
+        ink: '#1F2933',
+        muted: '#66706A',
+        line: '#DCDCC8',
+        focus: '#6F8F6F',
         clay: {
           50: '#FBF1EC',
           100: '#F6E0D5',
@@ -81,7 +81,7 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Lora"', 'Georgia', 'serif'],
+        display: ['"Literata"', 'Georgia', 'serif'],
         body: ['"Inter"', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
