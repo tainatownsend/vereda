@@ -37,7 +37,7 @@ export function ProgressLine({ value = 0, className = '' }) {
 export function EditorialCard({ as: Component = 'div', className = '', children, ...props }) {
   return (
     <Component
-      className={`rounded-[18px] border border-[#DCDCC8] bg-white shadow-[0_8px_24px_rgba(31,41,51,0.045)] dark:border-night-line dark:bg-night-surface ${className}`}
+      className={`rounded-[18px] border border-[#DED5C7] bg-surface shadow-[0_8px_24px_rgba(67,62,49,0.05)] dark:border-night-line dark:bg-night-surface ${className}`}
       {...props}
     >
       {children}
