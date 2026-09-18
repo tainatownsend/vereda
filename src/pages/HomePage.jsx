@@ -11,7 +11,7 @@ import {
 import { useAuthStore } from '@/store'
 import { useBooks, useProgress, useUserData } from '@/hooks'
 import { supabase } from '@/lib/supabase'
-import { Button, PageLoader } from '@/components/ui'
+import { Button, PageLoader, VeredaLogo } from '@/components/ui'
 import { getActiveBooksByLastRead } from '@/features/home/readingOrder'
 import {
   getGentleReturnCopy,
@@ -87,19 +87,31 @@ export default function HomePage() {
   return (
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-7 sm:pt-9">
-        <header className="flex items-start justify-between gap-5 border-b border-line/70 pb-5 dark:border-night-line">
-          <p className="shrink-0 font-display text-[1.55rem] font-semibold tracking-[0.08em] text-[#30452f] dark:text-night-ink sm:text-[1.75rem]">
-            VEREDA
-          </p>
-          <div className="min-w-0 max-w-[17rem] text-right sm:max-w-sm">
-            <p className="font-display text-[1.08rem] font-semibold leading-tight text-ink dark:text-night-ink sm:text-[1.2rem]">
-              {greeting}
-            </p>
-            <p className="mt-1 text-[13px] leading-relaxed text-ink/70 dark:text-night-muted sm:text-sm">
-              Seu próximo passo, com calma e clareza.
-            </p>
+        <header className="flex items-center justify-between gap-5 border-b border-line/70 pb-5 dark:border-night-line">
+          <div className="flex min-w-0 items-center gap-3">
+            <VeredaLogo size={38} />
+            <div className="min-w-0">
+              <p className="font-display text-[1.45rem] font-semibold tracking-[0.08em] text-sage-800 dark:text-night-ink sm:text-[1.65rem]">
+                VEREDA
+              </p>
+              <p className="mt-0.5 text-[11px] font-medium text-muted dark:text-night-muted">
+                Um passo por dia.
+              </p>
+            </div>
           </div>
+          <p className="max-w-[9.5rem] text-right text-[11px] leading-relaxed text-muted dark:text-night-muted">
+            Uma jornada para toda a vida.
+          </p>
         </header>
+
+        <section className="pt-8" aria-labelledby="home-greeting">
+          <h1 id="home-greeting" className="font-display text-[2rem] font-semibold leading-tight text-ink dark:text-night-ink">
+            {greeting} <span aria-hidden="true">🌿</span>
+          </h1>
+          <p className="mt-1.5 text-sm leading-relaxed text-muted dark:text-night-muted">
+            Que bom ter você aqui.
+          </p>
+        </section>
 
         {primaryBook ? (
           <NextStudyCard
@@ -165,7 +177,7 @@ function NextStudyCard({ book, progress, studyPlan, sessionsThisWeek, navigate }
   return (
     <section className="mt-7" aria-labelledby="next-study-heading">
       <div className="mb-3">
-        <h2 id="next-study-heading" className="font-display text-[1.35rem] font-semibold text-ink dark:text-night-ink">Continue seu estudo</h2>
+        <h2 id="next-study-heading" className="font-display text-[1.35rem] font-semibold text-ink dark:text-night-ink">Continue sua leitura</h2>
       </div>
 
       <EditorialCard className="overflow-hidden p-0">
