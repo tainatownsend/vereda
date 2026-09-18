@@ -7,6 +7,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Home,
+  Leaf,
   ListTree,
   MoreHorizontal,
   NotebookPen,
@@ -310,6 +311,25 @@ export default function ReaderPage() {
                 <Paragraph key={`${currentSection.section_id}-${index}`} text={paragraph} />
               ))}
             </article>
+
+            <section className="mt-12 rounded-[18px] border border-[#E2D5BE] bg-[#F2E8D6] p-5 dark:border-night-line dark:bg-night-surface" aria-labelledby="reader-reflection-heading">
+              <div className="flex items-center gap-2 text-[#66745F] dark:text-sage-300">
+                <Leaf size={17} strokeWidth={1.6} aria-hidden="true" />
+                <h2 id="reader-reflection-heading" className="font-display text-base font-semibold">
+                  Para refletir
+                </h2>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-[#4D514A] dark:text-night-muted">
+                O que este trecho desperta em você? Há alguma ideia que queira levar para a sua vida?
+              </p>
+              <button
+                type="button"
+                onClick={openStudyNote}
+                className="mt-4 min-h-10 rounded-full border border-[#C9B78E] bg-[#FBF8F1] px-4 text-sm font-semibold text-[#53664E] hover:bg-white dark:border-night-line dark:bg-night dark:text-sage-300"
+              >
+                Registrar uma reflexão
+              </button>
+            </section>
           </>
         )}
 
@@ -500,13 +520,14 @@ function SectionHeading({ currentSection }) {
   const heading = currentSection.section_title || currentSection.chapter_title || currentSection.title
 
   return (
-    <div className="mb-9">
-      {hierarchy && <p className="text-sm font-medium text-ink/80 dark:text-night-muted">{hierarchy}</p>}
+    <div className="mb-10 text-center">
+      {hierarchy && <p className="text-sm font-medium text-ink/75 dark:text-night-muted">{hierarchy}</p>}
       {heading && (
-        <h1 className="mt-2 max-w-xl font-display text-[2.2rem] font-semibold leading-[1.12] tracking-[-0.025em] text-ink dark:text-night-ink">
+        <h1 className="mx-auto mt-3 max-w-xl font-display text-[2.15rem] font-semibold leading-[1.12] tracking-[-0.025em] text-ink dark:text-night-ink">
           {heading}
         </h1>
       )}
+      <span className="mx-auto mt-5 block h-px w-16 bg-[#C5A15D]/60" aria-hidden="true" />
     </div>
   )
 }
