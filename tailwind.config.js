@@ -5,13 +5,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        canvas: '#F6F7F4',
-        surface: '#FFFFFF',
-        'surface-soft': '#E8EDE6',
-        ink: '#1F2933',
-        muted: '#66706A',
-        line: '#DCDCC8',
-        focus: '#6F8F6F',
+        canvas: '#F5F0E7',
+        surface: '#FBF8F1',
+        'surface-soft': '#EEE4D4',
+        ink: '#2C352B',
+        muted: '#6F7168',
+        line: '#DED5C7',
+        focus: '#53664E',
         clay: {
           50: '#FBF1EC',
           100: '#F6E0D5',
