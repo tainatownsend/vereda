@@ -165,13 +165,13 @@ function StudyRow({ book, progressRecord, onOpen }) {
           <p className="font-display text-[0.96rem] font-semibold leading-tight text-ink dark:text-night-ink">
             {book.title}
           </p>
-          <p className="mt-0.5 text-[0.76rem] text-muted dark:text-night-muted">
+          <p className="mt-0.5 text-xs text-muted dark:text-night-muted">
             {book.author || 'Allan Kardec'}
           </p>
           <div className="mt-2.5">
             <ProgressLine value={percentage} />
             <div className="mt-1 flex items-center justify-between gap-3">
-              <p className="text-[0.76rem] font-medium text-muted dark:text-night-muted">
+              <p className="text-xs font-medium text-muted dark:text-night-muted">
                 {status === 'concluido'
                   ? 'Concluído'
                   : totalSections
