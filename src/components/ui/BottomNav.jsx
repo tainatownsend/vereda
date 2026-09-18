@@ -26,7 +26,7 @@ export default function BottomNav() {
       aria-label="Navegação principal"
       className="ves-nav-shell fixed inset-x-0 bottom-0 z-40 border-t border-line/80 bg-surface/95 pb-safe backdrop-blur-xl dark:border-night-line dark:bg-night/95"
     >
-      <div className="mx-auto grid min-h-[4.8rem] max-w-xl grid-cols-4 items-center px-2 pt-1">
+      <div className="mx-auto grid min-h-[4.25rem] max-w-xl grid-cols-4 items-center px-2 pt-1">
         {tabs.map(({ path, label, Icon }) => {
           const active = pathname === path || pathname.startsWith(`${path}/`)
 
@@ -36,7 +36,7 @@ export default function BottomNav() {
               type="button"
               onClick={() => navigate(path)}
               aria-current={active ? 'page' : undefined}
-              className={`relative flex min-h-14 min-w-0 flex-col items-center justify-center gap-1 px-1 py-2 text-xs font-medium leading-tight transition-colors ${
+              className={`relative flex min-h-12 min-w-0 flex-col items-center justify-center gap-1 px-1 py-1.5 text-[0.76rem] font-medium leading-tight transition-colors ${
                 active
                   ? 'text-[#B28D49] dark:text-[#E3C98D]'
                   : 'text-muted hover:text-ink dark:text-night-muted dark:hover:text-night-ink'
