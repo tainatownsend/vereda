@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, Bookmark, Cloud, CloudOff, Image, Quote, RefreshCw, Share2 } from 'lucide-react'
+import { Bookmark, Cloud, CloudOff, Image, Quote, RefreshCw, Share2 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import northStarLandscape from '@/assets/northstar-landscape.svg'
@@ -105,28 +105,49 @@ export default function ReflectionPage() {
   return (
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-8">
-        <header className="flex items-center gap-3">
-          <button type="button" className="northstar-icon-button -ml-2" onClick={() => navigate(-1)} aria-label="Voltar">
-            <ArrowLeft size={20} />
-          </button>
-          <div className="min-w-0 flex-1">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Reflexões</p>
-            <h1 className="mt-1 font-display text-[1.55rem] font-semibold text-ink dark:text-night-ink">Um espaço para parar e pensar</h1>
-          </div>
+        <header>
+          <h1 className="font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Reflexões</h1>
+          <p className="mt-1.5 max-w-sm text-sm leading-relaxed text-muted dark:text-night-muted">
+            Um espaço para parar, guardar e compartilhar o que ilumina seu caminho.
+          </p>
         </header>
 
-        <div className="mt-4 overflow-hidden rounded-[18px] border border-line bg-sage-100 dark:border-night-line">
+        <div className="mt-5 grid grid-cols-3 gap-1 rounded-[14px] bg-[#EEE4D4] p-1 dark:bg-night-surface" aria-label="Áreas de reflexões">
+          <button
+            type="button"
+            onClick={() => document.getElementById('reflection-today')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+            className="min-h-10 rounded-[11px] bg-[#FBF8F1] px-3 text-xs font-semibold text-[#53664E] shadow-sm dark:bg-night dark:text-sage-300"
+          >
+            Hoje
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate('/favoritos')}
+            className="min-h-10 rounded-[11px] px-3 text-xs font-semibold text-muted hover:text-ink dark:text-night-muted"
+          >
+            Favoritas
+          </button>
+          <button
+            type="button"
+            onClick={() => document.getElementById('my-reflection-heading')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+            className="min-h-10 rounded-[11px] px-3 text-xs font-semibold text-muted hover:text-ink dark:text-night-muted"
+          >
+            Minhas
+          </button>
+        </div>
+
+        <div id="reflection-today" className="mt-4 scroll-mt-6 overflow-hidden rounded-[20px] border border-line bg-sage-100 shadow-[0_14px_34px_rgba(67,62,49,0.08)] dark:border-night-line">
           <img src={northStarLandscape} alt="Caminho sereno em meio à natureza" className="h-52 w-full object-cover" />
         </div>
 
-        <EditorialCard className="mt-3 p-5">
+        <EditorialCard className="mt-3 border-[#DED5C7] bg-[#FBF8F1] p-5 shadow-[0_12px_28px_rgba(67,62,49,0.06)]">
           <div className="flex gap-3">
             <Quote size={20} className="mt-1 shrink-0 text-sage-700" />
             <div className="min-w-0 flex-1">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">
+              <p className="text-xs font-semibold text-sage-700 dark:text-sage-300">
                 {featuredReflection.id === dailyReflection.id ? 'Reflexão de hoje' : 'Outra reflexão'}
               </p>
-              <p className="mt-2 font-display text-[1.22rem] leading-[1.55] text-ink dark:text-night-ink">
+              <p className="mt-3 font-display text-[1.24rem] italic leading-[1.62] text-ink dark:text-night-ink">
                 “{featuredReflection.text}”
               </p>
               <p className="mt-2 text-xs font-semibold text-muted dark:text-night-muted">
