@@ -9,7 +9,6 @@ import {
   Home,
   Leaf,
   ListTree,
-  MoreHorizontal,
   NotebookPen,
   RefreshCw,
   Type,
@@ -248,41 +247,58 @@ export default function ReaderPage() {
 
   return (
     <div className="min-h-screen bg-canvas text-ink dark:bg-night dark:text-night-ink">
-      <header className="sticky top-0 z-40 border-b border-line/70 bg-canvas/96 backdrop-blur-xl dark:border-night-line dark:bg-night/96">
-        <div className="mx-auto flex min-h-[4.6rem] max-w-[44rem] items-center gap-3 px-4 sm:px-6">
+      <header className="sticky top-0 z-40 border-b border-line/60 bg-canvas/96 backdrop-blur-xl dark:border-night-line dark:bg-night/96">
+        <div className="mx-auto grid min-h-[4rem] max-w-[40rem] grid-cols-[2.75rem_1fr_auto] items-center gap-2 px-4 sm:px-6">
           <button type="button" onClick={() => navigate('/home')} className="northstar-icon-button -ml-2" aria-label="Voltar ao início">
-            <ChevronLeft size={22} />
+            <ChevronLeft size={21} />
           </button>
 
-          <p className="min-w-0 flex-1 truncate font-display text-[1rem] font-semibold text-ink dark:text-night-ink">
+          <button
+            type="button"
+            onClick={() => {
+              setShowIndex(true)
+              session.loadBookIndex()
+            }}
+            className="min-w-0 truncate text-center font-display text-[0.9rem] font-semibold text-ink dark:text-night-ink"
+            aria-label="Abrir índice da obra"
+          >
             {book.title}
-          </p>
+          </button>
 
-          <div ref={menuRef} className="relative">
+          <div ref={menuRef} className="relative flex items-center gap-0.5">
             <button
               type="button"
               onClick={() => {
                 setShowMenu((visible) => !visible)
-                setShowTextSettings(false)
+                setShowTextSettings(true)
               }}
-              className="northstar-icon-button -mr-2"
-              aria-label="Opções de leitura"
+              className="northstar-icon-button h-10 w-10"
+              aria-label="Ajustar texto e abrir opções"
               aria-expanded={showMenu}
             >
-              {showMenu ? <X size={20} /> : <MoreHorizontal size={22} />}
+              <span className="font-display text-sm font-semibold" aria-hidden="true">Aa</span>
+            </button>
+            <button
+              type="button"
+              onClick={toggleSavedPassage}
+              disabled={savingPassage || isChapterIntro || isPartIntro}
+              aria-pressed={passageSaved}
+              className="northstar-icon-button h-10 w-10 disabled:opacity-35"
+              aria-label={passageSaved ? 'Remover este trecho dos salvos' : 'Salvar este trecho'}
+            >
+              <Bookmark size={18} fill={passageSaved ? 'currentColor' : 'none'} />
             </button>
 
             {showMenu && (
-              <div className="absolute right-0 top-full mt-2 w-60 rounded-[16px] border border-line bg-surface p-2 shadow-editorial dark:border-night-line dark:bg-night-surface">
+              <div className="absolute right-0 top-full mt-2 w-64 rounded-[16px] border border-line bg-surface p-2 shadow-editorial dark:border-night-line dark:bg-night-surface">
+                {showTextSettings && <ReaderSettings fontSize={fontSize} setFontSize={setFontSize} />}
                 <MenuButton icon={ListTree} label="Índice da obra" onClick={() => {
                   setShowMenu(false)
                   setShowIndex(true)
                   session.loadBookIndex()
                 }} />
                 {!isChapterIntro && !isPartIntro && <MenuButton icon={NotebookPen} label="Minha nota neste trecho" onClick={openStudyNote} />}
-                <MenuButton icon={Type} label="Preferências de texto" onClick={() => setShowTextSettings((visible) => !visible)} />
                 <MenuButton icon={Home} label="Voltar ao início" onClick={() => navigate('/home')} />
-                {showTextSettings && <ReaderSettings fontSize={fontSize} setFontSize={setFontSize} />}
               </div>
             )}
           </div>
@@ -370,46 +386,32 @@ export default function ReaderPage() {
       />
 
       <footer className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/96 pb-safe backdrop-blur-xl dark:border-night-line dark:bg-night/96">
-        <div className="mx-auto grid h-[4.4rem] max-w-[44rem] grid-cols-[2.75rem_1fr_2.75rem] items-center px-4 sm:px-6">
+        <div className="mx-auto flex min-h-[4.35rem] max-w-[40rem] items-center gap-3 px-4 py-2 sm:px-6">
           <button
             type="button"
             onClick={session.goToPrevious}
             disabled={!session.canGoPrevious}
-            className="northstar-reader-control justify-self-start disabled:opacity-25"
+            className="inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-full border border-line bg-canvas px-3 text-xs font-semibold text-ink disabled:opacity-25 dark:border-night-line dark:bg-night dark:text-night-ink"
             aria-label={READER_COPY.actions.previous.ariaLabel}
           >
-            <ChevronLeft size={23} />
+            <ChevronLeft size={17} />
+            Anterior
           </button>
-
-          <div className="flex items-center justify-center gap-8">
-            <button type="button" onClick={() => stepFont(fontSize, setFontSize, -1)} className="northstar-reader-control" aria-label="Diminuir tamanho do texto">A−</button>
-            <button type="button" onClick={() => stepFont(fontSize, setFontSize, 1)} className="northstar-reader-control" aria-label="Aumentar tamanho do texto">A+</button>
-            <button
-              type="button"
-              onClick={toggleSavedPassage}
-              disabled={savingPassage || isChapterIntro || isPartIntro}
-              aria-pressed={passageSaved}
-              className="northstar-reader-control disabled:opacity-35"
-              aria-label={passageSaved ? 'Remover este trecho dos salvos' : 'Salvar este trecho'}
-            >
-              <Bookmark size={21} fill={passageSaved ? 'currentColor' : 'none'} />
-            </button>
-          </div>
 
           <button
             type="button"
             onClick={session.completeCurrentSection}
             disabled={session.saving}
-            className="northstar-reader-control justify-self-end disabled:opacity-35"
+            className="inline-flex min-h-11 flex-[1.15] items-center justify-center gap-1.5 rounded-full bg-[#53664E] px-4 text-xs font-semibold text-white shadow-sm disabled:opacity-35 dark:bg-sage-300 dark:text-sage-950"
             aria-label={primaryAction.ariaLabel}
           >
             {session.saving ? (
-              <RefreshCw size={19} className="animate-spin" />
+              <RefreshCw size={16} className="animate-spin" />
             ) : primaryAction.icon === 'complete' ? (
-              <Check size={22} />
-            ) : (
-              <ChevronRight size={23} />
-            )}
+              <Check size={17} />
+            ) : null}
+            {primaryAction.icon === 'complete' ? 'Concluir' : 'Próximo'}
+            {primaryAction.icon !== 'complete' && !session.saving && <ChevronRight size={17} />}
           </button>
         </div>
       </footer>
@@ -489,13 +491,6 @@ function ReaderSettings({ fontSize, setFontSize }) {
       </div>
     </div>
   )
-}
-
-function stepFont(current, setter, direction) {
-  const order = FONT_SIZES.map((item) => item.id)
-  const currentIndex = Math.max(0, order.indexOf(current))
-  const nextIndex = Math.max(0, Math.min(order.length - 1, currentIndex + direction))
-  setter(order[nextIndex])
 }
 
 function Paragraph({ text }) {
