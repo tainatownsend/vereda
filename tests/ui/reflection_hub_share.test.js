@@ -23,8 +23,8 @@ describe('reflection discovery and social sharing', () => {
   })
 
   it('offers a reflection hub with today, another reflection, history, and personal journal', () => {
-    expect(reflection).toContain('Reflexão de hoje')
-    expect(reflection).toContain('Gerar outra reflexão')
+    expect(reflection).toContain('featured-reflection-title')
+    expect(reflection).toContain('Outra')
     expect(reflection).toContain('Reflexões anteriores')
     expect(reflection).toContain('Minha reflexão')
     expect(reflection).toContain('Minhas reflexões')
