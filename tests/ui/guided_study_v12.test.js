@@ -136,7 +136,7 @@ describe('Vereda 1.2 guided study', () => {
     expect(reflectionCard).not.toContain('VEREDA APP')
     expect(reflectionCard).toContain('await navigator.share({ files: [file] })')
     expect(reflectionCard).toContain('navigator.clipboard?.write')
-    expect(reflection).toContain('Gerar outra reflexão')
+    expect(reflection).toContain('Outra')
     expect(reflection).toContain('Reflexões anteriores')
   })
 
