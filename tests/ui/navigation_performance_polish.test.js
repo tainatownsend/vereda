@@ -53,22 +53,21 @@ describe('navigation and performance polish across the current product stack', (
 
   it('uses North Star book accents without legacy cover colors', () => {
     expect(library).toContain('BOOK_ACCENT_COLORS')
-    expect(library).toContain("2: '#AB6D50'")
-    expect(library).toContain("3: '#B9A46E'")
+    expect(library).toContain("2: '#8B745E'")
+    expect(library).toContain("3: '#A78E5F'")
     expect(library).not.toContain('book.cover_color')
   })
 
-  it('keeps Biblioteca focused on the books instead of repeating navigation available elsewhere', () => {
-    expect(library).toContain('Caminho pelas obras básicas')
-    expect(library).toContain('Seu progresso')
+  it('keeps Studies focused on books and progress instead of repeating secondary navigation', () => {
+    expect(library).toContain('Estudos')
+    expect(library).toContain('BookCover')
+    expect(library).toContain('ProgressLine')
     expect(library).toContain('Sugerir uma obra complementar')
-    expect(library).toContain('aria-labelledby="free-reading-heading"')
-    expect(library).toContain('Abrir Estudo Guiado')
+    expect(library).toContain('Estudo guiado')
     expect(library).not.toContain('Atalhos de estudo')
     expect(library).not.toContain('Não sei por onde começar')
     expect(library).not.toContain('Trechos salvos')
     expect(library).not.toContain('Uma jornada pelas obras básicas')
-    expect(library).not.toContain('Biblioteca complementar')
   })
 
   it('keeps reader chrome focused while preserving text controls and passage saving', () => {
