@@ -42,9 +42,9 @@ export default function HomePage() {
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-5 sm:pt-7">
         <header className="relative flex min-h-14 items-center justify-center">
-          <div className="flex items-center gap-2.5" aria-label="Vereda">
-            <VeredaLogo size={34} />
-            <p className="font-display text-[1.55rem] font-semibold tracking-[-0.02em] text-sage-800 dark:text-night-ink">
+          <div className="flex items-center gap-2" aria-label="Vereda">
+            <VeredaLogo size={30} />
+            <p className="font-display text-[1.4rem] font-semibold tracking-[-0.02em] text-sage-800 dark:text-night-ink">
               Vereda
             </p>
           </div>
