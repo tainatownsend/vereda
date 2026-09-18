@@ -47,8 +47,8 @@ export default function LibraryPage() {
       <div className="northstar-container pt-8">
         <header className="flex items-start justify-between gap-4">
           <div>
-            <h1 className="font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Estudos</h1>
-            <p className="mt-1.5 max-w-sm text-sm leading-relaxed text-muted dark:text-night-muted">
+            <h1 className="font-display text-[1.72rem] font-semibold text-ink dark:text-night-ink">Estudos</h1>
+            <p className="mt-1 max-w-sm text-[0.88rem] leading-relaxed text-muted dark:text-night-muted">
               Escolha uma obra e siga no seu ritmo, sem pressa.
             </p>
           </div>
@@ -63,7 +63,7 @@ export default function LibraryPage() {
         </header>
 
         <div
-          className="mt-5 grid grid-cols-3 gap-1 rounded-[14px] bg-[#EEE4D4] p-1 dark:bg-night-surface"
+          className="mt-4 grid grid-cols-3 gap-1 rounded-[13px] bg-[#EEE4D4] p-1 dark:bg-night-surface"
           role="tablist"
           aria-label="Filtrar estudos"
         >
@@ -74,7 +74,7 @@ export default function LibraryPage() {
               role="tab"
               aria-selected={filter === item.id}
               onClick={() => setFilter(item.id)}
-              className={`min-h-10 rounded-[11px] px-2 text-xs font-semibold transition ${
+              className={`min-h-9 rounded-[10px] px-2 text-[0.78rem] font-semibold transition ${
                 filter === item.id
                   ? 'bg-[#FBF8F1] text-[#53664E] shadow-sm dark:bg-night dark:text-sage-300'
                   : 'text-muted hover:text-ink dark:text-night-muted'
@@ -89,7 +89,7 @@ export default function LibraryPage() {
           <h2 id="foundational-studies-heading" className="sr-only">Obras fundamentais</h2>
 
           {visibleBooks.length ? (
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               {visibleBooks.map((book) => (
                 <StudyRow
                   key={book.id}
@@ -161,20 +161,20 @@ function StudyRow({ book, progressRecord, onOpen }) {
   const status = getStudyStatus(progressRecord)
 
   return (
-    <EditorialCard as="button" type="button" onClick={onOpen} className="w-full p-3.5 text-left">
-      <div className="flex items-center gap-3.5">
+    <EditorialCard as="button" type="button" onClick={onOpen} className="w-full p-3 text-left">
+      <div className="flex items-center gap-3">
         <BookCover book={book} size="sm" color={accent} />
         <div className="min-w-0 flex-1">
-          <p className="font-display text-[1.03rem] font-semibold leading-tight text-ink dark:text-night-ink">
+          <p className="font-display text-[0.96rem] font-semibold leading-tight text-ink dark:text-night-ink">
             {book.title}
           </p>
-          <p className="mt-1 text-xs text-muted dark:text-night-muted">
+          <p className="mt-0.5 text-[0.76rem] text-muted dark:text-night-muted">
             {book.author || 'Allan Kardec'}
           </p>
-          <div className="mt-3">
+          <div className="mt-2.5">
             <ProgressLine value={percentage} />
-            <div className="mt-1.5 flex items-center justify-between gap-3">
-              <p className="text-xs font-medium text-muted dark:text-night-muted">
+            <div className="mt-1 flex items-center justify-between gap-3">
+              <p className="text-[0.76rem] font-medium text-muted dark:text-night-muted">
                 {status === 'concluido'
                   ? 'Concluído'
                   : totalSections
@@ -182,7 +182,7 @@ function StudyRow({ book, progressRecord, onOpen }) {
                     : `${percentage}% concluído`}
               </p>
               <span
-                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white"
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-white"
                 style={{ backgroundColor: accent }}
                 aria-hidden="true"
               >
