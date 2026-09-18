@@ -96,7 +96,7 @@ describe('Vereda 1.2 guided study', () => {
     expect(app).toContain('path="/estudo-guiado/:pathKey/:sessionId"')
     expect(home).not.toContain('Continuar no Estudo Guiado')
     expect(home).not.toContain('Outros caminhos')
-    expect(home).toContain('Prefere definir um plano de leitura?')
+    expect(home).toContain("navigate('/plano-de-estudo')")
     expect(bookDetail).toContain('Estudar esta obra com orientação')
     expect(bookDetail).toContain('matchGuidedPath(book)')
     expect(bookDetail).toContain('Começar esta leitura')
