@@ -6,14 +6,15 @@ const planPage = readFileSync('src/pages/StudyPlanPage.jsx', 'utf8')
 const studyPlan = readFileSync('src/features/studyPlan/studyPlan.js', 'utf8')
 const landing = readFileSync('src/pages/LandingPage.jsx', 'utf8')
 const app = readFileSync('src/App.jsx', 'utf8')
+const more = readFileSync('src/pages/MorePage.jsx', 'utf8')
 
 describe('Vereda 1.1 continuity foundation', () => {
   it('makes the next study step primary on Home', () => {
     expect(home).toContain('Que a paz do bem te acompanhe nesta jornada.')
     expect(home).toContain('Continuar estudo')
-    expect(home).toContain('Defina um ritmo de leitura que caiba na sua rotina.')
-    expect(home).toContain("navigate('/plano-de-estudo')")
-    expect(home).toContain('getWeeklyProgressLabel')
+    expect(home).toContain('getActiveBooksByLastRead')
+    expect(home).toContain('getStudyPosition(progress)')
+    expect(more).toContain("path: '/plano-de-estudo'")
   })
 
   it('lets the user choose a gentle rhythm without streak pressure', () => {
