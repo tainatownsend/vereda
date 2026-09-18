@@ -38,7 +38,7 @@ export default function BottomNav() {
               aria-current={active ? 'page' : undefined}
               className={`relative flex min-h-14 min-w-0 flex-col items-center justify-center gap-1 px-1 py-2 text-xs font-medium leading-tight transition-colors ${
                 active
-                  ? 'text-sage-800 dark:text-sage-300'
+                  ? 'text-[#B28D49] dark:text-[#E3C98D]'
                   : 'text-muted hover:text-ink dark:text-night-muted dark:hover:text-night-ink'
               }`}
             >
@@ -47,7 +47,7 @@ export default function BottomNav() {
               {active && (
                 <span
                   aria-hidden="true"
-                  className="absolute bottom-0 h-1 w-7 rounded-full bg-[#C5A15D]"
+                  className="absolute bottom-0 h-[3px] w-6 rounded-full bg-[#C5A15D]"
                 />
               )}
             </button>
