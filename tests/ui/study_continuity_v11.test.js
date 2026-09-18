@@ -9,9 +9,9 @@ const app = readFileSync('src/App.jsx', 'utf8')
 
 describe('Vereda 1.1 continuity foundation', () => {
   it('makes the next study step primary on Home', () => {
-    expect(home).toContain('Que bom ter você aqui.')
-    expect(home).toContain('Continue sua leitura')
-    expect(home).toContain('Prefere definir um plano de leitura?')
+    expect(home).toContain('Que a paz do bem te acompanhe nesta jornada.')
+    expect(home).toContain('Continuar estudo')
+    expect(home).toContain('Defina um ritmo de leitura que caiba na sua rotina.')
     expect(home).toContain("navigate('/plano-de-estudo')")
     expect(home).toContain('getWeeklyProgressLabel')
   })
