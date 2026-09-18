@@ -38,7 +38,7 @@ export default function BottomNav() {
               type="button"
               onClick={() => navigate(path)}
               aria-current={active ? 'page' : undefined}
-              className={`flex min-h-14 min-w-0 flex-1 flex-col items-center justify-center gap-1 px-1 py-2 text-[11px] font-medium leading-tight transition-colors sm:text-xs ${
+              className={`flex min-h-14 min-w-0 flex-1 flex-col items-center justify-center gap-1 px-1 py-2 text-xs font-medium leading-tight transition-colors ${
                 active
                   ? 'text-sage-800 dark:text-sage-300'
                   : 'text-muted hover:text-ink dark:text-night-muted dark:hover:text-night-ink'
