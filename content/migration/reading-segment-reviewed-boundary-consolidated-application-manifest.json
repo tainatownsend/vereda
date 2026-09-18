@@ -20,7 +20,7 @@
     "postflight_select_sql_sha256": "b99df58ab8cfd9eaa5bbe6c74f32c0a17d2e2e7555a160f76d9a30b648d6501e"
   },
   "artifact_hashes": {
-    "schema_model_sha256": "f49df43908a5784b9d8c386486a5257ec5c57c690be92239f84191f529760603",
+    "schema_model_sha256": "fbdbb96fb90ad801a064f88614f487b22a8abe3eea362b246b44c298f5a78441",
     "policy_sha256": "7bd6b1c3d002bcfc766d9d994a6e2bfa963418ba90955f62b0da95acfc116216",
     "plan_sha256": "184eee3e709042c01e0a778bbe8a1e1784dd858f08da27d760b7b930c88c6d9a",
     "exclusions_sha256": "90fa0d03c52e6550db0e4bc9b8346e98c06fbab2564ffe772431213e43296af8",

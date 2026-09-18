@@ -195,7 +195,8 @@
     "supabase/migrations/20260825062000_book_candidate_voting.sql",
     "supabase/migrations/20260828052000_book_candidate_backend_hardening.sql",
     "supabase/migrations/20260828053500_book_candidate_submit_rpc_fix.sql",
-    "supabase/migrations/20260828060000_public_database_security_hardening.sql"
+    "supabase/migrations/20260828060000_public_database_security_hardening.sql",
+    "supabase/migrations/20260830065000_book_candidate_reference_url.sql"
   ],
   "migrations_matching": [
     "supabase/migrations/20260803033000_content_staging_foundation.sql"

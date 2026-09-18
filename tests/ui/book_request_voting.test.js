@@ -25,6 +25,10 @@ const submitRpcFixMigrationSource = readFileSync(
   'supabase/migrations/20260828053500_book_candidate_submit_rpc_fix.sql',
   'utf8',
 )
+const referenceUrlMigrationSource = readFileSync(
+  'supabase/migrations/20260830065000_book_candidate_reference_url.sql',
+  'utf8',
+)
 
 describe('community book request matching', () => {
   it('normalizes accents, punctuation and a leading article', () => {
@@ -71,6 +75,13 @@ describe('community book request product contract', () => {
     expect(pageSource).toContain('Quero dar meu voto também')
   })
 
+  it('accepts an optional HTTPS reference only after the title is not found', () => {
+    expect(pageSource).toContain('Link de referência (opcional)')
+    expect(pageSource).toContain('p_reference_url: referenceUrlValidation.value')
+    expect(pageSource).toContain('rel="noopener noreferrer nofollow"')
+    expect(pageSource).toContain('Ver referência · {hostname}')
+  })
+
   it('makes the community feature visible from the public presentation page', () => {
     expect(landingSource).toContain('Sugerir ou votar em uma obra')
     expect(landingSource).toContain('Criar conta para sugerir uma obra')
@@ -98,6 +109,22 @@ describe('community book request product contract', () => {
     )
     expect(submitRpcFixMigrationSource).not.toContain(
       'on conflict (candidate_id, user_id) do nothing',
+    )
+    expect(referenceUrlMigrationSource).toContain(
+      'on conflict on constraint book_candidate_votes_pkey do nothing',
+    )
+  })
+
+  it('stores only bounded HTTPS reference metadata and keeps the RPC backwards compatible', () => {
+    expect(referenceUrlMigrationSource).toContain('add column if not exists reference_url text')
+    expect(referenceUrlMigrationSource).toContain(
+      "reference_url ~* '^https://[a-z0-9][^[:space:]/@]*(/[^[:space:]]*)?$'",
+    )
+    expect(referenceUrlMigrationSource).toContain('length(reference_url) <= 2048')
+    expect(referenceUrlMigrationSource).toContain('p_reference_url text default null')
+    expect(referenceUrlMigrationSource).toContain('bc.reference_url')
+    expect(referenceUrlMigrationSource).toContain(
+      'grant execute on function public.submit_book_candidate(text, text, text) to authenticated',
     )
   })
 })
