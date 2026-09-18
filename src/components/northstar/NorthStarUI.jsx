@@ -1,7 +1,7 @@
 import { BookOpen } from 'lucide-react'
 
 export function BookCover({ book, size = 'md', color, className = '' }) {
-  const dimensions = size === 'sm' ? 'h-20 w-14' : 'h-28 w-20'
+  const dimensions = size === 'sm' ? 'h-[4.6rem] w-[3.3rem]' : 'h-28 w-20'
   const fallback = color || '#6F8F6F'
 
   return (
@@ -25,7 +25,7 @@ export function ProgressLine({ value = 0, className = '' }) {
   const safeValue = Math.max(0, Math.min(100, Number(value) || 0))
 
   return (
-    <div className={`h-[4px] overflow-hidden rounded-full bg-[#E8EDE6] dark:bg-night-line ${className}`}>
+    <div className={`h-[3px] overflow-hidden rounded-full bg-[#E8EDE6] dark:bg-night-line ${className}`}>
       <div
         className="h-full rounded-full bg-[#6F8F6F] transition-[width] duration-300 dark:bg-sage-300"
         style={{ width: `${safeValue}%` }}
