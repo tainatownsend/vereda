@@ -22,6 +22,7 @@ import ReflectionPage from '@/pages/ReflectionPage'
 import FavoritesPage from '@/pages/FavoritesPage'
 import EvolutionPage from '@/pages/EvolutionPage'
 import SettingsPage from '@/pages/SettingsPage'
+import MorePage from '@/pages/MorePage'
 import GuidedStudyPage from '@/pages/GuidedStudyPage'
 import GuidedStudyPathPage from '@/pages/GuidedStudyPathPage'
 import GuidedStudySessionPage from '@/pages/GuidedStudySessionPage'
@@ -86,6 +87,7 @@ export default function App() {
           <Route path="/salvos" element={<ProtectedRoute><SavedPassagesPage /></ProtectedRoute>} />
           <Route path="/evolucao" element={<ProtectedRoute><EvolutionPage /></ProtectedRoute>} />
           <Route path="/configuracoes" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
+          <Route path="/mais" element={<ProtectedRoute><MorePage /></ProtectedRoute>} />
           <Route path="/comunidade" element={<Navigate to="/descobrir" replace />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
