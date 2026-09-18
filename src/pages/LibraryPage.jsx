@@ -31,10 +31,10 @@ export default function LibraryPage() {
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-9">
         <header>
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Seus caminhos</p>
-          <h1 className="mt-1 font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Estudos</h1>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Suas obras</p>
+          <h1 className="mt-1 font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Biblioteca</h1>
           <p className="mt-2 max-w-md text-sm leading-relaxed text-muted dark:text-night-muted">
-            Escolha entre estudar com companhia, ler livremente ou explorar outras obras. Você pode alternar quando quiser.
+            Continue de onde parou, escolha uma obra ou siga uma jornada guiada no seu ritmo.
           </p>
         </header>
 

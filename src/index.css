@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,15 +7,15 @@
 :root {
   color-scheme: light;
 
-  --ves-canvas: #F8F4EE;
-  --ves-surface: #FFFCF7;
-  --ves-surface-soft: #EFE6DA;
-  --ves-ink: #2F372F;
-  --ves-muted: #697169;
-  --ves-line: #DDD1C3;
-  --ves-focus: #6D8B74;
-  --ves-accent: #C98C6B;
-  --ves-sun: #E7B977;
+  --ves-canvas: #F6F7F4;
+  --ves-surface: #FFFFFF;
+  --ves-surface-soft: #E8EDE6;
+  --ves-ink: #1F2933;
+  --ves-muted: #66706A;
+  --ves-line: #DCDCC8;
+  --ves-focus: #6F8F6F;
+  --ves-accent: #A7B8A1;
+  --ves-sun: #D6C58F;
 
   --ves-radius-sm: 14px;
   --ves-radius-md: 22px;
@@ -163,10 +163,9 @@
     isolation: isolate;
     min-height: 9.5rem;
     background:
-      radial-gradient(circle at 87% 20%, rgba(231, 185, 119, 0.42) 0 1.15rem, transparent 1.2rem),
-      radial-gradient(ellipse at 88% 112%, rgba(92, 118, 91, 0.23) 0 38%, transparent 38.5%),
-      radial-gradient(ellipse at 63% 116%, rgba(170, 190, 161, 0.34) 0 42%, transparent 42.5%),
-      linear-gradient(145deg, #FFFDF8 0%, #F5EDE2 66%, #E9DECE 100%);
+      radial-gradient(circle at 88% 18%, rgba(167, 184, 161, 0.24) 0 1.15rem, transparent 1.2rem),
+      radial-gradient(ellipse at 86% 116%, rgba(167, 184, 161, 0.16) 0 38%, transparent 38.5%),
+      linear-gradient(145deg, #FFFFFF 0%, #F6F7F4 62%, #E8EDE6 100%);
   }
 
   .northstar-home-quote::after {
@@ -251,7 +250,7 @@
 
 @layer utilities {
   .font-display {
-    font-family: 'Lora', Georgia, serif;
+    font-family: 'Literata', Georgia, serif;
   }
 
   .font-body {

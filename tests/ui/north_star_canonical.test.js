@@ -13,12 +13,14 @@ const bottomNav = readFileSync('src/components/ui/BottomNav.jsx', 'utf8')
 
 describe('Vereda North Star canonical screens', () => {
   it('keeps Home focused on a personalized next study action without duplicating destinations', () => {
-    expect(home).toContain('Seu próximo passo, com calma e clareza.')
+    expect(home).toContain('Um passo por dia.')
+    expect(home).toContain('Uma jornada para toda a vida.')
+    expect(home).toContain('Que bom ter você aqui.')
     expect(home).toContain('getGreeting(profile?.name)')
     expect(home).toContain('Para refletir')
     expect(home).toContain('Ver outras reflexões')
     expect(home).toContain('Compartilhar')
-    expect(home).toContain('Continue seu estudo')
+    expect(home).toContain('Continue sua leitura')
     expect(home).toContain('Prefere definir um plano de leitura?')
     expect(home).not.toContain('Prefere estudar com companhia?')
     expect(home).not.toContain('Continuar no Estudo Guiado')
@@ -31,7 +33,7 @@ describe('Vereda North Star canonical screens', () => {
   })
 
   it('keeps Biblioteca focused on its two collections and the five-work progress journey', () => {
-    expect(library).toContain('Estudos')
+    expect(library).toContain('Biblioteca')
     expect(library).toContain('Estudo Guiado')
     expect(library).toContain('Leitura livre')
     expect(library).toContain('Básicas')
@@ -113,12 +115,17 @@ describe('Vereda North Star canonical screens', () => {
     expect(bottomNav).not.toContain("label: 'Comunidade'")
   })
 
-  it('uses the five primary destinations that are functional in this release', () => {
+  it('uses the five destinations from the new Vereda North Star', () => {
     expect(bottomNav).toContain("label: 'Início'")
-    expect(bottomNav).toContain("label: 'Estudos'")
-    expect(bottomNav).toContain("label: 'Descobrir'")
-    expect(bottomNav).toContain("label: 'Favoritos'")
+    expect(bottomNav).toContain("label: 'Biblioteca'")
+    expect(bottomNav).toContain("label: 'Jornada'")
+    expect(bottomNav).toContain("label: 'Notas'")
     expect(bottomNav).toContain("label: 'Perfil'")
+    expect(bottomNav).toContain("path: '/evolucao'")
+    expect(bottomNav).toContain("path: '/notas'")
+    expect(bottomNav).not.toContain("label: 'Estudos'")
+    expect(bottomNav).not.toContain("label: 'Descobrir'")
+    expect(bottomNav).not.toContain("label: 'Favoritos'")
     expect(bottomNav).not.toContain("label: 'Comunidade'")
     expect(bottomNav).not.toContain("label: 'Reflexões'")
   })
