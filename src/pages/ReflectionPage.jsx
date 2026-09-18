@@ -106,13 +106,10 @@ export default function ReflectionPage() {
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-8">
         <header>
-          <h1 className="font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Reflexões</h1>
-          <p className="mt-1.5 max-w-sm text-sm leading-relaxed text-muted dark:text-night-muted">
-            Um espaço para parar, guardar e compartilhar o que ilumina seu caminho.
-          </p>
+          <h1 className="font-display text-[1.72rem] font-semibold text-ink dark:text-night-ink">Reflexões</h1>
         </header>
 
-        <div className="mt-5 grid grid-cols-3 gap-1 rounded-[14px] bg-[#EEE4D4] p-1 dark:bg-night-surface" aria-label="Áreas de reflexões">
+        <div className="mt-4 grid grid-cols-3 gap-1 rounded-[14px] bg-[#EEE4D4] p-1 dark:bg-night-surface" aria-label="Áreas de reflexões">
           <button
             type="button"
             onClick={() => document.getElementById('reflection-today')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
@@ -137,27 +134,27 @@ export default function ReflectionPage() {
         </div>
 
         <div id="reflection-today" className="mt-4 scroll-mt-6 overflow-hidden rounded-[20px] border border-line bg-sage-100 shadow-[0_14px_34px_rgba(67,62,49,0.08)] dark:border-night-line">
-          <img src={northStarLandscape} alt="Caminho sereno em meio à natureza" className="h-52 w-full object-cover" />
+          <img src={northStarLandscape} alt="Caminho sereno em meio à natureza" className="h-40 w-full object-cover" />
         </div>
 
-        <EditorialCard className="mt-3 border-[#DED5C7] bg-[#FBF8F1] p-5 shadow-[0_12px_28px_rgba(67,62,49,0.06)]">
+        <EditorialCard className="mt-0 rounded-t-none border-[#DED5C7] bg-[#FBF8F1] p-4 shadow-[0_12px_28px_rgba(67,62,49,0.06)]">
           <div className="flex gap-3">
             <Quote size={20} className="mt-1 shrink-0 text-sage-700" />
             <div className="min-w-0 flex-1">
               <p className="text-xs font-semibold text-sage-700 dark:text-sage-300">
                 {featuredReflection.id === dailyReflection.id ? 'Reflexão de hoje' : 'Outra reflexão'}
               </p>
-              <p className="mt-3 font-display text-[1.24rem] italic leading-[1.62] text-ink dark:text-night-ink">
+              <p className="mt-3 font-display text-[1.04rem] italic leading-[1.58] text-ink dark:text-night-ink">
                 “{featuredReflection.text}”
               </p>
               <p className="mt-2 text-xs font-semibold text-muted dark:text-night-muted">
                 — {featuredReflection.author}
               </p>
-              <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+              <div className="mt-3 flex flex-row flex-wrap gap-2">
                 <button
                   type="button"
                   onClick={() => shareImage({ text: featuredReflection.text, author: featuredReflection.author })}
-                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-vesSm border border-sage-300 px-4 text-sm font-semibold text-sage-800 dark:border-sage-800 dark:text-sage-300"
+                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-sage-300 px-3.5 text-xs font-semibold text-sage-800 dark:border-sage-800 dark:text-sage-300"
                   aria-label="Compartilhar esta reflexão"
                 >
                   <Share2 size={16} />
@@ -169,7 +166,7 @@ export default function ReflectionPage() {
                     setFeaturedReflection((current) => getNextReflection(current.id))
                     setShareStatus('')
                   }}
-                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-vesSm px-4 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950/30"
+                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full px-3.5 text-xs font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950/30"
                 >
                   <RefreshCw size={16} aria-hidden="true" />
                   Gerar outra reflexão
