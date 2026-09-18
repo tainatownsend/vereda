@@ -31,10 +31,10 @@ import { getSectionNote, saveSectionNote } from '@/features/studyJournal/studyJo
 import { Button, PageLoader } from '@/components/ui'
 
 const FONT_SIZES = [
-  { id: 'sm', label: 'Pequena', className: 'text-[17px]' },
-  { id: 'md', label: 'Média', className: 'text-[20px]' },
-  { id: 'lg', label: 'Grande', className: 'text-[24px]' },
-  { id: 'xl', label: 'Extra', className: 'text-[28px]' },
+  { id: 'sm', label: 'Pequena', className: 'text-[16px]' },
+  { id: 'md', label: 'Média', className: 'text-[18px]' },
+  { id: 'lg', label: 'Grande', className: 'text-[20px]' },
+  { id: 'xl', label: 'Extra', className: 'text-[22px]' },
 ]
 
 export default function ReaderPage() {
@@ -167,7 +167,7 @@ export default function ReaderPage() {
     return <ReaderError message={READER_COPY.missingContinuation} onRetry={session.reload} onBack={() => navigate('/home')} />
   }
 
-  const fontClass = FONT_SIZES.find((option) => option.id === fontSize)?.className || 'text-[20px]'
+  const fontClass = FONT_SIZES.find((option) => option.id === fontSize)?.className || 'text-[18px]'
   const paragraphs = isChapterIntro || isPartIntro
     ? []
     : (currentSection.content || '')
@@ -298,7 +298,7 @@ export default function ReaderPage() {
         </div>
       )}
 
-      <main className="mx-auto max-w-[44rem] px-5 pb-32 pt-10 sm:px-8 sm:pt-14">
+      <main className="mx-auto max-w-[40rem] px-5 pb-32 pt-7 sm:px-8 sm:pt-10">
         {isPartIntro ? (
           <PartIntro section={currentSection} />
         ) : isChapterIntro ? (
@@ -306,13 +306,13 @@ export default function ReaderPage() {
         ) : (
           <>
             <SectionHeading currentSection={currentSection} />
-            <article className={`font-display leading-[1.82] text-ink dark:text-night-ink ${fontClass}`}>
+            <article className={`font-display leading-[1.7] text-ink dark:text-night-ink ${fontClass}`}>
               {paragraphs.map((paragraph, index) => (
                 <Paragraph key={`${currentSection.section_id}-${index}`} text={paragraph} />
               ))}
             </article>
 
-            <section className="mt-12 rounded-[18px] border border-[#E2D5BE] bg-[#F2E8D6] p-5 dark:border-night-line dark:bg-night-surface" aria-labelledby="reader-reflection-heading">
+            <section className="mt-9 rounded-[18px] border border-[#E2D5BE] bg-[#F2E8D6] p-5 dark:border-night-line dark:bg-night-surface" aria-labelledby="reader-reflection-heading">
               <div className="flex items-center gap-2 text-[#66745F] dark:text-sage-300">
                 <Leaf size={17} strokeWidth={1.6} aria-hidden="true" />
                 <h2 id="reader-reflection-heading" className="font-display text-base font-semibold">
@@ -523,11 +523,11 @@ function SectionHeading({ currentSection }) {
     <div className="mb-10 text-center">
       {hierarchy && <p className="text-sm font-medium text-ink/75 dark:text-night-muted">{hierarchy}</p>}
       {heading && (
-        <h1 className="mx-auto mt-3 max-w-xl font-display text-[2.15rem] font-semibold leading-[1.12] tracking-[-0.025em] text-ink dark:text-night-ink">
+        <h1 className="mx-auto mt-3 max-w-xl font-display text-[1.7rem] font-semibold leading-[1.12] tracking-[-0.025em] text-ink dark:text-night-ink">
           {heading}
         </h1>
       )}
-      <span className="mx-auto mt-5 block h-px w-16 bg-[#C5A15D]/60" aria-hidden="true" />
+      <span className="mx-auto mt-4 block h-px w-14 bg-[#C5A15D]/60" aria-hidden="true" />
     </div>
   )
 }
