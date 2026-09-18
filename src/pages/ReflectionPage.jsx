@@ -133,48 +133,55 @@ export default function ReflectionPage() {
           </button>
         </div>
 
-        <div id="reflection-today" className="mt-4 scroll-mt-6 overflow-hidden rounded-[20px] border border-line bg-sage-100 shadow-[0_14px_34px_rgba(67,62,49,0.08)] dark:border-night-line">
-          <img src={northStarLandscape} alt="Caminho sereno em meio à natureza" className="h-40 w-full object-cover" />
-        </div>
-
-        <EditorialCard className="mt-0 rounded-t-none border-[#DED5C7] bg-[#FBF8F1] p-4 shadow-[0_12px_28px_rgba(67,62,49,0.06)]">
-          <div className="flex gap-3">
-            <Quote size={20} className="mt-1 shrink-0 text-sage-700" />
-            <div className="min-w-0 flex-1">
-              <p className="text-xs font-semibold text-sage-700 dark:text-sage-300">
+        <section
+          id="reflection-today"
+          className="mt-4 scroll-mt-6 overflow-hidden rounded-[20px] border border-[#D8CCBA] bg-[#F7EFE2] shadow-[0_14px_34px_rgba(67,62,49,0.08)] dark:border-night-line dark:bg-night-surface"
+          aria-labelledby="featured-reflection-title"
+        >
+          <div className="relative min-h-[19rem] overflow-hidden">
+            <img
+              src={northStarLandscape}
+              alt="Paisagem serena ao amanhecer"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#F5E7CF]/5 via-[#EFE0C6]/20 to-[#F8F0E5]/96" />
+            <div className="relative flex min-h-[19rem] flex-col justify-end px-6 pb-7 pt-24 text-center">
+              <p id="featured-reflection-title" className="sr-only">
                 {featuredReflection.id === dailyReflection.id ? 'Reflexão de hoje' : 'Outra reflexão'}
               </p>
-              <p className="mt-3 font-display text-[1.04rem] italic leading-[1.58] text-ink dark:text-night-ink">
+              <Quote size={20} className="mx-auto mb-3 text-[#69735F]" aria-hidden="true" />
+              <p className="mx-auto max-w-[19rem] font-display text-[1.06rem] italic leading-[1.55] text-[#343A30]">
                 “{featuredReflection.text}”
               </p>
-              <p className="mt-2 text-xs font-semibold text-muted dark:text-night-muted">
-                — {featuredReflection.author}
+              <p className="mt-3 text-[0.72rem] font-medium text-[#686B63]">
+                {featuredReflection.author}
               </p>
-              <div className="mt-3 flex flex-row flex-wrap gap-2">
-                <button
-                  type="button"
-                  onClick={() => shareImage({ text: featuredReflection.text, author: featuredReflection.author })}
-                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full border border-sage-300 px-3.5 text-xs font-semibold text-sage-800 dark:border-sage-800 dark:text-sage-300"
-                  aria-label="Compartilhar esta reflexão"
-                >
-                  <Share2 size={16} />
-                  Compartilhar
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setFeaturedReflection((current) => getNextReflection(current.id))
-                    setShareStatus('')
-                  }}
-                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-full px-3.5 text-xs font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950/30"
-                >
-                  <RefreshCw size={16} aria-hidden="true" />
-                  Gerar outra reflexão
-                </button>
-              </div>
             </div>
           </div>
-        </EditorialCard>
+
+          <div className="flex min-h-12 items-center justify-center gap-5 border-t border-[#E2D6C4] bg-[#FBF8F1]/95 px-4 py-2">
+            <button
+              type="button"
+              onClick={() => shareImage({ text: featuredReflection.text, author: featuredReflection.author })}
+              className="inline-flex min-h-10 items-center gap-2 rounded-full px-3 text-xs font-semibold text-[#53664E] hover:bg-[#EEE4D4]"
+              aria-label="Compartilhar esta reflexão"
+            >
+              <Share2 size={16} />
+              Compartilhar
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setFeaturedReflection((current) => getNextReflection(current.id))
+                setShareStatus('')
+              }}
+              className="inline-flex min-h-10 items-center gap-2 rounded-full px-3 text-xs font-semibold text-[#53664E] hover:bg-[#EEE4D4]"
+            >
+              <RefreshCw size={15} aria-hidden="true" />
+              Outra
+            </button>
+          </div>
+        </section>
 
         <section className="mt-7" aria-labelledby="previous-daily-reflections-heading">
           <div className="flex items-end justify-between gap-4">
