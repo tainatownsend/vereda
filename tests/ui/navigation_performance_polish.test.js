@@ -71,12 +71,11 @@ describe('navigation and performance polish across the current product stack', (
   })
 
   it('keeps reader chrome focused while preserving text controls and passage saving', () => {
-    expect(reader).toContain('Opções de leitura')
+    expect(reader).toContain('Ajustar texto e abrir opções')
     expect(reader).toContain('Índice da obra')
-    expect(reader).toContain('Preferências de texto')
-    expect(reader).toContain('northstar-reader-control')
-    expect(reader).toContain('A−')
-    expect(reader).toContain('A+')
+    expect(reader).toContain('ReaderSettings')
+    expect(reader).toContain('Anterior')
+    expect(reader).toContain('Próximo')
     expect(reader).toContain('Salvar este trecho')
   })
 
