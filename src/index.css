@@ -161,7 +161,7 @@
   .northstar-home-quote {
     position: relative;
     isolation: isolate;
-    min-height: 9.5rem;
+    min-height: 8.1rem;
     background:
       radial-gradient(circle at 88% 18%, rgba(197, 161, 93, 0.20) 0 1.15rem, transparent 1.2rem),
       radial-gradient(ellipse at 86% 116%, rgba(83, 102, 78, 0.13) 0 38%, transparent 38.5%),
