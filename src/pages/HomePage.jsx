@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   ChevronRight,
@@ -11,6 +11,7 @@ import northStarLandscape from '@/assets/northstar-landscape.svg'
 import { useAuthStore } from '@/store'
 import { useBooks, useProgress, useUserData } from '@/hooks'
 import { Button, PageLoader, VeredaLogo } from '@/components/ui'
+import { supabase } from '@/lib/supabase'
 import { getActiveBooksByLastRead } from '@/features/home/readingOrder'
 import {
   BookCover,
@@ -29,10 +30,12 @@ export default function HomePage() {
     [books, progress],
   )
   const dailyReflection = useMemo(() => getDailyReflection(), [])
+  const primaryBook = activeBooks[0]
+  const primaryProgress = primaryBook ? progress[primaryBook.id] : null
+  const studyContext = useCurrentStudyContext(primaryBook?.id, primaryProgress?.current_section)
 
   if (!user || dataLoading) return <PageLoader />
 
-  const primaryBook = activeBooks[0]
   const greeting = getGreeting(profile?.name)
 
   return (
@@ -76,7 +79,8 @@ export default function HomePage() {
         {primaryBook ? (
           <NextStudyCard
             book={primaryBook}
-            progress={progress[primaryBook.id]}
+            progress={primaryProgress}
+            studyContext={studyContext}
             navigate={navigate}
           />
         ) : (
@@ -115,7 +119,7 @@ export default function HomePage() {
   )
 }
 
-function NextStudyCard({ book, progress, navigate }) {
+function NextStudyCard({ book, progress, studyContext, navigate }) {
   const percentage = useProgress(book.id, book.total_sections)
   const currentSection = Math.max(1, Number(progress?.current_section) || 1)
   const totalSections = Number(book.total_sections) || null
@@ -144,8 +148,8 @@ function NextStudyCard({ book, progress, navigate }) {
               <p className="font-display text-[1.03rem] font-semibold leading-snug text-[#FFF9ED]">
                 {book.title}
               </p>
-              <p className="mt-1.5 text-xs leading-relaxed text-[#F4EBDD]/80">
-                {getStudyPosition(progress)}
+              <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-[#F4EBDD]/82">
+                {studyContext || getStudyPosition(progress)}
               </p>
 
               <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/18">
@@ -189,6 +193,41 @@ function EmptyHome({ navigate }) {
       </EditorialCard>
     </section>
   )
+}
+
+function useCurrentStudyContext(bookId, currentSection) {
+  const [context, setContext] = useState('')
+
+  useEffect(() => {
+    let cancelled = false
+
+    if (!bookId || !currentSection) {
+      setContext('')
+      return () => { cancelled = true }
+    }
+
+    const load = async () => {
+      const { data } = await supabase
+        .from('sections')
+        .select('part_title, chapter_label, chapter_title')
+        .eq('book_id', bookId)
+        .eq('sec_position', currentSection)
+        .maybeSingle()
+
+      if (cancelled || !data) return
+
+      const part = String(data.part_title || '').trim()
+      const chapter = String(data.chapter_label || '').trim()
+      const chapterTitle = String(data.chapter_title || '').trim()
+      const compactChapter = [chapter, chapterTitle].filter(Boolean).join(' — ')
+      setContext([part, compactChapter].filter(Boolean).join(' · '))
+    }
+
+    void load()
+    return () => { cancelled = true }
+  }, [bookId, currentSection])
+
+  return context
 }
 
 function getStudyPosition(progress) {
