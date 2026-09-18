@@ -48,9 +48,6 @@ export default function LibraryPage() {
         <header className="flex items-start justify-between gap-4">
           <div>
             <h1 className="font-display text-[1.72rem] font-semibold text-ink dark:text-night-ink">Estudos</h1>
-            <p className="mt-1 max-w-sm text-[0.88rem] leading-relaxed text-muted dark:text-night-muted">
-              Escolha uma obra e siga no seu ritmo, sem pressa.
-            </p>
           </div>
           <button
             type="button"
