@@ -11,7 +11,6 @@ import {
   ListTree,
   NotebookPen,
   RefreshCw,
-  Type,
   X,
 } from 'lucide-react'
 
