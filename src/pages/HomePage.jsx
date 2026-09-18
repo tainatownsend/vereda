@@ -40,8 +40,8 @@ export default function HomePage() {
 
   return (
     <main className="northstar-page pb-28">
-      <div className="northstar-container pt-5 sm:pt-7">
-        <header className="relative flex min-h-14 items-center justify-center">
+      <div className="northstar-container pt-4 sm:pt-6">
+        <header className="relative flex min-h-12 items-center justify-center">
           <div className="flex items-center gap-2" aria-label="Vereda">
             <VeredaLogo size={30} />
             <p className="font-display text-[1.4rem] font-semibold tracking-[-0.02em] text-sage-800 dark:text-night-ink">
@@ -58,7 +58,7 @@ export default function HomePage() {
           </button>
         </header>
 
-        <section className="relative mt-2 overflow-hidden rounded-[22px] border border-[#D8CEBF] bg-[#E9DFC9] shadow-[0_12px_34px_rgba(67,62,49,0.08)] dark:border-night-line dark:bg-night-surface" aria-labelledby="home-greeting">
+        <section className="relative mt-1.5 overflow-hidden rounded-[22px] border border-[#D8CEBF] bg-[#E9DFC9] shadow-[0_12px_34px_rgba(67,62,49,0.08)] dark:border-night-line dark:bg-night-surface" aria-labelledby="home-greeting">
           <img
             src={northStarLandscape}
             alt=""
@@ -66,11 +66,11 @@ export default function HomePage() {
             className="absolute inset-0 h-full w-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#F8F0E3]/0 via-[#F4E9D8]/10 to-[#E8DDC9]/92 dark:from-night/5 dark:via-night/20 dark:to-night/95" />
-          <div className="relative flex min-h-[10.7rem] flex-col justify-end p-5 sm:min-h-[11.5rem] sm:p-6">
-            <h1 id="home-greeting" className="font-display text-[1.78rem] font-semibold leading-[1.08] text-[#263126] dark:text-night-ink">
+          <div className="relative flex min-h-[9.1rem] flex-col justify-end p-5 sm:min-h-[10rem] sm:p-6">
+            <h1 id="home-greeting" className="font-display text-[1.58rem] font-semibold leading-[1.08] text-[#263126] dark:text-night-ink">
               {greeting}
             </h1>
-            <p className="mt-1 max-w-[17rem] font-display text-[0.82rem] italic leading-[1.48] text-[#465047] dark:text-night-muted">
+            <p className="mt-1 max-w-[17rem] font-display text-[0.78rem] italic leading-[1.48] text-[#465047] dark:text-night-muted">
               Que a paz do bem te acompanhe nesta jornada.
             </p>
           </div>
@@ -87,13 +87,13 @@ export default function HomePage() {
           <EmptyHome navigate={navigate} />
         )}
 
-        <section className="mt-4" aria-labelledby="home-reflection-heading">
+        <section className="mt-3.5" aria-labelledby="home-reflection-heading">
           <button
             type="button"
             onClick={() => navigate('/reflexoes')}
             className="block w-full text-left"
           >
-            <EditorialCard className="northstar-home-quote overflow-hidden border-[#DED1BD] bg-[#F7EFE2] p-5 shadow-[0_10px_26px_rgba(67,62,49,0.06)]">
+            <EditorialCard className="northstar-home-quote overflow-hidden border-[#DED1BD] bg-[#F7EFE2] p-4 shadow-[0_10px_26px_rgba(67,62,49,0.06)]">
               <div className="relative z-10">
                 <div className="flex items-center gap-2 text-[#6F755E]">
                   <Quote size={16} strokeWidth={1.7} aria-hidden="true" />
@@ -101,10 +101,10 @@ export default function HomePage() {
                     Reflexão do dia
                   </p>
                 </div>
-                <p className="mt-4 max-w-[28rem] font-display text-[1.06rem] italic leading-[1.58] text-[#343B31] dark:text-night-ink">
+                <p className="mt-3 max-w-[28rem] font-display text-[1rem] italic leading-[1.58] text-[#343B31] dark:text-night-ink">
                   “{dailyReflection.text}”
                 </p>
-                <div className="mt-3 flex items-end justify-between gap-4">
+                <div className="mt-2.5 flex items-end justify-between gap-4">
                   <p className="text-xs font-medium text-[#6F7168] dark:text-night-muted">
                     {dailyReflection.author}
                   </p>
@@ -125,7 +125,7 @@ function NextStudyCard({ book, progress, studyContext, navigate }) {
   const totalSections = Number(book.total_sections) || null
 
   return (
-    <section className="mt-4" aria-labelledby="next-study-heading">
+    <section className="mt-3.5" aria-labelledby="next-study-heading">
       <p id="next-study-heading" className="mb-2 px-1 text-xs font-semibold text-[#4D594C] dark:text-sage-300">
         Continuar estudo
       </p>
@@ -137,7 +137,7 @@ function NextStudyCard({ book, progress, studyContext, navigate }) {
         <button
           type="button"
           onClick={() => navigate(`/ler/${book.id}`)}
-          className="block w-full p-4 text-left"
+          className="block w-full p-3.5 text-left"
         >
           <div className="flex items-center gap-4">
             <div className="relative shrink-0">
