@@ -15,11 +15,11 @@ describe('Vereda North Star identity contract', () => {
     expect(css).toContain('family=Literata')
   })
 
-  it('keeps the approved horizon, path and branch logo', () => {
-    expect(logo).toContain('Um caminho entre colinas iluminadas pelo nascer do sol')
-    expect(logo).toContain('stroke="#4F6757"')
-    expect(logo).toContain('fill="#E7B977"')
-    expect(maskableLogo).toContain('Ícone instalável do Vereda')
+  it('keeps the approved leaf-and-sun brand mark', () => {
+    expect(logo).toContain('Um sol dourado sobre duas folhas verdes.')
+    expect(logo).toContain('stroke="#5E6D57"')
+    expect(logo).toContain('radialGradient id="sun"')
+    expect(maskableLogo).toContain('sol dourado e duas folhas verdes')
   })
 
   it('keeps PWA theme and install icons aligned with the brand', () => {
