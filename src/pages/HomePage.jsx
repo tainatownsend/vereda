@@ -148,7 +148,7 @@ function NextStudyCard({ book, progress, studyContext, navigate }) {
               <p className="font-display text-[1.03rem] font-semibold leading-snug text-[#FFF9ED]">
                 {book.title}
               </p>
-              <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-[#F4EBDD]/82">
+              <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-[#F1E8DA]">
                 {studyContext || getStudyPosition(progress)}
               </p>
 
@@ -160,7 +160,7 @@ function NextStudyCard({ book, progress, studyContext, navigate }) {
                 />
               </div>
 
-              <p className="mt-2 text-xs font-medium text-[#F4EBDD]/78">
+              <p className="mt-2 text-xs font-medium text-[#EDE4D3]">
                 {totalSections ? `${currentSection} de ${totalSections} trechos` : `${percentage}% concluído`}
               </p>
             </div>
