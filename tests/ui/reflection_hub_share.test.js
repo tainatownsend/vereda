@@ -13,8 +13,8 @@ const shareCard = readFileSync('src/features/share/reflectionCard.js', 'utf8')
 
 describe('reflection discovery and social sharing', () => {
   it('surfaces reflection sharing directly from Home without duplicating primary navigation', () => {
-    expect(home).toContain('Para refletir')
-    expect(home).toContain('Ver outras reflexões')
+    expect(home).toContain('Reflexão do dia')
+    expect(home).toContain('Ver reflexões')
     expect(home).toContain('shareDailyReflection')
     expect(home).toContain('shareReflectionAsImage')
     expect(home).not.toContain('Outros caminhos')
