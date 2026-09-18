@@ -30,8 +30,8 @@ export default defineConfig({
         lang: 'pt-BR',
         start_url: '/',
         display: 'standalone',
-        background_color: '#F6F7F4',
-        theme_color: '#6F8F6F',
+        background_color: '#F5F0E7',
+        theme_color: '#53664E',
         icons: [
           {
             src: '/vereda-logo-mark.svg',

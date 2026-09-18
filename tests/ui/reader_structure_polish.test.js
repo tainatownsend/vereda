@@ -190,11 +190,11 @@ describe('reader structural UI contract', () => {
     expect(bookDetail).not.toContain('min-h-36 rounded-vesMd')
   })
 
-  it('uses the same horizontal hierarchy for topic and complementary-library cards', () => {
+  it('keeps optional discovery and complementary-study actions compact', () => {
     expect(discover).toContain('className="flex items-start gap-4"')
     expect(discover).toContain('className="min-w-0 flex-1"')
-    expect(library).toContain('Obras complementares')
-    expect(library).toContain('className="flex items-start gap-4"')
+    expect(library).toContain('Sugerir uma obra complementar')
+    expect(library).toContain('min-h-12 w-full items-center justify-center gap-2')
     expect(library).not.toContain('mt-5 p-6 text-center')
   })
 

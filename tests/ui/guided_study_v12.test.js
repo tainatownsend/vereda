@@ -7,6 +7,7 @@ import { GUIDED_SOURCE_MAP } from '../../src/features/guidedStudy/sourceMap.js'
 
 const app = readFileSync('src/App.jsx', 'utf8')
 const home = readFileSync('src/pages/HomePage.jsx', 'utf8')
+const more = readFileSync('src/pages/MorePage.jsx', 'utf8')
 const bookDetail = readFileSync('src/pages/BookDetailPage.jsx', 'utf8')
 const hub = readFileSync('src/pages/GuidedStudyPage.jsx', 'utf8')
 const pathPage = readFileSync('src/pages/GuidedStudyPathPage.jsx', 'utf8')
@@ -96,7 +97,7 @@ describe('Vereda 1.2 guided study', () => {
     expect(app).toContain('path="/estudo-guiado/:pathKey/:sessionId"')
     expect(home).not.toContain('Continuar no Estudo Guiado')
     expect(home).not.toContain('Outros caminhos')
-    expect(home).toContain('Prefere definir um plano de leitura?')
+    expect(more).toContain("path: '/plano-de-estudo'")
     expect(bookDetail).toContain('Estudar esta obra com orientação')
     expect(bookDetail).toContain('matchGuidedPath(book)')
     expect(bookDetail).toContain('Começar esta leitura')
@@ -135,7 +136,7 @@ describe('Vereda 1.2 guided study', () => {
     expect(reflectionCard).not.toContain('VEREDA APP')
     expect(reflectionCard).toContain('await navigator.share({ files: [file] })')
     expect(reflectionCard).toContain('navigator.clipboard?.write')
-    expect(reflection).toContain('Gerar outra reflexão')
+    expect(reflection).toContain('Outra')
     expect(reflection).toContain('Reflexões anteriores')
   })
 

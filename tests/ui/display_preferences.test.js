@@ -20,9 +20,9 @@ describe('display preference contract', () => {
     expect(getAppFontSize('unknown')).toBe(APP_FONT_SCALE_MAP.md)
   })
 
-  it('uses the approved Caminho de Luz browser colors', () => {
+  it('uses the approved Vereda North Star browser colors', () => {
     expect(getThemeColor(false)).toBe(THEME_COLORS.light)
     expect(getThemeColor(true)).toBe(THEME_COLORS.dark)
-    expect(THEME_COLORS).toEqual({ light: '#4F6757', dark: '#182019' })
+    expect(THEME_COLORS).toEqual({ light: '#53664E', dark: '#2C352F' })
   })
 })

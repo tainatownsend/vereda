@@ -22,24 +22,24 @@ export default function GuidedStudyPage() {
 
   return (
     <main className="northstar-page pb-28">
-      <div className="northstar-container pt-9 sm:pt-12">
+      <div className="northstar-container pt-7 sm:pt-9">
         <header className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Estudo guiado</p>
-          <h1 className="mt-2 font-display text-[2.25rem] font-semibold leading-tight text-ink dark:text-night-ink sm:text-[2.65rem]">
+          <h1 className="mt-2 font-display text-[1.72rem] font-semibold leading-[1.14] text-ink dark:text-night-ink sm:text-[2rem]">
             Estude com orientação, sempre a partir da fonte.
           </h1>
-          <p className="mt-3 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">
+          <p className="mt-2.5 max-w-xl text-sm leading-relaxed text-muted dark:text-night-muted">
             Cada encontro começa no texto da obra. O Vereda ajuda você a observar o contexto, fazer conexões e guardar sua própria reflexão — sem substituir a leitura original.
           </p>
         </header>
 
-        <EditorialCard className="mt-7 overflow-hidden border-sage-200 bg-sage-50/80 p-5 dark:border-sage-900 dark:bg-sage-950/30 sm:p-6">
+        <EditorialCard className="mt-5 overflow-hidden border-sage-200 bg-sage-50/80 p-4 dark:border-sage-900 dark:bg-sage-950/30 sm:p-5">
           <div className="flex items-start gap-4">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[13px] bg-white text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
               <Compass size={21} aria-hidden="true" />
             </div>
             <div>
-              <p className="font-display text-lg font-semibold text-ink dark:text-night-ink">Como funciona</p>
+              <p className="font-display text-base font-semibold text-ink dark:text-night-ink">Como funciona</p>
               <p className="mt-1.5 text-sm leading-relaxed text-muted dark:text-night-muted">
                 Antes de ler → texto da obra → orientação de estudo → conexão entre obras → reflexão → próximo encontro. Você pode abrir qualquer encontro e avançar no seu ritmo.
               </p>
@@ -48,7 +48,7 @@ export default function GuidedStudyPage() {
         </EditorialCard>
 
         {next?.progress?.nextSession && (
-          <section className="mt-8" aria-labelledby="guided-next-title">
+          <section className="mt-6" aria-labelledby="guided-next-title">
             <div className="mb-3 flex items-center gap-2">
               <Sparkles size={17} className="text-gold-600" aria-hidden="true" />
               <h2 id="guided-next-title" className="text-sm font-semibold text-ink dark:text-night-ink">Seu próximo encontro</h2>
@@ -72,13 +72,13 @@ export default function GuidedStudyPage() {
           </section>
         )}
 
-        <section className="mt-9" aria-labelledby="guided-works-title">
+        <section className="mt-7" aria-labelledby="guided-works-title">
           <div className="mb-4">
             <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Cinco obras fundamentais</p>
-            <h2 id="guided-works-title" className="mt-1 font-display text-[1.7rem] font-semibold text-ink dark:text-night-ink">Escolha uma jornada</h2>
+            <h2 id="guided-works-title" className="mt-1 font-display text-[1.42rem] font-semibold text-ink dark:text-night-ink">Escolha uma jornada</h2>
           </div>
 
-          <div className="grid gap-4 lg:grid-cols-2">
+          <div className="grid gap-3 lg:grid-cols-2">
             {items.map(({ path, book, progress }) => (
               <button
                 key={path.key}

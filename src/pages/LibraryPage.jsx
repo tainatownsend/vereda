@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { ArrowRight, BookPlus, Compass } from 'lucide-react'
+import { useMemo, useState } from 'react'
+import { ArrowRight, BookPlus, Compass, Search } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks, useProgress } from '@/hooks'
@@ -11,159 +11,192 @@ import {
   ProgressLine,
 } from '@/components/northstar/NorthStarUI'
 
+const FILTERS = [
+  { id: 'todos', label: 'Todos' },
+  { id: 'andamento', label: 'Em andamento' },
+  { id: 'concluidos', label: 'Concluídos' },
+]
+
 const BOOK_ACCENT_COLORS = {
-  1: '#5E7664',
-  2: '#AB6D50',
-  3: '#B9A46E',
-  4: '#8FA68F',
-  5: '#C98C6B',
+  1: '#53664E',
+  2: '#8B745E',
+  3: '#A78E5F',
+  4: '#70866E',
+  5: '#8E6F58',
 }
 
 export default function LibraryPage() {
   const navigate = useNavigate()
   const books = useBooks()
   const { progress } = useReadingStore()
-  const [tab, setTab] = useState('basicas')
+  const [filter, setFilter] = useState('todos')
 
-  if (!books.length) return <PageLoader label="Carregando obras" />
+  const visibleBooks = useMemo(() => {
+    if (filter === 'todos') return books
+
+    return books.filter((book) => {
+      const status = getStudyStatus(progress[book.id])
+      return filter === 'andamento' ? status === 'andamento' : status === 'concluido'
+    })
+  }, [books, filter, progress])
+
+  if (!books.length) return <PageLoader label="Carregando estudos" />
 
   return (
     <main className="northstar-page pb-28">
-      <div className="northstar-container pt-9">
-        <header>
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Suas obras</p>
-          <h1 className="mt-1 font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Biblioteca</h1>
-          <p className="mt-2 max-w-md text-sm leading-relaxed text-muted dark:text-night-muted">
-            Continue de onde parou, escolha uma obra ou siga uma jornada guiada no seu ritmo.
-          </p>
+      <div className="northstar-container pt-8">
+        <header className="flex items-start justify-between gap-4">
+          <div>
+            <h1 className="font-display text-[1.72rem] font-semibold text-ink dark:text-night-ink">Estudos</h1>
+          </div>
+          <button
+            type="button"
+            onClick={() => navigate('/descobrir')}
+            className="northstar-icon-button -mr-1"
+            aria-label="Buscar nas obras"
+          >
+            <Search size={21} aria-hidden="true" />
+          </button>
         </header>
 
-        <EditorialCard className="mt-6 overflow-hidden border-sage-200 bg-sage-50/80 p-5 dark:border-sage-900 dark:bg-sage-950/25 sm:p-6">
-          <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] bg-white text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
-              <Compass size={22} aria-hidden="true" />
-            </div>
-            <div className="min-w-0 flex-1">
-              <p className="text-xs font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Estudo Guiado</p>
-              <h2 className="mt-1 font-display text-xl font-semibold leading-snug text-ink dark:text-night-ink">Um passo de cada vez, com a obra ao seu lado.</h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-                Encontros curtos ajudam você a ler, compreender e refletir sem pressa. É o melhor caminho quando você quer companhia para estudar.
-              </p>
-              <button
-                type="button"
-                onClick={() => navigate('/estudo-guiado')}
-                className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-vesSm bg-sage-700 px-4 text-sm font-semibold text-white hover:bg-sage-800"
-              >
-                Abrir Estudo Guiado <ArrowRight size={17} aria-hidden="true" />
-              </button>
-            </div>
-          </div>
-        </EditorialCard>
+        <div
+          className="mt-4 grid grid-cols-3 gap-1 rounded-[13px] bg-[#EEE4D4] p-1 dark:bg-night-surface"
+          role="tablist"
+          aria-label="Filtrar estudos"
+        >
+          {FILTERS.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              role="tab"
+              aria-selected={filter === item.id}
+              onClick={() => setFilter(item.id)}
+              className={`min-h-9 rounded-[10px] px-2 text-[0.78rem] font-semibold transition ${
+                filter === item.id
+                  ? 'bg-[#FBF8F1] text-[#53664E] shadow-sm dark:bg-night dark:text-sage-300'
+                  : 'text-muted hover:text-ink dark:text-night-muted'
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
 
-        <section className="mt-8" aria-labelledby="free-reading-heading">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-muted dark:text-night-muted">Leitura livre</p>
-            <h2 id="free-reading-heading" className="mt-1 font-display text-[1.45rem] font-semibold text-ink dark:text-night-ink">Escolha uma obra e siga no seu ritmo</h2>
-          </div>
+        <section className="mt-5" aria-labelledby="foundational-studies-heading">
+          <h2 id="foundational-studies-heading" className="sr-only">Obras fundamentais</h2>
 
-          <div className="mt-4 grid grid-cols-2 border-b border-line dark:border-night-line" role="tablist" aria-label="Tipos de obra">
-            <TabButton active={tab === 'basicas'} onClick={() => setTab('basicas')}>Básicas</TabButton>
-            <TabButton active={tab === 'complementares'} onClick={() => setTab('complementares')}>Complementares</TabButton>
-          </div>
-
-          {tab === 'basicas' ? (
-            <div className="mt-5">
-              <ol className="space-y-3" aria-label="Caminho pelas obras básicas">
-                {books.map((book, index) => (
-                  <BookJourneyRow
-                    key={book.id}
-                    book={book}
-                    isLast={index === books.length - 1}
-                    onOpen={() => navigate(progress[book.id] ? `/ler/${book.id}` : `/livro/${book.id}`)}
-                  />
-                ))}
-              </ol>
+          {visibleBooks.length ? (
+            <div className="space-y-2.5">
+              {visibleBooks.map((book) => (
+                <StudyRow
+                  key={book.id}
+                  book={book}
+                  progressRecord={progress[book.id]}
+                  onOpen={() => navigate(progress[book.id] ? `/ler/${book.id}` : `/livro/${book.id}`)}
+                />
+              ))}
             </div>
           ) : (
-            <EditorialCard className="mt-5 p-5">
-              <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
-                  <BookPlus size={20} aria-hidden="true" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <h3 className="font-display text-lg font-semibold text-ink dark:text-night-ink">Obras complementares</h3>
-                  <p className="mt-1.5 max-w-md text-sm leading-relaxed text-muted dark:text-night-muted">
-                    Outras obras poderão ampliar esta biblioteca depois da consolidação do núcleo fundamental.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => navigate('/sugerir-obra')}
-                    className="mt-4 inline-flex min-h-11 items-center justify-center rounded-vesSm border border-sage-300 bg-surface px-4 text-sm font-semibold text-sage-800 shadow-sm hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-200"
-                  >
-                    Sugerir uma obra complementar
-                  </button>
-                </div>
-              </div>
+            <EditorialCard className="p-5 text-center">
+              <p className="font-display text-lg font-semibold text-ink dark:text-night-ink">
+                Nenhum estudo aqui ainda.
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
+                Quando você avançar nas obras, elas aparecerão automaticamente nesta visão.
+              </p>
             </EditorialCard>
           )}
+        </section>
+
+        <section className="mt-7" aria-labelledby="guided-study-heading">
+          <EditorialCard className="overflow-hidden p-0">
+            <button
+              type="button"
+              onClick={() => navigate('/estudo-guiado')}
+              className="flex w-full items-center gap-3 p-4 text-left"
+            >
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#EEE4D4] text-[#53664E] dark:bg-night dark:text-sage-300">
+                <Compass size={20} aria-hidden="true" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span id="guided-study-heading" className="block text-xs font-semibold uppercase tracking-[0.08em] text-sage-700 dark:text-sage-300">
+                  Estudo guiado
+                </span>
+                <span className="mt-1 block font-display text-base font-semibold text-ink dark:text-night-ink">
+                  Prefere estudar com companhia?
+                </span>
+                <span className="mt-1 block text-xs leading-relaxed text-muted dark:text-night-muted">
+                  Encontros curtos para ler, compreender e refletir passo a passo.
+                </span>
+              </span>
+              <ArrowRight size={18} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+            </button>
+          </EditorialCard>
+        </section>
+
+        <section className="mt-5" aria-labelledby="complementary-heading">
+          <button
+            type="button"
+            onClick={() => navigate('/sugerir-obra')}
+            className="flex min-h-12 w-full items-center justify-center gap-2 rounded-[14px] border border-line/80 bg-transparent px-4 text-sm font-semibold text-sage-800 hover:bg-surface-soft dark:border-night-line dark:text-sage-300"
+          >
+            <BookPlus size={17} aria-hidden="true" />
+            <span id="complementary-heading">Sugerir uma obra complementar</span>
+          </button>
         </section>
       </div>
     </main>
   )
 }
 
-function TabButton({ active, children, onClick }) {
-  return (
-    <button
-      type="button"
-      role="tab"
-      aria-selected={active}
-      onClick={onClick}
-      className={`relative min-h-12 px-3 text-sm font-medium ${active ? 'text-sage-800 dark:text-sage-200' : 'text-muted dark:text-night-muted'}`}
-    >
-      {children}
-      {active && <span className="absolute inset-x-5 bottom-[-1px] h-[2px] bg-sage-600 dark:bg-sage-300" />}
-    </button>
-  )
-}
-
-function BookJourneyRow({ book, isLast, onOpen }) {
+function StudyRow({ book, progressRecord, onOpen }) {
   const percentage = useProgress(book.id, book.total_sections)
   const sequence = getBookSequence(book)
-  const accent = BOOK_ACCENT_COLORS[sequence] || '#5E7664'
+  const accent = BOOK_ACCENT_COLORS[sequence] || '#53664E'
+  const currentSection = Math.max(0, Number(progressRecord?.current_section) || 0)
+  const totalSections = Number(book.total_sections) || null
+  const status = getStudyStatus(progressRecord)
 
   return (
-    <li className="relative grid grid-cols-[3.25rem_minmax(0,1fr)] gap-3">
-      <div className="relative flex justify-center" aria-hidden="true">
-        {!isLast && (
-          <span className="absolute left-1/2 top-11 bottom-[-0.9rem] w-[2px] -translate-x-1/2 rounded-full bg-line dark:bg-night-line" />
-        )}
-        <span
-          className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 bg-canvas font-display text-base font-semibold shadow-sm dark:bg-night-surface"
-          style={{ borderColor: accent, color: accent }}
-        >
-          {sequence}
-        </span>
-      </div>
-
-      <EditorialCard as="button" type="button" onClick={onOpen} className="min-h-[7rem] w-full p-3.5 text-left">
-        <div className="flex items-center gap-3.5">
-          <BookCover book={book} size="sm" color={accent} />
-          <div className="min-w-0 flex-1">
-            <p className="font-display text-[1.03rem] font-semibold leading-tight text-ink dark:text-night-ink">{book.title}</p>
-            <p className="mt-1 text-xs text-muted dark:text-night-muted">{book.author || 'Allan Kardec'}</p>
-            <div className="mt-3">
-              <div className="mb-1.5 flex items-center justify-between gap-3 text-xs font-medium text-muted dark:text-night-muted">
-                <span>Seu progresso</span>
-                <span className="font-semibold text-sage-700 dark:text-sage-300">{percentage}%</span>
-              </div>
-              <ProgressLine value={percentage} />
+    <EditorialCard as="button" type="button" onClick={onOpen} className="w-full p-3 text-left">
+      <div className="flex items-center gap-3">
+        <BookCover book={book} size="sm" color={accent} />
+        <div className="min-w-0 flex-1">
+          <p className="font-display text-[0.96rem] font-semibold leading-tight text-ink dark:text-night-ink">
+            {book.title}
+          </p>
+          <p className="mt-0.5 text-xs text-muted dark:text-night-muted">
+            {book.author || 'Allan Kardec'}
+          </p>
+          <div className="mt-2.5">
+            <ProgressLine value={percentage} />
+            <div className="mt-1 flex items-center justify-between gap-3">
+              <p className="text-xs font-medium text-muted dark:text-night-muted">
+                {status === 'concluido'
+                  ? 'Concluído'
+                  : totalSections
+                    ? `${currentSection || 0} de ${totalSections} trechos`
+                    : `${percentage}% concluído`}
+              </p>
+              <span
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-white"
+                style={{ backgroundColor: accent }}
+                aria-hidden="true"
+              >
+                <ArrowRight size={15} />
+              </span>
             </div>
           </div>
         </div>
-      </EditorialCard>
-    </li>
+      </div>
+    </EditorialCard>
   )
+}
+
+function getStudyStatus(record) {
+  if (record?.book_completed || record?.completed_at) return 'concluido'
+  if ((Number(record?.current_section) || 0) > 0 || record?.last_read_at) return 'andamento'
+  return 'nao-iniciado'
 }
 
 function getBookSequence(book) {

@@ -7,15 +7,15 @@
 :root {
   color-scheme: light;
 
-  --ves-canvas: #F6F7F4;
-  --ves-surface: #FFFFFF;
-  --ves-surface-soft: #E8EDE6;
-  --ves-ink: #1F2933;
-  --ves-muted: #66706A;
-  --ves-line: #DCDCC8;
-  --ves-focus: #6F8F6F;
-  --ves-accent: #A7B8A1;
-  --ves-sun: #D6C58F;
+  --ves-canvas: #F5F0E7;
+  --ves-surface: #FBF8F1;
+  --ves-surface-soft: #EEE4D4;
+  --ves-ink: #2C352B;
+  --ves-muted: #6F7168;
+  --ves-line: #DED5C7;
+  --ves-focus: #53664E;
+  --ves-accent: #C5A15D;
+  --ves-sun: #E7D7B4;
 
   --ves-radius-sm: 14px;
   --ves-radius-md: 22px;
@@ -161,11 +161,11 @@
   .northstar-home-quote {
     position: relative;
     isolation: isolate;
-    min-height: 9.5rem;
+    min-height: 8.1rem;
     background:
-      radial-gradient(circle at 88% 18%, rgba(167, 184, 161, 0.24) 0 1.15rem, transparent 1.2rem),
-      radial-gradient(ellipse at 86% 116%, rgba(167, 184, 161, 0.16) 0 38%, transparent 38.5%),
-      linear-gradient(145deg, #FFFFFF 0%, #F6F7F4 62%, #E8EDE6 100%);
+      radial-gradient(circle at 88% 18%, rgba(197, 161, 93, 0.20) 0 1.15rem, transparent 1.2rem),
+      radial-gradient(ellipse at 86% 116%, rgba(83, 102, 78, 0.13) 0 38%, transparent 38.5%),
+      linear-gradient(145deg, #FBF8F1 0%, #F5F0E7 62%, #EEE4D4 100%);
   }
 
   .northstar-home-quote::after {
@@ -207,10 +207,10 @@
     overflow: hidden;
     isolation: isolate;
     background:
-      radial-gradient(circle at 84% 13%, rgba(231, 185, 119, 0.45) 0 2.4rem, transparent 2.45rem),
-      radial-gradient(ellipse at 94% 108%, rgba(79, 103, 87, 0.22) 0 36%, transparent 36.5%),
-      radial-gradient(ellipse at 62% 112%, rgba(175, 194, 173, 0.34) 0 42%, transparent 42.5%),
-      linear-gradient(145deg, #FFF9F1 0%, #F4EADC 65%, #EBDDCB 100%);
+      radial-gradient(circle at 84% 13%, rgba(197, 161, 93, 0.38) 0 2.4rem, transparent 2.45rem),
+      radial-gradient(ellipse at 94% 108%, rgba(83, 102, 78, 0.22) 0 36%, transparent 36.5%),
+      radial-gradient(ellipse at 62% 112%, rgba(154, 169, 142, 0.28) 0 42%, transparent 42.5%),
+      linear-gradient(145deg, #FBF8F1 0%, #F0E7D8 65%, #E6D8C3 100%);
   }
 
   .ves-horizon-panel::after {
