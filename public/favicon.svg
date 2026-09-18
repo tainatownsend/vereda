@@ -1,21 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 108">
   <defs>
-    <clipPath id="c"><circle cx="118" cy="126" r="84"/></clipPath>
-    <linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFF8EE"/><stop offset="1" stop-color="#F2E3D3"/></linearGradient>
-    <linearGradient id="p" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFDF8"/><stop offset="1" stop-color="#EEDBC8"/></linearGradient>
+    <linearGradient id="l" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6E7B64"/>
+      <stop offset="1" stop-color="#465443"/>
+    </linearGradient>
+    <linearGradient id="r" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#74836B"/>
+      <stop offset="1" stop-color="#4E5D49"/>
+    </linearGradient>
+    <radialGradient id="s" cx="50%" cy="38%" r="70%">
+      <stop offset="0" stop-color="#D8B363"/>
+      <stop offset="1" stop-color="#B68B3F"/>
+    </radialGradient>
   </defs>
-  <circle cx="118" cy="126" r="88" fill="#F8F4EE" stroke="#7C7445" stroke-width="4"/>
-  <g clip-path="url(#c)">
-    <rect x="24" y="34" width="188" height="184" fill="url(#s)"/>
-    <circle cx="113" cy="96" r="32" fill="#E7B977" opacity=".72"/>
-    <path d="M16 151C48 129 71 128 101 148C121 161 143 164 178 144C195 134 211 130 229 132V221H16Z" fill="#A9B69A"/>
-    <path d="M6 177C39 151 70 147 102 167C124 181 145 186 175 163C198 145 220 143 238 150V226H6Z" fill="#6D8B74"/>
-    <path d="M2 204C35 180 61 175 90 187C117 198 137 205 161 190C190 172 217 170 247 183V232H2Z" fill="#4F6757"/>
-    <path d="M117 222C110 202 107 190 111 177C116 160 136 157 143 144C149 133 144 122 133 116C148 119 162 127 164 140C166 153 155 162 145 170C135 178 128 188 130 204C131 211 134 218 138 225Z" fill="url(#p)"/>
-  </g>
-  <path d="M172 79C190 70 204 54 208 35" fill="none" stroke="#4F6757" stroke-width="4" stroke-linecap="round"/>
-  <path d="M195 57C201 45 213 43 222 47C216 58 207 63 195 57Z" fill="#6D8B74"/>
-  <path d="M185 68C187 55 178 49 168 49C168 61 174 68 185 68Z" fill="#91A187"/>
-  <path d="M204 43C205 32 213 25 222 24C223 35 217 42 204 43Z" fill="#8D9E72"/>
-  <path d="M178 81C181 72 175 65 166 63C163 73 168 80 178 81Z" fill="#B3A66D"/>
+  <circle cx="64" cy="25" r="18" fill="url(#s)"/>
+  <path d="M58 99C35 95 17 78 13 49C36 53 52 67 58 99Z" fill="url(#l)"/>
+  <path d="M70 99C93 95 111 78 115 49C92 53 76 67 70 99Z" fill="url(#r)"/>
+  <path d="M64 99V48" stroke="#5E6D57" stroke-width="3" stroke-linecap="round" opacity=".55"/>
 </svg>
