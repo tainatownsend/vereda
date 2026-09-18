@@ -16,10 +16,11 @@ const styles = readFileSync('src/index.css', 'utf8')
 const tailwind = readFileSync('tailwind.config.js', 'utf8')
 
 describe('founder mobile P0 safeguards', () => {
-  it('keeps Home focused by leaving reminders inside Perfil', () => {
+  it('keeps Home focused while allowing the approved profile shortcut', () => {
     expect(home).not.toContain('Bell')
     expect(home).not.toContain('Abrir lembretes e notificações')
-    expect(home).not.toContain("navigate('/configuracoes')")
+    expect(home).toContain("navigate('/configuracoes')")
+    expect(home).toContain('Abrir perfil e preferências')
   })
 
   it('does not read Notification.permission unless notifications are supported', () => {
@@ -59,12 +60,13 @@ describe('founder mobile P0 safeguards', () => {
     expect(settings).not.toContain('>Ajustes</h1>')
   })
 
-  it('keeps the in-app Library journey visual but removes redundant explanatory blocks', () => {
-    expect(library).toContain('Caminho pelas obras básicas')
-    expect(library).toContain('Seu progresso')
-    expect(library).toContain('bottom-[-0.9rem]')
+  it('keeps Studies compact and scannable like the approved North Star', () => {
+    expect(library).toContain('Estudos')
+    expect(library).toContain("label: 'Todos'")
+    expect(library).toContain("label: 'Em andamento'")
+    expect(library).toContain("label: 'Concluídos'")
+    expect(library).toContain('ProgressLine')
     expect(library).toContain('Sugerir uma obra complementar')
-    expect(library).not.toContain('Uma jornada pelas obras básicas')
     expect(library).not.toContain('A ordem abaixo é apenas uma sugestão')
     expect(library).not.toContain('Atalhos de estudo')
     expect(library).not.toContain('Trechos salvos')
