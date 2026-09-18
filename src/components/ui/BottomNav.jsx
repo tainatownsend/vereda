@@ -1,11 +1,11 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { Bookmark, BookOpen, Compass, Home, UserRound } from 'lucide-react'
+import { BookOpen, Home, Leaf, NotebookPen, UserRound } from 'lucide-react'
 
 const tabs = [
   { path: '/home', label: 'Início', Icon: Home },
-  { path: '/biblioteca', label: 'Estudos', Icon: BookOpen },
-  { path: '/descobrir', label: 'Descobrir', Icon: Compass },
-  { path: '/favoritos', label: 'Favoritos', Icon: Bookmark },
+  { path: '/biblioteca', label: 'Biblioteca', Icon: BookOpen },
+  { path: '/evolucao', label: 'Jornada', Icon: Leaf },
+  { path: '/notas', label: 'Notas', Icon: NotebookPen },
   { path: '/configuracoes', label: 'Perfil', Icon: UserRound },
 ]
 
@@ -16,6 +16,7 @@ export default function BottomNav() {
   if (
     pathname.startsWith('/ler/') ||
     pathname.startsWith('/livro/') ||
+    pathname.startsWith('/trecho/') ||
     pathname === '/comecar' ||
     pathname === '/reflexoes'
   ) {
@@ -37,7 +38,7 @@ export default function BottomNav() {
               type="button"
               onClick={() => navigate(path)}
               aria-current={active ? 'page' : undefined}
-              className={`flex min-h-14 min-w-0 flex-1 flex-col items-center justify-center gap-1 px-1 py-2 text-xs font-medium leading-tight transition-colors ${
+              className={`flex min-h-14 min-w-0 flex-1 flex-col items-center justify-center gap-1 px-1 py-2 text-[11px] font-medium leading-tight transition-colors sm:text-xs ${
                 active
                   ? 'text-sage-800 dark:text-sage-300'
                   : 'text-muted hover:text-ink dark:text-night-muted dark:hover:text-night-ink'
@@ -46,7 +47,7 @@ export default function BottomNav() {
               <Icon
                 size={21}
                 strokeWidth={active ? 2.2 : 1.6}
-                fill={active && label === 'Favoritos' ? 'currentColor' : 'none'}
+                fill="none"
                 aria-hidden="true"
               />
               <span className="max-w-full truncate">{label}</span>
