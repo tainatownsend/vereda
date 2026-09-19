@@ -265,6 +265,20 @@ export default function SettingsPage() {
             onChange={updateAppFont}
           />
 
+          <button
+            type="button"
+            aria-pressed={appFontScale === 'xl' && fontSize === 'xl'}
+            onClick={() => {
+              setAppFontScale('xl')
+              setFontSize('xl')
+              setStatus('Leitura ampliada ativada. Você pode ajustar os tamanhos abaixo.')
+            }}
+            className="mt-4 min-h-12 rounded-full border border-sage-300 px-5 text-sm font-semibold text-sage-800 dark:text-sage-200"
+          >
+            Leitura ampliada
+          </button>
+          <p className="mt-2 text-sm text-muted dark:text-night-muted">Amplia os menus e o texto das obras neste dispositivo. Para voltar, escolha Média nas duas opções.</p>
+
           <Divider className="my-5" />
 
           <FontChoice

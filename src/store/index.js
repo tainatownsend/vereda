@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { readInitialSession } from '@/features/auth/sessionBootstrap'
 import { persist } from 'zustand/middleware'
 import { supabase } from '@/lib/supabase'
 import { useOnboardingStore } from '@/store/useOnboardingStore'
@@ -59,31 +60,35 @@ export const useAuthStore = create((set, get) => ({
   user: null,
   profile: null,
   loading: true,
+  sessionError: false,
 
   init: async () => {
     if (authInitPromise) return authInitPromise
 
     authInitPromise = (async () => {
-      const { data: { session } } = await supabase.auth.getSession()
+      try {
+        const session = await readInitialSession(supabase.auth)
+        set({ user: session?.user || null, loading: false, sessionError: false })
+        if (session?.user) void get().fetchProfile(session.user.id).catch(() => {})
 
-      if (session?.user) {
-        set({ user: session.user, loading: false })
-        void get().fetchProfile(session.user.id)
-      } else {
-        set({ loading: false })
-      }
-
-      if (!authSubscription) {
-        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, nextSession) => {
-          if (nextSession?.user) {
-            set({ user: nextSession.user })
-            void get().fetchProfile(nextSession.user.id)
-          } else {
-            set({ user: null, profile: null })
-          }
-        })
-
-        authSubscription = subscription
+        if (!authSubscription) {
+          const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, nextSession) => {
+            set({ user: nextSession?.user || null, loading: false, sessionError: false })
+            if (nextSession?.user) {
+              // Defer additional auth-backed requests until the callback returns.
+              setTimeout(() => {
+                if (get().user?.id === nextSession.user.id) {
+                  void get().fetchProfile(nextSession.user.id).catch(() => {})
+                }
+              }, 0)
+            } else {
+              set({ profile: null })
+            }
+          })
+          authSubscription = subscription
+        }
+      } catch {
+        set({ loading: false, sessionError: true })
       }
     })()
 
