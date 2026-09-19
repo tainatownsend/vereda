@@ -1,11 +1,14 @@
+import { RecoveryScreen } from '@/components/RecoveryScreen'
 import { Navigate, useLocation } from 'react-router-dom'
 import { useAuthStore } from '@/store'
 import { PageLoader } from '@/components/ui'
 import { needsFirstTimeOnboarding } from '@/features/auth/firstTimeOnboarding'
 
 export default function ProtectedRoute({ children }) {
-  const { user, loading } = useAuthStore()
+  const { user, loading, sessionError } = useAuthStore()
   const location = useLocation()
+
+  if (sessionError) return <RecoveryScreen />
 
   if (loading) return <PageLoader />
 

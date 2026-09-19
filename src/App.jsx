@@ -1,3 +1,4 @@
+import { RecoveryScreen } from '@/components/RecoveryScreen'
 import { useEffect, useLayoutEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useAuthStore, useUIStore } from '@/store'
@@ -28,7 +29,7 @@ import GuidedStudySessionPage from '@/pages/GuidedStudySessionPage'
 import { getAppFontSize, getThemeColor } from '@/features/ui/displayPreferences'
 
 export default function App() {
-  const { init, loading, user } = useAuthStore()
+  const { init, loading, user, sessionError } = useAuthStore()
   const { darkMode, appFontScale } = useUIStore()
 
   useEffect(() => { init() }, [init])
@@ -53,7 +54,7 @@ export default function App() {
           <Route
             path="/entrar"
             element={(
-              <PublicAuthRoute loading={loading} user={user}>
+              <PublicAuthRoute loading={loading} user={user} sessionError={sessionError}>
                 <AuthPage />
               </PublicAuthRoute>
             )}
@@ -61,7 +62,7 @@ export default function App() {
           <Route
             path="/criar-conta"
             element={(
-              <PublicAuthRoute loading={loading} user={user}>
+              <PublicAuthRoute loading={loading} user={user} sessionError={sessionError}>
                 <AuthPage initialMode="signup" />
               </PublicAuthRoute>
             )}
@@ -97,7 +98,8 @@ export default function App() {
   )
 }
 
-function PublicAuthRoute({ loading, user, children }) {
+function PublicAuthRoute({ loading, user, sessionError, children }) {
+  if (sessionError) return <RecoveryScreen />
   if (loading) return <PageLoader />
   if (user) return <Navigate to="/home" replace />
   return children
