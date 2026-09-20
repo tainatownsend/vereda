@@ -49,7 +49,7 @@ export default function App() {
       <BrowserRouter>
         <ScrollToTop />
 
-        <AppErrorBoundary>
+        <LocationBoundErrorBoundary>
           <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route
@@ -92,12 +92,17 @@ export default function App() {
 
           <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-        </AppErrorBoundary>
+        </LocationBoundErrorBoundary>
 
         <AppBottomNav user={user} />
       </BrowserRouter>
     </div>
   )
+}
+
+function LocationBoundErrorBoundary({ children }) {
+  const { pathname } = useLocation()
+  return <AppErrorBoundary key={pathname}>{children}</AppErrorBoundary>
 }
 
 function PublicAuthRoute({ loading, user, children }) {
