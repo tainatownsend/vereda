@@ -57,7 +57,23 @@ export default function BookDetailPage() {
     return date.toISOString().split('T')[0]
   }, [weeks])
 
-  if (!book) return <PageLoader label="Carregando obra" />
+  if (!books.length) return <PageLoader label="Carregando obra" recoverable />
+
+  if (!book) {
+    return (
+      <main className="ves-page ves-container mx-auto max-w-xl px-5 py-14">
+        <h1 className="ves-heading text-[2rem]">Esta obra não foi encontrada.</h1>
+        <p className="mt-4 text-base leading-relaxed text-muted dark:text-night-muted">
+          Confira o endereço ou volte à biblioteca para escolher outra leitura.
+        </p>
+        <button
+          type="button"
+          className="mt-7 min-h-12 rounded-xl bg-sage-800 px-5 py-3 font-semibold text-white dark:bg-sage-300 dark:text-sage-950"
+          onClick={() => navigate('/biblioteca')}
+        >Voltar à biblioteca</button>
+      </main>
+    )
+  }
 
   const start = async () => {
     if (!user || loading) return
