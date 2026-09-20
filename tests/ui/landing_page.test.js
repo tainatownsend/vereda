@@ -22,7 +22,7 @@ describe('public landing page contract', () => {
 
     expect(appBeforeRender).not.toContain('if (loading)')
     expect(app).toContain('function PublicAuthRoute({ loading, user, children })')
-    expect(app).toContain('if (loading) return <PageLoader />')
+    expect(app).toContain('if (loading) return <PageLoader recoverable />')
   })
 
   it('explains the product before signup with clear public sections', () => {
