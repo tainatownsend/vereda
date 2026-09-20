@@ -4,6 +4,7 @@ import { useAuthStore, useUIStore } from '@/store'
 import { PageLoader } from '@/components/ui'
 import BottomNav from '@/components/ui/BottomNav'
 import ProtectedRoute from '@/components/ProtectedRoute'
+import AppErrorBoundary from '@/components/AppErrorBoundary'
 import LandingPage from '@/pages/LandingPage'
 import AuthPage from '@/pages/AuthPage'
 import ResetPasswordPage from '@/pages/ResetPasswordPage'
@@ -48,7 +49,8 @@ export default function App() {
       <BrowserRouter>
         <ScrollToTop />
 
-        <Routes>
+        <LocationBoundErrorBoundary>
+          <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route
             path="/entrar"
@@ -89,12 +91,18 @@ export default function App() {
           <Route path="/comunidade" element={<Navigate to="/descobrir" replace />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+          </Routes>
+        </LocationBoundErrorBoundary>
 
         <AppBottomNav user={user} />
       </BrowserRouter>
     </div>
   )
+}
+
+function LocationBoundErrorBoundary({ children }) {
+  const { pathname } = useLocation()
+  return <AppErrorBoundary key={pathname}>{children}</AppErrorBoundary>
 }
 
 function PublicAuthRoute({ loading, user, children }) {
