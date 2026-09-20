@@ -24,6 +24,8 @@ const FONT_OPTIONS = [
   { id: 'md', label: 'Média' },
   { id: 'lg', label: 'Grande' },
   { id: 'xl', label: 'Extra' },
+  { id: 'xxl', label: 'Ampliada' },
+  { id: 'xxxl', label: 'Muito ampliada' },
 ]
 
 export default function SettingsPage() {
