@@ -1,4 +1,5 @@
 import React from 'react'
+import { useAuthStore } from '@/store'
 
 /**
  * Render errors should never leave a blank page. This boundary is deliberately
@@ -26,7 +27,7 @@ export default class AppErrorBoundary extends React.Component {
           <p className="mt-4 text-base leading-relaxed">Sua leitura e suas anotações não foram apagadas. Tente carregar novamente; se o problema continuar, volte à página inicial.</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <button type="button" className="min-h-12 rounded-xl bg-sage-800 px-5 py-3 font-semibold text-white dark:bg-sage-300 dark:text-sage-950" onClick={() => window.location.reload()}>Tentar novamente</button>
-            <a className="inline-flex min-h-12 items-center justify-center rounded-xl border border-line px-5 py-3 font-semibold dark:border-night-line" href="/">Ir para o início</a>
+            <a className="inline-flex min-h-12 items-center justify-center rounded-xl border border-line px-5 py-3 font-semibold dark:border-night-line" href={useAuthStore.getState().user ? '/home' : '/'}>Ir para o início</a>
           </div>
         </div>
       </main>
