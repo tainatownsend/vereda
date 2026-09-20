@@ -129,7 +129,7 @@ export default function ReaderPage() {
   }, [currentSection?.section_id])
 
   if (!book || session.phase === READER_PHASE.LOADING) {
-    return <PageLoader label="Preparando sua leitura" />
+    return <PageLoader label="Preparando sua leitura" recoverable />
   }
 
   if (session.phase === READER_PHASE.ERROR) {
