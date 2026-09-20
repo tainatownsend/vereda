@@ -98,7 +98,7 @@ export default function App() {
 }
 
 function PublicAuthRoute({ loading, user, children }) {
-  if (loading) return <PageLoader />
+  if (loading) return <PageLoader recoverable />
   if (user) return <Navigate to="/home" replace />
   return children
 }
