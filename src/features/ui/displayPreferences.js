@@ -3,6 +3,8 @@ export const APP_FONT_SCALE_MAP = {
   md: '16px',
   lg: '17px',
   xl: '18px',
+  xxl: '20px',
+  xxxl: '22px',
 }
 
 export const THEME_COLORS = {
