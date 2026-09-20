@@ -213,12 +213,13 @@ export function Spinner({ size = 24, className = '', label = 'Carregando' }) {
   )
 }
 
-export function PageLoader({ label = 'Carregando conteúdo' }) {
+export function PageLoader({ label = 'Carregando conteúdo', recoverable = false }) {
   const [takingLong, setTakingLong] = useState(false)
   useEffect(() => {
+    if (!recoverable) return undefined
     const timeout = window.setTimeout(() => setTakingLong(true), 12000)
     return () => window.clearTimeout(timeout)
-  }, [])
+  }, [recoverable])
   return (
     <div className="ves-page flex min-h-[60vh] items-center justify-center px-6" role="status" aria-live="polite">
       <div className="flex flex-col items-center gap-5 text-center">
@@ -231,7 +232,7 @@ export function PageLoader({ label = 'Carregando conteúdo' }) {
           </div>
         </div>
         <p className="text-sm font-medium text-muted dark:text-night-muted">{label}</p>
-        {takingLong && (
+        {recoverable && takingLong && (
           <div role="alert" className="max-w-sm space-y-3 rounded-xl border border-line bg-surface p-4 dark:border-night-line dark:bg-night-surface">
             <p className="text-sm leading-relaxed text-ink dark:text-night-ink">Esta tela está demorando mais que o esperado. Você pode tentar carregá-la novamente sem apagar seu progresso.</p>
             <button type="button" className="min-h-11 rounded-xl bg-sage-800 px-4 py-2 font-semibold text-white dark:bg-sage-300 dark:text-sage-950" onClick={() => window.location.reload()}>Recarregar</button>
