@@ -1,12 +1,11 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { BookOpen, Home, Leaf, NotebookPen, UserRound } from 'lucide-react'
+import { BookOpen, Home, Compass, MessageCircle } from 'lucide-react'
 
 const tabs = [
   { path: '/home', label: 'Início', Icon: Home },
-  { path: '/biblioteca', label: 'Biblioteca', Icon: BookOpen },
-  { path: '/evolucao', label: 'Jornada', Icon: Leaf },
-  { path: '/notas', label: 'Notas', Icon: NotebookPen },
-  { path: '/configuracoes', label: 'Perfil', Icon: UserRound },
+  { path: '/estudo-guiado', label: 'Estudos', Icon: Compass },
+  { path: '/biblioteca', label: 'Leitura', Icon: BookOpen },
+  { path: '/reflexoes', label: 'Reflexões', Icon: MessageCircle },
 ]
 
 export default function BottomNav() {
@@ -17,8 +16,7 @@ export default function BottomNav() {
     pathname.startsWith('/ler/') ||
     pathname.startsWith('/livro/') ||
     pathname.startsWith('/trecho/') ||
-    pathname === '/comecar' ||
-    pathname === '/reflexoes'
+    pathname === '/comecar'
   ) {
     return null
   }
