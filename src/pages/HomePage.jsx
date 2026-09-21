@@ -113,6 +113,17 @@ export default function HomePage() {
           </p>
         </section>
 
+        <nav aria-label="Acesso rápido ao estudo e à leitura" className="mt-6 grid grid-cols-2 gap-3">
+          <button type="button" onClick={() => navigate('/estudo-guiado')}
+            className="min-h-14 rounded-[16px] border border-sage-200 bg-white px-4 py-3 text-left text-base font-semibold text-sage-900 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:border-night-line dark:bg-night-surface dark:text-night-ink">
+            Estudos guiados
+          </button>
+          <button type="button" onClick={() => navigate('/configuracoes')}
+            className="min-h-14 rounded-[16px] border border-sage-200 bg-white px-4 py-3 text-left text-base font-semibold text-sage-900 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 dark:border-night-line dark:bg-night-surface dark:text-night-ink">
+            Leitura ampliada
+          </button>
+        </nav>
+
         {primaryBook ? (
           <NextStudyCard
             book={primaryBook}
