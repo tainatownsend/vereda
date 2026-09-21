@@ -115,18 +115,23 @@ describe('Vereda North Star canonical screens', () => {
     expect(bottomNav).not.toContain("label: 'Comunidade'")
   })
 
-  it('uses the five destinations from the new Vereda North Star', () => {
-    expect(bottomNav).toContain("label: 'Início'")
-    expect(bottomNav).toContain("label: 'Biblioteca'")
-    expect(bottomNav).toContain("label: 'Jornada'")
-    expect(bottomNav).toContain("label: 'Notas'")
-    expect(bottomNav).toContain("label: 'Perfil'")
-    expect(bottomNav).toContain("path: '/evolucao'")
-    expect(bottomNav).toContain("path: '/notas'")
-    expect(bottomNav).not.toContain("label: 'Estudos'")
-    expect(bottomNav).not.toContain("label: 'Descobrir'")
-    expect(bottomNav).not.toContain("label: 'Favoritos'")
+  it('uses the approved four destinations for the isolated v1.3 mobile North Star', () => {
+    const more = readFileSync('src/pages/MorePage.jsx', 'utf8')
+    const app = readFileSync('src/App.jsx', 'utf8')
+    for (const label of ['Início', 'Estudos', 'Reflexões', 'Mais']) {
+      expect(bottomNav).toContain(`label: '${label}'`)
+    }
+    for (const label of ['Biblioteca', 'Jornada', 'Notas', 'Perfil']) {
+      expect(bottomNav).not.toContain(`label: '${label}'`)
+    }
+    expect(bottomNav).toContain("path: '/estudo-guiado'")
+    expect(bottomNav).toContain("path: '/reflexoes'")
+    expect(bottomNav).toContain("path: '/mais'")
+    expect(bottomNav).not.toContain("pathname === '/reflexoes'")
+    expect(app).toContain('<Route path="/mais" element={<ProtectedRoute><MorePage /></ProtectedRoute>} />')
+    for (const route of ['/biblioteca', '/evolucao', '/notas', '/salvos', '/configuracoes']) {
+      expect(more).toContain(`to: '${route}'`)
+    }
     expect(bottomNav).not.toContain("label: 'Comunidade'")
-    expect(bottomNav).not.toContain("label: 'Reflexões'")
   })
 })
