@@ -43,6 +43,8 @@ Remaining visual differences: existing Vereda logo and actual book cover edition
 - Reader back navigation preserves safe passage/notes/guided contexts.
 - Reader display controls no longer close from their own pointer interaction.
 - Reflection actions wrap at 320 px with enlarged text.
+- Existing content-pipeline suites rebuild shared JSON artifacts. Running test files serially prevents intermittent partial-file reads without removing assertions.
+- Public presentation and login brand descriptors now use the approved positioning and readable supporting text.
 - Consistent PWA theme colors and image precaching; visible button focus and labeled journal/notes inputs.
 
 ## Acceptance limits

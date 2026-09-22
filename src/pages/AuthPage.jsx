@@ -412,7 +412,7 @@ function BrandLockup({ size, centered = false }) {
       <VeredaLogo size={size} />
       <div>
         <p className="font-display text-[1.8rem] font-semibold tracking-[0.13em] text-ink dark:text-night-ink">VEREDA</p>
-        <p className="mt-0.5 text-xs font-medium tracking-[0.06em] text-muted dark:text-night-muted">Seu caminho de estudo espírita</p>
+        <p className="mt-0.5 text-sm font-medium text-muted dark:text-night-muted">App de estudo guiado da doutrina espírita</p>
       </div>
     </div>
   )

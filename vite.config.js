@@ -4,6 +4,8 @@ import { VitePWA } from 'vite-plugin-pwa'
 import path from 'path'
 
 export default defineConfig({
+  // Content-pipeline suites rebuild shared artifacts; concurrent files can read partial JSON.
+  test: { fileParallelism: false },
   plugins: [
     react(),
     VitePWA({
