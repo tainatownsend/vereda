@@ -97,6 +97,17 @@ describe('public landing page contract', () => {
     expect(landing).not.toContain('supabase')
   })
 
+  it('renders a visible no-JavaScript fallback before React can mount', () => {
+    expect(html).toContain('<div id="root">')
+    expect(html).toContain('Abrindo seu caminho de estudo')
+    expect(html).toContain('Se esta tela não avançar')
+    expect(html).toContain('href="/"')
+    expect(html).toContain('src="/src/main.jsx"')
+    // The initial shell must never embed a user profile, saved notes, or tokens.
+    expect(html).not.toContain('access_token')
+    expect(html).not.toContain('refresh_token')
+  })
+
   it('ships description and social metadata', () => {
     expect(html).toContain('name="description"')
     expect(html).toContain('property="og:title"')
