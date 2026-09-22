@@ -105,3 +105,8 @@ function toLocalDateKey(date) {
     String(local.getDate()).padStart(2, '0'),
   ].join('-')
 }
+
+export function getReflectionsByIds(ids) {
+  return ids.map(id => REFLECTIONS.find(reflection => reflection.id === id))
+    .filter(Boolean).map(reflection => ({ ...reflection, author: EDITORIAL_AUTHOR }))
+}

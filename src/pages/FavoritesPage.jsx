@@ -77,7 +77,7 @@ export default function FavoritesPage() {
               : reflections.length
                 ? 'Releia as reflexões pessoais que você escolheu guardar.'
                 : 'Suas reflexões salvas aparecerão aqui.'}
-            onClick={() => navigate('/reflexoes')}
+            onClick={() => navigate('/reflexoes?tab=mine')}
           />
         </section>
       </div>

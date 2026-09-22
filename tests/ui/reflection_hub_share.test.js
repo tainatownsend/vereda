@@ -12,17 +12,17 @@ const reflection = readFileSync('src/pages/ReflectionPage.jsx', 'utf8')
 const shareCard = readFileSync('src/features/share/reflectionCard.js', 'utf8')
 
 describe('reflection discovery and social sharing', () => {
-  it('surfaces reflection sharing directly from Home without duplicating primary navigation', () => {
-    expect(home).toContain('Para refletir')
-    expect(home).toContain('Ver outras reflexões')
-    expect(home).toContain('shareDailyReflection')
-    expect(home).toContain('shareReflectionAsImage')
+  it('links the daily Home reflection to the hub where sharing lives', () => {
+    expect(home).toContain('Reflexão do dia')
+    expect(home).toContain("navigate('/reflexoes')")
+    expect(reflection).toContain('shareImage')
+    expect(reflection).toContain('shareReflectionAsImage')
     expect(home).not.toContain('Outros caminhos')
   })
 
   it('offers a reflection hub with today, another reflection, history, and personal journal', () => {
     expect(reflection).toContain('Reflexão de hoje')
-    expect(reflection).toContain('Gerar outra reflexão')
+    expect(reflection).toContain('Ler outra reflexão')
     expect(reflection).toContain('Reflexões anteriores')
     expect(reflection).toContain('Minha reflexão')
     expect(reflection).toContain('Minhas reflexões')

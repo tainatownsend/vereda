@@ -1,5 +1,6 @@
+import BookLoadState from '@/components/ui/BookLoadState'
 import { useEffect, useRef, useState } from 'react'
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import {
   AlertTriangle,
   Bookmark,
@@ -8,6 +9,7 @@ import {
   ChevronRight,
   Home,
   ListTree,
+  Leaf,
   MoreHorizontal,
   NotebookPen,
   RefreshCw,
@@ -17,6 +19,7 @@ import {
 
 import { useAuthStore, useUIStore } from '@/store'
 import { useBooks } from '@/hooks'
+import { getReaderReturnPath } from '@/features/reader/returnContext'
 import { getReaderPrimaryAction, READER_COPY } from '@/features/reader/readerCopy'
 import { READER_PHASE } from '@/features/reader/readerMachine'
 import {
@@ -39,7 +42,9 @@ const FONT_SIZES = [
 export default function ReaderPage() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const location = useLocation()
   const [searchParams] = useSearchParams()
+  const returnPath = getReaderReturnPath(searchParams.get('returnTo') || location.state?.returnTo)
   const books = useBooks()
   const { user, savePassage, removeSavedPassage } = useAuthStore()
   const { fontSize, setFontSize } = useUIStore()
@@ -93,7 +98,7 @@ export default function ReaderPage() {
 
   useEffect(() => {
     const handlePointerDown = (event) => {
-      if (showMenu && menuRef.current && !menuRef.current.contains(event.target)) {
+      if (showMenu && menuRef.current && !menuRef.current.contains(event.target) && !event.target.closest?.('[data-text-settings]')) {
         setShowMenu(false)
         setShowTextSettings(false)
       }
@@ -128,6 +133,12 @@ export default function ReaderPage() {
     setNoteStatus('')
   }, [currentSection?.section_id])
 
+  if (!books.length) return <BookLoadState />
+
+  if (books.length && !book) {
+    return <ReaderError message="Esta obra não foi encontrada. Volte aos estudos para escolher uma leitura." onRetry={session.reload} onBack={() => navigate('/biblioteca')} />
+  }
+
   if (!book || session.phase === READER_PHASE.LOADING) {
     return <PageLoader label="Preparando sua leitura" />
   }
@@ -142,8 +153,8 @@ export default function ReaderPage() {
         eyebrow="Obra concluída"
         title="Você chegou ao fim desta obra."
         description={`Seu caminho em ${book.title} foi salvo. Você pode voltar a qualquer trecho quando quiser.`}
-        actionLabel="Voltar ao início"
-        onAction={() => navigate('/home')}
+        actionLabel={returnPath === '/home' ? 'Voltar ao início' : 'Voltar ao estudo'}
+        onAction={() => navigate(returnPath)}
       />
     )
   }
@@ -154,8 +165,8 @@ export default function ReaderPage() {
         eyebrow="Bom ponto para uma pausa"
         title="Você pode encerrar por aqui ou seguir lendo."
         description={`O lugar onde você parou em ${book.title} está salvo. Não há obrigação de continuar agora.`}
-        actionLabel="Voltar ao início"
-        onAction={() => navigate('/home')}
+        actionLabel={returnPath === '/home' ? 'Voltar ao início' : 'Voltar ao estudo'}
+        onAction={() => navigate(returnPath)}
         secondaryLabel="Continuar lendo"
         onSecondary={session.continueAfterGoal}
       />
@@ -249,13 +260,13 @@ export default function ReaderPage() {
     <div className="min-h-screen bg-canvas text-ink dark:bg-night dark:text-night-ink">
       <header className="sticky top-0 z-40 border-b border-line/70 bg-canvas/96 backdrop-blur-xl dark:border-night-line dark:bg-night/96">
         <div className="mx-auto flex min-h-[4.6rem] max-w-[44rem] items-center gap-3 px-4 sm:px-6">
-          <button type="button" onClick={() => navigate('/home')} className="northstar-icon-button -ml-2" aria-label="Voltar ao início">
+          <button type="button" onClick={() => navigate(returnPath)} className="northstar-icon-button -ml-2" aria-label="Voltar à página anterior">
             <ChevronLeft size={22} />
           </button>
 
-          <p className="min-w-0 flex-1 truncate font-display text-[1rem] font-semibold text-ink dark:text-night-ink">
-            {book.title}
-          </p>
+          <span className="flex-1" />
+          <button type="button" data-text-settings onClick={() => { setShowMenu(true); setShowTextSettings(visible => !visible) }} className="northstar-reader-control" aria-label="Preferências de texto" aria-expanded={showTextSettings}>Aa</button>
+          <button type="button" onClick={toggleSavedPassage} disabled={savingPassage || isChapterIntro || isPartIntro} aria-pressed={passageSaved} className="northstar-icon-button disabled:opacity-35" aria-label={passageSaved ? 'Remover este trecho dos salvos' : 'Salvar este trecho'}><Bookmark size={21} fill={passageSaved ? 'currentColor' : 'none'} /></button>
 
           <div ref={menuRef} className="relative">
             <button
@@ -297,7 +308,12 @@ export default function ReaderPage() {
         </div>
       )}
 
-      <main className="mx-auto max-w-[44rem] px-5 pb-32 pt-10 sm:px-8 sm:pt-14">
+      <main className="mx-auto max-w-[42rem] px-5 pb-12 pt-6 sm:px-8 sm:pt-10">
+        <div className="mb-8 text-center">
+          <p className="font-display text-base">{book.title}</p>
+          {currentSection.part_title && <p className="mt-2 text-sm text-muted dark:text-night-muted">{currentSection.part_title}</p>}
+          <div className="mx-auto mt-5 h-px w-20 bg-gold-400" />
+        </div>
         {isPartIntro ? (
           <PartIntro section={currentSection} />
         ) : isChapterIntro ? (
@@ -312,6 +328,20 @@ export default function ReaderPage() {
             </article>
           </>
         )}
+
+        {!isChapterIntro && !isPartIntro && <aside className="reader-reflection" aria-labelledby="reader-reflection-heading">
+          <h2 id="reader-reflection-heading"><Leaf size={20} className="text-gold-600 dark:text-gold-100" aria-hidden="true" />Para refletir</h2>
+          <p>O que esta leitura desperta em você? Que ideia gostaria de levar para o seu dia?</p>
+          <p className="!text-sm text-muted dark:text-night-muted">Convite à reflexão · Vereda</p>
+          <button type="button" onClick={openStudyNote} className="northstar-text-action mt-3">Registrar minha reflexão</button>
+        </aside>}
+        <nav className="reader-chapter-nav" aria-label="Navegar na leitura">
+          <button type="button" onClick={session.goToPrevious} disabled={!session.canGoPrevious || session.saving} aria-label={READER_COPY.actions.previous.ariaLabel}><ChevronLeft size={18} aria-hidden="true" />Trecho anterior</button>
+          <button type="button" onClick={session.completeCurrentSection} disabled={session.saving} aria-label={primaryAction.ariaLabel}>
+            {session.saving ? <RefreshCw size={18} className="animate-spin" aria-hidden="true" /> : null}
+            {isFinalReadingUnit ? primaryAction.label : isChapterIntro || isPartIntro ? 'Começar leitura' : 'Próximo trecho'}<ChevronRight size={18} aria-hidden="true" />
+          </button>
+        </nav>
 
         {saveStatus && (
           <p role="status" aria-live="polite" className="mt-8 text-sm text-muted dark:text-night-muted">
@@ -349,50 +379,7 @@ export default function ReaderPage() {
         status={noteStatus}
       />
 
-      <footer className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/96 pb-safe backdrop-blur-xl dark:border-night-line dark:bg-night/96">
-        <div className="mx-auto grid h-[4.4rem] max-w-[44rem] grid-cols-[2.75rem_1fr_2.75rem] items-center px-4 sm:px-6">
-          <button
-            type="button"
-            onClick={session.goToPrevious}
-            disabled={!session.canGoPrevious}
-            className="northstar-reader-control justify-self-start disabled:opacity-25"
-            aria-label={READER_COPY.actions.previous.ariaLabel}
-          >
-            <ChevronLeft size={23} />
-          </button>
 
-          <div className="flex items-center justify-center gap-8">
-            <button type="button" onClick={() => stepFont(fontSize, setFontSize, -1)} className="northstar-reader-control" aria-label="Diminuir tamanho do texto">A−</button>
-            <button type="button" onClick={() => stepFont(fontSize, setFontSize, 1)} className="northstar-reader-control" aria-label="Aumentar tamanho do texto">A+</button>
-            <button
-              type="button"
-              onClick={toggleSavedPassage}
-              disabled={savingPassage || isChapterIntro || isPartIntro}
-              aria-pressed={passageSaved}
-              className="northstar-reader-control disabled:opacity-35"
-              aria-label={passageSaved ? 'Remover este trecho dos salvos' : 'Salvar este trecho'}
-            >
-              <Bookmark size={21} fill={passageSaved ? 'currentColor' : 'none'} />
-            </button>
-          </div>
-
-          <button
-            type="button"
-            onClick={session.completeCurrentSection}
-            disabled={session.saving}
-            className="northstar-reader-control justify-self-end disabled:opacity-35"
-            aria-label={primaryAction.ariaLabel}
-          >
-            {session.saving ? (
-              <RefreshCw size={19} className="animate-spin" />
-            ) : primaryAction.icon === 'complete' ? (
-              <Check size={22} />
-            ) : (
-              <ChevronRight size={23} />
-            )}
-          </button>
-        </div>
-      </footer>
     </div>
   )
 }
@@ -432,6 +419,7 @@ function StudyNotePanel({ open, onClose, title, value, onChange, onSave, saving,
           value={value}
           onChange={(event) => onChange(event.target.value)}
           autoFocus
+          aria-label="Minha nota neste trecho"
           placeholder="O que você quer guardar deste trecho?"
           className="mt-4 min-h-36 w-full resize-none rounded-[15px] border border-line bg-canvas px-4 py-3 text-sm leading-relaxed text-ink placeholder:text-muted/70 focus:border-sage-500 dark:border-night-line dark:bg-night dark:text-night-ink"
         />
@@ -461,7 +449,7 @@ function ReaderSettings({ fontSize, setFontSize }) {
             type="button"
             onClick={() => setFontSize(option.id)}
             aria-pressed={fontSize === option.id}
-            className={`min-h-9 rounded-[10px] text-xs font-semibold ${fontSize === option.id ? 'bg-sage-700 text-white dark:bg-sage-300 dark:text-sage-950' : 'bg-surface-soft text-ink dark:bg-night dark:text-night-ink'}`}
+            className={`min-h-11 rounded-[10px] text-sm font-semibold ${fontSize === option.id ? 'bg-sage-700 text-white dark:bg-sage-300 dark:text-sage-950' : 'bg-surface-soft text-ink dark:bg-night dark:text-night-ink'}`}
           >
             {option.id.toUpperCase()}
           </button>
@@ -469,13 +457,6 @@ function ReaderSettings({ fontSize, setFontSize }) {
       </div>
     </div>
   )
-}
-
-function stepFont(current, setter, direction) {
-  const order = FONT_SIZES.map((item) => item.id)
-  const currentIndex = Math.max(0, order.indexOf(current))
-  const nextIndex = Math.max(0, Math.min(order.length - 1, currentIndex + direction))
-  setter(order[nextIndex])
 }
 
 function Paragraph({ text }) {
@@ -487,6 +468,9 @@ function Paragraph({ text }) {
     )
   }
 
+  const question = text.match(/^(\d+\.\s*[^?]+\?)([\s\S]*)$/)
+  if (question) return <p className="mb-7 mt-8 first:mt-0 last:mb-0"><strong>{question[1]}</strong>{question[2]}</p>
+
   const numberedItem = text.match(/^(\d+\.)\s*([\s\S]*)$/)
   if (numberedItem) {
     return <p className="mb-7 mt-10 first:mt-0 last:mb-0"><strong>{numberedItem[1]}</strong> {numberedItem[2]}</p>
@@ -496,14 +480,14 @@ function Paragraph({ text }) {
 }
 
 function SectionHeading({ currentSection }) {
-  const hierarchy = [currentSection.part_title, currentSection.chapter_label].filter(Boolean).join(' · ')
+  const hierarchy = currentSection.chapter_label
   const heading = currentSection.section_title || currentSection.chapter_title || currentSection.title
 
   return (
-    <div className="mb-9">
+    <div className="mb-9 text-center">
       {hierarchy && <p className="text-sm font-medium text-ink/80 dark:text-night-muted">{hierarchy}</p>}
       {heading && (
-        <h1 className="mt-2 max-w-xl font-display text-[2.2rem] font-semibold leading-[1.12] tracking-[-0.025em] text-ink dark:text-night-ink">
+        <h1 className="mx-auto mt-2 max-w-xl font-display text-[2.2rem] font-semibold leading-[1.12] tracking-[-0.025em] text-ink dark:text-night-ink">
           {heading}
         </h1>
       )}

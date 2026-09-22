@@ -1,58 +1,28 @@
+import { getActiveDestination } from '@/features/ui/navigation'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { BookOpen, Home, Leaf, NotebookPen, UserRound } from 'lucide-react'
+import { BookOpen, Home, Heart, ListFilter } from 'lucide-react'
 
 const tabs = [
   { path: '/home', label: 'Início', Icon: Home },
-  { path: '/biblioteca', label: 'Biblioteca', Icon: BookOpen },
-  { path: '/evolucao', label: 'Jornada', Icon: Leaf },
-  { path: '/notas', label: 'Notas', Icon: NotebookPen },
-  { path: '/configuracoes', label: 'Perfil', Icon: UserRound },
+  { path: '/biblioteca', label: 'Estudos', Icon: BookOpen },
+  { path: '/reflexoes', label: 'Reflexões', Icon: Heart },
+  { path: '/mais', label: 'Mais', Icon: ListFilter },
 ]
 
 export default function BottomNav() {
   const { pathname } = useLocation()
   const navigate = useNavigate()
-
-  if (
-    pathname.startsWith('/ler/') ||
-    pathname.startsWith('/livro/') ||
-    pathname.startsWith('/trecho/') ||
-    pathname === '/comecar' ||
-    pathname === '/reflexoes'
-  ) {
-    return null
-  }
-
+  if (pathname.startsWith('/ler/') || pathname.startsWith('/livro/') || pathname.startsWith('/trecho/') || pathname === '/comecar' || /^\/estudo-guiado\/[^/]+\/[^/]+/.test(pathname)) return null
   return (
-    <nav
-      aria-label="Navegação principal"
-      className="ves-nav-shell fixed inset-x-0 bottom-0 z-40 border-t border-line/80 bg-surface/95 pb-safe backdrop-blur-xl dark:border-night-line dark:bg-night/95"
-    >
-      <div className="mx-auto flex min-h-[4.8rem] max-w-xl items-center justify-around gap-0 px-1 pt-1">
+    <nav aria-label="Navegação principal" className="ves-nav-shell fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 pb-safe backdrop-blur-xl dark:border-night-line dark:bg-night/95">
+      <div className="mx-auto grid min-h-[4.8rem] max-w-xl grid-cols-4 items-center px-2">
         {tabs.map(({ path, label, Icon }) => {
-          const active = pathname === path || pathname.startsWith(`${path}/`)
-
-          return (
-            <button
-              key={path}
-              type="button"
-              onClick={() => navigate(path)}
-              aria-current={active ? 'page' : undefined}
-              className={`flex min-h-14 min-w-0 flex-1 flex-col items-center justify-center gap-1 px-1 py-2 text-xs font-medium leading-tight transition-colors ${
-                active
-                  ? 'text-sage-800 dark:text-sage-300'
-                  : 'text-muted hover:text-ink dark:text-night-muted dark:hover:text-night-ink'
-              }`}
-            >
-              <Icon
-                size={21}
-                strokeWidth={active ? 2.2 : 1.6}
-                fill="none"
-                aria-hidden="true"
-              />
-              <span className="max-w-full truncate">{label}</span>
-            </button>
-          )
+          const active = getActiveDestination(pathname) === path
+          return <button key={path} type="button" onClick={() => navigate(path)} aria-current={active ? 'page' : undefined}
+            className={`northstar-nav-item ${active ? 'is-active' : ''}`}>
+            <Icon size={22} strokeWidth={active ? 2 : 1.5} aria-hidden="true" />
+            <span>{label}</span>
+          </button>
         })}
       </div>
     </nav>

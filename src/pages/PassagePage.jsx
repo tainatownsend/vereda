@@ -194,7 +194,7 @@ export default function PassagePage() {
               </button>
               <button
                 type="button"
-                onClick={() => navigate(readingStarted ? `/ler/${book.id}?revisit=1&section=${section.sec_position}` : `/livro/${book.id}`)}
+                onClick={() => navigate(readingStarted ? `/ler/${book.id}?revisit=1&section=${section.sec_position}&returnTo=${encodeURIComponent(returnContext.path)}` : `/livro/${book.id}`)}
                 className="min-h-10 text-left text-sm font-semibold text-sage-800 underline-offset-4 hover:underline dark:text-sage-300"
               >
                 {readingStarted ? 'Abrir este trecho na minha leitura' : 'Conhecer esta obra'}
@@ -211,7 +211,7 @@ export default function PassagePage() {
             </p>
             <Button
               className="mt-5 w-full sm:w-auto"
-              onClick={() => navigate(readingStarted ? `/ler/${book.id}?revisit=1&section=${section.sec_position}` : `/livro/${book.id}`)}
+              onClick={() => navigate(readingStarted ? `/ler/${book.id}?revisit=1&section=${section.sec_position}&returnTo=${encodeURIComponent(returnContext.path)}` : `/livro/${book.id}`)}
             >
               {readingStarted ? 'Abrir este trecho na minha leitura' : 'Conhecer esta obra'}
               <ArrowRight size={19} aria-hidden="true" />

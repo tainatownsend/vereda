@@ -1,0 +1,155 @@
+[
+  {
+    "route": "/home",
+    "width": 320,
+    "scroll": 320,
+    "overflow": false,
+    "nav": [
+      {
+        "text": "Início",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Estudos",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Reflexões",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Mais",
+        "font": "15.75px",
+        "height": 72
+      }
+    ],
+    "images": 0
+  },
+  {
+    "route": "/biblioteca",
+    "width": 320,
+    "scroll": 320,
+    "overflow": false,
+    "nav": [
+      {
+        "text": "Início",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Estudos",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Reflexões",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Mais",
+        "font": "15.75px",
+        "height": 72
+      }
+    ],
+    "images": 0
+  },
+  {
+    "route": "/ler/1",
+    "width": 320,
+    "scroll": 320,
+    "overflow": false,
+    "nav": [],
+    "images": 0
+  },
+  {
+    "route": "/reflexoes",
+    "width": 320,
+    "scroll": 320,
+    "overflow": false,
+    "nav": [
+      {
+        "text": "Início",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Estudos",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Reflexões",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Mais",
+        "font": "15.75px",
+        "height": 72
+      }
+    ],
+    "images": 0
+  },
+  {
+    "route": "/mais",
+    "width": 320,
+    "scroll": 320,
+    "overflow": false,
+    "nav": [
+      {
+        "text": "Início",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Estudos",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Reflexões",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Mais",
+        "font": "15.75px",
+        "height": 72
+      }
+    ],
+    "images": 0
+  },
+  {
+    "route": "/configuracoes",
+    "width": 320,
+    "scroll": 320,
+    "overflow": false,
+    "nav": [
+      {
+        "text": "Início",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Estudos",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Reflexões",
+        "font": "15.75px",
+        "height": 72
+      },
+      {
+        "text": "Mais",
+        "font": "15.75px",
+        "height": 72
+      }
+    ],
+    "images": 0
+  }
+]
