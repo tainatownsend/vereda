@@ -1,3 +1,4 @@
+import PageBackButton from '@/components/ui/PageBackButton'
 import { useEffect, useMemo, useState } from 'react'
 import { Heart, Bookmark, Cloud, CloudOff, Image, Quote, RefreshCw, Share2 } from 'lucide-react'
 import { useSearchParams } from 'react-router-dom'
@@ -124,7 +125,7 @@ export default function ReflectionPage() {
   return (
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-8">
-        <header><h1 className="font-display text-[2rem]">Reflexões</h1></header>
+        <header><div className="flex min-w-0 items-center gap-2"><PageBackButton /><h1 className="min-w-0 font-display text-[2rem]">Reflexões</h1></div></header>
         <div className="editorial-tabs mt-5" role="group" aria-label="Escolher reflexões">
           {[['today', 'Hoje'], ['favorites', 'Favoritas'], ['mine', 'Minhas']].map(([id, label]) => <button key={id} type="button" aria-pressed={tab === id} onClick={() => setSearchParams(id === 'today' ? {} : { tab: id })}>{label}</button>)}
         </div>

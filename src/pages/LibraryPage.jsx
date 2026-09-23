@@ -1,3 +1,4 @@
+import PageBackButton from '@/components/ui/PageBackButton'
 import BookLoadState from '@/components/ui/BookLoadState'
 import { useState } from 'react'
 import { ChevronRight, Compass, Search } from 'lucide-react'
@@ -20,7 +21,7 @@ export default function LibraryPage() {
   })
   return <main className="northstar-page pb-28">
     <div className="northstar-container pt-8">
-      <header className="flex items-center justify-between gap-3"><h1 className="font-display text-[2rem]">Estudos</h1>
+      <header className="flex items-center justify-between gap-3"><div className="flex min-w-0 items-center gap-2"><PageBackButton /><h1 className="min-w-0 font-display text-[2rem]">Estudos</h1></div>
         <button type="button" onClick={() => navigate('/descobrir')} className="northstar-icon-button" aria-label="Pesquisar nas obras"><Search size={22} /></button></header>
       <div className="editorial-tabs mt-5" role="group" aria-label="Filtrar estudos">
         {[['all', 'Todos'], ['active', 'Em andamento'], ['complete', 'Concluídos']].map(([id, label]) => <button key={id} type="button" aria-pressed={tab === id} onClick={() => setTab(id)}>{label}</button>)}

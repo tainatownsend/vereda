@@ -1,3 +1,4 @@
+import PageBackButton from '@/components/ui/PageBackButton'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Bookmark, CalendarDays, ChevronRight, Heart, Leaf, LogOut, NotebookPen, Settings, UserRound } from 'lucide-react'
@@ -24,7 +25,7 @@ export default function MorePage() {
     try { await signOut(); navigate('/') } catch { setStatus('Não foi possível sair agora. Tente novamente.'); setBusy(false) }
   }
   return <main className="northstar-page pb-28"><div className="northstar-container pt-8">
-    <h1 className="font-display text-[2rem]">Mais</h1>
+    <div className="flex min-w-0 items-center gap-2"><PageBackButton /><h1 className="min-w-0 font-display text-[2rem]">Mais</h1></div>
     {groups.map(group => <section key={group.title} className="mt-8" aria-label={group.title}>
       <h2 className="mb-2 text-sm font-medium text-muted dark:text-night-muted">{group.title}</h2>
       <ul className="divide-y divide-line dark:divide-night-line">{group.items.map(([path, label, Icon]) => <li key={label}>
