@@ -10,6 +10,8 @@ import { getActiveBooksByLastRead } from '@/features/home/readingOrder'
 import { getBookProgress } from '@/features/home/bookProgress'
 import { EditorialCard, ProgressLine } from '@/components/northstar/NorthStarUI'
 import { getDailyReflection } from '@/features/reflections/dailyReflections'
+import { GUIDED_STUDY_PATHS } from '@/features/guidedStudy/catalog'
+import { guidedPathProgress } from '@/features/guidedStudy/progress'
 import landscape from '@/assets/vereda-sunrise.webp'
 
 export default function HomePage() {
@@ -19,6 +21,8 @@ export default function HomePage() {
   const { progress, dataLoading } = useUserData()
   const activeBooks = useMemo(() => getActiveBooksByLastRead(books, progress), [books, progress])
   const dailyReflection = getDailyReflection()
+  const guided = GUIDED_STUDY_PATHS.map(path => ({ path, progress: guidedPathProgress(user, path) }))
+    .find(item => item.progress.complete > 0 && !item.progress.finished)
   if (!user || dataLoading) return <PageLoader />
   if (!books.length) return <BookLoadState />
   const primaryBook = activeBooks[0]
@@ -38,12 +42,18 @@ export default function HomePage() {
       </section>
       <section className="home-continue" aria-labelledby="next-study-heading">
         <EditorialCard className="p-3 sm:p-4">
-          <h2 id="next-study-heading" className="mb-3 flex items-center gap-2 px-1 text-base font-medium"><BookOpen size={18} aria-hidden="true" />{primaryBook ? 'Continuar estudo' : 'Seu primeiro estudo'}</h2>
+          <h2 id="next-study-heading" className="mb-3 flex items-center gap-2 px-1 text-base font-medium"><BookOpen size={18} aria-hidden="true" />{primaryBook || guided ? 'Continuar estudo' : 'Seu primeiro estudo'}</h2>
           {primaryBook ? <button type="button" onClick={() => navigate(`/ler/${primaryBook.id}`)} className="continue-study-button">
             <div className="min-w-0 flex-1"><h3 className="font-display text-xl leading-snug">{primaryBook.title}</h3>
               <p className="mt-2 text-sm">Trecho {progress[primaryBook.id]?.current_section || 1} · seu lugar está salvo</p>
               <ProgressLine value={reading.percent} className="mt-5" />
               <p className="mt-2 text-sm">{reading.total ? `${reading.read} de ${reading.total} trechos lidos` : 'No seu ritmo, sem pressa.'}</p>
+            </div><ChevronRight size={27} className="shrink-0" aria-hidden="true" />
+          </button> : guided ? <button type="button" className="continue-study-button" onClick={() => navigate(`/estudo-guiado/${guided.path.key}/${guided.progress.nextSession.id}`)}>
+            <div className="min-w-0 flex-1"><h3 className="font-display text-xl leading-snug">{guided.path.title}</h3>
+              <p className="mt-2 text-sm">{guided.progress.nextSession.title}</p>
+              <ProgressLine value={guided.progress.percent} className="mt-5" />
+              <p className="mt-2 text-sm">{guided.progress.complete} de {guided.progress.total} encontros concluídos</p>
             </div><ChevronRight size={27} className="shrink-0" aria-hidden="true" />
           </button> : <div className="px-2 pb-2"><h3 className="font-display text-2xl leading-snug">Uma primeira leitura, com companhia.</h3>
             <p className="mt-3 text-base leading-relaxed text-muted dark:text-night-muted">Vamos encontrar um caminho para você começar, no seu ritmo.</p>
@@ -57,6 +67,7 @@ export default function HomePage() {
           <h2 id="home-reflection-heading" className="flex items-center gap-2 text-sm font-medium"><Leaf size={18} aria-hidden="true" />Reflexão do dia</h2>
           <blockquote className="mt-4 font-display text-xl leading-relaxed">“{dailyReflection.text}”</blockquote>
           <p className="mt-3 text-sm text-muted dark:text-night-muted">{dailyReflection.author}</p>
+          <p className="mt-1 text-sm leading-relaxed text-muted dark:text-night-muted">{dailyReflection.source}</p>
           <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium">Ler e refletir <ChevronRight size={16} aria-hidden="true" /></span>
         </EditorialCard>
       </section>

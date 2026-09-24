@@ -26,3 +26,12 @@ it('opens Home when there is no in-app history', async () => {
   await userEvent.click(screen.getByRole('button', { name: 'Voltar' }))
   expect(screen.getByRole('heading', { name: 'Início' })).toBeTruthy()
 })
+
+it('uses the contextual fallback for a direct secondary link', async () => {
+  render(<MemoryRouter initialEntries={['/notas']}><Routes>
+    <Route path="/notas" element={<PageBackButton fallback="/mais" />} />
+    <Route path="/mais" element={<h1>Mais</h1>} />
+  </Routes></MemoryRouter>)
+  await userEvent.click(screen.getByRole('button', { name: 'Voltar' }))
+  expect(screen.getByRole('heading', { name: 'Mais' })).toBeTruthy()
+})

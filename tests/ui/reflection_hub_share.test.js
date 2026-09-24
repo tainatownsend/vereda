@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 
 import {
   getDailyReflection,
+  getReflectionsByIds,
   getNextReflection,
   getPreviousDailyReflections,
 } from '../../src/features/reflections/dailyReflections.js'
@@ -33,12 +34,21 @@ describe('reflection discovery and social sharing', () => {
     const daily = getDailyReflection(today)
     const history = getPreviousDailyReflections(7, today)
 
-    expect(daily.text.length).toBeGreaterThan(40)
-    expect(daily.author).toBe('Vereda')
+    expect(daily.text.length).toBeGreaterThan(20)
+    expect(daily.author).not.toContain('Vereda')
     expect(history).toHaveLength(7)
-    expect(history.every((item) => item.author === 'Vereda')).toBe(true)
+    expect(history.every((item) => item.author && item.source && item.sourceUrl.startsWith('https://') && item.kind === 'quotation')).toBe(true)
     expect(new Set(history.map((item) => item.dateKey)).size).toBe(7)
     expect(getNextReflection(daily.id).id).not.toBe(daily.id)
+  })
+
+  it('preserves old editorial favorites without inventing a historical author', () => {
+    const [legacy] = getReflectionsByIds(['understand-today', 'missing-id'])
+    expect(legacy.author).toBe('Vereda · texto editorial')
+    expect(legacy.kind).toBe('editorial')
+    expect(legacy.text).toBe('Aquilo que você compreende hoje pode transformar o modo como escolhe amanhã.')
+    const current = getDailyReflection()
+    expect(getReflectionsByIds([current.id])[0].source).toBe(current.source)
   })
 
   it('shares a pure image first and keeps the Vereda origin subtle and non-repetitive', () => {
@@ -47,12 +57,12 @@ describe('reflection discovery and social sharing', () => {
     expect(shareCard).not.toContain('VEREDA APP')
     expect(shareCard).not.toContain("fillText('VEREDA'")
     expect(shareCard).toContain("context.fillText('vereda', centerX, 1738)")
-    expect(shareCard).toContain("context.fillText('seu caminho de estudo espírita', centerX, 1792)")
+    expect(shareCard).toContain("context.fillText('App de estudo guiado da doutrina espírita', centerX, 1792)")
     expect(shareCard).toContain('— ${author}')
     expect(shareCard).toContain('navigator.clipboard?.write')
   })
 
-  it('shows editorial authorship across the home, reflection hub, and share image', () => {
+  it('shows original authorship across the home, reflection hub, and share image', () => {
     expect(home).toContain('dailyReflection.author')
     expect(reflection).toContain('featuredReflection.author')
     expect(reflection).toContain('reflection.author')

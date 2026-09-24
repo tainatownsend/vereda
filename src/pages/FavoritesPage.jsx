@@ -1,5 +1,6 @@
+import { getFavoriteReflectionIds } from '@/features/reflections/favorites'
 import { useEffect, useMemo, useState } from 'react'
-import { Bookmark, NotebookPen, Quote } from 'lucide-react'
+import { Heart, Bookmark, NotebookPen, Quote } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useAuthStore } from '@/store'
@@ -42,7 +43,7 @@ export default function FavoritesPage() {
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-9">
         <header>
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Seu estudo</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Seu estudo</p>
           <h1 className="mt-1 font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Favoritos</h1>
           <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
             Trechos, notas e reflexões ficam reunidos aqui para você revisitar quando fizer sentido.
@@ -50,6 +51,9 @@ export default function FavoritesPage() {
         </header>
 
         <section className="mt-7 space-y-3" aria-label="Coleções salvas" aria-busy={journalLoading}>
+          <CollectionCard icon={Heart} title="Reflexões favoritas" count={getFavoriteReflectionIds(user).length}
+            description="As citações com autoria que você escolheu guardar."
+            onClick={() => navigate('/reflexoes?tab=favorites')} />
           <CollectionCard
             icon={Bookmark}
             title="Trechos das obras"
@@ -94,7 +98,7 @@ function CollectionCard({ icon: Icon, title, count, description, onClick }) {
       <div className="min-w-0 flex-1">
         <div className="flex items-start justify-between gap-3">
           <p className="text-base font-semibold text-ink dark:text-night-ink">{title}</p>
-          <span className="shrink-0 rounded-full bg-surface-soft px-2.5 py-1 text-xs font-semibold text-muted dark:bg-night dark:text-night-muted">
+          <span className="shrink-0 rounded-full bg-surface-soft px-2.5 py-1 text-sm font-semibold text-muted dark:bg-night dark:text-night-muted">
             {count ?? '—'}
           </span>
         </div>

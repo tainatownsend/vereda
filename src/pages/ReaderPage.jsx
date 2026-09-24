@@ -404,7 +404,7 @@ function StudyNotePanel({ open, onClose, title, value, onChange, onSave, saving,
             <NotebookPen size={20} aria-hidden="true" />
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Nota de estudo</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Nota de estudo</p>
             <h2 id="study-note-title" className="mt-1 font-display text-xl font-semibold text-ink dark:text-night-ink">{title}</h2>
           </div>
           <button type="button" onClick={onClose} className="northstar-icon-button -mr-2 -mt-1" aria-label="Fechar nota">
@@ -441,8 +441,8 @@ function StudyNotePanel({ open, onClose, title, value, onChange, onSave, saving,
 function ReaderSettings({ fontSize, setFontSize }) {
   return (
     <div className="mt-2 border-t border-line px-2 pb-2 pt-3 dark:border-night-line">
-      <p className="px-1 text-[11px] font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Tamanho</p>
-      <div className="mt-2 grid grid-cols-4 gap-1">
+      <p className="px-1 text-sm font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Tamanho</p>
+      <div className="mt-2 grid grid-cols-2 gap-2">
         {FONT_SIZES.map((option) => (
           <button
             key={option.id}
@@ -451,7 +451,7 @@ function ReaderSettings({ fontSize, setFontSize }) {
             aria-pressed={fontSize === option.id}
             className={`min-h-11 rounded-[10px] text-sm font-semibold ${fontSize === option.id ? 'bg-sage-700 text-white dark:bg-sage-300 dark:text-sage-950' : 'bg-surface-soft text-ink dark:bg-night dark:text-night-ink'}`}
           >
-            {option.id.toUpperCase()}
+            {option.label}
           </button>
         ))}
       </div>

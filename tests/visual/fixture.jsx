@@ -1,3 +1,14 @@
+import GettingStartedPage from '../../src/pages/GettingStartedPage'
+import GuidedStudyPage from '../../src/pages/GuidedStudyPage'
+import GuidedStudyPathPage from '../../src/pages/GuidedStudyPathPage'
+import GuidedStudySessionPage from '../../src/pages/GuidedStudySessionPage'
+import BookDetailPage from '../../src/pages/BookDetailPage'
+import StudyNotesPage from '../../src/pages/StudyNotesPage'
+import SavedPassagesPage from '../../src/pages/SavedPassagesPage'
+import FavoritesPage from '../../src/pages/FavoritesPage'
+import EvolutionPage from '../../src/pages/EvolutionPage'
+import StudyPlanPage from '../../src/pages/StudyPlanPage'
+import DiscoverPage from '../../src/pages/DiscoverPage'
 // Isolated development-only visual harness. Not imported by the production entry.
 import React from 'react'
 import { createRoot } from 'react-dom/client'
@@ -24,7 +35,7 @@ supabase.from = table => {
   let result = table === 'sections' ? [...sections] : table === 'study_journal_entries' ? journal : []
   const q = { select: () => q, eq: (key, value) => { if (table === 'sections' && key !== 'book_id') result = result.filter(row => row[key] === value); return q },
     gte: (key, value) => { result = result.filter(row => row[key] >= value); return q }, gt: (key, value) => { result = result.filter(row => row[key] > value); return q },
-    lt: (key, value) => { result = result.filter(row => row[key] < value); return q }, in: () => q,
+    lt: (key, value) => { result = result.filter(row => row[key] < value); return q }, in: () => q, or: () => q, ilike: () => q, delete: () => q,
     order: (key, opts) => { if (opts?.ascending === false) result.reverse(); return q }, limit: n => { result = result.slice(0, n); return q },
     single: () => { result = result[0]; return q }, maybeSingle: () => { result = result[0]; return q },
     upsert: row => { journal = [row, ...journal.filter(item => item.entry_key !== row.entry_key)]; return q },
@@ -40,5 +51,6 @@ useAuthStore.setState({ user: { id: 'visual-fixture', user_metadata: {} }, profi
 useReadingStore.setState({ books, booksStatus: 'ready', progress, fetchProgress: async () => {}, fetchStreak: async () => {} })
 createRoot(document.getElementById('root')).render(<MemoryRouter initialEntries={[params.get('route') || '/home']}><Routes>
   <Route path="/home" element={<Home />} /><Route path="/biblioteca" element={<Studies />} /><Route path="/ler/:id" element={<Reader />} /><Route path="/reflexoes" element={<Reflections />} /><Route path="/mais" element={<More />} /><Route path="/configuracoes" element={<Settings />} />
+<Route path="/comecar" element={<GettingStartedPage />} /><Route path="/estudo-guiado" element={<GuidedStudyPage />} /><Route path="/estudo-guiado/:pathKey" element={<GuidedStudyPathPage />} /><Route path="/estudo-guiado/:pathKey/:sessionId" element={<GuidedStudySessionPage />} /><Route path="/livro/:id" element={<BookDetailPage />} /><Route path="/notas" element={<StudyNotesPage />} /><Route path="/salvos" element={<SavedPassagesPage />} /><Route path="/favoritos" element={<FavoritesPage />} /><Route path="/evolucao" element={<EvolutionPage />} /><Route path="/plano-de-estudo" element={<StudyPlanPage />} /><Route path="/descobrir" element={<DiscoverPage />} />
   <Route path="*" element={<p>Destino secundário — coberto pela suíte de regressão.</p>} />
 </Routes><BottomNav /></MemoryRouter>)

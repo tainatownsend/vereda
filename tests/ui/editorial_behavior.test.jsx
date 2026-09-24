@@ -3,7 +3,7 @@ import React from 'react'
 import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest'
 import { render, screen, cleanup, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { MemoryRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { MemoryRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import Home from '@/pages/HomePage'
 import Library from '@/pages/LibraryPage'
 import Reflections from '@/pages/ReflectionPage'
@@ -49,6 +49,15 @@ describe('editorial product interactions', () => {
     await userEvent.click(screen.getByRole('button', { name: /O Livro dos Espíritos/ }))
     expect(screen.getByLabelText('Rota atual').textContent).toBe('/ler/1')
   })
+  it('resumes guided-only progress without presenting first-time onboarding', async () => {
+    mocks.progress = {}
+    mocks.user.user_metadata = { vereda_guided_study_v1: { 'livro-dos-espiritos': ['le-01'] } }
+    mount(<Home />)
+    expect(screen.getByRole('heading', { name: 'Continuar estudo' })).toBeTruthy()
+    expect(screen.getByText('1 de 8 encontros concluídos')).toBeTruthy()
+    await userEvent.click(screen.getByRole('button', { name: /O Livro dos Espíritos/ }))
+    expect(screen.getByLabelText('Rota atual').textContent).toBe('/estudo-guiado/livro-dos-espiritos/le-02')
+  })
   it('provides a first step instead of false progress to a new reader', async () => {
     mocks.progress = {}
     mount(<Home />)
@@ -91,9 +100,20 @@ describe('editorial product interactions', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Salvar', exact: true }))
     expect(mocks.setFavorite).toHaveBeenCalledWith(expect.any(String), true)
     await userEvent.click(screen.getByRole('button', { name: 'Compartilhar esta reflexão' }))
-    expect(mocks.share).toHaveBeenCalledWith({ text: expect.any(String), author: 'Vereda' })
+    expect(mocks.share).toHaveBeenCalledWith({ text: expect.any(String), author: expect.any(String), source: expect.any(String) })
     await userEvent.click(screen.getByRole('button', { name: 'Favoritas' }))
     expect(screen.getByText(/Salve uma reflexão em Hoje/)).toBeTruthy()
+  })
+  it('changes reflection tabs without trapping Back in tab history', async () => {
+    function Back() { const navigate = useNavigate(); return <button onClick={() => navigate(-1)}>Voltar de teste</button> }
+    render(<MemoryRouter initialEntries={['/home', '/reflexoes']} initialIndex={1}><Routes>
+      <Route path="/home" element={<h1>Início</h1>} />
+      <Route path="/reflexoes" element={<><Reflections /><Back /></>} />
+    </Routes></MemoryRouter>)
+    await userEvent.click(screen.getByRole('button', { name: 'Favoritas' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Minhas' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Voltar de teste' }))
+    expect(screen.getByRole('heading', { name: 'Início' })).toBeTruthy()
   })
   it('does not report success when favorite persistence fails', async () => {
     mocks.setFavorite.mockRejectedValue(new Error('offline'))

@@ -131,7 +131,7 @@ describe('Vereda 1.2 guided study', () => {
     expect(sessionPage).toContain("STEP_LABELS = ['Orientação', 'Leitura', 'Assimile', 'Reflexão', 'Integração', 'Fechamento']")
     expect(sessionPage).toContain('getNextStepActionLabel')
     expect(reflectionCard).toContain("context.fillText('vereda', centerX, 1738)")
-    expect(reflectionCard).toContain("context.fillText('seu caminho de estudo espírita', centerX, 1792)")
+    expect(reflectionCard).toContain("context.fillText('App de estudo guiado da doutrina espírita', centerX, 1792)")
     expect(reflectionCard).not.toContain('VEREDA APP')
     expect(reflectionCard).toContain('await navigator.share({ files: [file] })')
     expect(reflectionCard).toContain('navigator.clipboard?.write')

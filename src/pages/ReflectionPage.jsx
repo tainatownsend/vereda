@@ -64,10 +64,10 @@ export default function ReflectionPage() {
     [entries],
   )
 
-  const shareImage = async ({ text, author }) => {
+  const shareImage = async ({ text, author, source }) => {
     setShareStatus('')
     try {
-      const result = await shareReflectionAsImage({ text, author })
+      const result = await shareReflectionAsImage({ text, author, source })
       if (result === 'shared') {
         setShareStatus('Compartilhamento aberto com a arte da reflexão.')
       } else if (result === 'copied') {
@@ -127,20 +127,21 @@ export default function ReflectionPage() {
       <div className="northstar-container pt-8">
         <header><div className="flex min-w-0 items-center gap-2"><PageBackButton /><h1 className="min-w-0 font-display text-[2rem]">Reflexões</h1></div></header>
         <div className="editorial-tabs mt-5" role="group" aria-label="Escolher reflexões">
-          {[['today', 'Hoje'], ['favorites', 'Favoritas'], ['mine', 'Minhas']].map(([id, label]) => <button key={id} type="button" aria-pressed={tab === id} onClick={() => setSearchParams(id === 'today' ? {} : { tab: id })}>{label}</button>)}
+          {[['today', 'Hoje'], ['favorites', 'Favoritas'], ['mine', 'Minhas']].map(([id, label]) => <button key={id} type="button" aria-pressed={tab === id} onClick={() => setSearchParams(id === 'today' ? {} : { tab: id }, { replace: true })}>{label}</button>)}
         </div>
         {tab === 'today' && <>
         <section className="reflection-composition mt-5" aria-label="Reflexão de hoje">
           <img src={northStarLandscape} alt="Colinas ao amanhecer, em uma paisagem serena" />
           <div className="reflection-quotation"><blockquote>“{featuredReflection.text}”</blockquote>
             <p className="mt-5 text-sm text-muted dark:text-night-muted">{featuredReflection.author}</p>
+            <ReflectionSource reflection={featuredReflection} />
           </div>
         </section>
         <div className="mt-3 flex flex-wrap items-center justify-around gap-2">
           <button type="button" onClick={() => toggleFavorite(featuredReflection.id)} disabled={savingFavorite} aria-pressed={favoriteIds.includes(featuredReflection.id)} className="inline-flex min-h-12 items-center gap-2 rounded-xl px-4 text-base disabled:opacity-50">
             <Heart size={20} fill={favoriteIds.includes(featuredReflection.id) ? 'currentColor' : 'none'} aria-hidden="true" />{favoriteIds.includes(featuredReflection.id) ? 'Salva' : 'Salvar'}
           </button>
-          <button type="button" onClick={() => shareImage({ text: featuredReflection.text, author: featuredReflection.author })} className="inline-flex min-h-12 items-center gap-2 rounded-xl px-4 text-base" aria-label="Compartilhar esta reflexão"><Share2 size={20} aria-hidden="true" />Compartilhar</button>
+          <button type="button" onClick={() => shareImage(featuredReflection)} className="inline-flex min-h-12 items-center gap-2 rounded-xl px-4 text-base" aria-label="Compartilhar esta reflexão"><Share2 size={20} aria-hidden="true" />Compartilhar</button>
         </div>
         <button type="button" onClick={() => { setFeaturedReflection(current => getNextReflection(current.id)); setShareStatus('') }} className="northstar-text-action mt-3 inline-flex items-center gap-2"><RefreshCw size={16} aria-hidden="true" />Ler outra reflexão</button>
         <details className="mt-5"><summary className="min-h-11 cursor-pointer py-3 text-base">Reflexões anteriores</summary>
@@ -159,10 +160,11 @@ export default function ReflectionPage() {
                 <p className="text-sm font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">{reflection.label}</p>
                 <p className="mt-2 text-sm leading-relaxed text-ink dark:text-night-ink">“{reflection.text}”</p>
                 <p className="mt-1.5 text-sm font-semibold text-muted dark:text-night-muted">— {reflection.author}</p>
+            <ReflectionSource reflection={reflection} />
                 <div className="mt-2 flex justify-end">
                   <button
                     type="button"
-                    onClick={() => shareImage({ text: reflection.text, author: reflection.author })}
+                    onClick={() => shareImage(reflection)}
                     className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-2 text-sm font-semibold text-sage-700 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-night"
                     aria-label={`Compartilhar reflexão de ${reflection.label}`}
                   >
@@ -180,6 +182,7 @@ export default function ReflectionPage() {
           {favorites.length ? favorites.map(reflection => <EditorialCard key={reflection.id} className="mb-3 p-5">
             <blockquote className="font-display text-xl leading-relaxed">“{reflection.text}”</blockquote>
             <p className="mt-3 text-sm text-muted dark:text-night-muted">{reflection.author}</p>
+            <ReflectionSource reflection={reflection} />
             <div className="mt-3 flex flex-wrap gap-3"><button type="button" disabled={savingFavorite} onClick={() => toggleFavorite(reflection.id)} className="northstar-text-action">Remover das favoritas</button>
               <button type="button" onClick={() => shareImage(reflection)} className="northstar-text-action">Compartilhar</button></div>
           </EditorialCard>) : <p className="py-8 text-base leading-relaxed text-muted dark:text-night-muted">Salve uma reflexão em Hoje para encontrá-la aqui quando precisar.</p>}
@@ -276,4 +279,11 @@ export default function ReflectionPage() {
       )}
     </main>
   )
+}
+
+function ReflectionSource({ reflection }) {
+  return reflection.sourceUrl ? <a href={reflection.sourceUrl} target="_blank" rel="noopener noreferrer"
+    className="mt-2 inline-block min-h-11 py-2 text-sm leading-relaxed underline underline-offset-4"
+    aria-label={`Consultar fonte: ${reflection.source} (abre em nova aba)`}>{reflection.source}</a> :
+    reflection.kind === 'editorial' ? <p className="mt-2 text-sm leading-relaxed">Texto editorial da versão anterior, preservado nas suas favoritas.</p> : null
 }
