@@ -22,7 +22,7 @@ describe('public landing page contract', () => {
 
     expect(appBeforeRender).not.toContain('if (loading)')
     expect(app).toContain('function PublicAuthRoute({ loading, user, children })')
-    expect(app).toContain('if (loading) return <PageLoader />')
+    expect(app).toContain('if (loading) return <PageLoader recoverable />')
   })
 
   it('explains the product before signup with clear public sections', () => {
@@ -95,6 +95,17 @@ describe('public landing page contract', () => {
     expect(landing).toContain('overflow-x-hidden')
     expect(landing).not.toContain('useBooks')
     expect(landing).not.toContain('supabase')
+  })
+
+  it('renders a visible no-JavaScript fallback before React can mount', () => {
+    expect(html).toContain('<div id="root">')
+    expect(html).toContain('Abrindo seu caminho de estudo')
+    expect(html).toContain('Se esta tela não avançar')
+    expect(html).toContain('href="/"')
+    expect(html).toContain('src="/src/main.jsx"')
+    // The initial shell must never embed a user profile, saved notes, or tokens.
+    expect(html).not.toContain('access_token')
+    expect(html).not.toContain('refresh_token')
   })
 
   it('ships description and social metadata', () => {

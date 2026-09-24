@@ -7,7 +7,7 @@ export default function ProtectedRoute({ children }) {
   const { user, loading } = useAuthStore()
   const location = useLocation()
 
-  if (loading) return <PageLoader />
+  if (loading) return <PageLoader recoverable />
 
   if (!user) {
     return <Navigate to="/entrar" state={{ from: location }} replace />

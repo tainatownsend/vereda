@@ -19,6 +19,7 @@ import DiscoverPage from '@/pages/DiscoverPage'
 import GettingStartedPage from '@/pages/GettingStartedPage'
 import StudyPlanPage from '@/pages/StudyPlanPage'
 import ReflectionPage from '@/pages/ReflectionPage'
+import MorePage from '@/pages/MorePage'
 import FavoritesPage from '@/pages/FavoritesPage'
 import EvolutionPage from '@/pages/EvolutionPage'
 import SettingsPage from '@/pages/SettingsPage'
@@ -81,6 +82,7 @@ export default function App() {
           <Route path="/biblioteca" element={<ProtectedRoute><LibraryPage /></ProtectedRoute>} />
           <Route path="/sugerir-obra" element={<ProtectedRoute><BookRequestsPage /></ProtectedRoute>} />
           <Route path="/reflexoes" element={<ProtectedRoute><ReflectionPage /></ProtectedRoute>} />
+          <Route path="/mais" element={<ProtectedRoute><MorePage /></ProtectedRoute>} />
           <Route path="/favoritos" element={<ProtectedRoute><FavoritesPage /></ProtectedRoute>} />
           <Route path="/notas" element={<ProtectedRoute><StudyNotesPage /></ProtectedRoute>} />
           <Route path="/salvos" element={<ProtectedRoute><SavedPassagesPage /></ProtectedRoute>} />
@@ -98,7 +100,7 @@ export default function App() {
 }
 
 function PublicAuthRoute({ loading, user, children }) {
-  if (loading) return <PageLoader />
+  if (loading) return <PageLoader recoverable />
   if (user) return <Navigate to="/home" replace />
   return children
 }
