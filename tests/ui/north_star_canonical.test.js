@@ -115,6 +115,19 @@ describe('Vereda North Star canonical screens', () => {
     expect(bottomNav).not.toContain("label: 'Comunidade'")
   })
 
+  it('offers a visible, accessible return to Início on the three section headers', () => {
+    const studies = readFileSync('src/pages/GuidedStudyPage.jsx', 'utf8')
+    const more = readFileSync('src/pages/MorePage.jsx', 'utf8')
+    for (const section of [studies, reflection, more]) {
+      expect(section).toContain('ArrowLeft')
+      expect(section).toContain('aria-label="Voltar')
+      expect(section).toContain('northstar-icon-button')
+    }
+    expect(studies).toContain("navigate('/home')")
+    expect(more).toContain("navigate('/home')")
+    expect(reflection).toContain('navigate(-1)')
+  })
+
   it('uses the approved four destinations for the isolated v1.3 mobile North Star', () => {
     const more = readFileSync('src/pages/MorePage.jsx', 'utf8')
     const app = readFileSync('src/App.jsx', 'utf8')
