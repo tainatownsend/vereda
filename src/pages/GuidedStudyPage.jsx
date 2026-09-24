@@ -1,4 +1,4 @@
-import { ArrowRight, BookOpen, CheckCircle2, Compass, Sparkles } from 'lucide-react'
+import { ArrowLeft, ArrowRight, BookOpen, CheckCircle2, Compass, Sparkles } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { EditorialCard, ProgressLine } from '@/components/northstar/NorthStarUI'
@@ -23,7 +23,12 @@ export default function GuidedStudyPage() {
   return (
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-9 sm:pt-12">
-        <header className="max-w-2xl">
+        <header className="flex max-w-2xl items-start gap-3">
+          <button type="button" onClick={() => navigate('/home')} aria-label="Voltar para Início"
+            className="northstar-icon-button -ml-2 shrink-0" title="Voltar para Início">
+            <ArrowLeft size={20} aria-hidden="true" />
+          </button>
+          <div className="min-w-0 flex-1">
           <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Estudo guiado</p>
           <h1 className="mt-2 font-display text-[2.25rem] font-semibold leading-tight text-ink dark:text-night-ink sm:text-[2.65rem]">
             Estude com orientação, sempre a partir da fonte.
@@ -31,6 +36,7 @@ export default function GuidedStudyPage() {
           <p className="mt-3 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">
             Cada encontro começa no texto da obra. O Vereda ajuda você a observar o contexto, fazer conexões e guardar sua própria reflexão — sem substituir a leitura original.
           </p>
+        </div>
         </header>
 
         <EditorialCard className="mt-7 overflow-hidden border-sage-200 bg-sage-50/80 p-5 dark:border-sage-900 dark:bg-sage-950/30 sm:p-6">
