@@ -33,6 +33,7 @@ export default function AuthPage({ initialMode = 'login' }) {
   const [error, setError] = useState('')
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
+  const [googleLoading, setGoogleLoading] = useState(false)
   const [resending, setResending] = useState(false)
 
   const {
@@ -145,6 +146,23 @@ export default function AuthPage({ initialMode = 'login' }) {
       setError('Não foi possível reenviar agora. Aguarde um pouco e tente novamente.')
     } finally {
       setResending(false)
+    }
+  }
+
+  const handleGoogleSignIn = async () => {
+    if (googleLoading) return
+    setGoogleLoading(true)
+    setError('')
+    setMessage('')
+    try {
+      await signInWithGoogle()
+    } catch (caughtError) {
+      const isProviderDisabled = /provider.*not enabled|google.*not enabled/i.test(caughtError?.message || '')
+      setError(isProviderDisabled
+        ? 'O acesso com Google ainda não está habilitado. Entre com e-mail e senha por enquanto.'
+        : 'Não foi possível iniciar o acesso com Google. Tente novamente no Safari ou entre com e-mail e senha.')
+    } finally {
+      setGoogleLoading(false)
     }
   }
 
@@ -319,7 +337,7 @@ export default function AuthPage({ initialMode = 'login' }) {
                         </div>
                       </div>
 
-                      <Button variant="secondary" onClick={signInWithGoogle} className="w-full">
+                      <Button variant="secondary" onClick={handleGoogleSignIn} loading={googleLoading} disabled={loading || googleLoading} className="w-full">
                         <GoogleIcon />
                         Continuar com Google
                       </Button>
