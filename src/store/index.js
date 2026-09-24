@@ -164,10 +164,22 @@ export const useAuthStore = create((set, get) => ({
   },
 
   signInWithGoogle: async () => {
-    await supabase.auth.signInWithOAuth({
+    // A disabled OAuth provider otherwise redirects users to an opaque Supabase 400 page.
+    // If this public settings check is unreachable, let Supabase handle the OAuth attempt.
+    const settings = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/auth/v1/settings`, {
+      headers: { apikey: import.meta.env.VITE_SUPABASE_ANON_KEY },
+    }).then(response => response.ok ? response.json() : null).catch(() => null)
+
+    if (settings?.external?.google === false) {
+      throw new Error('Google provider is not enabled')
+    }
+
+    const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: { redirectTo: `${window.location.origin}/home` },
     })
+    if (error) throw error
+    return data
   },
 
   signInWithEmail: async (email, password) => {
