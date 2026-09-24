@@ -1,6 +1,6 @@
-const EDITORIAL_AUTHOR = 'Vereda'
+const EDITORIAL_AUTHOR = 'Vereda · texto editorial'
 
-const REFLECTIONS = [
+const LEGACY_EDITORIAL_REFLECTIONS = [
   {
     id: 'small-choices',
     text: 'O progresso espiritual raramente acontece de uma vez. Muitas vezes ele começa numa escolha pequena, repetida com consciência.',
@@ -51,17 +51,78 @@ const REFLECTIONS = [
   },
 ]
 
+// Transcriptions and signatures checked against the linked edition on 2026-09-23.
+// Legacy IDs remain available only for previously saved editorial favorites.
+const REFLECTIONS = [
+  {
+    "id": "quote-faith-understanding",
+    "text": "E, para crer, não basta ver; é preciso, sobretudo, compreender.",
+    "author": "Allan Kardec",
+    "source": "O Evangelho segundo o Espiritismo · XIX, 7",
+    "sourceUrl": "https://www.kardecpedia.com/roteiro-de-estudos/887/o-evangelho-segundo-o-espiritismo/2554/capitulo-xix-a-fe-transporta-montanhas/a-fe-religiosa-condicao-da-fe-inabalavel/7",
+    "kind": "quotation"
+  },
+  {
+    "id": "quote-indulgence",
+    "text": "Sede indulgentes, meus amigos, porquanto a indulgência atrai, acalma, ergue, ao passo que o rigor desanima, afasta e irrita.",
+    "author": "José, Espírito protetor",
+    "source": "O Evangelho segundo o Espiritismo · X, 16",
+    "sourceUrl": "https://www.kardecpedia.com/roteiro-de-estudos/887/o-evangelho-segundo-o-espiritismo/2362/capitulo-x-bem-aventurados-os-que-sao-misericordiosos/instrucoes-dos-espiritos/a-indulgencia/16",
+    "kind": "quotation"
+  },
+  {
+    "id": "quote-moral-transformation",
+    "text": "Reconhece-se o verdadeiro espírita pela sua transformação moral e pelos esforços que emprega para domar suas inclinações más.",
+    "author": "Allan Kardec",
+    "source": "O Evangelho segundo o Espiritismo · XVII, 4",
+    "sourceUrl": "https://www.kardecpedia.com/roteiro-de-estudos/887/o-evangelho-segundo-o-espiritismo/2070/capitulo-xvii-sede-perfeitos",
+    "kind": "quotation"
+  },
+  {
+    "id": "quote-love-neighbor",
+    "text": "Amarás o teu próximo, como a ti mesmo.",
+    "author": "Jesus",
+    "source": "Mateus 22:39 · citado em O Evangelho segundo o Espiritismo, XV, 4",
+    "sourceUrl": "https://www.kardecpedia.com/roteiro-de-estudos/887/o-evangelho-segundo-o-espiritismo/2465/capitulo-xv-fora-da-caridade-nao-ha-salvacao/o-mandamento-maior/4",
+    "kind": "quotation"
+  },
+  {
+    "id": "quote-good-person",
+    "text": "O verdadeiro homem de bem é o que pratica a lei de justiça, amor e caridade, na sua maior pureza.",
+    "author": "Allan Kardec",
+    "source": "O Livro dos Espíritos · questão 918, comentário de Kardec",
+    "sourceUrl": "https://kardecpedia.com/roteiro-de-estudos/2/o-livrodos-espiritos/236/parte-terceira-das-leis-morais/capitulo-xii-da-perfeicao-moral/caracteres-do-homem-de-bem",
+    "kind": "quotation"
+  },
+  {
+    "id": "quote-charity",
+    "text": "FORA DA CARIDADE NÃO HÁ SALVAÇÃO.",
+    "author": "Allan Kardec",
+    "source": "O Evangelho segundo o Espiritismo · XV, 5",
+    "sourceUrl": "https://www.kardecpedia.com/roteiro-de-estudos/887/o-evangelho-segundo-o-espiritismo/2464/capitulo-xv-fora-da-caridade-nao-ha-salvacao/o-mandamento-maior",
+    "kind": "quotation"
+  },
+  {
+    "id": "quote-love-and-learn",
+    "text": "Espíritas! amai-vos, este o primeiro ensinamento; instruí-vos, este o segundo.",
+    "author": "Espírito de Verdade",
+    "source": "O Evangelho segundo o Espiritismo · VI, 5",
+    "sourceUrl": "https://www.kardecpedia.com/roteiro-de-estudos/887/o-evangelho-segundo-o-espiritismo/2271/capitulo-vi-o-cristo-consolador/instrucoes-dos-espiritos/advento-do-espirito-de-verdade/5",
+    "kind": "quotation"
+  }
+]
+
 export function getDailyReflection(date = new Date()) {
   const dateKey = toLocalDateKey(date)
   return {
-    ...withEditorialAttribution(REFLECTIONS[dayIndex(date) % REFLECTIONS.length]),
+    ...REFLECTIONS[dayIndex(date) % REFLECTIONS.length],
     dateKey,
   }
 }
 
 export function getNextReflection(currentId) {
   const currentIndex = Math.max(0, REFLECTIONS.findIndex((item) => item.id === currentId))
-  return withEditorialAttribution(REFLECTIONS[(currentIndex + 1) % REFLECTIONS.length])
+  return { ...REFLECTIONS[(currentIndex + 1) % REFLECTIONS.length] }
 }
 
 export function getPreviousDailyReflections(count = 7, fromDate = new Date()) {
@@ -83,18 +144,9 @@ export function formatReflectionDate(date) {
   }).format(date)
 }
 
-function withEditorialAttribution(reflection) {
-  return {
-    ...reflection,
-    author: EDITORIAL_AUTHOR,
-  }
-}
-
 function dayIndex(date) {
-  const local = new Date(date)
-  local.setHours(12, 0, 0, 0)
-  const start = new Date(2026, 0, 1, 12, 0, 0, 0)
-  return Math.max(0, Math.floor((local.getTime() - start.getTime()) / 86400000))
+  // Calendar days, unaffected by daylight-saving transitions.
+  return Math.max(0, Math.floor((Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(2026, 0, 1)) / 86400000))
 }
 
 function toLocalDateKey(date) {
@@ -104,4 +156,11 @@ function toLocalDateKey(date) {
     String(local.getMonth() + 1).padStart(2, '0'),
     String(local.getDate()).padStart(2, '0'),
   ].join('-')
+}
+
+export function getReflectionsByIds(ids) {
+  const catalog = [...REFLECTIONS, ...LEGACY_EDITORIAL_REFLECTIONS.map(reflection => ({
+    ...reflection, author: EDITORIAL_AUTHOR, kind: 'editorial',
+  }))]
+  return ids.map(id => catalog.find(reflection => reflection.id === id)).filter(Boolean)
 }

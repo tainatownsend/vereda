@@ -3,12 +3,12 @@ import northStarLandscape from '@/assets/northstar-landscape.svg'
 const CANVAS_WIDTH = 1080
 const CANVAS_HEIGHT = 1920
 
-export async function shareReflectionAsImage({ text, author = '' }) {
+export async function shareReflectionAsImage({ text, author = '', source = '' }) {
   const value = String(text || '').trim()
   if (!value) throw new Error('empty-reflection')
 
   const attribution = String(author || '').trim()
-  const blob = await renderReflectionCard({ text: value, author: attribution })
+  const blob = await renderReflectionCard({ text: value, author: attribution, source: String(source || '').trim() })
   const file = new File([blob], 'vereda-reflexao.png', { type: 'image/png' })
 
   if (navigator.share && navigator.canShare?.({ files: [file] })) {
@@ -42,7 +42,7 @@ async function copyImageToClipboard(blob) {
   }
 }
 
-async function renderReflectionCard({ text, author }) {
+export async function renderReflectionCard({ text, author, source = '' }) {
   const canvas = document.createElement('canvas')
   canvas.width = CANVAS_WIDTH
   canvas.height = CANVAS_HEIGHT
@@ -56,7 +56,7 @@ async function renderReflectionCard({ text, author }) {
   const panelWidth = 820
   const panelX = (CANVAS_WIDTH - panelWidth) / 2
   const maxTextWidth = 610
-  const maxTextHeight = 650
+  const maxTextHeight = source ? 530 : 650
   const font = fitText(context, text, maxTextWidth, maxTextHeight)
 
   context.font = `500 ${font}px Georgia, 'Times New Roman', serif`
@@ -64,12 +64,16 @@ async function renderReflectionCard({ text, author }) {
   const lineHeight = font * 1.4
   const textHeight = Math.max(lineHeight, lines.length * lineHeight)
 
-  const authorBlock = author ? 88 : 28
+  context.font = "italic 500 31px Georgia, 'Times New Roman', serif"
+  const authorLines = author ? wrapText(context, `— ${author}`, maxTextWidth) : []
+  context.font = '500 26px Arial, sans-serif'
+  const sourceLines = source ? wrapText(context, source, maxTextWidth) : []
+  const authorBlock = 58 + authorLines.length * 42 + sourceLines.length * 36
   const decorationBlock = 196
   const ornamentBlock = 62
   const verticalPadding = 184
   const contentHeight = decorationBlock + textHeight + authorBlock + ornamentBlock
-  const panelHeight = clamp(contentHeight + verticalPadding, 760, 1120)
+  const panelHeight = clamp(contentHeight + verticalPadding, 760, 1260)
   const panelY = clamp((CANVAS_HEIGHT - panelHeight) * 0.31, 300, 360)
 
   drawQuotePanel(context, panelX, panelY, panelWidth, panelHeight)
@@ -90,13 +94,22 @@ async function renderReflectionCard({ text, author }) {
   })
   context.restore()
 
-  if (author) {
-    y += 30
-    drawAttribution(context, centerX, y, author)
-    y += 66
-  } else {
+  y += 30
+  authorLines.forEach(line => {
+    drawAttribution(context, centerX, y, line)
     y += 42
+  })
+  if (sourceLines.length) {
+    y += 14
+    context.save()
+    context.fillStyle = '#5D685E'
+    context.textAlign = 'center'
+    context.textBaseline = 'top'
+    context.font = '500 26px Arial, sans-serif'
+    sourceLines.forEach(line => { context.fillText(line, centerX, y); y += 36 })
+    context.restore()
   }
+  y += 42
 
   drawBotanicalOrnament(context, centerX, y)
   drawBrandLockup(context)
@@ -337,7 +350,7 @@ function drawAttribution(context, x, y, author) {
   context.textAlign = 'center'
   context.textBaseline = 'top'
   context.font = "italic 500 31px Georgia, 'Times New Roman', serif"
-  context.fillText(`— ${author}`, x, y)
+  context.fillText(author, x, y)
   context.restore()
 }
 
@@ -399,7 +412,7 @@ function drawBrandLockup(context) {
 
   context.fillStyle = 'rgba(248, 244, 238, 0.80)'
   context.font = '500 16px Arial, sans-serif'
-  context.fillText('seu caminho de estudo espírita', centerX, 1792)
+  context.fillText('App de estudo guiado da doutrina espírita', centerX, 1792)
 
   context.strokeStyle = 'rgba(248, 244, 238, 0.52)'
   context.lineWidth = 1.4

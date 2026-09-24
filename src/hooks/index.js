@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useAuthStore, useReadingStore } from '@/store'
+import { getBookProgress } from '@/features/home/bookProgress'
 
 let booksRequest = null
 const loadedUserData = new Set()
@@ -17,8 +18,7 @@ export function useReadingTime(wordCount) {
 // Percentual de progresso num livro
 export function useProgress(bookId, totalSections) {
   const progress = useReadingStore(s => s.progress[bookId])
-  if (!progress || !totalSections) return 0
-  return Math.round(((progress.current_section - 1) / totalSections) * 100)
+  return getBookProgress(progress, totalSections).percent
 }
 
 // Percentual de scroll na página (barra do leitor)

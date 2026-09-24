@@ -169,7 +169,7 @@ describe('reader structural UI contract', () => {
     expect(session).toContain('const [hasPreviousSection, setHasPreviousSection] = useState(false)')
     expect(session).toContain('const canGoPrevious = currentIndex > 0 || hasPreviousSection')
     expect(session).toContain('getPreviousSection({')
-    expect(reader).toContain('disabled={!session.canGoPrevious}')
+    expect(reader).toContain('disabled={!session.canGoPrevious || session.saving}')
     expect(reader).not.toContain('disabled={currentSection.sec_position <= 1}')
   })
 
@@ -193,8 +193,8 @@ describe('reader structural UI contract', () => {
   it('uses the same horizontal hierarchy for topic and complementary-library cards', () => {
     expect(discover).toContain('className="flex items-start gap-4"')
     expect(discover).toContain('className="min-w-0 flex-1"')
-    expect(library).toContain('Obras complementares')
-    expect(library).toContain('className="flex items-start gap-4"')
+    expect(library).toContain('Sugerir uma obra complementar')
+    expect(library).toContain('study-book-row')
     expect(library).not.toContain('mt-5 p-6 text-center')
   })
 

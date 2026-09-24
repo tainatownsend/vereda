@@ -2,7 +2,7 @@ import { forwardRef, useId } from 'react'
 import { Loader2 } from 'lucide-react'
 
 const buttonBase =
-  'inline-flex min-h-14 items-center justify-center gap-2 rounded-vesMd px-6 py-3 font-body text-base font-semibold transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50'
+  'inline-flex min-h-14 items-center justify-center gap-2 rounded-vesMd px-6 py-3 font-body text-base font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50'
 
 const buttonVariants = {
   primary:

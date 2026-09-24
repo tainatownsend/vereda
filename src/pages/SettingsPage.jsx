@@ -193,7 +193,7 @@ export default function SettingsPage() {
                   {emailConfirmed ? 'E-mail confirmado' : 'Confirmação de e-mail pendente'}
                 </p>
               </div>
-              <span className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold ${emailConfirmed ? 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300' : 'bg-amber-100 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300'}`}>
+              <span className={`shrink-0 rounded-full px-2.5 py-1 text-sm font-semibold ${emailConfirmed ? 'bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300' : 'bg-amber-100 text-amber-800 dark:bg-amber-950/40 dark:text-amber-300'}`}>
                 {emailConfirmed ? 'Confirmado' : 'Pendente'}
               </span>
             </div>
@@ -387,7 +387,7 @@ function SettingsSection({ eyebrow, title, icon: Icon, children }) {
           <Icon size={20} aria-hidden="true" />
         </div>
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-sage-700 dark:text-sage-300">{eyebrow}</p>
+          <p className="text-sm font-bold uppercase tracking-[0.16em] text-sage-700 dark:text-sage-300">{eyebrow}</p>
           <h2 className="mt-1 font-display text-xl font-semibold leading-tight text-ink dark:text-night-ink">{title}</h2>
         </div>
       </div>

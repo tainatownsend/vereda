@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-route
 import { useAuthStore, useUIStore } from '@/store'
 import { PageLoader } from '@/components/ui'
 import BottomNav from '@/components/ui/BottomNav'
+import { UnavailableScreen } from '@/components/AppRecovery'
 import ProtectedRoute from '@/components/ProtectedRoute'
 import LandingPage from '@/pages/LandingPage'
 import AuthPage from '@/pages/AuthPage'
@@ -22,13 +23,14 @@ import ReflectionPage from '@/pages/ReflectionPage'
 import FavoritesPage from '@/pages/FavoritesPage'
 import EvolutionPage from '@/pages/EvolutionPage'
 import SettingsPage from '@/pages/SettingsPage'
+import MorePage from '@/pages/MorePage'
 import GuidedStudyPage from '@/pages/GuidedStudyPage'
 import GuidedStudyPathPage from '@/pages/GuidedStudyPathPage'
 import GuidedStudySessionPage from '@/pages/GuidedStudySessionPage'
 import { getAppFontSize, getThemeColor } from '@/features/ui/displayPreferences'
 
 export default function App() {
-  const { init, loading, user } = useAuthStore()
+  const { init, loading, user, authError } = useAuthStore()
   const { darkMode, appFontScale } = useUIStore()
 
   useEffect(() => { init() }, [init])
@@ -42,6 +44,8 @@ export default function App() {
   useEffect(() => {
     document.documentElement.style.fontSize = getAppFontSize(appFontScale)
   }, [appFontScale])
+
+  if (authError) return <UnavailableScreen />
 
   return (
     <div className={darkMode ? 'dark' : ''}>
@@ -85,6 +89,7 @@ export default function App() {
           <Route path="/notas" element={<ProtectedRoute><StudyNotesPage /></ProtectedRoute>} />
           <Route path="/salvos" element={<ProtectedRoute><SavedPassagesPage /></ProtectedRoute>} />
           <Route path="/evolucao" element={<ProtectedRoute><EvolutionPage /></ProtectedRoute>} />
+          <Route path="/mais" element={<ProtectedRoute><MorePage /></ProtectedRoute>} />
           <Route path="/configuracoes" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
           <Route path="/comunidade" element={<Navigate to="/descobrir" replace />} />
 

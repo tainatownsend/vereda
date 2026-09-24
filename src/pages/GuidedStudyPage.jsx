@@ -18,22 +18,22 @@ export default function GuidedStudyPage() {
     progress: guidedPathProgress(user, path),
   }))
 
-  const next = items.find((item) => item.progress.nextSession) || items[0]
+  const next = items.find((item) => item.progress.complete > 0 && item.progress.nextSession) || items.find((item) => item.progress.nextSession) || items[0]
 
   return (
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-9 sm:pt-12">
         <header className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Estudo guiado</p>
-          <h1 className="mt-2 font-display text-[2.25rem] font-semibold leading-tight text-ink dark:text-night-ink sm:text-[2.65rem]">
-            Estude com orientação, sempre a partir da fonte.
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Estudo guiado</p>
+          <h1 className="mt-2 font-display text-[2rem] font-semibold leading-tight text-ink dark:text-night-ink sm:text-[2.25rem]">
+            Um encontro de cada vez.
           </h1>
           <p className="mt-3 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">
-            Cada encontro começa no texto da obra. O Vereda ajuda você a observar o contexto, fazer conexões e guardar sua própria reflexão — sem substituir a leitura original.
+            Leia a obra, acompanhe a orientação e guarde sua reflexão, no seu ritmo.
           </p>
         </header>
 
-        <EditorialCard className="mt-7 overflow-hidden border-sage-200 bg-sage-50/80 p-5 dark:border-sage-900 dark:bg-sage-950/30 sm:p-6">
+        <details className="mt-4"><summary className="min-h-11 cursor-pointer py-3 text-base">Como funciona o estudo guiado</summary><EditorialCard className="p-5">
           <div className="flex items-start gap-4">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[13px] bg-white text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
               <Compass size={21} aria-hidden="true" />
@@ -45,7 +45,7 @@ export default function GuidedStudyPage() {
               </p>
             </div>
           </div>
-        </EditorialCard>
+        </EditorialCard></details>
 
         {next?.progress?.nextSession && (
           <section className="mt-8" aria-labelledby="guided-next-title">
@@ -61,7 +61,7 @@ export default function GuidedStudyPage() {
               <EditorialCard className="p-5 transition hover:-translate-y-0.5 hover:shadow-md sm:p-6">
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0">
-                    <p className="text-xs font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">{next.path.title}</p>
+                    <p className="text-sm font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">{next.path.title}</p>
                     <p className="mt-2 font-display text-xl font-semibold text-ink dark:text-night-ink">{next.progress.nextSession.title}</p>
                     <p className="mt-2 text-sm text-muted dark:text-night-muted">Cerca de {next.progress.nextSession.minutes} min · fonte + orientação + reflexão</p>
                   </div>
@@ -74,7 +74,7 @@ export default function GuidedStudyPage() {
 
         <section className="mt-9" aria-labelledby="guided-works-title">
           <div className="mb-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Cinco obras fundamentais</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Cinco obras fundamentais</p>
             <h2 id="guided-works-title" className="mt-1 font-display text-[1.7rem] font-semibold text-ink dark:text-night-ink">Escolha uma jornada</h2>
           </div>
 
@@ -101,7 +101,7 @@ export default function GuidedStudyPage() {
                   </div>
 
                   <div className="mt-5">
-                    <div className="mb-2 flex items-center justify-between gap-3 text-xs font-medium text-muted dark:text-night-muted">
+                    <div className="mb-2 flex items-center justify-between gap-3 text-sm font-medium text-muted dark:text-night-muted">
                       <span>{progress.complete} de {progress.total} encontros</span>
                       <span>{progress.percent}%</span>
                     </div>
@@ -109,7 +109,7 @@ export default function GuidedStudyPage() {
                   </div>
 
                   {!book && (
-                    <p className="mt-4 text-xs leading-relaxed text-clay-700 dark:text-clay-300">
+                    <p className="mt-4 text-sm leading-relaxed text-clay-700 dark:text-clay-300">
                       A obra ainda não foi localizada no catálogo desta conta. A jornada continua disponível assim que o conteúdo carregar.
                     </p>
                   )}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,13 +7,13 @@
 :root {
   color-scheme: light;
 
-  --ves-canvas: #F6F7F4;
-  --ves-surface: #FFFFFF;
-  --ves-surface-soft: #E8EDE6;
-  --ves-ink: #1F2933;
-  --ves-muted: #66706A;
-  --ves-line: #DCDCC8;
-  --ves-focus: #6F8F6F;
+  --ves-canvas: #F5F0E7;
+  --ves-surface: #FBF8F1;
+  --ves-surface-soft: #EEE4D4;
+  --ves-ink: #2C352B;
+  --ves-muted: #6F7168;
+  --ves-line: #DED5C7;
+  --ves-focus: #53664E;
   --ves-accent: #A7B8A1;
   --ves-sun: #D6C58F;
 
@@ -165,7 +165,7 @@
     background:
       radial-gradient(circle at 88% 18%, rgba(167, 184, 161, 0.24) 0 1.15rem, transparent 1.2rem),
       radial-gradient(ellipse at 86% 116%, rgba(167, 184, 161, 0.16) 0 38%, transparent 38.5%),
-      linear-gradient(145deg, #FFFFFF 0%, #F6F7F4 62%, #E8EDE6 100%);
+      linear-gradient(145deg, #FBF8F1 0%, #F5F0E7 62%, #EEE4D4 100%);
   }
 
   .northstar-home-quote::after {
@@ -279,5 +279,72 @@
   ::-webkit-scrollbar-thumb {
     background: #A8B39F;
     border-radius: 999px;
+  }
+}
+
+/* Approved editorial North Star — warm surfaces and an unhurried mobile rhythm. */
+@layer components {
+  .northstar-nav-item { @apply flex min-h-16 min-w-0 flex-col items-center justify-center gap-1.5 rounded-xl px-1 py-2 text-sm font-medium text-muted dark:text-night-muted; }
+  .northstar-nav-item.is-active { @apply text-sage-800 dark:text-sage-200; }
+  .northstar-nav-item.is-active svg { color: #886B32; }
+  .dark .northstar-nav-item.is-active svg { color: #E7D7B4; }
+  .home-welcome { @apply relative mt-7 overflow-hidden rounded-t-[18px]; }
+  .home-greeting { @apply relative z-10 px-1 pb-4; }
+  .home-landscape { @apply h-36 w-full object-cover; object-position: center 60%; }
+  .home-continue { @apply relative z-10 -mt-4; }
+  .continue-study-button { @apply flex min-h-40 w-full items-center gap-4 rounded-[14px] bg-sage-700 p-5 text-left text-white; }
+  .continue-study-button > div > div { background: #8D9A85; }
+  .continue-study-button > div > div > div { background: #F1E7CE; }
+  .home-reflection blockquote { font-style: italic; font-weight: 400; }
+  .northstar-home .home-reflection { background: var(--ves-surface-soft); box-shadow: none; }
+  .editorial-tabs { @apply flex gap-1 rounded-xl p-1; background: var(--ves-surface-soft); }
+  .editorial-tabs button { @apply min-h-11 min-w-0 flex-1 rounded-lg px-1.5 py-2 text-sm font-medium text-muted dark:text-night-muted; }
+  .editorial-tabs button:nth-child(2) { flex-grow: 1.45; }
+  .editorial-tabs button[aria-pressed='true'] { @apply text-ink dark:text-night-ink; background: #E7D7B4; }
+  .dark .editorial-tabs button[aria-pressed='true'] { background: #56634C; }
+  .study-book-row { @apply flex items-center gap-3 p-3.5 sm:gap-4 sm:p-4; }
+  .reflection-composition { @apply overflow-hidden rounded-[20px] border border-line dark:border-night-line; background: var(--ves-surface-soft); }
+  .reflection-composition img { @apply h-44 w-full object-cover sm:h-60; }
+  .reflection-quotation { @apply px-6 pb-8 pt-6 text-center; }
+  .reflection-quotation blockquote { font-style: italic; font-weight: 400; @apply font-display text-[1.5rem] leading-relaxed; }
+  .reflection-quotation::after { content: ''; display: block; width: 2.5rem; height: 1px; background: #A1844C; margin: 1.5rem auto 0; }
+  .reader-reflection { @apply mt-10 rounded-[18px] border border-line p-5 dark:border-night-line; background: var(--ves-surface-soft); }
+  .reader-reflection h2 { @apply flex items-center gap-2 font-display text-xl; }
+  .reader-reflection p { @apply mt-3 text-base leading-relaxed; }
+  .reader-chapter-nav { @apply mt-10 flex flex-wrap justify-between gap-3 border-t border-line pt-6 dark:border-night-line; }
+  .reader-chapter-nav button { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-line px-4 py-3 text-sm font-medium disabled:opacity-40 dark:border-night-line; }
+  .reader-chapter-nav button:last-child { @apply border-transparent bg-sage-700 text-white dark:bg-sage-300 dark:text-sage-950; }
+  .northstar-page :is(input, textarea, select) { font-size: max(1rem, 16px); }
+  .northstar-page .northstar-text-action { @apply text-sm; }
+  .northstar-page .northstar-section-title { @apply font-display text-xl; }
+  @media (min-width: 1024px) {
+    .northstar-container { max-width: 44rem; padding-left: 3rem; padding-right: 3rem; }
+    .northstar-home .northstar-container { max-width: 48rem; }
+    .home-landscape { height: 12rem; }
+  }
+}
+
+/* Vereda North Star mobile-density pass: preserve readable type and 44px+ targets. */
+@layer components {
+  @media (max-width: 639px) {
+    .northstar-home .northstar-container { padding-top: 0.75rem; }
+    .northstar-home .home-welcome { margin-top: 0.75rem; }
+    .northstar-home .home-greeting { padding-bottom: 0.65rem; }
+    .northstar-home .home-greeting h1 { font-size: 1.5rem; line-height: 1.22; }
+    .northstar-home .home-greeting p { margin-top: 0.35rem; font-size: 0.9375rem; line-height: 1.45; }
+    .northstar-home .home-landscape { height: 7.5rem; }
+    .northstar-home .home-continue { margin-top: -0.75rem; }
+    .northstar-home .home-continue > div { padding: 0.65rem; }
+    .northstar-home .home-continue h2 { margin-bottom: 0.5rem; font-size: 0.9375rem; }
+    .northstar-home .continue-study-button { min-height: 7.5rem; padding: 0.875rem 1rem; gap: 0.5rem; }
+    .northstar-home .continue-study-button h3 { font-size: 1.125rem; line-height: 1.25; }
+    .northstar-home .continue-study-button p { margin-top: 0.35rem; font-size: 0.875rem; line-height: 1.4; }
+    .northstar-home .continue-study-button .mt-5 { margin-top: 0.65rem; }
+    .northstar-home .home-continue + section { margin-top: 0.75rem; }
+    .northstar-home .home-reflection { padding: 0.875rem 1rem; }
+    .northstar-home .home-reflection blockquote { margin-top: 0.5rem; font-size: 1rem; line-height: 1.45; }
+    .northstar-home .home-reflection p { margin-top: 0.35rem; font-size: 0.875rem; line-height: 1.4; }
+    .northstar-home .home-reflection span { margin-top: 0.5rem; }
+    .ves-nav-shell .northstar-nav-item { min-height: 3.5rem; gap: 0.2rem; padding: 0.35rem 0; }
   }
 }
