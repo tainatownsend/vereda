@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import { BookOpen, Bookmark, ChartNoAxesCombined, NotebookPen, Settings, UserRound } from 'lucide-react'
+import { Link, useNavigate } from 'react-router-dom'
+import { ArrowLeft, BookOpen, Bookmark, ChartNoAxesCombined, NotebookPen, Settings, UserRound } from 'lucide-react'
 
 const entries = [
   { to: '/biblioteca', title: 'Biblioteca', detail: 'Encontre e explore as obras disponíveis.', Icon: BookOpen },
@@ -11,15 +11,22 @@ const entries = [
 ]
 
 export default function MorePage() {
+  const navigate = useNavigate()
   return (
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-8 sm:pt-12">
-        <header>
+        <header className="flex items-start gap-3">
+          <button type="button" onClick={() => navigate('/home')} aria-label="Voltar para Início"
+            className="northstar-icon-button -ml-2 shrink-0" title="Voltar para Início">
+            <ArrowLeft size={20} aria-hidden="true" />
+          </button>
+          <div className="min-w-0 flex-1">
           <p className="text-xs font-semibold uppercase tracking-widest text-sage-700 dark:text-sage-300">Sua biblioteca e preferências</p>
           <h1 className="mt-2 font-display text-[2rem] font-semibold leading-tight text-ink dark:text-night-ink">Mais</h1>
           <p className="mt-2 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">
             Encontre suas notas, seus trechos salvos e as opções de leitura.
           </p>
+        </div>
         </header>
         <nav aria-label="Recursos e preferências" className="mt-7 grid gap-3">
           {entries.map(({ to, title, detail, Icon }) => (
