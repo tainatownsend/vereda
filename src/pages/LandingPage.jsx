@@ -44,7 +44,7 @@ export default function LandingPage() {
             <VeredaLogo size={46} />
             <div className="min-w-0">
               <p className="font-display text-xl font-semibold tracking-[0.12em] text-ink dark:text-night-ink">VEREDA</p>
-              <p className="hidden text-[11px] font-medium text-muted dark:text-night-muted sm:block">Seu caminho de estudo espírita</p>
+              <p className="hidden text-sm font-medium text-muted dark:text-night-muted sm:block">App de estudo guiado da doutrina espírita</p>
             </div>
           </Link>
 
@@ -232,10 +232,10 @@ export default function LandingPage() {
                 <VeredaLogo size={44} />
                 <div>
                   <p className="font-display text-lg font-semibold tracking-[0.12em] text-ink dark:text-night-ink">VEREDA</p>
-                  <p className="text-[11px] font-medium text-muted dark:text-night-muted">Seu caminho de estudo espírita</p>
+                  <p className="text-sm font-medium text-muted dark:text-night-muted">App de estudo guiado da doutrina espírita</p>
                 </div>
               </Link>
-              <p className="mt-4 font-display text-lg leading-relaxed text-ink/90 dark:text-night-ink">Estudo que ilumina. Caminho que transforma.</p>
+              <p className="mt-4 font-display text-lg leading-relaxed text-ink/90 dark:text-night-ink">Conhecimento que ilumina. Acolhimento que transforma.</p>
             </div>
 
             <nav aria-label="Links da apresentação">

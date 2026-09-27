@@ -23,6 +23,6 @@ describe('display preference contract', () => {
   it('uses the approved Caminho de Luz browser colors', () => {
     expect(getThemeColor(false)).toBe(THEME_COLORS.light)
     expect(getThemeColor(true)).toBe(THEME_COLORS.dark)
-    expect(THEME_COLORS).toEqual({ light: '#4F6757', dark: '#182019' })
+    expect(THEME_COLORS).toEqual({ light: '#F5F0E7', dark: '#2C352F' })
   })
 })

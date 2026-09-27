@@ -1,175 +1,50 @@
+import PageBackButton from '@/components/ui/PageBackButton'
+import BookLoadState from '@/components/ui/BookLoadState'
 import { useState } from 'react'
-import { ArrowRight, BookPlus, Compass } from 'lucide-react'
+import { ChevronRight, Compass, Search } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-
-import { useBooks, useProgress } from '@/hooks'
-import { useReadingStore } from '@/store'
+import { useBooks, useUserData } from '@/hooks'
 import { PageLoader } from '@/components/ui'
-import {
-  BookCover,
-  EditorialCard,
-  ProgressLine,
-} from '@/components/northstar/NorthStarUI'
-
-const BOOK_ACCENT_COLORS = {
-  1: '#5E7664',
-  2: '#AB6D50',
-  3: '#B9A46E',
-  4: '#8FA68F',
-  5: '#C98C6B',
-}
+import { BookCover, EditorialCard, ProgressLine } from '@/components/northstar/NorthStarUI'
+import { getBookProgress } from '@/features/home/bookProgress'
 
 export default function LibraryPage() {
   const navigate = useNavigate()
   const books = useBooks()
-  const { progress } = useReadingStore()
-  const [tab, setTab] = useState('basicas')
-
-  if (!books.length) return <PageLoader label="Carregando obras" />
-
-  return (
-    <main className="northstar-page pb-28">
-      <div className="northstar-container pt-9">
-        <header>
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Suas obras</p>
-          <h1 className="mt-1 font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Biblioteca</h1>
-          <p className="mt-2 max-w-md text-sm leading-relaxed text-muted dark:text-night-muted">
-            Continue de onde parou, escolha uma obra ou siga uma jornada guiada no seu ritmo.
-          </p>
-        </header>
-
-        <EditorialCard className="mt-6 overflow-hidden border-sage-200 bg-sage-50/80 p-5 dark:border-sage-900 dark:bg-sage-950/25 sm:p-6">
-          <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] bg-white text-sage-800 shadow-sm dark:bg-night-surface dark:text-sage-300">
-              <Compass size={22} aria-hidden="true" />
-            </div>
-            <div className="min-w-0 flex-1">
-              <p className="text-xs font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Estudo Guiado</p>
-              <h2 className="mt-1 font-display text-xl font-semibold leading-snug text-ink dark:text-night-ink">Um passo de cada vez, com a obra ao seu lado.</h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted dark:text-night-muted">
-                Encontros curtos ajudam você a ler, compreender e refletir sem pressa. É o melhor caminho quando você quer companhia para estudar.
-              </p>
-              <button
-                type="button"
-                onClick={() => navigate('/estudo-guiado')}
-                className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-vesSm bg-sage-700 px-4 text-sm font-semibold text-white hover:bg-sage-800"
-              >
-                Abrir Estudo Guiado <ArrowRight size={17} aria-hidden="true" />
-              </button>
-            </div>
-          </div>
-        </EditorialCard>
-
-        <section className="mt-8" aria-labelledby="free-reading-heading">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-muted dark:text-night-muted">Leitura livre</p>
-            <h2 id="free-reading-heading" className="mt-1 font-display text-[1.45rem] font-semibold text-ink dark:text-night-ink">Escolha uma obra e siga no seu ritmo</h2>
-          </div>
-
-          <div className="mt-4 grid grid-cols-2 border-b border-line dark:border-night-line" role="tablist" aria-label="Tipos de obra">
-            <TabButton active={tab === 'basicas'} onClick={() => setTab('basicas')}>Básicas</TabButton>
-            <TabButton active={tab === 'complementares'} onClick={() => setTab('complementares')}>Complementares</TabButton>
-          </div>
-
-          {tab === 'basicas' ? (
-            <div className="mt-5">
-              <ol className="space-y-3" aria-label="Caminho pelas obras básicas">
-                {books.map((book, index) => (
-                  <BookJourneyRow
-                    key={book.id}
-                    book={book}
-                    isLast={index === books.length - 1}
-                    onOpen={() => navigate(progress[book.id] ? `/ler/${book.id}` : `/livro/${book.id}`)}
-                  />
-                ))}
-              </ol>
-            </div>
-          ) : (
-            <EditorialCard className="mt-5 p-5">
-              <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-vesSm bg-sage-100 text-sage-800 dark:bg-sage-950 dark:text-sage-300">
-                  <BookPlus size={20} aria-hidden="true" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <h3 className="font-display text-lg font-semibold text-ink dark:text-night-ink">Obras complementares</h3>
-                  <p className="mt-1.5 max-w-md text-sm leading-relaxed text-muted dark:text-night-muted">
-                    Outras obras poderão ampliar esta biblioteca depois da consolidação do núcleo fundamental.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => navigate('/sugerir-obra')}
-                    className="mt-4 inline-flex min-h-11 items-center justify-center rounded-vesSm border border-sage-300 bg-surface px-4 text-sm font-semibold text-sage-800 shadow-sm hover:bg-sage-50 dark:border-night-line dark:bg-night-surface dark:text-sage-200"
-                  >
-                    Sugerir uma obra complementar
-                  </button>
-                </div>
-              </div>
-            </EditorialCard>
-          )}
-        </section>
+  const { progress, dataLoading } = useUserData()
+  const [tab, setTab] = useState('all')
+  if (!books.length) return <BookLoadState />
+  if (dataLoading) return <PageLoader label="Carregando estudos" />
+  const visibleBooks = books.filter(book => {
+    const state = getBookProgress(progress[book.id], book.total_sections)
+    return tab === 'all' || (tab === 'active' ? state.started && !state.completed : state.completed)
+  })
+  return <main className="northstar-page pb-28">
+    <div className="northstar-container pt-8">
+      <header className="flex items-center justify-between gap-3"><div className="flex min-w-0 items-center gap-2"><PageBackButton /><h1 className="min-w-0 font-display text-[2rem]">Estudos</h1></div>
+        <button type="button" onClick={() => navigate('/descobrir')} className="northstar-icon-button" aria-label="Pesquisar nas obras"><Search size={22} /></button></header>
+      <div className="editorial-tabs mt-5" role="group" aria-label="Filtrar estudos">
+        {[['all', 'Todos'], ['active', 'Em andamento'], ['complete', 'Concluídos']].map(([id, label]) => <button key={id} type="button" aria-pressed={tab === id} onClick={() => setTab(id)}>{label}</button>)}
       </div>
-    </main>
-  )
-}
-
-function TabButton({ active, children, onClick }) {
-  return (
-    <button
-      type="button"
-      role="tab"
-      aria-selected={active}
-      onClick={onClick}
-      className={`relative min-h-12 px-3 text-sm font-medium ${active ? 'text-sage-800 dark:text-sage-200' : 'text-muted dark:text-night-muted'}`}
-    >
-      {children}
-      {active && <span className="absolute inset-x-5 bottom-[-1px] h-[2px] bg-sage-600 dark:bg-sage-300" />}
-    </button>
-  )
-}
-
-function BookJourneyRow({ book, isLast, onOpen }) {
-  const percentage = useProgress(book.id, book.total_sections)
-  const sequence = getBookSequence(book)
-  const accent = BOOK_ACCENT_COLORS[sequence] || '#5E7664'
-
-  return (
-    <li className="relative grid grid-cols-[3.25rem_minmax(0,1fr)] gap-3">
-      <div className="relative flex justify-center" aria-hidden="true">
-        {!isLast && (
-          <span className="absolute left-1/2 top-11 bottom-[-0.9rem] w-[2px] -translate-x-1/2 rounded-full bg-line dark:bg-night-line" />
-        )}
-        <span
-          className="relative z-10 flex h-11 w-11 items-center justify-center rounded-full border-2 bg-canvas font-display text-base font-semibold shadow-sm dark:bg-night-surface"
-          style={{ borderColor: accent, color: accent }}
-        >
-          {sequence}
-        </span>
-      </div>
-
-      <EditorialCard as="button" type="button" onClick={onOpen} className="min-h-[7rem] w-full p-3.5 text-left">
-        <div className="flex items-center gap-3.5">
-          <BookCover book={book} size="sm" color={accent} />
-          <div className="min-w-0 flex-1">
-            <p className="font-display text-[1.03rem] font-semibold leading-tight text-ink dark:text-night-ink">{book.title}</p>
-            <p className="mt-1 text-xs text-muted dark:text-night-muted">{book.author || 'Allan Kardec'}</p>
-            <div className="mt-3">
-              <div className="mb-1.5 flex items-center justify-between gap-3 text-xs font-medium text-muted dark:text-night-muted">
-                <span>Seu progresso</span>
-                <span className="font-semibold text-sage-700 dark:text-sage-300">{percentage}%</span>
-              </div>
-              <ProgressLine value={percentage} />
-            </div>
-          </div>
-        </div>
-      </EditorialCard>
-    </li>
-  )
-}
-
-function getBookSequence(book) {
-  const displayOrder = Number(book.display_order)
-  if (Number.isFinite(displayOrder) && displayOrder > 0) return displayOrder
-
-  const bookId = Number(book.id)
-  return Number.isFinite(bookId) && bookId > 0 ? bookId : '•'
+      <ol className="mt-5 space-y-3" aria-label="Obras fundamentais">
+        {visibleBooks.map(book => {
+          const state = getBookProgress(progress[book.id], book.total_sections)
+          return <li key={book.id}><EditorialCard as="button" type="button" className="study-book-row w-full text-left"
+            onClick={() => navigate(state.started ? `/ler/${book.id}${state.completed ? '?revisit=1' : ''}` : `/livro/${book.id}`)}>
+            <BookCover book={book} size="sm" />
+            <div className="min-w-0 flex-1"><h2 className="font-display text-base font-semibold leading-snug sm:text-lg">{book.title}</h2>
+              <p className="mt-1 text-sm text-muted dark:text-night-muted">{book.author || 'Allan Kardec'}</p>
+              <ProgressLine value={state.percent} className="mt-3" />
+              <p className="mt-2 text-sm text-muted dark:text-night-muted">{state.completed ? 'Leitura concluída' : state.total ? `${state.read} de ${state.total} trechos` : 'Pronto para começar'}</p>
+            </div><ChevronRight size={23} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+          </EditorialCard></li>
+        })}
+      </ol>
+      {!visibleBooks.length && <p role="status" className="py-8 text-base leading-relaxed text-muted dark:text-night-muted">{!books.length ? 'Não foi possível carregar as obras. Tente recarregar a página.' : tab === 'complete' ? 'Cada leitura tem seu tempo. Suas obras concluídas aparecerão aqui.' : 'Seu próximo estudo começa em Todos. Escolha uma obra para começar.'}</p>}
+      <section className="mt-7 border-t border-line pt-5 dark:border-night-line" aria-label="Outras formas de estudar">
+        <button type="button" onClick={() => navigate('/estudo-guiado')} className="flex min-h-14 w-full items-center gap-3 text-left"><Compass size={22} className="shrink-0 text-sage-700 dark:text-sage-300" /><span className="min-w-0 flex-1"><span className="block font-display text-lg">Estudo guiado</span><span className="mt-1 block text-sm text-muted dark:text-night-muted">Leitura passo a passo, com tempo para refletir.</span></span><ChevronRight size={20} /></button>
+        <button type="button" onClick={() => navigate('/sugerir-obra')} className="northstar-text-action mt-3">Sugerir uma obra complementar</button>
+      </section>
+    </div>
+  </main>
 }

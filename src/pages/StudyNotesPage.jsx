@@ -1,5 +1,6 @@
+import PageBackButton from '@/components/ui/PageBackButton'
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, BookOpen, NotebookPen } from 'lucide-react'
+import { BookOpen, NotebookPen } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useAuthStore } from '@/store'
@@ -37,16 +38,9 @@ export default function StudyNotesPage() {
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-8">
         <header className="flex items-start gap-3">
-          <button
-            type="button"
-            className="northstar-icon-button -ml-2 mt-0.5"
-            onClick={() => navigate('/favoritos')}
-            aria-label="Voltar aos favoritos"
-          >
-            <ArrowLeft size={20} />
-          </button>
+          <PageBackButton fallback="/mais" />
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Seu estudo</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-sage-700 dark:text-sage-300">Seu estudo</p>
             <h1 className="mt-1 font-display text-[2rem] font-semibold text-ink dark:text-night-ink">Notas de estudo</h1>
             <p className="mt-2 max-w-lg text-sm leading-relaxed text-muted dark:text-night-muted">
               Ideias, dúvidas e conexões que você guardou durante a leitura aparecem aqui junto do trecho de origem.
@@ -74,7 +68,7 @@ export default function StudyNotesPage() {
                       {note.text}
                     </p>
                     <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-                      <span className="text-xs text-muted dark:text-night-muted">
+                      <span className="text-sm text-muted dark:text-night-muted">
                         {formatJournalDate(note.entryDate)}
                       </span>
                       {note.sectionId ? (
@@ -87,7 +81,7 @@ export default function StudyNotesPage() {
                           Abrir trecho de origem
                         </button>
                       ) : (
-                        <span className="text-xs text-muted dark:text-night-muted">Trecho de origem indisponível</span>
+                        <span className="text-sm text-muted dark:text-night-muted">Trecho de origem indisponível</span>
                       )}
                     </div>
                   </div>

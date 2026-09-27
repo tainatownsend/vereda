@@ -9,7 +9,7 @@ describe('v1 scope: future media experiences', () => {
     expect(home).not.toContain('Resumos')
     expect(home).not.toContain('Audiobooks')
     expect(home).not.toContain('Em breve')
-    expect(home).toContain('Continue sua leitura')
+    expect(home).toContain('Continuar estudo')
     expect(home).not.toContain('Outros caminhos')
     expect(home).not.toContain('Continuar no Estudo Guiado')
   })

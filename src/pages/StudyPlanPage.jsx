@@ -28,7 +28,7 @@ export default function StudyPlanPage() {
     setStatus('')
     try {
       await updateStudyPlan(plan)
-      setStatus('Seu ritmo foi salvo. O Vereda vai usar isso para tornar o próximo passo mais claro, sem cobrar sequência.')
+      setStatus('Seu ritmo foi salvo para você consultar e ajustar quando precisar, sem cobrar sequência.')
     } catch {
       setStatus('Não foi possível salvar agora. Tente novamente em instantes.')
     } finally {
@@ -51,7 +51,7 @@ export default function StudyPlanPage() {
           <p className="ves-eyebrow mt-5">Seu ritmo</p>
           <h1 className="ves-heading mt-2 text-[2.35rem] leading-[1.08] sm:text-[2.8rem]">Quanto estudo cabe na sua rotina?</h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-muted dark:text-night-muted">
-            Isso não cria uma obrigação. Serve apenas para o Vereda sugerir sessões que caibam de verdade no seu dia e ajudar você a retomar sem culpa depois de uma pausa.
+            Registre o tempo e a frequência que combinam com sua rotina. Este plano é uma referência pessoal: você pode ajustá-lo ou retomar depois de uma pausa, sem obrigação.
           </p>
         </header>
 

@@ -19,7 +19,7 @@ describe('founder mobile P0 safeguards', () => {
   it('keeps Home focused by leaving reminders inside Perfil', () => {
     expect(home).not.toContain('Bell')
     expect(home).not.toContain('Abrir lembretes e notificações')
-    expect(home).not.toContain("navigate('/configuracoes')")
+    expect(home).toContain('Abrir meu perfil')
   })
 
   it('does not read Notification.permission unless notifications are supported', () => {
@@ -60,9 +60,9 @@ describe('founder mobile P0 safeguards', () => {
   })
 
   it('keeps the in-app Library journey visual but removes redundant explanatory blocks', () => {
-    expect(library).toContain('Caminho pelas obras básicas')
-    expect(library).toContain('Seu progresso')
-    expect(library).toContain('bottom-[-0.9rem]')
+    expect(library).toContain('Obras fundamentais')
+    expect(library).toContain('state.read')
+    expect(library).toContain('ProgressLine')
     expect(library).toContain('Sugerir uma obra complementar')
     expect(library).not.toContain('Uma jornada pelas obras básicas')
     expect(library).not.toContain('A ordem abaixo é apenas uma sugestão')

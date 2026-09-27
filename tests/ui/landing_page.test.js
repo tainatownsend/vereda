@@ -38,8 +38,8 @@ describe('public landing page contract', () => {
   })
 
   it('uses one canonical Spiritist-study message across Landing and Auth', () => {
-    expect(landing).toContain('Seu caminho de estudo espírita')
-    expect(auth).toContain('Seu caminho de estudo espírita')
+    expect(landing).toContain('App de estudo guiado da doutrina espírita')
+    expect(auth).toContain('App de estudo guiado da doutrina espírita')
     expect(landing).not.toContain('seu caminho de aprendizado')
     expect(auth).not.toContain('seu caminho de aprendizado')
   })
@@ -81,7 +81,7 @@ describe('public landing page contract', () => {
   })
 
   it('ends with a branded footer that provides useful real navigation', () => {
-    expect(landing).toContain('Estudo que ilumina. Caminho que transforma.')
+    expect(landing).toContain('Conhecimento que ilumina. Acolhimento que transforma.')
     expect(landing).toContain('id="como-funciona"')
     expect(landing).toContain('id="biblioteca"')
     expect(landing).toContain('id="perguntas-frequentes"')

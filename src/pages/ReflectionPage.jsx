@@ -1,14 +1,17 @@
+import PageBackButton from '@/components/ui/PageBackButton'
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, Bookmark, Cloud, CloudOff, Image, Quote, RefreshCw, Share2 } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { Heart, Bookmark, Cloud, CloudOff, Image, Quote, RefreshCw, Share2 } from 'lucide-react'
+import { useSearchParams } from 'react-router-dom'
 
-import northStarLandscape from '@/assets/northstar-landscape.svg'
+import northStarLandscape from '@/assets/vereda-sunrise.webp'
 import { useAuthStore } from '@/store'
 import { Button } from '@/components/ui'
 import { EditorialCard } from '@/components/northstar/NorthStarUI'
+import { getFavoriteReflectionIds } from '@/features/reflections/favorites'
 import { shareReflectionAsImage } from '@/features/share/reflectionCard'
 import {
   getDailyReflection,
+  getReflectionsByIds,
   getNextReflection,
   getPreviousDailyReflections,
 } from '@/features/reflections/dailyReflections'
@@ -21,8 +24,13 @@ import {
 
 
 export default function ReflectionPage() {
-  const navigate = useNavigate()
-  const { user } = useAuthStore()
+  const [searchParams, setSearchParams] = useSearchParams()
+  const tab = ['today', 'favorites', 'mine'].includes(searchParams.get('tab')) ? searchParams.get('tab') : 'today'
+  const { user, setReflectionFavorite } = useAuthStore()
+  const [savingFavorite, setSavingFavorite] = useState(false)
+  const [favoriteStatus, setFavoriteStatus] = useState('')
+  const favoriteIds = getFavoriteReflectionIds(user)
+  const favorites = getReflectionsByIds(favoriteIds)
   const [note, setNote] = useState('')
   const [entries, setEntries] = useState([])
   const [loading, setLoading] = useState(true)
@@ -56,10 +64,10 @@ export default function ReflectionPage() {
     [entries],
   )
 
-  const shareImage = async ({ text, author }) => {
+  const shareImage = async ({ text, author, source }) => {
     setShareStatus('')
     try {
-      const result = await shareReflectionAsImage({ text, author })
+      const result = await shareReflectionAsImage({ text, author, source })
       if (result === 'shared') {
         setShareStatus('Compartilhamento aberto com a arte da reflexão.')
       } else if (result === 'copied') {
@@ -71,6 +79,18 @@ export default function ReflectionPage() {
       if (error?.name === 'AbortError') return
       setShareStatus('Não foi possível criar a imagem agora. Tente novamente.')
     }
+  }
+
+  const toggleFavorite = async (id) => {
+    if (savingFavorite) return
+    setSavingFavorite(true)
+    setFavoriteStatus('')
+    try {
+      const saved = !favoriteIds.includes(id)
+      await setReflectionFavorite(id, saved)
+      setFavoriteStatus(saved ? 'Reflexão salva nas favoritas da sua conta.' : 'Reflexão removida das favoritas.')
+    } catch { setFavoriteStatus('Não foi possível salvar agora. Tente novamente.') }
+    finally { setSavingFavorite(false) }
   }
 
   const saveReflection = async () => {
@@ -105,79 +125,47 @@ export default function ReflectionPage() {
   return (
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-8">
-        <header className="flex items-center gap-3">
-          <button type="button" className="northstar-icon-button -ml-2" onClick={() => navigate(-1)} aria-label="Voltar">
-            <ArrowLeft size={20} />
-          </button>
-          <div className="min-w-0 flex-1">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Reflexões</p>
-            <h1 className="mt-1 font-display text-[1.55rem] font-semibold text-ink dark:text-night-ink">Um espaço para parar e pensar</h1>
-          </div>
-        </header>
-
-        <div className="mt-4 overflow-hidden rounded-[18px] border border-line bg-sage-100 dark:border-night-line">
-          <img src={northStarLandscape} alt="Caminho sereno em meio à natureza" className="h-52 w-full object-cover" />
+        <header><div className="flex min-w-0 items-center gap-2"><PageBackButton /><h1 className="min-w-0 font-display text-[2rem]">Reflexões</h1></div></header>
+        <div className="editorial-tabs mt-5" role="group" aria-label="Escolher reflexões">
+          {[['today', 'Hoje'], ['favorites', 'Favoritas'], ['mine', 'Minhas']].map(([id, label]) => <button key={id} type="button" aria-pressed={tab === id} onClick={() => setSearchParams(id === 'today' ? {} : { tab: id }, { replace: true })}>{label}</button>)}
         </div>
-
-        <EditorialCard className="mt-3 p-5">
-          <div className="flex gap-3">
-            <Quote size={20} className="mt-1 shrink-0 text-sage-700" />
-            <div className="min-w-0 flex-1">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">
-                {featuredReflection.id === dailyReflection.id ? 'Reflexão de hoje' : 'Outra reflexão'}
-              </p>
-              <p className="mt-2 font-display text-[1.22rem] leading-[1.55] text-ink dark:text-night-ink">
-                “{featuredReflection.text}”
-              </p>
-              <p className="mt-2 text-xs font-semibold text-muted dark:text-night-muted">
-                — {featuredReflection.author}
-              </p>
-              <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
-                <button
-                  type="button"
-                  onClick={() => shareImage({ text: featuredReflection.text, author: featuredReflection.author })}
-                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-vesSm border border-sage-300 px-4 text-sm font-semibold text-sage-800 dark:border-sage-800 dark:text-sage-300"
-                  aria-label="Compartilhar esta reflexão"
-                >
-                  <Share2 size={16} />
-                  Compartilhar
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setFeaturedReflection((current) => getNextReflection(current.id))
-                    setShareStatus('')
-                  }}
-                  className="inline-flex min-h-10 items-center justify-center gap-2 rounded-vesSm px-4 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950/30"
-                >
-                  <RefreshCw size={16} aria-hidden="true" />
-                  Gerar outra reflexão
-                </button>
-              </div>
-            </div>
+        {tab === 'today' && <>
+        <section className="reflection-composition mt-5" aria-label="Reflexão de hoje">
+          <img src={northStarLandscape} alt="Colinas ao amanhecer, em uma paisagem serena" />
+          <div className="reflection-quotation"><blockquote>“{featuredReflection.text}”</blockquote>
+            <p className="mt-5 text-sm text-muted dark:text-night-muted">{featuredReflection.author}</p>
+            <ReflectionSource reflection={featuredReflection} />
           </div>
-        </EditorialCard>
-
+        </section>
+        <div className="mt-3 flex flex-wrap items-center justify-around gap-2">
+          <button type="button" onClick={() => toggleFavorite(featuredReflection.id)} disabled={savingFavorite} aria-pressed={favoriteIds.includes(featuredReflection.id)} className="inline-flex min-h-12 items-center gap-2 rounded-xl px-4 text-base disabled:opacity-50">
+            <Heart size={20} fill={favoriteIds.includes(featuredReflection.id) ? 'currentColor' : 'none'} aria-hidden="true" />{favoriteIds.includes(featuredReflection.id) ? 'Salva' : 'Salvar'}
+          </button>
+          <button type="button" onClick={() => shareImage(featuredReflection)} className="inline-flex min-h-12 items-center gap-2 rounded-xl px-4 text-base" aria-label="Compartilhar esta reflexão"><Share2 size={20} aria-hidden="true" />Compartilhar</button>
+        </div>
+        <button type="button" onClick={() => { setFeaturedReflection(current => getNextReflection(current.id)); setShareStatus('') }} className="northstar-text-action mt-3 inline-flex items-center gap-2"><RefreshCw size={16} aria-hidden="true" />Ler outra reflexão</button>
+        <details className="mt-5"><summary className="min-h-11 cursor-pointer py-3 text-base">Reflexões anteriores</summary>
         <section className="mt-7" aria-labelledby="previous-daily-reflections-heading">
           <div className="flex items-end justify-between gap-4">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Para revisitar</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Para revisitar</p>
               <h2 id="previous-daily-reflections-heading" className="northstar-section-title mt-1">Reflexões anteriores</h2>
             </div>
-            <span className="text-xs text-muted dark:text-night-muted">{previousDailyReflections.length}</span>
+            <span className="text-sm text-muted dark:text-night-muted">{previousDailyReflections.length}</span>
           </div>
 
           <div className="mt-3 space-y-2">
             {previousDailyReflections.map((reflection) => (
               <EditorialCard key={reflection.dateKey} className="p-4">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">{reflection.label}</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">{reflection.label}</p>
                 <p className="mt-2 text-sm leading-relaxed text-ink dark:text-night-ink">“{reflection.text}”</p>
-                <p className="mt-1.5 text-xs font-semibold text-muted dark:text-night-muted">— {reflection.author}</p>
+                <p className="mt-1.5 text-sm font-semibold text-muted dark:text-night-muted">— {reflection.author}</p>
+            <ReflectionSource reflection={reflection} />
                 <div className="mt-2 flex justify-end">
                   <button
                     type="button"
-                    onClick={() => shareImage({ text: reflection.text, author: reflection.author })}
-                    className="inline-flex min-h-9 items-center gap-1.5 rounded-full px-2 text-xs font-semibold text-sage-700 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-night"
+                    onClick={() => shareImage(reflection)}
+                    className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-2 text-sm font-semibold text-sage-700 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-night"
                     aria-label={`Compartilhar reflexão de ${reflection.label}`}
                   >
                     <Share2 size={15} aria-hidden="true" />
@@ -189,15 +177,28 @@ export default function ReflectionPage() {
           </div>
         </section>
 
+        </details></>}
+        {tab === 'favorites' && <section className="mt-5" aria-label="Reflexões favoritas">
+          {favorites.length ? favorites.map(reflection => <EditorialCard key={reflection.id} className="mb-3 p-5">
+            <blockquote className="font-display text-xl leading-relaxed">“{reflection.text}”</blockquote>
+            <p className="mt-3 text-sm text-muted dark:text-night-muted">{reflection.author}</p>
+            <ReflectionSource reflection={reflection} />
+            <div className="mt-3 flex flex-wrap gap-3"><button type="button" disabled={savingFavorite} onClick={() => toggleFavorite(reflection.id)} className="northstar-text-action">Remover das favoritas</button>
+              <button type="button" onClick={() => shareImage(reflection)} className="northstar-text-action">Compartilhar</button></div>
+          </EditorialCard>) : <p className="py-8 text-base leading-relaxed text-muted dark:text-night-muted">Salve uma reflexão em Hoje para encontrá-la aqui quando precisar.</p>}
+        </section>}
+        {favoriteStatus && <p role="status" className="mt-3 text-sm">{favoriteStatus}</p>}
+        {tab === 'mine' && <>
         <section className="mt-6" aria-labelledby="my-reflection-heading">
           <div className="flex items-center justify-between gap-3">
             <h2 id="my-reflection-heading" className="northstar-section-title">Minha reflexão</h2>
-            <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-muted dark:text-night-muted">
+            <span className="inline-flex items-center gap-1.5 text-sm font-medium text-muted dark:text-night-muted">
               {user ? <Cloud size={14} /> : <CloudOff size={14} />}
               {user ? 'Vinculada à sua conta' : 'Somente neste dispositivo'}
             </span>
           </div>
           <textarea
+            aria-label="Minha reflexão"
             value={note}
             onChange={(event) => {
               setNote(event.target.value)
@@ -216,14 +217,14 @@ export default function ReflectionPage() {
               type="button"
               onClick={() => shareImage({ text: note })}
               disabled={!note.trim()}
-              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-vesSm border border-sage-300 px-4 text-sm font-semibold text-sage-800 disabled:opacity-50 dark:border-sage-800 dark:text-sage-300"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-vesSm border border-sage-300 px-4 text-sm font-semibold text-sage-800 disabled:opacity-50 dark:border-sage-800 dark:text-sage-300"
             >
               <Image size={17} aria-hidden="true" />
               Compartilhar minha reflexão
             </button>
           </div>
           {saveStatus && (
-            <p role="status" aria-live="polite" className="mt-3 text-xs leading-relaxed text-muted dark:text-night-muted">
+            <p role="status" aria-live="polite" className="mt-3 text-sm leading-relaxed text-muted dark:text-night-muted">
               {saveStatus}
             </p>
           )}
@@ -232,10 +233,10 @@ export default function ReflectionPage() {
         <section className="mt-8" aria-labelledby="saved-reflections-heading">
           <div className="flex items-end justify-between gap-4">
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Sua jornada</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.1em] text-sage-700 dark:text-sage-300">Sua jornada</p>
               <h2 id="saved-reflections-heading" className="northstar-section-title mt-1">Minhas reflexões</h2>
             </div>
-            <span className="text-xs text-muted dark:text-night-muted">{savedReflections.length}</span>
+            <span className="text-sm text-muted dark:text-night-muted">{savedReflections.length}</span>
           </div>
 
           {loading ? (
@@ -248,11 +249,11 @@ export default function ReflectionPage() {
                   <div className="min-w-0 flex-1">
                     <p className="text-sm leading-relaxed text-ink dark:text-night-ink">{reflection.text}</p>
                     <div className="mt-2 flex items-center justify-between gap-3">
-                      <p className="text-[10px] text-muted dark:text-night-muted">{formatJournalDate(reflection.entryDate)}</p>
+                      <p className="text-sm text-muted dark:text-night-muted">{formatJournalDate(reflection.entryDate)}</p>
                       <button
                         type="button"
                         onClick={() => shareImage({ text: reflection.text })}
-                        className="inline-flex min-h-9 items-center gap-1.5 rounded-full px-2 text-xs font-semibold text-sage-700 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-night"
+                        className="inline-flex min-h-11 items-center gap-1.5 rounded-full px-2 text-sm font-semibold text-sage-700 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-night"
                         aria-label="Compartilhar esta reflexão como imagem"
                       >
                         <Share2 size={15} aria-hidden="true" /> Compartilhar
@@ -268,13 +269,21 @@ export default function ReflectionPage() {
             </EditorialCard>
           )}
         </section>
+        </>}
       </div>
 
       {shareStatus && (
-        <div className="fixed inset-x-4 bottom-24 z-50 mx-auto max-w-sm rounded-vesSm border border-sage-200 bg-surface/95 px-4 py-3 text-center text-xs font-medium leading-relaxed text-sage-900 shadow-lg backdrop-blur dark:border-sage-900 dark:bg-night-surface/95 dark:text-sage-200" role="status" aria-live="polite">
+        <div className="fixed inset-x-4 bottom-24 z-50 mx-auto max-w-sm rounded-vesSm border border-sage-200 bg-surface/95 px-4 py-3 text-center text-sm font-medium leading-relaxed text-sage-900 shadow-lg backdrop-blur dark:border-sage-900 dark:bg-night-surface/95 dark:text-sage-200" role="status" aria-live="polite">
           {shareStatus}
         </div>
       )}
     </main>
   )
+}
+
+function ReflectionSource({ reflection }) {
+  return reflection.sourceUrl ? <a href={reflection.sourceUrl} target="_blank" rel="noopener noreferrer"
+    className="mt-2 inline-block min-h-11 py-2 text-sm leading-relaxed underline underline-offset-4"
+    aria-label={`Consultar fonte: ${reflection.source} (abre em nova aba)`}>{reflection.source}</a> :
+    reflection.kind === 'editorial' ? <p className="mt-2 text-sm leading-relaxed">Texto editorial da versão anterior, preservado nas suas favoritas.</p> : null
 }

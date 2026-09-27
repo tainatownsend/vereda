@@ -1,36 +1,22 @@
+import theme from '../../tailwind.config.js'
+
+const palette = theme.theme.extend.colors
 export const colors = {
-  canvas: '#FAFBF8',
-  surface: '#FFFFFF',
-  surfaceSoft: '#F3F7F1',
-  ink: '#203028',
-  muted: '#627069',
-  line: '#DDE4DC',
-  focus: '#718F74',
-  sage: {
-    50: '#F3F7F1',
-    100: '#E7EFE4',
-    200: '#D1DFCE',
-    300: '#B3C9B1',
-    400: '#91AD92',
-    500: '#718F74',
-    600: '#58745D',
-    700: '#465D4B',
-    800: '#374A3C',
-    900: '#2D3D32',
-    950: '#17221B',
-  },
-  night: {
-    canvas: '#111713',
-    surface: '#18201B',
-    ink: '#F2F5F0',
-    muted: '#A8B4AA',
-    line: '#2C3730',
-  },
+  canvas: palette.canvas,
+  surface: palette.surface,
+  surfaceSoft: palette['surface-soft'],
+  ink: palette.ink,
+  muted: palette.muted,
+  line: palette.line,
+  focus: palette.focus,
+  sage: palette.sage,
+  gold: palette.gold,
+  night: { ...palette.night, canvas: palette.night.DEFAULT },
 }
 
 export const typography = {
-  display: '"Newsreader", Georgia, serif',
-  body: '"DM Sans", system-ui, sans-serif',
+  display: '"Literata", Georgia, serif',
+  body: '"Inter", system-ui, sans-serif',
 }
 
 export const spacing = {
