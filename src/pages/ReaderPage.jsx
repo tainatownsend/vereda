@@ -136,7 +136,7 @@ export default function ReaderPage() {
   if (!books.length) return <BookLoadState />
 
   if (books.length && !book) {
-    return <ReaderError message="Esta obra não foi encontrada. Volte aos estudos para escolher uma leitura." onRetry={session.reload} onBack={() => navigate('/biblioteca')} />
+    return <ReaderError message="Esta obra não foi encontrada. Volte aos estudos para escolher uma leitura." onBack={() => navigate('/biblioteca')} />
   }
 
   if (!book || session.phase === READER_PHASE.LOADING) {
@@ -568,7 +568,7 @@ function ReaderError({ message, onRetry, onBack }) {
         <h1 className="mt-3 font-display text-[2.2rem] font-semibold leading-[1.08] text-ink dark:text-night-ink">O lugar onde você parou continua protegido.</h1>
         <p role="alert" className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-muted dark:text-night-muted">{message || 'Ocorreu um erro inesperado. Tente novamente.'}</p>
         <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-          <Button onClick={onRetry}><RefreshCw size={19} />Tentar novamente</Button>
+          {onRetry && <Button onClick={onRetry}><RefreshCw size={19} />Tentar novamente</Button>}
           <Button variant="secondary" onClick={onBack}><Home size={19} />Voltar ao início</Button>
         </div>
       </div>
