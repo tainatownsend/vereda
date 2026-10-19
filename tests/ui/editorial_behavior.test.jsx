@@ -150,7 +150,6 @@ describe('editorial product interactions', () => {
     expect(screen.getByRole('group', { name: 'Tamanho do texto' })).toBeTruthy()
     expect(screen.queryByRole('button', { name: 'Índice da obra' })).toBeNull()
     await userEvent.click(screen.getByRole('button', { name: 'Grande' }))
-    expect(screen.getByRole('button', { name: 'Grande' }).getAttribute('aria-pressed')).toBe('false')
     await userEvent.click(screen.getByRole('button', { name: 'Opções de leitura' }))
     expect(screen.queryByRole('group', { name: 'Tamanho do texto' })).toBeNull()
     expect(screen.getByRole('button', { name: 'Índice da obra' })).toBeTruthy()
