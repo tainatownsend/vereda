@@ -13,6 +13,7 @@ import { getDailyReflection } from '@/features/reflections/dailyReflections'
 import { GUIDED_STUDY_PATHS } from '@/features/guidedStudy/catalog'
 import { guidedPathProgress } from '@/features/guidedStudy/progress'
 import landscape from '@/assets/vereda-sunrise.webp'
+import studyLandscape from '@/assets/northstar-landscape.svg'
 
 export default function HomePage() {
   const navigate = useNavigate()
@@ -31,30 +32,31 @@ export default function HomePage() {
 
   return <main className="northstar-page northstar-home pb-28">
     <div className="northstar-container pt-5 sm:pt-8">
-      <header className="flex items-center justify-between gap-4">
-        <div className="flex items-center gap-2.5"><VeredaLogo size={36} /><p className="font-display text-2xl text-ink dark:text-night-ink">Vereda</p></div>
+      <header className="home-brand-header flex items-center justify-between gap-4">
+        <div className="home-brand-lockup flex items-center gap-2.5"><VeredaLogo size={36} /><p className="font-display text-2xl text-ink dark:text-night-ink">Vereda</p></div>
         <button type="button" onClick={() => navigate('/configuracoes')} aria-label="Abrir meu perfil" className="northstar-icon-button bg-surface-soft dark:bg-night-surface"><UserRound size={21} /></button>
       </header>
       <section className="home-welcome" aria-labelledby="home-greeting">
+        <img src={landscape} alt="" className="home-landscape" fetchPriority="high" />
         <div className="home-greeting"><h1 id="home-greeting" className="font-display text-[1.8rem] leading-tight">{greeting}</h1>
           <p className="mt-2 max-w-sm text-base leading-relaxed text-muted dark:text-night-muted">Que a paz do bem te acompanhe nesta jornada.</p></div>
-        <img src={landscape} alt="" className="home-landscape" fetchPriority="high" />
       </section>
       <section className="home-continue" aria-labelledby="next-study-heading">
         <EditorialCard className="p-3 sm:p-4">
           <h2 id="next-study-heading" className="mb-3 flex items-center gap-2 px-1 text-base font-medium"><BookOpen size={18} aria-hidden="true" />{primaryBook || guided ? 'Continuar estudo' : 'Seu primeiro estudo'}</h2>
           {primaryBook ? <button type="button" onClick={() => navigate(`/ler/${primaryBook.id}`)} className="continue-study-button">
+            <span className="continue-study-art" aria-hidden="true"><img src={studyLandscape} alt="" /></span>
             <div className="min-w-0 flex-1"><h3 className="font-display text-xl leading-snug">{primaryBook.title}</h3>
               <p className="mt-2 text-sm">Trecho {progress[primaryBook.id]?.current_section || 1} · seu lugar está salvo</p>
               <ProgressLine value={reading.percent} className="mt-5" />
               <p className="mt-2 text-sm">{reading.total ? `${reading.read} de ${reading.total} trechos lidos` : 'No seu ritmo, sem pressa.'}</p>
-            </div><ChevronRight size={27} className="shrink-0" aria-hidden="true" />
+            </div><span className="continue-study-forward" aria-hidden="true"><ChevronRight size={20} /></span>
           </button> : guided ? <button type="button" className="continue-study-button" onClick={() => navigate(`/estudo-guiado/${guided.path.key}/${guided.progress.nextSession.id}`)}>
             <div className="min-w-0 flex-1"><h3 className="font-display text-xl leading-snug">{guided.path.title}</h3>
               <p className="mt-2 text-sm">{guided.progress.nextSession.title}</p>
               <ProgressLine value={guided.progress.percent} className="mt-5" />
               <p className="mt-2 text-sm">{guided.progress.complete} de {guided.progress.total} encontros concluídos</p>
-            </div><ChevronRight size={27} className="shrink-0" aria-hidden="true" />
+            </div><span className="continue-study-forward" aria-hidden="true"><ChevronRight size={20} /></span>
           </button> : <div className="px-2 pb-2"><h3 className="font-display text-2xl leading-snug">Uma primeira leitura, com companhia.</h3>
             <p className="mt-3 text-base leading-relaxed text-muted dark:text-night-muted">Vamos encontrar um caminho para você começar, no seu ritmo.</p>
             <Button onClick={() => navigate('/comecar')} className="mt-5 w-full">Começar estudo <ChevronRight size={19} /></Button>
