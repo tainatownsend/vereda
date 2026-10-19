@@ -65,7 +65,7 @@ export default function HomePage() {
         </EditorialCard>
       </section>
       <section className="mt-5" aria-labelledby="home-reflection-heading">
-        <EditorialCard as="button" type="button" onClick={() => navigate('/reflexoes')} className="home-reflection w-full p-5 text-left sm:p-6">
+        <EditorialCard as="button" type="button" aria-label="Ler reflexão do dia" onClick={() => navigate('/reflexoes')} className="home-reflection w-full p-5 text-left sm:p-6">
           <h2 id="home-reflection-heading" className="flex items-center gap-2 text-sm font-medium"><Leaf size={18} aria-hidden="true" />Reflexão do dia</h2>
           <blockquote className="mt-4 font-display text-xl leading-relaxed">“{dailyReflection.text}”</blockquote>
           <p className="mt-3 text-sm text-muted dark:text-night-muted">{dailyReflection.author}</p>
