@@ -144,6 +144,16 @@ describe('editorial product interactions', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Voltar à página anterior' }))
     expect(screen.getByLabelText('Rota atual').textContent).toBe('/notas')
   })
+  it('opens only typography controls from Aa and keeps general reader actions under More', async () => {
+    mount(<Reader />, '/ler/1')
+    await userEvent.click(screen.getByRole('button', { name: 'Preferências de texto' }))
+    expect(screen.getByRole('group', { name: 'Tamanho do texto' })).toBeTruthy()
+    expect(screen.queryByRole('button', { name: 'Índice da obra' })).toBeNull()
+    await userEvent.click(screen.getByRole('button', { name: 'Grande' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Opções de leitura' }))
+    expect(screen.queryByRole('group', { name: 'Tamanho do texto' })).toBeNull()
+    expect(screen.getByRole('button', { name: 'Índice da obra' })).toBeTruthy()
+  })
   it('keeps all secondary collections accessible', () => {
     mount(<More />, '/mais')
     for (const name of ['Minha jornada', 'Notas de estudo', 'Trechos salvos', 'Favoritos', 'Plano de estudo', 'Perfil', 'Sair']) expect(screen.getByRole('button', { name, exact: true })).toBeTruthy()
