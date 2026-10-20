@@ -36,7 +36,7 @@ export default function LibraryPage() {
               <p className="mt-1 text-sm text-muted dark:text-night-muted">{book.author || 'Allan Kardec'}</p>
               <ProgressLine value={state.percent} className="mt-3" />
               <p className="mt-2 text-sm text-muted dark:text-night-muted">{state.completed ? 'Leitura concluída' : state.total ? `${state.read} de ${state.total} trechos` : 'Pronto para começar'}</p>
-            </div><ChevronRight size={23} className="shrink-0 text-sage-700 dark:text-sage-300" aria-hidden="true" />
+            </div><span className="northstar-book-forward" aria-hidden="true"><ChevronRight size={17} /></span>
           </EditorialCard></li>
         })}
       </ol>
