@@ -135,13 +135,13 @@ export default function ReflectionPage() {
             <p className="mt-5 text-sm text-muted dark:text-night-muted">{featuredReflection.author}</p>
             <ReflectionSource reflection={featuredReflection} />
           </div>
-        </section>
-        <div className="mt-3 flex flex-wrap items-center justify-around gap-2">
+          <div className="reflection-actions flex flex-wrap items-center justify-around gap-2" aria-label="Ações da reflexão">
           <button type="button" onClick={() => toggleFavorite(featuredReflection.id)} disabled={savingFavorite} aria-pressed={favoriteIds.includes(featuredReflection.id)} className="inline-flex min-h-12 items-center gap-2 rounded-xl px-4 text-base disabled:opacity-50">
             <Heart size={20} fill={favoriteIds.includes(featuredReflection.id) ? 'currentColor' : 'none'} aria-hidden="true" />{favoriteIds.includes(featuredReflection.id) ? 'Salva' : 'Salvar'}
           </button>
           <button type="button" onClick={() => shareImage(featuredReflection)} className="inline-flex min-h-12 items-center gap-2 rounded-xl px-4 text-base" aria-label="Compartilhar esta reflexão"><Share2 size={20} aria-hidden="true" />Compartilhar</button>
-        </div>
+          </div>
+        </section>
         <button type="button" onClick={() => { setFeaturedReflection(current => getNextReflection(current.id)); setShareStatus('') }} className="northstar-text-action mt-3 inline-flex items-center gap-2"><RefreshCw size={16} aria-hidden="true" />Ler outra reflexão</button>
         <details className="mt-5"><summary className="min-h-11 cursor-pointer py-3 text-base">Reflexões anteriores</summary>
         <section className="mt-7" aria-labelledby="previous-daily-reflections-heading">
