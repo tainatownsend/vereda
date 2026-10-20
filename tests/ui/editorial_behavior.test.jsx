@@ -104,6 +104,13 @@ describe('editorial product interactions', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Favoritas' }))
     expect(screen.getByText(/Salve uma reflexão em Hoje/)).toBeTruthy()
   })
+  it('keeps attributed quote and accessible actions within one North Star reflection card', () => {
+    mount(<Reflections />, '/reflexoes')
+    const quoteCard = screen.getByRole('region', { name: 'Reflexão de hoje' })
+    const actions = within(quoteCard).getByRole('group', { name: 'Ações da reflexão' })
+    expect(within(actions).getByRole('button', { name: 'Salvar' })).toBeTruthy()
+    expect(within(actions).getByRole('button', { name: 'Compartilhar esta reflexão' })).toBeTruthy()
+  })
   it('changes reflection tabs without trapping Back in tab history', async () => {
     function Back() { const navigate = useNavigate(); return <button onClick={() => navigate(-1)}>Voltar de teste</button> }
     render(<MemoryRouter initialEntries={['/home', '/reflexoes']} initialIndex={1}><Routes>
