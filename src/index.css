@@ -489,6 +489,23 @@
   }
   .reflection-quotation p.mt-5 {margin-top:.6rem;}
   .reflection-quotation::after {margin-top:.75rem;}
+  /* The quotation and its actions are a single editorial composition. */
+  .reflection-actions {
+    margin: 0;
+    padding: .35rem .85rem .85rem;
+    border-top: 1px solid color-mix(in srgb, var(--ves-line) 65%, transparent);
+    background: var(--ves-surface-soft);
+  }
+  .reflection-actions button {
+    min-height: 44px;
+    border-radius: .75rem;
+    font-size: .9rem;
+    color: var(--ves-ink);
+  }
+  .reflection-actions button:hover {
+    background: color-mix(in srgb, var(--ves-accent) 22%, transparent);
+  }
+  .dark .reflection-actions { background: var(--ves-surface-soft); }
   @media (max-width:350px) {
     .northstar-home .northstar-home-cover {width:2.65rem;height:5.25rem;}
     .northstar-home .continue-study-button {gap:.45rem;padding:.6rem;}
