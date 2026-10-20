@@ -1,54 +1,34 @@
-# Vereda editorial North Star — design QA
+# Vereda North Star — reconstructive visual QA (19 October 2026)
+**final result: blocked**
 
-Date: 2026-09-22. Branch: `feat/vereda-editorial-north-star`.
+## Source and implementation
+- **Visual source of truth:** Founder-approved marketing mockup, `https://drive.google.com/file/d/1kMw5NdFB7hQHeAAJLpLcV5_FjbsjZnig/view`, original local source `42CB5ADF-BC42-4F6D-9334-044434026594.png` (1672×941 pixels). Four phone frames on the source are marketing presentation. Do not reproduce the phone hardware, date and browser chrome as app UI.
+- **Previous implementation evidence:** Real iPhone Safari screenshots shared October 19 (Início, Estudos, Reflexões, Leitor, including expanded Aa); founder explicitly rejected its fidelity. Previous QA screenshots in `docs/qa/north-star` are not proof of the new branch.
+- **Current implementation:** `feat/vereda-v1-northstar-art-rebuild` based on PR #122, independent of experimental rejected PR #123. Vercel Preview from branch, when available.
+- **New render/screenshot:** NOT YET CAPTURED on the build in the same auth state as approved mockup. Browser comparison remains blocked. A green build or Vercel READY does not satisfy visual QA.
 
-## Result
+## Changes already implemented
+- Extracted the three-part Vereda **sun + leaf icon** silhouette from the founder's original mockup and installed it as `public/vereda-logo-mark.svg` (vector tracing of actual concept mark, not the old landscape mark).
+- Added `public/northstar-atlas.webp` (480×346, source-derived) with the real reference's golden misty landscape, four illustrated book covers, a placeholder fifth recolored cover, and botanical branch. Crop fidelity is stronger than unrelated stock photos, but raster resolution is too low for production high-DPI screens.
+- Wired illustrated covers into `BookCover` without changing book IDs, progress, source text or backend.
+- Rebuilt Home centered botanical header, scenic greeting, illustrated continuation button and gold/cream reflection composition.
+- Rebuilt Studies' pill filters, compact cover-and-progress rows and circular green affordances.
+- Rebuilt Reflections' scene and typography proportions while retaining authenticated source and author, save and share actions.
+- Kept Reader's original authenticated text, context and navigation; refined title hierarchy and isolated Aa controls from general menu.
+- Added smoke/regression tests for art components and separate Aa behavior.
 
-Visual implementation: **passed** against the functional, accessible interpretation of the supplied four-phone North Star. Exact image parity and live authenticated acceptance remain **blocked** pending the qualifications below. This is not a claim of complete production acceptance.
+## Blocking visual QA findings — unverified new rendering
+**P1 identity and artwork:** Logo is reference-derived but the existing PWA icon + masking assets may still show the old emblem. The atlas is a small crop from the marketing concept and is *not* a full-resolution asset pack. Book #2 uses a provisional recolor; replace it with distinct custom cover.
+**P1 proportions:** New layout must be compared with four flat phone-specific reference crops at 390 CSS px, with the same scroll position and auth state. Need side-by-side visual evidence, not a static screenshot of the cover page.
+**P1 reflections:** authentic daily quote length varies; ensure author and bibliography remain readable with Save/Share in reach, without clipping long quotations.
+**P1 reader:** check actual iPhone fontSize=Média baseline, 320px narrow viewport, 430px wide viewport, large text and dark mode; safe-area and screen-reader focus.
+**P2 dynamic personalization:** labels/counts use real trechos not fictional capítulos; screenshots must reflect that intentional product truth.
 
-## Audit and implementation
+## Evidence to collect next
+- Source design 1672×941 marketing board cropped to four app-owned phone content areas.
+- New same-state screenshots: `Início`, `Estudos`, `Leitor`, `Reflexões` at CSS 390×844, density 1 and 2; keep source/implementation normalization documented.
+- Screenshots of the exact authenticated render, including iPhone Safari, plus test of quote Save/Share, reading progress, notes, back navigation, A/a, light/dark, Google auth in Preview.
+- CI frontend test (all tests), lint, build and PWA. Tests cannot certify art fidelity.
+- Compare pixel and compositional differences, fix P0/P1/P2, capture again; only then change this file to `final result: passed`.
 
-The baseline had five primary navigation destinations, a Home containing competing shortcuts, generic collection cards, and reflections distributed across journal/share controls. Literata already provided the appropriate editorial character, so it was retained. Existing canonical content, data services and routes remain in place.
-
-Implemented cream/olive/gold tokens, readable controls, four destinations (Início, Estudos, Reflexões, Mais), a personalized Home with dominant study continuation, compact book collection with progress filters, book-like reading with clearly attributed Vereda reflection prompts, and Hoje/Favoritas/Minhas in Reflexões. Secondary utilities remain reachable through Mais. The reader uses the actual source reading-unit semantics rather than fabricated chapter counts.
-
-## Visual comparison evidence
-
-The uploaded four-phone reference and rendered screenshots were inspected together in the same comparison input. Captures are local production components with explicitly fictional QA data, not screenshots of an authenticated production account.
-
-- `docs/qa/north-star/home-390.jpg`: brand, greeting, landscape, olive primary continuation, secondary reflection, four navigation items.
-- `docs/qa/north-star/studies-390.jpg`: three filters and compact title/author/progress collection rows.
-- `docs/qa/north-star/reader-390.jpg`: centered book/part/chapter hierarchy, serif text, integrated reflection, immersive navigation.
-- `docs/qa/north-star/reflections-390.jpg`: landscape, editorial quotation, true author and save/share actions.
-- `docs/qa/north-star/studies-dark-extra-320.jpg`: dark palette and enlarged text at the narrowest target.
-
-Remaining visual differences: existing Vereda logo and actual book cover editions are retained; they differ from the mockup's leaf mark and illustrated covers. Scenic artwork is newly generated rather than the identical mockup landscape. Text and navigation are larger, and long authentic quotations require scrolling. Decorative botanical branches are restrained to line marks. The mockup's unverified Chico Xavier quotations were not copied or falsely attributed. Desktop uses a centered constrained product shell.
-
-## Verification
-
-- `npm ci`: passed.
-- `npm run test:run`: 98 files, 640 tests passed, including interaction tests for navigation, filters, reflection save/share, reader return context, progress edge cases and render/auth recovery.
-- `npm run lint`: passed with two existing unused-variable warnings in content-pipeline scripts; no errors.
-- `npm run build`: passed; PWA service worker generated.
-- Browser: six screens at 320, 360, 375, 390, 414, 430, 768, 1024 and 1280 px; 54 checks, no horizontal overflow or broken images. See `viewport-checks.json`.
-- Browser: six screens at 320 px with dark mode and enlarged text; no overflow after correcting wrapping of reflection actions. See `dark-extra-320-checks.json`.
-- Navigation labels: 14 px default / 15.75 px enlarged; tap height 64 / 72 px. Reader hides global navigation.
-- No application runtime errors observed in the local fixture; browser-extension telemetry errors are outside the app.
-
-## Bugs fixed
-
-- Invalid book identifiers and failed book loading now provide actionable error states.
-- Rendering failures and missing/malformed Supabase configuration render recovery instead of a blank root; rejected/errored session lookup exits the loading state.
-- Progress is bounded and does not show 100% before explicit completion; completed books open in revisit mode.
-- Reader back navigation preserves safe passage/notes/guided contexts.
-- Reader display controls no longer close from their own pointer interaction.
-- Reflection actions wrap at 320 px with enlarged text.
-- Existing content-pipeline suites rebuild shared JSON artifacts. Running test files serially prevents intermittent partial-file reads without removing assertions.
-- Public presentation and login brand descriptors now use the approved positioning and readable supporting text.
-- Consistent PWA theme colors and image precaching; visible button focus and labeled journal/notes inputs.
-
-## Acceptance limits
-
-No canonical text, database schema or account data was modified. QA fixtures are dev/test-only and excluded from production entry points. Live Google/email authentication, account synchronization, real saved-passage data, iOS safe-area behavior, native sharing and PWA upgrades still need an authenticated device acceptance pass. This environment has no signed-in Vereda test account. Root recovery cannot catch a JavaScript bundle that never downloads; normal browser/network recovery still applies.
-
-Preview and PR verification are recorded in the pull request after publication. Do not merge with failing Frontend Quality.
+**Production remains NO-GO.** Do not merge into PR #122 or deploy to `vereda.tayua.space` without visual acceptance.
