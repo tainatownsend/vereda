@@ -1,10 +1,10 @@
-import { useState } from 'react'
 import { BookOpen } from 'lucide-react'
 
 export function BookCover({ book, size = 'md', color, className = '' }) {
-  const [failed, setFailed] = useState(false)
-  const covers = { 1: '/espiritos.jpg', 2: '/mediuns.jpg', 3: '/evangelho.jpg', 4: '/ceu-inferno.jpg', 5: '/genese.jpg' }
-  const src = covers[book?.id]
+  // Illustrations are cropped from the founder-approved North Star reference.
+  // The atlas is a fidelity prototype; definitive high-resolution covers remain a release gate.
+  const coverId = Number(book?.id)
+  const hasNorthStarCover = Number.isInteger(coverId) && coverId >= 1 && coverId <= 5
   const dimensions = size === 'sm' ? 'h-20 w-14' : 'h-28 w-20'
   const fallback = color || '#53664E'
 
@@ -14,7 +14,7 @@ export function BookCover({ book, size = 'md', color, className = '' }) {
       style={{ backgroundColor: fallback }}
       aria-hidden="true"
     >
-      {src && !failed ? <img src={src} alt="" onError={() => setFailed(true)} className="h-full w-full object-cover" loading="lazy" /> : <>
+      {hasNorthStarCover ? <span className={`northstar-cover-art northstar-cover-art-${coverId}`} aria-hidden="true" /> : <>
       <div className="absolute inset-x-0 top-0 h-1 bg-gold-400/80" />
       <div className="flex h-full flex-col items-center justify-center px-2 text-center text-[#f8f0df]">
         <BookOpen size={size === 'sm' ? 13 : 16} strokeWidth={1.4} />
