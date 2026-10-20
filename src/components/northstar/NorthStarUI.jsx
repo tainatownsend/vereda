@@ -1,8 +1,8 @@
 import { BookOpen } from 'lucide-react'
 
 export function BookCover({ book, size = 'md', color, className = '' }) {
-  // Illustrations are cropped from the founder-approved North Star reference.
-  // The atlas is a fidelity prototype; definitive high-resolution covers remain a release gate.
+  // Dedicated original vector artwork keeps all five fundamental works distinct and sharp
+  // on high-density mobile screens. Book metadata and reading progress remain unchanged.
   const coverId = Number(book?.id)
   const hasNorthStarCover = Number.isInteger(coverId) && coverId >= 1 && coverId <= 5
   const dimensions = size === 'sm' ? 'h-20 w-14' : 'h-28 w-20'
@@ -14,7 +14,7 @@ export function BookCover({ book, size = 'md', color, className = '' }) {
       style={{ backgroundColor: fallback }}
       aria-hidden="true"
     >
-      {hasNorthStarCover ? <span className={`northstar-cover-art northstar-cover-art-${coverId}`} aria-hidden="true" /> : <>
+      {hasNorthStarCover ? <img src={`/art/covers/kardec-${coverId}.svg`} alt="" className={`northstar-cover-art northstar-cover-art-${coverId}`} loading="lazy" decoding="async" /> : <>
       <div className="absolute inset-x-0 top-0 h-1 bg-gold-400/80" />
       <div className="flex h-full flex-col items-center justify-center px-2 text-center text-[#f8f0df]">
         <BookOpen size={size === 'sm' ? 13 : 16} strokeWidth={1.4} />
