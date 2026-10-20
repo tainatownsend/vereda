@@ -18,6 +18,8 @@
 <path d="M94 350 Q112 313 140 299 Q150 291 166 280 Q149 303 143 316 Q131 336 133 350Z" fill="url(#trail)" opacity=".72"/>
 <g stroke="#162d31" stroke-width="2.6" fill="none" stroke-linecap="round"><path d="M14 354 Q36 314 19 266"/><path d="M203 352 Q191 307 209 259"/></g>
 <g><path transform="translate(-2 277) rotate(-49) scale(0.78)" d="M0 0 Q-17 -25 0 -43 Q19 -22 0 0Z" fill="#64817b" opacity=".90"/><path transform="translate(27 295) rotate(48) scale(0.8)" d="M0 0 Q-17 -25 0 -43 Q19 -22 0 0Z" fill="#64817b" opacity=".90"/><path transform="translate(-3 324) rotate(-35) scale(0.95)" d="M0 0 Q-17 -25 0 -43 Q19 -22 0 0Z" fill="#64817b" opacity=".90"/><path transform="translate(36 343) rotate(39) scale(0.8)" d="M0 0 Q-17 -25 0 -43 Q19 -22 0 0Z" fill="#64817b" opacity=".90"/><path transform="translate(196 310) rotate(-45) scale(0.85)" d="M0 0 Q-17 -25 0 -43 Q19 -22 0 0Z" fill="#64817b" opacity=".90"/><path transform="translate(218 344) rotate(43) scale(0.9)" d="M0 0 Q-17 -25 0 -43 Q19 -22 0 0Z" fill="#64817b" opacity=".90"/></g>
+<!-- Work-specific illustration detail for cover 2 -->
+<g opacity=".65" stroke="#ffebc5" fill="none" stroke-width="1"><path d="M160 77Q132 117 153 157Q173 186 149 222"/><path d="M179 86Q196 133 181 163Q166 189 188 215"/><path d="M127 120Q135 151 122 176"/></g><g fill="#fff4cf"><circle cx="97" cy="144" r="2.2" opacity=".6"/><circle cx="119" cy="170" r="1.3"/><circle cx="170" cy="189" r="2.1"/><circle cx="188" cy="162" r="1.4"/><circle cx="128" cy="95" r="1.1"/></g>
 <g opacity=".9" fill="#fff5da" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
 <text x="115" y="21" font-size="7.8" letter-spacing="3">VEREDA</text></g>
 <rect x="9" y="29" width="212" height="37" rx="2" fill="#162d31" opacity=".31"/>
