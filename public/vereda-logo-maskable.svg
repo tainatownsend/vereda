@@ -1,38 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
   <title id="title">Vereda</title>
-  <desc id="desc">Ícone instalável do Vereda com caminho entre colinas, nascer do sol e um ramo.</desc>
-  <rect width="512" height="512" fill="#F8F4EE"/>
-  <g transform="translate(76.8 76.8) scale(1.4)">
-    <defs>
-      <clipPath id="landscape-circle-maskable">
-        <circle cx="118" cy="126" r="84"/>
-      </clipPath>
-      <linearGradient id="sky-maskable" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#FFF8EE"/>
-        <stop offset="1" stop-color="#F2E3D3"/>
-      </linearGradient>
-      <linearGradient id="path-maskable" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#FFFDF8"/>
-        <stop offset="1" stop-color="#EEDBC8"/>
-      </linearGradient>
-    </defs>
-
-    <circle cx="118" cy="126" r="88" fill="#F8F4EE" stroke="#7C7445" stroke-width="4"/>
-
-    <g clip-path="url(#landscape-circle-maskable)">
-      <rect x="24" y="34" width="188" height="184" fill="url(#sky-maskable)"/>
-      <circle cx="113" cy="96" r="32" fill="#E7B977" opacity="0.72"/>
-      <path d="M16 151C48 129 71 128 101 148C121 161 143 164 178 144C195 134 211 130 229 132V221H16Z" fill="#A9B69A"/>
-      <path d="M6 177C39 151 70 147 102 167C124 181 145 186 175 163C198 145 220 143 238 150V226H6Z" fill="#6D8B74"/>
-      <path d="M2 204C35 180 61 175 90 187C117 198 137 205 161 190C190 172 217 170 247 183V232H2Z" fill="#4F6757"/>
-      <path d="M117 222C110 202 107 190 111 177C116 160 136 157 143 144C149 133 144 122 133 116C148 119 162 127 164 140C166 153 155 162 145 170C135 178 128 188 130 204C131 211 134 218 138 225Z" fill="url(#path-maskable)"/>
-      <path d="M118 221C116 205 116 191 122 180C128 168 140 160 148 151" fill="none" stroke="#D8BFA9" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
-    </g>
-
-    <path d="M172 79C190 70 204 54 208 35" fill="none" stroke="#4F6757" stroke-width="4" stroke-linecap="round"/>
-    <path d="M195 57C201 45 213 43 222 47C216 58 207 63 195 57Z" fill="#6D8B74"/>
-    <path d="M185 68C187 55 178 49 168 49C168 61 174 68 185 68Z" fill="#91A187"/>
-    <path d="M204 43C205 32 213 25 222 24C223 35 217 42 204 43Z" fill="#8D9E72"/>
-    <path d="M178 81C181 72 175 65 166 63C163 73 168 80 178 81Z" fill="#B3A66D"/>
+  <desc id="desc">Ícone instalável do Vereda: sol dourado sobre duas folhas verde-oliva, marca aprovada do North Star.</desc>
+  <rect width="512" height="512" fill="#F5F0E7" />
+  <g transform="translate(84 87) scale(3.2)">
+    <path fill="#59694e" d="M104,29 83,39 77,43 66,55 61,64 59,70 59,73 58,74 58,97 57,99 59,99 64,95 71,92 77,88 92,74 96,68 101,56 101,53 103,48Z" />
+    <path fill="#59694e" d="M5,28 5,47 6,48 6,55 7,56 8,63 13,73 18,80 26,87 35,92 37,92 47,97 49,97 52,100 52,74 51,73 49,63 42,51 33,42 24,36Z" />
+    <path fill="#c5a25c" d="M51,4 46,6 40,12 38,16 37,24 40,33 44,37 53,41 57,41 58,40 64,39 70,34 74,25 74,21 71,12 65,6 60,4Z" />
   </g>
 </svg>
