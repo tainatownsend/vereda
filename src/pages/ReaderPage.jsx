@@ -33,8 +33,8 @@ import { Button, PageLoader } from '@/components/ui'
 
 const FONT_SIZES = [
   { id: 'sm', label: 'Pequena', className: 'text-[17px]' },
-  { id: 'md', label: 'Média', className: 'text-[20px]' },
-  { id: 'lg', label: 'Grande', className: 'text-[24px]' },
+  { id: 'md', label: 'Média', className: 'text-[19px]' },
+  { id: 'lg', label: 'Grande', className: 'text-[23px]' },
   { id: 'xl', label: 'Extra', className: 'text-[28px]' },
 ]
 
@@ -179,7 +179,7 @@ export default function ReaderPage() {
     return <ReaderError message={READER_COPY.missingContinuation} onRetry={session.reload} onBack={() => navigate('/home')} />
   }
 
-  const fontClass = FONT_SIZES.find((option) => option.id === fontSize)?.className || 'text-[20px]'
+  const fontClass = FONT_SIZES.find((option) => option.id === fontSize)?.className || 'text-[19px]'
   const paragraphs = isChapterIntro || isPartIntro
     ? []
     : (currentSection.content || '')
@@ -326,7 +326,7 @@ export default function ReaderPage() {
         ) : (
           <>
             <SectionHeading currentSection={currentSection} />
-            <article className={`font-display leading-[1.82] text-ink dark:text-night-ink ${fontClass}`}>
+            <article className={`font-display leading-[1.72] text-ink dark:text-night-ink ${fontClass}`}>
               {paragraphs.map((paragraph, index) => (
                 <Paragraph key={`${currentSection.section_id}-${index}`} text={paragraph} />
               ))}
@@ -492,7 +492,7 @@ function SectionHeading({ currentSection }) {
     <div className="mb-9 text-center">
       {hierarchy && <p className="text-sm font-medium text-ink/80 dark:text-night-muted">{hierarchy}</p>}
       {heading && (
-        <h1 className="mx-auto mt-3 max-w-xl font-display text-[1.85rem] font-semibold leading-[1.18] tracking-[-0.015em] text-ink sm:text-[2.2rem] dark:text-night-ink">
+        <h1 className="mx-auto mt-3 max-w-xl font-display text-[1.7rem] font-semibold leading-[1.23] tracking-[-0.01em] text-ink sm:text-[2.05rem] dark:text-night-ink">
           {heading}
         </h1>
       )}
