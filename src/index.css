@@ -351,7 +351,7 @@
 
 
 /* Founder-approved North Star — artistic reconstruction, not the old CSS-density pass.
-   Illustration sprites are extracted from the user's approved concept board.
+   Illustration sprites are sourced from the founder's North Star visual reference.\n   The scenic crop has a fixed 168px atlas band, so hero height must not reveal the cover strip.
    Their low resolution is tracked as a release limitation in design-qa.md. */
 @layer components {
   .northstar-hero-header {
@@ -387,7 +387,7 @@
   }
   .northstar-home .home-welcome {
     position: relative;
-    height: 10.9rem;
+    height: 10rem;
     margin-top: 0.2rem;
     overflow: hidden;
     border-radius: 1.05rem 1.05rem 0 0;
@@ -497,7 +497,7 @@
     .editorial-tabs button,.editorial-tabs button:nth-child(2) {padding:.44rem .6rem;font-size:.73rem;}
   }
   @media (min-width:640px) {
-    .northstar-home .home-welcome {height:13rem;}
+    .northstar-home .home-welcome {height:12.25rem;}
     .northstar-home .home-greeting {top:.8rem;left:.7rem;right:.7rem;}
     .northstar-home .home-greeting p {font-size:.95rem;}
     .northstar-reflection-image {height:12rem;}
