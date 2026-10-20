@@ -350,9 +350,9 @@
 }
 
 
-/* Founder-approved North Star — artistic reconstruction, not the old CSS-density pass.
-   Illustration sprites are sourced from the founder's North Star visual reference.\n   The scenic crop has a fixed 168px atlas band, so hero height must not reveal the cover strip.
-   Their low resolution is tracked as a release limitation in design-qa.md. */
+/* Founder-approved North Star — scalable botanical art reconstructed for Retina
+   while preserving genuine author/source, progress, and reading behavior.
+   These illustrations are a V1 candidate subject to founder visual approval. */
 @layer components {
   .northstar-hero-header {
     position: relative;
@@ -379,10 +379,10 @@
     transform: translateY(-50%);
   }
   .northstar-scenery {
-    background-image: url('/northstar-atlas.webp');
+    background-image: url('/art/vereda-valley.svg');
     background-repeat: no-repeat;
-    background-position: center top;
-    background-size: max(100%, 30rem) auto;
+    background-position: center 58%;
+    background-size: cover;
     background-color: #d7b887;
   }
   .northstar-home .home-welcome {
@@ -448,21 +448,20 @@
   }
   .northstar-home .home-reflection span:not(.northstar-branch-art) {position:relative;z-index:1;}
   .northstar-branch-art {
-    display:block;position:absolute;right:-.1rem;bottom:.2rem;
-    width:2rem;height:7.1rem;opacity:.8;pointer-events:none;
-    background:url('/northstar-atlas.webp') -433px -212px / 480px 346px no-repeat;
+    display:block;position:absolute;right:-.15rem;bottom:-1.15rem;
+    width:4.25rem;height:10rem;opacity:.72;pointer-events:none;
+    background:url('/art/botanical-sprig.svg') center / contain no-repeat;
   }
   .dark .northstar-home .home-reflection {background:#465045;}
   .northstar-cover-art {
-    display:block;width:100%;height:100%;
-    background-image:url('/northstar-atlas.webp');
-    background-size:480px 346px;background-repeat:no-repeat;
-    background-position:-7px -191px;
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    background-color:#526c55;
+    border-radius:inherit;
   }
-  .northstar-cover-art-2 {background-position:-73px -191px;}
-  .northstar-cover-art-3 {background-position:-139px -191px;}
-  .northstar-cover-art-4 {background-position:-205px -191px;}
-  .northstar-cover-art-5 {background-position:-271px -191px;}
   .study-book-row {min-height:6.15rem;gap:.65rem;padding:.65rem;}
   .study-book-row .northstar-cover-art {border-radius:.45rem;}
   .study-book-row > div.flex-1 h2 {font-size:1rem;line-height:1.25;}
