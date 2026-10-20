@@ -32,3 +32,13 @@
 - Compare pixel and compositional differences, fix P0/P1/P2, capture again; only then change this file to `final result: passed`.
 
 **Production remains NO-GO.** Do not merge into PR #122 or deploy to `vereda.tayua.space` without visual acceptance.
+
+
+## 2026-10-19 browser-rendered fixture evidence (isolated; real browser)
+- **Capture:** [four screens in Chromium, fixture data](docs/qa/north-star/browser-fixture-2026-10-19-four-screens.jpg), SHA-anchored in PR #125, image 756×410. Each component was rendered at 390×844 CSS pixels, DPR 1. Montage was downsampled to approximately 189×410 per screen; **this composite is layout overview only, NOT a 1:1 pixel-fidelity pass**. Source remains the founder's approved 1672×941 four-phone mockup.
+- **Fixture:** Vite/React from the exact branch in a short-lived isolated Vercel Sandbox, with local fake user, mocked study progress, book titles and reading session. No production user data, tokens, or Supabase modifications. Capture used Chromium headless; actual iPhone Safari is NOT covered.
+- **Viewport matrix:** 320 / 390 / 430 / 800 px × Home, Studies, Reflections, Reader = **16 browser renderings**.
+- **Measured:** document scroll width equaled viewport width for all 16 cases; no captured page JS errors in the fixture. Studies rendered 5 illustrated book sprites at all widths. Aa opened its independent \"Tamanho do texto\" group in the Reader at 390 px. Vertical scrolling remains expected for Studies and Reader (at 390px: body height about 1025px and 1287px respectively).
+- **CI on parent art rebuild:** GitHub frontend quality and infra preflight succeeded before the QA screenshot commit. Check the new HEAD again before claiming pass.
+- **Remaining objective P1:** comic-scale source sprite is only 480×346 and cannot faithfully reproduce high-DPI art. The Med iuns cover is a stylistic adaptation rather than a literal crop of the founder's original mockup. Home/Reflections feature real quoted text, not the illustrative invented copy in the marketing mockup; preserve author/source and accept natural wrapping. Need final high-resolution licensed illustrations, same-state 1:1 crops/spacing checks, iPhone Safari, dark/large-text, authenticated OAuth in preview, and progress/bookmark/notes persistence.
+- **Verdict:** browser render smoke PASSED for the isolated fixture, visual fidelity FINAL RESULT REMAINS **BLOCKED**. Do not merge or publish.
