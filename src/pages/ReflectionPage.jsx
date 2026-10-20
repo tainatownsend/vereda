@@ -3,7 +3,6 @@ import { useEffect, useMemo, useState } from 'react'
 import { Heart, Bookmark, Cloud, CloudOff, Image, Quote, RefreshCw, Share2 } from 'lucide-react'
 import { useSearchParams } from 'react-router-dom'
 
-import northStarLandscape from '@/assets/vereda-sunrise.webp'
 import { useAuthStore } from '@/store'
 import { Button } from '@/components/ui'
 import { EditorialCard } from '@/components/northstar/NorthStarUI'
@@ -131,7 +130,7 @@ export default function ReflectionPage() {
         </div>
         {tab === 'today' && <>
         <section className="reflection-composition mt-5" aria-label="Reflexão de hoje">
-          <img src={northStarLandscape} alt="Colinas ao amanhecer, em uma paisagem serena" />
+          <div className="northstar-reflection-image northstar-scenery" role="img" aria-label="Colinas ao amanhecer, em uma paisagem serena" />
           <div className="reflection-quotation"><blockquote>“{featuredReflection.text}”</blockquote>
             <p className="mt-5 text-sm text-muted dark:text-night-muted">{featuredReflection.author}</p>
             <ReflectionSource reflection={featuredReflection} />
