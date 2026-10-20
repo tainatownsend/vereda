@@ -135,7 +135,7 @@ export default function ReflectionPage() {
             <p className="mt-5 text-sm text-muted dark:text-night-muted">{featuredReflection.author}</p>
             <ReflectionSource reflection={featuredReflection} />
           </div>
-          <div className="reflection-actions flex flex-wrap items-center justify-around gap-2" aria-label="Ações da reflexão">
+          <div className="reflection-actions flex flex-wrap items-center justify-around gap-2" role="group" aria-label="Ações da reflexão">
           <button type="button" onClick={() => toggleFavorite(featuredReflection.id)} disabled={savingFavorite} aria-pressed={favoriteIds.includes(featuredReflection.id)} className="inline-flex min-h-12 items-center gap-2 rounded-xl px-4 text-base disabled:opacity-50">
             <Heart size={20} fill={favoriteIds.includes(featuredReflection.id) ? 'currentColor' : 'none'} aria-hidden="true" />{favoriteIds.includes(featuredReflection.id) ? 'Salva' : 'Salvar'}
           </button>
