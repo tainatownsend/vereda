@@ -20,6 +20,6 @@ describe('approved North Star visual system (phase 1)', () => {
     expect(css).toContain('.northstar-page [class~="font-display"]')
     expect(css).toContain('.northstar-reader-page [class~="font-display"]')
     expect(css).toContain('.northstar-reader-page article[class~="font-display"]')
-    expect(reader).toContain('className="northstar-reader-page min-h-screen')
+    expect(reader).toContain('northstar-reader-page reader-theme-')
   })
 })
