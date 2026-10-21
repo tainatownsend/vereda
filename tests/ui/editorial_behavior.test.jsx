@@ -87,9 +87,11 @@ describe('editorial product interactions', () => {
     const nav = screen.getByRole('navigation')
     expect(within(nav).getAllByRole('button').map(b => b.textContent)).toEqual(['Início', 'Estudos', 'Reflexões', 'Mais'])
     expect(screen.getByRole('button', { name: 'Mais' }).getAttribute('aria-current')).toBe('page')
+    expect(screen.getByRole('button', { name: 'Mais' }).getAttribute('data-destination')).toBe('mais')
     await userEvent.click(screen.getByRole('button', { name: 'Reflexões' }))
     expect(screen.getByRole('navigation')).toBeTruthy()
     expect(screen.getByRole('button', { name: 'Reflexões' }).getAttribute('aria-current')).toBe('page')
+    expect(screen.getByRole('button', { name: 'Reflexões' }).getAttribute('data-destination')).toBe('reflexoes')
   })
   it('hides bottom navigation in the immersive reader', () => {
     mount(<BottomNav />, '/ler/1')
