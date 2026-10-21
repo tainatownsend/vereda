@@ -30,3 +30,11 @@ Altere as larguras para 320, 430 e 800 para a matriz mobile/responsiva. Os quatr
 3. Reflexões: paisagem com citação/autoria/bibliografia e ações Salvar/Compartilhar contidas no mesmo cartão, sem cortar conteúdo.
 4. Leitor: título longo sem overflow, Aa isolado do menu de ações, tamanho Médio legível, Grande/Extra preservados, texto canônico não abreviado.
 5. 320/390/430/800: zero scroll horizontal, botões >=44px, foco de teclado, dark mode. iPhone/Safari físico continua gate posterior.
+
+## Alternar aparência e tamanho de leitura
+A fixture também reconhece parâmetros `theme=dark` (padrão: light) e `font=xl` (padrão: md), por exemplo:
+```
+http://localhost:4174/qa.visual.html?screen=reflections&theme=dark
+http://localhost:4174/qa.visual.html?screen=reader&theme=dark&font=xl
+```
+Os parâmetros são restritos ao ambiente de QA, sem gravação de preferências reais. O leitor em `Extra` deve renderizar corpo de 28px, mas somente testes com usuário em Safari validam conforto e acessibilidade.
