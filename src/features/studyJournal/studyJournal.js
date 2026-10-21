@@ -75,7 +75,16 @@ function mergeEntries(remote, local) {
   const byKey = new Map()
   for (const entry of [...remote, ...local]) {
     const current = byKey.get(entry.entryKey)
-    if (!current || isNewer(entry, current) || String(entry.updatedAt || '') === String(current.updatedAt || '')) {
+    // A successful remote write can be followed by a lost network response:
+    // localStorage then retains synced:false with the *same* updatedAt as the
+    // persisted row. At equal timestamps, prefer the acknowledged server row.
+    // Keep only genuinely newer local edits for the retry path.
+    if (
+      !current ||
+      isNewer(entry, current) ||
+      (String(entry.updatedAt || '') === String(current.updatedAt || '') &&
+        entry.synced === true && current.synced !== true)
+    ) {
       byKey.set(entry.entryKey, entry)
     }
   }

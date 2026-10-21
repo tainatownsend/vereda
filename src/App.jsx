@@ -1,11 +1,11 @@
 import { useEffect, useLayoutEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useAuthStore, useUIStore } from '@/store'
-import { PageLoader } from '@/components/ui'
 import BottomNav from '@/components/ui/BottomNav'
 import { UnavailableScreen } from '@/components/AppRecovery'
 import ProtectedRoute from '@/components/ProtectedRoute'
 import LandingPage from '@/pages/LandingPage'
+import PublicOnlyRoute from '@/components/PublicOnlyRoute'
 import AuthPage from '@/pages/AuthPage'
 import ResetPasswordPage from '@/pages/ResetPasswordPage'
 import HomePage from '@/pages/HomePage'
@@ -53,21 +53,21 @@ export default function App() {
         <ScrollToTop />
 
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<PublicOnlyRoute loading={loading} user={user}><LandingPage /></PublicOnlyRoute>} />
           <Route
             path="/entrar"
             element={(
-              <PublicAuthRoute loading={loading} user={user}>
+              <PublicOnlyRoute loading={loading} user={user}>
                 <AuthPage />
-              </PublicAuthRoute>
+              </PublicOnlyRoute>
             )}
           />
           <Route
             path="/criar-conta"
             element={(
-              <PublicAuthRoute loading={loading} user={user}>
+              <PublicOnlyRoute loading={loading} user={user}>
                 <AuthPage initialMode="signup" />
-              </PublicAuthRoute>
+              </PublicOnlyRoute>
             )}
           />
           <Route path="/redefinir-senha" element={<ResetPasswordPage />} />
@@ -100,12 +100,6 @@ export default function App() {
       </BrowserRouter>
     </div>
   )
-}
-
-function PublicAuthRoute({ loading, user, children }) {
-  if (loading) return <PageLoader />
-  if (user) return <Navigate to="/home" replace />
-  return children
 }
 
 function AppBottomNav({ user }) {

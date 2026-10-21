@@ -20,6 +20,7 @@ import {
   withGuidedSessionComplete,
 } from '@/features/guidedStudy/progress'
 import { getLocalDate } from '@/features/reader/readerService'
+import { mergeConfirmedReaderProgress } from '@/features/reader/readerPersistence'
 import { STUDY_PLAN_METADATA_KEY } from '@/features/studyPlan/studyPlan'
 
 let authInitPromise = null
@@ -326,6 +327,20 @@ export const useReadingStore = create((set, get) => ({
     const { data } = await supabase
       .rpc('get_streak', { p_user_id: userId })
     if (data !== null) set({ streak: data })
+  },
+
+  // Called only after complete_reading_section confirms a durable checkpoint.
+  // Keeps the Home and Studies progress in sync without a second page load.
+  recordConfirmedReaderProgress: (bookId, result) => {
+    set((state) => ({
+      progress: {
+        ...state.progress,
+        [bookId]: mergeConfirmedReaderProgress(state.progress[bookId], {
+          nextPosition: result?.next_position,
+          bookCompleted: result?.book_completed,
+        }),
+      },
+    }))
   },
 
   startBook: async (userId, bookId, paceMode, paceMinutes, paceDeadline) => {

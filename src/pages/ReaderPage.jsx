@@ -13,7 +13,6 @@ import {
   MoreHorizontal,
   NotebookPen,
   RefreshCw,
-  Type,
   X,
 } from 'lucide-react'
 
@@ -34,8 +33,8 @@ import { Button, PageLoader } from '@/components/ui'
 
 const FONT_SIZES = [
   { id: 'sm', label: 'Pequena', className: 'text-[17px]' },
-  { id: 'md', label: 'Média', className: 'text-[20px]' },
-  { id: 'lg', label: 'Grande', className: 'text-[24px]' },
+  { id: 'md', label: 'Média', className: 'text-[19px]' },
+  { id: 'lg', label: 'Grande', className: 'text-[23px]' },
   { id: 'xl', label: 'Extra', className: 'text-[28px]' },
 ]
 
@@ -58,6 +57,7 @@ export default function ReaderPage() {
   const [savingPassage, setSavingPassage] = useState(false)
   const [saveStatus, setSaveStatus] = useState('')
   const menuRef = useRef(null)
+  const textSettingsRef = useRef(null)
   const requestedPositionRef = useRef(null)
   const currentSectionIdRef = useRef(null)
 
@@ -98,8 +98,10 @@ export default function ReaderPage() {
 
   useEffect(() => {
     const handlePointerDown = (event) => {
-      if (showMenu && menuRef.current && !menuRef.current.contains(event.target) && !event.target.closest?.('[data-text-settings]')) {
+      if (showMenu && menuRef.current && !menuRef.current.contains(event.target)) {
         setShowMenu(false)
+      }
+      if (showTextSettings && textSettingsRef.current && !textSettingsRef.current.contains(event.target)) {
         setShowTextSettings(false)
       }
     }
@@ -117,7 +119,7 @@ export default function ReaderPage() {
       document.removeEventListener('pointerdown', handlePointerDown)
       document.removeEventListener('keydown', handleKeyDown)
     }
-  }, [showMenu])
+  }, [showMenu, showTextSettings])
 
   useEffect(() => {
     if (!currentSection?.section_id) return undefined
@@ -177,7 +179,7 @@ export default function ReaderPage() {
     return <ReaderError message={READER_COPY.missingContinuation} onRetry={session.reload} onBack={() => navigate('/home')} />
   }
 
-  const fontClass = FONT_SIZES.find((option) => option.id === fontSize)?.className || 'text-[20px]'
+  const fontClass = FONT_SIZES.find((option) => option.id === fontSize)?.className || 'text-[19px]'
   const paragraphs = isChapterIntro || isPartIntro
     ? []
     : (currentSection.content || '')
@@ -265,7 +267,12 @@ export default function ReaderPage() {
           </button>
 
           <span className="flex-1" />
-          <button type="button" data-text-settings onClick={() => { setShowMenu(true); setShowTextSettings(visible => !visible) }} className="northstar-reader-control" aria-label="Preferências de texto" aria-expanded={showTextSettings}>Aa</button>
+          <div ref={textSettingsRef} className="relative">
+            <button type="button" data-text-settings onClick={() => { setShowMenu(false); setShowTextSettings(visible => !visible) }} className="northstar-reader-control" aria-label="Preferências de texto" aria-expanded={showTextSettings} aria-controls="reader-text-settings">Aa</button>
+            {showTextSettings && <div id="reader-text-settings" role="group" aria-label="Tamanho do texto" className="absolute right-0 top-full z-50 mt-2 w-[min(18rem,calc(100vw-2rem))] rounded-[18px] border border-line bg-surface p-3 shadow-editorial dark:border-night-line dark:bg-night-surface">
+              <ReaderSettings fontSize={fontSize} setFontSize={setFontSize} />
+            </div>}
+          </div>
           <button type="button" onClick={toggleSavedPassage} disabled={savingPassage || isChapterIntro || isPartIntro} aria-pressed={passageSaved} className="northstar-icon-button disabled:opacity-35" aria-label={passageSaved ? 'Remover este trecho dos salvos' : 'Salvar este trecho'}><Bookmark size={21} fill={passageSaved ? 'currentColor' : 'none'} /></button>
 
           <div ref={menuRef} className="relative">
@@ -290,9 +297,7 @@ export default function ReaderPage() {
                   session.loadBookIndex()
                 }} />
                 {!isChapterIntro && !isPartIntro && <MenuButton icon={NotebookPen} label="Minha nota neste trecho" onClick={openStudyNote} />}
-                <MenuButton icon={Type} label="Preferências de texto" onClick={() => setShowTextSettings((visible) => !visible)} />
                 <MenuButton icon={Home} label="Voltar ao início" onClick={() => navigate('/home')} />
-                {showTextSettings && <ReaderSettings fontSize={fontSize} setFontSize={setFontSize} />}
               </div>
             )}
           </div>
@@ -321,7 +326,7 @@ export default function ReaderPage() {
         ) : (
           <>
             <SectionHeading currentSection={currentSection} />
-            <article className={`font-display leading-[1.82] text-ink dark:text-night-ink ${fontClass}`}>
+            <article className={`font-display leading-[1.72] text-ink dark:text-night-ink ${fontClass}`}>
               {paragraphs.map((paragraph, index) => (
                 <Paragraph key={`${currentSection.section_id}-${index}`} text={paragraph} />
               ))}
@@ -440,7 +445,7 @@ function StudyNotePanel({ open, onClose, title, value, onChange, onSave, saving,
 
 function ReaderSettings({ fontSize, setFontSize }) {
   return (
-    <div className="mt-2 border-t border-line px-2 pb-2 pt-3 dark:border-night-line">
+    <div className="px-1 pb-1 pt-1">
       <p className="px-1 text-sm font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Tamanho</p>
       <div className="mt-2 grid grid-cols-2 gap-2">
         {FONT_SIZES.map((option) => (
@@ -487,7 +492,7 @@ function SectionHeading({ currentSection }) {
     <div className="mb-9 text-center">
       {hierarchy && <p className="text-sm font-medium text-ink/80 dark:text-night-muted">{hierarchy}</p>}
       {heading && (
-        <h1 className="mx-auto mt-2 max-w-xl font-display text-[2.2rem] font-semibold leading-[1.12] tracking-[-0.025em] text-ink dark:text-night-ink">
+        <h1 className="mx-auto mt-3 max-w-xl font-display text-[1.7rem] font-semibold leading-[1.23] tracking-[-0.01em] text-ink sm:text-[2.05rem] dark:text-night-ink">
           {heading}
         </h1>
       )}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 350" role="img" aria-labelledby="t d">
+<title id="t">A Gênese</title><desc id="d">Capa ilustrada original do Vereda, com montanhas, sol dourado e vegetação botânica.</desc>
+<defs>
+<linearGradient id="sky" x1="0" y1="0" x2=".9" y2="1"><stop offset="0" stop-color="#2d4d3b"/><stop offset=".60" stop-color="#63866c"/><stop offset="1" stop-color="#f1ce86"/></linearGradient>
+<linearGradient id="front" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#63866c"/><stop offset="1" stop-color="#23412f"/></linearGradient>
+<radialGradient id="halo"><stop offset="0" stop-color="#fff2c8" stop-opacity=".95"/><stop offset=".35" stop-color="#f1ce86" stop-opacity=".48"/><stop offset="1" stop-color="#f1ce86" stop-opacity="0"/></radialGradient>
+<linearGradient id="trail" x1="0" y1="0" x2="1" y2=".2"><stop offset="0" stop-color="#ead7a0"/><stop offset="1" stop-color="#b3a174"/></linearGradient>
+</defs>
+<rect width="230" height="350" fill="url(#sky)"/>
+<rect x="3" y="3" width="224" height="344" rx="3" fill="none" stroke="#d4c297" opacity=".48" stroke-width="1"/>
+<circle cx="169" cy="110" r="83" fill="url(#halo)"/>
+<circle cx="169" cy="110" r="21" fill="#f1ce86" opacity=".93"/>
+<g stroke="#fff1cd" opacity=".37" stroke-width="1"><path d="M-5 195 Q59 172 120 188 Q172 174 239 187"/><path d="M-9 205 Q75 185 128 200 Q188 184 239 191"/></g>
+<path d="M-15 239 L32 195 62 218 104 160 147 214 184 173 243 219 243 351 -15 351Z" fill="#2d4d3b" opacity=".37"/>
+<path d="M-10 256 L37 232 70 246 122 203 164 245 197 216 239 241 239 350 -10 350Z" fill="#63866c" opacity=".72"/>
+<path d="M-16 290 Q55 239 109 266 Q174 229 243 280 L243 350 -16 350Z" fill="#2d4d3b" opacity=".70"/>
+<path d="M-15 391 C93 319 121 320 245 235 L245 396Z" fill="url(#front)"/>
+<path d="M94 350 Q112 313 140 299 Q150 291 166 280 Q149 303 143 316 Q131 336 133 350Z" fill="url(#trail)" opacity=".72"/>
+<g stroke="#23412f" stroke-width="2.6" fill="none" stroke-linecap="round"><path d="M14 354 Q36 314 19 266"/><path d="M203 352 Q191 307 209 259"/></g>
+<g><path transform="translate(12 278) rotate(-31) scale(0.87)" d="M0 0 Q-17 -25 0 -43 Q19 -22 0 0Z" fill="#a6bc88" opacity=".90"/><path transform="translate(38 292) rotate(37) scale(0.83)" d="M0 0 Q-17 -25 0 -43 Q19 -22 0 0Z" fill="#a6bc88" opacity=".90"/><path transform="translate(16 331) rotate(-40) scale(1.18)" d="M0 0 Q-17 -25 0 -43 Q19 -22 0 0Z" fill="#a6bc88" opacity=".90"/><path transform="translate(50 337) rotate(31) scale(0.87)" d="M0 0 Q-17 -25 0 -43 Q19 -22 0 0Z" fill="#a6bc88" opacity=".90"/><path transform="translate(202 323) rotate(39) scale(1.07)" d="M0 0 Q-17 -25 0 -43 Q19 -22 0 0Z" fill="#a6bc88" opacity=".90"/><path transform="translate(179 311) rotate(-39) scale(1.1)" d="M0 0 Q-17 -25 0 -43 Q19 -22 0 0Z" fill="#a6bc88" opacity=".90"/></g>
+<!-- Work-specific illustration detail for cover 5 -->
+<g fill="none" stroke="#1d402f" stroke-width="7" opacity=".75" stroke-linecap="round"><path d="M202 350Q194 294 202 242Q210 211 182 177"/><path d="M204 265Q221 237 227 213"/><path d="M200 240Q173 213 154 208"/></g><g fill="#87a280" opacity=".85"><path d="M182 181Q133 165 149 141Q180 135 182 181Z"/><path d="M181 180Q189 141 215 153Q225 178 181 180Z"/><path d="M230 214Q244 179 214 179Q200 201 230 214Z"/><path d="M153 208Q123 194 127 225Q151 236 153 208Z"/><path d="M202 247Q176 222 163 244Q180 266 202 247Z"/></g>
+<g opacity=".9" fill="#fff5da" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
+<text x="115" y="21" font-size="7.8" letter-spacing="3">VEREDA</text></g>
+<rect x="9" y="29" width="212" height="37" rx="2" fill="#23412f" opacity=".31"/>
+<g fill="#fff5dc" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
+<text x="115" y="45" font-size="12" letter-spacing=".9">A GÊNESE</text></g>
+<path d="M87 75 H143" stroke="#f1ce86" opacity=".7" stroke-width=".9"/>
+<text x="115" y="337" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="#f7ebc7" letter-spacing=".8">ALLAN KARDEC</text>
+</svg>

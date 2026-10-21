@@ -87,9 +87,11 @@ describe('editorial product interactions', () => {
     const nav = screen.getByRole('navigation')
     expect(within(nav).getAllByRole('button').map(b => b.textContent)).toEqual(['Início', 'Estudos', 'Reflexões', 'Mais'])
     expect(screen.getByRole('button', { name: 'Mais' }).getAttribute('aria-current')).toBe('page')
+    expect(screen.getByRole('button', { name: 'Mais' }).getAttribute('data-destination')).toBe('mais')
     await userEvent.click(screen.getByRole('button', { name: 'Reflexões' }))
     expect(screen.getByRole('navigation')).toBeTruthy()
     expect(screen.getByRole('button', { name: 'Reflexões' }).getAttribute('aria-current')).toBe('page')
+    expect(screen.getByRole('button', { name: 'Reflexões' }).getAttribute('data-destination')).toBe('reflexoes')
   })
   it('hides bottom navigation in the immersive reader', () => {
     mount(<BottomNav />, '/ler/1')
@@ -103,6 +105,13 @@ describe('editorial product interactions', () => {
     expect(mocks.share).toHaveBeenCalledWith({ text: expect.any(String), author: expect.any(String), source: expect.any(String) })
     await userEvent.click(screen.getByRole('button', { name: 'Favoritas' }))
     expect(screen.getByText(/Salve uma reflexão em Hoje/)).toBeTruthy()
+  })
+  it('keeps attributed quote and accessible actions within one North Star reflection card', () => {
+    mount(<Reflections />, '/reflexoes')
+    const quoteCard = screen.getByRole('region', { name: 'Reflexão de hoje' })
+    const actions = within(quoteCard).getByRole('group', { name: 'Ações da reflexão' })
+    expect(within(actions).getByRole('button', { name: 'Salvar' })).toBeTruthy()
+    expect(within(actions).getByRole('button', { name: 'Compartilhar esta reflexão' })).toBeTruthy()
   })
   it('changes reflection tabs without trapping Back in tab history', async () => {
     function Back() { const navigate = useNavigate(); return <button onClick={() => navigate(-1)}>Voltar de teste</button> }
@@ -143,6 +152,20 @@ describe('editorial product interactions', () => {
     expect(mocks.save).toHaveBeenCalledWith(4)
     await userEvent.click(screen.getByRole('button', { name: 'Voltar à página anterior' }))
     expect(screen.getByLabelText('Rota atual').textContent).toBe('/notas')
+  })
+  it('separates Aa typography controls from reading navigation options', async () => {
+    mount(<Reader />, '/ler/1')
+    await userEvent.click(screen.getByRole('button', { name: 'Preferências de texto' }))
+    expect(screen.getByRole('group', { name: 'Tamanho do texto' })).toBeTruthy()
+    expect(screen.queryByRole('button', { name: 'Índice da obra' })).toBeNull()
+    await userEvent.click(screen.getByRole('button', { name: 'Opções de leitura' }))
+    expect(screen.queryByRole('group', { name: 'Tamanho do texto' })).toBeNull()
+    expect(screen.getByRole('button', { name: 'Índice da obra' })).toBeTruthy()
+  })
+  it('uses the North Star illustrated cover artwork rather than photographic editions', () => {
+    const { container } = mount(<Library />, '/biblioteca')
+    expect(container.querySelectorAll('.northstar-cover-art').length).toBe(3)
+    expect(container.querySelector('.northstar-cover-art-1')).toBeTruthy()
   })
   it('keeps all secondary collections accessible', () => {
     mount(<More />, '/mais')
