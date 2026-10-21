@@ -9,6 +9,8 @@ import Reader from '@/pages/ReaderPage.jsx'
 import BottomNav from '@/components/ui/BottomNav.jsx'
 import '@/index.css'
 const screen=new URLSearchParams(location.search).get('screen')||'home'
+const dark=new URLSearchParams(location.search).get('theme')==='dark'
+document.documentElement.classList.toggle('dark',dark)
 const initialPath={home:'/home',studies:'/biblioteca',reflections:'/reflexoes',reader:'/ler/2'}[screen]||'/home'
 createRoot(document.getElementById('root')).render(
   <MemoryRouter initialEntries={[initialPath]}>
