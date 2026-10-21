@@ -382,11 +382,16 @@
     transform: translateY(-50%);
   }
   .northstar-scenery {
-    background-image: url('/art/vereda-valley.svg');
-    background-repeat: no-repeat;
-    background-position: center 58%;
-    background-size: cover;
+    /* The top image is extracted from the founder-approved North Star concept.
+       The vector behind it remains a safe fallback for offline/older clients. */
+    background-image: url('/art/vereda-valley-northstar.webp'), url('/art/vereda-valley.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: center 55%, center 55%;
+    background-size: cover, cover;
     background-color: #d7b887;
+  }
+  .dark .northstar-scenery {
+    filter: brightness(.84) saturate(.87);
   }
   .northstar-home .home-welcome {
     position: relative;
