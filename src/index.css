@@ -286,8 +286,11 @@
 @layer components {
   .northstar-nav-item { @apply flex min-h-16 min-w-0 flex-col items-center justify-center gap-1.5 rounded-xl px-1 py-2 text-sm font-medium text-muted dark:text-night-muted; }
   .northstar-nav-item.is-active { @apply text-sage-800 dark:text-sage-200; }
-  .northstar-nav-item.is-active svg { color: #886B32; }
-  .dark .northstar-nav-item.is-active svg { color: #E7D7B4; }
+  /* Home uses the North Star's gold; Studies and Reflections use botanical olive. */
+  .northstar-nav-item.is-active svg { color: #53664E; }
+  .northstar-nav-item[data-destination="home"].is-active svg { color: #987534; }
+  .dark .northstar-nav-item.is-active svg { color: #B7C8B4; }
+  .dark .northstar-nav-item[data-destination="home"].is-active svg { color: #E7D7B4; }
   .home-welcome { @apply relative mt-7 overflow-hidden rounded-t-[18px]; }
   .home-greeting { @apply relative z-10 px-1 pb-4; }
   .home-landscape { @apply h-36 w-full object-cover; object-position: center 60%; }
@@ -402,9 +405,14 @@
     right: 0.2rem;
     left: 0.2rem;
     z-index: 2;
-    padding: 0.65rem 0.7rem;
-    border-radius: 0.8rem;
-    background: rgba(250, 245, 237, 0.75);
+    padding: 0.75rem 0.75rem 1.35rem;
+    border-radius: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(250, 245, 237, 0.96) 0%,
+      rgba(250, 245, 237, 0.68) 56%,
+      rgba(250, 245, 237, 0) 100%
+    );
     color: #2c352b;
   }
   .northstar-home .home-greeting h1 {
@@ -417,7 +425,10 @@
     line-height: 1.32;
     color: #5d6255;
   }
-  .dark .northstar-home .home-greeting { background: rgba(47,58,50,.91); color: #f7efe0; }
+  .dark .northstar-home .home-greeting {
+    background: linear-gradient(180deg, rgba(47,58,50,.96) 0%, rgba(47,58,50,.76) 57%, rgba(47,58,50,0) 100%);
+    color: #f7efe0;
+  }
   .dark .northstar-home .home-greeting p { color: #e2e2d4; }
   .northstar-home .home-continue { position: relative; z-index: 3; margin-top: -1.1rem; }
   .northstar-home .home-continue > div { padding: 0.7rem; border-radius: 1.15rem; }
