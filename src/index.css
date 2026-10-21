@@ -589,11 +589,11 @@
   --northstar-ivory: #F8F4EA;
   --northstar-sand: #E9E1D4;
 }
-.northstar-page .font-display,
-.northstar-reader-page .font-display {
+.northstar-page [class~="font-display"],
+.northstar-reader-page [class~="font-display"] {
   font-family: 'Playfair Display', Georgia, serif;
 }
-.northstar-reader-page article.font-display,
+.northstar-reader-page article[class~="font-display"],
 .northstar-page .reflection-quotation blockquote,
 .northstar-page .home-reflection blockquote {
   font-family: 'Lora', Georgia, serif;
