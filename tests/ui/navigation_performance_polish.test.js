@@ -52,18 +52,18 @@ describe('navigation and performance polish across the current product stack', (
   })
 
   it('uses North Star book accents without legacy cover colors', () => {
-    expect(library).toContain('BOOK_ACCENT_COLORS')
-    expect(library).toContain("2: '#AB6D50'")
-    expect(library).toContain("3: '#B9A46E'")
+    expect(library).toContain('<BookCover book={book}')
+    expect(library).toContain('study-book-row')
+    expect(library).toContain('getBookProgress')
     expect(library).not.toContain('book.cover_color')
   })
 
   it('keeps Biblioteca focused on the books instead of repeating navigation available elsewhere', () => {
-    expect(library).toContain('Caminho pelas obras básicas')
-    expect(library).toContain('Seu progresso')
+    expect(library).toContain('Obras fundamentais')
+    expect(library).toContain('state.percent')
     expect(library).toContain('Sugerir uma obra complementar')
-    expect(library).toContain('aria-labelledby="free-reading-heading"')
-    expect(library).toContain('Abrir Estudo Guiado')
+    expect(library).toContain('aria-label="Filtrar estudos"')
+    expect(library).toContain('Estudo guiado')
     expect(library).not.toContain('Atalhos de estudo')
     expect(library).not.toContain('Não sei por onde começar')
     expect(library).not.toContain('Trechos salvos')
@@ -76,8 +76,8 @@ describe('navigation and performance polish across the current product stack', (
     expect(reader).toContain('Índice da obra')
     expect(reader).toContain('Preferências de texto')
     expect(reader).toContain('northstar-reader-control')
-    expect(reader).toContain('A−')
-    expect(reader).toContain('A+')
+    expect(reader).toContain('setFontSize(option.id)')
+    expect(reader).toContain('aria-label="Preferências de texto"')
     expect(reader).toContain('Salvar este trecho')
   })
 

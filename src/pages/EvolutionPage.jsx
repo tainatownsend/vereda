@@ -57,7 +57,7 @@ export default function EvolutionPage() {
             <SummaryCard icon={Quote} value={summary?.reflections ?? '—'} label="reflexões guardadas" />
           </div>
 
-          <p className="mt-3 text-xs leading-relaxed text-muted dark:text-night-muted">
+          <p className="mt-3 text-sm leading-relaxed text-muted dark:text-night-muted">
             Estes números servem apenas para dar perspectiva. Uma semana mais cheia não diminui o que você já construiu.
           </p>
         </section>
@@ -120,7 +120,7 @@ export default function EvolutionPage() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-sage-700 dark:text-sage-300">
+                        <p className="text-sm font-semibold uppercase tracking-[0.08em] text-sage-700 dark:text-sage-300">
                           {entry.entryType === 'note' ? 'Nota de estudo' : 'Reflexão'}
                         </p>
                         {entry.entryDate && <span className="text-[11px] text-muted dark:text-night-muted">{formatJournalDate(entry.entryDate)}</span>}
@@ -205,7 +205,7 @@ function SummaryCard({ icon: Icon, value, label }) {
         </div>
         <div>
           <p className="font-display text-[1.65rem] font-semibold leading-none text-ink dark:text-night-ink">{value}</p>
-          <p className="mt-1.5 text-xs leading-relaxed text-muted dark:text-night-muted">{label}</p>
+          <p className="mt-1.5 text-sm leading-relaxed text-muted dark:text-night-muted">{label}</p>
         </div>
       </div>
     </Card>

@@ -8,21 +8,23 @@ const html = readFileSync('index.html', 'utf8')
 
 describe('public landing page contract', () => {
   it('separates public presentation from authentication', () => {
-    expect(app).toContain('<Route path="/" element={<LandingPage />} />')
+    expect(app).toContain('<Route path="/" element={<PublicOnlyRoute loading={loading} user={user}><LandingPage /></PublicOnlyRoute>} />')
     expect(app).toContain('path="/entrar"')
     expect(app).toContain('path="/criar-conta"')
     expect(app).toContain('<AuthPage initialMode="signup" />')
     expect(auth).toContain("export default function AuthPage({ initialMode = 'login' })")
   })
 
-  it('does not block the public landing behind auth initialization', () => {
+  it('restores the session before deciding whether to show Landing or Home', () => {
+    const publicGuard = readFileSync('src/components/PublicOnlyRoute.jsx', 'utf8')
     const appStart = app.indexOf('export default function App()')
     const appReturn = app.indexOf('return (', appStart)
     const appBeforeRender = app.slice(appStart, appReturn)
 
     expect(appBeforeRender).not.toContain('if (loading)')
-    expect(app).toContain('function PublicAuthRoute({ loading, user, children })')
-    expect(app).toContain('if (loading) return <PageLoader />')
+    expect(app).toContain("import PublicOnlyRoute from '@/components/PublicOnlyRoute'")
+    expect(publicGuard).toContain('if (loading) return <PageLoader />')
+    expect(publicGuard).toContain('if (user) return <Navigate to="/home" replace />')
   })
 
   it('explains the product before signup with clear public sections', () => {
@@ -38,8 +40,8 @@ describe('public landing page contract', () => {
   })
 
   it('uses one canonical Spiritist-study message across Landing and Auth', () => {
-    expect(landing).toContain('Seu caminho de estudo espírita')
-    expect(auth).toContain('Seu caminho de estudo espírita')
+    expect(landing).toContain('App de estudo guiado da doutrina espírita')
+    expect(auth).toContain('App de estudo guiado da doutrina espírita')
     expect(landing).not.toContain('seu caminho de aprendizado')
     expect(auth).not.toContain('seu caminho de aprendizado')
   })
@@ -81,7 +83,7 @@ describe('public landing page contract', () => {
   })
 
   it('ends with a branded footer that provides useful real navigation', () => {
-    expect(landing).toContain('Estudo que ilumina. Caminho que transforma.')
+    expect(landing).toContain('Conhecimento que ilumina. Acolhimento que transforma.')
     expect(landing).toContain('id="como-funciona"')
     expect(landing).toContain('id="biblioteca"')
     expect(landing).toContain('id="perguntas-frequentes"')

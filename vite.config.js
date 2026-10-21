@@ -4,6 +4,8 @@ import { VitePWA } from 'vite-plugin-pwa'
 import path from 'path'
 
 export default defineConfig({
+  // Content-pipeline suites rebuild shared artifacts; concurrent files can read partial JSON.
+  test: { fileParallelism: false },
   plugins: [
     react(),
     VitePWA({
@@ -15,7 +17,7 @@ export default defineConfig({
       injectManifest: {
         globDirectory: 'dist',
         globPatterns: [
-          '**/*.{js,css,html,ico,png,svg,woff,woff2,json}'
+          '**/*.{js,css,html,ico,png,jpg,webp,svg,woff,woff2,json}'
         ],
         globIgnores: [
           '**/node_modules/**/*',
@@ -26,12 +28,12 @@ export default defineConfig({
       manifest: {
         name: 'Vereda — Estudo Espírita',
         short_name: 'Vereda',
-        description: 'Estudo tranquilo das obras fundamentais do Espiritismo',
+        description: 'App de estudo guiado da doutrina espírita',
         lang: 'pt-BR',
         start_url: '/',
         display: 'standalone',
-        background_color: '#F6F7F4',
-        theme_color: '#6F8F6F',
+        background_color: '#F5F0E7',
+        theme_color: '#F5F0E7',
         icons: [
           {
             src: '/vereda-logo-mark.svg',
@@ -50,6 +52,6 @@ export default defineConfig({
       devOptions: { enabled: false },
     }),
   ],
-  server: { host: true },
+  server: { host: true, allowedHosts: ['terminal.local'] },
   resolve: { alias: { '@': path.resolve(__dirname, './src') } },
 })

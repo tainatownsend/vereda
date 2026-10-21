@@ -1,3 +1,4 @@
+import { REFLECTION_FAVORITES_KEY, withReflectionFavorite } from '@/features/reflections/favorites'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { supabase } from '@/lib/supabase'
@@ -19,6 +20,7 @@ import {
   withGuidedSessionComplete,
 } from '@/features/guidedStudy/progress'
 import { getLocalDate } from '@/features/reader/readerService'
+import { mergeConfirmedReaderProgress } from '@/features/reader/readerPersistence'
 import { STUDY_PLAN_METADATA_KEY } from '@/features/studyPlan/studyPlan'
 
 let authInitPromise = null
@@ -59,12 +61,14 @@ export const useAuthStore = create((set, get) => ({
   user: null,
   profile: null,
   loading: true,
+  authError: false,
 
   init: async () => {
     if (authInitPromise) return authInitPromise
 
     authInitPromise = (async () => {
-      const { data: { session } } = await supabase.auth.getSession()
+      const { data: { session }, error } = await supabase.auth.getSession()
+      if (error) throw error
 
       if (session?.user) {
         set({ user: session.user, loading: false })
@@ -85,7 +89,10 @@ export const useAuthStore = create((set, get) => ({
 
         authSubscription = subscription
       }
-    })()
+    })().catch(() => {
+      set({ loading: false, authError: true })
+      authInitPromise = null
+    })
 
     return authInitPromise
   },
@@ -158,10 +165,22 @@ export const useAuthStore = create((set, get) => ({
   },
 
   signInWithGoogle: async () => {
-    await supabase.auth.signInWithOAuth({
+    // A disabled OAuth provider otherwise redirects users to an opaque Supabase 400 page.
+    // If this public settings check is unreachable, let Supabase handle the OAuth attempt.
+    const settings = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/auth/v1/settings`, {
+      headers: { apikey: import.meta.env.VITE_SUPABASE_ANON_KEY },
+    }).then(response => response.ok ? response.json() : null).catch(() => null)
+
+    if (settings?.external?.google === false) {
+      throw new Error('Google provider is not enabled')
+    }
+
+    const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: { redirectTo: `${window.location.origin}/home` },
     })
+    if (error) throw error
+    return data
   },
 
   signInWithEmail: async (email, password) => {
@@ -232,6 +251,16 @@ export const useAuthStore = create((set, get) => ({
     return data
   },
 
+  setReflectionFavorite: async (id, saved) => {
+    const { user } = get()
+    if (!user) throw new Error('Entre na sua conta para salvar a reflexão.')
+    const { data, error } = await supabase.auth.updateUser({
+      data: { [REFLECTION_FAVORITES_KEY]: withReflectionFavorite(user, id, saved) },
+    })
+    if (error) throw error
+    if (data.user) set({ user: data.user })
+  },
+
   savePassage: async (sectionId) => {
     const { user } = get()
     if (!user) throw new Error('Entre na sua conta para salvar este trecho.')
@@ -269,15 +298,17 @@ export const useAuthStore = create((set, get) => ({
 
 export const useReadingStore = create((set, get) => ({
   books: [],
+  booksStatus: 'idle',
   progress: {},
   streak: 0,
 
   fetchBooks: async () => {
-    const { data } = await supabase
-      .from('books')
-      .select('*')
-      .order('display_order')
-    if (data) set({ books: data })
+    set({ booksStatus: 'loading' })
+    try {
+      const { data, error } = await supabase.from('books').select('*').order('display_order')
+      if (error || !data?.length) throw error || new Error('Nenhuma obra disponível.')
+      set({ books: data, booksStatus: 'ready' })
+    } catch { set({ booksStatus: 'error' }) }
   },
 
   fetchProgress: async (userId) => {
@@ -296,6 +327,20 @@ export const useReadingStore = create((set, get) => ({
     const { data } = await supabase
       .rpc('get_streak', { p_user_id: userId })
     if (data !== null) set({ streak: data })
+  },
+
+  // Called only after complete_reading_section confirms a durable checkpoint.
+  // Keeps the Home and Studies progress in sync without a second page load.
+  recordConfirmedReaderProgress: (bookId, result) => {
+    set((state) => ({
+      progress: {
+        ...state.progress,
+        [bookId]: mergeConfirmedReaderProgress(state.progress[bookId], {
+          nextPosition: result?.next_position,
+          bookCompleted: result?.book_completed,
+        }),
+      },
+    }))
   },
 
   startBook: async (userId, bookId, paceMode, paceMinutes, paceDeadline) => {

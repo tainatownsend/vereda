@@ -8,23 +8,27 @@ const viteConfig = readFileSync('vite.config.js', 'utf8')
 
 describe('Vereda North Star identity contract', () => {
   it('keeps the approved core colors and typography', () => {
-    expect(css).toContain('--ves-canvas: #F6F7F4')
-    expect(css).toContain('--ves-focus: #6F8F6F')
+    expect(css).toContain('--ves-canvas: #F5F0E7')
+    expect(css).toContain('--ves-focus: #53664E')
     expect(css).toContain('--ves-accent: #A7B8A1')
     expect(css).toContain('family=Inter')
     expect(css).toContain('family=Literata')
   })
 
-  it('keeps the approved horizon, path and branch logo', () => {
-    expect(logo).toContain('Um caminho entre colinas iluminadas pelo nascer do sol')
-    expect(logo).toContain('stroke="#4F6757"')
-    expect(logo).toContain('fill="#E7B977"')
+  it('uses the founder-approved sun and leaves mark consistently on screen and in the install icon', () => {
+    expect(logo).toContain('viewBox="0 0 107 105"')
+    expect(logo).toContain('fill="#59694e"')
+    expect(logo).toContain('fill="#c5a25c"')
     expect(maskableLogo).toContain('Ícone instalável do Vereda')
+    expect(maskableLogo).toContain('sol dourado sobre duas folhas verde-oliva')
+    expect(maskableLogo).toContain('fill="#59694e"')
+    expect(maskableLogo).toContain('fill="#c5a25c"')
+    expect(maskableLogo).not.toContain('landscape-circle-maskable')
   })
 
   it('keeps PWA theme and install icons aligned with the brand', () => {
-    expect(viteConfig).toContain("background_color: '#F6F7F4'")
-    expect(viteConfig).toContain("theme_color: '#6F8F6F'")
+    expect(viteConfig).toContain("background_color: '#F5F0E7'")
+    expect(viteConfig).toContain("theme_color: '#F5F0E7'")
     expect(viteConfig).toContain("src: '/vereda-logo-mark.svg'")
     expect(viteConfig).toContain("src: '/vereda-logo-maskable.svg'")
     expect(viteConfig).not.toContain('vereda-icon-192x192.png')

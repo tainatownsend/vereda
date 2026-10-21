@@ -1,5 +1,7 @@
+import PageBackButton from '@/components/ui/PageBackButton'
+import BookLoadState from '@/components/ui/BookLoadState'
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, ArrowRight, Bookmark, RefreshCw, Trash2 } from 'lucide-react'
+import { ArrowRight, Bookmark, RefreshCw, Trash2 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
 import { useBooks } from '@/hooks'
@@ -70,19 +72,13 @@ export default function SavedPassagesPage() {
     }
   }
 
-  if (loading || !books.length) return <PageLoader label="Abrindo seus trechos salvos" />
+  if (!books.length) return <BookLoadState />
+  if (loading) return <PageLoader label="Abrindo seus trechos salvos" />
 
   return (
     <main className="ves-page ves-brand-page pb-28">
       <header className="ves-container pb-7 pt-8">
-        <button
-          type="button"
-          onClick={() => navigate('/favoritos')}
-          className="flex min-h-12 items-center gap-2 rounded-vesSm px-2 text-sm font-semibold text-sage-800 hover:bg-sage-50 dark:text-sage-300 dark:hover:bg-sage-950"
-        >
-          <ArrowLeft size={19} aria-hidden="true" />
-          Voltar aos Favoritos
-        </button>
+        <PageBackButton fallback="/mais" />
 
         <p className="ves-eyebrow mt-7">Para consultar depois</p>
         <h1 className="ves-heading mt-2 text-[2.35rem]">Trechos salvos</h1>
@@ -117,7 +113,7 @@ export default function SavedPassagesPage() {
 
               return (
                 <Card key={section.id} className="p-5 sm:p-6">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-sage-700 dark:text-sage-300">
+                  <p className="text-sm font-semibold uppercase tracking-wide text-sage-700 dark:text-sage-300">
                     {book?.title || 'Obra fundamental'}
                   </p>
                   <h2 className="mt-2 font-display text-xl font-semibold leading-snug text-ink dark:text-night-ink">

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Literata:opsz,wght@7..72,500;7..72,600;7..72,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,13 +7,13 @@
 :root {
   color-scheme: light;
 
-  --ves-canvas: #F6F7F4;
-  --ves-surface: #FFFFFF;
-  --ves-surface-soft: #E8EDE6;
-  --ves-ink: #1F2933;
-  --ves-muted: #66706A;
-  --ves-line: #DCDCC8;
-  --ves-focus: #6F8F6F;
+  --ves-canvas: #F5F0E7;
+  --ves-surface: #FBF8F1;
+  --ves-surface-soft: #EEE4D4;
+  --ves-ink: #2C352B;
+  --ves-muted: #6F7168;
+  --ves-line: #DED5C7;
+  --ves-focus: #53664E;
   --ves-accent: #A7B8A1;
   --ves-sun: #D6C58F;
 
@@ -165,7 +165,7 @@
     background:
       radial-gradient(circle at 88% 18%, rgba(167, 184, 161, 0.24) 0 1.15rem, transparent 1.2rem),
       radial-gradient(ellipse at 86% 116%, rgba(167, 184, 161, 0.16) 0 38%, transparent 38.5%),
-      linear-gradient(145deg, #FFFFFF 0%, #F6F7F4 62%, #E8EDE6 100%);
+      linear-gradient(145deg, #FBF8F1 0%, #F5F0E7 62%, #EEE4D4 100%);
   }
 
   .northstar-home-quote::after {
@@ -279,5 +279,298 @@
   ::-webkit-scrollbar-thumb {
     background: #A8B39F;
     border-radius: 999px;
+  }
+}
+
+/* Approved editorial North Star — warm surfaces and an unhurried mobile rhythm. */
+@layer components {
+  .northstar-nav-item { @apply flex min-h-16 min-w-0 flex-col items-center justify-center gap-1.5 rounded-xl px-1 py-2 text-sm font-medium text-muted dark:text-night-muted; }
+  .northstar-nav-item.is-active { @apply text-sage-800 dark:text-sage-200; }
+  /* Home uses the North Star's gold; Studies and Reflections use botanical olive. */
+  .northstar-nav-item.is-active svg { color: #53664E; }
+  .northstar-nav-item[data-destination="home"].is-active svg { color: #987534; }
+  .dark .northstar-nav-item.is-active svg { color: #B7C8B4; }
+  .dark .northstar-nav-item[data-destination="home"].is-active svg { color: #E7D7B4; }
+  .home-welcome { @apply relative mt-7 overflow-hidden rounded-t-[18px]; }
+  .home-greeting { @apply relative z-10 px-1 pb-4; }
+  .home-landscape { @apply h-36 w-full object-cover; object-position: center 60%; }
+  .home-continue { @apply relative z-10 -mt-4; }
+  .continue-study-button { @apply flex min-h-40 w-full items-center gap-4 rounded-[14px] bg-sage-700 p-5 text-left text-white; }
+  .continue-study-button > div > div { background: #8D9A85; }
+  .continue-study-button > div > div > div { background: #F1E7CE; }
+  .home-reflection blockquote { font-style: italic; font-weight: 400; }
+  .northstar-home .home-reflection { background: var(--ves-surface-soft); box-shadow: none; }
+  .editorial-tabs { @apply flex gap-1 rounded-xl p-1; background: var(--ves-surface-soft); }
+  .editorial-tabs button { @apply min-h-11 min-w-0 flex-1 rounded-lg px-1.5 py-2 text-sm font-medium text-muted dark:text-night-muted; }
+  .editorial-tabs button:nth-child(2) { flex-grow: 1.45; }
+  .editorial-tabs button[aria-pressed='true'] { @apply text-ink dark:text-night-ink; background: #E7D7B4; }
+  .dark .editorial-tabs button[aria-pressed='true'] { background: #56634C; }
+  .study-book-row { @apply flex items-center gap-3 p-3.5 sm:gap-4 sm:p-4; }
+  .reflection-composition { @apply overflow-hidden rounded-[20px] border border-line dark:border-night-line; background: var(--ves-surface-soft); }
+  .reflection-composition img { @apply h-44 w-full object-cover sm:h-60; }
+  .reflection-quotation { @apply px-6 pb-8 pt-6 text-center; }
+  .reflection-quotation blockquote { font-style: italic; font-weight: 400; @apply font-display text-[1.5rem] leading-relaxed; }
+  .reflection-quotation::after { content: ''; display: block; width: 2.5rem; height: 1px; background: #A1844C; margin: 1.5rem auto 0; }
+  .reader-reflection { @apply mt-10 rounded-[18px] border border-line p-5 dark:border-night-line; background: var(--ves-surface-soft); }
+  .reader-reflection h2 { @apply flex items-center gap-2 font-display text-xl; }
+  .reader-reflection p { @apply mt-3 text-base leading-relaxed; }
+  .reader-chapter-nav { @apply mt-10 flex flex-wrap justify-between gap-3 border-t border-line pt-6 dark:border-night-line; }
+  .reader-chapter-nav button { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-line px-4 py-3 text-sm font-medium disabled:opacity-40 dark:border-night-line; }
+  .reader-chapter-nav button:last-child { @apply border-transparent bg-sage-700 text-white dark:bg-sage-300 dark:text-sage-950; }
+  .northstar-page :is(input, textarea, select) { font-size: max(1rem, 16px); }
+  .northstar-page .northstar-text-action { @apply text-sm; }
+  .northstar-page .northstar-section-title { @apply font-display text-xl; }
+  @media (min-width: 1024px) {
+    .northstar-container { max-width: 44rem; padding-left: 3rem; padding-right: 3rem; }
+    .northstar-home .northstar-container { max-width: 48rem; }
+    .home-landscape { height: 12rem; }
+  }
+}
+
+/* Vereda North Star mobile-density pass: preserve readable type and 44px+ targets. */
+@layer components {
+  @media (max-width: 639px) {
+    .northstar-home .northstar-container { padding-top: 0.75rem; }
+    .northstar-home .home-welcome { margin-top: 0.75rem; }
+    .northstar-home .home-greeting { padding-bottom: 0.65rem; }
+    .northstar-home .home-greeting h1 { font-size: 1.5rem; line-height: 1.22; }
+    .northstar-home .home-greeting p { margin-top: 0.35rem; font-size: 0.9375rem; line-height: 1.45; }
+    .northstar-home .home-landscape { height: 7.5rem; }
+    .northstar-home .home-continue { margin-top: -0.75rem; }
+    .northstar-home .home-continue > div { padding: 0.65rem; }
+    .northstar-home .home-continue h2 { margin-bottom: 0.5rem; font-size: 0.9375rem; }
+    .northstar-home .continue-study-button { min-height: 7.5rem; padding: 0.875rem 1rem; gap: 0.5rem; }
+    .northstar-home .continue-study-button h3 { font-size: 1.125rem; line-height: 1.25; }
+    .northstar-home .continue-study-button p { margin-top: 0.35rem; font-size: 0.875rem; line-height: 1.4; }
+    .northstar-home .continue-study-button .mt-5 { margin-top: 0.65rem; }
+    .northstar-home .home-continue + section { margin-top: 0.75rem; }
+    .northstar-home .home-reflection { padding: 0.875rem 1rem; }
+    .northstar-home .home-reflection blockquote { margin-top: 0.5rem; font-size: 1rem; line-height: 1.45; }
+    .northstar-home .home-reflection p { margin-top: 0.35rem; font-size: 0.875rem; line-height: 1.4; }
+    .northstar-home .home-reflection span { margin-top: 0.5rem; }
+    .ves-nav-shell .northstar-nav-item { min-height: 3.5rem; gap: 0.2rem; padding: 0.35rem 0; }
+  }
+}
+
+
+/* Founder-approved North Star — scalable botanical art reconstructed for Retina
+   while preserving genuine author/source, progress, and reading behavior.
+   These illustrations are a V1 candidate subject to founder visual approval. */
+@layer components {
+  .northstar-hero-header {
+    position: relative;
+    min-height: 4.65rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .northstar-hero-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    line-height: 1;
+  }
+  .northstar-hero-brand .font-display {
+    line-height: 1.08;
+    font-weight: 500;
+  }
+  .northstar-hero-header > button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .northstar-scenery {
+    /* The top image is extracted from the founder-approved North Star concept.
+       The vector behind it remains a safe fallback for offline/older clients. */
+    background-image: url('/art/vereda-valley-northstar.webp'), url('/art/vereda-valley.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: center 55%, center 55%;
+    background-size: cover, cover;
+    background-color: #d7b887;
+  }
+  .dark .northstar-scenery {
+    filter: brightness(.84) saturate(.87);
+  }
+  .northstar-home .home-welcome {
+    position: relative;
+    height: 10rem;
+    margin-top: 0.2rem;
+    overflow: hidden;
+    border-radius: 1.05rem 1.05rem 0 0;
+  }
+  .northstar-home .home-landscape {
+    height: 100%;
+    width: 100%;
+  }
+  /* Delicate edge foliage makes the sunrise a framed landscape, not a flat gradient.
+     Keep botanical ornament inert and outside the reading or tap target layer. */
+  .northstar-home .home-welcome::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: -1rem;
+    bottom: -3.2rem;
+    width: 5.6rem;
+    height: 10.3rem;
+    background: url('/art/botanical-sprig.svg') center / contain no-repeat;
+    opacity: .52;
+    transform: rotate(-22deg) scaleX(-1);
+    pointer-events: none;
+  }
+  .reflection-composition .northstar-reflection-image {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .reflection-composition .northstar-reflection-image::after {
+    content: '';
+    position: absolute;
+    bottom: -4.5rem;
+    left: -.35rem;
+    width: 4.6rem;
+    height: 10rem;
+    background: url('/art/botanical-sprig.svg') center / contain no-repeat;
+    transform: rotate(-23deg) scaleX(-1);
+    opacity: .48;
+    pointer-events: none;
+  }
+  .dark .northstar-home .home-welcome::after,
+  .dark .reflection-composition .northstar-reflection-image::after {
+    opacity: .22;
+  }
+  .northstar-home .home-greeting {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.2rem;
+    left: 0.2rem;
+    z-index: 2;
+    padding: 0.75rem 0.75rem 1.35rem;
+    border-radius: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(250, 245, 237, 0.96) 0%,
+      rgba(250, 245, 237, 0.68) 56%,
+      rgba(250, 245, 237, 0) 100%
+    );
+    color: #2c352b;
+  }
+  .northstar-home .home-greeting h1 {
+    font-size: clamp(1.22rem, 5vw, 1.57rem);
+    line-height: 1.16;
+  }
+  .northstar-home .home-greeting p {
+    margin-top: 0.2rem;
+    font-size: 0.82rem;
+    line-height: 1.32;
+    color: #5d6255;
+  }
+  .dark .northstar-home .home-greeting {
+    background: linear-gradient(180deg, rgba(47,58,50,.96) 0%, rgba(47,58,50,.76) 57%, rgba(47,58,50,0) 100%);
+    color: #f7efe0;
+  }
+  .dark .northstar-home .home-greeting p { color: #e2e2d4; }
+  .northstar-home .home-continue { position: relative; z-index: 3; margin-top: -1.1rem; }
+  .northstar-home .home-continue > div { padding: 0.7rem; border-radius: 1.15rem; }
+  .northstar-home .home-continue h2 { margin-bottom: 0.55rem; font-size: 0.9rem; }
+  .northstar-home .continue-study-button { min-height: 7.5rem; gap: 0.65rem; padding: 0.75rem; border-radius: 0.9rem; }
+  .northstar-home .continue-study-button h3 { font-size: clamp(1.02rem,4vw,1.22rem); line-height:1.23; }
+  .northstar-home .continue-study-button p { margin-top: 0.32rem; font-size: 0.81rem; line-height:1.34; }
+  .northstar-home .continue-study-button .mt-5 { margin-top: .6rem; }
+  .northstar-home .northstar-home-cover { height: 6rem; width: 3.45rem; border-color: rgba(255,255,255,.3); }
+  .northstar-round-arrow {
+    display: inline-flex; align-items:center;justify-content:center;
+    width: 2.15rem;height:2.15rem;min-width:2.15rem;
+    border-radius:9999px;background:#53664e;color:#fff;flex-shrink:0;
+  }
+  .northstar-arrow-light {background:#fdf9f1;color:#364734;}
+  .northstar-home .home-continue + section {margin-top:0.8rem;}
+  .northstar-home .home-reflection {
+    position:relative; overflow:hidden;padding:1.03rem 1.15rem;
+    background:#f1e7d6;box-shadow:none;
+  }
+  .northstar-home .home-reflection blockquote {
+    position:relative;z-index:1;margin-top:.65rem;
+    max-width: 85%;font-size:1.03rem;line-height:1.48;
+  }
+  .northstar-home .home-reflection p {
+    position:relative;z-index:1;margin-top:.4rem;
+    max-width:86%;font-size:.78rem;line-height:1.35;
+  }
+  .northstar-home .home-reflection span:not(.northstar-branch-art) {position:relative;z-index:1;}
+  .northstar-branch-art {
+    display:block;position:absolute;right:-.15rem;bottom:-1.15rem;
+    width:4.25rem;height:10rem;opacity:.72;pointer-events:none;
+    background:url('/art/botanical-sprig.svg') center / contain no-repeat;
+  }
+  .dark .northstar-home .home-reflection {background:#465045;}
+  .northstar-cover-art {
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    background-color:#526c55;
+    border-radius:inherit;
+  }
+  .study-book-row {min-height:6.15rem;gap:.65rem;padding:.65rem;}
+  .study-book-row .northstar-cover-art {border-radius:.45rem;}
+  .study-book-row > div.flex-1 h2 {font-size:1rem;line-height:1.25;}
+  .study-book-row .mt-3 {margin-top:.45rem;}
+  .study-book-row .mt-2 {margin-top:.32rem;}
+  .northstar-book-forward {
+    display:flex;flex-shrink:0;align-items:center;justify-content:center;
+    width:2.1rem;height:2.1rem;border-radius:50%;
+    background:#51694f;color:#fff;
+  }
+  .dark .northstar-book-forward {background:#cad7c0;color:#2a372e;}
+  .editorial-tabs {gap:.35rem;padding:0;background:transparent;}
+  .editorial-tabs button,
+  .editorial-tabs button:nth-child(2) {
+    flex:0 1 auto;flex-grow:0;min-height:2.75rem;
+    padding:.45rem .8rem;border-radius:9999px;
+    background:#f3ebe0;font-size:.78rem;
+  }
+  .editorial-tabs button[aria-pressed='true'] {background:#e5d1ac;}
+  .northstar-reflection-image {height:9rem;}
+  .reflection-quotation {padding:1.15rem 1.1rem 1.3rem;}
+  .reflection-quotation blockquote {
+    font-size:clamp(1.03rem,4.35vw,1.36rem);
+    line-height:1.45;
+  }
+  .reflection-quotation p.mt-5 {margin-top:.6rem;}
+  .reflection-quotation::after {margin-top:.75rem;}
+  /* The quotation and its actions are a single editorial composition. */
+  .reflection-actions {
+    margin: 0;
+    padding: .35rem .85rem .85rem;
+    border-top: 1px solid color-mix(in srgb, var(--ves-line) 65%, transparent);
+    background: var(--ves-surface-soft);
+  }
+  .reflection-actions button {
+    min-height: 44px;
+    border-radius: .75rem;
+    font-size: .9rem;
+    color: var(--ves-ink);
+  }
+  .reflection-actions button:hover {
+    background: color-mix(in srgb, var(--ves-accent) 22%, transparent);
+  }
+  .dark .reflection-actions { background: var(--ves-surface-soft); }
+  @media (max-width:350px) {
+    .northstar-home .northstar-home-cover {width:2.65rem;height:5.25rem;}
+    .northstar-home .continue-study-button {gap:.45rem;padding:.6rem;}
+    .northstar-round-arrow {width:1.7rem;height:1.7rem;min-width:1.7rem;}
+    .editorial-tabs button,.editorial-tabs button:nth-child(2) {padding:.44rem .6rem;font-size:.73rem;}
+  }
+  @media (min-width:640px) {
+    .northstar-home .home-welcome {height:12.25rem;}
+    .northstar-home .home-greeting {top:.8rem;left:.7rem;right:.7rem;}
+    .northstar-home .home-greeting p {font-size:.95rem;}
+    .northstar-reflection-image {height:12rem;}
+    .reflection-quotation {padding:1.8rem 2.1rem;}
+    .reflection-quotation blockquote {font-size:1.45rem;}
+    .northstar-home .home-reflection blockquote {font-size:1.16rem;}
   }
 }

@@ -1,10 +1,11 @@
 import { useEffect, useLayoutEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useAuthStore, useUIStore } from '@/store'
-import { PageLoader } from '@/components/ui'
 import BottomNav from '@/components/ui/BottomNav'
+import { UnavailableScreen } from '@/components/AppRecovery'
 import ProtectedRoute from '@/components/ProtectedRoute'
 import LandingPage from '@/pages/LandingPage'
+import PublicOnlyRoute from '@/components/PublicOnlyRoute'
 import AuthPage from '@/pages/AuthPage'
 import ResetPasswordPage from '@/pages/ResetPasswordPage'
 import HomePage from '@/pages/HomePage'
@@ -22,13 +23,14 @@ import ReflectionPage from '@/pages/ReflectionPage'
 import FavoritesPage from '@/pages/FavoritesPage'
 import EvolutionPage from '@/pages/EvolutionPage'
 import SettingsPage from '@/pages/SettingsPage'
+import MorePage from '@/pages/MorePage'
 import GuidedStudyPage from '@/pages/GuidedStudyPage'
 import GuidedStudyPathPage from '@/pages/GuidedStudyPathPage'
 import GuidedStudySessionPage from '@/pages/GuidedStudySessionPage'
 import { getAppFontSize, getThemeColor } from '@/features/ui/displayPreferences'
 
 export default function App() {
-  const { init, loading, user } = useAuthStore()
+  const { init, loading, user, authError } = useAuthStore()
   const { darkMode, appFontScale } = useUIStore()
 
   useEffect(() => { init() }, [init])
@@ -43,27 +45,29 @@ export default function App() {
     document.documentElement.style.fontSize = getAppFontSize(appFontScale)
   }, [appFontScale])
 
+  if (authError) return <UnavailableScreen />
+
   return (
     <div className={darkMode ? 'dark' : ''}>
       <BrowserRouter>
         <ScrollToTop />
 
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<PublicOnlyRoute loading={loading} user={user}><LandingPage /></PublicOnlyRoute>} />
           <Route
             path="/entrar"
             element={(
-              <PublicAuthRoute loading={loading} user={user}>
+              <PublicOnlyRoute loading={loading} user={user}>
                 <AuthPage />
-              </PublicAuthRoute>
+              </PublicOnlyRoute>
             )}
           />
           <Route
             path="/criar-conta"
             element={(
-              <PublicAuthRoute loading={loading} user={user}>
+              <PublicOnlyRoute loading={loading} user={user}>
                 <AuthPage initialMode="signup" />
-              </PublicAuthRoute>
+              </PublicOnlyRoute>
             )}
           />
           <Route path="/redefinir-senha" element={<ResetPasswordPage />} />
@@ -85,6 +89,7 @@ export default function App() {
           <Route path="/notas" element={<ProtectedRoute><StudyNotesPage /></ProtectedRoute>} />
           <Route path="/salvos" element={<ProtectedRoute><SavedPassagesPage /></ProtectedRoute>} />
           <Route path="/evolucao" element={<ProtectedRoute><EvolutionPage /></ProtectedRoute>} />
+          <Route path="/mais" element={<ProtectedRoute><MorePage /></ProtectedRoute>} />
           <Route path="/configuracoes" element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
           <Route path="/comunidade" element={<Navigate to="/descobrir" replace />} />
 
@@ -95,12 +100,6 @@ export default function App() {
       </BrowserRouter>
     </div>
   )
-}
-
-function PublicAuthRoute({ loading, user, children }) {
-  if (loading) return <PageLoader />
-  if (user) return <Navigate to="/home" replace />
-  return children
 }
 
 function AppBottomNav({ user }) {

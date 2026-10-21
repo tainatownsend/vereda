@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { READER_COPY } from '@/features/reader/readerCopy'
+import { resolveReaderStartPosition } from '@/features/reader/readerPersistence'
+import { useReadingStore } from '@/store'
 import {
   findSectionIndex,
   READER_PHASE,
@@ -91,15 +93,13 @@ export function useReadingSession({
         ? Number(window.sessionStorage.getItem(positionStorageKey) || 0)
         : 0
 
-      const storedPositionIsValid =
-        storedPosition >= 1 &&
-        storedPosition <= bookLastPosition
-
-      const preferredPosition = storedPositionIsValid
-        ? storedPosition
-        : state.book_completed && revisitMode
-          ? 1
-          : state.current_section
+      const preferredPosition = resolveReaderStartPosition({
+        serverPosition: state.current_section,
+        storedPosition,
+        lastPosition: bookLastPosition,
+        bookCompleted: state.book_completed,
+        revisitMode,
+      })
 
       const loadedSections = await getSectionsFromPosition({
         bookId,
@@ -341,6 +341,10 @@ export function useReadingSession({
         durationSeconds,
         readDate: readDateRef.current,
       })
+
+      // The backend has confirmed the checkpoint. Update shared Home/Studies
+      // immediately, without waiting for an app reload or a second RPC.
+      useReadingStore.getState().recordConfirmedReaderProgress(bookId, result)
 
       const minutesReadOnDate = Number(result.minutes_read_on_date || 0)
       const dailyGoalReached =

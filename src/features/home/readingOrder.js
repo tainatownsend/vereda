@@ -12,7 +12,7 @@ export function getActiveBooksByLastRead(books, progress) {
     }))
     .filter(
       ({ progressEntry }) =>
-        progressEntry && !progressEntry.completed_at,
+        progressEntry && !progressEntry.completed_at && !progressEntry.book_completed,
     )
     .sort((left, right) => {
       const recencyDifference =

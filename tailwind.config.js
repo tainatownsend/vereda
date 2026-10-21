@@ -5,13 +5,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        canvas: '#F6F7F4',
-        surface: '#FFFFFF',
-        'surface-soft': '#E8EDE6',
-        ink: '#1F2933',
-        muted: '#66706A',
-        line: '#DCDCC8',
-        focus: '#6F8F6F',
+        canvas: '#F5F0E7',
+        surface: '#FBF8F1',
+        'surface-soft': '#EEE4D4',
+        ink: '#2C352B',
+        muted: '#6F7168',
+        line: '#DED5C7',
+        focus: '#53664E',
         clay: {
           50: '#FBF1EC',
           100: '#F6E0D5',
@@ -40,8 +40,8 @@ export default {
           400: '#8FA68F',
           500: '#748D78',
           600: '#5E7664',
-          700: '#4F6757',
-          800: '#405348',
+          700: '#53664E',
+          800: '#43543F',
           900: '#34443B',
           950: '#1D2821',
         },
@@ -58,8 +58,8 @@ export default {
           400: '#8FA68F',
           500: '#748D78',
           600: '#5E7664',
-          700: '#4F6757',
-          800: '#405348',
+          700: '#53664E',
+          800: '#43543F',
           900: '#34443B',
         },
         forest: {
@@ -75,7 +75,7 @@ export default {
         },
         gold: {
           100: '#F5ECD9',
-          400: '#B9A46E',
+          400: '#C5A15D',
           600: '#7C7445',
           700: '#6E6537',
         },

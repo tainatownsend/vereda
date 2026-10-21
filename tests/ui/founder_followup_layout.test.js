@@ -26,8 +26,8 @@ describe('founder follow-up responsive layout', () => {
   })
 
   it('makes the reading continuation the primary Home action before secondary paths', () => {
-    const continuationIndex = home.indexOf("{primaryBook ? (")
-    const quoteIndex = home.indexOf('Para refletir')
+    const continuationIndex = home.indexOf('home-continue')
+    const quoteIndex = home.indexOf('Reflexão do dia')
 
     expect(continuationIndex).toBeGreaterThan(-1)
     expect(quoteIndex).toBeGreaterThan(continuationIndex)
@@ -35,11 +35,11 @@ describe('founder follow-up responsive layout', () => {
     expect(home).not.toContain('Outros caminhos')
   })
 
-  it('uses corner arrows for previous and next reading navigation', () => {
-    expect(reader).toContain('grid-cols-[2.75rem_1fr_2.75rem]')
-    expect(reader).toContain('justify-self-start disabled:opacity-25')
-    expect(reader).toContain('justify-self-end disabled:opacity-35')
+  it('uses visible semantic labels for previous and next reading navigation', () => {
+    expect(reader).toContain('reader-chapter-nav')
+    expect(reader).toContain('Trecho anterior')
+    expect(reader).toContain('Próximo trecho')
     expect(reader).not.toContain('> Anterior')
-    expect(reader).not.toContain('{primaryAction.label}')
+    expect(reader).toContain('primaryAction.label')
   })
 })
