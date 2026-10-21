@@ -17,9 +17,9 @@ describe('approved North Star visual system (phase 1)', () => {
     expect(css).toContain("font-family: 'Lora', Georgia, serif;")
   })
   it('scopes the redesign to canonical app screens rather than login/landing', () => {
-    expect(css).toContain('.northstar-page .font-display')
-    expect(css).toContain('.northstar-reader-page .font-display')
-    expect(css).toContain('.northstar-reader-page article.font-display')
+    expect(css).toContain('.northstar-page [class~="font-display"]')
+    expect(css).toContain('.northstar-reader-page [class~="font-display"]')
+    expect(css).toContain('.northstar-reader-page article[class~="font-display"]')
     expect(reader).toContain('className="northstar-reader-page min-h-screen')
   })
 })
