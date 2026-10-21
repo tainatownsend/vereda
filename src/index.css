@@ -399,6 +399,42 @@
     height: 100%;
     width: 100%;
   }
+  /* Delicate edge foliage makes the sunrise a framed landscape, not a flat gradient.
+     Keep botanical ornament inert and outside the reading or tap target layer. */
+  .northstar-home .home-welcome::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    left: -1rem;
+    bottom: -3.2rem;
+    width: 5.6rem;
+    height: 10.3rem;
+    background: url('/art/botanical-sprig.svg') center / contain no-repeat;
+    opacity: .52;
+    transform: rotate(-22deg) scaleX(-1);
+    pointer-events: none;
+  }
+  .reflection-composition .northstar-reflection-image {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .reflection-composition .northstar-reflection-image::after {
+    content: '';
+    position: absolute;
+    bottom: -4.5rem;
+    left: -.35rem;
+    width: 4.6rem;
+    height: 10rem;
+    background: url('/art/botanical-sprig.svg') center / contain no-repeat;
+    transform: rotate(-23deg) scaleX(-1);
+    opacity: .48;
+    pointer-events: none;
+  }
+  .dark .northstar-home .home-welcome::after,
+  .dark .reflection-composition .northstar-reflection-image::after {
+    opacity: .22;
+  }
   .northstar-home .home-greeting {
     position: absolute;
     top: 0.2rem;
