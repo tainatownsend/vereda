@@ -259,7 +259,7 @@ export default function ReaderPage() {
   }
 
   return (
-    <div className="min-h-screen bg-canvas text-ink dark:bg-night dark:text-night-ink">
+    <div className="northstar-reader-page min-h-screen bg-canvas text-ink dark:bg-night dark:text-night-ink">
       <header className="sticky top-0 z-40 border-b border-line/70 bg-canvas/96 backdrop-blur-xl dark:border-night-line dark:bg-night/96">
         <div className="mx-auto flex min-h-[4.6rem] max-w-[44rem] items-center gap-3 px-4 sm:px-6">
           <button type="button" onClick={() => navigate(returnPath)} className="northstar-icon-button -ml-2" aria-label="Voltar à página anterior">
