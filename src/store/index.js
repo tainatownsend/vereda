@@ -411,9 +411,26 @@ export const useUIStore = create(
       fontSize: 'md',
       appFontScale: 'md',
       darkMode: false,
+      appTheme: 'light',
+      readerTheme: 'light',
       setFontSize: (size) => set({ fontSize: size }),
       setAppFontScale: (scale) => set({ appFontScale: scale }),
-      toggleDark: () => set(state => ({ darkMode: !state.darkMode })),
+      setAppTheme: (theme) => {
+        if (!['light', 'dark', 'system'].includes(theme)) return
+        const systemDark = typeof window !== 'undefined' &&
+          typeof window.matchMedia === 'function' &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches
+        set({ appTheme: theme, darkMode: theme === 'dark' || (theme === 'system' && systemDark) })
+      },
+      syncSystemAppearance: (systemDark) => set((state) =>
+        state.appTheme === 'system' ? { darkMode: Boolean(systemDark) } : {}),
+      setReaderTheme: (theme) => {
+        if (['light', 'dark', 'sepia'].includes(theme)) set({ readerTheme: theme })
+      },
+      toggleDark: () => set((state) => ({
+        darkMode: !state.darkMode,
+        appTheme: state.darkMode ? 'light' : 'dark',
+      })),
     }),
     { name: 'vereda-ui' }
   )
