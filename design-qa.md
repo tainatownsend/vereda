@@ -96,3 +96,16 @@ The iPhone screenshot submitted by the founder earlier showed the Reader set to 
 **Automated verification:** Chromium on the isolated visual fixture: four surfaces × 320, 390, 430, 800 CSS px × light/dark = **32 renderings**. All 200, zero horizontal overflows, zero captured JS errors, all expected cover images loaded, recovered scene used on both relevant surfaces, Home brand exactly centered. Tests use fictional content and an isolated Vite environment, no user data and no hosted Supabase.
 
 **Limitations / release blockers:** the scene is a resized extraction from an illustration in the original concept board rather than the complete original landscape master artwork. Although closer in color, motif and atmosphere, it needs retina/real-device visual acceptance. The screenshot combines screens at reduced scale, not a pixel-level 1:1 Photoshop comparison. WebKit/Safari physical devices, authenticated preview Google OAuth, reliable persistence of notes/favorites/progress after reload, focus/contrast at large text, and explicit founder approval remain open. A green CI alone does NOT constitute visual sign-off. **V1 remains NO-GO**.
+
+## 2026-10-21 | Reader persistence hardening after successful Google Preview login
+
+The founder confirmed that Google sign-in now reaches Vereda as expected in the Preview. That confirmation **only** closes the observed login/redirect journey, not the cross-device data gate.
+
+**Code risks discovered and corrected in PR #125:**
+- `useReadingSession.load()` previously always preferred a value in `sessionStorage`, even if Supabase's `get_reader_state` returned a later completed checkpoint. A stale browser tab could therefore reopen an older part of a work after the person advanced on another device. It now calls `resolveReaderStartPosition` and chooses the most advanced valid position. Explicit completed-book revisit mode still starts at the first position; invalid local values are ignored.
+- `completeCurrentSection` writes to the durable Supabase RPC but did **not** update the shared Zustand progress used on Home/Studies. After successful `complete_reading_section`, it now invokes `recordConfirmedReaderProgress` to update the in-memory checkpoint and last read timestamp immediately. No optimistic update occurs before RPC success. A completed book updates its `completed_at` marker even if the RPC does not return a successor position.
+- Added regression tests `tests/ui/reader_cross_device_persistence.test.js` for remote-vs-local checkpoint precedence, explicit revisit, bounds, successful completion, nonregression, and absent successor.
+
+**Evidence:** GitHub Frontend quality SUCCESS on commit `cdb6822347dc495f482021dd7b2850739a6de15e`, 104 test files and **665 tests**, Vite build passed. Reviewed Boundary Runtime Integrity Staging Preflight SUCCESS. Preview deployed separately from main (latest Preview should be checked against the matching SHA). 
+
+**Remaining release gates / no premature acceptance:** authenticated end-to-end proof with two real devices after saving a passage, refreshing Home/Studies, reopening Reader, and checking notes/favorite persistence. Same-state real iPhone Safari visual comparison with original North Star poster and founder approval. No changes to the Supabase schema, production deployment or main. **V1 remains NO-GO.**
