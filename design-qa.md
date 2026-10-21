@@ -109,3 +109,21 @@ The founder confirmed that Google sign-in now reaches Vereda as expected in the 
 **Evidence:** GitHub Frontend quality SUCCESS on commit `cdb6822347dc495f482021dd7b2850739a6de15e`, 104 test files and **665 tests**, Vite build passed. Reviewed Boundary Runtime Integrity Staging Preflight SUCCESS. Preview deployed separately from main (latest Preview should be checked against the matching SHA). 
 
 **Remaining release gates / no premature acceptance:** authenticated end-to-end proof with two real devices after saving a passage, refreshing Home/Studies, reopening Reader, and checking notes/favorite persistence. Same-state real iPhone Safari visual comparison with original North Star poster and founder approval. No changes to the Supabase schema, production deployment or main. **V1 remains NO-GO.**
+
+## 2026-10-21: Post-restore persistence audit, live schema check, and journal recovery
+
+**Confirmed from a read-only Supabase management check** against project `ocvypdmujflumouhmysb`:
+- `ACTIVE_HEALTHY`; public contents contain five books and 908 section records; user-progress and study-journal tables have records.
+- All nine listed public tables have RLS enabled. For `study_journal_entries` the separate SELECT/INSERT/UPDATE/DELETE policies require `auth.uid() = user_id`; `user_progress` and `reading_sessions` similarly predicate on user ID. No user rows or tokens were retrieved. These are configuration checks, **not authenticated RLS penetration tests**.
+
+**Persistence defect fixed:** `mergeEntries` in `src/features/studyJournal/studyJournal.js` previously inserted remote first, then always replaced it with local at equal timestamps, including local `synced:false`. When the server had committed a note but the response was lost, returning to My Notes could perpetually report a stale unsynced local copy despite a matching persisted server row. Remote acknowledgements now win timestamp ties; local newer unsynced drafts remain eligible for retry.
+
+**New fake-backend regression coverage** in `tests/ui/study_journal_sync_recovery.test.js`:
+1. Lost response **after commit** becomes `synced:true` after server read, without duplicate upsert.
+2. A newer note saved on another device beats stale local pending copy.
+3. A genuinely newer pending offline note retries, merges and becomes `synced:true`.
+4. Pending local data remains usable offline and stays isolated by account key.
+
+No production writes, migrations, test accounts, schema changes or real-user journal reads were performed. The code change and new tests passed **105 test files / 669 tests** with Frontend quality and Vite build SUCCESS on commit `528bae0c4f323bbcf2636a9c2d6b8845c38aa8a0`.
+
+**V1 is still NO-GO:** same-account Google-authenticated two-device save/reload verification of notes, favorites and progress, real Safari/iPhone visual parity with the founder-approved North Star and a separate merge/release review. PR #125 is still a draft targeting `feat/vereda-editorial-north-star`, not `main`; never treat green Preview CI as production approval.
