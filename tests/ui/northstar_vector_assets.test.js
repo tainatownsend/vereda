@@ -31,6 +31,13 @@ describe('Vereda V1 vector illustration contract', () => {
     const landscape = read('public/art/vereda-valley.svg')
     const branch = read('public/art/botanical-sprig.svg')
     expect(ui).toContain('/art/covers/kardec-')
+    expect(css).toContain('/art/vereda-valley-northstar.webp')
+    // The approved golden landscape must remain a valid and lean standalone WebP,
+    // not an entire screenshot or a UI mockup embedded into the app.
+    const northStarLandscape = readFileSync('public/art/vereda-valley-northstar.webp')
+    expect(northStarLandscape.toString('ascii', 0, 4)).toBe('RIFF')
+    expect(northStarLandscape.toString('ascii', 8, 12)).toBe('WEBP')
+    expect(northStarLandscape.byteLength).toBeLessThan(100_000)
     expect(css).toContain('/art/vereda-valley.svg')
     expect(css).toContain('/art/botanical-sprig.svg')
     expect(css).not.toContain("background-image:url('/northstar-atlas.webp')")
