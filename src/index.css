@@ -601,3 +601,74 @@
 .northstar-reader-page article.font-display {
   line-height: 1.65;
 }
+
+/* Illustrated North Star: consistent connected filters and slender study rows.
+   These scoped rules override the earlier provisional separated pills. */
+.northstar-page .editorial-tabs {
+  display: flex;
+  width: 100%;
+  padding: .34rem;
+  gap: 0;
+  border: 1px solid #e5d9c5;
+  border-radius: .95rem;
+  background: var(--northstar-sand);
+}
+.northstar-page .editorial-tabs button,
+.northstar-page .editorial-tabs button:nth-child(2) {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 44px;
+  padding: .4rem .22rem;
+  border-radius: .72rem;
+  background: transparent;
+  color: #62665b;
+  font-size: clamp(.7rem, 2.7vw, .84rem);
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  transition: background .18s ease, color .18s ease;
+}
+.northstar-page .editorial-tabs button[aria-pressed='true'] {
+  background: #f2dab0;
+  color: #29382b;
+  box-shadow: 0 1px 3px rgba(62, 91, 63, .09);
+}
+.northstar-page .editorial-tabs button:focus-visible {
+  outline: 2px solid var(--northstar-forest);
+  outline-offset: 2px;
+}
+.northstar-page .study-book-row {
+  min-height: 5.6rem;
+  gap: .75rem;
+  padding: .65rem .72rem;
+  border-radius: 1.1rem;
+  border-color: #e6dccd;
+  box-shadow: 0 3px 10px rgba(50, 53, 39, .025);
+}
+.northstar-page .study-book-row .northstar-book-forward {
+  width: 2.55rem;
+  height: 2.55rem;
+  background: #eee5d4;
+  color: var(--northstar-forest);
+}
+.northstar-page .study-book-row:hover .northstar-book-forward {
+  background: #e4d2ae;
+}
+.northstar-page .study-book-row .northstar-cover-art {
+  border-radius: .35rem;
+}
+.dark .northstar-page .editorial-tabs {
+  background: #3c493f;
+  border-color: #61705f;
+}
+.dark .northstar-page .editorial-tabs button {
+  color: #dbded4;
+}
+.dark .northstar-page .editorial-tabs button[aria-pressed='true'] {
+  background: #748967;
+  color: #fff;
+}
+.dark .northstar-page .study-book-row .northstar-book-forward {
+  background: #627660;
+  color: white;
+}
