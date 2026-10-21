@@ -45,6 +45,14 @@ describe('Vereda reading position across devices', () => {
     })
     expect(prior.current_section).toBe(21)
   })
+  it('still marks a book complete when the RPC has no successor position', () => {
+    const progress = mergeConfirmedReaderProgress({ current_section: 84 }, {
+      nextPosition: null, bookCompleted: true, completedAt: '2026-10-21T12:00:00Z',
+    })
+    expect(progress).toMatchObject({
+      current_section: 84, completed_at: '2026-10-21T12:00:00Z',
+    })
+  })
   it('does not regress an already-newer shared position', () => {
     expect(mergeConfirmedReaderProgress({current_section: 30}, {nextPosition: 22}).current_section).toBe(30)
   })
