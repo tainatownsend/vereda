@@ -6,7 +6,7 @@ export const useAuthStore=()=>({
   removeSavedPassage:async()=>{},signOut:async()=>{},init:()=>{},
 })
 export const useUIStore=()=>{
-  const [fontSize,setFontSize]=useState('md')
+  const [fontSize,setFontSize]=useState(new URLSearchParams(location.search).get('font')||'md')
   return {fontSize,setFontSize,darkMode:false,appFontScale:'md'}
 }
 export const useReadingStore=()=>({booksStatus:'ready'})
