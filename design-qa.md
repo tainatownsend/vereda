@@ -82,3 +82,17 @@ The iPhone screenshot submitted by the founder earlier showed the Reader set to 
 **Safari/WebKit NOT validated:** attempted the Playwright WebKit binary in a Vercel Linux sandbox; it cannot start on Amazon Linux 2023 because the required GTK4, ICU 74, GStreamer, flite and related runtime libraries are absent. This is an **environment blocker**, NOT an app pass/failure; no WebKit or iOS Safari rendering evidence was produced. Use macOS/iOS real Safari or a supported Playwright-WebKit host for the remaining browser gate.
 
 **Status: V1 VISUAL NO-GO.** The iPhone-authenticated visual comparison, source mockup fidelity, real Google OAuth, actual notes/progress persistence and founder sign-off are still open. All edits remain in PR #125 draft, not main or production.
+
+## October 21 2026: restored *original North Star* atmospheric scenery
+
+**Problem demonstrated:** even after the initial vector-art reconstruction, the Home and Reflections screenshots were dominated by a flat green vector valley, unlike the founder-approved golden photographic illustration. Earlier CSS-only passes did not repair this major art-direction discrepancy.
+
+**Implemented in the draft PR #125 (no main/production changes):**
+- Recovered the original gold/sunrise landscape *from the already-committed atlas derived from the founder's approved North Star mockup*, cropped scenic-only, resized to 960×338 and optimized to ~5 KB as `public/art/vereda-valley-northstar.webp`. This is explicitly a source-derived image, NOT a stock image or a newly invented quotation.
+- Both Home and Reflections now render the recovered image first, with the earlier custom vector `vereda-valley.svg` as a fallback. The ornament `botanical-sprig.svg` remains along the edges; the dark theme gently subdues the background without hiding text.
+- `tests/ui/northstar_vector_assets.test.js` verifies that the WebP has the expected RIFF/WEBP signature, is under 100 KB, and is wired through CSS while retaining the vector fallback.
+- Browser screenshot from the 390px light fixture: [qa-oct21-golden-valley-four-screens.jpg](docs/qa/north-star/qa-oct21-golden-valley-four-screens.jpg). This is a new capture reflecting the actual new asset, rather than a mocked presentation poster or the previous flat-vector screenshots.
+
+**Automated verification:** Chromium on the isolated visual fixture: four surfaces × 320, 390, 430, 800 CSS px × light/dark = **32 renderings**. All 200, zero horizontal overflows, zero captured JS errors, all expected cover images loaded, recovered scene used on both relevant surfaces, Home brand exactly centered. Tests use fictional content and an isolated Vite environment, no user data and no hosted Supabase.
+
+**Limitations / release blockers:** the scene is a resized extraction from an illustration in the original concept board rather than the complete original landscape master artwork. Although closer in color, motif and atmosphere, it needs retina/real-device visual acceptance. The screenshot combines screens at reduced scale, not a pixel-level 1:1 Photoshop comparison. WebKit/Safari physical devices, authenticated preview Google OAuth, reliable persistence of notes/favorites/progress after reload, focus/contrast at large text, and explicit founder approval remain open. A green CI alone does NOT constitute visual sign-off. **V1 remains NO-GO**.
