@@ -766,3 +766,29 @@
 @media (min-width: 768px) {
   .northstar-reader-page .reader-chapter-nav-docked {padding-inline: max(calc((100vw - 44rem)/2), 1rem);}
 }
+
+/* Source-independent scalable floral illustration over the crisp valley vector.
+   Replaces the blurred atlas crop in Home and Reflections. */
+.northstar-page .northstar-scenery {
+  background-image:
+    url('/art/northstar-botanical-frame.svg'),
+    url('/art/vereda-valley.svg');
+  background-size: 100% 100%, cover;
+  background-position: center, center 54%;
+  background-repeat: no-repeat, no-repeat;
+}
+.northstar-page .northstar-home .home-welcome::after,
+.northstar-page .reflection-composition .northstar-reflection-image::after {
+  display: none;
+}
+.northstar-page .northstar-home .home-welcome {
+  height: 13.2rem;
+  background-color: #f4dda9;
+}
+.northstar-page .northstar-reflection-image {
+  height: 12rem;
+}
+@media (min-width:640px) {
+  .northstar-page .northstar-home .home-welcome { height: 16rem; }
+  .northstar-page .northstar-reflection-image { height: 14.5rem; }
+}
