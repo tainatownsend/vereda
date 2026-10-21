@@ -672,3 +672,97 @@
   background: #627660;
   color: white;
 }
+
+/* North Star immersive reader: independently selectable paper palette. */
+.northstar-reader-page {
+  --reader-paper: #F8F4EA;
+  --reader-surface: #fffaf1;
+  --reader-ink: #2b3028;
+  --reader-muted: #696f64;
+  --reader-rule: #e9dfce;
+  background: var(--reader-paper) !important;
+  color: var(--reader-ink) !important;
+}
+.northstar-reader-page.reader-theme-dark {
+  --reader-paper: #222a25;
+  --reader-surface: #303b33;
+  --reader-ink: #f2eadd;
+  --reader-muted: #c6cbbe;
+  --reader-rule: #526154;
+}
+.northstar-reader-page.reader-theme-sepia {
+  --reader-paper: #f3e6cd;
+  --reader-surface: #f9efd9;
+  --reader-ink: #4d3c29;
+  --reader-muted: #71634f;
+  --reader-rule: #d9c5a8;
+}
+.northstar-reader-page :is(.northstar-reader-header, .northstar-reader-menu, .reader-chapter-nav-docked) {
+  background: var(--reader-surface) !important;
+  color: var(--reader-ink) !important;
+  border-color: var(--reader-rule) !important;
+}
+.northstar-reader-page :is(article, h1, h2, .text-ink, .dark\\:text-night-ink) {
+  color: var(--reader-ink) !important;
+}
+.northstar-reader-page .reader-chapter-nav-docked {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 45;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto minmax(0,1fr);
+  align-items: center;
+  gap: .35rem;
+  max-width: none;
+  margin: 0;
+  padding: .5rem max(.65rem, env(safe-area-inset-right)) calc(.55rem + env(safe-area-inset-bottom)) max(.65rem, env(safe-area-inset-left));
+  border-top: 1px solid var(--reader-rule);
+  box-shadow: 0 -5px 24px rgba(42, 38, 26, .05);
+}
+.northstar-reader-page .reader-chapter-nav-docked button,
+.northstar-reader-page .reader-chapter-nav-docked button:last-child {
+  min-width: 0;
+  min-height: 44px;
+  margin: 0;
+  padding: .35rem .2rem;
+  border: 0;
+  border-radius: .5rem;
+  background: transparent !important;
+  color: var(--reader-ink) !important;
+  font-size: clamp(.66rem,2.9vw,.79rem);
+}
+.northstar-reader-page .reader-chapter-nav-docked button:last-child {justify-self:end;}
+.northstar-reader-page .reader-chapter-nav-docked button:first-child {justify-self:start;}
+.northstar-reader-page .reader-chapter-nav-docked button span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.northstar-reader-page .reader-progress-count {
+  font-family: 'Inter', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--reader-muted);
+}
+.northstar-reader-page .northstar-reader-menu {
+  box-sizing: border-box;
+  max-width: calc(100vw - 1.5rem);
+  scrollbar-width: thin;
+  background: var(--reader-surface) !important;
+}
+.northstar-reader-page .northstar-reader-menu :is(button, p) {
+  color: var(--reader-ink);
+}
+.northstar-reader-page .northstar-reader-menu button[aria-pressed="true"] {
+  background: var(--northstar-forest);
+  color: white;
+}
+.northstar-reader-page .northstar-reader-menu button:focus-visible {
+  outline: 2px solid var(--northstar-gold);
+  outline-offset: 2px;
+}
+@media (min-width: 768px) {
+  .northstar-reader-page .reader-chapter-nav-docked {padding-inline: max(calc((100vw - 44rem)/2), 1rem);}
+}
