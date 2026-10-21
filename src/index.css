@@ -792,3 +792,61 @@
   .northstar-page .northstar-home .home-welcome { height: 16rem; }
   .northstar-page .northstar-reflection-image { height: 14.5rem; }
 }
+
+/* Approved compact Home hierarchy: botanical identity at left, gentle study card. */
+.northstar-home .northstar-hero-header {
+  min-height: 3.6rem;
+  justify-content: space-between;
+}
+.northstar-home .northstar-hero-brand {
+  flex-direction: row;
+  align-items: center;
+  gap: .4rem;
+}
+.northstar-home .northstar-hero-brand .font-display {
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-style: normal;
+}
+.northstar-home .northstar-hero-header > button {
+  position: static;
+  transform: none;
+}
+.northstar-home .home-welcome {
+  margin-top: .4rem;
+}
+.northstar-home .home-greeting {
+  padding: .62rem .7rem 2rem;
+  background: linear-gradient(180deg,rgba(248,244,234,.95) 0%,rgba(248,244,234,.71) 40%,rgba(248,244,234,0) 100%);
+}
+.northstar-home .home-continue {
+  margin-top: -1.5rem;
+}
+.northstar-home .continue-study-button {
+  background: linear-gradient(135deg,#fff9ec 0%,#f2e7d1 100%);
+  border: 1px solid #e8dbc5;
+  color: var(--northstar-forest);
+}
+.northstar-home .continue-study-button > div > div {
+  background: #ded4bd;
+}
+.northstar-home .continue-study-button > div > div > div {
+  background: var(--northstar-forest);
+}
+.northstar-home .continue-study-button .northstar-round-arrow {
+  background: #eee0c7;
+  color: #2b4935;
+}
+.northstar-home .home-reflection {
+  background: linear-gradient(145deg,#fff9ee 0%,#eee3cf 100%);
+  border-color: #e7d9bf;
+}
+.northstar-home .home-reflection blockquote {
+  font-style: normal;
+  font-family: 'Lora', Georgia, serif;
+  font-size: clamp(.85rem,3.2vw,1.02rem);
+}
+@media (max-width:350px) {
+  .northstar-home .continue-study-button {gap:.48rem;padding:.6rem;}
+  .northstar-home .home-continue {margin-top:-.9rem;}
+}
