@@ -70,3 +70,15 @@ The iPhone screenshot submitted by the founder earlier showed the Reader set to 
 - Evidence screenshot (light-mode desktop Chromium with 390px mobile viewport) archived at [qa-fixture-oct21-light-four-screens.jpg](docs/qa/north-star/qa-fixture-oct21-light-four-screens.jpg). User identity and study data **simulated**, not from production. The screenshot is a 4-up reduced-resolution overview, not a pixel-perfect comparison to the marketing mockup.
 - Frontend quality and staging integrity workflow results **SUCCESS** for the code commit `83b9e7027cd2856ccd3073637cf97b0c82499d78`. The documentation/image commit(s) require separate check. No merge, OAuth changes, Supabase changes or deployment to custom domain.
 - **V1 remains VISUAL NO-GO**: composition/images still require artistic 1:1 approval, real iPhone Safari comparison, real Google OAuth in the relevant Preview, notes/progress/favorites persistence and large-text UX. Chromium mock fixtures do not prove those gates. No release without founder acceptance.
+
+## 2026-10-21: editorial tabs touch-target regression fixed, WebKit blocked
+
+**Actual regression:** the last North Star CSS override had `min-height:2.3rem` for the `Estudos`/`Reflexões` filter chips, silently overriding the earlier `min-h-11` 44px baseline. On a 16px root this was **36.8px**, below the 44px touch target threshold. The final override is now `min-height:2.75rem` = **44px**. Added `tests/ui/northstar_touch_targets.test.js` to guard that final CSS override.
+
+**Browser evidence:** Chromium with the same deterministic visual fixture, at 320px, 390px, and 430px, in **light and dark** for Studies and Reflections = 12 renderings. Computed chip heights were 44px in all 12, and `Salvar`/`Compartilhar` action heights were also 44px on all 6 Reflections cases. HTTP 200, no horizontal overflow and no captured JS errors for these fixture screens. Browser logs and computed metrics taken against commit `fffee1b50b3f3416995d48931eb80a545cf150f7`.
+
+**Technical gates:** GitHub Actions Frontend quality SUCCESS on `d381a049967f40494e73bc4e1ed4284c0c61fac5`: 102 files / 653 tests passed, Vite build passed. Reviewed Boundary staging preflight SUCCESS. Vercel preview `https://vereda-qbck9tb7j-ttownsend.vercel.app` READY for that same SHA.
+
+**Safari/WebKit NOT validated:** attempted the Playwright WebKit binary in a Vercel Linux sandbox; it cannot start on Amazon Linux 2023 because the required GTK4, ICU 74, GStreamer, flite and related runtime libraries are absent. This is an **environment blocker**, NOT an app pass/failure; no WebKit or iOS Safari rendering evidence was produced. Use macOS/iOS real Safari or a supported Playwright-WebKit host for the remaining browser gate.
+
+**Status: V1 VISUAL NO-GO.** The iPhone-authenticated visual comparison, source mockup fidelity, real Google OAuth, actual notes/progress persistence and founder sign-off are still open. All edits remain in PR #125 draft, not main or production.
