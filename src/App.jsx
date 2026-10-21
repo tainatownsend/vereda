@@ -1,7 +1,6 @@
 import { useEffect, useLayoutEffect } from 'react'
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { useAuthStore, useUIStore } from '@/store'
-import { PageLoader } from '@/components/ui'
 import BottomNav from '@/components/ui/BottomNav'
 import ProtectedRoute from '@/components/ProtectedRoute'
 import LandingPage from '@/pages/LandingPage'
