@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;0,7..72,700;1,7..72,400&family=Playfair+Display:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -573,4 +573,31 @@
     .reflection-quotation blockquote {font-size:1.45rem;}
     .northstar-home .home-reflection blockquote {font-size:1.16rem;}
   }
+}
+
+
+/*
+ * Founder-approved illustrated North Star, fidelity phase 1 (2026-10-21).
+ * Only the canonical study surfaces are restyled here; the public marketing
+ * landing and legacy screens stay untouched until their own parity review.
+ * Art assets, card geometry and reader controls are tracked separately in #127.
+ */
+:root {
+  --northstar-forest: #3E5B3F;
+  --northstar-sage: #7A8F6B;
+  --northstar-gold: #D4A85A;
+  --northstar-ivory: #F8F4EA;
+  --northstar-sand: #E9E1D4;
+}
+.northstar-page .font-display,
+.northstar-reader-page .font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+.northstar-reader-page article.font-display,
+.northstar-page .reflection-quotation blockquote,
+.northstar-page .home-reflection blockquote {
+  font-family: 'Lora', Georgia, serif;
+}
+.northstar-reader-page article.font-display {
+  line-height: 1.65;
 }
