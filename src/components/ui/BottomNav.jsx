@@ -18,7 +18,7 @@ export default function BottomNav() {
       <div className="mx-auto grid min-h-[4.8rem] max-w-xl grid-cols-4 items-center px-2">
         {tabs.map(({ path, label, Icon }) => {
           const active = getActiveDestination(pathname) === path
-          return <button key={path} type="button" onClick={() => navigate(path)} aria-current={active ? 'page' : undefined}
+          return <button key={path} type="button" onClick={() => navigate(path)} aria-current={active ? 'page' : undefined} data-destination={path.slice(1)}
             className={`northstar-nav-item ${active ? 'is-active' : ''}`}>
             <Icon size={22} strokeWidth={active ? 2 : 1.5} aria-hidden="true" />
             <span>{label}</span>
