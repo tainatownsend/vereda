@@ -37,7 +37,9 @@ export function mergeConfirmedReaderProgress(previous, {
 }) {
   const oldPosition = Math.max(1, Math.floor(Number(previous?.current_section) || 1))
   const next = Math.floor(Number(nextPosition) || 0)
-  if (next < 1) return previous || null
+  // Some completion RPCs can omit a successor when the final unit ends.
+  // Completion itself remains durable and must still appear as 100% on Home.
+  if (next < 1 && !bookCompleted) return previous || null
 
   return {
     ...(previous || {}),
