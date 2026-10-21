@@ -41,6 +41,18 @@ export default function App() {
     themeMeta?.setAttribute('content', getThemeColor(darkMode))
   }, [darkMode])
 
+  // Respect OS appearance changes only while "Sistema" is selected.
+  useEffect(() => {
+    const media = typeof window.matchMedia === 'function'
+      ? window.matchMedia('(prefers-color-scheme: dark)')
+      : null
+    if (!media) return undefined
+    const sync = () => useUIStore.getState().syncSystemAppearance(media.matches)
+    sync()
+    media.addEventListener?.('change', sync)
+    return () => media.removeEventListener?.('change', sync)
+  }, [])
+
   useEffect(() => {
     document.documentElement.style.fontSize = getAppFontSize(appFontScale)
   }, [appFontScale])
