@@ -9,7 +9,9 @@ const jasmine = readFileSync('public/art/northstar-jasmine-corner.svg', 'utf8')
 
 describe('North Star original illustration assets', () => {
   it('uses the independent scenic SVG on Home and Reflections instead of a blurry crop', () => {
-    const scenic = css.slice(css.lastIndexOf('.northstar-page .northstar-scenery {'))
+    const selector = '.northstar-page .northstar-scenery {'
+    const start = css.indexOf(selector)
+    const scenic = css.slice(start, css.indexOf('}', start) + 1)
     expect(scenic).toContain("url('/art/northstar-illustrated-landscape.svg')")
     expect(scenic).not.toContain("url('/art/vereda-valley-northstar.webp')")
     expect(image).toContain('viewBox="0 0 1600 820"')
