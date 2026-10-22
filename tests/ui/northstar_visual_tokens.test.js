@@ -9,6 +9,13 @@ describe('approved North Star visual system (phase 1)', () => {
     const expected = ['#3E5B3F', '#7A8F6B', '#D4A85A', '#F8F4EA', '#E9E1D4']
     expected.forEach(color => expect(css).toContain(color))
   })
+  it('preserves the compact North Star catalog, bright study card and accessible actions', () => {
+    expect(css).toContain('North Star composition pass 22 Oct')
+    expect(css).toContain('.northstar-page .study-book-row .northstar-book-forward')
+    expect(css).toContain('.northstar-home .continue-study-button .northstar-round-arrow')
+    expect(css).toContain('.northstar-page .study-book-row:focus-visible')
+    expect(css).toContain('@media(max-width:359px)')
+  })
   it('ships Playfair headings, Lora reading, and Inter interface typography', () => {
     expect(css).toContain('family=Playfair+Display')
     expect(css).toContain('family=Lora:')
