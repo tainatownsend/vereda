@@ -943,3 +943,85 @@
   .northstar-page .northstar-home .home-reflection blockquote,
   .northstar-page .northstar-home .home-reflection p { max-width: 82%; }
 }
+
+/* North Star composition pass 22 Oct: compact five-book catalog and warmer
+   overlay rhythm. Scoped to in-app surfaces, leaving authentication intact. */
+.northstar-page .study-book-row {
+  padding: .58rem .7rem;
+  gap: .7rem;
+  min-height: 6rem;
+  border-radius: .95rem;
+  background: #fffaf0;
+}
+.northstar-page .study-book-row .northstar-book-forward {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 2.75rem;
+  background: #f0e5d2;
+  color: #394f3b;
+}
+.northstar-page .study-book-row:focus-visible,
+.northstar-page .home-continue button:focus-visible {
+  outline: 2px solid var(--northstar-forest);
+  outline-offset: 3px;
+}
+.northstar-page .study-book-row .northstar-cover-art {
+  box-shadow: 0 3px 9px rgba(41,47,36,.1);
+}
+.northstar-page .study-book-row h2 {
+  font-family: 'Playfair Display',Georgia,serif;
+  font-size: clamp(.94rem,3.7vw,1.1rem);
+  line-height: 1.25;
+}
+.northstar-page .study-book-row p {
+  line-height: 1.3;
+}
+.northstar-home .home-continue > div {
+  border-radius: 1.18rem;
+  background: #fffaf2;
+  border-color: #e3d6c1;
+}
+.northstar-home .continue-study-button {
+  min-height: 7.6rem;
+  padding: .78rem;
+  gap: .85rem;
+  box-shadow: none;
+}
+.northstar-home .continue-study-button h3 {
+  font-family: 'Playfair Display',Georgia,serif;
+  font-size: clamp(1rem,3.8vw,1.16rem);
+  line-height: 1.2;
+}
+.northstar-home .continue-study-button p {
+  font-size: .8rem;
+  line-height: 1.3;
+}
+.northstar-home .continue-study-button .northstar-round-arrow {
+  width: 2.7rem;
+  height: 2.7rem;
+  flex: 0 0 2.7rem;
+  background: #f1e9da;
+}
+.northstar-home .home-reflection {
+  overflow: hidden;
+}
+.northstar-page .reflection-composition .reflection-quotation {
+  box-shadow: 0 -6px 18px rgba(90,71,41,.025);
+}
+.northstar-page .reflection-composition .reflection-actions {
+  min-height: 3.7rem;
+}
+.dark .northstar-page .study-book-row,
+.dark .northstar-home .home-continue > div {
+  background: #354238;
+  border-color: #536656;
+}
+@media(max-width:359px) {
+  .northstar-page .study-book-row { padding: .5rem; gap: .5rem; }
+  .northstar-page .study-book-row .northstar-book-forward {
+    width: 2.5rem; height: 2.5rem; flex-basis: 2.5rem;
+  }
+  .northstar-home .continue-study-button {
+    padding: .6rem; gap: .5rem;
+  }
+}
