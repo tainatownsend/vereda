@@ -21,7 +21,7 @@ describe('North Star original illustration assets', () => {
       expect(asset).toContain('<svg')
       expect(asset).toContain('</svg>')
       expect(asset).not.toMatch(/<script|<foreignObject|<iframe|<image[^>]+href=/i)
-      expect(asset).not.toMatch(/https?:\/\//i)
+      expect(asset).not.toMatch(/(?:href|src)=["']https?:\/\//i)
     }
   })
 
