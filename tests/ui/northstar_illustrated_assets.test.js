@@ -29,7 +29,7 @@ describe('North Star original illustration assets', () => {
     expect((image.match(/<ellipse/g) || []).length).toBeGreaterThan(90)
     expect((image.match(/<circle/g) || []).length).toBeGreaterThan(25)
     expect(image.length).toBeLessThan(250000)
-    expect(logo).toContain('sol') // descriptive icon, not unlabeled decoration
+    expect(logo).toContain('Sol dourado') // descriptive icon, not unlabeled decoration
     expect(jasmine).toContain('Ramos floridos Vereda')
     expect(home).toContain('/art/northstar-vereda-mark.svg')
     expect(css).toContain('/art/northstar-jasmine-corner.svg')
