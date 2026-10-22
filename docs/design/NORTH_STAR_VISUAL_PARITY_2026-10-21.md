@@ -70,3 +70,23 @@ Somente o sistema tipográfico de títulos/leitura (Playfair/Lora) e tokens fund
 - Tela Refinamentos e teste novo de temas executados após as primeiras capturas. Teste de browser da branch no último HEAD confirmou novamente 16 cenários, sem falhas. O processo de QA temporário expirou antes de arquivar o último JPEG no repositório; portanto **não declarar screenshots arquivados**.
 
 **O que ainda impede paridade 1:1:** os SVGs gerados são novas interpretações botânicas, não os master assets exatos do North Star original; não foi comprovada igualdade pixel a pixel. A prancha de referência inclui flores/folhagens mais ricas, texturas, sombras e diferentes opções de composição, além da tela de Menu; ainda serão necessários refinamentos comparativos lado a lado, inclusive em Safari iPhone real e modos dark/Extra no último commit. A página Mais e a landing pública exigem acabamento consistente próprio, sem interferir no OAuth. Produção `main` e Supabase não foram tocados; PR #128 deve permanecer DRAFT até novo aceite da fundadora.
+
+## 2026-10-22: cenário original botânico + composição da Home e de Reflexões
+
+**Entregue somente na PR #128, sem merge na main.** O mockup original da fundadora continua como referência de aceite, e essas artes são uma interpretação editorial vetorial nova, **não um asset original extraído do master**.
+
+### Código
+- `public/art/northstar-illustrated-landscape.svg`: ilustração independente `1600×820`, com camadas de amanhecer, sol dourado, montanhas ao fundo, névoa leve, rio e vegetação/florais em primeiro plano, todos em elementos SVG nativos sem imagens externas. Substitui o conjunto de fundo com elementos botânicos leves nas duas telas.
+- `src/index.css`: Home e Reflexões passam a utilizar o novo cenário, mantendo o vale antigo como fallback. O cartão da citação agora se sobrepõe à paisagem em painel de marfim, com cantos superiores arredondados, e Salvar/Compartilhar pertencem ao mesmo bloco editorial.
+- `public/art/northstar-vereda-mark.svg`: marca nova sol e folhas, renderizada na Home, com descrição SVG.
+- `public/art/northstar-jasmine-corner.svg`: ornamento floral individual à direita do cartão de reflexão na Home, com margem para textos dinâmicos.
+- `tests/ui/northstar_illustrated_assets.test.js`: proteção contra perda de assets, fontes remotas dentro de SVG, imagem panorâmica incorreta e regresso para crop WebP embaçado. Testes verificam assinatura do asset e vínculo CSS / JSX, não identidade pixel a pixel.
+
+### Validações verificadas
+- GitHub Actions na SHA `f4f25c9b0612ce91642f279cfc246e8507d942e5`: `Frontend quality` SUCCESS, **108 arquivos e 679 testes aprovados**, lint/build concluídos; `Reviewed Boundary Runtime Integrity Staging Preflight Validation` SUCCESS; Vercel Preview READY: `https://vereda-h8l8lv5it-ttownsend.vercel.app`.
+- Chromium Playwright em ambiente de fixture local: quatro telas (Home, Estudos, Reflexões, Leitor) × larguras 320, 390, 430 e 800 × light/dark = **32 renderizações**. Todas HTTP 200, nenhum erro JS ou falha de assets, nenhuma rolagem horizontal; cinco capas carregaram em Estudos, marca carregou na Home; menu único não extravasou o viewport em 390 px. Sessões fictícias, não QA OAuth.
+- Capturas da implementação feitas no sandbox a 390×844 das cinco composições (incluindo menu Leitor), porém a sessão temporária expirou antes que a prancha pudesse ser arquivada na PR. **Não afirmar screenshots disponíveis em GitHub**; recolher de novo para aceitação visual posterior.
+
+### Gaps e decisão de release
+- A cena nova tem mais profundidade e flores, mas a paridade com a prancha aprovada ainda NÃO foi demonstrada por comparação exata dos cinco frames e refinamento das capas. As cinco capas continuam SVGs ilustrados anteriores, sem aprovação visual individual. Também resta o ajuste fino da landing pública e revisão real do Safari iPhone em produção de teste.
+- **PR #128 mantém DRAFT e NÃO PUBLICAR até aceite visual específico**. Não tocar no Supabase, autenticação, dados reais, citações, leitores, notas, progresso ou versão estável `vereda.tayua.space`.
