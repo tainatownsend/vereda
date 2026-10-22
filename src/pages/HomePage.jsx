@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { BookOpen, ChevronRight, Leaf, UserRound } from 'lucide-react'
 import { useAuthStore } from '@/store'
 import { useBooks, useUserData } from '@/hooks'
-import { Button, PageLoader, VeredaLogo } from '@/components/ui'
+import { Button, PageLoader } from '@/components/ui'
 import { getActiveBooksByLastRead } from '@/features/home/readingOrder'
 import { getBookProgress } from '@/features/home/bookProgress'
 import { BookCover, EditorialCard, ProgressLine } from '@/components/northstar/NorthStarUI'
@@ -31,7 +31,7 @@ export default function HomePage() {
   return <main className="northstar-page northstar-home pb-28">
     <div className="northstar-container pt-5 sm:pt-8">
       <header className="northstar-hero-header flex items-center gap-4">
-        <div className="northstar-hero-brand flex items-center gap-2.5"><VeredaLogo size={32} /><p className="font-display text-2xl italic text-ink dark:text-night-ink">Vereda</p></div>
+        <div className="northstar-hero-brand flex items-center gap-2.5"><img src="/art/northstar-vereda-mark.svg" alt="" className="northstar-vereda-mark" width="35" height="35" /><p className="font-display text-2xl italic text-ink dark:text-night-ink">Vereda</p></div>
         <button type="button" onClick={() => navigate('/configuracoes')} aria-label="Abrir meu perfil" className="northstar-icon-button bg-surface-soft dark:bg-night-surface"><UserRound size={21} /></button>
       </header>
       <section className="home-welcome" aria-labelledby="home-greeting">
