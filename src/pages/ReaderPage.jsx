@@ -13,6 +13,10 @@ import {
   MoreHorizontal,
   NotebookPen,
   RefreshCw,
+  Sun,
+  Moon,
+  Monitor,
+  BookOpen,
   X,
 } from 'lucide-react'
 
@@ -46,18 +50,16 @@ export default function ReaderPage() {
   const returnPath = getReaderReturnPath(searchParams.get('returnTo') || location.state?.returnTo)
   const books = useBooks()
   const { user, savePassage, removeSavedPassage } = useAuthStore()
-  const { fontSize, setFontSize } = useUIStore()
-  const [showMenu, setShowMenu] = useState(false)
+  const { fontSize, setFontSize, appTheme = 'light', setAppTheme, readerTheme = 'light', setReaderTheme } = useUIStore()
+  const [showReaderPanel, setShowReaderPanel] = useState(false)
   const [showIndex, setShowIndex] = useState(false)
-  const [showTextSettings, setShowTextSettings] = useState(false)
   const [showNote, setShowNote] = useState(false)
   const [noteText, setNoteText] = useState('')
   const [noteStatus, setNoteStatus] = useState('')
   const [savingNote, setSavingNote] = useState(false)
   const [savingPassage, setSavingPassage] = useState(false)
   const [saveStatus, setSaveStatus] = useState('')
-  const menuRef = useRef(null)
-  const textSettingsRef = useRef(null)
+  const readerPanelRef = useRef(null)
   const requestedPositionRef = useRef(null)
   const currentSectionIdRef = useRef(null)
 
@@ -98,28 +100,23 @@ export default function ReaderPage() {
 
   useEffect(() => {
     const handlePointerDown = (event) => {
-      if (showMenu && menuRef.current && !menuRef.current.contains(event.target)) {
-        setShowMenu(false)
-      }
-      if (showTextSettings && textSettingsRef.current && !textSettingsRef.current.contains(event.target)) {
-        setShowTextSettings(false)
+      if (showReaderPanel && readerPanelRef.current && !readerPanelRef.current.contains(event.target)) {
+        setShowReaderPanel(false)
       }
     }
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') {
-        setShowMenu(false)
-        setShowTextSettings(false)
+        setShowReaderPanel(false)
         setShowNote(false)
       }
     }
-
     document.addEventListener('pointerdown', handlePointerDown)
     document.addEventListener('keydown', handleKeyDown)
     return () => {
       document.removeEventListener('pointerdown', handlePointerDown)
       document.removeEventListener('keydown', handleKeyDown)
     }
-  }, [showMenu, showTextSettings])
+  }, [showReaderPanel])
 
   useEffect(() => {
     if (!currentSection?.section_id) return undefined
@@ -211,8 +208,7 @@ export default function ReaderPage() {
   const openStudyNote = async () => {
     if (isChapterIntro || isPartIntro) return
     const sectionId = currentSection.section_id
-    setShowMenu(false)
-    setShowTextSettings(false)
+    setShowReaderPanel(false)
     setNoteStatus('')
 
     const existing = await getSectionNote(user?.id, sectionId)
@@ -259,48 +255,61 @@ export default function ReaderPage() {
   }
 
   return (
-    <div className="min-h-screen bg-canvas text-ink dark:bg-night dark:text-night-ink">
-      <header className="sticky top-0 z-40 border-b border-line/70 bg-canvas/96 backdrop-blur-xl dark:border-night-line dark:bg-night/96">
-        <div className="mx-auto flex min-h-[4.6rem] max-w-[44rem] items-center gap-3 px-4 sm:px-6">
+    <div className={`northstar-reader-page reader-theme-${readerTheme} min-h-screen bg-canvas text-ink dark:bg-night dark:text-night-ink`}>
+      <header className="northstar-reader-header sticky top-0 z-40 border-b border-line/70 bg-canvas/96 backdrop-blur-xl dark:border-night-line dark:bg-night/96">
+        <div ref={readerPanelRef} className="relative mx-auto flex min-h-[4.2rem] max-w-[44rem] items-center gap-2 px-4 sm:px-6">
           <button type="button" onClick={() => navigate(returnPath)} className="northstar-icon-button -ml-2" aria-label="Voltar à página anterior">
             <ChevronLeft size={22} />
           </button>
-
           <span className="flex-1" />
-          <div ref={textSettingsRef} className="relative">
-            <button type="button" data-text-settings onClick={() => { setShowMenu(false); setShowTextSettings(visible => !visible) }} className="northstar-reader-control" aria-label="Preferências de texto" aria-expanded={showTextSettings} aria-controls="reader-text-settings">Aa</button>
-            {showTextSettings && <div id="reader-text-settings" role="group" aria-label="Tamanho do texto" className="absolute right-0 top-full z-50 mt-2 w-[min(18rem,calc(100vw-2rem))] rounded-[18px] border border-line bg-surface p-3 shadow-editorial dark:border-night-line dark:bg-night-surface">
-              <ReaderSettings fontSize={fontSize} setFontSize={setFontSize} />
-            </div>}
-          </div>
-          <button type="button" onClick={toggleSavedPassage} disabled={savingPassage || isChapterIntro || isPartIntro} aria-pressed={passageSaved} className="northstar-icon-button disabled:opacity-35" aria-label={passageSaved ? 'Remover este trecho dos salvos' : 'Salvar este trecho'}><Bookmark size={21} fill={passageSaved ? 'currentColor' : 'none'} /></button>
+          <button
+            type="button"
+            data-text-settings
+            onClick={() => setShowReaderPanel(visible => !visible)}
+            className="northstar-reader-control"
+            aria-label="Preferências de texto"
+            aria-expanded={showReaderPanel}
+            aria-controls="reader-preferences-panel"
+          >Aa</button>
+          <button type="button" onClick={toggleSavedPassage} disabled={savingPassage || isChapterIntro || isPartIntro} aria-pressed={passageSaved} className="northstar-icon-button disabled:opacity-35" aria-label={passageSaved ? 'Remover este trecho dos salvos' : 'Salvar este trecho'}>
+            <Bookmark size={21} fill={passageSaved ? 'currentColor' : 'none'} />
+          </button>
+          <button type="button" onClick={() => setShowReaderPanel(visible => !visible)}
+            className="northstar-icon-button -mr-2" aria-label="Opções de leitura"
+            aria-expanded={showReaderPanel} aria-controls="reader-preferences-panel">
+            {showReaderPanel ? <X size={20} /> : <MoreHorizontal size={22} />}
+          </button>
 
-          <div ref={menuRef} className="relative">
-            <button
-              type="button"
-              onClick={() => {
-                setShowMenu((visible) => !visible)
-                setShowTextSettings(false)
-              }}
-              className="northstar-icon-button -mr-2"
-              aria-label="Opções de leitura"
-              aria-expanded={showMenu}
-            >
-              {showMenu ? <X size={20} /> : <MoreHorizontal size={22} />}
-            </button>
-
-            {showMenu && (
-              <div className="absolute right-0 top-full mt-2 w-60 rounded-[16px] border border-line bg-surface p-2 shadow-editorial dark:border-night-line dark:bg-night-surface">
+          {showReaderPanel && (
+            <div id="reader-preferences-panel" role="dialog" aria-label="Opções e preferências do leitor"
+              className="northstar-reader-menu absolute right-3 top-full z-50 mt-2 w-[min(20rem,calc(100vw-1.5rem))] max-h-[calc(100dvh-6.5rem)] overflow-y-auto overscroll-contain rounded-[21px] border border-line bg-surface p-3 shadow-editorial dark:border-night-line dark:bg-night-surface sm:right-6">
+              <div className="space-y-1">
                 <MenuButton icon={ListTree} label="Índice da obra" onClick={() => {
-                  setShowMenu(false)
+                  setShowReaderPanel(false)
                   setShowIndex(true)
                   session.loadBookIndex()
                 }} />
                 {!isChapterIntro && !isPartIntro && <MenuButton icon={NotebookPen} label="Minha nota neste trecho" onClick={openStudyNote} />}
                 <MenuButton icon={Home} label="Voltar ao início" onClick={() => navigate('/home')} />
               </div>
-            )}
-          </div>
+              <div className="my-3 border-t border-line dark:border-night-line" />
+              <ReaderSettings fontSize={fontSize} setFontSize={setFontSize} />
+              <div className="my-3 border-t border-line dark:border-night-line" />
+              <p className="px-1 text-xs font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Tema do app</p>
+              <div role="group" aria-label="Tema do app" className="mt-2 grid grid-cols-3 gap-2">
+                <ThemeChoice icon={Sun} label="Claro" active={appTheme === 'light'} onClick={() => setAppTheme?.('light')} />
+                <ThemeChoice icon={Moon} label="Escuro" active={appTheme === 'dark'} onClick={() => setAppTheme?.('dark')} />
+                <ThemeChoice icon={Monitor} label="Sistema" active={appTheme === 'system'} onClick={() => setAppTheme?.('system')} />
+              </div>
+              <div className="my-3 border-t border-line dark:border-night-line" />
+              <p className="px-1 text-xs font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Tema do leitor</p>
+              <div role="group" aria-label="Tema do leitor" className="mt-2 grid grid-cols-3 gap-2">
+                <ThemeChoice icon={Sun} label="Claro" active={readerTheme === 'light'} onClick={() => setReaderTheme?.('light')} />
+                <ThemeChoice icon={Moon} label="Escuro" active={readerTheme === 'dark'} onClick={() => setReaderTheme?.('dark')} />
+                <ThemeChoice icon={BookOpen} label="Sépia" active={readerTheme === 'sepia'} onClick={() => setReaderTheme?.('sepia')} />
+              </div>
+            </div>
+          )}
         </div>
       </header>
 
@@ -313,7 +322,7 @@ export default function ReaderPage() {
         </div>
       )}
 
-      <main className="mx-auto max-w-[42rem] px-5 pb-12 pt-6 sm:px-8 sm:pt-10">
+      <main className="mx-auto max-w-[42rem] px-5 pb-32 pt-6 sm:px-8 sm:pt-10">
         <div className="mb-8 text-center">
           <p className="font-display text-base">{book.title}</p>
           {currentSection.part_title && <p className="mt-2 text-sm text-muted dark:text-night-muted">{currentSection.part_title}</p>}
@@ -340,13 +349,7 @@ export default function ReaderPage() {
           <p className="!text-sm text-muted dark:text-night-muted">Convite à reflexão · Vereda</p>
           <button type="button" onClick={openStudyNote} className="northstar-text-action mt-3">Registrar minha reflexão</button>
         </aside>}
-        <nav className="reader-chapter-nav" aria-label="Navegar na leitura">
-          <button type="button" onClick={session.goToPrevious} disabled={!session.canGoPrevious || session.saving} aria-label={READER_COPY.actions.previous.ariaLabel}><ChevronLeft size={18} aria-hidden="true" />Trecho anterior</button>
-          <button type="button" onClick={session.completeCurrentSection} disabled={session.saving} aria-label={primaryAction.ariaLabel}>
-            {session.saving ? <RefreshCw size={18} className="animate-spin" aria-hidden="true" /> : null}
-            {isFinalReadingUnit ? primaryAction.label : isChapterIntro || isPartIntro ? 'Começar leitura' : 'Próximo trecho'}<ChevronRight size={18} aria-hidden="true" />
-          </button>
-        </nav>
+
 
         {saveStatus && (
           <p role="status" aria-live="polite" className="mt-8 text-sm text-muted dark:text-night-muted">
@@ -354,6 +357,20 @@ export default function ReaderPage() {
           </p>
         )}
       </main>
+
+      <nav className="reader-chapter-nav reader-chapter-nav-docked" aria-label="Navegar na leitura">
+        <button type="button" onClick={session.goToPrevious} disabled={!session.canGoPrevious || session.saving} aria-label={READER_COPY.actions.previous.ariaLabel}>
+          <ChevronLeft size={18} aria-hidden="true" /><span>Trecho anterior</span>
+        </button>
+        <span className="reader-progress-count" role="status" aria-label="Progresso da leitura">
+          {currentSection.sec_position} de {session.lastPosition}
+        </span>
+        <button type="button" onClick={session.completeCurrentSection} disabled={session.saving} aria-label={primaryAction.ariaLabel}>
+          {session.saving ? <RefreshCw size={18} className="animate-spin" aria-hidden="true" /> : null}
+          <span>{isFinalReadingUnit ? primaryAction.label : isChapterIntro || isPartIntro ? 'Começar leitura' : 'Próximo trecho'}</span>
+          <ChevronRight size={18} aria-hidden="true" />
+        </button>
+      </nav>
 
       <BookIndexPanel
         open={showIndex}
@@ -443,10 +460,20 @@ function StudyNotePanel({ open, onClose, title, value, onChange, onSave, saving,
   )
 }
 
+function ThemeChoice({ icon: Icon, label, active, onClick }) {
+  return (
+    <button type="button" onClick={onClick} aria-pressed={active}
+      className={`flex min-h-[4.1rem] flex-col items-center justify-center gap-1 rounded-[13px] px-1 py-2 text-xs font-medium transition-colors ${active ? 'bg-[#e7d8b9] text-[#3E5B3F] ring-1 ring-[#7A8F6B] dark:bg-[#55694f] dark:text-white' : 'bg-surface-soft text-ink dark:bg-night dark:text-night-ink'}`}>
+      <Icon size={21} aria-hidden="true" />
+      {label}
+    </button>
+  )
+}
+
 function ReaderSettings({ fontSize, setFontSize }) {
   return (
-    <div className="px-1 pb-1 pt-1">
-      <p className="px-1 text-sm font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Tamanho</p>
+    <div className="px-1 pb-1 pt-1" role="group" aria-label="Tamanho do texto">
+      <p className="px-1 text-xs font-semibold uppercase tracking-[0.08em] text-muted dark:text-night-muted">Tamanho do texto</p>
       <div className="mt-2 grid grid-cols-2 gap-2">
         {FONT_SIZES.map((option) => (
           <button

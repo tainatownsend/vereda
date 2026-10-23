@@ -15,14 +15,14 @@ import { getGreeting } from '@/features/home/greeting'
 import { getReaderReturnPath } from '@/features/reader/returnContext'
 import { getActiveDestination } from '@/features/ui/navigation'
 import { getFavoriteReflectionIds, withReflectionFavorite } from '@/features/reflections/favorites'
-const mocks = vi.hoisted(() => ({ progress: {}, user: { id: 'test', user_metadata: {} }, setFavorite: vi.fn(), share: vi.fn(), save: vi.fn(), next: vi.fn(), previous: vi.fn(), note: vi.fn(), journal: [], phase: 'reading' }))
+const mocks = vi.hoisted(() => ({ progress: {}, user: { id: 'test', user_metadata: {} }, setFavorite: vi.fn(), share: vi.fn(), save: vi.fn(), next: vi.fn(), previous: vi.fn(), note: vi.fn(), journal: [], phase: 'reading', appTheme: vi.fn(), readerTheme: vi.fn() }))
 const books = [
   { id: 1, title: 'O Livro dos Espíritos', author: 'Allan Kardec', total_sections: 12 },
   { id: 2, title: 'O Livro dos Médiuns', author: 'Allan Kardec', total_sections: 10 },
   { id: 3, title: 'A Gênese', author: 'Allan Kardec', total_sections: 1000 },
 ]
 vi.mock('@/hooks', () => ({ useBooks: () => books, useUserData: () => ({ progress: mocks.progress, dataLoading: false }) }))
-vi.mock('@/store', () => ({ useAuthStore: () => ({ user: mocks.user, profile: { name: 'TAINÁ Townsend' }, setReflectionFavorite: mocks.setFavorite, savePassage: mocks.save, removeSavedPassage: vi.fn(), signOut: vi.fn() }), useUIStore: () => ({ fontSize: 'md', setFontSize: vi.fn() }), useReadingStore: () => ({ booksStatus: 'ready' }) }))
+vi.mock('@/store', () => ({ useAuthStore: () => ({ user: mocks.user, profile: { name: 'TAINÁ Townsend' }, setReflectionFavorite: mocks.setFavorite, savePassage: mocks.save, removeSavedPassage: vi.fn(), signOut: vi.fn() }), useUIStore: () => ({ fontSize: 'md', setFontSize: vi.fn(), appTheme: 'light', setAppTheme: mocks.appTheme, readerTheme: 'light', setReaderTheme: mocks.readerTheme }), useReadingStore: () => ({ booksStatus: 'ready' }) }))
 vi.mock('@/features/share/reflectionCard', () => ({ shareReflectionAsImage: mocks.share }))
 vi.mock('@/features/studyJournal/studyJournal', () => ({ listStudyJournalEntries: async () => mocks.journal, getLocalDateKey: () => '2026-09-18', formatJournalDate: date => date, saveDailyReflection: mocks.note, getSectionNote: async () => null, saveSectionNote: vi.fn() }))
 vi.mock('@/features/reader/useReadingSession', () => ({ useReadingSession: () => ({ phase: mocks.phase, currentSection: { section_id: 4, sec_position: 4, kind: 'content', part_title: 'Parte I', chapter_label: 'Capítulo 3', chapter_title: 'Da criação', content: 'Texto original preservado.\n\nSegundo parágrafo.' }, readerState: { current_section: 4 }, bookIndexSections: [], lastPosition: 12, canGoPrevious: true, completeCurrentSection: mocks.next, goToPrevious: mocks.previous }) }))
@@ -153,14 +153,23 @@ describe('editorial product interactions', () => {
     await userEvent.click(screen.getByRole('button', { name: 'Voltar à página anterior' }))
     expect(screen.getByLabelText('Rota atual').textContent).toBe('/notas')
   })
-  it('separates Aa typography controls from reading navigation options', async () => {
+  it('opens a single complete Reader panel from either Aa or the options button', async () => {
     mount(<Reader />, '/ler/1')
     await userEvent.click(screen.getByRole('button', { name: 'Preferências de texto' }))
-    expect(screen.getByRole('group', { name: 'Tamanho do texto' })).toBeTruthy()
-    expect(screen.queryByRole('button', { name: 'Índice da obra' })).toBeNull()
+    const panel = screen.getByRole('dialog', { name: 'Opções e preferências do leitor' })
+    expect(within(panel).getByRole('group', { name: 'Tamanho do texto' })).toBeTruthy()
+    expect(within(panel).getByRole('button', { name: 'Índice da obra' })).toBeTruthy()
+    expect(within(panel).getByRole('button', { name: 'Minha nota neste trecho' })).toBeTruthy()
+    expect(within(panel).getByRole('group', { name: 'Tema do app' })).toBeTruthy()
+    expect(within(panel).getByRole('group', { name: 'Tema do leitor' })).toBeTruthy()
+    await userEvent.click(within(screen.getByRole('group', { name: 'Tema do app' })).getByRole('button', { name: 'Sistema' }))
+    expect(mocks.appTheme).toHaveBeenCalledWith('system')
+    await userEvent.click(within(screen.getByRole('group', { name: 'Tema do leitor' })).getByRole('button', { name: 'Sépia' }))
+    expect(mocks.readerTheme).toHaveBeenCalledWith('sepia')
     await userEvent.click(screen.getByRole('button', { name: 'Opções de leitura' }))
-    expect(screen.queryByRole('group', { name: 'Tamanho do texto' })).toBeNull()
-    expect(screen.getByRole('button', { name: 'Índice da obra' })).toBeTruthy()
+    expect(screen.queryByRole('dialog', { name: 'Opções e preferências do leitor' })).toBeNull()
+    await userEvent.click(screen.getByRole('button', { name: 'Opções de leitura' }))
+    expect(screen.getByRole('dialog', { name: 'Opções e preferências do leitor' })).toBeTruthy()
   })
   it('uses the North Star illustrated cover artwork rather than photographic editions', () => {
     const { container } = mount(<Library />, '/biblioteca')

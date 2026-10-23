@@ -1,7 +1,7 @@
 import PageBackButton from '@/components/ui/PageBackButton'
 import { useEffect, useMemo, useState } from 'react'
-import { Heart, Bookmark, Cloud, CloudOff, Image, Quote, RefreshCw, Share2 } from 'lucide-react'
-import { useSearchParams } from 'react-router-dom'
+import { Heart, Bookmark, Cloud, CloudOff, Image, Quote, RefreshCw, Share2, Search } from 'lucide-react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 
 import { useAuthStore } from '@/store'
 import { Button } from '@/components/ui'
@@ -23,6 +23,7 @@ import {
 
 
 export default function ReflectionPage() {
+  const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
   const tab = ['today', 'favorites', 'mine'].includes(searchParams.get('tab')) ? searchParams.get('tab') : 'today'
   const { user, setReflectionFavorite } = useAuthStore()
@@ -124,7 +125,10 @@ export default function ReflectionPage() {
   return (
     <main className="northstar-page pb-28">
       <div className="northstar-container pt-8">
-        <header><div className="flex min-w-0 items-center gap-2"><PageBackButton /><h1 className="min-w-0 font-display text-[2rem]">Reflexões</h1></div></header>
+        <header className="flex items-center justify-between gap-3">
+          <div className="flex min-w-0 items-center gap-2"><PageBackButton /><h1 className="min-w-0 font-display text-[2rem]">Reflexões</h1></div>
+          <button type="button" className="northstar-icon-button" onClick={() => navigate('/descobrir')} aria-label="Pesquisar reflexões e obras"><Search size={21} aria-hidden="true" /></button>
+        </header>
         <div className="editorial-tabs mt-5" role="group" aria-label="Escolher reflexões">
           {[['today', 'Hoje'], ['favorites', 'Favoritas'], ['mine', 'Minhas']].map(([id, label]) => <button key={id} type="button" aria-pressed={tab === id} onClick={() => setSearchParams(id === 'today' ? {} : { tab: id }, { replace: true })}>{label}</button>)}
         </div>
@@ -142,7 +146,7 @@ export default function ReflectionPage() {
           <button type="button" onClick={() => shareImage(featuredReflection)} className="inline-flex min-h-12 items-center gap-2 rounded-xl px-4 text-base" aria-label="Compartilhar esta reflexão"><Share2 size={20} aria-hidden="true" />Compartilhar</button>
           </div>
         </section>
-        <button type="button" onClick={() => { setFeaturedReflection(current => getNextReflection(current.id)); setShareStatus('') }} className="northstar-text-action mt-3 inline-flex items-center gap-2"><RefreshCw size={16} aria-hidden="true" />Ler outra reflexão</button>
+        <button type="button" onClick={() => { setFeaturedReflection(current => getNextReflection(current.id)); setShareStatus('') }} className="northstar-reflection-next mt-3 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-[#efe0bf] px-4 text-sm font-medium text-[#3e5b3f] dark:bg-[#566b50] dark:text-white"><RefreshCw size={17} aria-hidden="true" />Ler outra reflexão</button>
         <details className="mt-5"><summary className="min-h-11 cursor-pointer py-3 text-base">Reflexões anteriores</summary>
         <section className="mt-7" aria-labelledby="previous-daily-reflections-heading">
           <div className="flex items-end justify-between gap-4">
