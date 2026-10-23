@@ -9,6 +9,7 @@ import PublicOnlyRoute from '@/components/PublicOnlyRoute'
 import AuthPage from '@/pages/AuthPage'
 import ResetPasswordPage from '@/pages/ResetPasswordPage'
 import HomePage from '@/pages/HomePage'
+import NorthStarPreviewPage from '@/pages/NorthStarPreviewPage'
 import BookDetailPage from '@/pages/BookDetailPage'
 import ReaderPage from '@/pages/ReaderPage'
 import LibraryPage from '@/pages/LibraryPage'
@@ -73,6 +74,7 @@ export default function App() {
           <Route path="/redefinir-senha" element={<ResetPasswordPage />} />
 
           <Route path="/home" element={<ProtectedRoute><HomePage /></ProtectedRoute>} />
+          <Route path="/v1-3-preview" element={<ProtectedRoute><NorthStarPreviewPage /></ProtectedRoute>} />
           <Route path="/comecar" element={<ProtectedRoute><GettingStartedPage /></ProtectedRoute>} />
           <Route path="/plano-de-estudo" element={<ProtectedRoute><StudyPlanPage /></ProtectedRoute>} />
           <Route path="/estudo-guiado" element={<ProtectedRoute><GuidedStudyPage /></ProtectedRoute>} />
@@ -106,7 +108,7 @@ function AppBottomNav({ user }) {
   const { pathname } = useLocation()
   const publicPaths = new Set(['/', '/entrar', '/criar-conta', '/redefinir-senha'])
 
-  if (!user || publicPaths.has(pathname)) return null
+  if (!user || publicPaths.has(pathname) || pathname === '/v1-3-preview') return null
   return <BottomNav />
 }
 
