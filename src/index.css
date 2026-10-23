@@ -779,11 +779,11 @@
   background-position: center 53%, center 54%;
   background-repeat: no-repeat, no-repeat;
 }
-.northstar-page .northstar-home .home-welcome::after,
+.northstar-page.northstar-home .home-welcome::after,
 .northstar-page .reflection-composition .northstar-reflection-image::after {
   display: none;
 }
-.northstar-page .northstar-home .home-welcome {
+.northstar-page.northstar-home .home-welcome {
   height: 13.2rem;
   background-color: #f4dda9;
 }
@@ -791,7 +791,7 @@
   height: 12rem;
 }
 @media (min-width:640px) {
-  .northstar-page .northstar-home .home-welcome { height: 16rem; }
+  .northstar-page.northstar-home .home-welcome { height: 16rem; }
   .northstar-page .northstar-reflection-image { height: 14.5rem; }
 }
 
@@ -854,11 +854,11 @@
 }
 
 /* Fine art and composition pass, scoped to the approved in-app surfaces. */
-.northstar-page .northstar-home .home-welcome {
+.northstar-page.northstar-home .home-welcome {
   isolation: isolate;
   background-color: #f1dfbf;
 }
-.northstar-page .northstar-home .home-greeting {
+.northstar-page.northstar-home .home-greeting {
   max-width: none;
   background: linear-gradient(180deg,
     rgba(248,244,234,.97) 0%,
@@ -922,10 +922,10 @@
   object-fit: contain;
   flex-shrink: 0;
 }
-.northstar-page .northstar-home .northstar-hero-brand p {
+.northstar-page.northstar-home .northstar-hero-brand p {
   letter-spacing: -.025em;
 }
-.northstar-page .northstar-home .northstar-branch-art {
+.northstar-page.northstar-home .northstar-branch-art {
   bottom: -.55rem;
   right: -.35rem;
   width: clamp(6rem,27vw,8.1rem);
@@ -934,14 +934,14 @@
   background: url('/art/northstar-jasmine-corner.svg') center bottom / contain no-repeat;
   filter: none;
 }
-.northstar-page .northstar-home .home-reflection blockquote,
-.northstar-page .northstar-home .home-reflection p {
+.northstar-page.northstar-home .home-reflection blockquote,
+.northstar-page.northstar-home .home-reflection p {
   max-width: 81%;
 }
 @media (max-width: 350px) {
-  .northstar-page .northstar-home .northstar-branch-art { right: -.85rem; width: 6rem; opacity: .79; }
-  .northstar-page .northstar-home .home-reflection blockquote,
-  .northstar-page .northstar-home .home-reflection p { max-width: 82%; }
+  .northstar-page.northstar-home .northstar-branch-art { right: -.85rem; width: 6rem; opacity: .79; }
+  .northstar-page.northstar-home .home-reflection blockquote,
+  .northstar-page.northstar-home .home-reflection p { max-width: 82%; }
 }
 
 /* North Star composition pass 22 Oct: compact five-book catalog and warmer
